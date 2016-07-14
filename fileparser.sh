@@ -9,3 +9,5 @@ sed -i '/^\s*$/d' $1
 
 #remove files starting with a comment:
 sed -i '/#/d' $1
+
+cp $1 cleanFile
