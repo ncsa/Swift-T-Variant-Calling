@@ -1,7 +1,7 @@
 
 type file;
 
-type struct { 
+type configData {
 	string SAMPLEINFORMATION;
 	string OUTPUTDIR;
 	string TMPDIR;
@@ -52,15 +52,6 @@ type struct {
 	string PBSQUEUE;
 	string PBSWALLTIME;
 }
-app parser(file input){
-	fileparser @input;
-} 
-
 file configFile<"runfile">;
-
-parser(configFile);
-
-struct config = readStructured("cleanFile");
-
-trace(config.SAMPLEINFORMATION);
-
+configData parameters = readStructured(filename(configFile));
+trace(parameters.MULTISAMPLE);
