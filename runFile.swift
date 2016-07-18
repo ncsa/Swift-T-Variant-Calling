@@ -1,4 +1,3 @@
-
 type file;
 
 type configData {
@@ -52,6 +51,18 @@ type configData {
 	string PBSQUEUE;
 	string PBSWALLTIME;
 }
+type sampleInfo {
+	string SampleName;
+	string read1;
+	string read2;
+}
+app(file o) parse(file input){
+	sampleInfoParser filename(input) stdout=filename(o);
+}
 file configFile<"runfile">;
 configData parameters = readStructured(filename(configFile));
-file sampleInfo<SingleFileMapper; file = parameters.SAMPLEINFORMATION>;
+file sampleInfoFile<SingleFileMapper; file = parameters.SAMPLEINFORMATION>;
+
+file cleanedInfo<"cleaned.sampleinfo">;
+cleanedInfo = parse(sampleInfoFile);
+sampleInfo[] samples = readStructured(filename(cleanedInfo));

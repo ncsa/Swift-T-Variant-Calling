@@ -1,9 +1,3 @@
-[0]SampleName=H3A_NextGen_assessment_set3
-[0]read1=H3A_NextGen_assessment_set3 /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/reads/H3A_NextGen_assessment.Chr1_50X.set3_read1.fq
-[0]read2=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/reads/H3A_NextGen_assessment.Chr1_50X.set3_read2.fq
-[1]SampleName=H3A_NextGen_assessment_set3
-[1]read1=H3A_NextGen_assessment_set3 /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/reads/H3A_NextGen_assessment.Chr1_50X.set3_read1.fq
-[1]read2=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/reads/H3A_NextGen_assessment.Chr1_50X.set3_read2.fq
-[2]SampleName=H3A_NextGen_assessment_set3
-[2]read1=H3A_NextGen_assessment_set3 /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/reads/H3A_NextGen_assessment.Chr1_50X.set3_read1.fq
-[2]read2=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/reads/H3A_NextGen_assessment.Chr1_50X.set3_read2.fq
+[0].SampleName=H3A_NextGen_assessment_set3
+[0].read1=H3A_NextGen_assessment_set3 /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/reads/H3A_NextGen_assessment.Chr1_50X.set3_read1.fq
+[0].read2=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/reads/H3A_NextGen_assessment.Chr1_50X.set3_read2.fq
