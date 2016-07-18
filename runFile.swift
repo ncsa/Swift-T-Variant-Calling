@@ -54,4 +54,4 @@ type configData {
 }
 file configFile<"runfile">;
 configData parameters = readStructured(filename(configFile));
-trace(parameters.MULTISAMPLE);
+file sampleInfo<SingleFileMapper; file = parameters.SAMPLEINFORMATION>;
