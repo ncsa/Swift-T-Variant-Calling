@@ -2,6 +2,7 @@
 
 line=0
 
+touch "cleaned.sampleinfo"
 while read sampledetails;
 do
 	if [ ! `expr ${#sampledetails}` -lt 1 ]; then
