@@ -2,7 +2,6 @@
 
 line=0
 
-
 while read sampledetails;
 do
 	if [ ! `expr ${#sampledetails}` -lt 1 ]; then

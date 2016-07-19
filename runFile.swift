@@ -56,7 +56,7 @@ type sampleInfo {
 	string read1;
 	string read2;
 }
-app(file o) parse(file input){
+app (file o) parse(file input){
 	sampleInfoParser filename(input) stdout=filename(o);
 }
 file configFile<"runfile">;
@@ -65,4 +65,5 @@ file sampleInfoFile<SingleFileMapper; file = parameters.SAMPLEINFORMATION>;
 
 file cleanedInfo<"cleaned.sampleinfo">;
 cleanedInfo = parse(sampleInfoFile);
+
 sampleInfo[] samples = readStructured(filename(cleanedInfo));
