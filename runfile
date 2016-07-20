@@ -1,6 +1,6 @@
 ## i/o
 SAMPLEINFORMATION=/home/edrodri2/Swift-Variant-Calling/H3A_NextGen_assessment.Chr1_50X.set3.sampleinfo
-OUTPUTDIR=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/results/Align.H3A_NextGen_assessment_set3.June_2016/run111
+OUTPUTDIR=/home/edrodri2/Swift-Variant-Calling/output
 TMPDIR=/home/groups/hpcbio_shared/azza/H3A_NextGen_assesmeht_set3/results/tmp
 SCRIPTDIR=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/Workflow/BW_VariantCalling
 EMAIL=aeahmed@life.illinois.edu

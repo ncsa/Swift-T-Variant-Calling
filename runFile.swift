@@ -57,10 +57,18 @@ type sampleInfo {
 	string read2;
 }
 
+app (file dedupbam) bwa (configData info, sampleInfo sample, string rgheader){
+	 bwa "mem" info.BWAMEMPARAMS "-t" info.PBSCORES "-R" rgheader  info.BWAINDEX sample.read1 sample.read2 stdout=filename(dedupbam);
+}
 file configFile<"runfile">;
 configData parameters = readStructured(filename(configFile));
 file sampleInfoFile<SingleFileMapper; file = parameters.SAMPLEINFORMATION>;
 sampleInfo[] samples = readData(sampleInfoFile);
 
+foreach sample in samples{
+	string rgheader = sprintf("@RG\tID:%s\tLB:%s\tPL:%s\tPU:%s\tSM:%s\tCN:%s\t", sample.SampleName, parameters.SAMPLELB, parameters.SAMPLEPL, sample.SampleName, sample.SampleName, parameters.SAMPLECN);
+	file bwaOut<SingleFileMapper; file=strcat(parameters.OUTPUTDIR,"/align", sample.SampleName, ".nodups.sam")>;
+	bwaOut = bwa(parameters, sample, rgheader);
+}
 
 
