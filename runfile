@@ -1,8 +1,8 @@
 ## i/o
-SAMPLEINFORMATION=/home/edrodri2/Swift-Variant-Calling/H3A_NextGen_assessment.Chr1_50X.set3.sampleinfo
+SAMPLEINFORMATION=/home/edrodri2/Data/reads/test-azza.sampleinfo
 OUTPUTDIR=/home/edrodri2/Swift-Variant-Calling/output
-TMPDIR=/home/groups/hpcbio_shared/azza/H3A_NextGen_assesmeht_set3/results/tmp
-SCRIPTDIR=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/Workflow/BW_VariantCalling
+TMPDIR=/home/edrodri2/Swift-Variant-Calling/results/tmp
+SCRIPTDIR=/home/edrodri2/Swift-Variant-Calling/
 EMAIL=aeahmed@life.illinois.edu
 REPORTTICKET=5747
 
@@ -32,7 +32,7 @@ MARKDUPLICATESTOOL=PICARD
 BWAMEMPARAMS=-k 32 -I 300,30
 CHRNAMES=chr1
 #% I really only need that for the playful dataset. later separate by :
-BWAINDEX=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/human
+BWAINDEX=/home/edrodri2/Data/genome/human
 
 ## Quality thresholds:
 MAP_CUTOFF=95
@@ -42,7 +42,7 @@ DUP_CUTOFF=1
 MARKDUP=YES
 
 ## paths to input output and tools - DO NOT EDIT
-REFGENOMEDIR=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome
+REFGENOMEDIR=/home/edrodri2/data/genome
 REFGENOME=ucsc.hg19.fasta
 DBSNP=dbsnp_138.hg19.vcf
 INDELDIR=IndelsByChr
