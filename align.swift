@@ -57,21 +57,28 @@ type sampleInfo {
 	string read2;
 }
 
-app (file dedupbam) bwa (configData info, sampleInfo sample, string rgheader){
-	 bwa "mem" info.BWAMEMPARAMS "-t" info.PBSCORES "-R" rgheader  info.BWAINDEX sample.read1 sample.read2 stdout=filename(dedupbam);
+app (file alignedsam) bwa (configData info, sampleInfo sample, string rgheader){
+	 bwa "mem" info.BWAMEMPARAMS "-t" info.PBSCORES "-R" rgheader  info.BWAINDEX sample.read1 sample.read2 stdout=filename(alignedsam);
 }
-app (file alignedbam) samtools(file bamout, int thr){
-	samtools "view" "-@" thr "-bSu" filename(bamout) stdout=filename(alignedbam);
+app (file alignedbam) samtools(file input, int thr){
+	samtools "view" "-@" thr "-bSu" filename(input) stdout=filename(alignedbam);
 }
-file configFile<"runfile">;
+#app (file dedupsortedbam) novosort(string tempDir, int threads, file input){
+#	 novosort "--index" "--tmpdir" tempDir "--threads" threads input stdout=filename(dedupsortedbam)
+#}
+
+string parametersFilename = arg("params", "runfile");
+file configFile<SingleFileMapper; file=parametersFilename>;
 configData parameters = readStructured(filename(configFile));
 file sampleInfoFile<SingleFileMapper; file = parameters.SAMPLEINFORMATION>;
 sampleInfo[] samples = readData(sampleInfoFile);
 
 foreach sample in samples{
 	string rgheader = sprintf("@RG\tID:%s\tLB:%s\tPL:%s\tPU:%s\tSM:%s\tCN:%s\t", sample.SampleName, parameters.SAMPLELB, parameters.SAMPLEPL, sample.SampleName, sample.SampleName, parameters.SAMPLECN);
-	file bwaOut<SingleFileMapper; file=strcat(parameters.OUTPUTDIR,"/align/", sample.SampleName, ".nodups.sam")>;
-	bwaOut = bwa(parameters, sample, rgheader);
-	file bwaOutBam<SingleFileMapper; file=strcat(parameters.OUTPUTDIR,"/align/", sample.SampleName, ".nodups.bam")>;
-	bwaOutBam = samtools(bwaOut, parameters.PBSCORES);
+	file alignedsam<SingleFileMapper; file=strcat(parameters.OUTPUTDIR,"/align/", sample.SampleName, ".nodups.sam")>;
+	alignedsam = bwa(parameters, sample, rgheader);
+	file alignedbam<SingleFileMapper; file=strcat(parameters.OUTPUTDIR,"/align/", sample.SampleName, ".nodups.bam")>;
+	alignedbam = samtools(alignedsam, parameters.PBSCORES);
+	#file sortedbam<SingleFileMapper; file=strcat(parameters.OUTPUTDIR,"/align/", sample.SampleName, ".nodups.sorted.bam")>;
+	#sortedbam = novosort(parameters.TMPDIR, parameters.PBSCORES, alignedbam)";
 }
