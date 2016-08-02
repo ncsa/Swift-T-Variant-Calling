@@ -44,7 +44,7 @@ foreach sample in sampleLines{
 	alignedsam = bwa(vars, string2int(vars["PBSCORES"]), read1, read2, rgheader);
 
 	file alignedbam <strcat(vars["OUTPUTDIR"],"/align/", sampleName, ".nodups.bam")>;
-	alignedbam = samtools(filename(alignedsam, string2int(vars["PBSCORES"]));
+	alignedbam = samtools(filename(alignedsam), string2int(vars["PBSCORES"]));
 
 	//file sortedbam<SingleFileMapper; file=strcat(parameters.OUTPUTDIR,"/align/", sampleName, ".nodups.sorted.bam")>;
 	//sortedbam = novosort(parameters.TMPDIR, parameters.PBSCORES, alignedbam)";
