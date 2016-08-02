@@ -1,84 +1,51 @@
-type file;
+import sys;
+import files;
+import string;
 
-type configData {
-	string SAMPLEINFORMATION;
-	string OUTPUTDIR;
-	string TMPDIR;
-	string SCRIPTDIR;
-	string EMAIL;
-	int REPORTTICKET;
-	string RUNMETHOD;
-	string ANALYSIS;
-	string INPUTFORMAT;
-	int PAIRED;
-	int READLENGTH;
-	string MULTISAMPLE;
-	string PROVENANCE;
-	string SAMPLEID;
-	string SAMPLELB;
-	string SAMPLEPL;
-	string SAMPLEPU;
-	string SAMPLESM;
-	string SAMPLECN;
-	string ALIGNERTOOL;
-	string SORTMERGETOOL;
-	string MARKDUPLICATESTOOL;
-	string BWAMEMPARAMS;
-	string CHRNAMES;
-	string BWAINDEX;
-	int MAP_CUTOFF;
-	int DUP_CUTOFF;
-	string MARKDUP;
-	string REFGENOMEDIR;
-	string REFGENOME;
-	string DBSNP;
-	string INDELDIR;
-	string OMNI;
-	string SAMBLASTERDIR;
-	string PICARDIR;
-	string GATKDIR;
-	string SAMDIR;
-	string BWAMEMDIR;
-	string TABIXDIR;
-	string JAVADIR;
-	string NOVOCRAFTDIR;
-	string VCFTOOLSDIR;
-	string FASTQCDIR;
-	string DELIVERYFOLDER;
-	string PBSPROJECTID;
-	int PBSNODES;
-	int PBSCORES;
-	string PBSQUEUE;
-	string PBSWALLTIME;
-}
-type sampleInfo {
-	string SampleName;
-	string read1;
-	string read2;
+(string data[string]) getConfigVariables(string lines[])
+{
+	foreach line in lines
+	{
+		string keyValuePair[] = split(line, "=");
+		string name = keyValuePair[0];
+		string value = keyValuePair[1];
+		data[name] = value;
+	}
 }
 
-app (file alignedsam) bwa (configData info, sampleInfo sample, string rgheader){
-	 bwa "mem" info.BWAMEMPARAMS "-t" info.PBSCORES "-R" rgheader  info.BWAINDEX sample.read1 sample.read2 stdout=filename(alignedsam);
+app (file output) bwa (string params[string], int PBSCORES, string read1, string read2, string rgheader){
+	 "bwa" "mem" params["BWAMEMPARAMS"] "-t" PBSCORES "-R" rgheader  params["BWAINDEX"] read1 read2 @stdout=output;
 }
-app (file alignedbam) samtools(file input, int thr){
-	samtools "view" "-@" thr "-bSu" filename(input) stdout=filename(alignedbam);
+
+app (file output) samtools(string inputFilename, int thr){
+	"samtools" "view" "-@" thr "-bSu" inputFilename @stdout=output;
 }
-#app (file dedupsortedbam) novosort(string tempDir, int threads, file input){
-#	 novosort "--index" "--tmpdir" tempDir "--threads" threads input stdout=filename(dedupsortedbam)
-#}
 
-string parametersFilename = arg("params", "runfile");
-file configFile<SingleFileMapper; file=parametersFilename>;
-configData parameters = readStructured(filename(configFile));
-file sampleInfoFile<SingleFileMapper; file = parameters.SAMPLEINFORMATION>;
-sampleInfo[] samples = readData(sampleInfoFile);
+//get Configuration filename with argument --params [filename]
 
-foreach sample in samples{
-	string rgheader = sprintf("@RG\tID:%s\tLB:%s\tPL:%s\tPU:%s\tSM:%s\tCN:%s\t", sample.SampleName, parameters.SAMPLELB, parameters.SAMPLEPL, sample.SampleName, sample.SampleName, parameters.SAMPLECN);
-	file alignedsam<SingleFileMapper; file=strcat(parameters.OUTPUTDIR,"/align/", sample.SampleName, ".nodups.sam")>;
-	alignedsam = bwa(parameters, sample, rgheader);
-	file alignedbam<SingleFileMapper; file=strcat(parameters.OUTPUTDIR,"/align/", sample.SampleName, ".nodups.bam")>;
-	alignedbam = samtools(alignedsam, parameters.PBSCORES);
-	#file sortedbam<SingleFileMapper; file=strcat(parameters.OUTPUTDIR,"/align/", sample.SampleName, ".nodups.sorted.bam")>;
-	#sortedbam = novosort(parameters.TMPDIR, parameters.PBSCORES, alignedbam)";
+string configFilename = argv("params", "runfile");
+file configFile = input_file(configFilename);
+string configFileData[] = file_lines(configFile);
+string vars[string] = getConfigVariables(configFileData);
+
+file sampleInfoFile = input_file(vars["SAMPEINFORMATION"]);
+string sampleLines[] = file_lines(sampleInfoFile);
+
+foreach sample in sampleLines{
+
+	string sampleInfo[] = split(sample, " ");
+	string sampleName = sampleInfo[0];
+	string read1 = sampleInfo[1];
+	string read2 = sampleInfo[2];
+
+	string rgheader = sprintf("@RG\tID:%s\tLB:%s\tPL:%s\tPU:%s\tSM:%s\tCN:%s\t", sampleName, vars["SAMPLELB"], vars["SAMPLEPL"], sampleName, sampleName, vars["SAMPLECN"]);
+
+	file alignedsam <strcat(vars["OUTPUTDIR"],"/align/", sampleName, ".nodups.sam")>;
+	alignedsam = bwa(vars, string2int(vars["PBSCORES"]), read1, read2, rgheader);
+
+	file alignedbam <strcat(vars["OUTPUTDIR"],"/align/", sampleName, ".nodups.bam")>;
+	alignedbam = samtools(filename(alignedsam), string2int(vars["PBSCORES"]));
+
+	//file sortedbam<SingleFileMapper; file=strcat(parameters.OUTPUTDIR,"/align/", sampleName, ".nodups.sorted.bam")>;
+	//sortedbam = novosort(parameters.TMPDIR, parameters.PBSCORES, alignedbam)";
 }
