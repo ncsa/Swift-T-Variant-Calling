@@ -12,18 +12,6 @@ import string;
 		data[name] = value;
 	}
 }
-(string samples[string][string]) getSamples(string lines[])
-{
-	foreach line in lines
-	{
-		string sampleInfo[] = split(line," ");
-		string sampleName = sampleInfo[0];
-		string read1 = sampleInfo[1];
-		string read2 = sampleInfo[2];
-		samples[sampleName]["read1"] = read1;
-		samples[sampleName]["read2"] = read2;
-	}
-}
 
 app (file output) bwa (string params[string], int PBSCORES, string read1, string read2, string rgheader){
 	 "bwa" "mem" params["BWAMEMPARAMS"] "-t" PBSCORES "-R" rgheader  params["BWAINDEX"] read1 read2 @stdout=output;
