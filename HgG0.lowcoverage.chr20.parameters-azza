@@ -1,7 +1,7 @@
 ## i/o
-SAMPLEINFORMATION=/home/edrodri2/Variant-Calling-Data/reads/HgG0.lowcoverage.chr2.sampleinfo
-OUTPUTDIR=/home/edrodri2/Variant-Calling-Data/output/
-TMPDIR=/home/edrodri2/Variant-Calling-Data/tmp/
+SAMPLEINFORMATION=/home/azza/swift-project/Dataset/HgG0.lowcoverage.chr20.sampleinfo
+OUTPUTDIR=/home/azza/swift-project/Results
+TMPDIR=/home/azza/swift-project/tmp/
 
 ## input data
 INPUTFORMAT=FASTQ
@@ -23,9 +23,9 @@ MARKDUPLICATESTOOL=PICARD
 
 ## alignment block parameters
 BWAMEMPARAMS=-k 32 -I 300,30
-CHRNAMES=chr1
+CHRNAMES=chr20
 #% I really only need that for the playful dataset. later separate by :
-BWAINDEX=/home/edrodri2/Variant-Calling-Data/genome/human
+BWAINDEX=/home/azza/swift-project/genome/human
 
 ## Quality thresholds:
 MAP_CUTOFF=95
@@ -35,7 +35,7 @@ DUP_CUTOFF=1
 MARKDUP=YES
 
 ## paths to input output and tools - DO NOT EDIT
-REFGENOMEDIR=/home/edrodri2/Variant-Calling-Data/genome/
+REFGENOMEDIR=/home/azza/swift-project/genome/
 REFGENOME=ucsc.hg19.fasta
 DBSNP=dbsnp_138.hg19.vcf
 INDELDIR=IndelsByChr

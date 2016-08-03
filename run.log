@@ -1,0 +1,244 @@
+DEBUG_TCL_TURBINE: COASTER: 0 workers
+DEBUG_TCL_TURBINE: COASTER: 0 workers
+DEBUG_TCL_TURBINE: NOOP: 0 workers
+DEBUG_TCL_TURBINE: WORKER TYPE COUNTS: WORK 1
+DEBUG_TCL_TURBINE: NOOP: 0 workers
+DEBUG_TCL_TURBINE: work_types: WORK
+DEBUG_TCL_TURBINE: WORKER TYPE COUNTS: WORK 1
+DEBUG_TURBINE: turbine_debug: already initialized
+
+DEBUG_TCL_TURBINE: work_types: WORK
+DEBUG_TURBINE: turbine_debug: already initialized
+
+DEBUG_TURBINE: TURBINE_CACHE_SIZE: 1024
+DEBUG_TURBINE: TURBINE_CACHE_MAX: 10485760
+DEBUG_TURBINE: turbine_debug: already initialized
+
+DEBUG_TCL_TURBINE: MODE: WORK
+   0.000 WORK TYPES: WORK
+   0.000 WORKERS: 1 RANKS: 0 - 0
+   0.000 SERVERS: 1 RANKS: 1 - 1
+   0.000 WORK WORKERS: 1 RANKS: 0 - 0
+DEBUG_TURBINE: turbine_debug: already initialized
+
+DEBUG_TCL_TURBINE: MODE: SERVER
+   0.010 function:swift:constants
+   0.010 function: __entry
+   0.010 allocated t:7=<1> u:vars=<2> t:18=<3> t:23=<4> t:3:1=<5>
+   0.010 allocated t:22=<6>
+   0.010 argv(runfile) => HgG0.lowcoverage.chr20.parameters-azza
+   0.011 store: <7>=path HgG0.lowcoverage.chr20.parameters-azza
+DEBUG_TCL_TURBINE: retrieve: <7>=path HgG0.lowcoverage.chr20.parameters-azza
+   0.011 creating reference: <2>["SAMPLEINFORMATION"] <- <*1> (string)
+   0.011 creating reference: <2>["OUTPUTDIR"] <- <*3> (string)
+   0.011 creating reference: <2>["PBSCORES"] <- <*4> (string)
+   0.011 array_kv_build: <5> 1 elems, write_decr 1
+   0.011 allocated u:keyValuePair=<9>
+   0.012 build_rec: <9>
+DEBUG_TCL_TURBINE: retrieve: <9.0>="SAMPLEINFORMATION"
+DEBUG_TCL_TURBINE: retrieve: <9.1>="/home/azza/swift-project/Dataset/HgG0.lowcoverage.chr20.sampleinfo"
+   0.012 insert: <2>["SAMPLEINFORMATION"]=</home/azza/swift-project/Dataset/HgG0.lowcoverage.chr20.sampleinfo>
+   0.012 allocated u:keyValuePair=<10>
+   0.012 build_rec: <10>
+DEBUG_TCL_TURBINE: retrieve: <10.0>="OUTPUTDIR"
+DEBUG_TCL_TURBINE: retrieve: <10.1>="/home/azza/swift-project/Results"
+   0.012 insert: <2>["OUTPUTDIR"]=</home/azza/swift-project/Results>
+   0.012 allocated u:keyValuePair=<11>
+   0.012 build_rec: <11>
+DEBUG_TCL_TURBINE: retrieve: <11.0>="TMPDIR"
+DEBUG_TCL_TURBINE: retrieve: <11.1>="/home/azza/swift-project/tmp/"
+   0.012 insert: <2>["TMPDIR"]=</home/azza/swift-project/tmp/>
+   0.012 allocated u:keyValuePair=<12>
+   0.012 build_rec: <12>
+DEBUG_TCL_TURBINE: retrieve: <12.0>="INPUTFORMAT"
+DEBUG_TCL_TURBINE: retrieve: <12.1>="FASTQ"
+   0.013 insert: <2>["INPUTFORMAT"]=<FASTQ>
+   0.013 allocated u:keyValuePair=<13>
+   0.013 build_rec: <13>
+DEBUG_TCL_TURBINE: retrieve: <13.0>="PAIRED"
+DEBUG_TCL_TURBINE: retrieve: <13.1>="1"
+   0.013 insert: <2>["PAIRED"]=<1>
+   0.013 allocated u:keyValuePair=<14>
+   0.013 build_rec: <14>
+DEBUG_TCL_TURBINE: retrieve: <14.0>="READLENGTH"
+DEBUG_TCL_TURBINE: retrieve: <14.1>="100"
+   0.013 insert: <2>["READLENGTH"]=<100>
+   0.013 allocated u:keyValuePair=<15>
+   0.013 build_rec: <15>
+DEBUG_TCL_TURBINE: retrieve: <15.0>="MULTISAMPLE"
+DEBUG_TCL_TURBINE: retrieve: <15.1>="NO"
+   0.013 insert: <2>["MULTISAMPLE"]=<NO>
+   0.013 allocated u:keyValuePair=<16>
+   0.013 build_rec: <16>
+DEBUG_TCL_TURBINE: retrieve: <16.0>="PROVENANCE"
+DEBUG_TCL_TURBINE: retrieve: <16.1>=""
+   0.013 insert: <2>["PROVENANCE"]=<>
+   0.013 allocated u:keyValuePair=<17>
+   0.013 build_rec: <17>
+DEBUG_TCL_TURBINE: retrieve: <17.0>="SAMPLEID"
+DEBUG_TCL_TURBINE: retrieve: <17.1>="synthetic"
+   0.014 insert: <2>["SAMPLEID"]=<synthetic>
+   0.014 allocated u:keyValuePair=<18>
+   0.014 build_rec: <18>
+DEBUG_TCL_TURBINE: retrieve: <18.0>="SAMPLELB"
+DEBUG_TCL_TURBINE: retrieve: <18.1>="synthetic"
+   0.014 insert: <2>["SAMPLELB"]=<synthetic>
+   0.014 allocated u:keyValuePair=<19>
+   0.014 build_rec: <19>
+DEBUG_TCL_TURBINE: retrieve: <19.0>="SAMPLEPL"
+DEBUG_TCL_TURBINE: retrieve: <19.1>="illumina"
+   0.014 insert: <2>["SAMPLEPL"]=<illumina>
+   0.014 allocated u:keyValuePair=<20>
+   0.014 build_rec: <20>
+DEBUG_TCL_TURBINE: retrieve: <20.0>="SAMPLEPU"
+DEBUG_TCL_TURBINE: retrieve: <20.1>="synthetic"
+   0.014 insert: <2>["SAMPLEPU"]=<synthetic>
+   0.014 allocated u:keyValuePair=<21>
+   0.014 build_rec: <21>
+DEBUG_TCL_TURBINE: retrieve: <21.0>="SAMPLESM"
+DEBUG_TCL_TURBINE: retrieve: <21.1>="synthetic"
+   0.014 insert: <2>["SAMPLESM"]=<synthetic>
+   0.014 allocated u:keyValuePair=<22>
+   0.014 build_rec: <22>
+DEBUG_TCL_TURBINE: retrieve: <22.0>="SAMPLECN"
+DEBUG_TCL_TURBINE: retrieve: <22.1>="synthetic"
+   0.014 insert: <2>["SAMPLECN"]=<synthetic>
+   0.015 allocated u:keyValuePair=<23>
+   0.015 build_rec: <23>
+DEBUG_TCL_TURBINE: retrieve: <23.0>="ALIGNERTOOL"
+DEBUG_TCL_TURBINE: retrieve: <23.1>="BWAMEM"
+   0.015 insert: <2>["ALIGNERTOOL"]=<BWAMEM>
+   0.015 allocated u:keyValuePair=<24>
+   0.015 build_rec: <24>
+DEBUG_TCL_TURBINE: retrieve: <24.0>="SORTMERGETOOL"
+DEBUG_TCL_TURBINE: retrieve: <24.1>="NOVOSORT"
+   0.015 insert: <2>["SORTMERGETOOL"]=<NOVOSORT>
+   0.015 allocated u:keyValuePair=<25>
+   0.015 build_rec: <25>
+DEBUG_TCL_TURBINE: retrieve: <25.0>="MARKDUPLICATESTOOL"
+DEBUG_TCL_TURBINE: retrieve: <25.1>="PICARD"
+   0.015 insert: <2>["MARKDUPLICATESTOOL"]=<PICARD>
+   0.015 allocated u:keyValuePair=<26>
+   0.015 build_rec: <26>
+DEBUG_TCL_TURBINE: retrieve: <26.0>="BWAMEMPARAMS"
+DEBUG_TCL_TURBINE: retrieve: <26.1>="-k 32 -I 300,30"
+   0.015 insert: <2>["BWAMEMPARAMS"]=<-k 32 -I 300,30>
+   0.015 allocated u:keyValuePair=<27>
+   0.015 build_rec: <27>
+DEBUG_TCL_TURBINE: retrieve: <27.0>="CHRNAMES"
+DEBUG_TCL_TURBINE: retrieve: <27.1>="chr20"
+   0.015 insert: <2>["CHRNAMES"]=<chr20>
+   0.016 allocated u:keyValuePair=<28>
+   0.016 build_rec: <28>
+DEBUG_TCL_TURBINE: retrieve: <28.0>="BWAINDEX"
+DEBUG_TCL_TURBINE: retrieve: <28.1>="/home/azza/swift-project/genome/human"
+   0.016 insert: <2>["BWAINDEX"]=</home/azza/swift-project/genome/human>
+   0.016 allocated u:keyValuePair=<29>
+   0.016 build_rec: <29>
+DEBUG_TCL_TURBINE: retrieve: <29.0>="MAP_CUTOFF"
+DEBUG_TCL_TURBINE: retrieve: <29.1>="95"
+   0.016 insert: <2>["MAP_CUTOFF"]=<95>
+   0.016 allocated u:keyValuePair=<30>
+   0.016 build_rec: <30>
+DEBUG_TCL_TURBINE: retrieve: <30.0>="DUP_CUTOFF"
+DEBUG_TCL_TURBINE: retrieve: <30.1>="1"
+   0.016 insert: <2>["DUP_CUTOFF"]=<1>
+   0.016 allocated u:keyValuePair=<31>
+   0.016 build_rec: <31>
+DEBUG_TCL_TURBINE: retrieve: <31.0>="MARKDUP"
+DEBUG_TCL_TURBINE: retrieve: <31.1>="YES"
+   0.016 insert: <2>["MARKDUP"]=<YES>
+   0.016 allocated u:keyValuePair=<32>
+   0.016 build_rec: <32>
+DEBUG_TCL_TURBINE: retrieve: <32.0>="REFGENOMEDIR"
+DEBUG_TCL_TURBINE: retrieve: <32.1>="/home/azza/swift-project/genome/"
+   0.016 insert: <2>["REFGENOMEDIR"]=</home/azza/swift-project/genome/>
+   0.016 allocated u:keyValuePair=<33>
+   0.016 build_rec: <33>
+DEBUG_TCL_TURBINE: retrieve: <33.0>="REFGENOME"
+DEBUG_TCL_TURBINE: retrieve: <33.1>="ucsc.hg19.fasta"
+   0.017 insert: <2>["REFGENOME"]=<ucsc.hg19.fasta>
+   0.017 allocated u:keyValuePair=<34>
+   0.017 build_rec: <34>
+DEBUG_TCL_TURBINE: retrieve: <34.0>="DBSNP"
+DEBUG_TCL_TURBINE: retrieve: <34.1>="dbsnp_138.hg19.vcf"
+   0.017 insert: <2>["DBSNP"]=<dbsnp_138.hg19.vcf>
+   0.017 allocated u:keyValuePair=<35>
+   0.017 build_rec: <35>
+DEBUG_TCL_TURBINE: retrieve: <35.0>="INDELDIR"
+DEBUG_TCL_TURBINE: retrieve: <35.1>="IndelsByChr"
+   0.017 insert: <2>["INDELDIR"]=<IndelsByChr>
+   0.017 allocated u:keyValuePair=<36>
+   0.017 build_rec: <36>
+DEBUG_TCL_TURBINE: retrieve: <36.0>="OMNI"
+DEBUG_TCL_TURBINE: retrieve: <36.1>="1000G_omni2.5.hg19.sites.vcf"
+   0.017 insert: <2>["OMNI"]=<1000G_omni2.5.hg19.sites.vcf>
+   0.017 allocated u:keyValuePair=<37>
+   0.017 build_rec: <37>
+DEBUG_TCL_TURBINE: retrieve: <37.0>="DELIVERYFOLDER"
+DEBUG_TCL_TURBINE: retrieve: <37.1>="delivery"
+   0.017 insert: <2>["DELIVERYFOLDER"]=<delivery>
+   0.017 allocated u:keyValuePair=<38>
+   0.017 build_rec: <38>
+DEBUG_TCL_TURBINE: retrieve: <38.0>="PBSNODES"
+DEBUG_TCL_TURBINE: retrieve: <38.1>="1"
+   0.018 insert: <2>["PBSNODES"]=<1>
+   0.018 allocated u:keyValuePair=<39>
+   0.018 build_rec: <39>
+DEBUG_TCL_TURBINE: retrieve: <39.0>="PBSCORES"
+DEBUG_TCL_TURBINE: retrieve: <39.1>="2"
+   0.018 insert: <2>["PBSCORES"]=<2>
+   0.018 rule: <1> => __entry-call_foreign-input_file 3 6 5 1 {file 8 is_mapped 0} 2
+   0.018 rule: <4> => __entry-async_op-parse_int 6 4
+DEBUG_TURBINE: eval: __entry-call_foreign-input_file 3 6 5 1 {file 8 is_mapped 0} 2
+DEBUG_TCL_TURBINE: retrieve: <1>="/home/azza/swift-project/Dataset/HgG0.lowcoverage.chr20.sampleinfo"
+   0.018 store: <8>=path /home/azza/swift-project/Dataset/HgG0.lowcoverage.chr20.sampleinfo
+DEBUG_TCL_TURBINE: retrieve: <8>=path /home/azza/swift-project/Dataset/HgG0.lowcoverage.chr20.sampleinfo
+   0.019 allocated u:sampleInfo=<40> t:17=<41>
+   0.019 build_rec: <40>
+DEBUG_TCL_TURBINE: retrieve: <40.0>="HG00108.lowcoverage.chr20.smallregion"
+   0.019 rule: <3> => __entry-async_op-strcat 41 3 6 5 HG00108.lowcoverage.chr20.smallregion {file 42 is_mapped 1} 2
+DEBUG_TURBINE: eval: __entry-async_op-parse_int 6 4
+DEBUG_TCL_TURBINE: retrieve: <4>="2"
+   0.019 store: <6>=2
+DEBUG_TURBINE: eval: __entry-async_op-strcat 41 3 6 5 HG00108.lowcoverage.chr20.smallregion {file 42 is_mapped 1} 2
+DEBUG_TCL_TURBINE: retrieve: <3>="/home/azza/swift-project/Results"
+   0.019 store: <41>="/home/azza/swift-project/Results/align/HG00108.lowcoverage.chr20.smallregion.nodups.sam"
+   0.019 rule: <41> <6> <2> => bwa-app-leaf1 41 6 5 {file 42 is_mapped 1} 2
+DEBUG_TURBINE: eval: bwa-app-leaf1 41 6 5 {file 42 is_mapped 1} 2
+CAUGHT ERROR:
+expected integer but got "MARKDUPLICATESTOOL"
+    while executing
+"lsort -integer [ dict keys $contents ] "
+    (procedure "unpack_unnested_container" line 6)
+    invoked from within
+"unpack_unnested_container $container $base_type res"
+    (procedure "unpack_args_rec" line 10)
+    invoked from within
+"unpack_args_rec $container $nest_level $base_type res"
+    (procedure "turbine::unpack_args" line 3)
+    invoked from within
+"turbine::unpack_args ${u:vars} 1 string "
+    (procedure "bwa-app-leaf1" line 6)
+    invoked from within
+"bwa-app-leaf1 41 6 5 {file 42 is_mapped 1} 2"
+Turbine worker task error in: bwa-app-leaf1 41 6 5 {file 42 is_mapped 1} 2
+    invoked from within
+"c::worker_loop $WORK_TYPE($mode) $keyword_args"
+    (procedure "standard_worker" line 27)
+    invoked from within
+"standard_worker $rules $startup_cmd "
+    (procedure "enter_mode_unchecked" line 5)
+    invoked from within
+"enter_mode_unchecked $rules $startup_cmd"
+    (procedure "enter_mode" line 5)
+    invoked from within
+"enter_mode $rules $startup_cmd "
+ADLB: ADLB_Abort(1) calling MPI_Abort(1)
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   EXIT CODE: 1
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
