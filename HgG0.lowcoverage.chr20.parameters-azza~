@@ -26,7 +26,6 @@ BWAMEMPARAMS=-k 32 -I 300,30
 CHRNAMES=chr20
 #% I really only need that for the playful dataset. later separate by :
 BWAINDEX=/home/azza/swift-project/genome/human
-NOVOALIGNINDEX=/home/azza/swift-project/genome/
 
 ## Quality thresholds:
 MAP_CUTOFF=95

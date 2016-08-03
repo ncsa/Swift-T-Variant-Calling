@@ -1,0 +1,12 @@
+README
+XSEDE.config
+HgG0.lowcoverage.chr2.parameters
+HgG0.lowcoverage.chr20.parameters-azza
+run.log
+swift-t-align.Jq6.tic
+Bash
+align.swift
+align_piping.swift
+test.swift
+swift-t-test.c40.tic
+test.txt
