@@ -23,10 +23,11 @@ MARKDUPLICATESTOOL=PICARD
 
 ## alignment block parameters
 BWAMEMPARAMS=-k 32 -I 300,30
+NOVOALIGNPARAMS=
 CHRNAMES=chr20
 #% I really only need that for the playful dataset. later separate by :
 BWAINDEX=/home/azza/swift-project/genome/human
-NOVOALIGNINDEX=/home/azza/swift-project/genome/
+NOVOALIGNINDEX=
 
 ## Quality thresholds:
 MAP_CUTOFF=95
@@ -43,6 +44,11 @@ INDELDIR=IndelsByChr
 OMNI=1000G_omni2.5.hg19.sites.vcf
 
 DELIVERYFOLDER=delivery
+
+# Programs to be used:
+javadir = "/usr/lib/jvm/java-8-oracle/jre/bin/java"
+picarddir = "/usr/local/src/picard/build/libs/picard-2.5.0-gradle-17-g960bc00-SNAPSHOT-all.jar"
+
 
 ## pbs resources
 PBSNODES=1

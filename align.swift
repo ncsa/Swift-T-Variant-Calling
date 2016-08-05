@@ -26,6 +26,18 @@ app (file output) novosort (string inputFilename, string tmpdir, int thr, string
 }
 
 
+app () picard (string java, string picard, string tmpdir, string inputFilename, string outputfile, string metricsfile){
+//      java "-Xmx8g" "-Djava.io.tmpdir" tmpdir "-jar" picard "MarkDuplicates"  "INPUT" inputFilename "OUTPUT" output "TMP_DIR" tmpdir "ASSUME_
+        java "-jar" picard "MarkDuplicates"  inputFilename outputfile metricsfile ;
+
+// This is the command line that is working:
+// $javadir -Xmx8g -jar $picarddir MarkDuplicates INPUT=/home/azza/swift-project/Results/align/HG00108.lowcoverage.chr20.smallregion.nodups.bam
+}
+
+app (file output) touch (string input){
+        "touch" input;
+}
+
 
 ///////////////////////////////// Reading the runfile parameters:
 (string data[string]) getConfigVariables(string lines[])
@@ -67,7 +79,8 @@ foreach sample in sampleLines{
 	file dedupbam <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".wdups.bam")>;
 	file dedupsortedbam <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".wdups.sorted.bam")>;
 	file alignedsortedbam <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".nodups.sorted.bam")>;
-	
+
+
 	//file sortedbam<SingleFileMapper; file=strcat(parameters.OUTPUTDIR,"/align/", sampleName, ".nodups.sorted.bam")>;
 
 
@@ -91,19 +104,15 @@ foreach sample in sampleLines{
 			dedupsortedbam = novosort(filename(alignedbam),vars["TMPDIR"], string2int(vars["PBSCORES"]), strcat("--markDuplicates -r",rgheader) );
 
 		case "PICARD":
+			file dedupsortedbam =  touch(filename(dedupsortedbam));
+                        file metrics <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".picard.metrics")>;
+                        metricsfile = touch(filename(metrics));	
+
 			alignedsam = bwa(read1, read2, vars["BWAINDEX"], vars["BWAMEMPARAMS"], string2int(vars["PBSCORES"]), rgheader);
 			alignedbam = samtools(filename(alignedsam), string2int(vars["PBSCORES"]), "-u");
-			alignedsortedbam = novosort(filename(alignedbam),vars["TMPDIR"], string2int(vars["PBSCORES"])," ");
-
-------- azza: pick up from here!
-  
-$javadir/java -Xmx8g -Djava.io.tmpdir=$tmpdir -jar $picardir/picard.jar  MarkDuplicates \
- INPUT=$alignedsortedbam OUTPUT=$dedupsortedbam TMP_DIR=$tmpdir \
- ASSUME_SORTED=true MAX_RECORDS_IN_RAM=null CREATE_INDEX=true \
- METRICS_FILE=${SampleName}.picard.metrics \
- VALIDATION_STRINGENCY=SILENT
-
-
+			alignedsortedbam = novosort(filename(alignedbam),vars["TMPDIR"], string2int(vars["PBSCORES"])," ");                  
+			picard(vars["JAVADIR"], vars["PICARDIR"], vars["TMPDIR"], strcat("INPUT=",filename(alignedsortedbam)), strcat("OUTPUT=",filename(dedupsortedbam)), strcat("METRICS_FILE=",filename(metricsfile))   ) ;
+ 
 	}
 
 start from line 568 in align_dedup.sh

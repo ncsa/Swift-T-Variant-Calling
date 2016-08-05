@@ -1,0 +1,1000 @@
+  996  scp hpcbiointern01@biocluster.igb.illinois.edu:/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/human* .
+  997  cd ..
+  998  mkdir genom
+  999  cd genom/
+ 1000  scp hpcbiointern01@biocluster.igb.illinois.edu:/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/human* .
+ 1001  exit
+ 1002  vi runFile.swift 
+ 1003  exit
+ 1004  cd ../swift_exercises/
+ 1005  ls
+ 1006  cd swift-tutorial/
+ 1007  ls
+ 1008  cd part02/
+ 1009  ls
+ 1010  vi p2.swift 
+ 1011  swift p2.swift 
+ 1012  cd ..
+ 1013  source setup.sh
+ 1014  cd part02/
+ 1015  ls
+ 1016  swift p2.swift 
+ 1017  ls
+ 1018  ls output/
+ 1019  vi swift.conf 
+ 1020  cd ..
+ 1021  cd part06/
+ 1022  exit
+ 1023  scp hpcbiointern01@biocluster.igb.illinois.edu:/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19*
+ 1024  scp hpcbiointern01@biocluster.igb.illinois.edu:/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19* .
+ 1025  exit
+ 1026  ssh hpcbiointern01@igb.illinois.edu
+ 1027  ssh hpcbiointern01@biocluster.igb.illinois.edu
+ 1028  ssh hpcbiointern01@biocluster.igb.illinois.edu -X
+ 1029  exit
+ 1030  cd Dataset/
+ 1031  ls
+ 1032  ext
+ 1033  exit
+ 1034  cd Swift-Variant-Calling/
+ 1035  ls
+ 1036  vi align_dedup.sh 
+ 1037  git add .
+ 1038  ait add -A
+ 1039  git add -A
+ 1040  git commit -am 'dataset folder changes'
+ 1041  git push
+ 1042  vi align_dedup.sh 
+ 1043  ls
+ 1044  vi swift.config 
+ 1045  swift runFile.swift 
+ 1046  git pull
+ 1047  swift runFile.swift 
+ 1048  ls
+ 1049  swift -config swift.config  runFile.swift 
+ 1050  swift runFile.swift 
+ 1051  ls
+ 1052  git commit -am 'df'
+ 1053  git pull
+ 1054  exit
+ 1055  killall unity-panel-service
+ 1056  exit
+ 1057  history|grep ssh
+ 1058  exit
+ 1059  ssh -X hpcbiointern01@biocluster.igb.illinois.edu
+ 1060  touch dfjdklaj
+ 1061  sudo touch dfjdklaj
+ 1062  sudo cp -R  ~/genom/ .
+ 1063  exit
+ 1064  mkdir data
+ 1065  mkdir data/genome
+ 1066  mkdir data/reads
+ 1067  tree
+ 1068  exit
+ 1069  cd Swift-Variant-Calling/
+ 1070  ls
+ 1071  git status
+ 1072  ls
+ 1073  rm -rf *
+ 1074  git push
+ 1075  ls
+ 1076  git merge
+ 1077  git pull
+ 1078  cd ..
+ 1079  rm -rf Swift-Variant-Calling/
+ 1080  git clone git@github.com:edrodri2/Swift-Variant-Calling.git
+ 1081  git clone zo0z@github.com:edrodri2/Swift-Variant-Calling.git
+ 1082  ls
+ 1083  ls -a
+ 1084  ls .g*
+ 1085  ls .git*
+ 1086  ls *.git*
+ 1087  ls *git*
+ 1088  git clone git@github.com:edrodri2/Swift-Variant-Calling.git
+ 1089  cd swift_exercises/
+ 1090  ls
+ 1091  cd swift-tutorial/
+ 1092  ls
+ 1093  cd part02
+ 1094  ls
+ 1095  vi p2.swift 
+ 1096  RGparms=$( echo "ID=${sID}:LB=${sLB}:PL=${sPL}:PU=${sPU}:SM=${sSM}:CN=${sCN}" )
+ 1097  rgheader=$( echo -n -e "@RG\t" )$( echo -e "${RGparms}"  | tr ":" "\t" | tr "=" ":" )
+ 1098  sudo fdisk -l
+ 1099  sudo fdisk /dev/sdb
+ 1100  sudo fdisk /dev/sdb 
+ 1101  sudo mkfs.ntfs /dev/sdb
+ 1102  cd ../
+ 1103  cd ..
+ 1104  git clone git@github.com:edrodri2/Swift-Variant-Calling.git
+ 1105  cd Desktop/
+ 1106  mkdir swift
+ 1107  cd swift/
+ 1108  git clone git@github.com:edrodri2/Swift-Variant-Calling.git
+ 1109  sudo git clone git@github.com:edrodri2/Swift-Variant-Calling.git
+ 1110  bwa
+ 1111  which bwa
+ 1112  /usr/bin/bwa
+ 1113  exit
+ 1114  vi align_dedup.sh 
+ 1115  exit
+ 1116  exit
+ 1117  ssh -x hpcbiointern01@biocluster.igb.edu
+ 1118  ssh -x hpcbiointern01@biocluster.igb.illinous.edu
+ 1119  ssh -x hpcbiointern01@biocluster.igb.illinos.edu
+ 1120  ssh -x hpcbiointern01@biocluster.igb.illinois.edu
+ 1121  ssh -X hpcbiointern01@biocluster.igb.illinois.edu
+ 1122  exit
+ 1123  ls
+ 1124  cd swift_exercises/
+ 1125  ls
+ 1126  cd ..
+ 1127  cd Desktop/
+ 1128  ls
+ 1129  cd Swift-Variant-Calling-master/
+ 1130  git pull
+ 1131  cd ~
+ 1132  ls
+ 1133  git clone https://github.com/edrodri2/Swift-Variant-Calling.git
+ 1134  cd Swift-Variant-Calling/
+ 1135  git pull
+ 1136  ls
+ 1137  ll -htr
+ 1138  git pull
+ 1139  ls
+ 1140  cd Bash/
+ 1141  ls
+ 1142  vi align_dedup.sh 
+ 1143  git pull
+ 1144  exit
+ 1145  ls
+ 1146  cd ..
+ 1147  ls
+ 1148  sudo shutdown -P now
+ 1149  ssh hpcbiointern01@biocluster.igb.illinois.edu
+ 1150  exit
+ 1151  exit
+ 1152  ssh hpcbiointern01@biocluster.igb.illinois.edu
+ 1153  exit
+ 1154  ssh -X hpcbiointern01@biocluster.igb.illinois.edu
+ 1155  :q
+ 1156  `
+ 1157  :q
+ 1158  make
+ 1159  make -h
+ 1160  exit
+ 1161  vi ~/.bashrc 
+ 1162  vi ~/.profile 
+ 1163  cp ~/.profile ~/.profile-copy-with-swift
+ 1164  vi ~/.profile
+ 1165  exit
+ 1166  vi ~/.profile-copy-with-swift 
+ 1167  vi ~/.profile
+ 1168  rm ~/.profile-copy-with-swift 
+ 1169  swift
+ 1170  swift-t
+ 1171  source ~/.profile 
+ 1172  swift-t
+ 1173  exit
+ 1174  cd /usr/local/src
+ 1175  ls
+ 1176  exit
+ 1177  scp hpcbiointern01@biocluster.igb.illinois.edu://hist.July29 .
+ 1178  scp hpcbiointern01@biocluster.igb.illinois.edu://home/a-m/hpcbiointern01/hist.July29 .
+ 1179  vi hist.July29 
+ 1180  rm hist.July29 
+ 1181  ls
+ 1182  rm cherif.jpg 
+ 1183  ls
+ 1184  vi parameters 
+ 1185  rm parameters 
+ 1186  vi pipeline.sh 
+ 1187  rm pipeline.sh 
+ 1188  ls
+ 1189  vi Parameter_access.sh 
+ 1190  rm Parameter_access.sh 
+ 1191  rm recalibration_plots.default.0.pdf 
+ 1192  rm -rf tmp
+ 1193  rm myplots.pdf 
+ 1194  ls outputs-alignment/
+ 1195  rm -rf outputs-alignment/
+ 1196  ls
+ 1197  vi del.sh 
+ 1198  rm del.sh 
+ 1199  ls
+ 1200  ls comps/
+ 1201  rm -rf comps
+ 1202  ls
+ 1203  vi core
+ 1204  rm core
+ 1205  mkdir swift-project
+ 1206  mv swift_exercises/ swift-project/
+ 1207  ls
+ 1208  rm Swift-Variant-Calling/
+ 1209  rm -rf Swift-Variant-Calling/
+ 1210  ls
+ 1211  mv genom/ swift-project/
+ 1212  ls
+ 1213  mv H3A_NextGen_assessment.Chr1_50X.set3.runfile swift-project/
+ 1214  ls
+ 1215  rm hell*
+ 1216  ls
+ 1217  rm temp.sh 
+ 1218  ls
+ 1219  cd swift-project/
+ 1220  ls
+ 1221  ssh-keygen -t rsa -C github
+ 1222  ssh-add -L
+ 1223  ssh-add ~/.ssh/id_github
+ 1224  ssh-add -L 
+ 1225  git clone git@github.com:edrodri2/Swift-Variant-Calling.git
+ 1226  ls
+ 1227  mv genom/ genome
+ 1228  ls
+ 1229  ls genome/
+ 1230  ls
+ 1231  ls Swift-Variant-Calling/
+ 1232  ls
+ 1233  swift
+ 1234  sudo apt-get install mpichfsfgsd
+ 1235  lsb-release
+ 1236  lsb_release -a
+ 1237  sudo apt-get install mpich
+ 1238  sudo apt-get install tcl8.6-dev
+ 1239  sudo apt-get install tcl8.6
+ 1240  sudo apt-get install swig
+ 1241  sudo apt-get install zsh
+ 1242  sudo apt-get install ant
+ 1243  sudo apt-get install default-jdk
+ 1244  sudo apt-get install make
+ 1245  sudo apt-get install gcc
+ 1246  wget http://swift-lang.github.io/swift-t/downloads/swift-t-0.9.0.tar.gz
+ 1247  ls
+ 1248  ls /src/
+ 1249  ls /usr/local/src
+ 1250  mv swift-t-0.9.0.tar.gz /usr/local/src
+ 1251  tar xfz /usr/local/src/swift-t-0.9.0.tar.gz 
+ 1252  ls /usr/local/src/swift-t-0.9.0
+ 1253  sudo tar xfz /usr/local/src/swift-t-0.9.0.tar.gz 
+ 1254  ls /usr/local/src/swift-t-0.9.0.tar.gz 
+ 1255  sudo tar xvzf /usr/local/src/swift-t-0.9.0.tar.gz 
+ 1256  ls /usr/local/src/
+ 1257  cd /usr/local/src/
+ 1258  ls
+ 1259  tar xfz swift-t-0.9.0.tar.gz 
+ 1260  ls
+ 1261  cd swift-t-0.9.0/
+ 1262  ls
+ 1263  vi dev/build/swift-t-settings.sh
+ 1264  pw
+ 1265  pwd
+ 1266  vi dev/build/swift-t-settings.sh
+ 1267  cp dev/build/swift-t-settings.sh dev/build/swift-t-settings-copy-old-remove-ifsafe.sh
+ 1268  vi dev/build/swift-t-settings.sh
+ 1269  ./dev/build/build-all.sh 
+ 1270  ls
+ 1271  pwd
+ 1272  vi ~/.profile
+ 1273  stc
+ 1274  source ~/.profile
+ 1275  stc
+ 1276  swift
+ 1277  swift-t
+ 1278  swift-t -h
+ 1279  stc -h
+ 1280  turbin -h
+ 1281  turbine -h
+ 1282  cd ~/swift-project/
+ 1283  ls
+ 1284  ls swift-t-0.9.0/
+ 1285  rm -rf swift-t-0.9.0/
+ 1286  ls
+ 1287  swift
+ 1288  ls
+ 1289  swift-t
+ 1290  ls
+ 1291  mkdir testingCode
+ 1292  cd testingCode/
+ 1293  vi hello.swift
+ 1294  swift-t hello.swift 
+ 1295  swift hello.swift 
+ 1296  ls
+ 1297  swift-t hello.swift 
+ 1298  stc hello.swift 
+ 1299  ls
+ 1300  turbine hello.tic 
+ 1301  swift hello.swift 
+ 1302  vi hello.
+ 1303  vi hello.swift 
+ 1304  swift hello.swift 
+ 1305  swift-t hello.swift 
+ 1306  ls 
+ 1307  rm hello.tic 
+ 1308  vi hello.swift 
+ 1309  swift-t hello.swift 
+ 1310  vi hello.swift 
+ 1311  sudo shutdown -P now
+ 1312  ls
+ 1313  cd swift-project/
+ 1314  ls
+ 1315  cd Swift-Variant-Calling/
+ 1316  ls
+ 1317  cd ..
+ 1318  cd testingCode/
+ 1319  ls
+ 1320  vi hello.swift 
+ 1321  swift-t hello.swift 
+ 1322  vi hello.swift 
+ 1323  swift-t hello.swift 
+ 1324  vi hello.swift 
+ 1325  swift-t hello.swift 
+ 1326  vi hello.swift 
+ 1327  swift-t hello.swift 
+ 1328  vi hello.swift 
+ 1329  swift-t hello.swift 
+ 1330  vi hello.swift 
+ 1331  swift-t hello.swift 
+ 1332  vi hello.swift 
+ 1333  swift-t hello.swift 
+ 1334  vi hello.swift 
+ 1335  swift-t hello.swift 
+ 1336  vi hello.swift 
+ 1337  swift-t hello.swift 
+ 1338  vi hello.swift 
+ 1339  swift-t hello.swift 
+ 1340  vi hello.swift 
+ 1341  swift-t hello.swift 
+ 1342  vi hello.swift 
+ 1343  swift-t hello.swift 
+ 1344  which turbine
+ 1345  ls
+ 1346  ls /home
+ 1347  ls /home/azza/
+ 1348  cat 'my name is azza'> /home/azza/in.txt
+ 1349  echo 'my name is azza'> /home/azza/in.txt
+ 1350  vi /home/azza/in.txt 
+ 1351  cd /home/azza/
+ 1352  ls
+ 1353  vi out.txt 
+ 1354  vi in.txt 
+ 1355  rm out.txt 
+ 1356  ls
+ 1357  rm in.txt 
+ 1358  ls
+ 1359  mkdir tmp
+ 1360  cd tmp
+ 1361  touch {1..5}.txt
+ 1362  ls
+ 1363  echo hello everyone > in.txt
+ 1364  ls
+ 1365  cat *.txt
+ 1366  swift-t 
+ 1367  ls /usr/src/
+ 1368  ls /usr/local/
+ 1369  ls /usr/local/src/swift-0.96.2
+ 1370  ls /usr/local/src/swift-0.96.2/bin/
+ 1371  ls /usr/local/src/swift-0.96.2/lib
+ 1372  ls /usr/local/src/swift-0.96.2/
+ 1373  ls /usr/local/src/swift-0.96.2/libexec
+ 1374  ls /usr/local/src/swift-0.96.2/libe
+ 1375  ls /usr/local/src/swift-0.96.2/lib
+ 1376  ls /usr/local/src/swift-0.96.2/lib/perl
+ 1377  ls /usr/local/src/swift-0.96.2/lib/perl/File/
+ 1378  ls /usr/local/src/swift-0.96.2/lib/perl/Getopt/
+ 1379  ls /usr/local/src/swift-0.96.2/
+ 1380  ls /usr/local/src/swift-0.96.2/etc
+ 1381  ls /usr/local/src/swift-0.96.2/etc/templates
+ 1382  vi /usr/local/src/swift-0.96.2/etc/templates/swift.properties 
+ 1383  vi /usr/local/src/swift-0.96.2/etc/templates/
+ 1384  ls /usr/local/src/swift-0.96.2/etc/templates/
+ 1385  ls /usr/local/src/swift-0.96.2/etc/provenance/
+ 1386  ls /usr/local/src/swift-0.96.2/etc/sites/
+ 1387  ls /usr/local/src/swift-0.96.2/etc/licenses/
+ 1388  ls /usr/local/src/swift-0.96.2/
+ 1389  ls /usr/local/src/swift-0.96.2/bin
+ 1390  vi /usr/local/src/swift-0.96.2/bin/apptimes 
+ 1391  find /usr/local/src/swift-0.96.2/ -name "std"
+ 1392  echo EXINIT
+ 1393  echo $EXINIT
+ 1394  echo $exinit
+ 1395  export EXINIT="set number"
+ 1396  ls
+ 1397  vi in.txt 
+ 1398  vi ~/.profile 
+ 1399  source ~/.profile 
+ 1400  vi in.txt 
+ 1401  vi ~/.exrc
+ 1402  vi .exrc
+ 1403  vi ~/.exrc
+ 1404  vi in.txt 
+ 1405  vi ~/.exrc
+ 1406  source ~/.exrc
+ 1407  vi in.txt 
+ 1408  more ~/.vi_help
+ 1409  vi  ~/.vi_help
+ 1410  vi in.txt 
+ 1411  source ~/.vi_help 
+ 1412  source ~/.exrc
+ 1413  vi in.txt 
+ 1414  vi /etc/vim/vimrc
+ 1415  sudo vi /etc/vim/vimrc
+ 1416  whcih swift
+ 1417  which swift
+ 1418  cd /usr/local/src/swift-0.96.2/
+ 1419  find -name io.swift
+ 1420  find . -name io.swift
+ 1421  find / -name io.swift
+ 1422  sudo find / -name io.swift
+ 1423  vi /usr/local/src/swift-t-0.9.0/turbine/export/io.swift
+ 1424  vi /usr/local/src/swift-t-0.9.0/turbine/code/export/io.swift
+ 1425  exit
+ 1426  swift-t align.swift 
+ 1427  which bwa
+ 1428  /usr/bin/bwa mem
+ 1429  pwd
+ 1430  ls
+ 1431  exit
+ 1432  vi /home/azza/in.txt
+ 1433  exit
+ 1434  cd ..
+ 1435  ls
+ 1436  vi HgG0.lowcoverage.chr2.parameters 
+ 1437  sed 's/=//' HgG0.lowcoverage.chr2.parameters 
+ 1438  sed 's/=*//' HgG0.lowcoverage.chr2.parameters 
+ 1439  sed 's/=//' HgG0.lowcoverage.chr2.parameters 
+ 1440  sed 's/=*//' HgG0.lowcoverage.chr2.parameters 
+ 1441  sed 's/\=*//' HgG0.lowcoverage.chr2.parameters 
+ 1442  sed 's/=\/*//' HgG0.lowcoverage.chr2.parameters 
+ 1443  sed 's/=\///' HgG0.lowcoverage.chr2.parameters 
+ 1444  sed 's/=//' HgG0.lowcoverage.chr2.parameters 
+ 1445  sed 's/=.*$//' HgG0.lowcoverage.chr2.parameters 
+ 1446  exit
+ 1447  cd swift-project/
+ 1448  ls
+ 1449  rm -rf run00*
+ 1450  ls
+ 1451  cd testingCode/
+ 1452  ls
+ 1453  vi hello.swift 
+ 1454  swift hello.swift 
+ 1455  vi hello.swift 
+ 1456  swift hello.swift 
+ 1457  swift-t hello.swift 
+ 1458  vi hello.swift 
+ 1459  swift-t hello.swift 
+ 1460  vi hello.swift 
+ 1461  swift-t hello.swift 
+ 1462  vi hello.swift 
+ 1463  swift-t hello.swift 
+ 1464  vi hello.swift 
+ 1465  swift-t hello.swift 
+ 1466  vi hello.swift 
+ 1467  swift-t hello.swift 
+ 1468  vi hello.swift 
+ 1469  cd ..
+ 1470  ls
+ 1471  cd Swift-Variant-Calling/
+ 1472  ls
+ 1473  swift-t runfile.swift
+ 1474  vi runfile.swift
+ 1475  git pull
+ 1476  ls
+ 1477  vi runfile.swift 
+ 1478  ls
+ 1479  ls -a
+ 1480  vi runfile.swift 
+ 1481  vi runFile.swift
+ 1482  ls
+ 1483  git pull
+ 1484  ls
+ 1485  git pull
+ 1486  ls
+ 1487  vi runfile.swift 
+ 1488  rm runfile.swift 
+ 1489  vi align.swift 
+ 1490  swift-t align.swift 
+ 1491  vi align.swift 
+ 1492  swift-t align.swift 
+ 1493  vi align.swift 
+ 1494  bwa
+ 1495  vi align.swift 
+ 1496  swift-t align.swift 
+ 1497  bwa
+ 1498  swift-t align.swift 
+ 1499  vi align.swift 
+ 1500  cd ..
+ 1501  ls
+ 1502  cd testingCode/
+ 1503  ls
+ 1504  vi hello.swift 
+ 1505  cd ../Swift-Variant-Calling/
+ 1506  ls
+ 1507  vi align.swift 
+ 1508  git branch
+ 1509  git pull
+ 1510  git branch
+ 1511  git checkout Swift-T
+ 1512  git branch
+ 1513  ls
+ 1514  vi align.swift 
+ 1515  rm swift-t-align.*
+ 1516  ls
+ 1517  vi align.swift 
+ 1518  swift-t align.swift --params HgG0.lowcoverage.chr2.parameters 
+ 1519  vi align.swift 
+ 1520  swift-t align.swift --params HgG0.lowcoverage.chr2.parameters 
+ 1521  vi align.swift 
+ 1522  swift-t align.swift --params HgG0.lowcoverage.chr2.parameters 
+ 1523  vi align.swift 
+ 1524  swift-t align.swift --params HgG0.lowcoverage.chr2.parameters 
+ 1525  vi align.swift 
+ 1526  swift-t align.swift --params HgG0.lowcoverage.chr2.parameters 
+ 1527  vi align.swift 
+ 1528  swift-t align.swift --params HgG0.lowcoverage.chr2.parameters 
+ 1529  vi align.swift 
+ 1530  swift-t align.swift --params HgG0.lowcoverage.chr2.parameters 
+ 1531  vi align.swift 
+ 1532  swift-t align.swift --params HgG0.lowcoverage.chr2.parameters 
+ 1533  vi align.swift 
+ 1534  swift-t align.swift --params HgG0.lowcoverage.chr2.parameters 
+ 1535  swift-t align.swift
+ 1536  vi align.swift 
+ 1537  swift-t align.swift
+ 1538  swift-t align.swift --params HgG0.lowcoverage.chr2.parameters 
+ 1539  vi align.swift 
+ 1540  vi align.swift 
+ 1541  swift-t align.swift 
+ 1542  vi align.swift 
+ 1543  swift-t align.swift 
+ 1544  vi align.swift 
+ 1545  swift-t align.swift 
+ 1546  vi /home/azza/swift-project/Swift-Variant-Calling/HgG0.lowcoverage.chr2.parameters 
+ 1547  swift-t align.swift 
+ 1548  vi align.swift 
+ 1549  swift-t align.swift 
+ 1550  vi align.swift 
+ 1551  swift-t align.swift 
+ 1552  vi align.swift 
+ 1553  swift-t align.swift 
+ 1554  vi align.swift 
+ 1555  swift-t align.swift 
+ 1556  vi align.swift 
+ 1557  swift-t align.swift 
+ 1558  vi align.swift 
+ 1559  swift-t align.swift 
+ 1560  vi align.swift 
+ 1561  swift-t align.swift 
+ 1562  vi align.swift 
+ 1563  swift-t align.swift 
+ 1564  vi align.swift 
+ 1565  swift-t align.swift 
+ 1566  vi align.swift 
+ 1567  swift-t align.swift 
+ 1568  vi align.swift 
+ 1569  source ~/.profile 
+ 1570  vi align.swift 
+ 1571  source /etc/vim/vimrc
+ 1572  vi align.swift 
+ 1573  source $VIMRUNTIME/vimrc_example.vim
+ 1574  sudo chown azza:azza ~/.viminfo
+ 1575  source ~/.viminfo
+ 1576  vi align.swift 
+ 1577  swift-t align.swift
+ 1578  vi align.swift 
+ 1579  swift-t align.swift
+ 1580  vi align.swift 
+ 1581  git branch
+ 1582  git add .
+ 1583  git commit -am 'reading parameters attempt'
+ 1584  git push
+ 1585  exit
+ 1586  cd ../tmp
+ 1587  cd ..
+ 1588  ls
+ 1589  cd testingCode/
+ 1590  vi hello.swift 
+ 1591  exi
+ 1592  exit
+ 1593  ls
+ 1594  cd Bash/
+ 1595  ls
+ 1596  vi fileparser.sh 
+ 1597  cp fileparser.sh fileparser_swift_t.sh 
+ 1598  vi fileparser_swift_t.sh 
+ 1599  ./fileparser_swift_t.sh ../HgG0.lowcoverage.chr2.parameters 
+ 1600  ls
+ 1601  vi cleanFile 
+ 1602  rm cleanFile 
+ 1603  ls
+ 1604  chmod +x bwa_samtools_pipe.sh 
+ 1605  ls
+ 1606  cd ..
+ 1607  ls
+ 1608  ls Bash/
+ 1609  pwd
+ 1610  cp Bash/fileparser_swift_t.sh Bash/fileparser_swift_t_content.sh 
+ 1611  mv Bash/fileparser_swift_t.sh Bash/fileparser_swift_t_params.sh
+ 1612  vi Bash/fileparser_swift_t_content.sh 
+ 1613  ./Bash/fileparser_swift_t_content.sh HgG0.lowcoverage.chr2.parameters 
+ 1614  ./Bash/fileparser_swift_t_params.sh HgG0.lowcoverage.chr2.parameters 
+ 1615  cat HgG0.lowcoverage.chr2.parameters 
+ 1616  ls
+ 1617  rm cleanFile 
+ 1618  ls Bash/
+ 1619  pwd
+ 1620  ls Bash/
+ 1621  exit
+ 1622  sed 's/=//' HgG0.lowcoverage.chr2.parameters 
+ 1623  sed 's/^*=//' HgG0.lowcoverage.chr2.parameters 
+ 1624  sed 's/^*.=//' HgG0.lowcoverage.chr2.parameters 
+ 1625  sed 's/=//' HgG0.lowcoverage.chr2.parameters 
+ 1626  sed 's/^=//' HgG0.lowcoverage.chr2.parameters 
+ 1627  sed 's/^*=//' HgG0.lowcoverage.chr2.parameters 
+ 1628  sed 's/^.*=//' HgG0.lowcoverage.chr2.parameters 
+ 1629  sed 's/^.*=//' HgG0.lowcoverage.chr2.parameters exit
+ 1630  exit
+ 1631  swift-t hello.swift 
+ 1632  exit
+ 1633  ll -htr
+ 1634  exit
+ 1635  ll -htr
+ 1636  exit
+ 1637  evince /CO3 &CO8 mechanical material submittals/1003-CCC-QPM-T-02656-00-V00-(Operration-&-maintenance-manual-for-sewage-treatment-plant-(CORODEX).pdf
+ 1638  ./mechanical information/sanitary fixtures/plastics/plumbing/ADSSC Final Issue April 08 - pdf files/Technical Data Sheets for Mechanical Works/M-26-15250-Vacuum sewage systems-Version 1.0.pdf
+ 1639  evince /mechanical information/sanitary fixtures/plastics/plumbing/ADSSC Final Issue April 08 - pdf files/Technical Data Sheets for Mechanical Works/M-26-15250-Vacuum sewage systems-Version 1.0.pdf
+ 1640  evince /mechanical\ information/sanitary\ fixtures/plastics/plumbing/ADSSC\ Final\ Issue\ April\ 08\ \-\ pdf\ files/Technical\ Data\ Sheets\ for\ Mechanical\ Works/M-26-15250-Vacuum\ sewage\ systems-Version\ 1.0.pdf
+ 1641  evince /mechanical\ information/sanitary\ fixtures/plastics/plumbing/ADSSC\ Final\ Issue\ April\ 08\ \-\ pdf\ files/Technical\ Data\ Sheets\ for\ Mechanical\ Works/M-26-15250-Vacuum\ sewage\ systems\-Version\ 1.0.pdf
+ 1642  ./mechanical information/sanitary fixtures/plastics/plumbing/ADSSC Final Issue April 08 - pdf files/Technical Data Sheets for Mechanical Works/M-26-15250-Vacuum sewage systems-Version 1.0.pdf
+ 1643  /CO3 &CO8 mechanical material submittals/1003-CCC-QPM-T-02656-00-V00-(Operration-&-maintenance-manual-for-sewage-treatment-plant-(CORODEX).pdf
+ 1644  exit
+ 1645  ls *sew*
+ 1646  pwd
+ 1647  cd ..
+ 1648  pwd
+ 1649  ls
+ 1650  find . -name *sew*
+ 1651  exit
+ 1652  ls *stp*
+ 1653  ls *sew*
+ 1654  ls | grep sew
+ 1655  ls *sew*
+ 1656  exit
+ 1657  pwd
+ 1658  exit
+ 1659  pwd
+ 1660  exit
+ 1661  pwd
+ 1662  exit
+ 1663  swift-t align.swift --params=HgG0.lowcoverage.chr2.parameters-azza
+ 1664  exit
+ 1665  ls
+ 1666  vi HgG0.lowcoverage.chr2.parameters-azza 
+ 1667  exit
+ 1668  ls /home/azza/swift-project/Dataset/HgG0.lowcoverage.chr2.sampleinfo
+ 1669  exit
+ 1670  pwd
+ 1671  exit
+ 1672  ls /home/azza/swift-project/Dataset/HgG0.lowcoverage.chr20.sampleinfo
+ 1673  exit
+ 1674  ls /home/azza/swift-project/Dataset/HG00108.lowcoverage.chr20.smallregion_1.fastq
+ 1675  vi HgG0.lowcoverage.chr20.parameters-azza
+ 1676  ls /home/azza/swift-project/Results
+ 1677  ls /home/azza/swift-project/Results/align/
+ 1678  ll -htr /home/azza/swift-project/Results/align/
+ 1679  rm /home/azza/swift-project/Results/align/HG00108.lowcoverage.chr20.smallregion.nodups.bam 
+ 1680  ll -htr /home/azza/swift-project/Results/align/
+ 1681  ls
+ 1682  exit
+ 1683  vi HgG0.lowcoverage.chr2.parameters
+ 1684  swift-t align.swift --runfile=HgG0.lowcoverage.chr2.parameters-azza
+ 1685  vi HgG0.lowcoverage.chr2.parameters
+ 1686  swift-t align.swift --runfile=HgG0.lowcoverage.chr2.parameters-azza
+ 1687  vi HgG0.lowcoverage.chr2.parameters
+ 1688  swift-t align.swift --runfile=HgG0.lowcoverage.chr2.parameters-azza
+ 1689  vi HgG0.lowcoverage.chr2.parameters
+ 1690  vi HgG0.lowcoverage.chr2.parameters-azza 
+ 1691  swift-t align.swift --runfile=HgG0.lowcoverage.chr2.parameters-azza
+ 1692  swift-t align.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza
+ 1693  git branch
+ 1694  ls
+ 1695  rm HgG0.lowcoverage.chr20.parameters-azza~
+ 1696  rm HgG0.lowcoverage.chr2.parameters-azza~ 
+ 1697  ls
+ 1698  ls Bash/
+ 1699  ls
+ 1700  chmod +x *
+ 1701  ls
+ 1702  swift-t align.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza
+ 1703  swift-t align.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza 
+ 1704  swift-t align.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza exit
+ 1705  exit
+ 1706  which bwa
+ 1707  exit
+ 1708  pwd
+ 1709  exit
+ 1710  /usr/bin/bwa mem /home/azza/swift-project/genome/human /home/azza/swift-project/Dataset/HG00108.lowcoverage.chr20.smallregion_1.fastq /home/azza/swift-project/Dataset/HG00108.lowcoverage.chr20.smallregion_2.fastq 
+ 1711  exit
+ 1712  bwa
+ 1713  /usr/bin/bwa
+ 1714  /usr/bin/bwa mem
+ 1715  exit
+ 1716  vi HG00108.lowcoverage.chr20.smallregion.nodups.sam 
+ 1717  exit
+ 1718  vi HG00108.lowcoverage.chr20.smallregion.nodups.sam 
+ 1719  exit
+ 1720  ls
+ 1721  vi HgG0.lowcoverage.chr20.parameters-azza 
+ 1722  exit
+ 1723  vi HG00108.lowcoverage.chr20.smallregion.nodups.sam 
+ 1724  exit
+ 1725  pwd
+ 1726  exit
+ 1727  cd swift-project/
+ 1728  cd Swift-Variant-Calling/
+ 1729  ls
+ 1730  git branch
+ 1731  ls
+ 1732  vi swift-t-HgG0.lowcoverage.chr2.parameters.vmx.tic 
+ 1733  vi swift-t-align.CT7.tic 
+ 1734  vi swift-t-align.Ivb.tic 
+ 1735  ls swift-t*
+ 1736  rm swift-t*
+ 1737  ls
+ 1738  vi swift.config 
+ 1739  rm swift.config 
+ 1740  ls
+ 1741  vi align.swift 
+ 1742  ls -a
+ 1743  rm .align.swift.swp 
+ 1744  ls -a
+ 1745  ls
+ 1746  vi align.swift 
+ 1747  swift-t align.swift --runfile=HgG0.lowcoverage.chr2.parameters-azza
+ 1748  vi align.swift 
+ 1749  exit
+ 1750  cd /home/azza/swift-project/Results/align
+ 1751  vi HG00108.lowcoverage.chr20.smallregion.nodups.sam 
+ 1752  ls
+ 1753  ls -htr
+ 1754  ll -htr
+ 1755  vi HG00108.lowcoverage.chr20.smallregion.nodups.sam 
+ 1756  ls
+ 1757  ll -htr
+ 1758  samtools view -h HG00108.lowcoverage.chr20.smallregion.nodups.bam 
+ 1759  samtools view -h HG00108.lowcoverage.chr20.smallregion.nodups.bam | less
+ 1760  samtools view -h HG00108.lowcoverage.chr20.smallregion.nodups.bam | wc -l
+ 1761  wc -l HG00108.lowcoverage.chr20.smallregion.nodups.sam 
+ 1762  exit
+ 1763  ls /home/azza/swift-project/genome/human
+ 1764  ls /home/azza/swift-project/genome/human*
+ 1765  ls /home/azza/swift-project/genome/
+ 1766  ls /home/azza/swift-project/genome/ucsc.hg19.fasta
+ 1767  ls /home/azza/swift-project/genome/dbsnp_138.hg19.vcf
+ 1768  swift-t align.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza
+ 1769  ls
+ 1770  rm HgG0.lowcoverage.chr20.parameters-azza~
+ 1771  ls
+ 1772  swift-t align.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza
+ 1773  swift-t align.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza > run.log
+ 1774  vi run.log 
+ 1775  swift-t align.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza > run.log
+ 1776  vi run.log 
+ 1777  swift-t align.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza 
+ 1778  which echo
+ 1779  swift-t align.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza 
+ 1780  vi HgG0.lowcoverage.chr20.parameters-azza 
+ 1781  swift-t align.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza 
+ 1782  history|tail
+ 1783  ls
+ 1784  ls Bash/
+ 1785  exit
+ 1786  vi Bash/align_dedup.sh 
+ 1787  rm Bash/align_dedup.sh 
+ 1788  vi Bash/align_dedup.sh 
+ 1789  rm Bash/align_dedup.sh 
+ 1790  vi Bash/align_dedup.sh 
+ 1791  vi Bash/realign_varcall_by_chr.sh
+ 1792  git add .
+ 1793  git commit -am 'adding basic bash scripts'
+ 1794  git push
+ 1795  exit
+ 1796  vi Bash/align_dedup.sh 
+ 1797  vi Bash/realign_varcall_by_chr.sh 
+ 1798  vi Bash/start.sh 
+ 1799  exit
+ 1800  vi Bash/start.sh 
+ 1801  exit
+ 1802  cd /usr/local/src
+ 1803  sudo git clone git://github.com/GregoryFaust/samblaster.git
+ 1804  ll -htr samblaster/
+ 1805  sudo ll -htr samblaster/
+ 1806  sudo ls -laht samblaster/
+ 1807  umask 0027
+ 1808  sudo chown -R azza:azza samblaster/
+ 1809  cd samblaster/
+ 1810  ls
+ 1811  make
+ 1812  cp samblaster /usr/local/bin
+ 1813  sudo cp samblaster /usr/local/bin
+ 1814  ls
+ 1815  cd ..
+ 1816  samblaster
+ 1817  cd samblaster/
+ 1818  ./samblaster 
+ 1819  cd ..
+ 1820  sudo rm samblaster/
+ 1821  ls
+ 1822  samblaster
+ 1823  ll -htr /usr/local/bin
+ 1824  samblaster
+ 1825  sudo samblaster
+ 1826  tabix
+ 1827  ll -htr /usr/local/bin
+ 1828  sudo chmod a+x samblaster
+ 1829  samblaster
+ 1830  ll -htr samblaster/
+ 1831  sudo chmod o+x samblaster
+ 1832  ll -htr samblaster/
+ 1833  ls
+ 1834  cd ..
+ 1835  ls
+ 1836  samblaster
+ 1837  ls /usr/local/bin
+ 1838  ll -htr /usr/local/bin
+ 1839  sudo chmod a+x /usr/local/bin/samblaster 
+ 1840  samblaster
+ 1841  exit
+ 1842  ls 
+ 1843  ls | sort
+ 1844  ls -tr 
+ 1845  ls -tr1 
+ 1846  ls -tr1 | sort
+ 1847  vi test.swift
+ 1848  exit
+ 1849  vi test.swift 
+ 1850  exit
+ 1851  vi test.swift 
+ 1852  cd ../testingCode/
+ 1853  ls
+ 1854  vi t1.swift 
+ 1855  vi t2.swift 
+ 1856  vi t3.swift 
+ 1857  exit
+ 1858  vi Bash/align_dedup.sh 
+ 1859  exit
+ 1860  cd ~/swift-project/Swift-Variant-Calling/
+ 1861  git branch
+ 1862  git add .
+ 1863  git status
+ 1864  git commit -am 'Alignment working for swift/t'
+ 1865  git push
+ 1866  vi align.swift 
+ 1867  cp align.swift align_piping.swift 
+ 1868  vi align_piping.swift 
+ 1869  rm align_piping.swift 
+ 1870  vi align.swift 
+ 1871  git add .
+ 1872  git commit -am "adding alignment options"
+ 1873  git push
+ 1874  ls
+ 1875  git branch
+ 1876  git push
+ 1877  git commit -am "adding alignment options"
+ 1878  git status
+ 1879  git push
+ 1880  exit
+ 1881  cd /usr/src
+ 1882  ls
+ 1883  cd /usr/local/src
+ 1884  ls
+ 1885  mv ~/Downloads/novocraftV3.04.06.Linux3.0.tar.gz 
+ 1886  sudo mv ~/Downloads/novocraftV3.04.06.Linux3.0.tar.gz 
+ 1887  sudo mv ~/Downloads/novocraftV3.04.06.Linux3.0.tar.gz .
+ 1888  ls
+ 1889  sudo tar xvzf novocraftV3.04.06.Linux3.0.tar.gz 
+ 1890  ls
+ 1891  cd novocraft/
+ 1892  ll -htr
+ 1893  chown -R azza:azza novocraft
+ 1894  sudo chown -R azza:azza novocraft
+ 1895  ll -htr
+ 1896  cd novocraft/
+ 1897  ls
+ 1898  ./novoalign
+ 1899  pwd
+ 1900  ls
+ 1901  ssh hpcbiointern01@biocluster.igb.edu
+ 1902  ssh hpcbiointern01@biocluster.igb.illinois.edu
+ 1903  exit
+ 1904  ./Zain.sh 
+ 1905  exit
+ 1906  vi HgG0.lowcoverage.chr20.parameters-azza 
+ 1907  exit
+ 1908  ssh hpcbiointern01@biocluster.igb.illinois.edu
+ 1909  novoalign
+ 1910  /usr/local/src/novocraft/novoindex 
+ 1911  /usr/local/src/novocraft/novoindex ucsc.human.local.nix 
+ 1912  pwd
+ 1913  ls
+ 1914  /usr/local/src/novocraft/novoindex ucsc.human.local.nix ucsc.hg19.fasta
+ 1915  exit
+ 1916  scp hpcbiointern01@biocluster.igb.illinois.edu:/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.human.nix /home/azza/swift-project/genome/
+ 1917  cd swift-project/
+ 1918  ls
+ 1919  cd Swift-Variant-Calling/
+ 1920  ls
+ 1921  rm HgG0.lowcoverage.chr20.parameters-azza~
+ 1922  ls
+ 1923  vi align.swift 
+ 1924  exit
+ 1925  picard
+ 1926  ls /usr/src
+ 1927  ls /usr/local/src
+ 1928  sudo apt-get install picard
+ 1929  picard
+ 1930  sudo apt-get --purge remove picard
+ 1931  sudo apt-get install picard-tools
+ 1932  picard-tools 
+ 1933  picard-tools --help
+ 1934  man picard-tools 
+ 1935  which picard-tools 
+ 1936  ls /usr/bin/picard-tools 
+ 1937  ls /usr/bin/picard-tools/
+ 1938  ls /usr/bin/
+ 1939  which picard-tools
+ 1940  sudo apt-get --purge remove picard-tools
+ 1941  cd /usr/local/src
+ 1942  sudo git clone git@github.com:broadinstitute/picard.git
+ 1943  ls
+ 1944  git clone git@github.com:broadinstitute/picard.git
+ 1945  ls
+ 1946  cd picard/
+ 1947  ls
+ 1948  ./gradlew 
+ 1949  ./gradlew shadowJar
+ 1950  ls
+ 1951  ls build
+ 1952  java -jar build/libs/picard-2.5.0-gradle-17-g960bc00-SNAPSHOT-all.jar 
+ 1953  picard
+ 1954  exit
+ 1955  cd ..
+ 1956  cd testingCode/
+ 1957  ls
+ 1958  vi t6.swift
+ 1959  sudo shoutdown -P now
+ 1960  sudo shutdown -P now
+ 1961  exit
+ 1962  ls Downloads/
+ 1963  rm Downloads/Shelby\,\ Azza\,\ Carleigh\ -\ FISK\ \&\ H3Africa\ 6.14.16.zip 
+ 1964  ls Downloads/GenomeAnalysisTK-3.6.tar.bz2 
+ 1965  sudo scp /home/azza/Downloads/GenomeAnalysisTK-3.6.tar.bz2 aeahmed@41.67.20.56:~
+ 1966  sudo ssh aeahmed@41.67.20.56
+ 1967  exit
+ 1968  sudo ssh aeahmed@41.67.20.56
+ 1969  exit
+ 1970  ls
+ 1971  vi test.swift 
+ 1972  vi tmp.swif
+ 1973  exit
+ 1974  cd swift-project/
+ 1975  cd Swift-Variant-Calling/
+ 1976  ls
+ 1977  vi align.swift 
+ 1978  ls -a
+ 1979  cp .align.swift.swp ..
+ 1980  ls -a
+ 1981  rm .align.swift.swp ..
+ 1982  rm .align.swift.swp
+ 1983  ls
+ 1984  vi align.swift 
+ 1985  exit
+ 1986  which picard
+ 1987  ls /usr/local/src
+ 1988  ls /usr/src
+ 1989  ls /usr/local/src/picard/
+ 1990  ls /usr/local/src/picard/build
+ 1991  ls /usr/local/src/picard/build/libs/
+ 1992  java -jar /usr/local/src/picard/build/libs/picard-2.5.0-gradle-17-g960bc00-SNAPSHOT-all.jar 
+ 1993  exit
+ 1994  vi ~/.bashrc 
+ 1995  history >hist

@@ -1,0 +1,10 @@
+app (file output) picard (string read1, string read2, string INDEX, string bwam
+         "/usr/bin/bwa" "mem" "-M" bwamemparams "-t" PBSCORES "-R" rgheader
+ }
+
+
+$javadir/java -Xmx8g -Djava.io.tmpdir=$tmpdir -jar $picardir/picard.jar  Mar
+  INPUT=$alignedsortedbam OUTPUT=$dedupsortedbam TMP_DIR=$tmpdir \
+  ASSUME_SORTED=true MAX_RECORDS_IN_RAM=null CREATE_INDEX=true \
+  METRICS_FILE=${SampleName}.picard.metrics \
+  VALIDATION_STRINGENCY=SILENT
