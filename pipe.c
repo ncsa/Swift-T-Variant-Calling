@@ -6,23 +6,18 @@
 #include <stdio.h> 
 #include <string.h>
 
-
 #define OK       0
 #define NO_INPUT 1
 #define TOO_LONG 2
 #define CMD_LENGTH 30
 
-
 void runpipe(); 
 static int getLine (char *buff, size_t sz) ;
-
 
 int main(int argc, char **argv) 
 {
 	int pid, status; 
 	int fd[2]; 
-//	char *cmd1[] = { "/bin/ls", "-al", "/", 0 }; 
-//	char *cmd2[] = { "/usr/bin/tr", "a-z", "A-Z", 0 }; 
 // reading user's commands:
         int rc;
 //        char cmd1[CMD_LENGTH], cmd2[CMD_LENGTH] ;
@@ -34,7 +29,7 @@ int main(int argc, char **argv)
 	pipe(fd); 
 	switch (pid = fork()) { 
 		case 0: /* child */ 
-			runpipe(fd, &cmd1, &cmd2); 
+			runpipe(fd, cmd1, cmd2); 
 			exit(0); 
 		default: /* parent */ 
 			while ((pid = wait(&status)) != -1) 
@@ -48,7 +43,7 @@ int main(int argc, char **argv)
 }
 
 
-void runpipe(int pfd[], char *cmd1, char *cmd2) {
+void runpipe(int pfd[], char *cmd1[], char *cmd2[]) {
      	int pid; 
 	switch (pid = fork()) { 
 	       	case 0: /* child */ 
