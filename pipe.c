@@ -22,11 +22,8 @@ int main(int argc, char **argv)
 	int fd[2]; 
 // reading user's commands:
         int rc;
-//        char cmd1[CMD_LENGTH], cmd2[CMD_LENGTH] ;
-	char *cmd1[] = {argv[1],argv[2],argv[3]};// { "/bin/ls", "-al", "/", 0 };
-	char *cmd2[] = {argv[4]} ;// { "/usr/bin/tr", "a-z", "A-Z", 0 };
-//        rc = getLine (cmd2, sizeof(cmd2));                
-///  	printf("%s",&cmd1[0])      ;
+	char *cmd1[] = {argv[1],argv[2],argv[3]};
+	char *cmd2[] = {argv[4]} ;
 	pipe(fd); 
 	switch (pid = fork()) { 
 		case 0: /* child */ 
