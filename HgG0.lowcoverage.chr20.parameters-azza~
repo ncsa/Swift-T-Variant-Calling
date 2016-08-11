@@ -46,8 +46,8 @@ OMNI=1000G_omni2.5.hg19.sites.vcf
 DELIVERYFOLDER=delivery
 
 # Programs to be used:
-JAVADIR=/usr/lib/jvm/java-8-oracle/jre/bin/java
-PICARDDIR=/usr/local/src/picard/build/libs/picard-2.5.0-gradle-17-g960bc00-SNAPSHOT-all.jar
+javadir = "/usr/lib/jvm/java-8-oracle/jre/bin/java"
+picarddir = "/usr/local/src/picard/build/libs/picard-2.5.0-gradle-17-g960bc00-SNAPSHOT-all.jar"
 
 
 ## pbs resources
