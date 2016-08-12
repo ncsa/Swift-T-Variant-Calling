@@ -18,12 +18,12 @@ int main(int argc, char *argv[] )
 	int fd[2];
 
 	// reading user's commands
-	char *cmd1[ *(argv[1]) ];
-	char *cmd2[ *(argv[2]) ];
+	char *cmd1[ atoi(argv[1]) ];
+	char *cmd2[ atoi(argv[2]) ];
 	printf("\n number of parameters = %d", argc);
 //	printf("\n\n cmd1 is %s \t\t", *cmd1 );
-	printf("\nsize of cmd1 %s", argv[1] );
-	int x =  *argv[1];
+	printf("\nsize of cmd1 %d", atoi(argv[1]) );
+	int x =  atoi(argv[1]);
 	printf("\t\t\t, x is %d\t\t\t\t\t\t\t\t\t\n",x);
 
 //	printf("\n\n cmd2 is %s \t\t", *cmd2);
