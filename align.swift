@@ -26,6 +26,11 @@ app (file output) samtools.view(string inputFilename, int thr, string u){
 }
 
 @dispatch=WORKER
+app () samtools.index(string inputFilename) {
+	"samtools" "index" inputFilename
+}
+
+@dispatch=WORKER
 app (file output) novosort (string inputFilename, string tmpdir, int thr, string sortoptions){
 	"novosort" "--index" "--tmpdir" tmpdir "--threads" thr sortoptions inputFilename "-o" output;
 }
@@ -43,6 +48,9 @@ app (file output) touch (string input){
         "touch" input;
 }
 
+app (file output) find (string dir, string pattern){
+	"/usr/bin/find" dir "-name" pattern @stdout=output;
+}
 
 ///////////////////////////////// Reading the runfile parameters:
 (string data[string]) getConfigVariables(string lines[])
@@ -89,6 +97,7 @@ foreach sample in sampleLines{
 	file metricsfile <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".picard.metrics")>;
 	file flagstats <strcat(filename(dedupsortedbam), ".flagstats">;
 
+
 	switch(vars["MARKDUPLICATESTOOL"]){
 		case "SAMBLASTER":
 			alignedsam = bwa(read1, read2, vars["BWAINDEX"], vars["BWAMEMPARAMS"], string2int(vars["PBSCORES"]), rgheader);
@@ -120,7 +129,23 @@ foreach sample in sampleLines{
 
 	///////////////// Alignment QC (per sample):
 	//start from line 568 in align_dedup.sh
+	
+	foreach chr in vars["CHRNAMES"] {	
+		file chrdedupsortedbam <strcat(sample,".",chr,".wdups.sorted.bam")>;
+		// file chrdedupsortedbamindex <strcat(sample,".",chr,".wdups.sorted.bam")>;
+		chrdedupsortedbam = samtools.view(filename(dedupsortedbam), string2int(vars["PBSCORES"]), strcat("-u -h"," ", chr));
+				    samtools.index(filename(chrdedupsortedbam));
+		
+		recalparms2=$( find ${PWD} -name "${chr}.*.vcf" | sed "s/^/ --knownSites /g" | tr "\n" " " )
 
+		string recalparms2= find(vars["REFGENOMEDIR"]/vars["INDELDIR"], strcat(chr,".*.vcf"))
+		strcat("--knownSites",)
+
+
+
+
+
+	}
 
 }
 
