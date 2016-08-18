@@ -15,8 +15,9 @@ app (file output) bwa (string bwadir, string read1, string read2, string INDEX, 
 }
 
 //@dispatch=WORKER
-app (file output) novoalign (string novoaligndir, string read1, string read2, string INDEX, string novoalignparams, int PBSCORES) {
-	novoaligndir novoalignparams "-c" PBSCORES "-d" INDEX "-f" read1 read2 @stdout=output;
+app (file output) novoalign (string novoaligndir, string read1, string read2, string INDEX, string novoalignparams, int PBSCORES, string rgheader) {
+//	novoaligndir novoalignparams "-c" PBSCORES "-d" INDEX "-f" read1 read2 "-o" "SAM" rgheader @stdout=output;
+	novoaligndir novoalignparams "-c" PBSCORES "-d" INDEX "-f" read1 read2 "-o" "SAM" rgheader @stdout=output;
 }
 
 //@dispatch=WORKER
@@ -41,7 +42,7 @@ app () samtools_index(string samtoolsdir, string inputFilename) {
 
 //@dispatch=WORKER
 app (file output) novosort (string novosortdir, file inputFilename, string tmpdir, int thr, string sortoptions){
-	novosortdir "--index" "--tmpdir" tmpdir "--threads" thr inputFilename "-o" output sortoptions;
+	novosortdir "--index" "--tmpdir" tmpdir "--threads" thr inputFilename "-o" output  sortoptions;
 }
 
 //@dispatch=WORKER
@@ -94,7 +95,7 @@ foreach sample in sampleLines{
 
 	///////////////// Alignment and deduplication (per sample):
 
-	string rgheader = sprintf("@RG\tID:%s\tLB:%s\tPL:%s\tPU:%s\tSM:%s\tCN:%s\t", sampleName, vars["SAMPLELB"], vars["SAMPLEPL"], sampleName, sampleName, vars["SAMPLECN"]);
+	string rgheader = sprintf("@RG\tID:%s\tLB:%s\tPL:%s\tPU:%s\tSM:%s\tCN:%s", sampleName, vars["SAMPLELB"], vars["SAMPLEPL"], sampleName, sampleName, vars["SAMPLECN"]);
 
 	file alignedsam <strcat(vars["TMPDIR"],"/align/", sampleName, ".nodups.sam")>;
 	file alignedbam <strcat(vars["OUTPUTDIR"],"/align/", sampleName, ".nodups.bam")>;
@@ -117,10 +118,16 @@ foreach sample in sampleLines{
 				alignedsam = bwa(vars["BWADIR"], read1, read2, vars["BWAINDEX"], vars["BWAMEMPARAMS"], string2int(vars["PBSCORES"]), rgheader);
 				alignedbam = samtools_view(vars["SAMTOOLSDIR"],alignedsam, string2int(vars["PBSCORES"]), "-u");
 	                } else {
-				alignedsam = novoalign(strcat(vars["NOVOCRAFTDIR"],"/","novoalign"), read1, read2, strcat(vars["REFGENOMEDIR"],"/",vars["NOVOALIGNINDEX"]), vars["NOVOALIGNPARAMS"], string2int(vars["PBSCORES"]));
-				alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"])," ");
+//				alignedsam = novoalign(strcat(vars["NOVOCRAFTDIR"],"/","novoalign"), read1, read2, vars["NOVOALIGNINDEX"], vars["NOVOALIGNPARAMS"], string2int(vars["PBSCORES"]), rgheader);
+				alignedsam = novoalign(strcat(vars["NOVOCRAFTDIR"],"/","novoalign"), read1, read2, vars["NOVOALIGNINDEX"], strcat("\"\""), string2int(vars["PBSCORES"]), rgheader);
+
+//				alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]),"-u ");
 			}
-			dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), strcat("--markDuplicates -r ", "\"" ,rgheader, "\"") );
+	//			dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), strcat("--markDuplicates -r ", "\"" ,rgheader, "\"") );
+//		dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), "--markDuplicates");
+
+
+
 		} else { 
 			if  (vars["MARKDUPLICATESTOOL"] == "PICARD") { 
 

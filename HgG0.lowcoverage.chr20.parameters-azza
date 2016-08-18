@@ -18,7 +18,7 @@ SAMPLECN=synthetic
 
 ## tools to be used
 MARKDUPLICATESTOOL=NOVOSORT
-ALIGNERTOOL=BWAMEM
+ALIGNERTOOL=NOVOALIGN
 SORTMERGETOOL=NOVOSORT
 
 ## alignment block parameters
@@ -27,7 +27,7 @@ NOVOALIGNPARAMS=
 CHRNAMES=chr20
 #% I really only need that for the playful dataset. later separate by :
 BWAINDEX=/home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.fa
-NOVOALIGNINDEX=
+NOVOALIGNINDEX=/home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.nix
 
 ## Quality thresholds:
 MAP_CUTOFF=95
