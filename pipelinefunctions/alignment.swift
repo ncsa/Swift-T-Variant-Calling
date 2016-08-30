@@ -6,8 +6,7 @@ app (file output) bwa (string bwadir, string read1, string read2, string INDEX, 
 
 @dispatch=WORKER
 app (file output) novoalign (string novoaligndir, string read1, string read2, string INDEX, string novoalignparams, int PBSCORES, string rgheader) {
-//	novoaligndir novoalignparams "-c" PBSCORES "-d" INDEX "-f" read1 read2 "-o" "SAM" rgheader @stdout=output;
-	novoaligndir novoalignparams "-c" PBSCORES "-d" INDEX "-f" read1 read2 "-o" "SAM" rgheader @stdout=output;
+	novoaligndir "-c" PBSCORES "-d" INDEX "-f" read1 read2 "-o" "SAM" rgheader @stdout=output; // if empty, novoalignparams causes problems,
 }
 
 @dispatch=WORKER
