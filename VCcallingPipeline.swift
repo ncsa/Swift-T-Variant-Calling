@@ -64,17 +64,11 @@ foreach sample in sampleLines{
 				alignedbam = samtools_view(vars["SAMTOOLSDIR"],alignedsam, string2int(vars["PBSCORES"]), "-u");
 	                } else {
 				alignedsam = novoalign(strcat(vars["NOVOCRAFTDIR"],"/","novoalign"), read1, read2, vars["NOVOALIGNINDEX"], vars["NOVOALIGNPARAMS"], string2int(vars["PBSCORES"]), rgheader);
-
-//				alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]),"-u ");
+				alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]),"-u");
 			}
-	//			dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), strcat("--markDuplicates -r ", "\"" ,rgheader, "\"") );
-//		dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), "--markDuplicates");
-
-
-
+				dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), strcat("--markDuplicates") );
 		} else { 
 			if  (vars["MARKDUPLICATESTOOL"] == "PICARD") { 
-
 			alignedsam = bwa(vars["BWADIR"], read1, read2, vars["BWAINDEX"], vars["BWAMEMPARAMS"], string2int(vars["PBSCORES"]), rgheader);
 			alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), "-u");
 			alignedsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam, vars["TMPDIR"], string2int(vars["PBSCORES"]), "\"\"");                  

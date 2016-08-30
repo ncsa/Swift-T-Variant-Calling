@@ -6,7 +6,7 @@ app (file output) bwa (string bwadir, string read1, string read2, string INDEX, 
 
 @dispatch=WORKER
 app (file output) novoalign (string novoaligndir, string read1, string read2, string INDEX, string novoalignparams, int PBSCORES, string rgheader) {
-	novoaligndir "-c" PBSCORES "-d" INDEX "-f" read1 read2 "-o" "SAM" rgheader @stdout=output; // if empty, novoalignparams causes problems,
+	novoaligndir "-c" PBSCORES "-d" INDEX "-f" read1 read2 "-o" "SAM" rgheader @stdout=output; // if empty, novoalignparams causes problems, so think about this
 }
 
 @dispatch=WORKER
@@ -21,7 +21,7 @@ app (file output) samblaster(string samblasterdir, string inputFilename){
 
 @dispatch=WORKER
 app (file output) novosort (string novosortdir, file inputFilename, string tmpdir, int thr, string sortoptions){
-	novosortdir "--index" "--tmpdir" tmpdir "--threads" thr inputFilename "-o" output  sortoptions;
+	novosortdir "--index" sortoptions "--tmpdir" tmpdir "--threads" thr inputFilename "-o" output;
 }
 
 @dispatch=WORKER
