@@ -46,7 +46,7 @@ OMNI=1000G_omni2.5.b37.sites.PASS.chr20.smallregion.vcf.gz
 DELIVERYFOLDER=delivery
 
 # Programs to be used:
-JAVADIR=/usr/bin/java
+JAVADIR=/usr/lib/jvm/java-8-oracle/jre/bin/java
 PICARDDIR=/usr/local/src/picard/build/libs/picard-2.5.0-gradle-17-g960bc00-SNAPSHOT-all.jar
 BWADIR=/usr/bin/bwa
 SAMBLASTERDIR=/usr/local/bin/samblaster
