@@ -2,6 +2,12 @@
 SAMPLEINFORMATION=/home/azza/swift-project/Dataset/HgG0.lowcoverage.chr20.sampleinfo
 OUTPUTDIR=/home/azza/swift-project/Results
 TMPDIR=/home/azza/swift-project/tmp
+EMAIL=aeahmed@illinois.edu
+REPORTTICKET=5747
+
+## choose the run case
+RUNMETHOD=QSUB
+ANALYSIS=REALIGN_ONLY
 
 ## input data
 INPUTFORMAT=FASTQ
@@ -37,6 +43,7 @@ DUP_CUTOFF=1
 MARKDUP=YES
 
 ## paths to input output and tools - DO NOT EDIT
+ADAPTERS=/usr/local/src/Trimmomatic-0.36/adapters/TruSeq3-PE-2.fa
 REFGENOMEDIR=/home/azza/swift-project/Workshop_low_pass/ref
 REFGENOME=human_g1k_v37_chr20.fa
 DBSNP=dbsnp_135.b37.chr20.smallregion.vcf.gz
@@ -47,6 +54,8 @@ DELIVERYFOLDER=delivery
 
 # Programs to be used:
 JAVADIR=/usr/bin/java
+FASTQCDIR=/usr/bin/fastqc
+TRIMMOMATICDIR=/usr/local/src/Trimmomatic-0.36
 PICARDDIR=/usr/local/src/picard/build/libs/picard-2.5.0-gradle-17-g960bc00-SNAPSHOT-all.jar
 BWADIR=/usr/bin/bwa
 SAMBLASTERDIR=/usr/local/bin/samblaster
@@ -56,3 +65,6 @@ NOVOCRAFTDIR=/usr/local/src/novocraft
 ## pbs resources
 PBSNODES=1
 PBSCORES=2
+PBSQUEUE=default
+PBSWALLTIME=04:00:00
+
