@@ -1,14 +1,14 @@
 #!/bin/bash
 #
-# align_dedup.sh <runfile> <SampleName> <read1> <read2> <reportticket> 
+# align_dedup.sh <runfile> <SampleName> <read1> <read2> <log.in> <log.ou> <qsub>
 # 
 redmine=hpcbio-redmine@igb.illinois.edu
 ##redmine=grendon@illinois.edu
 
 set -x
-if [ $# != 4 ]
+if [ $# != 7 ]
 then
-        MSG="Parameter mismatch. Rerun as: $0 <runfile> <SampleName> <read1> <read2> "
+        MSG="Parameter mismatch. Rerun as: $0 <runfile> <SampleName> <read1> <read2> <log.in> <log.ou> <qsub>"
         echo -e "program=$0 stopped at line=$LINENO. Reason=$MSG" | mail -s 'Variant Calling Workflow failure message' "$redmine"
         exit 1;
 fi
@@ -23,13 +23,17 @@ echo -e "#############             DECLARING VARIABLES                         #
 echo -e "#####################################################################################\n\n" >&2
 set -x        
 
-umask 0027
 echo `date`
 scriptfile=$0
 runfile=$1
 SampleName=$2
 R1=$3
 R2=$4
+elog=$5
+olog=$6
+qsubfile=$7
+LOGS="jobid:${PBS_JOBID}\nqsubfile=$qsubfile\nerrorlog=$elog\noutputlog=$olog"
+
 
 if [ ! -s $runfile ]
 then
@@ -37,6 +41,36 @@ then
     echo -e "program=$scriptfile stopped at line=$LINENO.\nReason=$MSG\n$LOGS" | mail -s "Variant Calling Workflow failure message" "$redmine"
     exit 1;
 fi
+
+reportticket=$( cat $runfile | grep -w REPORTTICKET | cut -d '=' -f2 )
+rootdir=$( cat $runfile | grep -w OUTPUTDIR | cut -d '=' -f2 )
+deliverydir=$( cat $runfile | grep -w DELIVERYFOLDER | cut -d '=' -f2 ) 
+tmpdir=$( cat $runfile | grep -w TMPDIR | cut -d '=' -f2 )
+thr=$( cat $runfile | grep -w PBSCORES | cut -d '=' -f2 )
+refdir=$( cat $runfile | grep -w REFGENOMEDIR | cut -d '=' -f2 )
+refgenome=$( cat $runfile | grep -w REFGENOME | cut -d '=' -f2 )
+indeldir=$( cat $runfile | grep -w INDELDIR | cut -d '=' -f2 )
+dbSNP=$( cat $runfile | grep -w DBSNP | cut -d '=' -f2 )
+alignertool=$( cat $runfile | grep -w ALIGNERTOOL | cut -d '=' -f2  )
+bwamemdir=$( cat $runfile | grep -w BWAMEMDIR | cut -d '=' -f2  )
+novocraftdir=$( cat $runfile | grep -w NOVOCRAFTDIR | cut -d '=' -f2  )
+bwamem_parms=$( cat $runfile | grep -w BWAMEMPARAMS | cut -d '=' -f2 )
+novoalign_parms=$( cat $runfile | grep -w NOVOALIGNPARAMS | cut -d '=' -f2 )
+bwa_index=$( cat $runfile | grep -w BWAINDEX | cut -d '=' -f2 )
+novoalign_index=$( cat $runfile | grep -w NOVOALIGNINDEX | cut -d '=' -f2 )
+samblasterdir=$( cat $runfile | grep -w SAMBLASTERDIR | cut -d '=' -f2 )
+samtoolsdir=$( cat $runfile | grep -w SAMDIR | cut -d '=' -f2 )
+markduplicates=$( cat $runfile | grep -w MARKDUPLICATESTOOL | cut -d '=' -f2 | tr '[a-z]' '[A-Z]' )
+gatk_dir=$( cat $runfile | grep -w GATKDIR | cut -d '=' -f2 )
+picardir=$( cat $runfile | grep -w PICARDIR | cut -d '=' -f2 )
+javadir=$( cat $runfile | grep -w JAVADIR | cut -d '=' -f2 )
+sPL=$( cat $runfile | grep -w SAMPLEPL | cut -d '=' -f2 )
+sCN=$( cat $runfile | grep -w SAMPLECN | cut -d '=' -f2 )
+sLB=$( cat $runfile | grep -w SAMPLELB | cut -d '=' -f2 )
+dup_cutoff=$( cat $runfile | grep -w  DUP_CUTOFF | cut -d '=' -f2 )
+map_cutoff=$( cat $runfile | grep -w  MAP_CUTOFF | cut -d '=' -f2 )
+dbsnp_local=${refdir}/$dbSNP
+outputdir=$rootdir/$SampleName
 
 set +x
 echo -e "\n\n##################################################################################" >&2 
@@ -46,30 +80,6 @@ echo -e "#######################################################################
 echo -e "##################################################################################\n\n" >&2
 set -x          
 
-#######################################################
-# remove these parts, as they are not needed. just for testing!
-# just create the corresponding inputs!
-
-outputdir=$rootdir/$SampleName
-deliverydir=$( cat $runfile | grep -w DELIVERYFOLDER | cut -d '=' -f2 )
-tmpdir=$( cat $runfile | grep -w TMPDIR | cut -d '=' -f2 )
-rootdir=$( cat $runfile | grep -w OUTPUTDIR | cut -d '=' -f2 )
-
-refdir=$( cat $runfile | grep -w REFGENOMEDIR | cut -d '=' -f2 )
-refgenome=$( cat $runfile | grep -w REFGENOME | cut -d '=' -f2 )
-alignertool=$( cat $runfile | grep -w ALIGNERTOOL | cut -d '=' -f2  )
-bwamemdir=$( cat $runfile | grep -w BWAMEMDIR | cut -d '=' -f2  )
-bwamem_parms=$( cat $runfile | grep -w BWAMEMPARAMS | cut -d '=' -f2 )
-bwa_index=$( cat $runfile | grep -w BWAINDEX | cut -d '=' -f2 )
-samtoolsdir=$( cat $runfile | grep -w SAMDIR | cut -d '=' -f2 )
-sPL=$( cat $runfile | grep -w SAMPLEPL | cut -d '=' -f2 )
-sCN=$( cat $runfile | grep -w SAMPLECN | cut -d '=' -f2 )
-sLB=$( cat $runfile | grep -w SAMPLELB | cut -d '=' -f2 )
-dup_cutoff=$( cat $runfile | grep -w  DUP_CUTOFF | cut -d '=' -f2 )
-map_cutoff=$( cat $runfile | grep -w  MAP_CUTOFF | cut -d '=' -f2 )
-outputdir=$rootdir/$SampleName
-
-######################################################
 SampleDir=$outputdir
 AlignDir=$outputdir/align
 RealignDir=$outputdir/realign
@@ -111,7 +121,7 @@ if [ ! -d $DeliveryDir ]
 then
     mkdir -p $DeliveryDir
 fi
-if [ `expr ${#R1}` -lt 1]
+if [ `expr ${#R1}` -lt 1 ]
 then
     MSG="$R1 read one file not found"
     echo -e "Program $0 stopped at line=$LINENO.\n\n$MSG" | mail -s "[Task #${reportticket}]" "$redmine,$email"                     
@@ -123,7 +133,7 @@ then
     exit 1                
 fi
 
-if [ `expr ${#R2}` -lt 1]
+if [ `expr ${#R2}` -lt 1 ]
 then
     MSG="$R2 read two file not found"
     echo -e "Program $0 stopped at line=$LINENO.\n\n$MSG" | mail -s "[Task #${reportticket}]" "$redmine,$email"                     
@@ -135,7 +145,7 @@ then
     exit 1                
 fi
 
-if [ `expr ${#SampleName}` -lt 1]
+if [ `expr ${#SampleName}` -lt 1 ]
 then
     MSG="$SampleName sample undefined variable"
     echo -e "Program $0 stopped at line=$LINENO.\n\n$MSG" | mail -s "[Task #${reportticket}]" "$redmine,$email"                     
