@@ -139,23 +139,27 @@ foreach sample in sampleLines{
 		file realignedbam <strcat(sampleName, ".", chr, ".realigned.bam")>;
 		file recalibratedbam <strcat(sampleName, ".", chr, ".recalibrated.bam")>;
 		file rawvariant <strcat(sampleName, ".", chr, ".raw.g.vcf")>;
-		
+		// These are temporary files only:
+		file recalfiles < strcat(vars["TMPDIR"],"/","recal_foundfiles.txt") >;
+		file realfiles < strcat(vars["TMPDIR"],"/","real_foundfiles.txt") >;
+
 		trace("#######   REALIGN-RECALIBRATION BLOCK STARTS HERE   " + sampleName + chr + "        ######");
-		if ( chr=="M" ) {
-			ploidy = 1;
-		} else {
-			ploidy = 2;
-		}
+		if ( chr=="M" ) {ploidy = 1;} else {ploidy = 2;}
 		chrdedupsortedbam = samtools_view(vars["SAMTOOLSDIR"], dedupsortedbam, string2int(vars["PBSCORES"]), strcat(chr));
 		//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
 		file chrdedupsortedbamindex <strcat(sample,".",chr,".wdups.sorted.bam")>;
-/*		chrdedupsortedbamindex = samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam);
+		chrdedupsortedbamindex = samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam);
 
-		file recalfiles < strcat(vars["TMPDIR"],"/","recalparms2foundfiles.txt")> ;
-	//	recalfiles = find_files( strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
-		string recalparms2 = replace_all(read(input_file(sed(recalfiles, "s/^/ --knownSites /g"))), "\n", " ", 0);
-		trace("\n\n" + recalparms2 + "\n\n");
-*/		
+		recalfiles = find( strcat(vars["REFGENOMEDIR"]/vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
+		string recalparmsindels = replace_all(read(sed(recalfiles, "s/^/ --knownSites /g")), "\n", " ", 0);
+		string recalparmsdbsnp = strcat(" -knownSites ", vars["REFGENOMEDIR"]/vars["DBSNP"]);
+
+		realfiles = find( strcat(vars["REFGENOMEDIR"]/vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
+		string realparms = replace_all(read(sed(recalfiles, "s/^/ -known /g")), "\n", " ", 0);
+		assert( strlen(recalparmsindels)<1 , strcat("no indels were found for ", chr, "in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
+		assert( strlen(recalparmsdbsnp)<1 , strcat("no dbsnp file was found in this folder",vars["REFGENOMEDIR"]/vars["DBSNP"] ));
+		assert( strlen(realparms)<1 , strcat("no indels were found for ", chr, "in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
+
 	} 
 
 }

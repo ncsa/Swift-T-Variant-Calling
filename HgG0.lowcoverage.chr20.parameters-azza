@@ -29,7 +29,7 @@ ALIGNERTOOL=BWAMEM
 ## alignment block parameters
 BWAMEMPARAMS=-k 32 -I 300,30
 NOVOALIGNPARAMS=
-CHRNAMES=chr20
+CHRNAMES=20
 #% I really only need that for the playful dataset. later separate by :
 BWAINDEX=/home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.fa
 NOVOALIGNINDEX=/home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.nix
