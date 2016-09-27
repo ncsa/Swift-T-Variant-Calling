@@ -45,7 +45,7 @@ MARKDUP=YES
 ADAPTERS=/usr/local/src/Trimmomatic-0.36/adapters/TruSeq3-PE-2.fa
 REFGENOMEDIR=/home/azza/swift-project/Workshop_low_pass/ref
 REFGENOME=human_g1k_v37_chr20.fa
-DBSNP=dbsnp_135.b37.chr20.smallregion.vcf.gz
+DBSNP=dbsnp_135.b37.chr20.smallregion.vcf
 INDELDIR=IndelsByChr
 OMNI=1000G_omni2.5.b37.sites.PASS.chr20.smallregion.vcf.gz
 
@@ -60,7 +60,7 @@ BWADIR=/usr/bin/bwa
 SAMBLASTERDIR=/usr/local/bin/samblaster
 SAMTOOLSDIR=/usr/local/bin/samtools
 NOVOCRAFTDIR=/usr/local/src/novocraft
-
+GATKDIR=/usr/local/src/gatk
 ## pbs resources
 PBSNODES=1
 PBSCORES=2

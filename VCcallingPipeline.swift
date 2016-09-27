@@ -133,32 +133,47 @@ foreach sample in sampleLines{
 		// qcfile is the same as in the alignment stage
 		// inputbam is really the dedupsortedbam file
 		
-		//RealignDir=outputdir/realign=rootdir/$SampleName/realign
-		//			      =vars["OUTPUTDIR"]/$SampleName/realig
-		file chrdedupsortedbam <strcat(vars["OUTPUTDIR"], "/",sampleName, "/realign/",sampleName, ".", chr, ".wdups.sorted.bam")>;
-		file realignedbam <strcat(sampleName, ".", chr, ".realigned.bam")>;
-		file recalibratedbam <strcat(sampleName, ".", chr, ".recalibrated.bam")>;
-		file rawvariant <strcat(sampleName, ".", chr, ".raw.g.vcf")>;
+		//VarcallDir=outputdir/variant=rootdir/$SampleName/variant
+		//			      =vars["OUTPUTDIR"]/$SampleName/variant
+		file chrdedupsortedbam <strcat(vars["OUTPUTDIR"]/sampleName, "/realign/",sampleName, ".", chr, ".wdups.sorted.bam")>;
+		file realignedbam <strcat(vars["OUTPUTDIR"]/sampleName, "/realign/", sampleName, ".", chr, ".realigned.bam")>;
+		file recalibratedbam <strcat(vars["OUTPUTDIR"]/sampleName, "/realign/", sampleName, ".", chr, ".recalibrated.bam")>;
+		file rawvariant <strcat(vars["OUTPUTDIR"]/sampleName, "/variant/", sampleName, ".", chr, ".raw.g.vcf")>;
 		// These are temporary files only:
 		file recalfiles < strcat(vars["TMPDIR"],"/","recal_foundfiles.txt") >;
 		file realfiles < strcat(vars["TMPDIR"],"/","real_foundfiles.txt") >;
+		file intervals < strcat(vars["OUTPUTDIR"]/sampleName, "/realign/", sampleName, ".", chr, ".realignTargetCreator.intervals") >;
+		file recalreport < strcat(vars["OUTPUTDIR"]/sampleName, "/realign/", sampleName, ".", chr, ".recal_report.grp") >;
 
 		trace("#######   REALIGN-RECALIBRATION BLOCK STARTS HERE   " + sampleName + chr + "        ######");
+		int ploidy;
 		if ( chr=="M" ) {ploidy = 1;} else {ploidy = 2;}
 		chrdedupsortedbam = samtools_view(vars["SAMTOOLSDIR"], dedupsortedbam, string2int(vars["PBSCORES"]), strcat(chr));
 		//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
-		file chrdedupsortedbamindex <strcat(sample,".",chr,".wdups.sorted.bam")>;
-		chrdedupsortedbamindex = samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam);
+		samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam);
 
-		recalfiles = find( strcat(vars["REFGENOMEDIR"]/vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
-		string recalparmsindels = replace_all(read(sed(recalfiles, "s/^/ --knownSites /g")), "\n", " ", 0);
-		string recalparmsdbsnp = strcat(" -knownSites ", vars["REFGENOMEDIR"]/vars["DBSNP"]);
+		recalfiles = find_files( strcat(vars["REFGENOMEDIR"]/vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
+		string recalparmsindels[] = split(replace_all(read(sed(recalfiles, "s/^/--knownSites /g")), "\n", "", 0), " ");
+	
+		realfiles = find_files( strcat(vars["REFGENOMEDIR"]/vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
+		string realparms[] = split(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", "", 0), " ");
 
-		realfiles = find( strcat(vars["REFGENOMEDIR"]/vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
-		string realparms = replace_all(read(sed(recalfiles, "s/^/ -known /g")), "\n", " ", 0);
-		assert( strlen(recalparmsindels)<1 , strcat("no indels were found for ", chr, "in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
-		assert( strlen(recalparmsdbsnp)<1 , strcat("no dbsnp file was found in this folder",vars["REFGENOMEDIR"]/vars["DBSNP"] ));
-		assert( strlen(realparms)<1 , strcat("no indels were found for ", chr, "in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
+//		assert( strlen(recalparmsindels)>1 , strcat("no indels were found for ", chr, " in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
+//		assert( strlen(realparms)>1 , strcat("no indels were found for ", chr, "in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
+		
+		intervals = RealignerTargetCreator (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, string2int(vars["PBSCORES"]), realparms);
+		realignedbam = IndelRealigner (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, realparms, intervals);
+		//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
+		recalreport = BaseRecalibrator (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], realignedbam, string2int(vars["PBSCORES"]), recalparmsindels, vars["REFGENOMEDIR"]/vars["DBSNP"]) ;
+		recalibratedbam = PrintReads (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], realignedbam, string2int(vars["PBSCORES"]), recalreport);
+		//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
+
+
+		trace("#############    GATK VARIANT CALLING   FOR SAMPLE " + sampleName + " : " +  chr + "   ###########");
+		mkdir(strcat(vars["OUTPUTDIR"]/sampleName, "/variant/"));
+		rawvariant = HaplotypeCaller (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], recalibratedbam, vars["REFGENOMEDIR"]/vars["DBSNP"], string2int(vars["PBSCORES"]), ploidy, chr);
+
+
 
 	} 
 
