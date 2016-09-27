@@ -12,3 +12,8 @@
         }
 }
 
+
+app (file output) find_files (string dir, string pattern){
+        "/usr/bin/find" dir "-name" pattern @stdout=output;
+}
+

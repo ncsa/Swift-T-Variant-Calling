@@ -10,8 +10,8 @@ app (file output) novoalign (string novoaligndir, string read1, string read2, st
 }
 
 @dispatch=WORKER
-app (file output) samtools_view(string samtoolsdir, file inputFilename, int thr, string u){
-	samtoolsdir "view" "-@" thr "-bS" u inputFilename @stdout=output;
+app (file output) samtools_view(string samtoolsdir, file inputFile, int thr, string u){
+	samtoolsdir "view" "-@" thr "-bS" inputFile u @stdout=output;
 	/// samtools view has dual functions, as it also counts aligns!!
 	/// samtools view -c bamfile
 }
