@@ -1,0 +1,69 @@
+## i/o
+SAMPLEINFORMATION=/home/azza/swift-project/Dataset/HgG0.lowcoverage.chr20.sampleinfo
+OUTPUTDIR=/home/azza/swift-project/Results
+TMPDIR=/home/azza/swift-project/tmp
+EMAIL=aeahmed@illinois.edu
+REPORTTICKET=5747
+
+## choose the run case
+RUNMETHOD=QSUB
+ANALYSIS=REALIGN_ONLY
+
+## input data
+INPUTFORMAT=FASTQ
+PAIRED=1
+READLENGTH=100
+MULTISAMPLE=NO
+PROVENANCE=
+SAMPLEID=synthetic
+SAMPLELB=synthetic
+SAMPLEPL=illumina
+SAMPLEPU=synthetic
+SAMPLESM=synthetic
+SAMPLECN=synthetic
+
+## tools to be used
+MARKDUPLICATESTOOL=
+ALIGNERTOOL=BWAMEM
+
+## alignment block parameters
+BWAMEMPARAMS=-k 32 -I 300,30
+NOVOALIGNPARAMS=
+CHRNAMES=chr20
+#% I really only need that for the playful dataset. later separate by :
+BWAINDEX=/home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.fa
+NOVOALIGNINDEX=/home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.nix
+
+## Quality thresholds:
+MAP_CUTOFF=95
+DUP_CUTOFF=1
+
+## realign/recalibrate block parameters
+MARKDUP=YES
+
+## paths to input output and tools - DO NOT EDIT
+ADAPTERS=/usr/local/src/Trimmomatic-0.36/adapters/TruSeq3-PE-2.fa
+REFGENOMEDIR=/home/azza/swift-project/Workshop_low_pass/ref
+REFGENOME=human_g1k_v37_chr20.fa
+DBSNP=dbsnp_135.b37.chr20.smallregion.vcf.gz
+INDELDIR=IndelsByChr
+OMNI=1000G_omni2.5.b37.sites.PASS.chr20.smallregion.vcf.gz
+
+DELIVERYFOLDER=delivery
+
+# Programs to be used:
+JAVADIR=/usr/bin/java
+FASTQCDIR=/usr/bin/fastqc
+TRIMMOMATICDIR=/usr/local/src/Trimmomatic-0.36
+PICARDDIR=/usr/local/src/picard/build/libs/picard-2.5.0-gradle-17-g960bc00-SNAPSHOT-all.jar
+BWADIR=/usr/bin/bwa
+SAMBLASTERDIR=/usr/local/bin/samblaster
+SAMTOOLSDIR=/usr/local/bin/samtools
+NOVOCRAFTDIR=/usr/local/src/novocraft
+
+## pbs resources
+PBSNODES=1
+PBSCORES=2
+PBSQUEUE=default
+PBSWALLTIME=04:00:00
+
