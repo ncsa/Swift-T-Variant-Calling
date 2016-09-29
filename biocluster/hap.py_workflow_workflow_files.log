@@ -1,0 +1,72 @@
+2016-09-28 15:50:18,562 WARNING  No calls for location chr4 in truth!
+2016-09-28 15:50:18,563 WARNING  No calls for location chr4 in query!
+2016-09-28 15:50:18,563 WARNING  Removing location chr4 because neither input file has calls there.
+2016-09-28 15:50:18,563 WARNING  No calls for location chr5 in truth!
+2016-09-28 15:50:18,563 WARNING  No calls for location chr5 in query!
+2016-09-28 15:50:18,563 WARNING  Removing location chr5 because neither input file has calls there.
+2016-09-28 15:50:18,564 WARNING  No calls for location chr6 in truth!
+2016-09-28 15:50:18,564 WARNING  No calls for location chr6 in query!
+2016-09-28 15:50:18,564 WARNING  Removing location chr6 because neither input file has calls there.
+2016-09-28 15:50:18,564 WARNING  No calls for location chr7 in truth!
+2016-09-28 15:50:18,564 WARNING  No calls for location chr7 in query!
+2016-09-28 15:50:18,564 WARNING  Removing location chr7 because neither input file has calls there.
+2016-09-28 15:50:18,564 WARNING  No calls for location chr8 in truth!
+2016-09-28 15:50:18,565 WARNING  No calls for location chr8 in query!
+2016-09-28 15:50:18,565 WARNING  Removing location chr8 because neither input file has calls there.
+2016-09-28 15:50:18,565 WARNING  No calls for location chr9 in truth!
+2016-09-28 15:50:18,565 WARNING  No calls for location chr9 in query!
+2016-09-28 15:50:18,565 WARNING  Removing location chr9 because neither input file has calls there.
+2016-09-28 15:50:18,565 WARNING  No calls for location chr10 in truth!
+2016-09-28 15:50:18,566 WARNING  No calls for location chr10 in query!
+2016-09-28 15:50:18,566 WARNING  Removing location chr10 because neither input file has calls there.
+2016-09-28 15:50:18,566 WARNING  No calls for location chr11 in truth!
+2016-09-28 15:50:18,566 WARNING  No calls for location chr11 in query!
+2016-09-28 15:50:18,566 WARNING  Removing location chr11 because neither input file has calls there.
+2016-09-28 15:50:18,566 WARNING  No calls for location chr12 in truth!
+2016-09-28 15:50:18,566 WARNING  No calls for location chr12 in query!
+2016-09-28 15:50:18,567 WARNING  Removing location chr12 because neither input file has calls there.
+2016-09-28 15:50:18,567 WARNING  No calls for location chr13 in truth!
+2016-09-28 15:50:18,567 WARNING  No calls for location chr13 in query!
+2016-09-28 15:50:18,567 WARNING  Removing location chr13 because neither input file has calls there.
+2016-09-28 15:50:18,567 WARNING  No calls for location chr14 in truth!
+2016-09-28 15:50:18,567 WARNING  No calls for location chr14 in query!
+2016-09-28 15:50:18,567 WARNING  Removing location chr14 because neither input file has calls there.
+2016-09-28 15:50:18,568 WARNING  No calls for location chr15 in truth!
+2016-09-28 15:50:18,568 WARNING  No calls for location chr15 in query!
+2016-09-28 15:50:18,568 WARNING  Removing location chr15 because neither input file has calls there.
+2016-09-28 15:50:18,568 WARNING  No calls for location chr16 in truth!
+2016-09-28 15:50:18,568 WARNING  No calls for location chr16 in query!
+2016-09-28 15:50:18,568 WARNING  Removing location chr16 because neither input file has calls there.
+2016-09-28 15:50:18,568 WARNING  No calls for location chr17 in truth!
+2016-09-28 15:50:18,569 WARNING  No calls for location chr17 in query!
+2016-09-28 15:50:18,569 WARNING  Removing location chr17 because neither input file has calls there.
+2016-09-28 15:50:18,569 WARNING  No calls for location chr18 in truth!
+2016-09-28 15:50:18,569 WARNING  No calls for location chr18 in query!
+2016-09-28 15:50:18,569 WARNING  Removing location chr18 because neither input file has calls there.
+2016-09-28 15:50:18,569 WARNING  No calls for location chr19 in truth!
+2016-09-28 15:50:18,569 WARNING  No calls for location chr19 in query!
+2016-09-28 15:50:18,570 WARNING  Removing location chr19 because neither input file has calls there.
+2016-09-28 15:50:18,570 WARNING  No calls for location chr20 in truth!
+2016-09-28 15:50:18,570 WARNING  No calls for location chr20 in query!
+2016-09-28 15:50:18,570 WARNING  Removing location chr20 because neither input file has calls there.
+2016-09-28 15:50:18,570 WARNING  No calls for location chr21 in truth!
+2016-09-28 15:50:18,570 WARNING  No calls for location chr21 in query!
+2016-09-28 15:50:18,571 WARNING  Removing location chr21 because neither input file has calls there.
+2016-09-28 15:50:18,571 WARNING  No calls for location chr22 in truth!
+2016-09-28 15:50:18,571 WARNING  No calls for location chr22 in query!
+2016-09-28 15:50:18,571 WARNING  Removing location chr22 because neither input file has calls there.
+2016-09-28 15:50:34,198 WARNING  [W::vcf_parse] INFO 'WP' is not defined in the header, assuming Type=String
+2016-09-28 15:50:34,199 WARNING  [W::vcf_parse] INFO 'WP' is not defined in the header, assuming Type=String
+2016-09-28 15:50:34,199 WARNING  [W::vcf_parse] FILTER 'P' is not defined in the header
+2016-09-28 15:50:34,199 WARNING  [W::vcf_parse] FILTER 'P' is not defined in the header
+2016-09-28 15:50:36,807 WARNING  [W::vcf_parse] INFO 'WP' is not defined in the header, assuming Type=String
+2016-09-28 15:50:36,807 WARNING  [W::vcf_parse] INFO 'WP' is not defined in the header, assuming Type=String
+2016-09-28 15:50:38,031 WARNING  [W::vcf_parse] INFO 'WP' is not defined in the header, assuming Type=String
+2016-09-28 15:50:38,031 WARNING  [W::vcf_parse] INFO 'WP' is not defined in the header, assuming Type=String
+2016-09-28 15:50:38,063 ERROR    Cannot read sample names from truth VCF file
+2016-09-28 15:50:38,063 ERROR    Traceback (most recent call last):
+2016-09-28 15:50:38,063 ERROR      File "/home/apps/hap.py/hap.py-0.3.0/bin/hap.py", line 638, in <module>
+2016-09-28 15:50:38,064 ERROR        main()
+2016-09-28 15:50:38,064 ERROR      File "/home/apps/hap.py/hap.py-0.3.0/bin/hap.py", line 570, in main
+2016-09-28 15:50:38,064 ERROR        raise Exception("Cannot read sample names from truth VCF file")
+2016-09-28 15:50:38,064 ERROR    Exception: Cannot read sample names from truth VCF file

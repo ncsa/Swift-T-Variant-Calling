@@ -21,9 +21,14 @@ app (file output) samblaster(string samblasterdir, file inputFile){
 	samblasterdir "-M" "-i" inputFile @stdout=output;
 }
 
+
 @dispatch=WORKER
-app (file output) novosort (string novosortdir, file inputFile, string tmpdir, int thr, string sortoptions){
-	novosortdir "--index" "--tmpdir" tmpdir "--threads" thr inputFile "-o" output; 
+app (file output) novosort (string novosortdir, string inputFilename, string tmpdir, int thr, string sortoptions){
+	novosortdir "--index" "--tmpdir" tmpdir "--threads" thr inputFilename "-o" output; 
+	// novosort has dual function to also mark duplicates
+}
+app (file output) novosort (string novosortdir, string inputFilename[], string tmpdir, int thr, string sortoptions){
+	novosortdir "--index" "--tmpdir" tmpdir "--threads" thr inputFilename "-o" output; 
 	// novosort has dual function to also mark duplicates
 }
 
@@ -35,7 +40,7 @@ app (file outputfile, file metricsfile) picard (string javadir, string picarddir
 // $javadir -Xmx8g -jar $picarddir MarkDuplicates INPUT=/home/azza/swift-project/Results/align/HG00108.lowcoverage.chr20.smallregion.nodups.bam
 }
 
-////////////////////////////////////////////////////////////// Testing and validation functions:
+//////////////////////////////////////// Testing and validation functions:
 
 @dispatch=WORKER
 app (file output) samtools_flagstat(string samtoolsdir, file inputFile){

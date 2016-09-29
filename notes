@@ -19,3 +19,7 @@ Implementation notes:
 - Templates for tcl leaf functions can be found in: /usr/local/src/swift-t-0.9.1/turbine/code/scripts/main-wrap/templates========== /usr/local/src/swift-t-0.9.1/turbine/scripts/main-wrap/templates
 
 - To know all built-in functions in swift/t, please refer to the directory: /usr/local/src/swift-t-0.9.1/turbine/export   (which is the installation folder)
+
+- This part of the pipeline is a bit .... The tool, .GATKCombineGVCF should be used to combine variants from many samples together (not combine chromosomes from the same sample together)?
+
+- In its current form, the alignment is done to the entire sample at once. Does it make sense to still "merge the bams"?

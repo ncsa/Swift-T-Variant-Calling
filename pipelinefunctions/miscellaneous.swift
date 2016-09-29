@@ -12,7 +12,7 @@
         }
 }
 
-
+@dispatch=WORKER
 app (file output) find_files (string dir, string pattern){
         "find" dir "-name" pattern @stdout=output;
 }
