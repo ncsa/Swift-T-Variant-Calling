@@ -23,8 +23,8 @@ app (file output) samblaster(string samblasterdir, file inputFile){
 
 
 @dispatch=WORKER
-app (file output) novosort (string novosortdir, string inputFilename, string tmpdir, int thr, string sortoptions){
-	novosortdir "--index" "--tmpdir" tmpdir "--threads" thr inputFilename "-o" output; 
+app (file output) novosort (string novosortdir, file inputFile, string tmpdir, int thr, string sortoptions){
+	novosortdir "--index" "--tmpdir" tmpdir "--threads" thr inputFile "-o" output; 
 	// novosort has dual function to also mark duplicates
 }
 app (file output) novosort (string novosortdir, string inputFilename[], string tmpdir, int thr, string sortoptions){
