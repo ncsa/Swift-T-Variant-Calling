@@ -27,7 +27,7 @@ string vars[string] = getConfigVariables(configFileData);
 file sampleInfoFile = input_file(vars["SAMPLEINFORMATION"]);
 string sampleLines[] = file_lines(sampleInfoFile);
 int samples_processing_done ;
-int chromosomes_processing_done;
+
 ////////////////////// Main loop begins //////////////////////////////////////
 foreach sample in sampleLines{
 
@@ -40,21 +40,24 @@ foreach sample in sampleLines{
 
 	///////////////// Alignment and deduplication (per sample):
 
-	//Output files 
-	// outputdir=$rootdir/$SampleName= OUTPUTDIR/SAMPLENAME !!
-	file qcfile <strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/QC_test_results.txt") >;
+	string VarcallDir = strcat(vars["OUTPUTDIR"]/sampleName, "/variant/");
+	string RealignDir = strcat(vars["OUTPUTDIR"]/sampleName, "/realign/");
 
-	file alignedsam <strcat(vars["TMPDIR"],"/align/", sampleName, ".nodups.sam")>;
+	mkdir(VarcallDir);
 	
 	file dedupsortedbam <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".wdups.sorted.bam")>;
-	file outbam < strcat(vars["OUTPUTDIR"]/sampleName, "/realign/", sampleName, ".recalibrated.bam")> ;
-	file rawvariant < strcat(vars["OUTPUTDIR"]/sampleName, "/variant/", sampleName, ".GATKCombineGVCF.raw.vcf") >;
+	file outbam < strcat(RealignDir, sampleName, ".recalibrated.bam")> ;
+	file rawvariant < strcat(VarcallDir, sampleName, ".GATKCombineGVCF.raw.vcf") >;
+
+	file qcfile <strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/QC_test_results.txt") >;
 	file mergedbam < strcat(vars["OUTPUTDIR"]/vars["DELIVERYFOLDER"]/sampleName, ".recalibrated.bam")> ;
 	file mergedvariant < strcat(vars["OUTPUTDIR"]/vars["DELIVERYFOLDER"]/sampleName, ".GATKCombineGVCF.raw.vcf") >;
 
 	// These are not specifically defined!
 	file flagstats <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".wdups.sorted.bam", ".flagstats")>;
+
 	// These are temporary files:
+	file alignedsam <strcat(vars["TMPDIR"],"/align/", sampleName, ".nodups.sam")>;
 	file chr_bamListfile < strcat(vars["TMPDIR"]/sampleName,".chr_bamList.txt") >;
 	file chr_vcfListfile < strcat(vars["TMPDIR"]/sampleName,".chr_vcfList.txt") >;
 
@@ -66,7 +69,10 @@ foreach sample in sampleLines{
 		alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], vars["BWAMEMPARAMS"], string2int(vars["PBSCORES"]), rgheader) =>
 		dedupsam = samblaster(vars["SAMBLASTERDIR"], alignedsam) =>
 		dedupbam = samtools_view(vars["SAMTOOLSDIR"], dedupsam, string2int(vars["PBSCORES"]),"-u") =>
-		//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
+		//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit! The code would be something similar to:
+		//int numAlignments_sam = samtools_view(vars["SAMTOOLSDIR"], dedupbam);
+		//if (numAlignments_sam==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\tbwa mem command did not produce alignments for ", filename(dedupbam), "\n"));	}
+		//assert (numAlignments_sam > 0, strcat("bwa mem command did not produce alignments for ", filename(dedupbam), " alignment failed"));
 		dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), dedupbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), "--compression 1") ;
 		//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
 	
@@ -137,15 +143,11 @@ foreach sample in sampleLines{
 	//MSG="ALIGNMENT-DEDUPLICATION for $SampleName finished successfully"
 	//echo -e "program=$scriptfile at line=$LINENO.\nReason=$MSG\n$LOGS" | mail -s "[Task #${reportticket}]" "$redmine,$email"
 
-	string VarcallDir;
-	string RealignDir;
-	mkdir(strcat(vars["OUTPUTDIR"]/sampleName, "/variant/"));
 	indices = split(vars["CHRNAMES"], ":") ;
+	int chromosomes_processing_done;
+
 	wait(dedupsortedbam) {
 		foreach chr in indices {
-			RealignDir = strcat(vars["OUTPUTDIR"]/sampleName, "/realign/");
-			VarcallDir = strcat(vars["OUTPUTDIR"]/sampleName, "/variant/");
-
 			trace("####   Realign-Vcall script for SAMPLE " +sampleName+ " chr=" +chr+ "                             #######");
 			////// Map the output files from this stage! (line 79 in realign_var_call_by_chr.sh onwards!)
 			file chrdedupsortedbam <strcat(RealignDir, sampleName, ".", chr, ".wdups.sorted.bam")>;
@@ -166,10 +168,10 @@ foreach sample in sampleLines{
 			samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam);
 
 			recalfiles = find_files( strcat(vars["REFGENOMEDIR"]/vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
-			string recalparmsindels[] = split(replace_all(read(sed(recalfiles, "s/^/--knownSites /g")), "\n", "", 0), " ");
+			string recalparmsindels[] = split(trim(replace_all(read(sed(recalfiles, "s/^/--knownSites /g")), "\n", " ", 0)), " ");
 	
 			realfiles = find_files( strcat(vars["REFGENOMEDIR"]/vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
-			string realparms[] = split(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", "", 0), " ");
+			string realparms[] = split(trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " ");
 
 	//		assert( strlen(recalparmsindels)>1 , strcat("no indels were found for ", chr, " in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
 	//		assert( strlen(realparms)>1 , strcat("no indels were found for ", chr, "in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
@@ -183,10 +185,12 @@ foreach sample in sampleLines{
 
 			trace("#############    GATK VARIANT CALLING   FOR SAMPLE " + sampleName + " : " +  chr + "   ###########");
 			gvcfvariant = HaplotypeCaller (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], recalibratedbam, vars["REFGENOMEDIR"]/vars["DBSNP"], string2int(vars["PBSCORES"]), ploidy, chr) =>
-			chromosomes_processing_done = 1;
-		}
-	 }
+			if ( size(indices) == size(glob(strcat(VarcallDir, sampleName, ".*.raw.g.vcf"))) ) { chromosomes_processing_done = 1; };
+		
+		} // end the loop for all chromosomes
 
+	} // end the wait for dedupsortedbam
+	
 	wait (chromosomes_processing_done ) {
 		chr_bamListfile = find_files (RealignDir, strcat(sampleName, ".*.recalibrated.bam") );
 		chr_vcfListfile = find_files (VarcallDir, strcat(sampleName, ".*.raw.g.vcf") );
@@ -194,35 +198,28 @@ foreach sample in sampleLines{
 
 	trace("#######   MERGE BAMS BLOCK STARTS HERE  FOR             " + sampleName + "      ######");
 
-	string chr_bamList[] = split(replace_all(read(chr_bamListfile), "\n", "", 0), " ") =>
-	outbam = novosort (strcat(vars["NOVOCRAFTDIR"],"/","novosort"), chr_bamList, vars["TMPDIR"], string2int(vars["PBSCORES"]), "");
+	string chr_bamList[] = split(trim(replace_all(read(chr_bamListfile), "\n", " ", 0)), " ") =>
+	outbam = novosort (strcat(vars["NOVOCRAFTDIR"],"/","novosort"), chr_bamList, vars["TMPDIR"], string2int(vars["PBSCORES"]), "") =>
+	mergedbam = cp(outbam);
 	//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
 
 	trace("#######   MERGE VCFs BLOCK STARTS HERE  FOR             " + sampleName + "       ######");
 	
-	string chr_vcfList[] = split(replace_all(read(sed(chr_vcfListfile, "s/^/--variant /g")), "\n", "", 0), " ") =>
+	string chr_vcfList[] = split(trim(replace_all(read(sed(chr_vcfListfile, "s/^/--variant /g")), "\n", " ", 0)), " ") =>
 	rawvariant = CombineGVCFs (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"),  vars["REFGENOMEDIR"]/vars["REFGENOME"], vars["REFGENOMEDIR"]/vars["DBSNP"], chr_vcfList ) =>
-	samples_processing_done = 1;
-	trace("#############   COPY RESULTS TO DELIVERY                               ############");
+	mergedvariant = cp (rawvariant) =>
+	if ( size(sampleLines) == size(glob(strcat(vars["OUTPUTDIR"]/vars["DELIVERYFOLDER"], "/*.GATKCombineGVCF.raw.vcf"))) ) { samples_processing_done = 1;  };
 
-	//DeliveryDir=$rootdir/$deliverydir/$SampleName
-	//           =vars["OUTPUTDIR"]/vars["DELIVERYFOLDER"]/sampleName
-	mergedbam = cp(outbam);
-
-	mergedvariant = cp (rawvariant);
-	
 } /// End the loop throgh all samples
 
 
 trace("####    Now launching joint_genotyping script for all SAMPLEs: each 200 together        ##########");
 
-// DeliveryDir=$rootdir/$deliverydir/jointVCFs
-//            =vars["OUTPUTDIR"]/vars["DELIVERYFOLDER"], "/jointVCFs"
 file jointVCF < strcat(vars["OUTPUTDIR"]/vars["DELIVERYFOLDER"], "/jointVCFs/", "jointVCFcalled.vcf") >;
 file variantFiles < strcat(vars["TMPDIR"],"/variantFiles.txt") >;
 mkdir(strcat(vars["OUTPUTDIR"]/vars["DELIVERYFOLDER"], "/jointVCFs"));
-wait(samples_processing_done, chromosomes_processing_done) {
+wait(samples_processing_done) {
 	variantFiles = find_files (vars["OUTPUTDIR"]/vars["DELIVERYFOLDER"], strcat("*.GATKCombineGVCF.raw.vcf")) =>
-	string varlist[] = split(replace_all(read(sed(variantFiles, "s/^/--variant /g")), "\n", "", 0), " ") =>
+	string varlist[] = split(trim(replace_all(read(sed(variantFiles, "s/^/--variant /g")), "\n", " ", 0)), " ") =>
 	jointVCF = GenotypeGVCFs (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], varlist );
 }

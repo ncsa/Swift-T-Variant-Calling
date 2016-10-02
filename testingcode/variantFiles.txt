@@ -1,0 +1,3 @@
+/home/azza/swift-project/Results/delivery/HG00108.lowcoverage.chr20.smallregion.GATKCombineGVCF.raw.vcf
+/home/azza/swift-project/Results/delivery/HG00120.lowcoverage.chr20.smallregion.GATKCombineGVCF.raw.vcf
+/home/azza/swift-project/Results/delivery/HG00111.lowcoverage.chr20.smallregion.GATKCombineGVCF.raw.vcf

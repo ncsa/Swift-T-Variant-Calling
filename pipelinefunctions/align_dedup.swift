@@ -11,36 +11,40 @@ app (file output) novoalign (string novoaligndir, string read1, string read2, st
 
 @dispatch=WORKER
 app (file output) samtools_view(string samtoolsdir, file inputFile, int thr, string u){
+	// Converting sam to bam
 	samtoolsdir "view" "-@" thr "-bS" inputFile u @stdout=output;
-	/// samtools view has dual functions, as it also counts aligns!!
-	/// samtools view -c bamfile
 }
+
+/*@dispatch=WORKER
+// This should be in Tcl to actually work!!!
+app (int numAlignments) samtools_view(string samtoolsdir, file inputFile){
+	// Counting the number of alignments
+	samtoolsdir "view" "-c" inputFile @stdout=numAlignments;
+}*/
 
 @dispatch=WORKER
 app (file output) samblaster(string samblasterdir, file inputFile){
 	samblasterdir "-M" "-i" inputFile @stdout=output;
 }
 
-
 @dispatch=WORKER
 app (file output) novosort (string novosortdir, file inputFile, string tmpdir, int thr, string sortoptions){
+	// processing a single file (sorting and indexing input)
 	novosortdir "--index" "--tmpdir" tmpdir "--threads" thr inputFile "-o" output; 
 	// novosort has dual function to also mark duplicates
 }
-app (file output) novosort (string novosortdir, string inputFilename[], string tmpdir, int thr, string sortoptions){
-	novosortdir "--index" "--tmpdir" tmpdir "--threads" thr inputFilename "-o" output; 
+
+@dispatch=WORKER
+app (file output) novosort (string novosortdir, string inputFile[], string tmpdir, int thr, string sortoptions){
+	// processing multi-input files together (merging files)
+	novosortdir "--index" "--tmpdir" tmpdir "--threads" thr inputFile "-o" output; 
 	// novosort has dual function to also mark duplicates
 }
-
 @dispatch=WORKER
 app (file outputfile, file metricsfile) picard (string javadir, string picarddir, string tmpdir, file inputFile ){
         javadir "-Xmx8g" "-jar" picarddir "MarkDuplicates" "INPUT=" inputFile "OUTPUT=" outputfile "METRICS_FILE=" metricsfile "TMP_DIR=" tmpdir "ASSUME_SORTED=true MAX_RECORDS_IN_RAM=null CREATE_INDEX=true VALIDATION_STRINGENCY=SILENT";
 
-// This is the command line that is working:
-// $javadir -Xmx8g -jar $picarddir MarkDuplicates INPUT=/home/azza/swift-project/Results/align/HG00108.lowcoverage.chr20.smallregion.nodups.bam
 }
-
-//////////////////////////////////////// Testing and validation functions:
 
 @dispatch=WORKER
 app (file output) samtools_flagstat(string samtoolsdir, file inputFile){
