@@ -7,7 +7,7 @@ Implementation notes:
 
 - Another issue that you need to pay attention to is how permissions are given to users on the files created by the pipeline. It is desirable for the user to rwx, group to r, and others none; i.e., 740
 
-- Also, how do you delete existing files and folders? (it would be desirable to start fresh at times and absolutely delete the entire pre-existing files and folders)
+- Also, how do you delete existing files and folders? (it would be desirable to start fresh at times and absolutely delete the entire pre-existing files and folders) ==> Actually, the code does NOT support resuming a partially executed run, and produces errors when run on a folder that already contains resultsl
 
 - Consider how logging of runs and reporting is managed here!
 
