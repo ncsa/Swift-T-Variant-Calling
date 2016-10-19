@@ -1,0 +1,69 @@
+## i/o
+SAMPLEINFORMATION=/work/04212/edrodri2/Variant-Calling-Data
+OUTPUTDIR=/work/04212/edrodri2/Variant-Calling-Data/output
+TMPDIR=/work/04212/edrodri2/Variant-Calling-Data/tmp
+EMAIL=edrodri2@illinois.edu
+REPORTTICKET=5747
+
+## choose the run case
+RUNMETHOD=QSUB
+ANALYSIS=REALIGN_ONLY
+
+## input data
+INPUTFORMAT=FASTQ
+PAIRED=1
+READLENGTH=100
+MULTISAMPLE=NO
+PROVENANCE=
+SAMPLEID=synthetic
+SAMPLELB=synthetic
+SAMPLEPL=illumina
+SAMPLEPU=synthetic
+SAMPLESM=synthetic
+SAMPLECN=synthetic
+
+## tools to be used
+MARKDUPLICATESTOOL=
+ALIGNERTOOL=BWAMEM
+
+## alignment block parameters
+BWAMEMPARAMS=-k 32 -I 300,30
+NOVOALIGNPARAMS=
+CHRNAMES=20
+#% I really only need that for the playful dataset. later separate by :
+BWAINDEX=/work/04212/edrodri2/Variant-Calling-Data/.fa
+NOVOALIGNINDEX=/work/04212/edrodri2/Variant-Calling-Data/.nix
+
+## Quality thresholds:
+MAP_CUTOFF=95
+DUP_CUTOFF=1
+
+## realign/recalibrate block parameters
+MARKDUP=YES
+
+## paths to input output and tools - DO NOT EDIT
+ADAPTERS=/usr/local/src/Trimmomatic-0.36/adapters/TruSeq3-PE-2.fa
+REFGENOMEDIR=/work/edrodri2/Variant-Calling-Data/genome/ref
+REFGENOME=human_g1k_v37_chr20.fa
+DBSNP=dbsnp_135.b37.chr20.smallregion.vcf
+INDELDIR=IndelsByChr
+OMNI=1000G_omni2.5.b37.sites.PASS.chr20.smallregion.vcf.gz
+
+DELIVERYFOLDER=delivery
+
+# Programs to be used:
+JAVADIR=/scratch/projects/xsede/jdk64/jdk1.8.0_25/bin/java
+FASTQCDIR=/opt/apps/fastqc/0.11.5/fastqc
+TRIMMOMATICDIR=/usr/local/src/Trimmomatic-0.36
+PICARDDIR=/opt/apps/picard/build/libs/picard-1.98.jar
+BWADIR=/opt/apps/bwa/0.7.12/bwa
+SAMBLASTERDIR=/
+SAMTOOLSDIR=/opt/apps/samtools/1.2/bin/samtools
+NOVOCRAFTDIR=/opt/apps/novoalign/3.02.02/
+GATKDIR=/opt/apps/gatk/3.5.0
+## pbs resources
+PBSNODES=1
+PBSCORES=2
+PBSQUEUE=default
+PBSWALLTIME=04:00:00
+
