@@ -1,0 +1,27 @@
+aims-desktop-complete-post-uck
+bqsr sweep errors followup
+changing user directory
+core
+deja-dup
+Desktop
+Documents
+Downloads
+Dropbox
+find.txt
+igb_modules
+igv
+MPSSamples.3.3.4
+Music
+perl5
+Pictures
+Public
+Publications_Azza_Ahmed.doc
+questions.odt
+R
+Revocation_Certificate
+sudan materials
+swift-project
+Templates
+Videos
+vpn
+

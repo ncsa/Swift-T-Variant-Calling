@@ -1,2 +1,0 @@
-/home/azza/swift-project/Workshop_low_pass/ref/IndelsByChr/1kg.pilot_release.merged.indels.sites.hg19.chr20.vcf
-/home/azza/swift-project/Workshop_low_pass/ref/IndelsByChr/xlkj.20.vcf
