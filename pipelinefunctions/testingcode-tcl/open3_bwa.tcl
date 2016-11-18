@@ -19,8 +19,7 @@ fconfigure $readchan2 -buffering none
 fileevent $readchan2 readable  [puts $writechan2 [read $readchan2]]
 
 #lassign [chan pipe] readchan writechan
-close $readchan
+
 close $writechan
-close $readchan2 
 close $writechan2
 

@@ -17,6 +17,6 @@ set s [ samtools $samtoolsdir]
 
 exec {*}$b | {*}$s > aligned.bam
 
-pipe $b $s "aligned.bam"
+#pipe {aligned.bam} $b $s
 
 
