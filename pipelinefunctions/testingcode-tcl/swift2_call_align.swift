@@ -19,7 +19,7 @@ string rgheader = "{@RG\tID:synthetic\tLB:synthetic\tPL:illumina\tPU:synthetic\t
   //     exec {*}$proc1 | {*}$proc2  > $out
 //}
 
-(file output) pipe (string proc1, string proc2, string out) 
+(file output) pipe (string proc1, string proc2, file out) 
 	"align" "0.0" 
 	[ " pipe <<out>> <<proc1>> <<proc2>> " ];
 string b = bwa(bwadir, index, R1, R2, rgheader);
@@ -27,8 +27,9 @@ string s =  samtools_view(samtoolsdir);
 
 trace("\n\n" + b + "\n\n");
 
-file out <"piped.bam">;
-out = pipe(b,s,"piped.bam");
+file out <"piped_output.bam">;
+file tst <"test.txt">;
+out = pipe(b,s,tst);
 
 // comment: this code works except for a strange error that needs further looking!!
 

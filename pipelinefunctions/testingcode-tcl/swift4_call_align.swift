@@ -19,17 +19,16 @@ string rgheader = "{@RG\tID:synthetic\tLB:synthetic\tPL:illumina\tPU:synthetic\t
   //     exec {*}$proc1 | {*}$proc2  > $out
 //}
 
-(file output) pipe (string proc1, string proc2, string out) 
-	"align" "0.0" 
-	[ "turbine::file_write_local <<output>> [pipe [ "turbine::file_write_local <<t>> <<s>>" ];
+//(file output) pipe (string proc1, string proc2, string out) "align" "0.0" [
+//	 "turbine::file_write_local <<output>> [pipe [ "turbine::file_write_local <<t>> <<s>>" ] ] ];
 
 string b = bwa(bwadir, index, R1, R2, rgheader);
 string s =  samtools_view(samtoolsdir);
 
 trace("\n\n" + b + "\n\n");
 
-file out <"piped.bam">;
-out = pipe(b,s,"piped.bam");
+//file out <"piped.bam">;
+//out = pipe(b,s,"piped.bam");
 
 // comment: this code works except for a strange error that needs further looking!!
 
