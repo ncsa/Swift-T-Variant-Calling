@@ -19,8 +19,8 @@ string rgheader = "{@RG\tID:synthetic\tLB:synthetic\tPL:illumina\tPU:synthetic\t
   //     exec {*}$proc1 | {*}$proc2  > $out
 //}
 
-(file output) pipe (string proc1, string proc2, string out) "align" "0.2" [
-	" set <<output>> [alignment::pipe <<out>> <<proc1>> <<proc2>> ] " ];
+() pipe (string proc1, string proc2, string out) "align" "0.2" [
+	"[alignment::pipe <<out>> <<proc1>> <<proc2>> ] " ];
 
 
 string b = bwa(bwadir, index, R1, R2, rgheader);
@@ -29,7 +29,7 @@ string s =  samtools_view(samtoolsdir);
 //trace("\n\n" + b + "\n\n"); //trace("\n\n" + s + "\n\n");
 
 file out <"piped_ouput.bam">;
-out = pipe(b,s,"piped.bam");
+pipe(b,s,"piped.bam");
 
 // comment: The piping part requires further tuning!
 
