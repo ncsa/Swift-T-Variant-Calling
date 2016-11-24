@@ -17,14 +17,12 @@ In its latest version, 3.6, the best practices include the stages:
 
 5.  Joint genotyping –----- (processing done for all samples together)
 
-These stages are implemented in this pipeline, with an optional “Indel Realignment” step (which was recommended in previous GATK best practices &lt; 3.6)
-
-
-Under the hood, this pipeline splits and merges files at different stages to achieve optimal usage of resources. This parallelization of data processing is shown in Figure \[2\] below:
+These stages are implemented in this pipeline, with an optional “Indel Realignment” step (which was recommended in previous GATK best practices &lt; 3.6). 
+Under the hood, this pipeline splits and merges files at different stages to achieve optimal usage of resources. This parallelization of data processing is shown in Figure \[1\] below:
 
 ![](./media/image01.png)
 
-Figure 2: Pipeline details. Note: the processing can be split by individual sequences in the reference FASTA file, which could be individual chromosomes, scaffolds, contigs, etc.
+Figure 1: Pipeline details. Note: the processing can be split by individual sequences in the reference FASTA file, which could be individual chromosomes, scaffolds, contigs, etc.
 
 2 Dependencies
 ==============
@@ -59,7 +57,7 @@ It is important to note that the reference sequence should be prepared first, fo
 
 For working with human data, one can download most of the needed files from [the GATK’s resource bundle](http://gatkforums.broadinstitute.org/gatk/discussion/1213/whats-in-the-resource-bundle-and-how-can-i-get-it). Missing from the bundle are the index files for the aligner, which are specific to the tool that would be used for alignment (i.e., bwa or novoalign in this pipeline)
 
-To achieve the parallelization of Figure \[2\] in the realignment/recalibration stages, the pipeline needs a separate vcf file for each chromosome/contig, and each should be named as: \*\${chr\_name}.vcf. If working with the GATK bundle, the sample script ([*splitVCF-by-chromosome.sh*](https://github.com/HPCBio/BW_VariantCalling/blob/ParameterSweep/splitVCF-by-chromosome.sh)) can be used to produce the needed files with some minor modifications (mainly, providing the right path to the referencedir, java and GenomeAnalysisTK.jar)
+To achieve the parallelization of Figure \[1\] in the realignment/recalibration stages, the pipeline needs a separate vcf file for each chromosome/contig, and each should be named as: \*\${chr\_name}.vcf. If working with the GATK bundle, the sample script ([*splitVCF-by-chromosome.sh*](https://github.com/HPCBio/BW_VariantCalling/blob/ParameterSweep/splitVCF-by-chromosome.sh)) can be used to produce the needed files with some minor modifications (mainly, providing the right path to the referencedir, java and GenomeAnalysisTK.jar)
 
 2.3 User’s runfile and sample information files
 -----------------------------------------------
@@ -128,7 +126,7 @@ In a nutshell, the template below shows the various parameters and how they can 
   SAMDIR=/home/apps/samtools/samtools-1.3.1/bin
   JAVADIR=/home/apps/java/jdk1.8.0\_65/bin
 
-## pbs torque resources
+## pbs torque resources**
   PBSNODES=<number of nodes>
   PBSCORES=<number of cores>
   PBSQUEUE=<name of the queue>
@@ -139,16 +137,16 @@ In a nutshell, the template below shows the various parameters and how they can 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 \* These are needed to track the execution of the various pipeline stages. See section 2.5 for more details
+\*\* Note that `pbs torque resources` shoule be specified according to the resource manager your system is using. See section 3.2 below for more details
 
-2.4 Repo index/ The scripts
+2.4 Repo index and outputs
 ---------------------------
 
-The code implementing the pipeline of Figure 1 above are all in the `VCcallingPipeline.swift` file. All supporting functions and modules have been defined in the directory named, `pipelinefunctions`. 2 sample runfiles are provided here, `HgG0.lowcoverage*` for running the pipeline on my machine..
+The code implementing the pipeline of Figure 1 above are all in the `VCcallingPipeline.swift` file. All supporting functions and modules have been defined in the directory named, `pipelinefunctions`. There are 2 sample runfiles provided here, `HgG0.lowcoverage*` for running the pipeline on my machine..
 
 The results from a typical run of the pipeline are organized according to the hierarchy shown in Figure \[2\] below. Overall, the `DELIVERYFOLDER` contains the key summarizing files of the run (the cleaned up bams, gvcfs and final vcf from joint calling; in addition to the summary reports regarding the quality of the data, and copies of the `sampleinformation` and `runfile` files). Each sample also has its own directory that contains the files generated after each stage. In Figure \[2\], a color coding schema is employed to differentiate the files that would be generated according to how the user specifies the `ANALYSIS` parameter in the `runfile`. For the time being, there are not many ANALYSIS options available. Note the section named *Current limitations*
 
-![](./media/image04.png){width="6.692716535433071in"
-height="3.5694444444444446in"}
+![](./media/image04.png)
 
 Figure 2: Output directories and files generated from a typical run of
 the pipeline
@@ -165,7 +163,6 @@ In the later case, easiest way is to run the installer directly after downloadin
 * Blue Waters: Specific changes to configuration files are needed in this case as per http://swift-lang.github.io/swift-t/sites.html#_blue_waters  .
  *Note:* One needs to follow the instructions for *only either* : the _"public installation":_ *OR* the _build procedure_. The Public installations for Blue Waters date back to 2013, it is probably wiser to stick to the build procedure instructions 
 * SunGridEngine based systems: There exists the script: `turbine-sge-run.zsh`, which should be used in this case, but the entry is _not there in the documentation yet_, And The last commit to this file in the github repo reads: " _SGE almost works_")
-
 
 
 3.2 Running Swift/T scripts:
