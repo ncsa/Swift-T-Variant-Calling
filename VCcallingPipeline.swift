@@ -66,14 +66,14 @@ foreach sample in sampleLines{
 		file dedupsam <strcat(vars["TMPDIR"], "/align/", sampleName, ".wdups.sam")>;
 		file dedupbam <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".wdups.bam")>;	
 		///////// Pipe the stages below up to the dedupbam! /////////
-		alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], vars["BWAMEMPARAMS"], string2int(vars["PBSCORES"]), rgheader) =>
+		alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
 		dedupsam = samblaster(vars["SAMBLASTERDIR"], alignedsam) =>
-		dedupbam = samtools_view(vars["SAMTOOLSDIR"], dedupsam, string2int(vars["PBSCORES"]),"-u") =>
+		dedupbam = samtools_view(vars["SAMTOOLSDIR"], dedupsam, string2int(vars["PBSCORES"]), ["-u"]) =>
 		//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit! The code would be something similar to:
 		//int numAlignments_sam = samtools_view(vars["SAMTOOLSDIR"], dedupbam);
 		//if (numAlignments_sam==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\tbwa mem command did not produce alignments for ", filename(dedupbam), "\n"));	}
 		//assert (numAlignments_sam > 0, strcat("bwa mem command did not produce alignments for ", filename(dedupbam), " alignment failed"));
-		dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), dedupbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), "--compression 1") ;
+		dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), dedupbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), ["--compression", "1"]) ;
 		//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
 	
 	} else { 
@@ -82,25 +82,25 @@ foreach sample in sampleLines{
 			trace("##CASE 2: dedup tool is ## PICARD ##. One command for align, one for sort, one for dedup ##");
 			file alignedsortedbam <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".nodups.sorted.bam")>;
 			file metricsfile <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".picard.metrics")>;
-			alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], vars["BWAMEMPARAMS"], string2int(vars["PBSCORES"]), rgheader) =>
-			alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), "-u") =>
+			alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
+			alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), ["-u"]) =>
 			//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
-			alignedsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam, vars["TMPDIR"], string2int(vars["PBSCORES"]), "\"\"") =>
+			alignedsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam, vars["TMPDIR"], string2int(vars["PBSCORES"]), []) =>
 			dedupsortedbam, metricsfile= picard(vars["JAVADIR"], vars["PICARDDIR"], vars["TMPDIR"], alignedsortedbam ) ;
 			//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
 
 		} else {
 			trace("##CASE DEFAULT: dedup tool is ## NOVOSORT ##. We use one command for dup-sort ##");
 			if  (vars["ALIGNERTOOL"] == "BWAMEM") {
-				alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], vars["BWAMEMPARAMS"], string2int(vars["PBSCORES"]), rgheader) =>
-				alignedbam = samtools_view(vars["SAMTOOLSDIR"],alignedsam, string2int(vars["PBSCORES"]), "-u");
+				alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
+				alignedbam = samtools_view(vars["SAMTOOLSDIR"],alignedsam, string2int(vars["PBSCORES"]), ["-u"]);
 	                } else {
-				alignedsam = novoalign(strcat(vars["NOVOCRAFTDIR"],"/","novoalign"), read1, read2, vars["NOVOALIGNINDEX"], vars["NOVOALIGNPARAMS"], string2int(vars["PBSCORES"]), rgheader) =>
-				alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]),"-u");
+				alignedsam = novoalign(strcat(vars["NOVOCRAFTDIR"],"/","novoalign"), read1, read2, vars["NOVOALIGNINDEX"], [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
+				alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), ["-u"]);
 			}
 			//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
 			wait (alignedbam) {
-				dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), strcat("--markDuplicates") );	
+				dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), ["--markDuplicates"] );	
 			}
 			//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
 		}
@@ -163,7 +163,7 @@ foreach sample in sampleLines{
 			trace("#######   REALIGN-RECALIBRATION BLOCK STARTS HERE   " + sampleName + chr + "        ######");
 			int ploidy;
 			if ( chr=="M" ) {ploidy = 1;} else {ploidy = 2;}
-			chrdedupsortedbam = samtools_view(vars["SAMTOOLSDIR"], dedupsortedbam, string2int(vars["PBSCORES"]), strcat(chr));
+			chrdedupsortedbam = samtools_view(vars["SAMTOOLSDIR"], dedupsortedbam, string2int(vars["PBSCORES"]), [strcat(chr)]);
 			//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
 			samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam);
 
@@ -199,7 +199,7 @@ foreach sample in sampleLines{
 	trace("#######   MERGE BAMS BLOCK STARTS HERE  FOR             " + sampleName + "      ######");
 
 	string chr_bamList[] = split(trim(replace_all(read(chr_bamListfile), "\n", " ", 0)), " ") =>
-	outbam = novosort (strcat(vars["NOVOCRAFTDIR"],"/","novosort"), chr_bamList, vars["TMPDIR"], string2int(vars["PBSCORES"]), "") =>
+	outbam = novosort (strcat(vars["NOVOCRAFTDIR"],"/","novosort"), chr_bamList, vars["TMPDIR"], string2int(vars["PBSCORES"]), []) =>
 	mergedbam = cp(outbam);
 	//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
 

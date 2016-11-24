@@ -13,7 +13,9 @@ proc samtools {samtoolsdir args} {
 }
 
 proc pipe { out proc1 proc2 } {
-	if { [catch {exec -keepnewline -- {*}$proc1 | {*}$proc2 > $out} msg] } {}
-       return $out
+	set fp  [ ::open $out w+ ]
+	if { [catch {exec -keepnewline -- {*}$proc1 | {*}$proc2 >@ $fp} msg] } {}
+	close $fp
+	return $out
 }
 

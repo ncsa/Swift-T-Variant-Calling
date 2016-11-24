@@ -1,18 +1,23 @@
 #!/usr/bin/env tclsh
 
+lappend auto_path [pwd]
+
+package require align 0.2	
+
 set index /home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.fa
 set R1 /home/azza/swift-project/Dataset/HG00108.lowcoverage.chr20.smallregion_1.fastq
 set R2 /home/azza/swift-project/Dataset/HG00108.lowcoverage.chr20.smallregion_2.fastq
 set rgheader  {@RG\tID:synthetic\tLB:synthetic\tPL:illumina\tPU:synthetic\tSM:synthetic\tCN:synthetic}
+
 set bwadir {/usr/bin/bwa}
 set samtoolsdir {/usr/local/bin/samtools}
 
-set fp  [ ::open tmp.bam w+ ]
+set b [alignment::bwa $bwadir $index $R1 $R2 $rgheader]
+puts $b
 
-if { [catch {exec -keepnewline -- $bwadir mem $index $R1 $R2 -R $rgheader | $samtoolsdir view -b >@ $fp } msg] } {
-#	puts "bwa run details"
-#	puts "Information about bwa run are: $::errorInfo"
-}
- #exec -keepnewline -- $bwadir mem $index $R1 $R2 -R $rgheader > tmp.sam 
-close $fp
-#exec $bwadir mem $index $R1 $R2 -R $rgheader > tmp.sam; #| $samtoolsdir view -b > tmp.bam 
+set s [ alignment::samtools $samtoolsdir]
+puts $s
+
+alignment::pipe {aligned.bam} $b $s
+
+

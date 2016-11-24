@@ -8,4 +8,4 @@
 # script is sourced, the variable $dir must contain the
 # full path name of this file's directory.
 
-package ifneeded align 0.2 [list source [file join $dir exec10_align_package_namespace.tcl]]
+package ifneeded mytcl 0.0 [list source [file join $dir test.tcl]]
