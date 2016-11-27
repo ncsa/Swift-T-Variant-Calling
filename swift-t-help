@@ -1,0 +1,187 @@
+Swift/T HELP
+
+swift-t <options> <program.swift>
+Compiles program.swift with STC and runs it with Turbine
+
+Swift/T Guide: http://swift-lang.org/Swift-T/guide.html
+
+You may provide STC and/or Turbine options.
+When there is a conflict, STC takes precedence.
+Use swift-t -t to pass arguments through to Turbine.
+For example, to provide an MPICH hosts file, use:
+swift-t -t f:hosts.txt program.swift
+
+STC OPTIONS
+
+    -A <argname>=<value>
+         Bind command-line argument at compile-time, allowing
+         creation of a compiled version of code specialized
+         for given setting
+    -C <output file>
+         Write intermediate representation to this file (otherwise
+            does not output it)
+    -d <PORT>
+       Use JDWP debugging on given PORT
+    -D <MACRO>
+       Define a CPP preprocessor macro
+    -h
+       Show all options
+    -f <option name>
+         toggle compiler option on
+    -F <option name>
+         toggle compiler option off
+    -I <DIRECTORY>
+       Add an include path
+       TURBINE_HOME/export is always included to get standard library
+    -j </path/to/java>
+       Set JVM location.  Defaults to PATH entry for java
+    -L <LOG>
+       Log stc progress to given LOG.  Set STC_LOG_TRACE environment
+       variable to "true" for trace-level logging
+    -O <Optimization level>
+       Set compiler optimization level:
+         0 - no optimizations
+         1,2,3 - standard optimizations (DEFAULT) (this will change later)
+    -o <output file>
+         Write output *.tic file here
+    -p
+       Disable preprocessing via CPP
+    -r
+       Add an RPATH for a Swift/T extension
+    -v
+         Output version and exit
+    -V
+         Increase verbosity.  May be given twice
+
+TURBINE OPTIONS
+
+   -e <variable>=<value>
+          Set an environment variable 
+   -i <init.sh> 
+          Provide a initialization script
+   -l
+          enable MPI line numbering
+   -m <machine> 
+          Set scheduler type: cobalt, cray, pbs, etc.
+   -n <procs>
+          Set total number of processes
+   -s <settings.sh> 
+          Provide a settings script
+   -x
+          Program is an executable rather than Tcl (*.tic) script
+   -X
+          Use statically linked Turbine (turbine_sh)
+
+SWIFT-T OPTIONS
+
+These options are available in the swift-t program but not stc.
+
+    -E <code>
+         Compile and execute the given string of Swift code.
+         E.g., swift-t -E 'import io; printf("HI");'
+    -i <module>
+         Import the given module before running STC.
+         E.g., swift-t -i io -E 'printf("HI");'
+    -t <flag>:<value>
+         Turbine pass-through
+         Passes -<flag> <value> to Turbine
+
+TURBINE PASSTHROUGH OPTIONS
+
+You must use the pass-through feature to access these options.
+
+   -f <file>
+          Provide an MPI machine file
+   -h
+          help
+   -S
+          Print build settings filename
+          Use 'source $(turbine -S)' to obtain Turbine build settings
+          when compiling leaf functions, etc.
+   -v
+          Report version number
+   -V
+          Make this script verbose
+
+TURBINE RUNTIME ENVIRONMENT
+
+   ADLB_SERVERS
+                         number of ADLB servers
+
+   TURBINE_LOG=0
+                         disable log
+
+   TURBINE_DEBUG=0
+                         disable Turbine debugging (if enabled)
+
+   ADLB_DEBUG=0
+                         disable ADLB debugging (if enabled)
+
+   TURBINE_LAUNCH_OPTIONS
+                         provide additional arguments to mpiexec
+
+COMPILER OPTION NAMES
+----------------------------------------
+
+Features:
+--------
+checkpointing: enable checkpointing support (on by default)
+refcounting: enable garbage collection by refcounting (on by default)
+
+Optimization passes:
+-------------------
+dead-code-elim: eliminate unused variables, instructions and branches
+      (this must be enabled for most other passes to be useful)
+flatten-nested: flatten nested blocks
+value-number: value numbering analysis to eliminate common
+      subexpressions, optimize array lookups, eliminate redundant
+      loads and stores, etc.  value-number has several further
+      extensions that can be enabled
+finalized-var: extension to value-number that detects finalized
+      variables and simplified instructions/statements accordingly
+constant-fold: extension to value-number that propagates constants
+        and does compile-time evaluation of expressions
+shared-constants: extension to value-number that lifts constants
+     into shared global constant region for reuse
+unroll-loops: unroll loops with @unroll annotation
+expand-loops: expand small loops with fixed bounds
+full-unroll: aggressively unroll loops based on code size heuristic
+controlflow-fusion: fuse together loops over same range, etc
+dataflow-op-inline: expand dataflow version of functions or operations
+      int explicit wait, loads, local calls, and stores
+wait-coalesce: rearrange task dependencies to minimise the number
+               of tasks/variable subscribes
+hoisting: hoist calculations out of loop bodies
+reorder-insts: try reordering instructions within block in dependency order
+pipeline: compile-time pipeline where sequentially dependent worker
+        tasks are merged into a single task
+function-inline: inline calls to functions selectively depending on
+        function size and number of calls.  This allows inter-procedural
+        optimization
+function-signature: modify function signature e.g. pass value instead
+        of future
+disable-asserts: disable assert statements (off by default)
+
+Experimental/other features:
+-------------------
+refcounting: reference counting-based garbage collection (experimental)
+auto-declare: allow omission of explicit type declarations by using
+        local type inference (experimental)
+
+TOOL USAGE
+
+You may want to run STC and Turbine individually.
+Use 'stc -h' to see STC help and optimization list
+Use 'turbine -h' to see Turbine help
+
+ENVIRONMENT VARIABLES
+
+  STC_LOG_TRACE
+    If stc logging is enabled, this enables trace-level logging
+  STC_JVM_FLAGS
+     Additional flags to pass to JVM for compilation
+
+SEE ALSO
+
+   http://www.swift-lang.org/Swift-T/guide.html
+

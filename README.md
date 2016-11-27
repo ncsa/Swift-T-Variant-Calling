@@ -203,11 +203,16 @@ $  git clone git@github.com:edrodri2/Swift-Variant-Calling.git -b Swift-T --sing
 Now, to run the pipeline, a variant of the stripped-down one-line command below should be invoked:
 
 ```
- swift-t VCcallingPipeline.swift --runfile=<runfile name> 
+ swift-t -r $PWD/pipelinefunctions VCcallingPipeline.swift --runfile=<runfile name> 
  ```
 
 where the runfile is a file containing the details of the run (programs choices and location within the machine, parameters for the programs, some PBS torque settings, output and sampleinformation file locations). (See section 2.3 for more details) 
 
 
+*Note:* If you need to enable logging of turbine output, you may wish to change some environment variables (this is true if using newer version of Swift/T):
 
+```
+export TURBINE_LOG=1 #Enable turbine logging
+swift-t -L log_file_name myswift.swift #Enable stc logging (compiler logging)
+```
 
