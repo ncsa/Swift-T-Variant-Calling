@@ -1,5 +1,5 @@
 // The way to run this script is:
-// swift-t VCcallingPipeline.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza
+// swift-t -r $PWD/pipelinefunctions VCcallingPipeline.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza
 
 import sys;
 import files;
@@ -14,7 +14,7 @@ import pipelinefunctions.miscellaneous;
 
 /////////////////////////// Pipeline begins ////////////////////////////////////
 
-//read-in the runfile with argument --runfile=<filename>
+//read-in the runfile with argument --runfile=<runfile_name>
 
 argv_accept("runfile"); // return error if user supplies other flagged inputs
 string configFilename = argv("runfile");
@@ -56,7 +56,7 @@ foreach sample in sampleLines{
 	// These are not specifically defined!
 	file flagstats <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".wdups.sorted.bam", ".flagstats")>;
 
-	// These are temporary files:
+	// These are temporary files: If piping is implemented, they would not be needed!
 	file alignedsam <strcat(vars["TMPDIR"],"/align/", sampleName, ".nodups.sam")>;
 	file chr_bamListfile < strcat(vars["TMPDIR"]/sampleName,".chr_bamList.txt") >;
 	file chr_vcfListfile < strcat(vars["TMPDIR"]/sampleName,".chr_vcfList.txt") >;
@@ -68,14 +68,14 @@ foreach sample in sampleLines{
 		///////// Pipe the stages below up to the dedupbam! /////////
 		alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
 		dedupsam = samblaster(vars["SAMBLASTERDIR"], alignedsam) =>
-		dedupbam = samtools_view(vars["SAMTOOLSDIR"], dedupsam, string2int(vars["PBSCORES"]), ["-u"]) =>
-		//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit! The code would be something similar to:
-		//int numAlignments_sam = samtools_view(vars["SAMTOOLSDIR"], dedupbam);
-		//if (numAlignments_sam==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\tbwa mem command did not produce alignments for ", filename(dedupbam), "\n"));	}
-		//assert (numAlignments_sam > 0, strcat("bwa mem command did not produce alignments for ", filename(dedupbam), " alignment failed"));
-		dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), dedupbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), ["--compression", "1"]) ;
-		//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
-	
+		dedupbam = samtools_view(vars["SAMTOOLSDIR"], dedupsam, string2int(vars["PBSCORES"]), ["-u"]) => 
+		int numAlignments_dedup = samtools_view2(vars["SAMTOOLSDIR"], filename(dedupbam));
+		if (numAlignments_dedup==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\tbwa mem command did not produce alignments for ", filename(dedupbam), "\n"));	}
+		assert (numAlignments_dedup > 0, strcat("bwa mem command did not produce alignments for ", filename(dedupbam), " alignment failed"));
+		dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), dedupbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), ["--compression", "1"]) => 
+		int numAlignments_dedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(dedupsortedbam));
+		if (numAlignments_dedupsortedbam==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\t novosort command did not produce alignments for ", filename(dedupsortedbam), "\n"));	}
+		assert (numAlignments_dedupsortedbam > 0, strcat("novosort command did not produce alignments for ", filename(dedupsortedbam), " Sorting bam failed"));
 	} else { 
 		file alignedbam <strcat(vars["OUTPUTDIR"],"/align/", sampleName, ".nodups.bam")>;
 		if  (vars["MARKDUPLICATESTOOL"] == "PICARD") {
@@ -84,11 +84,14 @@ foreach sample in sampleLines{
 			file metricsfile <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".picard.metrics")>;
 			alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
 			alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), ["-u"]) =>
-			//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
+			int numAlignments_aligned = samtools_view2(vars["SAMTOOLSDIR"], filename(alignedbam));
+			if (numAlignments_aligned==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\tbwa mem command did not produce alignments for ", filename(alignedbam), "\n"));	}
+			assert (numAlignments_aligned > 0, strcat("bwa mem command did not produce alignments for ", filename(alignedbam), " alignment failed"));
 			alignedsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam, vars["TMPDIR"], string2int(vars["PBSCORES"]), []) =>
-			dedupsortedbam, metricsfile= picard(vars["JAVADIR"], vars["PICARDDIR"], vars["TMPDIR"], alignedsortedbam ) ;
-			//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
-
+			dedupsortedbam, metricsfile= picard(vars["JAVADIR"], vars["PICARDDIR"], vars["TMPDIR"], alignedsortedbam ) => 
+			int numAlignments_dedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(dedupsortedbam));
+			if (numAlignments_dedupsortedbam==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\t picard command did not produce alignments for ", filename(dedupsortedbam), "\n"));	}
+			assert (numAlignments_dedupsortedbam > 0, strcat("picard command did not produce alignments for ", filename(dedupsortedbam), " deduplication failed"));
 		} else {
 			trace("##CASE DEFAULT: dedup tool is ## NOVOSORT ##. We use one command for dup-sort ##");
 			if  (vars["ALIGNERTOOL"] == "BWAMEM") {
@@ -98,13 +101,18 @@ foreach sample in sampleLines{
 				alignedsam = novoalign(strcat(vars["NOVOCRAFTDIR"],"/","novoalign"), read1, read2, vars["NOVOALIGNINDEX"], [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
 				alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), ["-u"]);
 			}
-			//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
+			int numAlignments_aligned = samtools_view2(vars["SAMTOOLSDIR"], filename(alignedbam));
+			if (numAlignments_aligned==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\tbwa mem or novoalign command did not produce alignments for ", filename(alignedbam), "\n"));	}
+			assert (numAlignments_aligned > 0, strcat("bwa mem command did not produce alignments for ", filename(alignedbam), " alignment failed"));
 			wait (alignedbam) {
-				dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), ["--markDuplicates"] );	
-			}
-			//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
-		}
-	}
+				dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), ["--markDuplicates"] ) =>
+				int numAlignments_dedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(dedupsortedbam));
+				if (numAlignments_dedupsortedbam==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\tnovosort command did not produce alignments for ", filename(dedupsortedbam), "\n"));	}
+				assert (numAlignments_dedupsortedbam > 0, strcat("novosort command did not produce alignments for ", filename(dedupsortedbam), "sorting and deduplication failed"));
+
+			} // End wait(alignedbam)
+		} //End if-else (dedup tool selection: picard or novosort)
+	} //End if-else (dedup tool selection: samblaster or other)
 
 	trace("#############     END ALIGNMENT-DEDUPLICATION BLOCK                   ############");
 	trace("########   ALIGNMENT QC TEST   FOR SAMPLE", sampleName, "             ###############");
@@ -132,7 +140,8 @@ foreach sample in sampleLines{
 		}	
 	} else {
 	trace("#####  " + sampleName + " DID NOT pass first filter percent_duplicates with value" +perc_dup + ", maximum cutoff is " + vars["DUP_CUTOFF"]);
-	qcfile = echo(sampleName + "\tQCTEST\tFAIL\n\trule1 not ok: percent_duplication=" +perc_dup+ "<? duplication_cutoff=" +vars["DUP_CUTOFF"]+ "\n\trule2 not evaluated: percent_mapped=" +perc_mapped+ ">? mapping_cutoff=" +vars["MAP_CUTOFF"]);
+//	I need to append to the qcfile if it contains some data from above. How to do so?
+//	qcfile = echo(sampleName + "\tQCTEST\tFAIL\n\trule1 not ok: percent_duplication=" +perc_dup+ "<? duplication_cutoff=" +vars["DUP_CUTOFF"]+ "\n\trule2 not evaluated: percent_mapped=" +perc_mapped+ ">? mapping_cutoff=" +vars["MAP_CUTOFF"]);
 	}
 
 	trace("#############   WRAP UP the align_dedup stage   ############");
@@ -163,8 +172,10 @@ foreach sample in sampleLines{
 			trace("#######   REALIGN-RECALIBRATION BLOCK STARTS HERE   " + sampleName + chr + "        ######");
 			int ploidy;
 			if ( chr=="M" ) {ploidy = 1;} else {ploidy = 2;}
-			chrdedupsortedbam = samtools_view(vars["SAMTOOLSDIR"], dedupsortedbam, string2int(vars["PBSCORES"]), [strcat(chr)]);
-			//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
+			chrdedupsortedbam = samtools_view(vars["SAMTOOLSDIR"], dedupsortedbam, string2int(vars["PBSCORES"]), [strcat(chr)]) =>
+			int numAlignments_chrdedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(chrdedupsortedbam));
+			if (numAlignments_chrdedupsortedbam==0) { qcfile = echo(strcat(sampleName, "\tREALIGNMENT\tFAIL\tsamtools command did not produce alignments for ", filename(chrdedupsortedbam), "\n"));	}
+			assert (numAlignments_chrdedupsortedbam > 0, strcat("samtools command did not produce alignments for ", filename(chrdedupsortedbam), "splitting by chromosome failed"));		
 			samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam);
 
 			recalfiles = find_files( strcat(vars["REFGENOMEDIR"]/vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
@@ -177,12 +188,15 @@ foreach sample in sampleLines{
 	//		assert( strlen(realparms)>1 , strcat("no indels were found for ", chr, "in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
 		
 			intervals = RealignerTargetCreator (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, string2int(vars["PBSCORES"]), realparms);
-			realignedbam = IndelRealigner (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, realparms, intervals);
-			//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
+			realignedbam = IndelRealigner (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, realparms, intervals) =>
+			int numAlignments_realignedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(realignedbam));
+			if (numAlignments_realignedbam==0) { qcfile = echo(strcat(sampleName, "\tREALIGNMENT\tFAIL\tGATK IndelRealigner command did not produce alignments for ", filename(realignedbam), "\n"));	}
+			assert (numAlignments_realignedbam > 0, strcat("GATK IndelRealigner command did not produce alignments for ", filename(realignedbam) ));
 			recalreport = BaseRecalibrator (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], realignedbam, string2int(vars["PBSCORES"]), recalparmsindels, vars["REFGENOMEDIR"]/vars["DBSNP"]) ;
-			recalibratedbam = PrintReads (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], realignedbam, string2int(vars["PBSCORES"]), recalreport);
-			//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
-
+			recalibratedbam = PrintReads (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], realignedbam, string2int(vars["PBSCORES"]), recalreport) =>
+			int numAlignments_recalibratedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(recalibratedbam));
+			if (numAlignments_recalibratedbam==0) { qcfile = echo(strcat(sampleName, "\tRECALIBRATION\tFAIL\tGATK BQSR Recalibration command did not produce alignments for ", filename(recalibratedbam), "\n"));	}
+			assert (numAlignments_recalibratedbam > 0, strcat("GATK BQSR Recalibrator command did not produce alignments for ", filename(recalibratedbam) ));
 			trace("#############    GATK VARIANT CALLING   FOR SAMPLE " + sampleName + " : " +  chr + "   ###########");
 			gvcfvariant = HaplotypeCaller (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], recalibratedbam, vars["REFGENOMEDIR"]/vars["DBSNP"], string2int(vars["PBSCORES"]), ploidy, chr) =>
 			if ( size(indices) == size(glob(strcat(VarcallDir, sampleName, ".*.raw.g.vcf"))) ) { chromosomes_processing_done = 1; };
@@ -200,9 +214,10 @@ foreach sample in sampleLines{
 
 	string chr_bamList[] = split(trim(replace_all(read(chr_bamListfile), "\n", " ", 0)), " ") =>
 	outbam = novosort (strcat(vars["NOVOCRAFTDIR"],"/","novosort"), chr_bamList, vars["TMPDIR"], string2int(vars["PBSCORES"]), []) =>
-	mergedbam = cp(outbam);
-	//////// At this stage, check numAlignments, and report if alignment has failed (in the qcfile), and exit!
-
+	mergedbam = cp(outbam) =>
+	int numAlignments_mergedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(mergedbam));
+	if (numAlignments_mergedbam==0) { qcfile = echo(strcat(sampleName, "\tMERGE\tFAIL\tnovosort command did not produce alignments for ", filename(mergedbam), "\n"));	}
+	assert (numAlignments_mergedbam > 0, strcat("novosort command did not produce alignments for ", filename(mergedbam) ));
 	trace("#######   MERGE VCFs BLOCK STARTS HERE  FOR             " + sampleName + "       ######");
 	
 	string chr_vcfList[] = split(trim(replace_all(read(sed(chr_vcfListfile, "s/^/--variant /g")), "\n", " ", 0)), " ") =>
@@ -223,3 +238,4 @@ wait(samples_processing_done) {
 	string varlist[] = split(trim(replace_all(read(sed(variantFiles, "s/^/--variant /g")), "\n", " ", 0)), " ") =>
 	jointVCF = GenotypeGVCFs (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], varlist );
 }
+

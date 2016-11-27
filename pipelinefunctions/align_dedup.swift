@@ -15,12 +15,12 @@ app (file output) samtools_view(string samtoolsdir, file inputFile, int thr, str
 	samtoolsdir "view" "-@" thr "-bS" inputFile args @stdout=output;
 }
 
-/*@dispatch=WORKER
-// This should be in Tcl to actually work!!!
-app (int numAlignments) samtools_view(string samtoolsdir, file inputFile){
-	// Counting the number of alignments
-	samtoolsdir "view" "-c" inputFile @stdout=numAlignments;
-}*/
+// Counting the number of alignments
+@dispatch=WORKER
+(int numAlignments) samtools_view2(string samtoolsdir, string inputFile)
+	"align" "0.2" [	
+	"set <<numAlignments>> [ alignment::samtools_view <<samtoolsdir>> <<inputFile>> ]"
+];
 
 @dispatch=WORKER
 app (file output) samblaster(string samblasterdir, file inputFile){

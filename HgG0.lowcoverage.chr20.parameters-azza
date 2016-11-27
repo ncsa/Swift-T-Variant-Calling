@@ -23,7 +23,7 @@ SAMPLESM=synthetic
 SAMPLECN=synthetic
 
 ## tools to be used
-MARKDUPLICATESTOOL=
+MARKDUPLICATESTOOL=SAMBLASTER
 ALIGNERTOOL=BWAMEM
 
 ## alignment block parameters
