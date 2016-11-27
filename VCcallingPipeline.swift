@@ -1,5 +1,7 @@
 // The way to run this script is:
 // swift-t -r $PWD/pipelinefunctions VCcallingPipeline.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza
+// Note:
+// You may need additional logging, for example, how compilation works (add `-L <stc log file name>` to the command above); or how implementaion is mapped onto servers (you can enable turbine logging by `export TURBINE_LOG=1` before calling the command above)
 
 import sys;
 import files;
