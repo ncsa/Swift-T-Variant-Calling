@@ -189,18 +189,18 @@ foreach sample in sampleLines{
 	//		assert( strlen(recalparmsindels)>1 , strcat("no indels were found for ", chr, " in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
 	//		assert( strlen(realparms)>1 , strcat("no indels were found for ", chr, "in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
 		
-			intervals = RealignerTargetCreator (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, string2int(vars["PBSCORES"]), realparms);
-			realignedbam = IndelRealigner (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, realparms, intervals) =>
+			intervals = RealignerTargetCreator (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, string2int(vars["PBSCORES"]), realparms);
+			realignedbam = IndelRealigner (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, realparms, intervals) =>
 			int numAlignments_realignedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(realignedbam));
 			if (numAlignments_realignedbam==0) { qcfile = echo(strcat(sampleName, "\tREALIGNMENT\tFAIL\tGATK IndelRealigner command did not produce alignments for ", filename(realignedbam), "\n"));	}
 			assert (numAlignments_realignedbam > 0, strcat("GATK IndelRealigner command did not produce alignments for ", filename(realignedbam) ));
-			recalreport = BaseRecalibrator (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], realignedbam, string2int(vars["PBSCORES"]), recalparmsindels, vars["REFGENOMEDIR"]/vars["DBSNP"]) ;
-			recalibratedbam = PrintReads (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], realignedbam, string2int(vars["PBSCORES"]), recalreport) =>
+			recalreport = BaseRecalibrator (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], realignedbam, string2int(vars["PBSCORES"]), recalparmsindels, vars["REFGENOMEDIR"]/vars["DBSNP"]) ;
+			recalibratedbam = PrintReads (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], realignedbam, string2int(vars["PBSCORES"]), recalreport) =>
 			int numAlignments_recalibratedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(recalibratedbam));
 			if (numAlignments_recalibratedbam==0) { qcfile = echo(strcat(sampleName, "\tRECALIBRATION\tFAIL\tGATK BQSR Recalibration command did not produce alignments for ", filename(recalibratedbam), "\n"));	}
 			assert (numAlignments_recalibratedbam > 0, strcat("GATK BQSR Recalibrator command did not produce alignments for ", filename(recalibratedbam) ));
 			trace("#############    GATK VARIANT CALLING   FOR SAMPLE " + sampleName + " : " +  chr + "   ###########");
-			gvcfvariant = HaplotypeCaller (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], recalibratedbam, vars["REFGENOMEDIR"]/vars["DBSNP"], string2int(vars["PBSCORES"]), ploidy, chr) =>
+			gvcfvariant = HaplotypeCaller (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], recalibratedbam, vars["REFGENOMEDIR"]/vars["DBSNP"], string2int(vars["PBSCORES"]), ploidy, chr) =>
 			if ( size(indices) == size(glob(strcat(VarcallDir, sampleName, ".*.raw.g.vcf"))) ) { chromosomes_processing_done = 1; };
 		
 		} // end the loop for all chromosomes
@@ -223,7 +223,7 @@ foreach sample in sampleLines{
 	trace("#######   MERGE VCFs BLOCK STARTS HERE  FOR             " + sampleName + "       ######");
 	
 	string chr_vcfList[] = split(trim(replace_all(read(sed(chr_vcfListfile, "s/^/--variant /g")), "\n", " ", 0)), " ") =>
-	rawvariant = CombineGVCFs (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"),  vars["REFGENOMEDIR"]/vars["REFGENOME"], vars["REFGENOMEDIR"]/vars["DBSNP"], chr_vcfList ) =>
+	rawvariant = CombineGVCFs (vars["JAVADIR"], vars["GATKDIR"],  vars["REFGENOMEDIR"]/vars["REFGENOME"], vars["REFGENOMEDIR"]/vars["DBSNP"], chr_vcfList ) =>
 	mergedvariant = cp (rawvariant) =>
 	if ( size(sampleLines) == size(glob(strcat(vars["OUTPUTDIR"]/vars["DELIVERYFOLDER"], "/*.GATKCombineGVCF.raw.vcf"))) ) { samples_processing_done = 1;  };
 
@@ -238,6 +238,6 @@ mkdir(strcat(vars["OUTPUTDIR"]/vars["DELIVERYFOLDER"], "/jointVCFs"));
 wait(samples_processing_done) {
 	variantFiles = find_files (vars["OUTPUTDIR"]/vars["DELIVERYFOLDER"], strcat("*.GATKCombineGVCF.raw.vcf")) =>
 	string varlist[] = split(trim(replace_all(read(sed(variantFiles, "s/^/--variant /g")), "\n", " ", 0)), " ") =>
-	jointVCF = GenotypeGVCFs (vars["JAVADIR"], strcat(vars["GATKDIR"]/"GenomeAnalysisTK.jar"), vars["REFGENOMEDIR"]/vars["REFGENOME"], varlist );
+	jointVCF = GenotypeGVCFs (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], varlist );
 }
 

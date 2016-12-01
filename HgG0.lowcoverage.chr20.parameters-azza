@@ -51,7 +51,7 @@ BWADIR=/usr/bin/bwa
 SAMBLASTERDIR=/usr/local/bin/samblaster
 SAMTOOLSDIR=/usr/local/bin/samtools
 NOVOCRAFTDIR=/usr/local/src/novocraft
-GATKDIR=/usr/local/src/gatk
+GATKDIR=/usr/local/src/gatk/GenomeAnalysisTK.jar
 
 ## pbs resources
 PBSNODES=1
