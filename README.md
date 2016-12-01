@@ -114,7 +114,7 @@ In a nutshell, the template below shows the various parameters and how they can 
   OMNI=<name of the omni variants file. Example: 1000G\_omni2.5.hg19.sites.vcf in the GATK bundle 2.8>
 
 # Example entries for tools’ path in biocluster
-  BWAMEMDIR=/home/apps/bwa/bwa-0.7.15
+  BWAMEMDIR=/home/apps/bwa/bwa-0.7.15/bwa
   NOVOCRAFTDIR=/home/apps/novocraft/novocraft-3.02
   SAMBLASTERDIR=/home/apps/samblaster/samblaster-0.1.22/bin
   PICARDIR=/home/apps/picard-tools/picard-tools-2.4.1
