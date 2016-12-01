@@ -12,6 +12,7 @@ for (int i=0; i<size(arr); i=i+1) {
 foreach l in arr {
 	trace ("*********\t\t" + l + "***********");
 	c = 1;
+	c = 4;
 }
 file tmp <"tmp.swift">;
 tmp = touch ();

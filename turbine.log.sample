@@ -1,0 +1,403 @@
+WARN  VCcallingPipeline.swift:79:35: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:79:35: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:95:36: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:95:36: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:109:10: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:109:10: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:134:16: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:134:16: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:195:34: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:195:34: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:200:37: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:200:37: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:195:34: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:195:34: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:200:37: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:200:37: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:160:7: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:160:7: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:221:29: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:221:29: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:36:2: Variable usage warning. Variable chromosomes_processing_done might be read and not written, possibly leading to deadlock
+WARN  VCcallingPipeline.swift:36:2: Variable usage warning. Mapped variable qcfile might not be written
+WARN  VCcallingPipeline.swift:79:35: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:79:35: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:95:36: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:95:36: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:109:10: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:109:10: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:134:16: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:134:16: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:195:34: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:195:34: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:200:37: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:200:37: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:195:34: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:195:34: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:200:37: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:200:37: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:160:7: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:160:7: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:221:29: Variable usage warning. Variable qcfile is assigned on some code paths but not others
+WARN  VCcallingPipeline.swift:221:29: Variable usage warning. Variable qcfile might be assigned twice
+WARN  VCcallingPipeline.swift:36:2: Variable usage warning. Variable chromosomes_processing_done might be read and not written, possibly leading to deadlock
+WARN  VCcallingPipeline.swift:36:2: Variable usage warning. Mapped variable qcfile might not be written
+WARN  VCcallingPipeline.swift:6: Variable usage warning. Variable samples_processing_done might be read and not written, possibly leading to deadlock
+[0] trace: ####    Now launching joint_genotyping script for all SAMPLEs: each 200 together        ##########
+[0] trace: #############     END ALIGNMENT-DEDUPLICATION BLOCK                   ############
+[0] trace: ########   ALIGNMENT QC TEST   FOR SAMPLE,HG00108.lowcoverage.chr20.smallregion,             ###############
+[0] trace: #############   WRAP UP the align_dedup stage   ############
+[0] trace: #######   MERGE BAMS BLOCK STARTS HERE  FOR             HG00108.lowcoverage.chr20.smallregion      ######
+[0] trace: #######   MERGE VCFs BLOCK STARTS HERE  FOR             HG00108.lowcoverage.chr20.smallregion       ######
+[0] trace: ########   QC rule2: mapped_reads cutoff >= ,95,           ###############
+[2] trace: ##CASE1: dedup tool is ## SAMBLASTER ##. We use a single command for align-deduplication ##
+[3] trace: ########   QC rule1: duplication cutoff <= ,1,          ###############
+[3] [M::main_mem] read 60512 sequences (5506592 bp)...
+[3] [M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (2, 25851, 0, 0)
+[3] [M::mem_pestat] skip orientation FF as there are not enough pairs
+[3] [M::mem_pestat] analyzing insert size distribution for orientation FR...
+[3] [M::mem_pestat] (25, 50, 75) percentile: (458, 467, 475)
+[3] [M::mem_pestat] low and high boundaries for computing mean and std.dev: (424, 509)
+[3] [M::mem_pestat] mean and std.dev: (466.37, 12.53)
+[3] [M::mem_pestat] low and high boundaries for proper pairs: (407, 526)
+[3] [M::mem_pestat] skip orientation RF as there are not enough pairs
+[3] [M::mem_pestat] skip orientation RR as there are not enough pairs
+[3] [M::worker2@1] performed mate-SW for 7378 reads
+[3] [M::worker2@0] performed mate-SW for 7829 reads
+[3] [main] Version: 0.7.5a-r405
+[3] [main] CMD: /usr/bin/bwa mem -M -k 32 -I 300,30 -t 2 -R @RG	ID:HG00108.lowcoverage.chr20.smallregion	LB:synthetic	PL:illumina	PU:HG00108.lowcoverage.chr20.smallregion	SM:HG00108.lowcoverage.chr20.smallregion	CN:synthetic /home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.fa /home/azza/swift-project/Dataset/HG00108.lowcoverage.chr20.smallregion_1.fastq /home/azza/swift-project/Dataset/HG00108.lowcoverage.chr20.smallregion_2.fastq
+[3] [main] Real time: 6.344 sec; CPU: 6.342 sec
+[0] samblaster: Version 0.1.22
+[0] samblaster: Opening /home/azza/swift-project/tmp/align/HG00108.lowcoverage.chr20.smallregion.nodups.sam for read.
+[0] samblaster: Outputting to stdout
+[0] samblaster: Loaded 1 header sequence entries.
+[0] samblaster: Marked 2743 of 30256 (9.07%) read ids as duplicates using 5212k memory in 0.053S CPU seconds and 0S wall time.
+[3] # novosort (V1.03.09) - Build May 18 2016 @ 16:23:46
+[3] # (C) 2012 NovoCraft Technologies Sdn Bhd.
+[3] # /usr/local/src/novocraft/novosort --index --tmpdir /home/azza/swift-project/tmp --threads 2 /home/azza/swift-project/Results/align/HG00108.lowcoverage.chr20.smallregion.wdups.bam -o /home/azza/swift-project/Results/align/HG00108.lowcoverage.chr20.smallregion.wdups.sorted.bam --compression 1
+[3] # License file: /usr/local/src/novocraft/novoalign.lic
+[3] # License expired on 28 Sep 2016.
+[3] # System Local time: Mon Nov 28 05:24:32 2016
+[3] # License file: /usr/local/src/novocraft/novoalign.lic
+[3] # Novosort license not found, using single threading mode.
+[3] # Worker Threads: 1
+[3] # Process Headers..
+[3] # File /home/azza/swift-project/Results/align/HG00108.lowcoverage.chr20.smallregion.wdups.bam
+[3] # Sort Phase..
+[3] #   Sort Buffers: 2
+[3] tcmalloc: large alloc 1397612544 bytes == 0x2a86000 @  0x60d48a 0x41113a 0x4066f1 0x4040d6 0x55d0da 0x409f71
+[3] tcmalloc: large alloc 1397612544 bytes == 0x5ca0a000 @  0x60d48a 0x41113a 0x4066f1 0x4040d6 0x55d0da 0x409f71
+[3] # File /home/azza/swift-project/Results/align/HG00108.lowcoverage.chr20.smallregion.wdups.bam, 60529 alignment records
+[3] # Merge Phase...
+[3] # 1 memory buffers
+[3] #  60529 alignments merged.
+[3] # Saving BAM index.
+[3] # Done.
+[3] #       Elapsed Time: 0.0 (min.)
+[3] #           CPU Time: 0.0 (min.)
+[2] trace: ####   Realign-Vcall script for SAMPLE HG00108.lowcoverage.chr20.smallregion chr=20                             #######
+[2] trace: #######   REALIGN-RECALIBRATION BLOCK STARTS HERE   HG00108.lowcoverage.chr20.smallregion20        ######
+[2] trace: #############    GATK VARIANT CALLING   FOR SAMPLE HG00108.lowcoverage.chr20.smallregion : 20   ###########
+[0] trace: #####  HG00108.lowcoverage.chr20.smallregion DID NOT pass first filter percent_duplicates with value9.06342414379884, maximum cutoff is 1
+[1] INFO  05:24:40,993 HelpFormatter - -------------------------------------------------------------------------------- 
+[1] INFO  05:24:41,000 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.6-0-g89b7209, Compiled 2016/06/01 22:27:29 
+[1] INFO  05:24:41,001 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+[1] INFO  05:24:41,002 HelpFormatter - For support and documentation go to https://www.broadinstitute.org/gatk 
+[1] INFO  05:24:41,002 HelpFormatter - [Mon Nov 28 05:24:40 EAT 2016] Executing on Linux 3.16.0-60-generic amd64 
+[1] INFO  05:24:41,002 HelpFormatter - Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14 JdkDeflater 
+[1] INFO  05:24:41,013 HelpFormatter - Program Args: -T RealignerTargetCreator -R /home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.fa -I /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/realign/HG00108.lowcoverage.chr20.smallregion.20.wdups.sorted.bam -known /home/azza/swift-project/Workshop_low_pass/ref/IndelsByChr/1kg.pilot_release.merged.indels.sites.hg19.chr20.vcf -nt 2 -o /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/realign/HG00108.lowcoverage.chr20.smallregion.20.realignTargetCreator.intervals 
+[1] INFO  05:24:41,023 HelpFormatter - Executing as azza@azza-laptop on Linux 3.16.0-60-generic amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14. 
+[1] INFO  05:24:41,025 HelpFormatter - Date/Time: 2016/11/28 05:24:40 
+[1] INFO  05:24:41,026 HelpFormatter - -------------------------------------------------------------------------------- 
+[1] INFO  05:24:41,026 HelpFormatter - -------------------------------------------------------------------------------- 
+[1] INFO  05:24:41,053 GenomeAnalysisEngine - Strictness is SILENT 
+[1] INFO  05:24:41,428 GenomeAnalysisEngine - Downsampling Settings: Method: BY_SAMPLE, Target Coverage: 1000 
+[1] INFO  05:24:41,453 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+[1] INFO  05:24:41,521 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.07 
+[1] INFO  05:24:41,682 MicroScheduler - Running the GATK in parallel mode with 2 total threads, 1 CPU thread(s) for each of 2 data thread(s), of 4 processors available on this machine 
+[1] INFO  05:24:41,987 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+[1] INFO  05:24:42,288 GenomeAnalysisEngine - Done preparing for traversal 
+[1] INFO  05:24:42,288 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+[1] INFO  05:24:42,289 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+[1] INFO  05:24:42,299 ProgressMeter -        Location |     sites | elapsed |     sites | completed | runtime |   runtime 
+[1] INFO  05:24:42,362 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+[1] INFO  05:24:42,374 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.01 
+[1] INFO  05:25:12,357 ProgressMeter -     20:33843661   3.3816576E7    30.0 s       0.0 s       53.7%    55.0 s      25.0 s 
+[1] INFO  05:25:30,251 ProgressMeter -            done   6.302552E7    47.0 s       0.0 s      100.0%    47.0 s       0.0 s 
+[1] INFO  05:25:30,252 ProgressMeter - Total runtime 47.96 secs, 0.80 min, 0.01 hours 
+[1] INFO  05:25:30,257 MicroScheduler - 6648 reads were filtered out during the traversal out of approximately 60012 total reads (11.08%) 
+[1] INFO  05:25:30,258 MicroScheduler -   -> 0 reads (0.00% of total) failing BadCigarFilter 
+[1] INFO  05:25:30,258 MicroScheduler -   -> 0 reads (0.00% of total) failing BadMateFilter 
+[1] INFO  05:25:30,258 MicroScheduler -   -> 5486 reads (9.14% of total) failing DuplicateReadFilter 
+[1] INFO  05:25:30,267 MicroScheduler -   -> 0 reads (0.00% of total) failing FailsVendorQualityCheckFilter 
+[1] INFO  05:25:30,268 MicroScheduler -   -> 0 reads (0.00% of total) failing MalformedReadFilter 
+[1] INFO  05:25:30,269 MicroScheduler -   -> 0 reads (0.00% of total) failing MappingQualityUnavailableFilter 
+[1] INFO  05:25:30,270 MicroScheduler -   -> 1157 reads (1.93% of total) failing MappingQualityZeroFilter 
+[1] INFO  05:25:30,271 MicroScheduler -   -> 5 reads (0.01% of total) failing NotPrimaryAlignmentFilter 
+[1] INFO  05:25:30,272 MicroScheduler -   -> 0 reads (0.00% of total) failing Platform454Filter 
+[1] INFO  05:25:30,273 MicroScheduler -   -> 0 reads (0.00% of total) failing UnmappedReadFilter 
+[1] ------------------------------------------------------------------------------------------[1] 
+[1] Done. [1] There were no warn messages.
+[1] ------------------------------------------------------------------------------------------[1] 
+[0] INFO  05:25:35,330 HelpFormatter - -------------------------------------------------------------------------------- 
+[0] INFO  05:25:35,343 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.6-0-g89b7209, Compiled 2016/06/01 22:27:29 
+[0] INFO  05:25:35,343 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+[0] INFO  05:25:35,343 HelpFormatter - For support and documentation go to https://www.broadinstitute.org/gatk 
+[0] INFO  05:25:35,344 HelpFormatter - [Mon Nov 28 05:25:35 EAT 2016] Executing on Linux 3.16.0-60-generic amd64 
+[0] INFO  05:25:35,344 HelpFormatter - Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14 JdkDeflater 
+[0] INFO  05:25:35,358 HelpFormatter - Program Args: -T IndelRealigner -R /home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.fa -I /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/realign/HG00108.lowcoverage.chr20.smallregion.20.wdups.sorted.bam -known /home/azza/swift-project/Workshop_low_pass/ref/IndelsByChr/1kg.pilot_release.merged.indels.sites.hg19.chr20.vcf --targetIntervals /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/realign/HG00108.lowcoverage.chr20.smallregion.20.realignTargetCreator.intervals -o /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/realign/HG00108.lowcoverage.chr20.smallregion.20.realigned.bam 
+[0] INFO  05:25:35,364 HelpFormatter - Executing as azza@azza-laptop on Linux 3.16.0-60-generic amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14. 
+[0] INFO  05:25:35,364 HelpFormatter - Date/Time: 2016/11/28 05:25:35 
+[0] INFO  05:25:35,365 HelpFormatter - -------------------------------------------------------------------------------- 
+[0] INFO  05:25:35,365 HelpFormatter - -------------------------------------------------------------------------------- 
+[0] INFO  05:25:35,615 GenomeAnalysisEngine - Strictness is SILENT 
+[0] INFO  05:25:35,949 GenomeAnalysisEngine - Downsampling Settings: No downsampling 
+[0] INFO  05:25:35,974 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+[0] INFO  05:25:36,025 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.05 
+[0] INFO  05:25:36,473 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+[0] INFO  05:25:36,484 GenomeAnalysisEngine - Done preparing for traversal 
+[0] INFO  05:25:36,485 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+[0] INFO  05:25:36,486 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+[0] INFO  05:25:36,487 ProgressMeter -        Location |     reads | elapsed |     reads | completed | runtime |   runtime 
+[0] INFO  05:25:36,798 ReadShardBalancer$1 - Loading BAM index data 
+[0] INFO  05:25:36,816 ReadShardBalancer$1 - Done loading BAM index data 
+[0] DEBUG	2016-11-28 05:25:44	BlockCompressedOutputStream	Using deflater: Deflater[0] 
+[0] INFO  05:25:48,721 ProgressMeter -            done     59673.0    12.0 s       3.4 m       65.6%    18.0 s       6.0 s 
+[0] INFO  05:25:48,722 ProgressMeter - Total runtime 12.24 secs, 0.20 min, 0.00 hours 
+[0] INFO  05:25:48,727 MicroScheduler - 0 reads were filtered out during the traversal out of approximately 59673 total reads (0.00%) 
+[0] INFO  05:25:48,728 MicroScheduler -   -> 0 reads (0.00% of total) failing BadCigarFilter 
+[0] INFO  05:25:48,728 MicroScheduler -   -> 0 reads (0.00% of total) failing MalformedReadFilter 
+[0] ------------------------------------------------------------------------------------------[0] 
+[0] Done. [0] There were no warn messages.
+[0] ------------------------------------------------------------------------------------------[0] 
+[3] INFO  05:25:54,336 HelpFormatter - -------------------------------------------------------------------------------- 
+[3] INFO  05:25:54,345 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.6-0-g89b7209, Compiled 2016/06/01 22:27:29 
+[3] INFO  05:25:54,348 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+[3] INFO  05:25:54,348 HelpFormatter - For support and documentation go to https://www.broadinstitute.org/gatk 
+[3] INFO  05:25:54,348 HelpFormatter - [Mon Nov 28 05:25:54 EAT 2016] Executing on Linux 3.16.0-60-generic amd64 
+[3] INFO  05:25:54,349 HelpFormatter - Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14 JdkDeflater 
+[3] INFO  05:25:54,361 HelpFormatter - Program Args: -T BaseRecalibrator -R /home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.fa -I /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/realign/HG00108.lowcoverage.chr20.smallregion.20.realigned.bam -knownSites /home/azza/swift-project/Workshop_low_pass/ref/dbsnp_135.b37.chr20.smallregion.vcf --knownSites /home/azza/swift-project/Workshop_low_pass/ref/IndelsByChr/1kg.pilot_release.merged.indels.sites.hg19.chr20.vcf -nct 2 -o /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/realign/HG00108.lowcoverage.chr20.smallregion.20.recal_report.grp 
+[3] INFO  05:25:54,375 HelpFormatter - Executing as azza@azza-laptop on Linux 3.16.0-60-generic amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14. 
+[3] INFO  05:25:54,378 HelpFormatter - Date/Time: 2016/11/28 05:25:54 
+[3] INFO  05:25:54,378 HelpFormatter - -------------------------------------------------------------------------------- 
+[3] INFO  05:25:54,382 HelpFormatter - -------------------------------------------------------------------------------- 
+[3] INFO  05:25:54,414 GenomeAnalysisEngine - Strictness is SILENT 
+[3] INFO  05:25:54,800 GenomeAnalysisEngine - Downsampling Settings: No downsampling 
+[3] INFO  05:25:54,818 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+[3] INFO  05:25:54,891 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.07 
+[3] INFO  05:25:55,215 MicroScheduler - Running the GATK in parallel mode with 2 total threads, 2 CPU thread(s) for each of 1 data thread(s), of 4 processors available on this machine 
+[3] INFO  05:25:55,498 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+[3] INFO  05:25:55,519 GenomeAnalysisEngine - Done preparing for traversal 
+[3] INFO  05:25:55,523 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+[3] INFO  05:25:55,524 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+[3] INFO  05:25:55,524 ProgressMeter -        Location |     reads | elapsed |     reads | completed | runtime |   runtime 
+[3] INFO  05:25:55,590 BaseRecalibrator - The covariates being used here:  
+[3] INFO  05:25:55,591 BaseRecalibrator - 	ReadGroupCovariate 
+[3] INFO  05:25:55,591 BaseRecalibrator - 	QualityScoreCovariate 
+[3] INFO  05:25:55,592 BaseRecalibrator - 	ContextCovariate 
+[3] INFO  05:25:55,592 ContextCovariate - 		Context sizes: base substitution model 2, indel substitution model 3 
+[3] INFO  05:25:55,593 BaseRecalibrator - 	CycleCovariate 
+[3] INFO  05:25:55,598 ReadShardBalancer$1 - Loading BAM index data 
+[3] INFO  05:25:55,600 ReadShardBalancer$1 - Done loading BAM index data 
+[3] INFO  05:26:12,286 BaseRecalibrator - Calculating quantized quality scores... 
+[3] INFO  05:26:12,400 BaseRecalibrator - Writing recalibration report... 
+[3] INFO  05:26:16,167 BaseRecalibrator - ...done! 
+[3] INFO  05:26:16,168 BaseRecalibrator - BaseRecalibrator was able to recalibrate 53058 reads 
+[3] INFO  05:26:16,171 ProgressMeter -            done     53058.0    20.0 s       6.5 m       53.9%    37.0 s      17.0 s 
+[3] INFO  05:26:16,171 ProgressMeter - Total runtime 20.65 secs, 0.34 min, 0.01 hours 
+[3] INFO  05:26:16,172 MicroScheduler - 6615 reads were filtered out during the traversal out of approximately 59673 total reads (11.09%) 
+[3] INFO  05:26:16,172 MicroScheduler -   -> 0 reads (0.00% of total) failing BadCigarFilter 
+[3] INFO  05:26:16,173 MicroScheduler -   -> 5453 reads (9.14% of total) failing DuplicateReadFilter 
+[3] INFO  05:26:16,173 MicroScheduler -   -> 0 reads (0.00% of total) failing FailsVendorQualityCheckFilter 
+[3] INFO  05:26:16,173 MicroScheduler -   -> 0 reads (0.00% of total) failing MalformedReadFilter 
+[3] INFO  05:26:16,177 MicroScheduler -   -> 0 reads (0.00% of total) failing MappingQualityUnavailableFilter 
+[3] INFO  05:26:16,178 MicroScheduler -   -> 1157 reads (1.94% of total) failing MappingQualityZeroFilter 
+[3] INFO  05:26:16,179 MicroScheduler -   -> 5 reads (0.01% of total) failing NotPrimaryAlignmentFilter 
+[3] INFO  05:26:16,179 MicroScheduler -   -> 0 reads (0.00% of total) failing UnmappedReadFilter 
+[3] ------------------------------------------------------------------------------------------[3] 
+[3] Done. [3] There were no warn messages.
+[3] ------------------------------------------------------------------------------------------[3] 
+[0] INFO  05:26:22,180 HelpFormatter - -------------------------------------------------------------------------------- 
+[0] INFO  05:26:22,187 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.6-0-g89b7209, Compiled 2016/06/01 22:27:29 
+[0] INFO  05:26:22,195 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+[0] INFO  05:26:22,196 HelpFormatter - For support and documentation go to https://www.broadinstitute.org/gatk 
+[0] INFO  05:26:22,196 HelpFormatter - [Mon Nov 28 05:26:22 EAT 2016] Executing on Linux 3.16.0-60-generic amd64 
+[0] INFO  05:26:22,197 HelpFormatter - Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14 JdkDeflater 
+[0] INFO  05:26:22,207 HelpFormatter - Program Args: -T PrintReads -R /home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.fa -I /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/realign/HG00108.lowcoverage.chr20.smallregion.20.realigned.bam -BQSR /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/realign/HG00108.lowcoverage.chr20.smallregion.20.recal_report.grp -nct 2 --out /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/realign/HG00108.lowcoverage.chr20.smallregion.20.recalibrated.bam 
+[0] INFO  05:26:22,218 HelpFormatter - Executing as azza@azza-laptop on Linux 3.16.0-60-generic amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14. 
+[0] INFO  05:26:22,219 HelpFormatter - Date/Time: 2016/11/28 05:26:22 
+[0] INFO  05:26:22,219 HelpFormatter - -------------------------------------------------------------------------------- 
+[0] INFO  05:26:22,220 HelpFormatter - -------------------------------------------------------------------------------- 
+[0] INFO  05:26:22,402 GenomeAnalysisEngine - Strictness is SILENT 
+[0] INFO  05:26:24,508 ContextCovariate - 		Context sizes: base substitution model 2, indel substitution model 3 
+[0] INFO  05:26:24,683 GenomeAnalysisEngine - Downsampling Settings: No downsampling 
+[0] INFO  05:26:24,723 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+[0] INFO  05:26:24,774 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.05 
+[0] INFO  05:26:24,828 MicroScheduler - Running the GATK in parallel mode with 2 total threads, 2 CPU thread(s) for each of 1 data thread(s), of 4 processors available on this machine 
+[0] INFO  05:26:24,977 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+[0] INFO  05:26:25,002 GenomeAnalysisEngine - Done preparing for traversal 
+[0] INFO  05:26:25,009 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+[0] INFO  05:26:25,010 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+[0] INFO  05:26:25,011 ProgressMeter -        Location |     reads | elapsed |     reads | completed | runtime |   runtime 
+[0] INFO  05:26:25,028 ReadShardBalancer$1 - Loading BAM index data 
+[0] INFO  05:26:25,030 ReadShardBalancer$1 - Done loading BAM index data 
+[0] DEBUG	2016-11-28 05:26:28	BlockCompressedOutputStream	Using deflater: Deflater[0] 
+[0] INFO  05:26:40,662 Walker - [REDUCE RESULT] Traversal result is: org.broadinstitute.gatk.engine.io.stubs.SAMFileWriterStub@b9c9bf5 
+[0] INFO  05:26:40,680 ProgressMeter -            done     59673.0    15.0 s       4.4 m       65.6%    22.0 s       7.0 s 
+[0] INFO  05:26:40,683 ProgressMeter - Total runtime 15.67 secs, 0.26 min, 0.00 hours 
+[0] INFO  05:26:40,689 MicroScheduler - 0 reads were filtered out during the traversal out of approximately 59673 total reads (0.00%) 
+[0] INFO  05:26:40,689 MicroScheduler -   -> 0 reads (0.00% of total) failing BadCigarFilter 
+[0] INFO  05:26:40,690 MicroScheduler -   -> 0 reads (0.00% of total) failing MalformedReadFilter 
+[0] ------------------------------------------------------------------------------------------[0] 
+[0] Done. [0] There were no warn messages.
+[0] ------------------------------------------------------------------------------------------[0] 
+[1] INFO  05:26:46,351 HelpFormatter - -------------------------------------------------------------------------------- 
+[1] INFO  05:26:46,357 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.6-0-g89b7209, Compiled 2016/06/01 22:27:29 
+[1] INFO  05:26:46,358 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+[1] INFO  05:26:46,358 HelpFormatter - For support and documentation go to https://www.broadinstitute.org/gatk 
+[1] INFO  05:26:46,360 HelpFormatter - [Mon Nov 28 05:26:46 EAT 2016] Executing on Linux 3.16.0-60-generic amd64 
+[1] INFO  05:26:46,361 HelpFormatter - Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14 JdkDeflater 
+[1] INFO  05:26:46,370 HelpFormatter - Program Args: -T HaplotypeCaller -R /home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.fa -I /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/realign/HG00108.lowcoverage.chr20.smallregion.20.recalibrated.bam --dbsnp /home/azza/swift-project/Workshop_low_pass/ref/dbsnp_135.b37.chr20.smallregion.vcf -o /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/variant/HG00108.lowcoverage.chr20.smallregion.20.raw.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherStrand -A StrandOddsRatio -A HaplotypeScore -A MappingQualityRankSumTest -A QualByDepth -A RMSMappingQuality -A ReadPosRankSumTest -stand_call_conf 30 -stand_emit_conf 30 --sample_ploidy 2 -nt 1 -nct 2 -L 20 
+[1] INFO  05:26:46,379 HelpFormatter - Executing as azza@azza-laptop on Linux 3.16.0-60-generic amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14. 
+[1] INFO  05:26:46,381 HelpFormatter - Date/Time: 2016/11/28 05:26:46 
+[1] INFO  05:26:46,381 HelpFormatter - -------------------------------------------------------------------------------- 
+[1] INFO  05:26:46,382 HelpFormatter - -------------------------------------------------------------------------------- 
+[1] INFO  05:26:46,469 GenomeAnalysisEngine - Strictness is SILENT 
+[1] INFO  05:26:46,949 GenomeAnalysisEngine - Downsampling Settings: Method: BY_SAMPLE, Target Coverage: 500 
+[1] INFO  05:26:46,968 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+[1] INFO  05:26:47,032 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.06 
+[1] INFO  05:26:47,063 HCMappingQualityFilter - Filtering out reads with MAPQ < 20 
+[1] INFO  05:26:47,181 IntervalUtils - Processing 63025520 bp from intervals 
+[1] INFO  05:26:47,215 MicroScheduler - Running the GATK in parallel mode with 2 total threads, 2 CPU thread(s) for each of 1 data thread(s), of 4 processors available on this machine 
+[1] INFO  05:26:47,445 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+[1] INFO  05:26:47,659 GenomeAnalysisEngine - Done preparing for traversal 
+[1] INFO  05:26:47,672 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+[1] INFO  05:26:47,672 ProgressMeter -                 |      processed |    time |         per 1M |           |   total | remaining 
+[1] INFO  05:26:47,673 ProgressMeter -        Location | active regions | elapsed | active regions | completed | runtime |   runtime 
+[1] INFO  05:26:47,679 HaplotypeCaller - Standard Emitting and Calling confidence set to 0.0 for reference-model confidence output 
+[1] INFO  05:26:47,679 HaplotypeCaller - All sites annotated with PLs forced to true for reference-model confidence output 
+[1] WARN  05:26:47,839 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+[1] INFO  05:26:48,004 HaplotypeCaller - Using global mismapping rate of 45 => -4.5 in log10 likelihood units 
+[1] INFO  05:26:48,005 PairHMM - Performance profiling for PairHMM is disabled because the program is being run with multiple threads (-nct>1) option
+[1] Profiling is enabled only when running in single thread mode
+[1]  
+[1] INFO  05:27:17,700 ProgressMeter -      20:7611101              0.0    30.0 s           49.6 w       12.1%     4.1 m       3.6 m 
+[1] INFO  05:27:47,702 ProgressMeter -     20:18172512              0.0    60.0 s           99.3 w       28.8%     3.5 m       2.5 m 
+[1] INFO  05:28:17,704 ProgressMeter -     20:29875145              0.0    90.0 s          148.9 w       47.4%     3.2 m      99.0 s 
+[1] Using AVX accelerated implementation of PairHMM
+[1] INFO  05:28:26,023 VectorLoglessPairHMM - libVectorLoglessPairHMM unpacked successfully from GATK jar file 
+[1] INFO  05:28:26,046 VectorLoglessPairHMM - Using vectorized implementation of PairHMM 
+[1] WARN  05:28:26,455 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper 
+[1] INFO  05:28:47,707 ProgressMeter -     20:33466864              0.0   120.0 s          198.5 w       53.1%     3.8 m     105.0 s 
+[1] WARN  05:28:55,711 AnnotationUtils - Annotation will not be calculated, genotype is not called 
+[1] WARN  05:28:55,711 AnnotationUtils - Annotation will not be calculated, genotype is not called 
+[1] INFO  05:29:17,708 ProgressMeter -     20:37322365              0.0     2.5 m          248.1 w       59.2%     4.2 m     103.0 s 
+[1] INFO  05:29:47,709 ProgressMeter -     20:49313498              0.0     3.0 m          297.7 w       78.2%     3.8 m      50.0 s 
+[1] INFO  05:30:25,541 HaplotypeCaller - Ran local assembly on 211274 active regions 
+[1] INFO  05:30:25,609 ProgressMeter -            done       6.302552E7     3.6 m            3.0 s      100.0%     3.6 m       0.0 s 
+[1] INFO  05:30:25,609 ProgressMeter - Total runtime 217.94 secs, 3.63 min, 0.06 hours 
+[1] INFO  05:30:25,610 MicroScheduler - 6782 reads were filtered out during the traversal out of approximately 59673 total reads (11.37%) 
+[1] INFO  05:30:25,610 MicroScheduler -   -> 0 reads (0.00% of total) failing BadCigarFilter 
+[1] INFO  05:30:25,610 MicroScheduler -   -> 5443 reads (9.12% of total) failing DuplicateReadFilter 
+[1] INFO  05:30:25,610 MicroScheduler -   -> 0 reads (0.00% of total) failing FailsVendorQualityCheckFilter 
+[1] INFO  05:30:25,613 MicroScheduler -   -> 1337 reads (2.24% of total) failing HCMappingQualityFilter 
+[1] INFO  05:30:25,613 MicroScheduler -   -> 0 reads (0.00% of total) failing MalformedReadFilter 
+[1] INFO  05:30:25,614 MicroScheduler -   -> 0 reads (0.00% of total) failing MappingQualityUnavailableFilter 
+[1] INFO  05:30:25,614 MicroScheduler -   -> 2 reads (0.00% of total) failing NotPrimaryAlignmentFilter 
+[1] INFO  05:30:25,615 MicroScheduler -   -> 0 reads (0.00% of total) failing UnmappedReadFilter 
+[1] ------------------------------------------------------------------------------------------[1] 
+[1] Done. [1] There were 4 WARN messages, the first 4 are repeated below.
+[1] WARN  05:26:47,839 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+[1] WARN  05:28:26,455 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper 
+[1] WARN  05:28:55,711 AnnotationUtils - Annotation will not be calculated, genotype is not called 
+[1] WARN  05:28:55,711 AnnotationUtils - Annotation will not be calculated, genotype is not called 
+[1] ------------------------------------------------------------------------------------------[1] 
+[0] # novosort (V1.03.09) - Build May 18 2016 @ 16:23:46
+[0] # (C) 2012 NovoCraft Technologies Sdn Bhd.
+[0] # /usr/local/src/novocraft/novosort --index --tmpdir /home/azza/swift-project/tmp --threads 2 /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/realign/HG00108.lowcoverage.chr20.smallregion.20.recalibrated.bam -o /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/realign/HG00108.lowcoverage.chr20.smallregion.recalibrated.bam
+[0] # License file: /usr/local/src/novocraft/novoalign.lic
+[0] # License expired on 28 Sep 2016.
+[0] # System Local time: Mon Nov 28 05:30:28 2016
+[0] # License file: /usr/local/src/novocraft/novoalign.lic
+[0] # Novosort license not found, using single threading mode.
+[0] # Worker Threads: 1
+[0] # Process Headers..
+[0] # File /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/realign/HG00108.lowcoverage.chr20.smallregion.20.recalibrated.bam
+[0] #         is already sorted.
+[0] # Merge Phase...
+[0] #  59673 alignments merged.
+[0] # Saving BAM index.
+[0] # Done.
+[0] #       Elapsed Time: 0.1 (min.)
+[0] #           CPU Time: 0.0 (min.)
+[2] INFO  05:30:38,351 HelpFormatter - -------------------------------------------------------------------------------- 
+[2] INFO  05:30:38,394 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.6-0-g89b7209, Compiled 2016/06/01 22:27:29 
+[2] INFO  05:30:38,395 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+[2] INFO  05:30:38,395 HelpFormatter - For support and documentation go to https://www.broadinstitute.org/gatk 
+[2] INFO  05:30:38,395 HelpFormatter - [Mon Nov 28 05:30:38 EAT 2016] Executing on Linux 3.16.0-60-generic amd64 
+[2] INFO  05:30:38,395 HelpFormatter - Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14 JdkDeflater 
+[2] INFO  05:30:38,403 HelpFormatter - Program Args: -T CombineGVCFs -R /home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.fa --dbsnp /home/azza/swift-project/Workshop_low_pass/ref/dbsnp_135.b37.chr20.smallregion.vcf --variant /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/variant/HG00108.lowcoverage.chr20.smallregion.20.raw.g.vcf -o /home/azza/swift-project/Results/HG00108.lowcoverage.chr20.smallregion/variant/HG00108.lowcoverage.chr20.smallregion.GATKCombineGVCF.raw.vcf 
+[2] INFO  05:30:38,419 HelpFormatter - Executing as azza@azza-laptop on Linux 3.16.0-60-generic amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14. 
+[2] INFO  05:30:38,419 HelpFormatter - Date/Time: 2016/11/28 05:30:38 
+[2] INFO  05:30:38,420 HelpFormatter - -------------------------------------------------------------------------------- 
+[2] INFO  05:30:38,420 HelpFormatter - -------------------------------------------------------------------------------- 
+[2] INFO  05:30:38,519 GenomeAnalysisEngine - Strictness is SILENT 
+[2] INFO  05:30:38,993 GenomeAnalysisEngine - Downsampling Settings: Method: BY_SAMPLE, Target Coverage: 1000 
+[2] INFO  05:30:39,772 GenomeAnalysisEngine - Preparing for traversal 
+[2] INFO  05:30:39,780 GenomeAnalysisEngine - Done preparing for traversal 
+[2] INFO  05:30:39,785 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+[2] INFO  05:30:39,790 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+[2] INFO  05:30:39,792 ProgressMeter -        Location |     sites | elapsed |     sites | completed | runtime |   runtime 
+[2] WARN  05:30:40,156 StrandBiasTest - StrandBiasBySample annotation exists in input VCF header. Attempting to use StrandBiasBySample values to calculate strand bias annotation values. If no sample has the SB genotype annotation, annotation may still fail. 
+[2] WARN  05:30:40,157 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+[2] WARN  05:30:40,160 StrandBiasTest - StrandBiasBySample annotation exists in input VCF header. Attempting to use StrandBiasBySample values to calculate strand bias annotation values. If no sample has the SB genotype annotation, annotation may still fail. 
+[2] INFO  05:31:09,837 ProgressMeter -     20:19712001       1.9E7    30.0 s       1.0 s       31.3%    95.0 s      65.0 s 
+[2] INFO  05:31:39,844 ProgressMeter -     20:33538501       3.3E7    60.0 s       1.0 s       53.2%   112.0 s      52.0 s 
+[2] INFO  05:32:09,845 ProgressMeter -     20:43999901       4.3E7    90.0 s       2.0 s       69.8%     2.1 m      38.0 s 
+[2] INFO  05:32:39,847 ProgressMeter -     20:60248501       6.0E7   120.0 s       2.0 s       95.6%     2.1 m       5.0 s 
+[2] INFO  05:32:43,910 ProgressMeter -            done   6.302552E7     2.1 m       1.0 s      100.0%     2.1 m       0.0 s 
+[2] INFO  05:32:43,912 ProgressMeter - Total runtime 124.13 secs, 2.07 min, 0.03 hours 
+[2] ------------------------------------------------------------------------------------------[2] 
+[2] Done. [2] There were 3 WARN messages, the first 3 are repeated below.
+[2] WARN  05:30:40,156 StrandBiasTest - StrandBiasBySample annotation exists in input VCF header. Attempting to use StrandBiasBySample values to calculate strand bias annotation values. If no sample has the SB genotype annotation, annotation may still fail. 
+[2] WARN  05:30:40,157 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+[2] WARN  05:30:40,160 StrandBiasTest - StrandBiasBySample annotation exists in input VCF header. Attempting to use StrandBiasBySample values to calculate strand bias annotation values. If no sample has the SB genotype annotation, annotation may still fail. 
+[2] ------------------------------------------------------------------------------------------[2] 
+[3] INFO  05:32:49,957 HelpFormatter - -------------------------------------------------------------------------------- 
+[3] INFO  05:32:49,963 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.6-0-g89b7209, Compiled 2016/06/01 22:27:29 
+[3] INFO  05:32:49,972 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+[3] INFO  05:32:49,972 HelpFormatter - For support and documentation go to https://www.broadinstitute.org/gatk 
+[3] INFO  05:32:49,973 HelpFormatter - [Mon Nov 28 05:32:49 EAT 2016] Executing on Linux 3.16.0-60-generic amd64 
+[3] INFO  05:32:49,975 HelpFormatter - Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14 JdkDeflater 
+[3] INFO  05:32:49,981 HelpFormatter - Program Args: -T GenotypeGVCFs -R /home/azza/swift-project/Workshop_low_pass/ref/human_g1k_v37_chr20.fa --variant /home/azza/swift-project/Results/delivery/HG00108.lowcoverage.chr20.smallregion.GATKCombineGVCF.raw.vcf -o /home/azza/swift-project/Results/delivery/jointVCFs/jointVCFcalled.vcf 
+[3] INFO  05:32:49,988 HelpFormatter - Executing as azza@azza-laptop on Linux 3.16.0-60-generic amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14. 
+[3] INFO  05:32:49,990 HelpFormatter - Date/Time: 2016/11/28 05:32:49 
+[3] INFO  05:32:49,990 HelpFormatter - -------------------------------------------------------------------------------- 
+[3] INFO  05:32:49,990 HelpFormatter - -------------------------------------------------------------------------------- 
+[3] INFO  05:32:50,051 GenomeAnalysisEngine - Strictness is SILENT 
+[3] INFO  05:32:50,235 GenomeAnalysisEngine - Downsampling Settings: Method: BY_SAMPLE, Target Coverage: 1000 
+[3] WARN  05:32:50,319 RMDTrackBuilder - Index file /home/azza/swift-project/Results/delivery/HG00108.lowcoverage.chr20.smallregion.GATKCombineGVCF.raw.vcf.idx is out of date (index older than input file), deleting and updating the index file 
+[3] INFO  05:32:52,877 RMDTrackBuilder - Writing Tribble index to disk for file /home/azza/swift-project/Results/delivery/HG00108.lowcoverage.chr20.smallregion.GATKCombineGVCF.raw.vcf.idx 
+[3] INFO  05:32:53,209 GenomeAnalysisEngine - Preparing for traversal 
+[3] INFO  05:32:53,212 GenomeAnalysisEngine - Done preparing for traversal 
+[3] INFO  05:32:53,213 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+[3] INFO  05:32:53,214 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+[3] INFO  05:32:53,215 ProgressMeter -        Location |     sites | elapsed |     sites | completed | runtime |   runtime 
+[3] WARN  05:32:53,465 StrandBiasTest - StrandBiasBySample annotation exists in input VCF header. Attempting to use StrandBiasBySample values to calculate strand bias annotation values. If no sample has the SB genotype annotation, annotation may still fail. 
+[3] WARN  05:32:53,466 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+[3] WARN  05:32:53,468 StrandBiasTest - StrandBiasBySample annotation exists in input VCF header. Attempting to use StrandBiasBySample values to calculate strand bias annotation values. If no sample has the SB genotype annotation, annotation may still fail. 
+[3] INFO  05:32:53,468 GenotypeGVCFs - Notice that the -ploidy parameter is ignored in GenotypeGVCFs tool as this is automatically determined by the input variant files 
+[3] INFO  05:33:23,228 ProgressMeter -     20:21311101       2.1E7    30.0 s       1.0 s       33.8%    88.0 s      58.0 s 
+[3] WARN  05:33:39,690 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper, not org.broadinstitute.gatk.tools.walkers.variantutils.GenotypeGVCFs 
+[3] INFO  05:33:53,231 ProgressMeter -     20:33767001       3.3E7    60.0 s       1.0 s       53.6%   111.0 s      51.0 s 
+[3] INFO  05:34:23,232 ProgressMeter -     20:58256401       5.8E7    90.0 s       1.0 s       92.4%    97.0 s       7.0 s 
+[3] INFO  05:34:28,621 ProgressMeter -            done   6.302552E7    95.0 s       1.0 s      100.0%    95.0 s       0.0 s 
+[3] INFO  05:34:28,621 ProgressMeter - Total runtime 95.41 secs, 1.59 min, 0.03 hours 
+[3] ------------------------------------------------------------------------------------------[3] 
+[3] Done. [3] There were 5 WARN messages, the first 5 are repeated below.
+[3] WARN  05:32:50,319 RMDTrackBuilder - Index file /home/azza/swift-project/Results/delivery/HG00108.lowcoverage.chr20.smallregion.GATKCombineGVCF.raw.vcf.idx is out of date (index older than input file), deleting and updating the index file 
+[3] WARN  05:32:53,465 StrandBiasTest - StrandBiasBySample annotation exists in input VCF header. Attempting to use StrandBiasBySample values to calculate strand bias annotation values. If no sample has the SB genotype annotation, annotation may still fail. 
+[3] WARN  05:32:53,466 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+[3] WARN  05:32:53,468 StrandBiasTest - StrandBiasBySample annotation exists in input VCF header. Attempting to use StrandBiasBySample values to calculate strand bias annotation values. If no sample has the SB genotype annotation, annotation may still fail. 
+[3] WARN  05:33:39,690 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper, not org.broadinstitute.gatk.tools.walkers.variantutils.GenotypeGVCFs 
+[3] ------------------------------------------------------------------------------------------[3] 

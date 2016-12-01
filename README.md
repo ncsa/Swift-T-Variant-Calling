@@ -101,14 +101,12 @@ In a nutshell, the template below shows the various parameters and how they can 
   NOVOALIGNINDEX=<path to the indexed reference file for novoalign, if it is the desired aligner>
   NOVOALIGNPARAMS=<optional parameters to novoalign, if used as an aligner>
   CHRNAMES=<a colon (:) separated list of chromosome or contig names to split files by. Only these regions will be processed in the stages following the alignment>
-  TRIMMOMATICPARAMS=<parameters to trimmomatic for trimming illumina reads. Example :2:20:10 LEADING:5 TRAILING:5 MINLEN:25>
 
 ## Quality thresholds (for reporting only, as the pipeline will continue with the next stage regardless of whether these thresholds were respected or not):
   MAP_CUTOFF=<minimum mapping quality of reads to pass QC test after alignment>
   DUP_CUTOFF=<maximum duplication level in reads to pass QC test after alignment>
 
 ## paths to resources and tools - See section 2.1 and 2.2
-  ADAPTERS=<path to the adapter file to be used with trimmomatic>
   REFGENOMEDIR=<path to the directory where all reference files and databases are stored>
   REFGENOME=<name of the reference genome file within REFGENOMEDIR. Example ucsc.hg19.fasta in the GATK bundle 2.8>
   DBSNP=<name of the dbsnp file within REFGENOMEDIR. Example dbsnp\_138.hg19.vcf in the GATK bundle 2.8>
@@ -116,8 +114,6 @@ In a nutshell, the template below shows the various parameters and how they can 
   OMNI=<name of the omni variants file. Example: 1000G\_omni2.5.hg19.sites.vcf in the GATK bundle 2.8>
 
 # Example entries for tools’ path in biocluster
-  TRIMMOMATICDIR=/home/apps/trimmomatic/trimmomatic-0.33/trimmomatic-0.33.jar
-  FASTQCDIR=/home/apps/fastqc/fastqc-0.11.4
   BWAMEMDIR=/home/apps/bwa/bwa-0.7.15
   NOVOCRAFTDIR=/home/apps/novocraft/novocraft-3.02
   SAMBLASTERDIR=/home/apps/samblaster/samblaster-0.1.22/bin
