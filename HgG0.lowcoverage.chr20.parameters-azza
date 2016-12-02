@@ -45,13 +45,14 @@ OMNI=1000G_omni2.5.b37.sites.PASS.chr20.smallregion.vcf.gz
 DELIVERYFOLDER=delivery
 
 # Programs to be used:
+BWADIR=/usr/bin/bwa
 JAVADIR=/usr/bin/java
 PICARDDIR=/usr/local/src/picard/build/libs/picard-2.5.0-gradle-17-g960bc00-SNAPSHOT-all.jar
-BWADIR=/usr/bin/bwa
 SAMBLASTERDIR=/usr/local/bin/samblaster
 SAMTOOLSDIR=/usr/local/bin/samtools
-NOVOCRAFTDIR=/usr/local/src/novocraft
 GATKDIR=/usr/local/src/gatk/GenomeAnalysisTK.jar
+NOVOCRAFTDIR=/usr/local/src/novocraft
+
 
 ## pbs resources
 PBSNODES=1

@@ -64,7 +64,6 @@ foreach sample in sampleLines{
 	file chr_vcfListfile < strcat(vars["TMPDIR"]/sampleName,".chr_vcfList.txt") >;
 
 	if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
-		trace("##CASE1: dedup tool is ## SAMBLASTER ##. We use a single command for align-deduplication ##");
 		file dedupsam <strcat(vars["TMPDIR"], "/align/", sampleName, ".wdups.sam")>;
 		file dedupbam <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".wdups.bam")>;	
 		///////// Pipe the stages below up to the dedupbam! /////////
@@ -81,7 +80,6 @@ foreach sample in sampleLines{
 	} else { 
 		file alignedbam <strcat(vars["OUTPUTDIR"],"/align/", sampleName, ".nodups.bam")>;
 		if  (vars["MARKDUPLICATESTOOL"] == "PICARD") {
-			trace("##CASE 2: dedup tool is ## PICARD ##. One command for align, one for sort, one for dedup ##");
 			file alignedsortedbam <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".nodups.sorted.bam")>;
 			file metricsfile <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".picard.metrics")>;
 			alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
@@ -95,7 +93,6 @@ foreach sample in sampleLines{
 			if (numAlignments_dedupsortedbam==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\t picard command did not produce alignments for ", filename(dedupsortedbam), "\n"));	}
 			assert (numAlignments_dedupsortedbam > 0, strcat("picard command did not produce alignments for ", filename(dedupsortedbam), " deduplication failed"));
 		} else {
-			trace("##CASE DEFAULT: dedup tool is ## NOVOSORT ##. We use one command for dup-sort ##");
 			if  (vars["ALIGNERTOOL"] == "BWAMEM") {
 				alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
 				alignedbam = samtools_view(vars["SAMTOOLSDIR"],alignedsam, string2int(vars["PBSCORES"]), ["-u"]);
@@ -116,10 +113,6 @@ foreach sample in sampleLines{
 		} //End if-else (dedup tool selection: picard or novosort)
 	} //End if-else (dedup tool selection: samblaster or other)
 
-	trace("#############     END ALIGNMENT-DEDUPLICATION BLOCK                   ############");
-	trace("########   ALIGNMENT QC TEST   FOR SAMPLE", sampleName, "             ###############");
-	trace("########   QC rule1: duplication cutoff <= ", vars["DUP_CUTOFF"], "          ###############");
-	trace("########   QC rule2: mapped_reads cutoff >= ", vars["MAP_CUTOFF"], "           ###############");
 
 	flagstats = samtools_flagstat(vars["SAMTOOLSDIR"], dedupsortedbam);
 
@@ -132,21 +125,16 @@ foreach sample in sampleLines{
 	perc_mapped= string2float(tot_mapped)*100/string2float(tot_reads) ;
 
 	if ( perc_dup < string2float(vars["DUP_CUTOFF"]) ) {
-		trace("#####  " + sampleName + " passed first filter percent_duplicates with value" +perc_dup + ", maximum cutoff is " + vars["DUP_CUTOFF"]);
 		if ( perc_mapped > string2float(vars["MAP_CUTOFF"]) ) {
-			trace("#####  " + sampleName + " passed second filter map_cutoff with value" +perc_mapped + ", minimum cutoff is " + vars["MAP_CUTOFF"]);		
 			qcfile = echo(sampleName + "\tQCTEST\tPASS\n\trule1 ok: percent_duplication=" +perc_dup+ "<? duplication_cutoff=" +vars["DUP_CUTOFF"]+ "\n\trule2 ok: percent_mapped=" +perc_mapped+ ">? mapping_cutoff=" +vars["MAP_CUTOFF"]);
 		} else {
-			trace("#####  " + sampleName + " DID NOT pass second filter map_cutoff with value" +perc_mapped + ", minimum cutoff is " + vars["MAP_CUTOFF"]);
 			qcfile = echo(sampleName + "\tQCTEST\tFAIL\n\trule1 ok: percent_duplication=" +perc_dup+ "<? duplication_cutoff=" +vars["DUP_CUTOFF"]+ "\n\trule2 not ok: percent_mapped=" +perc_mapped+ ">? mapping_cutoff=" +vars["MAP_CUTOFF"]);
 		}	
 	} else {
-	trace("#####  " + sampleName + " DID NOT pass first filter percent_duplicates with value" +perc_dup + ", maximum cutoff is " + vars["DUP_CUTOFF"]);
 //	I need to append to the qcfile if it contains some data from above. How to do so?
 //	qcfile = echo(sampleName + "\tQCTEST\tFAIL\n\trule1 not ok: percent_duplication=" +perc_dup+ "<? duplication_cutoff=" +vars["DUP_CUTOFF"]+ "\n\trule2 not evaluated: percent_mapped=" +perc_mapped+ ">? mapping_cutoff=" +vars["MAP_CUTOFF"]);
 	}
 
-	trace("#############   WRAP UP the align_dedup stage   ############");
 	////// email findins to redmine and email: 
 	////// seems best to be done in tcl, as a typical mail bash is:
 	////// echo $MSG | mail -s $SUBJECT $RECIPIENTS
@@ -159,7 +147,6 @@ foreach sample in sampleLines{
 
 	wait(dedupsortedbam) {
 		foreach chr in indices {
-			trace("####   Realign-Vcall script for SAMPLE " +sampleName+ " chr=" +chr+ "                             #######");
 			////// Map the output files from this stage! (line 79 in realign_var_call_by_chr.sh onwards!)
 			file chrdedupsortedbam <strcat(RealignDir, sampleName, ".", chr, ".wdups.sorted.bam")>;
 			file realignedbam <strcat(RealignDir, sampleName, ".", chr, ".realigned.bam")>;
@@ -171,7 +158,6 @@ foreach sample in sampleLines{
 			file recalfiles < strcat(vars["TMPDIR"]/sampleName, ".", chr, ".recal_foundfiles.txt") >;
 			file realfiles < strcat(vars["TMPDIR"]/sampleName, ".", chr, ".real_foundfiles.txt") >;
 
-			trace("#######   REALIGN-RECALIBRATION BLOCK STARTS HERE   " + sampleName + chr + "        ######");
 			int ploidy;
 			if ( chr=="M" ) {ploidy = 1;} else {ploidy = 2;}
 			chrdedupsortedbam = samtools_view(vars["SAMTOOLSDIR"], dedupsortedbam, string2int(vars["PBSCORES"]), [strcat(chr)]) =>
@@ -199,7 +185,6 @@ foreach sample in sampleLines{
 			int numAlignments_recalibratedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(recalibratedbam));
 			if (numAlignments_recalibratedbam==0) { qcfile = echo(strcat(sampleName, "\tRECALIBRATION\tFAIL\tGATK BQSR Recalibration command did not produce alignments for ", filename(recalibratedbam), "\n"));	}
 			assert (numAlignments_recalibratedbam > 0, strcat("GATK BQSR Recalibrator command did not produce alignments for ", filename(recalibratedbam) ));
-			trace("#############    GATK VARIANT CALLING   FOR SAMPLE " + sampleName + " : " +  chr + "   ###########");
 			gvcfvariant = HaplotypeCaller (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], recalibratedbam, vars["REFGENOMEDIR"]/vars["DBSNP"], string2int(vars["PBSCORES"]), ploidy, chr) =>
 			if ( size(indices) == size(glob(strcat(VarcallDir, sampleName, ".*.raw.g.vcf"))) ) { chromosomes_processing_done = 1; };
 		
@@ -212,7 +197,6 @@ foreach sample in sampleLines{
 		chr_vcfListfile = find_files (VarcallDir, strcat(sampleName, ".*.raw.g.vcf") );
 	}
 
-	trace("#######   MERGE BAMS BLOCK STARTS HERE  FOR             " + sampleName + "      ######");
 
 	string chr_bamList[] = split(trim(replace_all(read(chr_bamListfile), "\n", " ", 0)), " ") =>
 	outbam = novosort (strcat(vars["NOVOCRAFTDIR"],"/","novosort"), chr_bamList, vars["TMPDIR"], string2int(vars["PBSCORES"]), []) =>
@@ -220,7 +204,6 @@ foreach sample in sampleLines{
 	int numAlignments_mergedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(mergedbam));
 	if (numAlignments_mergedbam==0) { qcfile = echo(strcat(sampleName, "\tMERGE\tFAIL\tnovosort command did not produce alignments for ", filename(mergedbam), "\n"));	}
 	assert (numAlignments_mergedbam > 0, strcat("novosort command did not produce alignments for ", filename(mergedbam) ));
-	trace("#######   MERGE VCFs BLOCK STARTS HERE  FOR             " + sampleName + "       ######");
 	
 	string chr_vcfList[] = split(trim(replace_all(read(sed(chr_vcfListfile, "s/^/--variant /g")), "\n", " ", 0)), " ") =>
 	rawvariant = CombineGVCFs (vars["JAVADIR"], vars["GATKDIR"],  vars["REFGENOMEDIR"]/vars["REFGENOME"], vars["REFGENOMEDIR"]/vars["DBSNP"], chr_vcfList ) =>
@@ -230,7 +213,6 @@ foreach sample in sampleLines{
 } /// End the loop throgh all samples
 
 
-trace("####    Now launching joint_genotyping script for all SAMPLEs: each 200 together        ##########");
 
 file jointVCF < strcat(vars["OUTPUTDIR"]/vars["DELIVERYFOLDER"], "/jointVCFs/", "jointVCFcalled.vcf") >;
 file variantFiles < strcat(vars["TMPDIR"],"/variantFiles.txt") >;
