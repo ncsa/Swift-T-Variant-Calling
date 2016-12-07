@@ -51,7 +51,10 @@ PICARDDIR=/usr/local/src/picard/build/libs/picard-2.5.0-gradle-17-g960bc00-SNAPS
 SAMBLASTERDIR=/usr/local/bin/samblaster
 SAMTOOLSDIR=/usr/local/bin/samtools
 GATKDIR=/usr/local/src/gatk/GenomeAnalysisTK.jar
-NOVOCRAFTDIR=/usr/local/src/novocraft
+NOVOALIGNDIR=/usr/local/src/novocraft/novoalign
+NOVOSORTDIR=/usr/local/src/novocraft/novosort
+
+
 
 
 ## pbs resources
