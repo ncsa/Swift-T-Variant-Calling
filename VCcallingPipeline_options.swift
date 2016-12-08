@@ -73,7 +73,7 @@ foreach sample in sampleLines{
 		int numAlignments_dedup = samtools_view2(vars["SAMTOOLSDIR"], filename(dedupbam));
 		if (numAlignments_dedup==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\tbwa mem command did not produce alignments for ", filename(dedupbam), "\n"));	}
 		assert (numAlignments_dedup > 0, strcat("bwa mem command did not produce alignments for ", filename(dedupbam), " alignment failed"));
-		dedupsortedbam = novosort(vars["NOVOSORTDIR"], dedupbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), ["--compression", "1"]) => 
+		dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), dedupbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), ["--compression", "1"]) => 
 		int numAlignments_dedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(dedupsortedbam));
 		if (numAlignments_dedupsortedbam==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\t novosort command did not produce alignments for ", filename(dedupsortedbam), "\n"));	}
 		assert (numAlignments_dedupsortedbam > 0, strcat("novosort command did not produce alignments for ", filename(dedupsortedbam), " Sorting bam failed"));
@@ -87,7 +87,7 @@ foreach sample in sampleLines{
 			int numAlignments_aligned = samtools_view2(vars["SAMTOOLSDIR"], filename(alignedbam));
 			if (numAlignments_aligned==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\tbwa mem command did not produce alignments for ", filename(alignedbam), "\n"));	}
 			assert (numAlignments_aligned > 0, strcat("bwa mem command did not produce alignments for ", filename(alignedbam), " alignment failed"));
-			alignedsortedbam = novosort(vars["NOVOSORTDIR"], alignedbam, vars["TMPDIR"], string2int(vars["PBSCORES"]), []) =>
+			alignedsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam, vars["TMPDIR"], string2int(vars["PBSCORES"]), []) =>
 			dedupsortedbam, metricsfile= picard(vars["JAVADIR"], vars["PICARDDIR"], vars["TMPDIR"], alignedsortedbam ) => 
 			int numAlignments_dedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(dedupsortedbam));
 			if (numAlignments_dedupsortedbam==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\t picard command did not produce alignments for ", filename(dedupsortedbam), "\n"));	}
@@ -97,14 +97,14 @@ foreach sample in sampleLines{
 				alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
 				alignedbam = samtools_view(vars["SAMTOOLSDIR"],alignedsam, string2int(vars["PBSCORES"]), ["-u"]);
 	                } else {
-				alignedsam = novoalign(vars["NOVOALIGNDIR"]), read1, read2, vars["NOVOALIGNINDEX"], [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
+				alignedsam = novoalign(strcat(vars["NOVOCRAFTDIR"],"/","novoalign"), read1, read2, vars["NOVOALIGNINDEX"], [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
 				alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), ["-u"]);
 			}
 			int numAlignments_aligned = samtools_view2(vars["SAMTOOLSDIR"], filename(alignedbam));
 			if (numAlignments_aligned==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\tbwa mem or novoalign command did not produce alignments for ", filename(alignedbam), "\n"));	}
 			assert (numAlignments_aligned > 0, strcat("bwa mem command did not produce alignments for ", filename(alignedbam), " alignment failed"));
 			wait (alignedbam) {
-				dedupsortedbam = novosort(vars["NOVOSORTDIR"], alignedbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), ["--markDuplicates"] ) =>
+				dedupsortedbam = novosort(strcat(vars["NOVOCRAFTDIR"],"/","novosort"), alignedbam,vars["TMPDIR"], string2int(vars["PBSCORES"]), ["--markDuplicates"] ) =>
 				int numAlignments_dedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(dedupsortedbam));
 				if (numAlignments_dedupsortedbam==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\tnovosort command did not produce alignments for ", filename(dedupsortedbam), "\n"));	}
 				assert (numAlignments_dedupsortedbam > 0, strcat("novosort command did not produce alignments for ", filename(dedupsortedbam), "sorting and deduplication failed"));
@@ -199,7 +199,7 @@ foreach sample in sampleLines{
 
 
 	string chr_bamList[] = split(trim(replace_all(read(chr_bamListfile), "\n", " ", 0)), " ") =>
-	outbam = novosort (vars["NOVOSORTDIR"], chr_bamList, vars["TMPDIR"], string2int(vars["PBSCORES"]), []) =>
+	outbam = novosort (strcat(vars["NOVOCRAFTDIR"],"/","novosort"), chr_bamList, vars["TMPDIR"], string2int(vars["PBSCORES"]), []) =>
 	mergedbam = cp(outbam) =>
 	int numAlignments_mergedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(mergedbam));
 	if (numAlignments_mergedbam==0) { qcfile = echo(strcat(sampleName, "\tMERGE\tFAIL\tnovosort command did not produce alignments for ", filename(mergedbam), "\n"));	}

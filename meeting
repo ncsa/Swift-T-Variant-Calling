@@ -1,0 +1,9 @@
+To do items, meeting on Dec 7:
+
+Work on documentation::
+- add a FAQ section to the read me
+- add the full executable to all tools including novoalign and novocraft
+- The title:  Database and resources, should be called Data Preparation otherwise people like Jacob may not make the connection that this is a necessary prereq for the workflow
+-  running on the head node vs qsubing onto a compute node
+- talk to sumir/scott on setting up redmine at their server
+- Look for alternative European Cloud computing infrastructure

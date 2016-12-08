@@ -51,13 +51,15 @@ Table 1: Pipeline tools
 2.2 Data preparation
 ---------------------------
 
-For this pipeline to work, a number of standard files for calling variants are needed (besides the raw reads files which can be fastq/fq/fastq.gz/fq.gz), namely these are the reference sequence and database of known variants. Further, the full path to all these needs to be specified in the User’s runfile as specified in section 2.3
+For this pipeline to work, a number of standard files for calling variants are needed (besides the raw reads files which can be fastq/fq/fastq.gz/fq.gz), namely these are the reference sequence and database of known variants (Please see this [link](https://software.broadinstitute.org/gatk/guide/article?id=1247)). Further, the full path to all these needs to be specified in the User’s runfile as specified in section 2.3
 
 For working with human data, one can download most of the needed files from [the GATK’s resource bundle](http://gatkforums.broadinstitute.org/gatk/discussion/1213/whats-in-the-resource-bundle-and-how-can-i-get-it). Missing from the bundle are the index files for the aligner, which are specific to the tool that would be used for alignment (i.e., bwa or novoalign in this pipeline)
 
 Generally, for the preparation of the reference sequence, the following link is a good start [the GATK’s guidelines](http://gatkforums.broadinstitute.org/wdl/discussion/2798/howto-prepare-a-reference-for-use-with-bwa-and-gatk).
 
-To achieve the parallelization of Figure \[1\] in the realignment/recalibration stages, the pipeline needs a separate vcf file for each chromosome/contig, and each should be named as: \*\${chr\_name}.vcf. If working with the GATK bundle, the sample script ([*splitVCF-by-chromosome.sh*](https://github.com/HPCBio/BW_VariantCalling/blob/ParameterSweep/splitVCF-by-chromosome.sh)) can be used to produce the needed files with some minor modifications (mainly, providing the right path to the referencedir, java and GenomeAnalysisTK.jar)
+To achieve the parallelization of Figure \[1\] in the realignment/recalibration stages, the pipeline needs a separate vcf file of known variants for each chromosome/contig, and each should be named as: `*${chr_name}.vcf` . Further, all these files need to be in the 
+`INDELDIR` which should be within the `REFGENOMEDIR` directory as per the runfile.
+If working with the GATK bundle, the sample script ([*splitVCF-by-chromosome.sh*](https://github.com/HPCBio/BW_VariantCalling/blob/ParameterSweep/splitVCF-by-chromosome.sh)) can be used to produce the needed files with some minor modifications (mainly, providing the right path to the referencedir, java and GenomeAnalysisTK.jar)
 
 2.3 User’s runfile and sample information files
 -----------------------------------------------
@@ -113,9 +115,10 @@ In a nutshell, the template below shows the various parameters and how they can 
   INDELDIR=<name of the directory within REFGENOMEDIR that contains a vcf file for each chromosome/contig specified by the CHRNAMES parameter. These files need to be named as: \*\${chr\_name}.vcf >
   OMNI=<name of the omni variants file. Example: 1000G\_omni2.5.hg19.sites.vcf in the GATK bundle 2.8>
 
-# Example entries for tools’ path in biocluster. Note that for all tools the entry corresponds to the executable file itself
+# Example entries for tools’ path in biocluster. Note that for all tools the variables correspond to the executable file itself
   BWAMEMDIR=/home/apps/bwa/bwa-0.7.15/bwa
-  NOVOCRAFTDIR=/home/apps/novocraft/novocraft-3.02
+  NOVOALIGNDIR=/home/apps/novocraft/novocraft-3.02/novoalign
+  NOVOSORTDIR=/home/apps/novocraft/novocraft-3.02/novocraft
   SAMBLASTERDIR=/home/apps/samblaster/samblaster-0.1.22/bin/samblaster
   PICARDIR=/home/apps/picard-tools/picard-tools-2.4.1/picard.jar
   GATKDIR=/home/apps/gatk/gatk-3.6
@@ -212,3 +215,17 @@ export TURBINE_LOG=1 #Enable turbine logging
 swift-t -L log_file_name myswift.swift #Enable stc logging (compiler logging)
 ```
 
+
+3 This Pipeline: Troubleshooting area (FAQs) 
+====================================
+
+- The pipeline seems to be running, but then prematurely stops at one of the tools?
+Solution: make sure that all tools are specified in your runfile up to the executable itself (or the jar file if applicable)
+
+- The realignment/recalibration stage produces a lot of errors or strange results?
+Solution: make sure you are preparing your reference and extra files (dbsnp, 1000G,...etc) according to the guidelines of section 2.2
+
+- I'm not sure how to run on a cluster  that uses torque as a resource manager?
+Clusters are typically configured to kill head node jobs that run longer than a few minutes, to prevent users from hogging the head node. Therefore, you may qsub the initial job, the swift-t command with its set variables, and it will qsub everybody else from its compute node.
+
+(**Question** here: Then resources will be defined in: 1) the qsub header, 2) the turbine variables... am I right?)
