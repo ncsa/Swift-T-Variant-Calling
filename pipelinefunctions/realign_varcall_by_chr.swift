@@ -1,6 +1,7 @@
 @dispatch=WORKER
-app (file outputfile) samtools_index(string samtoolsdir, file inputFilename) {
-	samtoolsdir "index" inputFilename  @stdout=outputfile;
+// void is set as an output so that dependency chaining can take place (i.e., other functions can wait for this one to complete if necessary)
+app (void signal) samtools_index(string samtoolsdir, file inputFilename) {
+	samtoolsdir "index" inputFilename;
 }
 
 @dispatch=WORKER

@@ -149,7 +149,6 @@ foreach sample in sampleLines{
 		foreach chr in indices {
 			////// Map the output files from this stage! (line 79 in realign_var_call_by_chr.sh onwards!)
 			file chrdedupsortedbam <strcat(RealignDir, sampleName, ".", chr, ".wdups.sorted.bam")>;
-			file chrdedupsortedindexedbam <strcat(RealignDir, sampleName, ".", chr, ".wdups.sorted.bam.bai")>;
 
 			file realignedbam <strcat(RealignDir, sampleName, ".", chr, ".realigned.bam")>;
 			file recalibratedbam <strcat(RealignDir, sampleName, ".", chr, ".recalibrated.bam")>;
@@ -163,7 +162,6 @@ foreach sample in sampleLines{
 			int ploidy;
 			if ( chr=="M" ) {ploidy = 1;} else {ploidy = 2;}
 			chrdedupsortedbam = samtools_view(vars["SAMTOOLSDIR"], dedupsortedbam, string2int(vars["PBSCORES"]), [strcat(chr)]) =>
-			chrdedupsortedinedexedbam = samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam) =>
 			int numAlignments_chrdedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(chrdedupsortedbam));
 			if (numAlignments_chrdedupsortedbam==0) { qcfile = echo(strcat(sampleName, "\tREALIGNMENT\tFAIL\tsamtools command did not produce alignments for ", filename(chrdedupsortedbam), "\n"));	}
 			assert (numAlignments_chrdedupsortedbam > 0, strcat("samtools command did not produce alignments for ", filename(chrdedupsortedbam), "splitting by chromosome failed"));		
@@ -177,7 +175,9 @@ foreach sample in sampleLines{
 	//		assert( strlen(recalparmsindels)>1 , strcat("no indels were found for ", chr, " in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
 	//		assert( strlen(realparms)>1 , strcat("no indels were found for ", chr, "in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
 		
-			intervals = RealignerTargetCreator (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, string2int(vars["PBSCORES"]), realparms) =>
+			// The void output is necessary so "intervals" will have an "output" to wait for before executing
+			void indexed = samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam) =>
+			intervals = RealignerTargetCreator (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, string2int(vars["PBSCORES"]), realparms);
 			realignedbam = IndelRealigner (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, realparms, intervals) =>
 			int numAlignments_realignedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(realignedbam));
 			if (numAlignments_realignedbam==0) { qcfile = echo(strcat(sampleName, "\tREALIGNMENT\tFAIL\tGATK IndelRealigner command did not produce alignments for ", filename(realignedbam), "\n"));	}
