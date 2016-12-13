@@ -92,12 +92,13 @@ foreach sample in sampleLines{
 			int numAlignments_dedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(dedupsortedbam));
 			if (numAlignments_dedupsortedbam==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\t picard command did not produce alignments for ", filename(dedupsortedbam), "\n"));	}
 			assert (numAlignments_dedupsortedbam > 0, strcat("picard command did not produce alignments for ", filename(dedupsortedbam), " deduplication failed"));
-		} else {
+
+		} else { 			//Default markduplicates tool, novosort
 			if  (vars["ALIGNERTOOL"] == "BWAMEM") {
 				alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
 				alignedbam = samtools_view(vars["SAMTOOLSDIR"],alignedsam, string2int(vars["PBSCORES"]), ["-u"]);
 	                } else {
-				alignedsam = novoalign(vars["NOVOALIGNDIR"]), read1, read2, vars["NOVOALIGNINDEX"], [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
+				alignedsam = novoalign(vars["NOVOALIGNDIR"], read1, read2, vars["NOVOALIGNINDEX"], [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
 				alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), ["-u"]);
 			}
 			int numAlignments_aligned = samtools_view2(vars["SAMTOOLSDIR"], filename(alignedbam));
@@ -112,7 +113,6 @@ foreach sample in sampleLines{
 			} // End wait(alignedbam)
 		} //End if-else (dedup tool selection: picard or novosort)
 	} //End if-else (dedup tool selection: samblaster or other)
-
 
 	flagstats = samtools_flagstat(vars["SAMTOOLSDIR"], dedupsortedbam);
 
@@ -135,7 +135,7 @@ foreach sample in sampleLines{
 //	qcfile = echo(sampleName + "\tQCTEST\tFAIL\n\trule1 not ok: percent_duplication=" +perc_dup+ "<? duplication_cutoff=" +vars["DUP_CUTOFF"]+ "\n\trule2 not evaluated: percent_mapped=" +perc_mapped+ ">? mapping_cutoff=" +vars["MAP_CUTOFF"]);
 	}
 
-	////// email findins to redmine and email: 
+	////// email findings to redmine and email: 
 	////// seems best to be done in tcl, as a typical mail bash is:
 	////// echo $MSG | mail -s $SUBJECT $RECIPIENTS
 	////// I'm yet to find something similar to pipes here!
@@ -161,10 +161,10 @@ foreach sample in sampleLines{
 			int ploidy;
 			if ( chr=="M" ) {ploidy = 1;} else {ploidy = 2;}
 			chrdedupsortedbam = samtools_view(vars["SAMTOOLSDIR"], dedupsortedbam, string2int(vars["PBSCORES"]), [strcat(chr)]) =>
+			samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam) =>
 			int numAlignments_chrdedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(chrdedupsortedbam));
 			if (numAlignments_chrdedupsortedbam==0) { qcfile = echo(strcat(sampleName, "\tREALIGNMENT\tFAIL\tsamtools command did not produce alignments for ", filename(chrdedupsortedbam), "\n"));	}
 			assert (numAlignments_chrdedupsortedbam > 0, strcat("samtools command did not produce alignments for ", filename(chrdedupsortedbam), "splitting by chromosome failed"));		
-			samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam);
 
 			recalfiles = find_files( strcat(vars["REFGENOMEDIR"]/vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
 			string recalparmsindels[] = split(trim(replace_all(read(sed(recalfiles, "s/^/--knownSites /g")), "\n", " ", 0)), " ");
@@ -175,12 +175,12 @@ foreach sample in sampleLines{
 	//		assert( strlen(recalparmsindels)>1 , strcat("no indels were found for ", chr, " in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
 	//		assert( strlen(realparms)>1 , strcat("no indels were found for ", chr, "in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
 		
-			intervals = RealignerTargetCreator (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, string2int(vars["PBSCORES"]), realparms);
+			intervals = RealignerTargetCreator (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, string2int(vars["PBSCORES"]), realparms) =>
 			realignedbam = IndelRealigner (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], chrdedupsortedbam, realparms, intervals) =>
 			int numAlignments_realignedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(realignedbam));
 			if (numAlignments_realignedbam==0) { qcfile = echo(strcat(sampleName, "\tREALIGNMENT\tFAIL\tGATK IndelRealigner command did not produce alignments for ", filename(realignedbam), "\n"));	}
 			assert (numAlignments_realignedbam > 0, strcat("GATK IndelRealigner command did not produce alignments for ", filename(realignedbam) ));
-			recalreport = BaseRecalibrator (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], realignedbam, string2int(vars["PBSCORES"]), recalparmsindels, vars["REFGENOMEDIR"]/vars["DBSNP"]) ;
+			recalreport = BaseRecalibrator (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], realignedbam, string2int(vars["PBSCORES"]), recalparmsindels, vars["REFGENOMEDIR"]/vars["DBSNP"]) => 
 			recalibratedbam = PrintReads (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], realignedbam, string2int(vars["PBSCORES"]), recalreport) =>
 			int numAlignments_recalibratedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(recalibratedbam));
 			if (numAlignments_recalibratedbam==0) { qcfile = echo(strcat(sampleName, "\tRECALIBRATION\tFAIL\tGATK BQSR Recalibration command did not produce alignments for ", filename(recalibratedbam), "\n"));	}
