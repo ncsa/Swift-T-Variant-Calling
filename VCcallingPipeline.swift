@@ -149,6 +149,8 @@ foreach sample in sampleLines{
 		foreach chr in indices {
 			////// Map the output files from this stage! (line 79 in realign_var_call_by_chr.sh onwards!)
 			file chrdedupsortedbam <strcat(RealignDir, sampleName, ".", chr, ".wdups.sorted.bam")>;
+			file chrdedupsortedindexedbam <strcat(RealignDir, sampleName, ".", chr, ".wdups.sorted.bam.bai")>;
+
 			file realignedbam <strcat(RealignDir, sampleName, ".", chr, ".realigned.bam")>;
 			file recalibratedbam <strcat(RealignDir, sampleName, ".", chr, ".recalibrated.bam")>;
 			file intervals < strcat(RealignDir, sampleName, ".", chr, ".realignTargetCreator.intervals") >;
@@ -161,7 +163,7 @@ foreach sample in sampleLines{
 			int ploidy;
 			if ( chr=="M" ) {ploidy = 1;} else {ploidy = 2;}
 			chrdedupsortedbam = samtools_view(vars["SAMTOOLSDIR"], dedupsortedbam, string2int(vars["PBSCORES"]), [strcat(chr)]) =>
-			samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam) =>
+			chrdedupsortedinedexedbam = samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam) =>
 			int numAlignments_chrdedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(chrdedupsortedbam));
 			if (numAlignments_chrdedupsortedbam==0) { qcfile = echo(strcat(sampleName, "\tREALIGNMENT\tFAIL\tsamtools command did not produce alignments for ", filename(chrdedupsortedbam), "\n"));	}
 			assert (numAlignments_chrdedupsortedbam > 0, strcat("samtools command did not produce alignments for ", filename(chrdedupsortedbam), "splitting by chromosome failed"));		

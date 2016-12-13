@@ -1,6 +1,6 @@
 @dispatch=WORKER
-app () samtools_index(string samtoolsdir, file inputFilename) {
-	samtoolsdir "index" inputFilename;
+app (file outputfile) samtools_index(string samtoolsdir, file inputFilename) {
+	samtoolsdir "index" inputFilename  @stdout=outputfile;
 }
 
 @dispatch=WORKER
