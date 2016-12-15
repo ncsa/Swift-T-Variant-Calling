@@ -49,8 +49,10 @@ foreach sample in sampleLines{
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
 	string VarcallDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/");
 	string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/");
-
-	//mkdir(VarcallDir);
+ 
+	mkdir(AlignDir);
+	mkdir(VarcallDir);
+	mkdir(RealignDir);
 	
 	/*
 	The samples directory within the deliverables folder needs to be 
