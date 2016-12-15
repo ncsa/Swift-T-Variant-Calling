@@ -50,7 +50,13 @@ foreach sample in sampleLines{
 	string VarcallDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/");
 	string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/");
 
-	mkdir(VarcallDir);
+	//mkdir(VarcallDir);
+	
+	/*
+	The samples directory within the deliverables folder needs to be 
+	explicitly created so items can be successfully be copied into it later 
+	*/
+	mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/", sampleName));
 	
 	file dedupsortedbam < strcat(AlignDir, sampleName, ".wdups.sorted.bam") >;
 	file outbam < strcat(RealignDir, sampleName, ".recalibrated.bam") >;
