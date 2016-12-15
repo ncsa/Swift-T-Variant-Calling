@@ -28,7 +28,11 @@ string vars[string] = getConfigVariables(configFileData);
 
 file sampleInfoFile = input_file(vars["SAMPLEINFORMATION"]);
 string sampleLines[] = file_lines(sampleInfoFile);
-int samples_processing_done ;
+int samples_processing_done;
+
+// Copy the runfile and sampleInfoFile to the docs directory for documentation purposes
+file docRunfile < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/", basename_string(configFilename)) > = configFile;
+file docSampleInfo < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/", basename_string(filename(sampleInfoFile))) > = sampleInfoFile;  
 
 ////////////////////// Main loop begins //////////////////////////////////////
 foreach sample in sampleLines{
@@ -42,30 +46,31 @@ foreach sample in sampleLines{
 
 	///////////////// Alignment and deduplication (per sample):
 
-	string VarcallDir = strcat(vars["OUTPUTDIR"]/sampleName, "/variant/");
-	string RealignDir = strcat(vars["OUTPUTDIR"]/sampleName, "/realign/");
+	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
+	string VarcallDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/");
+	string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/");
 
 	mkdir(VarcallDir);
 	
-	file dedupsortedbam <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".wdups.sorted.bam")>;
-	file outbam < strcat(RealignDir, sampleName, ".recalibrated.bam")> ;
+	file dedupsortedbam < strcat(AlignDir, sampleName, ".wdups.sorted.bam") >;
+	file outbam < strcat(RealignDir, sampleName, ".recalibrated.bam") >;
 	file rawvariant < strcat(VarcallDir, sampleName, ".GATKCombineGVCF.raw.vcf") >;
 
 	file qcfile <strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/QC_test_results.txt") >;
-	file mergedbam < strcat(vars["OUTPUTDIR"]/vars["DELIVERYFOLDER"]/sampleName, ".recalibrated.bam")> ;
-	file mergedvariant < strcat(vars["OUTPUTDIR"]/vars["DELIVERYFOLDER"]/sampleName, ".GATKCombineGVCF.raw.vcf") >;
+	file mergedbam < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/", sampleName, "/", sampleName, ".recalibrated.bam") > ;
+	file mergedvariant < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/", sampleName, "/", sampleName, ".GATKCombineGVCF.raw.vcf") >;
 
 	// These are not specifically defined!
-	file flagstats <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".wdups.sorted.bam", ".flagstats")>;
+	file flagstats < strcat(AlignDir, sampleName, ".wdups.sorted.bam", ".flagstats") >;
 
 	// These are temporary files: If piping is implemented, they would not be needed!
-	file alignedsam <strcat(vars["TMPDIR"],"/align/", sampleName, ".nodups.sam")>;
-	file chr_bamListfile < strcat(vars["TMPDIR"]/sampleName,".chr_bamList.txt") >;
-	file chr_vcfListfile < strcat(vars["TMPDIR"]/sampleName,".chr_vcfList.txt") >;
+	file alignedsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".nodups.sam") >;
+	file chr_bamListfile < strcat(vars["TMPDIR"], "/", sampleName, ".chr_bamList.txt") >;
+	file chr_vcfListfile < strcat(vars["TMPDIR"], "/", sampleName,".chr_vcfList.txt") >;
 
 	if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
-		file dedupsam <strcat(vars["TMPDIR"], "/align/", sampleName, ".wdups.sam")>;
-		file dedupbam <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".wdups.bam")>;	
+		file dedupsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".wdups.sam") >;
+		file dedupbam < strcat(AlignDir, sampleName, ".wdups.bam") >;	
 		///////// Pipe the stages below up to the dedupbam! /////////
 		alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
 		dedupsam = samblaster(vars["SAMBLASTERDIR"], alignedsam) =>
@@ -78,10 +83,10 @@ foreach sample in sampleLines{
 		if (numAlignments_dedupsortedbam==0) { qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\t novosort command did not produce alignments for ", filename(dedupsortedbam), "\n"));	}
 		assert (numAlignments_dedupsortedbam > 0, strcat("novosort command did not produce alignments for ", filename(dedupsortedbam), " Sorting bam failed"));
 	} else { 
-		file alignedbam <strcat(vars["OUTPUTDIR"],"/align/", sampleName, ".nodups.bam")>;
+		file alignedbam <strcat(AlignDir, sampleName, ".nodups.bam")>;
 		if  (vars["MARKDUPLICATESTOOL"] == "PICARD") {
-			file alignedsortedbam <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".nodups.sorted.bam")>;
-			file metricsfile <strcat(vars["OUTPUTDIR"], "/align/", sampleName, ".picard.metrics")>;
+			file alignedsortedbam <strcat(AlignDir, sampleName, ".nodups.sorted.bam")>;
+			file metricsfile <strcat(AlignDir, sampleName, ".picard.metrics")>;
 			alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader) =>
 			alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), ["-u"]) =>
 			int numAlignments_aligned = samtools_view2(vars["SAMTOOLSDIR"], filename(alignedbam));
@@ -156,8 +161,8 @@ foreach sample in sampleLines{
 			file recalreport < strcat(RealignDir, sampleName, ".", chr, ".recal_report.grp") >;
 			file gvcfvariant <strcat(VarcallDir, sampleName, ".", chr, ".raw.g.vcf")>;
 			// These are temporary files only:
-			file recalfiles < strcat(vars["TMPDIR"]/sampleName, ".", chr, ".recal_foundfiles.txt") >;
-			file realfiles < strcat(vars["TMPDIR"]/sampleName, ".", chr, ".real_foundfiles.txt") >;
+			file recalfiles < strcat(vars["TMPDIR"], "/", sampleName, ".", chr, ".recal_foundfiles.txt") >;
+			file realfiles < strcat(vars["TMPDIR"], "/", sampleName, ".", chr, ".real_foundfiles.txt") >;
 
 			int ploidy;
 			if ( chr=="M" ) {ploidy = 1;} else {ploidy = 2;}
@@ -224,4 +229,3 @@ wait(samples_processing_done) {
 	string varlist[] = split(trim(replace_all(read(sed(variantFiles, "s/^/--variant /g")), "\n", " ", 0)), " ") =>
 	jointVCF = GenotypeGVCFs (vars["JAVADIR"], vars["GATKDIR"], vars["REFGENOMEDIR"]/vars["REFGENOME"], varlist );
 }
-
