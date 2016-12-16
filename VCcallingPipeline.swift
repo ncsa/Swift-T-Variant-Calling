@@ -54,19 +54,13 @@ foreach sample in sampleLines{
 	mkdir(VarcallDir);
 	mkdir(RealignDir);
 	
-	/*
-	The samples directory within the deliverables folder needs to be 
-	explicitly created so items can be successfully be copied into it later 
-	*/
-	mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/", sampleName));
-	
 	file dedupsortedbam < strcat(AlignDir, sampleName, ".wdups.sorted.bam") >;
 	file outbam < strcat(RealignDir, sampleName, ".recalibrated.bam") >;
 	file rawvariant < strcat(VarcallDir, sampleName, ".GATKCombineGVCF.raw.vcf") >;
 
 	file qcfile <strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/QC_test_results.txt") >;
-	file mergedbam < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/", sampleName, "/", sampleName, ".recalibrated.bam") > ;
-	file mergedvariant < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/", sampleName, "/", sampleName, ".GATKCombineGVCF.raw.vcf") >;
+	file mergedbam < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/", sampleName, ".recalibrated.bam") > ;
+	file mergedvariant < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/", sampleName, ".GATKCombineGVCF.raw.vcf") >;
 
 	// These are not specifically defined!
 	file flagstats < strcat(AlignDir, sampleName, ".wdups.sorted.bam", ".flagstats") >;
