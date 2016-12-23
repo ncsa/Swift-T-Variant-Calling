@@ -170,36 +170,14 @@ foreach sample in sampleLines{
 			if ( chr=="M" ) {ploidy = 1;} else {ploidy = 2;}
 			chrdedupsortedbam = samtools_view(vars["SAMTOOLSDIR"], dedupsortedbam, string2int(vars["PBSCORES"]), [strcat(chr)]) =>
 			int numAlignments_chrdedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(chrdedupsortedbam));
-			
-      if (numAlignments_chrdedupsortedbam == 0) {
-				qcfile = echo(strcat(sampleName,
-						     "\tREALIGNMENT\tFAIL\tsamtools command did not produce alignments for ",
-						     filename(chrdedupsortedbam), "\n"
-						    )
-					     );
-			}
-			
-			assert (numAlignments_chrdedupsortedbam > 0,
-				strcat("samtools command did not produce alignments for ",
-				       filename(chrdedupsortedbam), "splitting by chromosome failed"
-				      )
-			       );		
+			if (numAlignments_chrdedupsortedbam==0) { qcfile = echo(strcat(sampleName, "\tREALIGNMENT\tFAIL\tsamtools command did not produce alignments for ", filename(chrdedupsortedbam), "\n"));	}
+			assert (numAlignments_chrdedupsortedbam > 0, strcat("samtools command did not produce alignments for ", filename(chrdedupsortedbam), "splitting by chromosome failed"));		
 
-			recalfiles = find_files(strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"), 
-						strcat("*", chr, ".vcf" )
-					       );
-			
-			string recalparmsindels[] = split(trim(replace_all(read(sed(
-				recalfiles, "s/^/--knownSites /g")), "\n", " ", 0)), " "
-							 );
+			recalfiles = find_files( strcat(vars["REFGENOMEDIR"]/vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
+			string recalparmsindels[] = split(trim(replace_all(read(sed(recalfiles, "s/^/--knownSites /g")), "\n", " ", 0)), " ");
 	
-			realfiles = find_files( strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"),
-					       strcat("*", chr, ".vcf")
-					      );			
-			
-			string realparms[] = split(trim(replace_all(read(sed(
-				recalfiles, "s/^/-known /g")), "\n", " ", 0)), " "
-						  );
+			realfiles = find_files( strcat(vars["REFGENOMEDIR"]/vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
+			string realparms[] = split(trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " ");
 
 	//		assert( strlen(recalparmsindels)>1 , strcat("no indels were found for ", chr, " in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
 	//		assert( strlen(realparms)>1 , strcat("no indels were found for ", chr, "in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
