@@ -335,7 +335,9 @@ foreach sample in sampleLines{
 				recalfiles, "s/^/--knownSites /g")), "\n", " ", 0)), " "
 							 );
 	
-			realfiles = find_files(strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/*", chr, ".vcf"));
+			realfiles = find_files( strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"),
+					       strcat("*", chr, ".vcf")
+					      );			
 			
 			string realparms[] = split(trim(replace_all(read(sed(
 				recalfiles, "s/^/-known /g")), "\n", " ", 0)), " "
