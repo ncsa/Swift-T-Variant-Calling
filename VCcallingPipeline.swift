@@ -334,14 +334,10 @@ foreach sample in sampleLines{
 			string recalparmsindels[] = split(trim(replace_all(read(sed(
 				recalfiles, "s/^/--knownSites /g")), "\n", " ", 0)), " "
 							 );
+
 	
-			realfiles = find_files( strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"),
-					       strcat("*", chr, ".vcf")
-					      );			
-			
-			string realparms[] = split(trim(replace_all(read(sed(
-				recalfiles, "s/^/-known /g")), "\n", " ", 0)), " "
-						  );
+			realfiles = find_files( strcat(vars["REFGENOMEDIR"]/vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
+			string realparms[] = split(trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " ");
 
 	//		assert( strlen(recalparmsindels)>1 , strcat("no indels were found for ", chr, " in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
 	//		assert( strlen(realparms)>1 , strcat("no indels were found for ", chr, "in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
