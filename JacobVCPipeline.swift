@@ -20,30 +20,48 @@ import pipelinefunctions.merge_vcf;
 import pipelinefunctions.joint_vcf;
 import pipelinefunctions.miscellaneous;
 
-/*
-PIPELINE BEGINS
-*/
+// Parse Runfile (Since function named 'main', it will automatically run first
+() main () {
+	//read-in the runfile with argument --runfile=<runfile_name>
+	argv_accept("runfile"); // return error if user supplies other flagged inputs
+	string configFilename = argv("runfile");
 
-//read-in the runfile with argument --runfile=<runfile_name>
-argv_accept("runfile"); // return error if user supplies other flagged inputs
-string configFilename = argv("runfile");
+	file configFile = input_file(configFilename);
+	string configFileData[] = file_lines(configFile);
 
-file configFile = input_file(configFilename);
-string configFileData[] = file_lines(configFile);
+	string vars[string] = getConfigVariables(configFileData);
 
-string vars[string] = getConfigVariables(configFileData);
+	file sampleInfoFile = input_file(vars["SAMPLEINFORMATION"]);
+	string sampleLines[] = file_lines(sampleInfoFile);
+	int samples_processing_done;
 
-file sampleInfoFile = input_file(vars["SAMPLEINFORMATION"]);
-string sampleLines[] = file_lines(sampleInfoFile);
-int samples_processing_done;
+	// Copy the runfile and sampleInfoFile to the docs directory for documentation purposes
+	file docRunfile < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/", basename_string(configFilename)
+				) > = configFile;
 
-// Copy the runfile and sampleInfoFile to the docs directory for documentation purposes
-file docRunfile < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/", basename_string(configFilename)
-			) > = configFile;
+	file docSampleInfo < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/", 
+			            basename_string(filename(sampleInfoFile))
+			           ) > = sampleInfoFile;  
+}
 
-file docSampleInfo < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/", 
-			    basename_string(filename(sampleInfoFile))
-			   ) > = sampleInfoFile;  
+// Helper functions (Easily handles alignment and duplicating marker choices)
+(file alignedSam) align(string sampleName, string read1, string read2, string rgheader) {
+	// This function returns a .sam file because samblaster requires it
+	// To minimize memory usage, delete the .sam file after a .bam file is made from it
+	// outputBam = samtools_view(vars["SAMTOOLSDIR"], inputSam, string2int(vars["PBSCORES"]), ["-u"]);
+	
+	// Use the specified alignment tool
+	if (vars["ALIGNERTOOL"] == "BWAMEM") {
+		alignedSam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]],
+				 string2int(vars["PBSCORES"]), rgheader
+				) =>
+	} else { // Novoalign is the default aligner
+		alignedSam = novoalign(vars["NOVOALIGNDIR"], read1, read2, vars["NOVOALIGNINDEX"],
+				   [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader
+				  ) =>
+	}	
+	return alignedSam;
+}
 
 /* 
 MAIN LOOP BEGINS
