@@ -24,7 +24,7 @@ import pipelinefunctions.miscellaneous;
 Parse Runfile (Since function named 'main', it will automatically run first)
 *****************************************************************************/
 
-() main () {
+main {
 	//read-in the runfile with argument --runfile=<runfile_name>
 	argv_accept("runfile"); // return error if user supplies other flagged inputs
 	string configFilename = argv("runfile");
