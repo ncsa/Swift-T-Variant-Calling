@@ -40,12 +40,76 @@ Alignment
 		outputSam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], 
 				    [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader
 				   );
-	} else { // Novoalign is the default aligner
+	} 
+	else { // Novoalign is the default aligner
 		// Directly return the .sam file created from novoalign
 		outputSam =  novoalign(vars["NOVOALIGNDIR"], read1, read2, vars["NOVOALIGNINDEX"],
 				       [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader
 				      );
 	}
+}
+
+(file dedupSortedBam) markDuplicates(string sampleName, file alignedSam, file alignedBam) {
+	/*
+	The input file used depends on the dedup program being used:
+		alignedSam => Samblaster
+		alignedBam => Picard or Novosort
+	*/
+	if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
+		file dedupsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".wdups.sam") >;
+		file dedupbam < strcat(AlignDir, sampleName, ".wdups.bam") >;
+		
+		// Mark Duplicates
+		dedupsam = samblaster(vars["SAMBLASTERDIR"], alignedSam);
+		dedupbam = samtools_view(vars["SAMTOOLSDIR"], dedupsam, string2int(vars["PBSCORES"]), ["-u"]);
+		// Delete the dedupsam file once dedupbam has been created
+		//rm(dedupsam);
+		
+		// Sort
+		dedupSortedBam = novosort(vars["NOVOSORTDIR"], dedupbam, vars["TMPDIR"],
+					  string2int(vars["PBSCORES"]), ["--compression", "1"]
+					 );
+	}
+	else if (vars["MARKDUPLICATESTOOL"] == "PICARD") {
+		// Picard is unique in that it has a metrics file
+		file metricsfile < strcat(AlignDir, sampleName, ".picard.metrics") >;
+		file alignedsortedbam < strcat(AlignDir, sampleName, ".nodups.sorted.bam") >;
+		
+		// Sort
+		alignedsortedbam = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
+				            string2int(vars["PBSCORES"]), []
+					   );
+		// Mark Duplicates
+		dedupSortedBam, metricsfile = picard(vars["JAVADIR"], vars["PICARDDIR"],
+						     vars["TMPDIR"], alignedsortedbam
+						    ); 
+	}
+	else {	//Novosort is the default duplicate marker
+		
+		// Sort and Mark Duplicates in one step
+		dedupSortedBam = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
+					  string2int(vars["PBSCORES"]), ["--markDuplicates"]
+					 );
+	}
+}
+
+/*
+Verify .bam file contains at least one alignment
+*/
+() verify(file bamFile, string sampleName, string workflowStep) {
+	int alignNum = samtools_view2(vars["SAMTOOLSDIR"], filename(bamFile));
+	
+	string message = strcat("FAILURE: ", filename(bamFile), " contains no alignments. ",
+				"Likely error during the ", workflowStep, " step when processing",
+				sampleName, "."
+			       )
+	// Write message to qc file if problem occurs
+	if (alignNum == 0) {
+		qcfile.write(message);
+	}
+	
+	// Stop part if problem occurs and print message
+	assert (alignNum > 0, message);
 }
 
 /****************************************************************************
@@ -106,6 +170,7 @@ foreach sample in sampleLines{
 	/*
 	Create file handles
 	*/
+	file alignedbam < strcat(AlignDir, sampleName, ".nodups.bam") >;
 	file dedupsortedbam < strcat(AlignDir, sampleName, ".wdups.sorted.bam") >;
 	file outbam < strcat(RealignDir, sampleName, ".recalibrated.bam") >;
 	file rawvariant < strcat(VarcallDir, sampleName, ".GATKCombineGVCF.raw.vcf") >;
@@ -123,163 +188,32 @@ foreach sample in sampleLines{
 	file chr_bamListfile < strcat(vars["TMPDIR"], "/", sampleName, ".chr_bamList.txt") >;
 	file chr_vcfListfile < strcat(vars["TMPDIR"], "/", sampleName,".chr_vcfList.txt") >;
 
-	if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
-		
-		file dedupsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".wdups.sam") >;
-		file dedupbam < strcat(AlignDir, sampleName, ".wdups.bam") >;	
-		
-		alignedsam = align(read1, read2, rgheader);
-
-		dedupsam = samblaster(vars["SAMBLASTERDIR"], alignedsam) =>
-		// Delete the aligned sam file once samblaster is finished with it
-		//rm(alignedsam); 
-
-		dedupbam = samtools_view(vars["SAMTOOLSDIR"], dedupsam, string2int(vars["PBSCORES"]), ["-u"]) => 
-		// Delete the dedupsam file once dedupbam has been created
-		//rm(dedupsam);
-
-		int numAlignments_dedup = samtools_view2(vars["SAMTOOLSDIR"], filename(dedupbam));
-		if (numAlignments_dedup == 0) {
-			qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\t",
-					     "Alignment was not produced for ",
-					     filename(dedupbam), "\n"
-					    )
-				     );
-		}
-		
-		assert (numAlignments_dedup > 0,
-			strcat("Alignment was not produced for ", filename(dedupbam), " alignment failed")
-		       );
-		
-		dedupsortedbam = novosort(vars["NOVOSORTDIR"], dedupbam, vars["TMPDIR"],
-					  string2int(vars["PBSCORES"]), ["--compression", "1"]
-					 ) => 
-
-		int numAlignments_dedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(dedupsortedbam));
-		if (numAlignments_dedupsortedbam == 0) {
-			qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\t",
-					     "novosort command did not produce alignments for ", 
-					     filename(dedupsortedbam), "\n"
-					    )
-				     );
-		}
-		
-		assert (numAlignments_dedupsortedbam > 0,
-			strcat("novosort command did not produce alignments for ", filename(dedupsortedbam), 
-			       " Sorting bam failed"
-			      )
-		       );
+	/*
+	Alignment
+	*/
+	alignedsam = align(read1, read2, rgheader);
+	alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), ["-u"]);
 	
-	} else { 
-		file alignedbam <strcat(AlignDir, sampleName, ".nodups.bam")>;
-		
-		if  (vars["MARKDUPLICATESTOOL"] == "PICARD") {
-			
-			file alignedsortedbam <strcat(AlignDir, sampleName, ".nodups.sorted.bam")>;
-			file metricsfile <strcat(AlignDir, sampleName, ".picard.metrics")>;
-			
-			alignedsam = align(read1, read2, rgheader);
-			alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), ["-u"]) =>
-			// Delete the alignedsam file once alignedbam has been created 			
-			//rm(alignedsam);
-
-			int numAlignments_aligned = samtools_view2(vars["SAMTOOLSDIR"], filename(alignedbam));
-			if (numAlignments_aligned == 0) {
-				qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\t",
-						     "Alignment was not produced for ",
-						     filename(alignedbam), "\n"
-						    )
-					     );
-			}
-			
-			assert (numAlignments_aligned > 0,
-				strcat("Alignment was not produced for ",
-				       filename(alignedbam), " alignment failed"
-				      )
-			       );
-			
-			alignedsortedbam = novosort(vars["NOVOSORTDIR"], alignedbam, vars["TMPDIR"],
-						    string2int(vars["PBSCORES"]), []
-						   ) =>
-			dedupsortedbam, metricsfile = picard(vars["JAVADIR"], vars["PICARDDIR"],
-							     vars["TMPDIR"], alignedsortedbam
-							    ) => 
-			
-			int numAlignments_dedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(dedupsortedbam));
-			if (numAlignments_dedupsortedbam == 0) {
-				qcfile = echo(strcat(sampleName,
-						     "\tALIGNMENT\tFAIL\t",
-						     "picard command did not produce alignments for ",
-						     filename(dedupsortedbam), "\n"
-						    )
-					     );
-			}
-			
-			assert (numAlignments_dedupsortedbam > 0,
-				strcat("picard command did not produce alignments for ", filename(dedupsortedbam),
-				       " deduplication failed"
-				      )
-			       );
-
-		} else { 			//Default markduplicates tool, novosort
-			if  (vars["ALIGNERTOOL"] == "BWAMEM") {
-				alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]],
-						     string2int(vars["PBSCORES"]), rgheader
-						    ) =>
-				alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam,
-							   string2int(vars["PBSCORES"]), ["-u"]
-							  );
-	                } else {
-				alignedsam = novoalign(vars["NOVOALIGNDIR"], read1, read2, vars["NOVOALIGNINDEX"],
-						       [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader
-						      ) =>
-				alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam,
-							   string2int(vars["PBSCORES"]), ["-u"]
-							  );
-			}
-			
-			int numAlignments_aligned = samtools_view2(vars["SAMTOOLSDIR"], filename(alignedbam));
-			if (numAlignments_aligned==0) {
-				qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\t",
-						     "bwa mem or novoalign command did not produce alignments for ",
-						     filename(alignedbam), "\n"
-						    )
-					     );
-			}
-			
-			assert (numAlignments_aligned > 0,
-				strcat("bwa mem command did not produce alignments for ",
-				       filename(alignedbam), " alignment failed"
-				      )
-			       );
-			
-			wait (alignedbam) {
-				dedupsortedbam = novosort(vars["NOVOSORTDIR"], alignedbam, vars["TMPDIR"],
-							  string2int(vars["PBSCORES"]), ["--markDuplicates"]
-							 ) =>
-				
-				int numAlignments_dedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], 
-										  filename(dedupsortedbam)
-										 );
-				if (numAlignments_dedupsortedbam == 0) {
-					qcfile = echo(strcat(sampleName,
-							     "\tALIGNMENT\tFAIL\t",
-							     "novosort command did not produce alignments for ",
-							     filename(dedupsortedbam), "\n"
-							    )
-						     );
-				}
-				
-				assert (numAlignments_dedupsortedbam > 0,
-					strcat("novosort command did not produce alignments for ",
-					       filename(dedupsortedbam), "sorting and deduplication failed"
-					      )
-				       );
-
-			} // End wait(alignedbam)
-		} //End if-else (dedup tool selection: picard or novosort)
-	} //End if-else (dedup tool selection: samblaster or other)
-
+	// Verify alignment
+	verify(alignedbam, sampleName, "alignment");
+	
+	/*
+	Deduplication
+	*/
+	dedupsortedbam = markDuplicates(sampleName, alignedsam, alignedbam);
+	
+	// Wait until deduplication is done before deleting the raw aligned sam (in case samblaster was used)
+	wait(dedupsortedbam) {
+		//rm(alignedsam)
+	}
+	
+	// Verify deduplication
+	verify(dedupsortedbam, sampleName, "deduplication");
+	
+	/*
+	STOPPING POINT FOR THE DAY: JAN 4TH, 2016
+	*/
+	
 	flagstats = samtools_flagstat(vars["SAMTOOLSDIR"], dedupsortedbam);
 
 	string stat[] = file_lines(flagstats);
