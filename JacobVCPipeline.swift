@@ -49,7 +49,7 @@ Parse Runfile (Since function named 'main', it will automatically run first)
 
 /****************************************************************************
 Helper functions (Easily handles alignment and duplicate marker choices)
-/****************************************************************************/
+****************************************************************************/
 
 (file alignedSam) align(string sampleName, string read1, string read2, string rgheader) {
 	// This function returns a .sam file because samblaster requires it
