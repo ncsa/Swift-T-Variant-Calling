@@ -25,29 +25,31 @@ Helper functions (Easily handles alignment and duplicate marker choices)
 ****************************************************************************/
 
 /*
-Aligners
+Alignment
 */
 
-(file alignedSam) align(string sampleName, string read1, string read2, string rgheader) {
-	// This function returns a .sam file because samblaster requires it
-	// To minimize memory usage, delete the .sam file after a .bam file is made from it
-	// outputBam = samtools_view(vars["SAMTOOLSDIR"], inputSam, string2int(vars["PBSCORES"]), ["-u"]);
-	
+(file outputSam) align(string read1, string read2, string rgheader) {
+	/*
+	 This function returns a .sam file because samblaster requires it
+	 To minimize memory usage, delete the .sam file after a .bam file is made from it
+	*/
+
 	// Use the specified alignment tool
 	if (vars["ALIGNERTOOL"] == "BWAMEM") {
-		alignedSam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]],
-				     string2int(vars["PBSCORES"]), rgheader
-				    ) =>
+		// Directly return the .sam file created from bwa_mem
+		outputSam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], 
+				    [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader
+				   );
 	} else { // Novoalign is the default aligner
-		alignedSam = novoalign(vars["NOVOALIGNDIR"], read1, read2, vars["NOVOALIGNINDEX"],
+		// Directly return the .sam file created from novoalign
+		outputSam =  novoalign(vars["NOVOALIGNDIR"], read1, read2, vars["NOVOALIGNINDEX"],
 				       [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader
-				      ) =>
-	}	
-	return alignedSam;
+				      );
+	}
 }
 
 /****************************************************************************
-Parse Runfile (Since function named 'main', it will automatically run first)
+Parse Runfile
 *****************************************************************************/
 
 //read-in the runfile with argument --runfile=<runfile_name>
