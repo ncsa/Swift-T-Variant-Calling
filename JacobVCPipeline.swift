@@ -20,7 +20,10 @@ import pipelinefunctions.merge_vcf;
 import pipelinefunctions.joint_vcf;
 import pipelinefunctions.miscellaneous;
 
-// Parse Runfile (Since function named 'main', it will automatically run first
+/****************************************************************************
+Parse Runfile (Since function named 'main', it will automatically run first)
+*****************************************************************************/
+
 () main () {
 	//read-in the runfile with argument --runfile=<runfile_name>
 	argv_accept("runfile"); // return error if user supplies other flagged inputs
@@ -44,7 +47,10 @@ import pipelinefunctions.miscellaneous;
 			           ) > = sampleInfoFile;  
 }
 
-// Helper functions (Easily handles alignment and duplicating marker choices)
+/****************************************************************************
+Helper functions (Easily handles alignment and duplicate marker choices)
+/****************************************************************************/
+
 (file alignedSam) align(string sampleName, string read1, string read2, string rgheader) {
 	// This function returns a .sam file because samblaster requires it
 	// To minimize memory usage, delete the .sam file after a .bam file is made from it
@@ -53,21 +59,22 @@ import pipelinefunctions.miscellaneous;
 	// Use the specified alignment tool
 	if (vars["ALIGNERTOOL"] == "BWAMEM") {
 		alignedSam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]],
-				 string2int(vars["PBSCORES"]), rgheader
-				) =>
+				     string2int(vars["PBSCORES"]), rgheader
+				    ) =>
 	} else { // Novoalign is the default aligner
 		alignedSam = novoalign(vars["NOVOALIGNDIR"], read1, read2, vars["NOVOALIGNINDEX"],
-				   [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader
-				  ) =>
+				       [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader
+				      ) =>
 	}	
 	return alignedSam;
 }
 
-/* 
-MAIN LOOP BEGINS
-*/
+/****************************************************************************
+Main loop begins
+*****************************************************************************/
 foreach sample in sampleLines{
 
+	//Parse sample specific information and construct RG header
 	string sampleInfo[] = split(sample, " ");
 	string sampleName = sampleInfo[0];
 	string read1 = sampleInfo[1];
@@ -76,18 +83,25 @@ foreach sample in sampleLines{
 	string rgheader = sprintf("@RG\tID:%s\tLB:%s\tPL:%s\tPU:%s\tSM:%s\tCN:%s", sampleName, vars["SAMPLELB"],
 				  vars["SAMPLEPL"], sampleName, sampleName, vars["SAMPLECN"]
 				 );
-	/*
-	ALIGNMENT AND DEDUPLICATION (PER SAMPLE)
-	*/
+	/****************************************************************************
+	Alignment and Deduplication (per sample)
+	****************************************************************************/
 
+	/*
+	Create the sample output directories
+	*/
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
-	string VarcallDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/");
-	string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/");
- 
 	mkdir(AlignDir);
+	
+	string VarcallDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/");
 	mkdir(VarcallDir);
+	
+	string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/");
 	mkdir(RealignDir);
 	
+	/*
+	Create file handles
+	*/
 	file dedupsortedbam < strcat(AlignDir, sampleName, ".wdups.sorted.bam") >;
 	file outbam < strcat(RealignDir, sampleName, ".recalibrated.bam") >;
 	file rawvariant < strcat(VarcallDir, sampleName, ".GATKCombineGVCF.raw.vcf") >;
@@ -97,11 +111,10 @@ foreach sample in sampleLines{
 	file mergedvariant < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/", sampleName,
 				    ".GATKCombineGVCF.raw.vcf"
 				   ) >;
-
 	// These are not specifically defined!
 	file flagstats < strcat(AlignDir, sampleName, ".wdups.sorted.bam", ".flagstats") >;
 
-	// These are temporary files: If piping is implemented, they would not be needed!
+	// These are temporary files: If piping is implemented, they would not be needed.
 	file alignedsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".nodups.sam") >;
 	file chr_bamListfile < strcat(vars["TMPDIR"], "/", sampleName, ".chr_bamList.txt") >;
 	file chr_vcfListfile < strcat(vars["TMPDIR"], "/", sampleName,".chr_vcfList.txt") >;
