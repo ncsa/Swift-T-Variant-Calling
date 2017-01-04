@@ -124,29 +124,31 @@ foreach sample in sampleLines{
 	file chr_vcfListfile < strcat(vars["TMPDIR"], "/", sampleName,".chr_vcfList.txt") >;
 
 	if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
+		
 		file dedupsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".wdups.sam") >;
 		file dedupbam < strcat(AlignDir, sampleName, ".wdups.bam") >;	
 		
-		/*
-		PIPE THE STAGES BELOW UP TO THE DEDUPBAM
-		*/
-		alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]],
-				     string2int(vars["PBSCORES"]), rgheader
-				    ) =>
+		alignedsam = align(read1, read2, rgheader);
+
 		dedupsam = samblaster(vars["SAMBLASTERDIR"], alignedsam) =>
+		// Delete the aligned sam file once samblaster is finished with it
+		//rm(alignedsam); 
+
 		dedupbam = samtools_view(vars["SAMTOOLSDIR"], dedupsam, string2int(vars["PBSCORES"]), ["-u"]) => 
-		
+		// Delete the dedupsam file once dedupbam has been created
+		//rm(dedupsam);
+
 		int numAlignments_dedup = samtools_view2(vars["SAMTOOLSDIR"], filename(dedupbam));
 		if (numAlignments_dedup == 0) {
 			qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\t",
-					     "bwa mem command did not produce alignments for ",
+					     "Alignment was not produced for ",
 					     filename(dedupbam), "\n"
 					    )
 				     );
 		}
 		
 		assert (numAlignments_dedup > 0,
-			strcat("bwa mem command did not produce alignments for ", filename(dedupbam), " alignment failed")
+			strcat("Alignment was not produced for ", filename(dedupbam), " alignment failed")
 		       );
 		
 		dedupsortedbam = novosort(vars["NOVOSORTDIR"], dedupbam, vars["TMPDIR"],
@@ -176,22 +178,22 @@ foreach sample in sampleLines{
 			file alignedsortedbam <strcat(AlignDir, sampleName, ".nodups.sorted.bam")>;
 			file metricsfile <strcat(AlignDir, sampleName, ".picard.metrics")>;
 			
-			alignedsam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], [vars["BWAMEMPARAMS"]], 
-					     string2int(vars["PBSCORES"]), rgheader
-					    ) =>
+			alignedsam = align(read1, read2, rgheader);
 			alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), ["-u"]) =>
-			
+			// Delete the alignedsam file once alignedbam has been created 			
+			//rm(alignedsam);
+
 			int numAlignments_aligned = samtools_view2(vars["SAMTOOLSDIR"], filename(alignedbam));
 			if (numAlignments_aligned == 0) {
 				qcfile = echo(strcat(sampleName, "\tALIGNMENT\tFAIL\t",
-						     "bwa mem command did not produce alignments for ",
+						     "Alignment was not produced for ",
 						     filename(alignedbam), "\n"
 						    )
 					     );
 			}
 			
 			assert (numAlignments_aligned > 0,
-				strcat("bwa mem command did not produce alignments for ",
+				strcat("Alignment was not produced for ",
 				       filename(alignedbam), " alignment failed"
 				      )
 			       );
