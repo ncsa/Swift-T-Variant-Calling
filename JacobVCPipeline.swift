@@ -21,35 +21,12 @@ import pipelinefunctions.joint_vcf;
 import pipelinefunctions.miscellaneous;
 
 /****************************************************************************
-Parse Runfile (Since function named 'main', it will automatically run first)
-*****************************************************************************/
-
-main {
-	//read-in the runfile with argument --runfile=<runfile_name>
-	argv_accept("runfile"); // return error if user supplies other flagged inputs
-	string configFilename = argv("runfile");
-
-	file configFile = input_file(configFilename);
-	string configFileData[] = file_lines(configFile);
-
-	string vars[string] = getConfigVariables(configFileData);
-
-	file sampleInfoFile = input_file(vars["SAMPLEINFORMATION"]);
-	string sampleLines[] = file_lines(sampleInfoFile);
-	int samples_processing_done;
-
-	// Copy the runfile and sampleInfoFile to the docs directory for documentation purposes
-	file docRunfile < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/", basename_string(configFilename)
-				) > = configFile;
-
-	file docSampleInfo < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/", 
-			            basename_string(filename(sampleInfoFile))
-			           ) > = sampleInfoFile;  
-}
-
-/****************************************************************************
 Helper functions (Easily handles alignment and duplicate marker choices)
 ****************************************************************************/
+
+/*
+Aligners
+*/
 
 (file alignedSam) align(string sampleName, string read1, string read2, string rgheader) {
 	// This function returns a .sam file because samblaster requires it
@@ -68,6 +45,31 @@ Helper functions (Easily handles alignment and duplicate marker choices)
 	}	
 	return alignedSam;
 }
+
+/****************************************************************************
+Parse Runfile (Since function named 'main', it will automatically run first)
+*****************************************************************************/
+
+//read-in the runfile with argument --runfile=<runfile_name>
+argv_accept("runfile"); // return error if user supplies other flagged inputs
+string configFilename = argv("runfile");
+
+file configFile = input_file(configFilename);
+string configFileData[] = file_lines(configFile);
+
+string vars[string] = getConfigVariables(configFileData);
+
+file sampleInfoFile = input_file(vars["SAMPLEINFORMATION"]);
+string sampleLines[] = file_lines(sampleInfoFile);
+int samples_processing_done;
+
+// Copy the runfile and sampleInfoFile to the docs directory for documentation purposes
+file docRunfile < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/", basename_string(configFilename)
+			) > = configFile;
+
+file docSampleInfo < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/", 
+		            basename_string(filename(sampleInfoFile))
+		           ) > = sampleInfoFile;  
 
 /****************************************************************************
 Main loop begins
