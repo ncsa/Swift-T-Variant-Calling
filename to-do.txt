@@ -1,0 +1,5 @@
+Update Readme explaining how Quality Control is handled:
+  They are handled with assertion functions that stop a process if it is not working
+  In practice, if the bam file produced from a particular step of the output contains
+  no alignments, the error message suggests that that was the step that failed, and the
+  error message is piped to stdout.
