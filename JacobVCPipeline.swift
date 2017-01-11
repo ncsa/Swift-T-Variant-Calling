@@ -1,5 +1,5 @@
 // The way to run this script is:
-// swift-t -r $PWD/pipelinefunctions VCcallingPipeline.swift --runfile=HgG0.lowcoverage.chr20.parameters-azza
+// swift-t -r $PWD/pipelinefunctions VCcallingPipeline.swift --runfile=<Insert Runfile Location>
 
 /* 
 Note:
@@ -9,7 +9,125 @@ implementaion is mapped onto servers (you can enable turbine logging
 by `export TURBINE_LOG=1` before calling the command above)
 */
 
+/**********************************************************************************************************************
+********************************************   SUMMARY OF WORKFLOW   **************************************************
+***********************************************************************************************************************
+
+*****************
+Helper functions
+*****************
+
+(file outputSam) alignReads(string read1, string read2, string rgheader);
+	- Performs an alignment on the input files using the aligner specifed in the runfile
+
+(file dedupSortedBam) markDuplicates(string sampleName, file alignedSam, file alignedBam);
+	- Sorts and marks the duplicates of the input bam file using the deduplication to specified in the runfile 
+
+(file realignedbam) realignBam(string sampleName, string chr, string realparms[], file inputBam);
+	- Performs realignment utilizing GATK's RealignerTargetCreator and IndelRealigner
+
+(file recalibratedbam) recalibrateBam(string sampleName, string chr, file inputBam, string recalparmsindels[]);
+	- Performs recalibration utilizing GATK's BaseRecalibrator and PrintReads
+
+() checkBam(file bamFile, string sampleName, string workflowStep);
+	- Checks whether the given bam file is empty. If so, throw an error.
+
+*****************************
+Main loop through all samples
+*****************************
+
+// Because Swift/T syntax requires that control flow be specified with wait statements, waiting requires an output
+     from the function to be waited on, and the workflow requires joint genotyping to be completed only when
+     individual variant calling of all the samples has finished, it makes sense to nest the loop through all of the
+     samples within a function with an output.
+
+// The following is pseudocode that outlines the inner workings of the main loop through the samples:
+
+(boolean finished) mainSampleLoop(boolean alignOnly) {
+	foreach sample in Samples {
+		
+		- Create sample output directories
+		- Create output file handles
+		- alignReads (and verify alignment success)
+		- markDuplicates (and verify dedup success)
+		- QC on deduplicated file
+
+		if (!alignOnly) {   // If the runfile did not specify ANALYSIS=ALIGN_ONLY
+
+			foreach chromosome in sample {
+				
+				- Create output file handles
+				- Separate dedupped and sorted bam by chromosome (and verify separation success)
+				- Gather list of reference recalibration files and retrieve info from them
+			
+				if (Variant calling with realignment) {  // If runfile specifies ANALYSIS=VC_REALIGN
+					- realignBam
+					- recalibrateBam
+				}
+				else {		// If runfile specifies ANALYSIS=<nothing> or ANALYSIS=VC_NO_REALIGN 
+					- recalibrateBam
+				}
+
+				- Call variants using HaplotypeCaller
+			}
+		}
+	}
+	finished = true;
+}	
+
+***************************
+Implementation of Workflow
+***************************
+
+// Some parts of the workflow are not compartmentalized into functions, but are instead located within global scope
+// I will refer to these as < SECTION X: What section X does > 
+
+************
+SECTION ONE: Parse Files
+************
+- Parse the variables from the runfile
+- Parse the samples file
+- Copy the runfile and samples file into <OutputFolder>/<DeliveryFolder>/docs for documentation purposes
+
+***********
+SECTION TWO: Immediate Error Checking 
+***********
+- Check for analysis variable errors
+	- If the analysis variable is empty, warn that the default (variant calling without realignment) is being
+	  used, and continue.
+	- If the analysis variable is neither empty nor any of the permitted options (ALIGN_ONLY, VC_ALIGN, 
+	  VC_NO_ALIGN), throw an error outlining what the acceptable inputs are and kill the workflow. This is to 
+	  prevent confusing the end user. For example, one might think that ANALYSIS=ALIGN will start alignment only, 
+	  but if this check was not here, it would default to full variant calling without alignment. This check also
+	  prevents typos from causing the wrong analysis from being executed (Imagine setting ANALYSIS to
+	  'align_only' or 'ALIIGN_ONLY'). 
+
+***********
+SECTION THREE: The Main Loop and Joint Genotyping 
+***********
+- Call the main loop
+- (If not alignOnly) wait for main loop to end, then perform joint genotyping
+
+*********************************************************************************************************************** 
+***********************************************************************************************************************
+**********************************************************************************************************************/
+
+/*
+Swift/T does not appear to provide an easy way to append to files that are already written, as the write method for
+files requires a variable assignment and multiple assignment is not allowed.
+
+A naive workaround might be to simply copy the contents of the original file to a string, add to it, and create 
+a new updated file after deleting the original. However, this approach may lead to concurrency bugs (when multiple
+processes try to add to the same file simultaneously, one may delete the original just as another tries to access
+it) 
+
+This is the precise problem encountered with the workflows QC file. As an easy solution, we simply test that each
+process finished correctly with an assert method that prints an error message to stdout if the process is not
+successful. Checking whether the workflow succeeded for each sample is as simple as checking stdout.
+*/
+
 import sys;
+import io;
 import files;
 import string;
 import unix;
@@ -18,21 +136,24 @@ import pipelinefunctions.align_dedup;
 import pipelinefunctions.realign_varcall_by_chr;
 import pipelinefunctions.merge_vcf;
 import pipelinefunctions.joint_vcf;
-import pipelinefunctions.miscellaneous;
+import pipelinefunctions.miscellaneous; 
 
 /****************************************************************************
 Helper functions (Easily handles alignment and duplicate marker choices)
 ****************************************************************************/
 
-/*
+/*****
 Alignment
-*/
+*****/
 
-(file outputSam) align(string read1, string read2, string rgheader) {
+(file outputSam) alignReads(string read1, string read2, string rgheader) {
 	/*
 	 This function returns a .sam file because samblaster requires it
 	 To minimize memory usage, delete the .sam file after a .bam file is made from it
 	*/
+
+	printf("\n\n\n\n\nThis printed from alignReads\n\n\n\n\n\n\n");
+
 
 	// Use the specified alignment tool
 	if (vars["ALIGNERTOOL"] == "BWAMEM") {
@@ -49,12 +170,26 @@ Alignment
 	}
 }
 
+/*****
+Mark Duplicates
+*****/
+
 (file dedupSortedBam) markDuplicates(string sampleName, file alignedSam, file alignedBam) {
 	/*
 	The input file used depends on the dedup program being used:
 		alignedSam => Samblaster
 		alignedBam => Picard or Novosort
 	*/
+
+	/*
+	Note: this local directory location variable is necessary, as the directory handles
+	defined in the main loop of the workflow are not in global scope
+	*/
+
+	printf("\n\n\nThis printed from markDuplicates\n\n\n\n\n\n\n");
+
+	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
+
 	if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
 		file dedupsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".wdups.sam") >;
 		file dedupbam < strcat(AlignDir, sampleName, ".wdups.bam") >;
@@ -63,7 +198,7 @@ Alignment
 		dedupsam = samblaster(vars["SAMBLASTERDIR"], alignedSam);
 		dedupbam = samtools_view(vars["SAMTOOLSDIR"], dedupsam, string2int(vars["PBSCORES"]), ["-u"]);
 		// Delete the dedupsam file once dedupbam has been created
-		//rm(dedupsam);
+		rm(dedupsam);
 		
 		// Sort
 		dedupSortedBam = novosort(vars["NOVOSORTDIR"], dedupbam, vars["TMPDIR"],
@@ -77,7 +212,7 @@ Alignment
 		
 		// Sort
 		alignedsortedbam = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
-				            string2int(vars["PBSCORES"]), []
+					    string2int(vars["PBSCORES"]), []
 					   );
 		// Mark Duplicates
 		dedupSortedBam, metricsfile = picard(vars["JAVADIR"], vars["PICARDDIR"],
@@ -93,338 +228,430 @@ Alignment
 	}
 }
 
-/*
-Verify .bam file contains at least one alignment
-*/
-() verify(file bamFile, string sampleName, string workflowStep) {
-	int alignNum = samtools_view2(vars["SAMTOOLSDIR"], filename(bamFile));
+/*****
+Realignment
+*****/
+
+(file realignedbam) realignBam(string sampleName, string chr, string realparms[], file inputBam) { 
 	
-	string message = strcat("FAILURE: ", filename(bamFile), " contains no alignments. ",
-				"Likely error during the ", workflowStep, " step when processing",
-				sampleName, "."
-			       )
-	// Write message to qc file if problem occurs
-	if (alignNum == 0) {
-		qcfile.write(message);
+	printf("\n\n\n\n\nThis printed from realignBam\n\n\n\n\n\n\n");
+	string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/");
+
+	file intervals < strcat(RealignDir, sampleName, ".", chr, ".realignTargetCreator.intervals") >;
+	
+	/*													      
+	Construct an index file for the chromosome dedupped sorted bam file. The void output is necessary so 
+	"intervals" will have an output to wait for before executing.		    
+	*/													      
+	void indexed = samtools_index(vars["SAMTOOLSDIR"], inputBam);
+
+	wait (indexed) {					
+		intervals = RealignerTargetCreator(vars["JAVADIR"], vars["GATKDIR"],
+						   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
+						   inputBam, string2int(vars["PBSCORES"]), realparms		   
+						  );
+		realignedbam = IndelRealigner(vars["JAVADIR"], vars["GATKDIR"],
+					      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
+					      inputBam, realparms, intervals					   
+					     );
+		checkBam(realignedbam, sampleName, "realignment");
 	}
-	
-	// Stop part if problem occurs and print message
-	assert (alignNum > 0, message);
 }
 
-/****************************************************************************
-Parse Runfile
-*****************************************************************************/
+/*****
+Recalibration
+*****/
 
-//read-in the runfile with argument --runfile=<runfile_name>
-argv_accept("runfile"); // return error if user supplies other flagged inputs
+(file recalibratedbam) recalibrateBam(string sampleName, string chr, file inputBam, string recalparmsindels[]) {
+	string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/");				    
+ 
+	file recalreport < strcat(RealignDir, sampleName, ".", chr, ".recal_report.grp") >;     	
+
+	recalreport = BaseRecalibrator(vars["JAVADIR"], vars["GATKDIR"],
+				       strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]), inputBam,
+				       string2int(vars["PBSCORES"]), recalparmsindels,
+				       strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"])
+				      );
+	recalibratedbam = PrintReads(vars["JAVADIR"], vars["GATKDIR"],
+				     strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]), inputBam,
+				     string2int(vars["PBSCORES"]), recalreport
+				    );
+	checkBam(recalibratedbam, sampleName, "recalibration");
+}
+
+/*****
+BAM File Verification
+*****/
+
+() checkBam(file bamFile, string sampleName, string workflowStep) {
+	// For some reason, Swift/T would try to use samtools_view2 even before bamFile is ready
+	// Added explicit wait command
+	wait (bamFile) {
+		int alignNum = samtools_view2(vars["SAMTOOLSDIR"], filename(bamFile));
+	
+		string message = strcat("FAILURE: ", filename(bamFile), " contains no alignments. ",
+					"Likely error during the ", workflowStep, " step when processing",
+					sampleName, "."
+			       	       );
+		assert(alignNum > 0, message);
+	}
+}
+
+type itemStatus {
+	string identifier;		// Examples: "sampleX-chr1" or "sampleX"
+	boolean successful;
+}
+
+
+(void finished) mainSampleLoop(boolean alignOnly) {
+
+	// Contains status information for each sample in loop
+	itemStatus samplesProgress[];
+	
+	/****************************************************************************
+	Main loop begins
+	*****************************************************************************/
+	foreach sample, index in sampleLines {
+
+	
+
+		/*****
+		Parse sample specific information and construct RG header
+		*****/
+		string sampleInfo[] = split(sample, " ");
+		string sampleName = sampleInfo[0];
+		string read1 = sampleInfo[1];
+		string read2 = sampleInfo[2];
+
+		string rgheader = sprintf("@RG\tID:%s\tLB:%s\tPL:%s\tPU:%s\tSM:%s\tCN:%s", sampleName,
+					  vars["SAMPLELB"], vars["SAMPLEPL"], sampleName, sampleName, vars["SAMPLECN"] 
+					 );
+
+		/****************************************************************************
+		Alignment and Deduplication (per sample)
+		****************************************************************************/
+
+		/*****
+		Create the sample output directories
+		*****/
+
+		string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
+		mkdir(AlignDir);
+
+		string VarcallDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/");
+		mkdir(VarcallDir);
+													   
+		string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/");
+		mkdir(RealignDir);
+
+		/*****
+		Create output file handles
+		*****/
+		file alignedbam < strcat(AlignDir, sampleName, ".nodups.bam") >;
+		file dedupsortedbam < strcat(AlignDir, sampleName, ".wdups.sorted.bam") >;		
+													   
+		// These are not specifically defined!
+		file flagstats < strcat(AlignDir, sampleName, ".wdups.sorted.bam", ".flagstats") >;
+
+		// These are temporary files: If piping is implemented, they would not be needed.
+		file alignedsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".nodups.sam") >;
+
+		/*****
+		Alignment
+		*****/
+		alignedsam = alignReads(read1, read2, rgheader);
+		alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), ["-u"]);
+
+		// Verify alignment was successful
+		checkBam(alignedbam, sampleName, "alignment");
+															
+		/*****
+		Deduplication
+		*****/
+		dedupsortedbam = markDuplicates(sampleName, alignedsam, alignedbam);
+															
+		// Wait until deduplication is done before deleting the raw aligned sam (in case samblaster was used)
+		wait(dedupsortedbam) {
+			rm(alignedsam);
+		}
+															
+		// Verify deduplication was successful
+		checkBam(dedupsortedbam, sampleName, "deduplication");
+															
+		/*****
+		Quality control of deduplicated file
+		*****/
+															
+		flagstats = samtools_flagstat(vars["SAMTOOLSDIR"], dedupsortedbam);
+															
+		string stat[] = file_lines(flagstats);
+		tot_mapped =  split(stat[4], " ")[0];
+		tot_reads = split(stat[0], " ")[0];
+		tot_dups = split(stat[3], " ")[0];
+															
+		perc_dup= string2float(tot_dups) * 100 / string2float(tot_reads);
+		perc_mapped= string2float(tot_mapped) * 100 / string2float(tot_reads);
+															
+		// Message cutoff information
+		string cutoff_info = strcat(sampleName,
+					    "\tPercentDuplication=", perc_dup,
+					    ";DuplicationCutoff=", vars["DUP_CUTOFF"],
+					    "\tPercentMapped=", perc_mapped, ";MappingCutoff=", vars["MAP_CUTOFF"]
+					   );
+		// If both % duplicated and % mapped meet their cutoffs
+		if ( perc_dup < string2float(vars["DUP_CUTOFF"]) && perc_mapped > string2float(vars["MAP_CUTOFF"]) ) {
+			/*
+			 SUCCESS
+			*/
+			printf(strcat("QC-Test SUCCESS: ", cutoff_info));
+		}
+		else {
+			/*
+			FAILURE
+			*/
+			// Trigger failure and print error message
+			assert(false, strcat("QC-Test FAILURE: ", cutoff_info));
+		}
+		
+		/*******************************************************************
+		IF ALIGN ONLY, THEN THIS IS THE END OF THE WORKFLOW FOR THIS SAMPLE
+		*******************************************************************/
+
+		if (!alignOnly) {
+
+			/*
+			This is a workaround to get around the fact that Swift/T does not allow multiple assignment 
+			to variables.
+
+			To count the number of completed chromosome loops, I dynamically add to the array using
+			arrayAppend(). After 
+			*/
+			boolean chrCompleted[];		
+
+			/****************************************************************************
+			Split by Chromosome
+			****************************************************************************/
+
+			indices = split(vars["CHRNAMES"], ":");							 
+														
+			foreach chr in indices {									
+				/*****										  
+				Create output file handles 
+				*****/										  
+				file chrdedupsortedbam < strcat(RealignDir, sampleName, ".", chr,		       
+								".wdups.sorted.bam"				     
+							       ) >;						     
+				file recalibratedbam < strcat(RealignDir, sampleName, ".", chr, ".recalibrated.bam") >; 
+				file gvcfvariant < strcat(VarcallDir, sampleName, ".", chr, ".raw.g.vcf") >;	    
+															
+				// Temporary file								       
+				file recalfiles < strcat(vars["TMPDIR"], "/", sampleName, ".", chr,		     
+							 ".recal_foundfiles.txt"					
+							) >;							    
+															
+				/*****										  
+				Separate dedupped and sorted bam by chromosome 
+				*****/										  
+				chrdedupsortedbam = samtools_view(vars["SAMTOOLSDIR"], dedupsortedbam,		  
+								  string2int(vars["PBSCORES"]), [strcat(chr)]	   
+								 ) =>						   
+															
+				// Verify chromosome separation worked						  
+				boolean chrDedupSortCheck = checkBam(chrdedupsortedbam, sampleName, "realignment");  
+
+				string recalparmsindels[];							      
+				string realparms[];								     
+				wait (chrdedupsortedbam) {							      
+					/*****									  
+					Gather list of all reference recalibration files,			       
+					then retrieve indels and parameters from them				   
+					*****/									  
+					recalfiles = find_files(							
+						strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"),	       
+						strcat("*", chr, ".vcf" )					       
+						       	       );
+
+					recalparmsindels = split(						       
+						trim(replace_all(read(sed(recalfiles, "s/^/--knownSites /g"	     
+									 )					      
+								     ), "\n", " ", 0				    
+								)						       
+					       	    ), " "
+								);
+															
+					realparms = split(							      
+						trim(replace_all(read(sed(recalfiles, "s/^/-known /g"		   
+									 )					      
+								     ), "\n", " ", 0				    
+								)						       
+						    ), " "							      
+							  );						    
+				}										       
+															
+				/****************************************************************************	   
+				Realignment and/or Recalibration							
+				****************************************************************************/	   
+															
+				if (vars["ANALYSIS"] == "VC_REALIGN") {						 
+					/*****									  
+					Realignment and Recalibration						   
+					*****/
+					file realignedbam < strcat(RealignDir, sampleName, ".", chr,
+								   ".realigned.bam"
+								  ) >;
+					realignedbam = realignBam(sampleName, chr, realparms, chrdedupsortedbam);
+					recalibratedbam = recalibrateBam(sampleName, chr, realignedbam,
+									 recalparmsindels
+									); 
+															
+				}										       
+				else {										  
+					/*****									  
+					Recalibration								   
+					*****/									  
+					recalibratedbam = recalibrateBam(sampleName, chr,
+								         chrdedupsortedbam, recalparmsindels
+								        );
+				}										       
+
+				int ploidy;									     
+				if ( chr=="M" ) { ploidy = 1; }							 
+				else { ploidy = 2; }	       
+
+				gvcfvariant = HaplotypeCaller (vars["JAVADIR"], vars["GATKDIR"],			
+							       strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),    
+							       recalibratedbam,					 
+							       strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),	
+							       string2int(vars["PBSCORES"]), ploidy, chr		
+						      	      ) =>
+				rm(recalfiles);
+			}										       
+		} // end the loop for all chromosomes
+	} // end the loop for all samples
+}
+
+/****************************************************************************					      
+SECTION ONE: Parse Files
+*****************************************************************************/					     
+
+//read-in the runfile with argument --runfile=<runfile_name>							       
+argv_accept("runfile"); // return error if user supplies other flagged inputs					      
 string configFilename = argv("runfile");
 
-file configFile = input_file(configFilename);
+file configFile = input_file(configFilename);									      
 string configFileData[] = file_lines(configFile);
 
 string vars[string] = getConfigVariables(configFileData);
 
-file sampleInfoFile = input_file(vars["SAMPLEINFORMATION"]);
+file sampleInfoFile = input_file(vars["SAMPLEINFORMATION"]);							       
 string sampleLines[] = file_lines(sampleInfoFile);
-int samples_processing_done;
+
+// Create the output and temporary directories
+mkdir(vars["OUTPUTDIR"]);
+mkdir(vars["TMPDIR"]);
 
 // Copy the runfile and sampleInfoFile to the docs directory for documentation purposes
 file docRunfile < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/", basename_string(configFilename)
 			) > = configFile;
 
-file docSampleInfo < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/", 
-		            basename_string(filename(sampleInfoFile))
-		           ) > = sampleInfoFile;  
+file docSampleInfo < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/",				      
+			    basename_string(filename(sampleInfoFile))						      
+			   ) > = sampleInfoFile;
+
+// Create quality control file											     
+//file qcfile < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/QC_test_results.txt") >;		     
+
+/****************************************************************************					      
+SECTION TWO: Immediate Error Checking
+*****************************************************************************/
+
+/*****														     
+ANALYSIS Variable Errors
+(The 'callVariants' function relies on this conditional statement being evaluated before its use)
+*****/														     
+
+// If the ANALYSIS variable is empty, warn that the default (variant calling without realignment) is being used	    
+if (vars["ANALYSIS"] == "") {											      
+	printf("WARNING: No analysis choice specified: variant calling with no realignment is the default choice\n");   
+}														       
+// If anything other than the available options (or nothing) is entered, provide an error and terminate		 
+else if (vars["ANALYSIS"] != "ALIGN_ONLY" &&									    
+	 vars["ANALYSIS"] != "VC_REALIGN" &&									    
+	 vars["ANALYSIS"] != "VC_NO_REALIGN"									    
+	) {													     
+	string message = strcat("FAILURE: Analysis option <", vars["ANALYSIS"], "> is not a vaild entry.\n",	    
+				"\tPlease enter one of the following:\n",					       
+				"\t\tFor alignment only: ALIGN_ONLY\n",						 
+				"\t\tFor variant calling with realignment: VC_REALIGN\n",			       
+				"\t\tFor variant calling without realignment: VC_NO_REALIGN\n"			  
+			       );										       
+	assert(false, message);											 
+}	      
+
+/*														      
+ADD SAFETY CHECKS BEFORE THE MAIN LOOP BEGINS MAKING SURE THAT THE NECESSARY INDEX FILES ARE PRESENT FOR THE TYPE OF    
+ANALYSIS BEING CONDUCTED												
+															
+FOR EXAMPLE:													    
+	If stage of analysis listed includes realignment, and the reference indel and param files cannot be found,      
+	terminate the process now instead of waiting until the realign step to check for the necessary files	    
+															
+// assert(strlen(recalparmsindels)>1 ,										  
+	  strcat("no indels were found for ", chr, " in this folder", vars["REFGENOMEDIR"]/vars["INDELDIR"] ));	 
+// assert(strlen(realparms)>1 ,											 
+	  strcat("no indels were found for ", chr, "in this folder", vars["REFGENOMEDIR"]/vars["INDELDIR"] ));	  
+															
+*/	
 
 /****************************************************************************
-Main loop begins
-*****************************************************************************/
-foreach sample in sampleLines{
+SECTION THREE: The Main Loop and Joint Genotyping
+****************************************************************************/
 
-	//Parse sample specific information and construct RG header
-	string sampleInfo[] = split(sample, " ");
-	string sampleName = sampleInfo[0];
-	string read1 = sampleInfo[1];
-	string read2 = sampleInfo[2];
-	
-	string rgheader = sprintf("@RG\tID:%s\tLB:%s\tPL:%s\tPU:%s\tSM:%s\tCN:%s", sampleName, vars["SAMPLELB"],
-				  vars["SAMPLEPL"], sampleName, sampleName, vars["SAMPLECN"]
-				 );
-	/****************************************************************************
-	Alignment and Deduplication (per sample)
-	****************************************************************************/
+// Will be true only if we only want the alignments								     
+boolean alignOnlyCheck = vars["ANALYSIS"] == "ALIGN_ONLY"; 
 
-	/*
-	Create the sample output directories
-	*/
-	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
-	mkdir(AlignDir);
-	
-	string VarcallDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/");
-	mkdir(VarcallDir);
-	
-	string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/");
-	mkdir(RealignDir);
-	
-	/*
-	Create file handles
-	*/
-	file alignedbam < strcat(AlignDir, sampleName, ".nodups.bam") >;
-	file dedupsortedbam < strcat(AlignDir, sampleName, ".wdups.sorted.bam") >;
-	file outbam < strcat(RealignDir, sampleName, ".recalibrated.bam") >;
-	file rawvariant < strcat(VarcallDir, sampleName, ".GATKCombineGVCF.raw.vcf") >;
+/*************
 
-	file qcfile <strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/QC_test_results.txt") >;
-	file mergedbam < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/", sampleName, ".recalibrated.bam") > ;
-	file mergedvariant < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/", sampleName,
-				    ".GATKCombineGVCF.raw.vcf"
-				   ) >;
-	// These are not specifically defined!
-	file flagstats < strcat(AlignDir, sampleName, ".wdups.sorted.bam", ".flagstats") >;
+NEED TO ADD AN ADDITIONAL NARROWING STEP
+As is stands right now, there is no merge-sort step, the pipeline goes straight from creating chr gvcf files for
+each sample straight into joint genotyping
 
-	// These are temporary files: If piping is implemented, they would not be needed.
-	file alignedsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".nodups.sam") >;
-	file chr_bamListfile < strcat(vars["TMPDIR"], "/", sampleName, ".chr_bamList.txt") >;
-	file chr_vcfListfile < strcat(vars["TMPDIR"], "/", sampleName,".chr_vcfList.txt") >;
+NEED TO FIGURE OUT A MECHANISM TO KNOW WHEN FOREACH LOOPS HAVE TERMINATED
 
-	/*
-	Alignment
-	*/
-	alignedsam = align(read1, read2, rgheader);
-	alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), ["-u"]);
-	
-	// Verify alignment
-	verify(alignedbam, sampleName, "alignment");
-	
-	/*
-	Deduplication
-	*/
-	dedupsortedbam = markDuplicates(sampleName, alignedsam, alignedbam);
-	
-	// Wait until deduplication is done before deleting the raw aligned sam (in case samblaster was used)
-	wait(dedupsortedbam) {
-		//rm(alignedsam)
-	}
-	
-	// Verify deduplication
-	verify(dedupsortedbam, sampleName, "deduplication");
-	
-	/*
-	STOPPING POINT FOR THE DAY: JAN 4TH, 2016
-	*/
-	
-	flagstats = samtools_flagstat(vars["SAMTOOLSDIR"], dedupsortedbam);
 
-	string stat[] = file_lines(flagstats);
-	tot_mapped =  split(stat[4], " ")[0];
-	tot_reads = split(stat[0], " ")[0];
-	tot_dups = split(stat[3], " ")[0];
+**************/
 
-	perc_dup= string2float(tot_dups) * 100 / string2float(tot_reads) ;
-	perc_mapped= string2float(tot_mapped) * 100 / string2float(tot_reads) ;
 
-	if ( perc_dup < string2float(vars["DUP_CUTOFF"]) ) {
-		if ( perc_mapped > string2float(vars["MAP_CUTOFF"]) ) {
-			qcfile = echo(strcat(sampleName,
-					     "\tQCTEST\tPASS\n\trule1 ok: percent_duplication=", perc_dup,
-				             "<? duplication_cutoff=", vars["DUP_CUTOFF"],
-				             "\n\trule2 ok: percent_mapped=", perc_mapped,
-				             ">? mapping_cutoff=", vars["MAP_CUTOFF"]
-					    )
-				     );
-		} else {
-			qcfile = echo(strcat(sampleName,
-					     "\tQCTEST\tFAIL\n\trule1 ok: percent_duplication=", perc_dup,
-					     "<? duplication_cutoff=", vars["DUP_CUTOFF"],
-					     "\n\trule2 not ok: percent_mapped=", perc_mapped,
-					     ">? mapping_cutoff=", vars["MAP_CUTOFF"]
-					    )
-				     );
-		}	
-	} else {
-//	I need to append to the qcfile if it contains some data from above. How to do so?
-//	qcfile = echo(sampleName + "\tQCTEST\tFAIL\n\trule1 not ok: percent_duplication=" +perc_dup+ "<? duplication_cutoff=" +vars["DUP_CUTOFF"]+ "\n\trule2 not evaluated: percent_mapped=" +perc_mapped+ ">? mapping_cutoff=" +vars["MAP_CUTOFF"]);
-	}
 
-	////// email findings to redmine and email: 
-	////// seems best to be done in tcl, as a typical mail bash is:
-	////// echo $MSG | mail -s $SUBJECT $RECIPIENTS
-	////// I'm yet to find something similar to pipes here!
-	//MSG="ALIGNMENT-DEDUPLICATION for $SampleName finished successfully"
-	//echo -e "program=$scriptfile at line=$LINENO.\nReason=$MSG\n$LOGS" | mail -s "[Task #${reportticket}]" "$redmine,$email"
 
-	indices = split(vars["CHRNAMES"], ":");
-	int chromosomes_processing_done;
+/******************************
+Main Loop on Samples is Called
+*******************************/
+void sampleLoopDone = mainSampleLoop(alignOnlyCheck);
 
-	wait(dedupsortedbam) {
-		foreach chr in indices {
-			////// Map the output files from this stage! (line 79 in realign_var_call_by_chr.sh onwards!)
-			file chrdedupsortedbam <strcat(RealignDir, sampleName, ".", chr, ".wdups.sorted.bam")>;
-
-			file realignedbam <strcat(RealignDir, sampleName, ".", chr, ".realigned.bam")>;
-			file recalibratedbam <strcat(RealignDir, sampleName, ".", chr, ".recalibrated.bam")>;
-			file intervals < strcat(RealignDir, sampleName, ".", chr, ".realignTargetCreator.intervals") >;
-			file recalreport < strcat(RealignDir, sampleName, ".", chr, ".recal_report.grp") >;
-			file gvcfvariant <strcat(VarcallDir, sampleName, ".", chr, ".raw.g.vcf")>;
-			
-			// These are temporary files only:
-			file recalfiles < strcat(vars["TMPDIR"], "/", sampleName, ".", chr, ".recal_foundfiles.txt") >;
-			file realfiles < strcat(vars["TMPDIR"], "/", sampleName, ".", chr, ".real_foundfiles.txt") >;
-
-			int ploidy;
-			if ( chr=="M" ) {
-				ploidy = 1;
-			} else {
-				ploidy = 2;
-			}
-			
-			chrdedupsortedbam = samtools_view(vars["SAMTOOLSDIR"], dedupsortedbam,
-							  string2int(vars["PBSCORES"]), [strcat(chr)]
-							 ) =>
-			
-			int numAlignments_chrdedupsortedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(chrdedupsortedbam));
-			if (numAlignments_chrdedupsortedbam==0) {
-				qcfile = echo(strcat(sampleName,
-						     "\tREALIGNMENT\tFAIL\tsamtools command did not produce alignments for ",
-						     filename(chrdedupsortedbam), "\n"
-						    )
-					     );
-			}
-			
-			assert (numAlignments_chrdedupsortedbam > 0,
-				strcat("samtools command did not produce alignments for ",
-				       filename(chrdedupsortedbam), "splitting by chromosome failed"
-				      )
-			       );		
-
-			recalfiles = find_files(strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"), 
-						strcat("*", chr, ".vcf" )
-					       );
-			
-			string recalparmsindels[] = split(trim(replace_all(read(sed(
-				recalfiles, "s/^/--knownSites /g")), "\n", " ", 0)), " "
-							 );
-
-	
-			realfiles = find_files( strcat(vars["REFGENOMEDIR"]/vars["INDELDIR"], "/"), strcat("*", chr, ".vcf" ) );
-			string realparms[] = split(trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " ");
-
-	//		assert( strlen(recalparmsindels)>1 , strcat("no indels were found for ", chr, " in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
-	//		assert( strlen(realparms)>1 , strcat("no indels were found for ", chr, "in this folder",vars["REFGENOMEDIR"]/vars["INDELDIR"] ));
+if (!alignOnlyCheck) {
+	wait(sampleLoopDone) {			
+		/***************
+		Joint Genotyping 
+		****************/						 
+		file variantFiles < strcat(vars["TMPDIR"], "/variantFiles.txt") >;				      
+		file jointVCF < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"],				  
+				       "/jointVCFs/jointVCFcalled.vcf"						  
+				      ) >;									      
+															
+		mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs"));			    
+														
+		variantFiles = find_files(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"]),		       
+					  "*.GATKCombineGVCF.raw.vcf"						   
+					 );									     
+		variantFiles => string varlist[] = split(
+			trim(replace_all(read(sed(variantFiles, "s/^/--variant /g")), "\n", " ", 0)), " "
+							);
 		
-			// The void output is necessary so "intervals" will have an output to wait for before executing
-			void indexed = samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam) =>
-			intervals = RealignerTargetCreator(vars["JAVADIR"], vars["GATKDIR"], 
-							   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
-							   chrdedupsortedbam, string2int(vars["PBSCORES"]), realparms
-							  );
-			realignedbam = IndelRealigner(vars["JAVADIR"], vars["GATKDIR"],
-						      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
-						      chrdedupsortedbam, realparms, intervals
-						     ) =>
 
-			int numAlignments_realignedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(realignedbam));
-			if (numAlignments_realignedbam==0) {
-				qcfile = echo(strcat(sampleName, "\tREALIGNMENT\tFAIL\tGATK: ",
-						     "IndelRealigner command did not produce alignments for ",
-						     filename(realignedbam), "\n"
-						    )
-					     );
-			}
-			
-			assert (numAlignments_realignedbam > 0,
-				strcat("GATK IndelRealigner command did not produce alignments for ", filename(realignedbam))
-			       );
-			
-			recalreport = BaseRecalibrator(vars["JAVADIR"], vars["GATKDIR"], 
-						       strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]), 
-						       realignedbam, string2int(vars["PBSCORES"]), recalparmsindels, 
-						       strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"])
-						      ) => 
-			recalibratedbam = PrintReads(vars["JAVADIR"], vars["GATKDIR"],
-						     strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
-						     realignedbam, string2int(vars["PBSCORES"]), recalreport
-						    ) =>
-			
-			int numAlignments_recalibratedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(recalibratedbam));
-			
-			if (numAlignments_recalibratedbam==0) {
-				qcfile = echo(strcat(sampleName, "\tRECALIBRATION\tFAIL\tGATK: ",
-						     "BQSR Recalibration command did not produce alignments for ",
-						     filename(recalibratedbam), "\n"
-						    )
-					     );
-			}
-			
-			assert (numAlignments_recalibratedbam > 0,
-				strcat("GATK BQSR Recalibrator command did not produce alignments for ",
-				       filename(recalibratedbam)
-				      )
-			       );
-			
-			gvcfvariant = HaplotypeCaller (vars["JAVADIR"], vars["GATKDIR"],
-						       strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
-						       recalibratedbam, 
-						       strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),
-						       string2int(vars["PBSCORES"]), ploidy, chr
-						      ) =>
-			if ( size(indices) == size(glob(strcat(VarcallDir, sampleName, ".*.raw.g.vcf"))) ) {
-				chromosomes_processing_done = 1;
-			};
-		
-		} // end the loop for all chromosomes
-
-	} // end the wait for dedupsortedbam
-	
-	wait (chromosomes_processing_done ) {
-		chr_bamListfile = find_files (RealignDir, strcat(sampleName, ".*.recalibrated.bam") );
-		chr_vcfListfile = find_files (VarcallDir, strcat(sampleName, ".*.raw.g.vcf") );
+		varlist => printf("\n\n\n\nThis came from the Joint Genotyping section\n\n\n");
+		varlist => jointVCF = GenotypeGVCFs(vars["JAVADIR"], vars["GATKDIR"], 
+				 strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]), varlist		  
+				);	      
 	}
-
-
-	string chr_bamList[] = split(trim(replace_all(read(chr_bamListfile), "\n", " ", 0)), " ") =>
-	outbam = novosort (vars["NOVOSORTDIR"], chr_bamList, vars["TMPDIR"], string2int(vars["PBSCORES"]), []) =>
-	mergedbam = cp(outbam) =>
-	int numAlignments_mergedbam = samtools_view2(vars["SAMTOOLSDIR"], filename(mergedbam));
-	if (numAlignments_mergedbam==0) {
-		qcfile = echo(strcat(sampleName, "\tMERGE\tFAIL\tnovosort command did not produce alignments for ",
-				     filename(mergedbam), "\n"
-				    )
-			     );
-	}
-	
-	assert (numAlignments_mergedbam > 0,
-		strcat("novosort command did not produce alignments for ", filename(mergedbam) )
-	       );
-	
-	string chr_vcfList[] = split(trim(replace_all(read(sed(chr_vcfListfile, 
-							       "s/^/--variant /g")), "\n", " ", 0)), " "
-				    ) =>
-	rawvariant = CombineGVCFs(vars["JAVADIR"], vars["GATKDIR"], strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
-				  strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]), chr_vcfList
-				 ) =>
-	
-	mergedvariant = cp (rawvariant) =>
-	if ( size(sampleLines) == size(glob(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"],
-						   "/*.GATKCombineGVCF.raw.vcf"
-						  )
-					   )
-				      )
-	   ) {
-		samples_processing_done = 1;  };
-
-} /// End the loop through all samples
-
-file jointVCF < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs/jointVCFcalled.vcf") >;
-file variantFiles < strcat(vars["TMPDIR"], "/variantFiles.txt") >;
-
-mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs"));
-
-wait(samples_processing_done) {
-	variantFiles = find_files(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"]), "*.GATKCombineGVCF.raw.vcf") =>
-	string varlist[] = split(trim(replace_all(read(sed(variantFiles, "s/^/--variant /g")), "\n", " ", 0)), " ") =>
-	jointVCF = GenotypeGVCFs(vars["JAVADIR"], vars["GATKDIR"],
-				 strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]), varlist
-				);
 }
