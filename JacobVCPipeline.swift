@@ -152,9 +152,6 @@ Alignment
 	 To minimize memory usage, delete the .sam file after a .bam file is made from it
 	*/
 
-	printf("\n\n\n\n\nThis printed from alignReads\n\n\n\n\n\n\n");
-
-
 	// Use the specified alignment tool
 	if (vars["ALIGNERTOOL"] == "BWAMEM") {
 		// Directly return the .sam file created from bwa_mem
@@ -185,8 +182,6 @@ Mark Duplicates
 	Note: this local directory location variable is necessary, as the directory handles
 	defined in the main loop of the workflow are not in global scope
 	*/
-
-	printf("\n\n\nThis printed from markDuplicates\n\n\n\n\n\n\n");
 
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
 
@@ -303,7 +298,7 @@ type itemStatus {
 }
 
 
-(void finished) mainSampleLoop(boolean alignOnly) {
+(boolean finished) mainSampleLoop(boolean alignOnly) {
 
 	// Contains status information for each sample in loop
 	itemStatus samplesProgress[];
@@ -528,6 +523,12 @@ type itemStatus {
 			}										       
 		} // end the loop for all chromosomes
 	} // end the loop for all samples
+
+	/*
+	Need a way to specify that we must wait on the foreach loop to finish before signaling that the function
+	is finished
+	*/
+	finished = true;
 }
 
 /****************************************************************************					      
