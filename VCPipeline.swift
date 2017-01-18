@@ -233,24 +233,17 @@ Realignment
 	string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/");
 
 	file intervals < strcat(RealignDir, sampleName, ".", chr, ".realignTargetCreator.intervals") >;
-	
-	/*													      
-	Construct an index file for the chromosome dedupped sorted bam file. The void output is necessary so 
-	"intervals" will have an output to wait for before executing.		    
-	*/													      
-	void indexed = samtools_index(vars["SAMTOOLSDIR"], inputBam);
-
-	wait (indexed) {					
-		intervals = RealignerTargetCreator(vars["JAVADIR"], vars["GATKDIR"],
-						   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
-						   inputBam, string2int(vars["PBSCORES"]), realparms		   
-						  );
-		realignedbam = IndelRealigner(vars["JAVADIR"], vars["GATKDIR"],
-					      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
-					      inputBam, realparms, intervals					   
-					     );
-		checkBam(realignedbam, sampleName, "realignment");
-	}
+		
+	// The inputBam should be indexed before this function is called				
+	intervals = RealignerTargetCreator(vars["JAVADIR"], vars["GATKDIR"],
+					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
+					   inputBam, string2int(vars["PBSCORES"]), realparms		   
+					  );
+	realignedbam = IndelRealigner(vars["JAVADIR"], vars["GATKDIR"],
+				      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
+				      inputBam, realparms, intervals					   
+				     );
+	checkBam(realignedbam, sampleName, "realignment");
 }
 
 /*****
@@ -262,6 +255,7 @@ Recalibration
  
 	file recalreport < strcat(RealignDir, sampleName, ".", chr, ".recal_report.grp") >;     	
 
+	// The inputBam should be indexed before this function is called
 	recalreport = BaseRecalibrator(vars["JAVADIR"], vars["GATKDIR"],
 				       strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]), inputBam,
 				       string2int(vars["PBSCORES"]), recalparmsindels,
@@ -292,23 +286,16 @@ BAM File Verification
 	}
 }
 
-type itemStatus {
-	string identifier;		// Examples: "sampleX-chr1" or "sampleX"
-	boolean successful;
-}
+(file samplesOut[]) mainSampleLoop(boolean alignOnly) {
+	/*
+	Output array is filled with the names of the final files for each sample in main loop
+	Files are in gvcf format (list will be empty if alignment only) 
+	*/
 
-
-(boolean finished) mainSampleLoop(boolean alignOnly) {
-
-	// Contains status information for each sample in loop
-	itemStatus samplesProgress[];
-	
 	/****************************************************************************
 	Main loop begins
 	*****************************************************************************/
 	foreach sample, index in sampleLines {
-
-	
 
 		/*****
 		Parse sample specific information and construct RG header
@@ -344,7 +331,7 @@ type itemStatus {
 		*****/
 		file alignedbam < strcat(AlignDir, sampleName, ".nodups.bam") >;
 		file dedupsortedbam < strcat(AlignDir, sampleName, ".wdups.sorted.bam") >;		
-													   
+											   
 		// These are not specifically defined!
 		file flagstats < strcat(AlignDir, sampleName, ".wdups.sorted.bam", ".flagstats") >;
 
@@ -414,22 +401,17 @@ type itemStatus {
 
 		if (!alignOnly) {
 
-			/*
-			This is a workaround to get around the fact that Swift/T does not allow multiple assignment 
-			to variables.
-
-			To count the number of completed chromosome loops, I dynamically add to the array using
-			arrayAppend(). After 
-			*/
-			boolean chrCompleted[];		
-
 			/****************************************************************************
 			Split by Chromosome
 			****************************************************************************/
 
 			indices = split(vars["CHRNAMES"], ":");							 
-														
-			foreach chr in indices {									
+			
+			file gvcfSample < strcat(VarcallDir, sampleName, ".raw.g.vcf") >;
+			// List of chrgvcf files
+			file gvcfChrCollection[];
+															
+			foreach chr, chrIndex in indices {
 				/*****										  
 				Create output file handles 
 				*****/										  
@@ -437,8 +419,9 @@ type itemStatus {
 								".wdups.sorted.bam"				     
 							       ) >;						     
 				file recalibratedbam < strcat(RealignDir, sampleName, ".", chr, ".recalibrated.bam") >; 
-				file gvcfvariant < strcat(VarcallDir, sampleName, ".", chr, ".raw.g.vcf") >;	    
-															
+
+				// Put gvcfvariant handle in the chrCompleted array
+				file gvcfSampleChr < strcat(VarcallDir, sampleName, ".", chr, ".raw.g.vcf") >;
 				// Temporary file								       
 				file recalfiles < strcat(vars["TMPDIR"], "/", sampleName, ".", chr,		     
 							 ".recal_foundfiles.txt"					
@@ -452,7 +435,7 @@ type itemStatus {
 								 ) =>						   
 															
 				// Verify chromosome separation worked						  
-				boolean chrDedupSortCheck = checkBam(chrdedupsortedbam, sampleName, "realignment");  
+				checkBam(chrdedupsortedbam, sampleName, "realignment");  
 
 				string recalparmsindels[];							      
 				string realparms[];								     
@@ -494,6 +477,8 @@ type itemStatus {
 					file realignedbam < strcat(RealignDir, sampleName, ".", chr,
 								   ".realigned.bam"
 								  ) >;
+					// Wait for index to get created before moving on
+					samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam) =>
 					realignedbam = realignBam(sampleName, chr, realparms, chrdedupsortedbam);
 					recalibratedbam = recalibrateBam(sampleName, chr, realignedbam,
 									 recalparmsindels
@@ -501,9 +486,11 @@ type itemStatus {
 															
 				}										       
 				else {										  
-					/*****									  
+					/*****
 					Recalibration								   
 					*****/									  
+					// Wait for index to get created before moving on
+					samtools_index(vars["SAMTOOLSDIR"], chrdedupsortedbam) => 
 					recalibratedbam = recalibrateBam(sampleName, chr,
 								         chrdedupsortedbam, recalparmsindels
 								        );
@@ -513,22 +500,51 @@ type itemStatus {
 				if ( chr=="M" ) { ploidy = 1; }							 
 				else { ploidy = 2; }	       
 
-				gvcfvariant = HaplotypeCaller (vars["JAVADIR"], vars["GATKDIR"],			
-							       strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),    
-							       recalibratedbam,					 
-							       strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),	
-							       string2int(vars["PBSCORES"]), ploidy, chr		
-						      	      ) =>
-				rm(recalfiles);
-			}										       
-		} // end the loop for all chromosomes
-	} // end the loop for all samples
+				gvcfSampleChr = HaplotypeCaller(vars["JAVADIR"], vars["GATKDIR"],			
+							        strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),    
+							        recalibratedbam,					 
+							        strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),	
+							        string2int(vars["PBSCORES"]), ploidy, chr		
+						      	       ) =>
+				/*
+				The wait signal ('=>') in the previous command must be used as the name of the
+				output file is mapped when gvcfSampleChr is created, not when HaplotypeCaller is
+				finished running.
 
-	/*
-	Need a way to specify that we must wait on the foreach loop to finish before signaling that the function
-	is finished
-	*/
-	finished = true;
+				Without this, the gvcfChrCollection array assigns gvcfSampleChr to a location after
+				file mapping, not after it is written to
+				*/
+				gvcfChrCollection[chrIndex] = gvcfSampleChr =>
+				rm(recalfiles);
+			} // end the loop for all chromosomes
+
+			/*
+			Get the names of each of the chromosome split sample files, add a --variants flag that the
+			beginning of them, and concatenate them together to get a string that can be fed into
+			CombineGVCFs
+			
+			Example: "--variant sample1.chr1.g.vcf --variant sample1.chr2.g.vcf"
+			*/
+			string chrSampleArray[];
+			foreach f, ind in gvcfChrCollection {
+				// Adds a string like "--variant sample2.vcf" to the string array
+				chrSampleArray[ind] = strcat("--variant ", filename(f));
+                	}
+                	// Concatenates everything in the array with a space in between each entry
+			string chrSampleVars = join(chrSampleArray, " ");
+
+			/*
+			Wait for end of foreach loop, then regroup all of the chromosome files
+			and put them in the samplesOut array
+			*/
+			gvcfSample = CombineGVCFs(vars["JAVADIR"], vars["GATKDIR"], 
+						  strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
+						  strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),
+						  chrSampleVars
+				 		 ) =>
+			samplesOut[index] = gvcfSample;
+		}
+	} // end the loop for all samples
 }
 
 /****************************************************************************					      
@@ -608,51 +624,43 @@ FOR EXAMPLE:
 SECTION THREE: The Main Loop and Joint Genotyping
 ****************************************************************************/
 
-// Will be true only if we only want the alignments								     
+// Will be true only if we only want the alignments
 boolean alignOnlyCheck = vars["ANALYSIS"] == "ALIGN_ONLY"; 
-
-/*************
-
-NEED TO ADD AN ADDITIONAL NARROWING STEP
-As is stands right now, there is no merge-sort step, the pipeline goes straight from creating chr gvcf files for
-each sample straight into joint genotyping
-
-NEED TO FIGURE OUT A MECHANISM TO KNOW WHEN FOREACH LOOPS HAVE TERMINATED
-
-
-**************/
-
-
-
 
 /******************************
 Main Loop on Samples is Called
 *******************************/
-void sampleLoopDone = mainSampleLoop(alignOnlyCheck);
+// If alignment only, this array will actually be empty
+
+file samplesOutput[] = mainSampleLoop(alignOnlyCheck);
 
 if (!alignOnlyCheck) {
-	wait(sampleLoopDone) {			
-		/***************
-		Joint Genotyping 
-		****************/						 
-		file variantFiles < strcat(vars["TMPDIR"], "/variantFiles.txt") >;				      
-		file jointVCF < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"],				  
-				       "/jointVCFs/jointVCFcalled.vcf"						  
-				      ) >;									      
-															
-		mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs"));			    
-														
-		variantFiles = find_files(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"]),		       
-					  "*.GATKCombineGVCF.raw.vcf"						   
-					 );									     
-		variantFiles => string varlist[] = split(
-			trim(replace_all(read(sed(variantFiles, "s/^/--variant /g")), "\n", " ", 0)), " "
-							);
+	wait(samplesOutput) {
 		
+		/***************
+		Joint Genotyping
+		****************/
+		file jointVCF < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"],
+				       "/jointVCFs/jointVCFcalled.vcf"
+				      ) >;
+		mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs"));
 
-		varlist => printf("\n\n\n\nThis came from the Joint Genotyping section\n\n\n");
-		varlist => jointVCF = GenotypeGVCFs(vars["JAVADIR"], vars["GATKDIR"], 
-				 strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]), varlist		  
-				);	      
+		/*
+		Construct a string with '--variant' flags before each sample to be in the joint genotyping
+		Example: "--variant sample1.g.vcf --variant sample2.g.vcf"
+		*/
+		string variantSampleArray[];
+		foreach item, index in samplesOutput {
+			// Adds a string like "--variant sample1.vcf" to the string array
+			variantSampleArray[index] = strcat("--variant ", filename(item));
+		}
+		// Concatenates everything in the array with a space in between each entry
+		string variantFlags = join(variantSampleArray, " ");
+
+		jointVCF = GenotypeGVCFs(vars["JAVADIR"], vars["GATKDIR"], strcat(vars["REFGENOMEDIR"],
+					 "/", vars["REFGENOME"]), variantFlags
+					); 
 	}
 }
+
+
