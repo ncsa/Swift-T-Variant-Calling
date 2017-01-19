@@ -1,0 +1,20 @@
+Update Readme explaining how Quality Control is handled:
+  They are handled with assertion functions that stop a process if it is not working
+  In practice, if the bam file produced from a particular step of the output contains
+  no alignments, the error message suggests that that was the step that failed, and the
+  error message is piped to stdout.
+
+Determine how mail should work:
+  Even if an error occurs with one sample, Swift/T is supposed to keep going with the
+  other processes until it no longer can due to dependency conflicts. So, I think an email
+  should only be sent once the program can do no more, at which time, all of the errors 
+  should be gathered and presented to the user.
+
+Update Readme to reflect analysis choice changes:
+  Changed to only have three options (with can be shown in the example readme with
+  {ALIGN_ONLY, VC_REALIGN, VC_NO_REALIGN}. Also, empty variable will result in vc 
+  with no realignment (with a warning generated to the progress.log file explaining that
+  the default is being used), but a non-empty variable that does not match an option will 
+  cause a fatal error. This feature was designed to prevent wrong execution if someone enters 
+  a typo, such as ("REALIGN" without the "VC_", previously, this would have automatically ran
+  vc without realignment, and the user would not have been aware.

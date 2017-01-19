@@ -17,3 +17,14 @@ app (file output) find_files (string dir, string pattern){
         "find" dir "-name" pattern @stdout=output;
 }
 
+app (void v) rm(file f) {                                                                                               
+        "rm" f;                                                                                                         
+}
+
+// Convert an array of files to an array of strings with those file names
+(string filenames[]) filesToFileNames(file files[]) {
+	foreach f, index in files {
+		fName = filename(f);
+		filenames[index] = fName;
+	}
+} 
