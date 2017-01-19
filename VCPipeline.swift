@@ -41,9 +41,12 @@ Main loop through all samples
      individual variant calling of all the samples has finished, it makes sense to nest the loop through all of the
      samples within a function with an output.
 
+// Joint Genotyping only runs when there are no other possible additions to the samplesOut array, which is the output
+//   of the mainSampleLoop
+
 // The following is pseudocode that outlines the inner workings of the main loop through the samples:
 
-(boolean finished) mainSampleLoop(boolean alignOnly) {
+(file samplesOut[]) mainSampleLoop(boolean alignOnly) {
         foreach sample in Samples {
         	
         	- Create sample output directories
@@ -53,6 +56,8 @@ Main loop through all samples
         	- QC on deduplicated file
 
         	if (!alignOnly) {   // If the runfile did not specify ANALYSIS=ALIGN_ONLY
+			
+			- Create array to store the variants for each chromosome of the sample
 
         		foreach chromosome in sample {
         			
@@ -70,9 +75,11 @@ Main loop through all samples
 
         			- Call variants using HaplotypeCaller
         		}
+
+			Combine the variants called for each chromosome of the sample into a single file after each
+			  chromosome has been processed
         	}
         }
-        finished = true;
 }        
 
 ***************************
@@ -186,8 +193,8 @@ Mark Duplicates
         string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
 
         if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
-        	file dedupsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".wdups.sam") >;
-        	file dedupbam < strcat(AlignDir, sampleName, ".wdups.bam") >;
+        	file dedupsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".wDedups.sam") >;
+        	file dedupbam < strcat(AlignDir, sampleName, ".wDedups.bam") >;
         	
         	// Mark Duplicates
         	dedupsam = samblaster(vars["SAMBLASTERDIR"], alignedSam);
@@ -203,7 +210,7 @@ Mark Duplicates
         else if (vars["MARKDUPLICATESTOOL"] == "PICARD") {
         	// Picard is unique in that it has a metrics file
         	file metricsfile < strcat(AlignDir, sampleName, ".picard.metrics") >;
-        	file alignedsortedbam < strcat(AlignDir, sampleName, ".nodups.sorted.bam") >;
+        	file alignedsortedbam < strcat(AlignDir, sampleName, ".noDedups.sorted.bam") >;
         	
         	// Sort
         	alignedsortedbam = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
@@ -329,14 +336,14 @@ BAM File Verification
         	/*****
         	Create output file handles
         	*****/
-        	file alignedbam < strcat(AlignDir, sampleName, ".nodups.bam") >;
-        	file dedupsortedbam < strcat(AlignDir, sampleName, ".wdups.sorted.bam") >;		
+        	file alignedbam < strcat(AlignDir, sampleName, ".noDedups.bam") >;
+        	file dedupsortedbam < strcat(AlignDir, sampleName, ".wDedups.sorted.bam") >;		
         										   
         	// These are not specifically defined!
-        	file flagstats < strcat(AlignDir, sampleName, ".wdups.sorted.bam", ".flagstats") >;
+        	file flagstats < strcat(AlignDir, sampleName, ".wDedups.sorted.bam", ".flagstats") >;
 
         	// These are temporary files: If piping is implemented, they would not be needed.
-        	file alignedsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".nodups.sam") >;
+        	file alignedsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".noDedups.sam") >;
 
         	/*****
         	Alignment
@@ -416,7 +423,7 @@ BAM File Verification
         			Create output file handles 
         			*****/										  
         			file chrdedupsortedbam < strcat(RealignDir, sampleName, ".", chr,		       
-        							".wdups.sorted.bam"				     
+        							".wDedups.sorted.bam"				     
         						       ) >;						     
         			file recalibratedbam < strcat(RealignDir, sampleName, ".", chr, ".recalibrated.bam") >; 
 
