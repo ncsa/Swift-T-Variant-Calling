@@ -17,17 +17,22 @@ by `export TURBINE_LOG=1` before calling the command above)
 Helper functions
 *****************
 
-(file outputSam) alignReads(string read1, string read2, string rgheader);
+(file outputSam) alignReads(string sampleName, string read1, string read2, string rgheader);
         - Performs an alignment on the input files using the aligner specifed in the runfile
+	- The stderr from the alignment is put into a log file in the same location as the alignment output
 
 (file dedupSortedBam) markDuplicates(string sampleName, file alignedSam, file alignedBam);
         - Sorts and marks the duplicates of the input bam file using the deduplication to specified in the runfile 
+	- Writes log file(s) from dedup and sorting steps (Novosort usage only produces one log file, because sorting
+	    and marking duplicates is a single step)
 
 (file realignedbam) realignBam(string sampleName, string chr, string realparms[], file inputBam);
         - Performs realignment utilizing GATK's RealignerTargetCreator and IndelRealigner
+	- For each step, log files are written
 
 (file recalibratedbam) recalibrateBam(string sampleName, string chr, file inputBam, string recalparmsindels[]);
         - Performs recalibration utilizing GATK's BaseRecalibrator and PrintReads
+	- For each step, log files are written
 
 () checkBam(file bamFile, string sampleName, string workflowStep);
         - Checks whether the given bam file is empty. If so, throw an error.
@@ -153,24 +158,29 @@ Helper functions (Easily handles alignment and duplicate marker choices)
 Alignment
 *****/
 
-(file outputSam) alignReads(string read1, string read2, string rgheader) {
+(file outputSam) alignReads(string sampleName, string read1, string read2, string rgheader) {
         /*
          This function returns a .sam file because samblaster requires it
          To minimize memory usage, delete the .sam file after a .bam file is made from it
         */
 
+	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
+
+	// Log file
+	file alignedLog < strcat(AlignDir, sampleName, "_Alignment.log") >;
+
         // Use the specified alignment tool
         if (vars["ALIGNERTOOL"] == "BWAMEM") {
         	// Directly return the .sam file created from bwa_mem
-        	outputSam = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], 
+        	outputSam, alignedLog = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], 
         			    [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader
         			   );
         } 
         else { // Novoalign is the default aligner
         	// Directly return the .sam file created from novoalign
-        	outputSam =  novoalign(vars["NOVOALIGNDIR"], read1, read2, vars["NOVOALIGNINDEX"],
-        			       [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader
-        			      );
+        	outputSam, alignedLog = novoalign(vars["NOVOALIGNDIR"], read1, read2, vars["NOVOALIGNINDEX"],
+        			      [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader
+        			     );
         }
 }
 
@@ -185,25 +195,22 @@ Mark Duplicates
         	alignedBam => Picard or Novosort
         */
 
-        /*
-        Note: this local directory location variable is necessary, as the directory handles
-        defined in the main loop of the workflow are not in global scope
-        */
-
         string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
 
         if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
         	file dedupsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".wDedups.sam") >;
         	file dedupbam < strcat(AlignDir, sampleName, ".wDedups.bam") >;
-        	
+		file samLog < strcat(AlignDir, sampleName, "_SamblasterDedup.log") >; 
+		file sortLog < strcat(AlignDir, sampleName, "_Sort.log") >;       	
+
         	// Mark Duplicates
-        	dedupsam = samblaster(vars["SAMBLASTERDIR"], alignedSam);
+        	dedupsam, samLog = samblaster(vars["SAMBLASTERDIR"], alignedSam);
         	dedupbam = samtools_view(vars["SAMTOOLSDIR"], dedupsam, string2int(vars["PBSCORES"]), ["-u"]);
         	// Delete the dedupsam file once dedupbam has been created
         	rm(dedupsam);
         	
         	// Sort
-        	dedupSortedBam = novosort(vars["NOVOSORTDIR"], dedupbam, vars["TMPDIR"],
+        	dedupSortedBam, sortLog = novosort(vars["NOVOSORTDIR"], dedupbam, vars["TMPDIR"],
         				  string2int(vars["PBSCORES"]), ["--compression", "1"]
         				 );
         }
@@ -211,20 +218,23 @@ Mark Duplicates
         	// Picard is unique in that it has a metrics file
         	file metricsfile < strcat(AlignDir, sampleName, ".picard.metrics") >;
         	file alignedsortedbam < strcat(AlignDir, sampleName, ".noDedups.sorted.bam") >;
-        	
+		file picardLog < strcat(AlignDir, sampleName, "_PicardDedup.log") >;
+		file sortLog < strcat(AlignDir, sampleName, "_Sort.log") >;
+	
         	// Sort
-        	alignedsortedbam = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
-        				    string2int(vars["PBSCORES"]), []
-        				   );
+        	alignedsortedbam, sortLog = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
+        					     string2int(vars["PBSCORES"]), []
+        					    );
         	// Mark Duplicates
-        	dedupSortedBam, metricsfile = picard(vars["JAVADIR"], vars["PICARDDIR"],
-        					     vars["TMPDIR"], alignedsortedbam
-        					    ); 
+        	dedupSortedBam, picardLog, metricsfile = picard(vars["JAVADIR"], vars["PICARDDIR"],
+        						 	vars["TMPDIR"], alignedsortedbam
+        						       ); 
         }
         else {	//Novosort is the default duplicate marker
-        	
+        	file novoLog < strcat(AlignDir, sampleName, "_NovosortDedup.log") >;
+
         	// Sort and Mark Duplicates in one step
-        	dedupSortedBam = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
+        	dedupSortedBam, novoLog = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
         				  string2int(vars["PBSCORES"]), ["--markDuplicates"]
         				 );
         }
@@ -236,17 +246,20 @@ Realignment
 
 (file realignedbam) realignBam(string sampleName, string chr, string realparms[], file inputBam) { 
         
-        printf("\n\n\n\n\nThis printed from realignBam\n\n\n\n\n\n\n");
-        string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/");
+	string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/");
 
-        file intervals < strcat(RealignDir, sampleName, ".", chr, ".realignTargetCreator.intervals") >;
+	// Log files
+	file targetLog < strcat(RealignDir, sampleName, ".", chr, "_RealignTargetCreator.log") >;
+	file realignLog < strcat(RealignDir, sampleName, ".", chr, "_IndelRealigner.log") >;
+        
+	file intervals < strcat(RealignDir, sampleName, ".", chr, ".realignTargetCreator.intervals") >;
         	
         // The inputBam should be indexed before this function is called				
-        intervals = RealignerTargetCreator(vars["JAVADIR"], vars["GATKDIR"],
+        intervals, targetLog = RealignerTargetCreator(vars["JAVADIR"], vars["GATKDIR"],
         				   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
         				   inputBam, string2int(vars["PBSCORES"]), realparms		   
         				  );
-        realignedbam = IndelRealigner(vars["JAVADIR"], vars["GATKDIR"],
+        realignedbam, realignLog = IndelRealigner(vars["JAVADIR"], vars["GATKDIR"],
         			      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
         			      inputBam, realparms, intervals					   
         			     );
@@ -260,15 +273,19 @@ Recalibration
 (file recalibratedbam) recalibrateBam(string sampleName, string chr, file inputBam, string recalparmsindels[]) {
         string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/");				    
  
-        file recalreport < strcat(RealignDir, sampleName, ".", chr, ".recal_report.grp") >;     	
+	// Log files
+	file baseRecalLog < strcat(RealignDir, sampleName, ".", chr, "_BaseRecalibrator.log") >;
+	file printReadsLog < strcat(RealignDir, sampleName, ".", chr, "_PrintReads.log") >;
+        
+	file recalreport < strcat(RealignDir, sampleName, ".", chr, ".recal_report.grp") >;     	
 
         // The inputBam should be indexed before this function is called
-        recalreport = BaseRecalibrator(vars["JAVADIR"], vars["GATKDIR"],
+        recalreport, baseRecalLog = BaseRecalibrator(vars["JAVADIR"], vars["GATKDIR"],
         			       strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]), inputBam,
         			       string2int(vars["PBSCORES"]), recalparmsindels,
         			       strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"])
         			      );
-        recalibratedbam = PrintReads(vars["JAVADIR"], vars["GATKDIR"],
+        recalibratedbam, printReadsLog = PrintReads(vars["JAVADIR"], vars["GATKDIR"],
         			     strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]), inputBam,
         			     string2int(vars["PBSCORES"]), recalreport
         			    );
@@ -337,8 +354,8 @@ BAM File Verification
         	Create output file handles
         	*****/
         	file alignedbam < strcat(AlignDir, sampleName, ".noDedups.bam") >;
-        	file dedupsortedbam < strcat(AlignDir, sampleName, ".wDedups.sorted.bam") >;		
-        										   
+        	file dedupsortedbam < strcat(AlignDir, sampleName, ".wDedups.sorted.bam") >;
+
         	// These are not specifically defined!
         	file flagstats < strcat(AlignDir, sampleName, ".wDedups.sorted.bam", ".flagstats") >;
 
@@ -348,7 +365,7 @@ BAM File Verification
         	/*****
         	Alignment
         	*****/
-        	alignedsam = alignReads(read1, read2, rgheader);
+        	alignedsam = alignReads(sampleName, read1, read2, rgheader);
         	alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), ["-u"]);
 
         	// Verify alignment was successful
@@ -415,6 +432,9 @@ BAM File Verification
         		indices = split(vars["CHRNAMES"], ":");							 
         		
         		file gvcfSample < strcat(VarcallDir, sampleName, ".raw.g.vcf") >;
+			// Log file for HaplotypeCaller
+			file combineLog < strcat(VarcallDir, sampleName, "_CombineGVCFs.log") >; 
+
         		// List of chrgvcf files
         		file gvcfChrCollection[];
         														
@@ -429,6 +449,9 @@ BAM File Verification
 
         			// Put gvcfvariant handle in the chrCompleted array
         			file gvcfSampleChr < strcat(VarcallDir, sampleName, ".", chr, ".raw.g.vcf") >;
+				// Log file for HaplotypeCaller
+				file haploLog < strcat(VarcallDir, sampleName, ".", chr, "_HaplotypeCaller.log") >;
+
         			// Temporary file								       
         			file recalfiles < strcat(vars["TMPDIR"], "/", sampleName, ".", chr,		     
         						 ".recal_foundfiles.txt"					
@@ -507,9 +530,9 @@ BAM File Verification
         			if ( chr=="M" ) { ploidy = 1; }							 
         			else { ploidy = 2; }	       
 
-        			gvcfSampleChr = HaplotypeCaller(vars["JAVADIR"], vars["GATKDIR"],			
+        			gvcfSampleChr, haploLog = HaplotypeCaller(vars["JAVADIR"], vars["GATKDIR"],
         						        strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),    
-        						        recalibratedbam,					 
+        						        recalibratedbam,
         						        strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),	
         						        string2int(vars["PBSCORES"]), ploidy, chr		
         					      	       ) =>
@@ -547,7 +570,7 @@ BAM File Verification
         		Wait for end of foreach loop, then regroup all of the chromosome files
         		and put them in the samplesOut array
         		*/
-        		gvcfSample = CombineGVCFs(vars["JAVADIR"], vars["GATKDIR"], 
+        		gvcfSample, combineLog = CombineGVCFs(vars["JAVADIR"], vars["GATKDIR"], 
         					  strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
         					  strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),
         					  chrSampleArray
@@ -653,7 +676,10 @@ if (!alignOnlyCheck) {
         	file jointVCF < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"],
         			       "/jointVCFs/jointVCFcalled.vcf"
         			      ) >;
-        	mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs"));
+		// Log file for Joint Genotyping
+		file jointLog < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs/jointVCF.log") >;
+		
+		mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs"));
 
 		string variantSampleArray[];
 
@@ -670,7 +696,7 @@ if (!alignOnlyCheck) {
                                 variantSampleArray[namePos] = filename(item);                                                  
                         }
 
-        	jointVCF = GenotypeGVCFs(vars["JAVADIR"], vars["GATKDIR"], strcat(vars["REFGENOMEDIR"],
+        	jointVCF, jointLog = GenotypeGVCFs(vars["JAVADIR"], vars["GATKDIR"], strcat(vars["REFGENOMEDIR"],
         				 "/", vars["REFGENOME"]), variantSampleArray
         				); 
         }
