@@ -1,0 +1,1 @@
+- If HaplotypeCaller is called without splitting chromosomes, ploidy is not set to one if chrM is being processed (ploidy defaults to 2).
