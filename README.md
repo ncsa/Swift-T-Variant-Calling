@@ -87,6 +87,7 @@ In a nutshell, the template below shows the various parameters and how they can 
 
 ## choose the run case
   ANALYSIS=<depending on the analysis type it can be {ANALYSIS=ALIGNMENT, or ANALYSIS=ALIGN or ANALYSIS=ALIGN\_ONLY} for alignment only, {ANALYSIS=VC\_WITH\_REALIGNMENT} for complete variant calling with realignment, or anything else for complete variant calling without realignment>
+  SPLIT=<choose whether to split by chromosome or not> {YES|Yes|yes|Y|y or <Anything else> for No}
 
 ## Read group information for the samples: namely, the Library, Platform technology, and sequencing center name. It should be noted that the sample ID, platform unit (PU) and sample name (SM) are set by default to be the same sample name found in the sampleinformation file specified
   SAMPLELB=<name of the library>
@@ -141,7 +142,7 @@ In a nutshell, the template below shows the various parameters and how they can 
 2.4 Repo index and outputs
 ---------------------------
 
-The code implementing the pipeline of Figure 1 above are all in the `VCcallingPipeline.swift` file. All supporting functions and modules have been defined in the directory named, `pipelinefunctions`. There are 2 sample runfiles provided here, `HgG0.lowcoverage*` for running the pipeline on my machine..
+The code implementing the pipeline of Figure 1 above are all in the `VCcallingPipeline.swift` file. All supporting functions and modules have been defined in the directory named, `pipelinefunctions`.
 
 The results from a typical run of the pipeline are organized according to the hierarchy shown in Figure \[2\] below. Overall, the `DELIVERYFOLDER` contains the key summarizing files of the run (the cleaned up bams, gvcfs and final vcf from joint calling; in addition to the summary reports regarding the quality of the data, and copies of the `sampleinformation` and `runfile` files). Each sample also has its own directory that contains the files generated after each stage. In Figure \[2\], a color coding schema is employed to differentiate the files that would be generated according to how the user specifies the `ANALYSIS` parameter in the `runfile`. For the time being, there are not many ANALYSIS options available. Note the section named *Current limitations*
 
@@ -190,16 +191,9 @@ More on this, including other scheduler options are available on: http://swift-l
 3.3 Using this pipeline code:
 ------------------------------------------------
 
-The complete pipeline implementation is available in the Swift/T branch of this github repository: https://github.com/edrodri2/Swift-Variant-Calling/tree/Swift-T 
+The complete pipeline implementation is available in the Swift/T branch of this github repository: https://github.com/jacobrh91/Swift-T-Variant-Calling 
 
-To allow flexibility, cloning the repo is the optimal scenario, and here is a sample snippet:
-
-```
-$ cd path/to/where/you/like/to/put/scripts
-$  git clone git@github.com:edrodri2/Swift-Variant-Calling.git -b Swift-T --single-branch
-```
-
-Now, to run the pipeline, a variant of the stripped-down one-line command below should be invoked:
+To run the pipeline, a variant of the stripped-down one-line command below should be invoked:
 
 ```
  swift-t -r $PWD/pipelinefunctions VCcallingPipeline.swift --runfile=<runfile name> 
@@ -227,5 +221,3 @@ Solution: make sure you are preparing your reference and extra files (dbsnp, 100
 
 - I'm not sure how to run on a cluster  that uses torque as a resource manager?
 Clusters are typically configured to kill head node jobs that run longer than a few minutes, to prevent users from hogging the head node. Therefore, you may qsub the initial job, the swift-t command with its set variables, and it will qsub everybody else from its compute node.
-
-(**Question** here: Then resources will be defined in: 1) the qsub header, 2) the turbine variables... am I right?)
