@@ -18,11 +18,24 @@ In its latest version, 3.6, the best practices include the stages:
 5.  Joint genotyping –----- (processing done for all samples together)
 
 These stages are implemented in this pipeline, with an optional “Indel Realignment” step (which was recommended in previous GATK best practices &lt; 3.6). 
-Under the hood, this pipeline splits and merges files at different stages to achieve optimal usage of resources. This parallelization of data processing is shown in Figure \[1\] below:
 
-![](./media/image01.png)
+![](./media/WorkflowOverview.png)
 
-Figure 1: Pipeline details. Note: the processing can be split by individual sequences in the reference FASTA file, which could be individual chromosomes, scaffolds, contigs, etc.
+|  **Step** |  **Resource Requirements
+| --------------- | -------------------------
+|  Alignment and Deduplication | Nodes = Samples / (Processes per Node\*)
+|  Split by Chromosome/Contig  | Processes = Samples * Chromosomes\nNodes = Processes/ (Cores per Node)
+|  Realignment, Recalibration, and Variant Calling | Nodes = [Samples / (Processes per Node\*)] * Chromosomes
+|  Combine Sample Variants | Nodes = Samples / (Processes per Node\*)
+
+\*Running 10 processes using 20 threads in series may actually be slower than running the 10 processes in pairs utilizing 10 threads each. In this instance, we would be defining "Processes per Node" = 2. Note that the optimal value for this may be different between aligners and variant callers, etc., because they almost certainly scale differently.
+
+
+Notes (as of Jan. 30th, 2017)
+-----------------------------
+In the current implementation of the pipeline, it is written as one monolithic Swift/T script. Because each step of the pipeline requires different resource requirements, we should rewrite each step in its own Swift/T script and wrap them in their own job submissions during execution.
+
+This solves two problems. First, it allows us to more efficiently utilize resources. Secondly, compartmentalizing each step of the workflow will enable us to more easily jump into each part without having to repeat earlier steps.
 
 2 Dependencies
 ==============
