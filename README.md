@@ -21,7 +21,7 @@ These stages are implemented in this pipeline, with an optional “Indel Realign
 
 ![](./media/WorkflowOverview.png)
 
-|  **Step** |  **Resource Requirements
+|  **Step** |  **Resource Requirements**
 | --------------- | -------------------------
 |  Alignment and Deduplication | Nodes = Samples / (Processes per Node\*)
 |  Split by Chromosome/Contig  | Processes = Samples * Chromosomes\nNodes = Processes/ (Cores per Node)
