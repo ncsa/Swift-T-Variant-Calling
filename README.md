@@ -1,5 +1,3 @@
-November 2016
-
 1 Intended pipeline architecture and function
 ====================================
 
