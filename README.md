@@ -35,6 +35,10 @@ In the current implementation of the pipeline, it is written as one monolithic S
 
 This solves two problems. First, it allows us to more efficiently utilize resources. Secondly, compartmentalizing each step of the workflow will enable us to more easily jump into each part without having to repeat earlier steps.
 
+Jan 31st: although Luda's summary of the workflow says that chromosome splitting is single threaded, it is implemented as multi-threaded as Azza wrote it. Samtools view is used utilizing the @ flag to specify how many threads to be used for compression in addition to the one main thread
+
+How should we deal with this?
+
 2 Dependencies
 ==============
 
