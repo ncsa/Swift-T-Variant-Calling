@@ -9,12 +9,6 @@ Input:
 Output:
 	- Dedupped and sorted bam files for each of the input samples
 	- File with list of the output bam files
-		
-Error Handling:
-	When a sample fails, either during alignment or deduplication, increment an error tracker
-	If the number of failed samples surpasses a given threshold (specified in the runfile), terminate the workflow
-	Only completed alignments will get their output bam file placed in the output file list
-
 
 ************************
 Pseudocode for main loop
@@ -28,20 +22,20 @@ foreach sample in Samples {
 	- markDuplicates (and verify dedup success)
 	- QC on deduplicated file
 }
-
-********************************************************
- Helper Functions
-********************************************************
 */
 
-import unix;
-import files;
-import string;
-import sys;
-import io;
+import unix;					       
+import files;					      
+import string;					     
+import sys;						
+import io; 
 
 import bioapps.align_dedup;
 import generalfunctions.general;
+
+/********************************************************
+ Helper Functions
+********************************************************/
 
 /*********
  Alignment
@@ -56,7 +50,7 @@ import generalfunctions.general;
 
 	// Log file
 	file alignedLog < strcat(AlignDir, sampleName, "_Alignment.log") >;
-
+ 	
 	// Use the specified alignment tool
 	if (vars["ALIGNERTOOL"] == "BWAMEM") {
 		// Directly return the .sam file created from bwa_mem
@@ -157,9 +151,17 @@ string sampleLines[] = file_lines(sampleInfoFile);
  Create directories
 ******************/
 
-mkdir(vars["OUTPUTDIR"]);
-mkdir(vars["TMPDIR"]);
-mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs"));
+mkdir(vars["OUTPUTDIR"]) =>
+mkdir(vars["TMPDIR"]) =>
+mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs")) =>
+mkdir(strcat(vars["OUTPUTDIR"], "/piping_files")) =>
+
+/*******************************
+ Create the output list file					       
+********************************/
+					   
+// This file is initialized with an empty string, so it can be appended to later on			
+file outList < strcat(vars["OUTPUTDIR"], "/piping_files/BamFileList.txt") > = write("") =>
 
 /**********************
 Create the Failures.log
@@ -167,13 +169,6 @@ Create the Failures.log
 
 // This file is initialized with an empty string, so it can be appended to later on
 file failLog < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs/Failures.log") > = write("");
-
-/*******************************
- Create the output list file
-********************************/
-
-// This file is initialized with an empty string, so it can be appended to later on
-file outList < strcat(vars["OUTPUTDIR"], "/BamFileList.txt") > = write("");
 
 /*******************************************
  Copy input files for documentation purposes
