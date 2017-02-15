@@ -22,7 +22,7 @@ These stages are implemented in this pipeline, with an optional “Indel Realign
 |  **Step** |  **Resource Requirements**
 | --------------- | -------------------------
 |  Alignment and Deduplication | Nodes = Samples / (Processes per Node\*)
-|  Split by Chromosome/Contig  | Processes = Samples * Chromosomes\nNodes = Processes/ (Cores per Node)
+|  Split by Chromosome/Contig  | Processes = Samples * Chromosomes<br>Nodes = Processes/ (Cores per Node)
 |  Realignment, Recalibration, and Variant Calling | Nodes = [Samples / (Processes per Node\*)] * Chromosomes
 |  Combine Sample Variants | Nodes = Samples / (Processes per Node\*)
 
