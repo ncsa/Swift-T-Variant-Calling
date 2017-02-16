@@ -61,9 +61,6 @@ foreach chr in indices {
 		// Get everything in the file name except for the '.bam' extension
 		string prefix = substring( bam, 0, strlen(bam) - 4 );
 
-		/*
-		 Create chromosome split dedupped and sorted bam file
-		*/
 		string fileName = basename_string(prefix);
 		// Grab the part that is not '.wDedups.sorted'
 		string sampleName = substring( fileName, 0, strlen(fileName) - 15);
@@ -71,6 +68,10 @@ foreach chr in indices {
 		/********************										   
  		 Split by chromosome										    
  		*********************/
+		
+		/*
+		  Create chromosome split dedupped and sorted bam file
+		*/
 		file chrDedupSortedBam < strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/",
 						fileName, ".", chr, ".bam"
 					       ) >;
