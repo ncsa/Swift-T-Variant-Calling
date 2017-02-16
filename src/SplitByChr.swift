@@ -74,8 +74,13 @@ foreach chr in indices {
 		file chrDedupSortedBam < strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/",
 						fileName, ".", chr, ".bam"
 					       ) >;
+
+		// Subtract 1 because the main thread takes up is a thread, "threads" defines the number of additional
+		//   threads
+		int threads = ( string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]) ) - 1;
+
 		chrDedupSortedBam = samtools_view(vars["SAMTOOLSDIR"], input(bam),
-						  string2int(vars["PBSCORES"]), [strcat(chr)]
+						  threads, [strcat(chr)]
 						 );
 		
 		// Check whether the splitting was successful

@@ -46,6 +46,8 @@ import generalfunctions.general;
 	To minimize memory usage, delete the .sam file after a .bam file is made from it
 	*/
 
+	int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
+
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
 
 	// Log file
@@ -55,13 +57,13 @@ import generalfunctions.general;
 	if (vars["ALIGNERTOOL"] == "BWAMEM") {
 		// Directly return the .sam file created from bwa_mem
 		outputSam, alignedLog = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], 
-				    [vars["BWAMEMPARAMS"]], string2int(vars["PBSCORES"]), rgheader
+				    [vars["BWAMEMPARAMS"]], threads, rgheader
 				   );
 	} 
 	else { // Novoalign is the default aligner
 		// Directly return the .sam file created from novoalign
 		outputSam, alignedLog = novoalign(vars["NOVOALIGNDIR"], read1, read2, vars["NOVOALIGNINDEX"],
-				      [vars["NOVOALIGNPARAMS"]], string2int(vars["PBSCORES"]), rgheader
+				      [vars["NOVOALIGNPARAMS"]], threads, rgheader
 				     );
 	}
 }
@@ -76,6 +78,8 @@ import generalfunctions.general;
 		alignedBam => Picard or Novosort
 	*/
 
+	int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
+
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
 
 	if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
@@ -86,13 +90,13 @@ import generalfunctions.general;
 
 		// Mark Duplicates
 		dedupsam, samLog = samblaster(vars["SAMBLASTERDIR"], alignedSam);
-		dedupbam = samtools_view(vars["SAMTOOLSDIR"], dedupsam, string2int(vars["PBSCORES"]), ["-u"]);
+		dedupbam = samtools_view(vars["SAMTOOLSDIR"], dedupsam, threads, ["-u"]);
 		// Delete the dedupsam file once dedupbam has been created
 		rm(dedupsam);
 		
 		// Sort
 		dedupSortedBam, sortLog = novosort(vars["NOVOSORTDIR"], dedupbam, vars["TMPDIR"],
-					  string2int(vars["PBSCORES"]), ["--compression", "1"]
+					  threads, ["--compression", "1"]
 					 );
 	}
 	else if (vars["MARKDUPLICATESTOOL"] == "PICARD") {
@@ -104,7 +108,7 @@ import generalfunctions.general;
 	
 		// Sort
 		alignedsortedbam, sortLog = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
-						     string2int(vars["PBSCORES"]), []
+						     threads, []
 						    );
 		// Mark Duplicates
 		dedupSortedBam, picardLog, metricsfile = picard(vars["JAVADIR"], vars["PICARDDIR"],
@@ -116,7 +120,7 @@ import generalfunctions.general;
 
 		// Sort and Mark Duplicates in one step
 		dedupSortedBam, novoLog = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
-					  string2int(vars["PBSCORES"]), ["--markDuplicates"]
+					  threads, ["--markDuplicates"]
 					 );
 	}
 }
@@ -228,7 +232,8 @@ foreach sample in sampleLines {
 	Alignment
 	*****/
 	alignedsam = alignReads(sampleName, read1, read2, rgheader);
-	alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, string2int(vars["PBSCORES"]), ["-u"]);
+	int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
+	alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, threads, ["-u"]);
 
 	// Verify alignment was successful
 	if ( checkBam(vars, alignedbam) ) {
