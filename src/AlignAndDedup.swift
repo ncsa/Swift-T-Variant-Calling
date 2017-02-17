@@ -165,7 +165,7 @@ mkdir(strcat(vars["OUTPUTDIR"], "/piping_files")) =>
 ********************************/
 					   
 // This file is initialized with an empty string, so it can be appended to later on			
-file outList < strcat(vars["OUTPUTDIR"], "/piping_files/BamFileList.txt") > = write("") =>
+file outList < strcat(vars["OUTPUTDIR"], "/piping_files/bam_list.txt") > = write("") =>
 
 /**********************
 Create the Failures.log
