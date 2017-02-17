@@ -15,16 +15,28 @@ Pseudocode for main loop
 ************************
 
 foreach chrFile in Directory {
-	if chromosome splitting {
+	if ( chromosome splitting ) {
 		gather recalibration files by chr
 	}
 	else {
-		
+		gather all recalibration files	
 	}
 
 	foreach bamFile in chrFile {
-		realignment and or recalibration
-		variant calling
+		if ( variant calling with realignment ) {
+			realign
+			recalibrate
+		}
+		else {
+			recalibrate
+		}
+
+		if ( chromosome splitting ) {
+			call variants in chromosome separated way (have chromosome name in file name)
+		}
+		else {
+			call variants on the whole sample at once
+		}
 	}
 }
 
