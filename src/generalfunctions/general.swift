@@ -3,6 +3,7 @@
 import unix;
 import files;
 import string;
+import bioapps.align_dedup;
 
 append(file f, string s) {
   string fName = filename(f);
