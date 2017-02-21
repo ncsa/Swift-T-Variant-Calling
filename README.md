@@ -39,6 +39,12 @@ Jan 31st: although Luda's summary of the workflow says that chromosome splitting
 
 How should we deal with this?
 
+Notes (after Feb 21st meeting with Luda and Galen)
+--------------------------------------------------
+1. Put logs in file next to align, realign, variants
+2. Wrap tool calls with beginning and end time and exit code checks
+3. Unix alias hack to put the sample id in front of the tool executable 
+
 2 Dependencies
 ==============
 
