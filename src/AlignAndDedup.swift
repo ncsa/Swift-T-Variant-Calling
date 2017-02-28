@@ -8,7 +8,6 @@ Input:
 
 Output:
 	- Dedupped and sorted bam files for each of the input samples
-	- File with list of the output bam files
 
 ************************
 Pseudocode for main loop
@@ -48,10 +47,9 @@ import generalfunctions.general;
 
 	int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
 
-	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
-
 	// Log file
-	file alignedLog < strcat(AlignDir, sampleName, "_Alignment.log") >;
+	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
+	file alignedLog < strcat(LogDir, sampleName, "_Alignment.log") >;
  	
 	// Use the specified alignment tool
 	if (vars["ALIGNERTOOL"] == "BWAMEM") {
@@ -80,13 +78,14 @@ import generalfunctions.general;
 
 	int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
 
+	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
 
 	if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
 		file dedupsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".wDedups.sam") >;
 		file dedupbam < strcat(AlignDir, sampleName, ".wDedups.bam") >;
-		file samLog < strcat(AlignDir, sampleName, "_SamblasterDedup.log") >; 
-		file sortLog < strcat(AlignDir, sampleName, "_Sort.log") >;       	
+		file samLog < strcat(LogDir, sampleName, "_SamblasterDedup.log") >; 
+		file sortLog < strcat(LogDir, sampleName, "_Sort.log") >;       	
 
 		// Mark Duplicates
 		dedupsam, samLog = samblaster(vars["SAMBLASTERDIR"], alignedSam);
@@ -103,8 +102,8 @@ import generalfunctions.general;
 		// Picard is unique in that it has a metrics file
 		file metricsfile < strcat(AlignDir, sampleName, ".picard.metrics") >;
 		file alignedsortedbam < strcat(AlignDir, sampleName, ".noDedups.sorted.bam") >;
-		file picardLog < strcat(AlignDir, sampleName, "_PicardDedup.log") >;
-		file sortLog < strcat(AlignDir, sampleName, "_Sort.log") >;
+		file picardLog < strcat(LogDir, sampleName, "_PicardDedup.log") >;
+		file sortLog < strcat(LogDir, sampleName, "_Sort.log") >;
 	
 		// Sort
 		alignedsortedbam, sortLog = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
@@ -116,7 +115,7 @@ import generalfunctions.general;
 							       ); 
 	}
 	else {	//Novosort is the default duplicate marker
-		file novoLog < strcat(AlignDir, sampleName, "_NovosortDedup.log") >;
+		file novoLog < strcat(LogDir, sampleName, "_NovosortDedup.log") >;
 
 		// Sort and Mark Duplicates in one step
 		dedupSortedBam, novoLog = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
@@ -157,16 +156,7 @@ string sampleLines[] = file_lines(sampleInfoFile);
 
 mkdir(vars["OUTPUTDIR"]) =>
 mkdir(vars["TMPDIR"]) =>
-mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs")) =>
-mkdir(strcat(vars["OUTPUTDIR"], "/piping_files")) =>
-
-/*******************************
- Create the output list file					       
-********************************/
-					   
-// This file is initialized with an empty string, so it can be appended to later on			
-file outList < strcat(vars["OUTPUTDIR"], "/piping_files/bam_list.txt") > = write("") =>
-
+mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs"));
 /**********************
 Create the Failures.log
 ***********************/
@@ -212,10 +202,12 @@ foreach sample in sampleLines {
 	Create the sample output directories
 	*****/
 
+	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
 	string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/"); 
 	string VarcallDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/");
 
+	mkdir(LogDir);
 	mkdir(AlignDir);
 	mkdir(RealignDir);
 	mkdir(VarcallDir);
@@ -255,7 +247,6 @@ foreach sample in sampleLines {
 			Quality control of deduplicated file
 			*****/
 
-			// These are not specifically defined!					    
 			file flagstats < strcat(AlignDir, sampleName, ".wDedups.sorted.bam", ".flagstats") >;
 
 			flagstats = samtools_flagstat(vars["SAMTOOLSDIR"], dedupsortedbam);
@@ -281,8 +272,6 @@ foreach sample in sampleLines {
 				 SUCCESS
 				*/
 				printf(strcat("QC-Test SUCCESS: ", cutoff_info));
-				// Add the deduplicated bam to the output list file
-				append( outList, strcat( filename(dedupsortedbam), "\n" ) );
 			}
 			else {
 				/*
@@ -297,7 +286,7 @@ foreach sample in sampleLines {
 		// If the deduplication process fails, write a message to the failure log file
 		else {
 			string mssg = strcat("FAILURE: ", filename(dedupsortedbam), " contains no alignments. ",
-					     "Check the log files within ", AlignDir, sampleName, " for details.\n"
+					     "Check the log files within ", LogDir, sampleName, " for details.\n"
 					    );
 			append(failLog, mssg);
 		}
@@ -305,7 +294,7 @@ foreach sample in sampleLines {
 	// If the alignment process fails, write a message to the failure log file
 	else {
 		string message = strcat("FAILURE: ", filename(alignedbam), " contains no alignments. ", 
-					"Check ", AlignDir, sampleName, "_Alignment.log for details.\n"
+					"Check ", LogDir, sampleName, "_Alignment.log for details.\n"
 				       );
 		append(failLog, message);
 	}		
