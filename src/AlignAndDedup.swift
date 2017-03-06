@@ -156,7 +156,7 @@ string sampleLines[] = file_lines(sampleInfoFile);
 
 mkdir(vars["OUTPUTDIR"]) =>
 mkdir(vars["TMPDIR"]) =>
-mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs"));
+mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/docs")) =>
 /**********************
 Create the Failures.log
 ***********************/

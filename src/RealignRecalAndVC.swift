@@ -253,7 +253,7 @@ foreach sample in sampleLines {
 		file gvcfVariants < strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/", sampleName,
 					   ".wDedups.sorted.recalibrated.g.vcf"
 					  ) >;
-		gvcfVariants = callVariants(sample, recalibratedbam);
+		gvcfVariants = callVariants(sampleName, recalibratedbam);
 	}  
 	/***************************
 	 If splitting by chromosome
@@ -303,7 +303,7 @@ foreach sample in sampleLines {
 			file gvcfVariants < strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/", sampleName,
 						   ".wDedups.sorted.recalibrated.", chr, ".g.vcf"
 					  	  ) >;
-			gvcfVariants = callChrVariants(sample, recalibratedbam, chr);			
+			gvcfVariants = callChrVariants(sampleName, recalibratedbam, chr);			
 		}
 	}
 }

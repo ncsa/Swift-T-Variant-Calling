@@ -37,7 +37,7 @@ string vars[string] = getConfigVariables(configFileData);
 file sampleInfoFile = input_file(vars["SAMPLEINFORMATION"]);
 string sampleLines[] = file_lines(sampleInfoFile);
 
-indices = split(vars["CHRNAMES"], ":");
+string indices[] = split(vars["CHRNAMES"], ":");
 
 /**********************
  Find the aligned bams
