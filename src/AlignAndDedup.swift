@@ -3,7 +3,7 @@
 ***********************************************************
 Input:
 	- Runfile
-	- File with list of inputs in the following form (space-separated):
+		o Among other parameters, the runfile contains a list of inputs in the form (space-separated):
 		SampleName Read1.fastq Read2.fastq
 
 Output:
