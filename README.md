@@ -243,7 +243,9 @@ Solution: make sure you are preparing your reference and extra files (dbsnp, 100
 
 - The job is killed as soon as BWA is called?
 Solution: make sure there is no space in front of BWAMEMPARAMS
+
 DO-THIS:  BWAMEMPARAMS=-k 32 -I 300,30
+
 NOT-THIS: BWAMEMPARAMS= -k 32 -I 300,30
 
 - I'm not sure how to run on a cluster  that uses torque as a resource manager?
