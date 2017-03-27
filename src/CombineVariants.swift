@@ -1,12 +1,3 @@
-/**********************************************************
- Summary
-***********************************************************
-Input:
-	- Runfile
-Output:
-	- g.vcf files for each sample after their chromosome separated vcf files were combined 
-*/
-
 import files;
 import string;
 import sys;
@@ -14,76 +5,65 @@ import sys;
 import generalfunctions.general;
 import bioapps.merge_vcf;
 
+(file vcfOutfiles[]) combineVariantsMain(file inputBams[][], string vars[string], file failLog) {
 
-/************************	  
- Parse command-line args	   
-*************************/	 
-	   
-argv_accept("runfile"); // return error if other flags are given	   
-	   
-string configFilename = argv("runfile");
+	foreach sampleSet, sampleIndex in inputBams {
 
-/**************	    
- Parse runfile	     
-***************/
+		// Get the sample name by looking at the first item in the samples chromosome set
+		// It has the form: sampleName.wDedups.sorted.recalibrated.chrA.g.vcf
+		string baseName = basename(sampleSet[0]);
+		string pieces[] = split(baseName, ".");
+		string sampleName = pieces[0]; // Note: this assumes that the sample name has no '.' character in it
 
-file configFile = input_file(configFilename);	      
-string configFileData[] = file_lines(configFile);
-
-// Gather variables
-string vars[string] = getConfigVariables(configFileData);
-	   
-// Get input sample list	   
-file sampleInfoFile = input_file(vars["SAMPLEINFORMATION"]);	       
-string sampleLines[] = file_lines(sampleInfoFile);	 
-	   
-string indices[] = split(vars["CHRNAMES"], ":");
-
-foreach sample in sampleLines {
-	string sampleName = split(sample, " ")[0];
-
-	/*
-	Get the names of each of the chromosome split sample files, add a "--variants" string
-	before them, and feed the array to CombineGVCF
-	*/
-
-	// This array holds all of the chromosome vcf files for this sample along with the --variants flags
-	string chrSampleArray[];
-
-	foreach chr, index in indices {
-		/*
-		For each sample.vcf added to the chrSampleArray needs "--variant" added in
-		front of it. Note: simply concatenating "--variant " with the sample name
-		then adding to the array produces an error in the command line call
-		*/
-
-		// Generate path to the g.vcf file for this sample and chromosome
-		string location = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/", 
-					 sampleName, ".wDedups.sorted.recalibrated.", chr, ".g.vcf"
-					);
-
-		int varFlagPos = index * 2;
-		int namePos = varFlagPos + 1;
-
-		chrSampleArray[varFlagPos] = "--variant";
-		chrSampleArray[namePos] = location;
-		
-	}
-
-	// CombineGVCF output file
-	file gvcfSample < strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/",
-				 sampleName, ".wDedups.sorted.recalibrated.g.vcf"
-				) >;
+		string outputName = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/", sampleName,
+					   ".wDedups.sorted.recalibrated.g.vcf"
+					  );
 	
-	// Log file for CombineGVCFs
-	file combineLog < strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/", sampleName, "_CombineGVCFs.log") >;
+		if (vars["COMBINE_VARIANT_STAGE"] == "Y") {
 
-	gvcfSample, combineLog = CombineGVCFs(vars["JAVADIR"],
-					      vars["GATKDIR"], 
-					      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
-					      strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),
-					      chrSampleArray
-					     );
+			// This array holds all of the chromosome vcf files for this sample along with the --variants flags
+			string chrSampleArray[];
+
+			foreach chrBam, index in sampleSet {
+				/*												      
+ 				 For each sample.vcf added to the chrSampleArray needs "--variant" added in			      
+ 				 front of it. Note: simply concatenating "--variant " with the sample name			       
+ 				 then adding to the array produces an error in the command line call				     
+ 				*/			
+				int varFlagPos = index * 2;
+				int namePos = varFlagPos + 1; 
+	
+				chrSampleArray[varFlagPos] = "--variant";
+				chrSampleArray[namePos] = filename(chrBam);
+
+			}
+			// CombineGVCF output file
+			file gvcfSample < outputName >;
+
+			// Log file for CombineGVCFs
+			file combineLog < strcat(vars["OUTPUTDIR"], "/", sampleName,
+						 "/logs/", sampleName, "_CombineGVCFs.log"
+						) >;	 
+	
+			gvcfSample, combineLog = CombineGVCFs(vars["JAVADIR"],							     
+							      vars["GATKDIR"],							     
+							      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),			
+							      strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),			    
+							      chrSampleArray							       
+							     );
+			vcfOutfiles[sampleIndex] = gvcfSample;
+		}
+		// If this section is to be skipped
+		else {
+			if (file_exists(outputName)) {
+				vcfOutfiles[sampleIndex] = input(outputName);
+			}
+			else {
+				append(failLog, strcat("ERROR: ", outputName, " not found. Did you set ", 
+						       "COMBINE_VARIANT_STAGE to 'N' by accident?\n"					    
+						      )								 
+				      );
+			}
+		}
+	}
 }
-
-

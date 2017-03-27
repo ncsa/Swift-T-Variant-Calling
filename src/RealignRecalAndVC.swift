@@ -1,31 +1,3 @@
-/**********************************************************
- Summary
-***********************************************************
-Input:
-	- Runfile
-Output:
-	- vcf file for each of the input bam files
-
-************************
-Pseudocode for main loop
-************************
-foreach sample {													
-	if not split by chromosome {										    
-		get recal files											 
-		recalWrapper											    
-		callVariants											    
-	}													       
-	else {													  
-		foreach chromosome {										    
-			get recal files for chromosome								  
-			recalWrapper										    
-			callChrVariants										 
-		}												       
-	}													      
-}
-
-*/
-
 import files;
 import string;
 import sys;
@@ -86,7 +58,7 @@ Recalibration
 	// Log files
 	file recalLog < strcat(logPrefix, "_BaseRecalibrator.log") >;
 	file printLog < strcat(logPrefix, "_PrintReads.log") >;
-	file report < strcat(prefix, ".recal_report.grp") >;
+	file report < strcat(prefix, "recal_report.grp") >;
 
 	// The inputBam should be indexed before this function is called
 	report, recalLog = BaseRecalibrator(var["JAVADIR"], var["GATKDIR"],
@@ -94,11 +66,11 @@ Recalibration
 				       threads, recalparmsindels,
 				       strcat(var["REFGENOMEDIR"], "/", var["DBSNP"])
 				      );
-	outBam, printLog = PrintReads(vars["JAVADIR"], vars["GATKDIR"],
-				      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]), inputBam,
+	outBam, printLog = PrintReads(var["JAVADIR"], var["GATKDIR"],
+				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
 				      threads, report
 				     );
-	checkBam(vars, outBam);
+	checkBam(var, outBam);
 }
 
 /**************************************
@@ -113,7 +85,7 @@ Recalibration
 	// If no chr, there will be an extra '.'
 	string prefix = replace(prePrefix, "..", ".", 0);
 
-	if (vars["ANALYSIS"] == "VC_REALIGN") {
+	if (var["ANALYSIS"] == "VC_REALIGN") {
 		/*****
 		 Realignment and Recalibration
 		*****/
@@ -140,7 +112,7 @@ Recalibration
 /******************************************
 VariantCalling (for split chromosome path)
 *******************************************/
-(file outVCF) callChrVariants(string sampleName, file inputBam, string chr) {
+(file outVCF) callChrVariants(string vars[string], string sampleName, file inputBam, string chr) {
 
 	int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
 
@@ -162,9 +134,9 @@ VariantCalling (for split chromosome path)
 }
 
 /**********************************************
-VariantCalling (Without splitting chromosomes)
+ VariantCalling (Without splitting chromosomes)
 ***********************************************/
-(file outVCF) callVariants(string sampleName, file inputBam) {
+(file outVCF) callVariants(string vars[string], string sampleName, file inputBam) {
 
 	int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
 
@@ -182,97 +154,23 @@ VariantCalling (Without splitting chromosomes)
 					  );
 }
 
-/************************
- Parse command-line args
-*************************/
+/***********************
+ Main Functions
+************************/
+(file VCF_list[]) VCNoSplitMain(string vars[string], file inputBams[], file failLog) {
+	foreach sample, index in inputBams {
+		if (vars["VC_STAGE"] == "Y") {
+			string baseName = basename(sample);
+			string sampleName = substring(baseName, 0, strlen(baseName) - 23);  // Verified
 
-argv_accept("runfile"); // return error if other flags are given
-string configFilename = argv("runfile");
-
-/**************
- Parse runfile
-***************/
-
-file configFile = input_file(configFilename);									   
-string configFileData[] = file_lines(configFile);
-
-// Gather variables
-string vars[string] = getConfigVariables(configFileData);
-
-// Get input sample list
-file sampleInfoFile = input_file(vars["SAMPLEINFORMATION"]);
-string sampleLines[] = file_lines(sampleInfoFile);
-
-/************
- Main Loop
-*************/
-
-foreach sample in sampleLines {
-	string sampleName = split(sample, " ")[0];
-	
-	string splitVar = vars["SPLIT"];
-	
-	/**************************************
-	 If we are NOT splitting by chromosome
-	***************************************/
-	if (splitVar != "YES" && splitVar != "Yes" && splitVar != "yes" && splitVar != "Y" && splitVar != "y") {
-		/*************************************
-		 Gather the recalibration index files		  
-		**************************************/
-		
-		// Temporary file
-		file recalfiles < strcat(vars["TMPDIR"], "/", sampleName, ".recal_foundfiles.txt") >;
-		recalfiles = find_files(strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"),
-					strcat("*", ".vcf")
-				       ) =>
-		// Get the realign parameters									      
-		string recalparmsindels[] = split(
-			trim(replace_all(read(sed(recalfiles, "s/^/--knownSites /g")), "\n", " ", 0)), " "		 
-						 ) =>
-		string realparms[] = split(
-			trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " "
-					  ) =>
-		rm(recalfiles);
-		
-		/***************************
-		 Realign and/or recalibrate
-		****************************/
-		// Find the input file
-		file inputBam = input(strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/", sampleName,
-				      ".wDedups.sorted.bam")
-				     );
-
-		file recalibratedbam < strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/", sampleName,
-					      ".wDedups.sorted.recalibrated.bam"
-					     ) >;
-		recalibratedbam = recalibrationWrapper(sampleName, "", vars, inputBam, realparms, recalparmsindels);
-		
-		/**************
-		 Call variants
-		***************/
-		file gvcfVariants < strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/", sampleName,
-					   ".wDedups.sorted.recalibrated.g.vcf"
-					  ) >;
-		gvcfVariants = callVariants(sampleName, recalibratedbam);
-	}  
-	/***************************
-	 If splitting by chromosome
-	****************************/
-	else {
-		// Get the chromosomes
-		string indices[] = split(vars["CHRNAMES"], ":");
-
-		foreach chr in indices {
-			/*************************************
+			/*************************************  
 			 Gather the recalibration index files
 			**************************************/
-
 			// Temporary file
-			file recalfiles < strcat(vars["TMPDIR"], "/", sampleName, ".", chr, ".recal_foundfiles.txt") >;
+			file recalfiles < strcat(vars["TMPDIR"], "/", sampleName, ".recal_foundfiles.txt") >;
 			recalfiles = find_files(strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"),
-						strcat("*", chr, ".vcf" )
-				       ) =>
-
+						strcat("*", ".vcf")
+					       ) =>
 			// Get the realign parameters
 			string recalparmsindels[] = split(
 				trim(replace_all(read(sed(recalfiles, "s/^/--knownSites /g")), "\n", " ", 0)), " "
@@ -286,24 +184,117 @@ foreach sample in sampleLines {
 			 Realign and/or recalibrate
 			****************************/
 			// Find the input file
-			file inputBam = input(strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/", sampleName,
-					      ".wDedups.sorted.", chr, ".bam")
+			file inputBam = input(strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/", sampleName,
+					      ".wDedups.sorted.bam")
 					     );
 
 			file recalibratedbam < strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/", sampleName,
-						      ".wDedups.sorted.recalibrated.", chr, ".bam" 
+						      ".wDedups.sorted.recalibrated.bam"
 						     ) >;
-			recalibratedbam = recalibrationWrapper(sampleName, chr, vars, inputBam,
+			recalibratedbam = recalibrationWrapper(sampleName, "", vars, inputBam,
 							       realparms, recalparmsindels
-							      );
+							      );    
 
 			/**************
 			 Call variants
 			***************/
 			file gvcfVariants < strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/", sampleName,
-						   ".wDedups.sorted.recalibrated.", chr, ".g.vcf"
-					  	  ) >;
-			gvcfVariants = callChrVariants(sampleName, recalibratedbam, chr);			
+					   ".wDedups.sorted.recalibrated.g.vcf"
+					  ) >;
+			gvcfVariants = callVariants(vars, sampleName, recalibratedbam);
+			VCF_list[index] = gvcfVariants;
+		}
+		else {
+			string bamLocation = filename(sample);
+			// Grab all but the '.bam' extension from the sample filename
+			string prefix = substring(bamLocation, 0, strlen(bamLocation) - 4);
+ 			string vcfLocation = strcat(prefix, ".g.vcf");
+			// If the vcf file does not exist were it should be, write an error to the failLog
+			if ( file_exists(vcfLocation) ) {
+				VCF_list[index] = input(vcfLocation);
+			}
+			else {
+				append(failLog, strcat("ERROR: ", vcfLocation, " not found. Did you set VC_STAGE to",
+						       " 'N' by accident?\n"
+						      )
+				      );
+			}
+		}
+	}
+}
+
+(file VCF_list[][]) VCSplitMain(string vars[string], file inputBams[][], file failLog) {
+	foreach chrSet, chrIndex in inputBams {
+		// Input files will have names in the form 'prefix.chrA.bam'
+		// This will grab the chr name from the first sample in that chromosome list
+		string base = basename(chrSet[0]);
+		string trimmed = substring(base, 0, strlen(base) - 4);  // gets rid of 'bam' extension
+		string pieces[] = split(trimmed, ".");		// Splits the string by '.'
+		string chr = pieces[size(pieces) - 1];		// Grabs the last part, which is the chromosome part
+
+		foreach inputBam, sampleIndex in chrSet {
+			if (vars["VC_STAGE"] == "Y") {
+				// Removes '.chr' part of the sample's name
+				string sampleName = substring(base, 0, strlen(base) - strlen(chr) - 1);
+				
+ 				/*************************************							  
+				 Gather the recalibration index files							   
+				**************************************/							 
+															
+				// Temporary file									       
+				file recalfiles < strcat(vars["TMPDIR"], "/", sampleName, ".", chr, 
+							 ".recal_foundfiles.txt"
+							) >; 
+				recalfiles = find_files(strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"),	       
+							strcat("*", chr, ".vcf" )					       
+					       ) =>	
+				// Get the realign parameters								   
+				string recalparmsindels[] = split(							      
+					trim(replace_all(read(sed(recalfiles, "s/^/--knownSites /g")), "\n", " ", 0)), " "      
+								 ) =>							   
+				string realparms[] = split(								     
+					trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " "	    
+							  ) =>								  
+				rm(recalfiles);
+			
+				/***************************
+				 Realign and/or recalibrate
+				****************************/
+				file recalibratedbam < strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/",
+							      sampleName, ".wDedups.sorted.recalibrated.", chr, ".bam"		      
+							     ) >;							       
+				recalibratedbam = recalibrationWrapper(sampleName, chr, vars, inputBam,			 
+								       realparms, recalparmsindels			      
+								      );
+			
+				/**************										 
+				 Call variants										  
+				***************/								       
+				file gvcfVariants < strcat(vars["OUTPUTDIR"], "/", sampleName, "/:variant/",
+							   sampleName, ".wDedups.sorted.recalibrated.", chr, ".g.vcf"		       
+						 	  ) >;								  
+				gvcfVariants = callChrVariants(vars, sampleName, recalibratedbam, chr);
+				VCF_list[sampleIndex][chrIndex] = gvcfVariants;
+			}
+			// If this stage of processing was skipped
+			else {
+				// the bam file will be in the form 'prefix.chr.bam'
+				string bamFileLocation = filename(inputBams[chrIndex][sampleIndex]);
+				// gets rid of '.bam' file extension
+				string prefix = substring(bamFileLocation, 0, strlen(bamFileLocation) - 4);
+				string vcfFileLocation = strcat(prefix, ".g.vcf");
+				
+				// If the vcf file does not exist were it should be, write an error to the failLog
+				if (file_exists(vcfFileLocation)) {
+					VCF_list[sampleIndex][chrIndex] = input(vcfFileLocation);
+				}
+				else {
+					append(failLog, strcat("ERROR: ", vcfFileLocation, " not found. Did you set ",
+							       "VC_STAGE to 'N' by accident?\n"
+							      )
+					      );
+				}
+			}
 		}
 	}
 }
