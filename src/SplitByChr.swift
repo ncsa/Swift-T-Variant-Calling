@@ -1,3 +1,58 @@
+/*
+*****************************
+ Pseudocode of Main Function
+*****************************
+
+*** Note:
+	Output array is a 2D array in the form [chromosome][sample]
+	Ex: [ [sam1.chr1, sam2.chr1, ..., samN.chr1],
+	      [sam1.chr2, sam2.chr2, ..., samN.chr2],
+	      ...
+		  [sam1.chrM, sam2.chrM, ..., samN.chrM]
+	    ]
+
+****************************************************************************
+
+(file outputBams[][]) splitByChrMain(file inputBams[]) {
+	- Get the chromosome names
+
+	foreach chromosome in chromosomes {
+		foreach bam in inputBams {
+	
+			- Perform some initial setup
+
+			if (CHR_SPLIT_STAGE variable == "Y") {
+				**************************
+				*** EXECUTE THIS STAGE ***
+				**************************
+
+				- Split by chromosome
+			
+				if (Split was unsuccessful) {
+					*** FAILURE ***
+					- Write an error message to the fail log file
+				} else {
+					*** SUCCESS ***
+					- Add the split chromosome file to its location in the output matrix
+				}
+			} else {
+				**********************************
+				*** THIS STAGE IS NOT EXECUTED ***
+				**********************************
+
+				if (the sample chromosome output file can be found) {
+					*** SUCCESS ***
+					- Add the split chromosome file to its location in the output matrix
+				} else {
+					*** FAILURE ***
+					- Write an error message to the fail log file
+				}
+			}
+		}
+	}
+}
+*/
+
 import files;
 import string;
 import sys;
