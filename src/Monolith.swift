@@ -130,5 +130,5 @@ else {
 	file VCF_list[] = VCNoSplitMain(variables, alignDedupBams, failureLog);
 
 	// Conduct joint genotyping between all samples
-//	jointGenotypingMain(VCF_list, variables);
+	jointGenotypingMain(VCF_list, variables);
 }

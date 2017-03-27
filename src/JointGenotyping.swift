@@ -22,6 +22,7 @@
 import files;
 import string;
 import sys;
+import io;
 
 import bioapps.joint_vcf;
 import generalfunctions.general;
@@ -57,7 +58,10 @@ jointGenotypingMain(file inputVCFs[], string vars[string]) {
 			variantSampleArray[varFlagPos] = "--variant";
 			variantSampleArray[namePos] = filename(sampleVCF);						  
 		}
-	
+
+		printf(strcat("\n\n\n\n\n\n\nVariantSampleArray: ", size(variantSampleArray), "\n\n\n\n\n\n\n"));
+                printf(strcat("\n\n\n\n\n\n\nInputVCFs: ", size(inputVCFs), "\n\n\n\n\n\n\n"));
+
 		jointVCF, jointLog = GenotypeGVCFs(vars["JAVADIR"], vars["GATKDIR"], strcat(vars["REFGENOMEDIR"],
 						   "/", vars["REFGENOME"]), variantSampleArray
 						  );

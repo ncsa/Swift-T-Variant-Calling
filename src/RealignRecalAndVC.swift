@@ -250,9 +250,11 @@ VariantCalling (for split chromosome path)
 ************************/
 (file VCF_list[]) VCNoSplitMain(string vars[string], file inputBams[], file failLog) {
 	foreach sample, index in inputBams {
+		
+		string baseName = basename(sample); 
+		string sampleName = substring(baseName, 0, strlen(baseName) - 23);  // Verified
+
 		if (vars["VC_STAGE"] == "Y") {
-			string baseName = basename(sample);
-			string sampleName = substring(baseName, 0, strlen(baseName) - 23);  // Verified
 
 			/*************************************  
 			 Gather the recalibration index files
@@ -299,10 +301,11 @@ VariantCalling (for split chromosome path)
 			/************************
 			 Gather the output files
 			*************************/
-			string bamLocation = filename(sample);
-			// Grab all but the '.bam' extension from the sample filename
-			string prefix = substring(bamLocation, 0, strlen(bamLocation) - 4);
- 			string vcfLocation = strcat(prefix, ".g.vcf");
+			string vcfLocation = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/", sampleName,
+						    ".wDedups.sorted.recalibrated.g.vcf"
+						   );
+
+
 			// If the vcf file does not exist were it should be, write an error to the failLog
 			if ( file_exists(vcfLocation) ) {
 				VCF_list[index] = input(vcfLocation);
@@ -326,11 +329,11 @@ VariantCalling (for split chromosome path)
 		string pieces[] = split(trimmed, ".");		// Splits the string by '.'
 		string chr = pieces[size(pieces) - 1];		// Grabs the last part, which is the chromosome part
 
+		// Removes '.chr' part of the sample's name
+		string sampleName = substring(base, 0, strlen(base) - strlen(chr) - 1);
+
 		foreach inputBam, sampleIndex in chrSet {
 			if (vars["VC_STAGE"] == "Y") {
-				// Removes '.chr' part of the sample's name
-				string sampleName = substring(base, 0, strlen(base) - strlen(chr) - 1);
-				
  				/*************************************							  
 				 Gather the recalibration index files							   
 				**************************************/							 
@@ -364,7 +367,7 @@ VariantCalling (for split chromosome path)
 				/**************										 
 				 Call variants										  
 				***************/								       
-				file gvcfVariants < strcat(vars["OUTPUTDIR"], "/", sampleName, "/:variant/",
+				file gvcfVariants < strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/",
 							   sampleName, ".wDedups.sorted.recalibrated.", chr, ".g.vcf"		       
 						 	  ) >;								  
 				gvcfVariants = callChrVariants(vars, sampleName, recalibratedbam, chr);
@@ -375,13 +378,11 @@ VariantCalling (for split chromosome path)
 				/************************
 			 	 Gather the output files
 				*************************/
+				string vcfFileLocation = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/",               
+								sampleName, ".wDedups.sorted.recalibrated.",
+								chr, ".g.vcf"
+							       );
 
-				// the bam file will be in the form 'prefix.chr.bam'
-				string bamFileLocation = filename(inputBams[chrIndex][sampleIndex]);
-				// gets rid of '.bam' file extension
-				string prefix = substring(bamFileLocation, 0, strlen(bamFileLocation) - 4);
-				string vcfFileLocation = strcat(prefix, ".g.vcf");
-				
 				// If the vcf file does not exist were it should be, write an error to the failLog
 				if (file_exists(vcfFileLocation)) {
 					VCF_list[sampleIndex][chrIndex] = input(vcfFileLocation);
