@@ -10,8 +10,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="157.21718mm"
-   height="159.29773mm"
-   viewBox="0 0 557.06875 564.44077"
+   height="151.29773mm"
+   viewBox="0 0 557.06875 536.09429"
    id="svg7521"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -448,22 +448,6 @@
          id="path4770" />
     </marker>
     <marker
-       inkscape:stockid="TriangleInM"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="marker4687"
-       style="overflow:visible"
-       inkscape:isstock="true"
-       inkscape:collect="always">
-      <path
-         inkscape:connector-curvature="0"
-         id="path4689"
-         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
-         transform="scale(-0.4,-0.4)" />
-    </marker>
-    <marker
        inkscape:isstock="true"
        style="overflow:visible"
        id="marker4711"
@@ -486,9 +470,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="-121.59248"
-     inkscape:cy="520.33711"
+     inkscape:zoom="1.4"
+     inkscape:cx="321.26466"
+     inkscape:cy="320.33711"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -517,14 +501,14 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0.01556861,-488.25853)">
+     transform="translate(0.01556861,-516.605)">
     <rect
        style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect9556"
        width="555.34064"
-       height="562.27539"
+       height="535.13251"
        x="0.86815548"
-       y="489.21866"
+       y="516.36151"
        rx="0"
        ry="0" />
     <g
@@ -710,7 +694,7 @@
          id="rect4478"
          style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.6060524;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <path
-         style="fill:none;fill-rule:evenodd;stroke:#44aa00;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:9.12118371, 4.56059186;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker6990)"
+         style="fill:none;fill-rule:evenodd;stroke:#44aa00;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker6990)"
          d="m 661.25753,290.3622 0,-90.29093"
          id="path6984"
          inkscape:connector-curvature="0"
@@ -719,22 +703,22 @@
          inkscape:connector-curvature="0"
          id="path6986"
          d="M 454.59053,297.3622 658.24264,196.96224"
-         style="fill:none;fill-rule:evenodd;stroke:#44aa00;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:9.12118371, 4.56059186;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker6104)"
+         style="fill:none;fill-rule:evenodd;stroke:#44aa00;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker6104)"
          sodipodi:nodetypes="cc" />
       <path
-         style="fill:none;fill-rule:evenodd;stroke:#44aa00;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:9.12118371, 4.56059186;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker6734)"
+         style="fill:none;fill-rule:evenodd;stroke:#44aa00;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker6734)"
          d="M 326.49981,296.3622 618.63162,195.88008"
          id="path6988"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cc" />
       <path
-         style="fill:none;fill-rule:evenodd;stroke:#5599ff;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:9.12118371, 4.56059186;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#TriangleInM)"
+         style="fill:none;fill-rule:evenodd;stroke:#5599ff;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#TriangleInM)"
          d="m 412.77968,290.54678 0,-89.93763"
          id="path4148"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cc" />
       <path
-         style="fill:none;fill-rule:evenodd;stroke:#5599ff;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:9.12118371, 4.56059186;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker7288)"
+         style="fill:none;fill-rule:evenodd;stroke:#5599ff;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker7288)"
          d="M 634.78272,296.3622 446.4383,200.52613"
          id="path7286"
          inkscape:connector-curvature="0"
@@ -743,16 +727,16 @@
          inkscape:connector-curvature="0"
          id="path7364"
          d="m 283.57855,296.3622 94.75447,-95.83607"
-         style="fill:none;fill-rule:evenodd;stroke:#5599ff;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:9.12118371, 4.56059186;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker7366)"
+         style="fill:none;fill-rule:evenodd;stroke:#5599ff;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker7366)"
          sodipodi:nodetypes="cc" />
       <path
          inkscape:connector-curvature="0"
          id="path5946"
          d="m 257.65705,291.86919 0,-91.79792"
-         style="fill:none;fill-rule:evenodd;stroke:#d40000;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:9.12118371, 4.56059186;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker4730)"
+         style="fill:none;fill-rule:evenodd;stroke:#d40000;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker4730)"
          sodipodi:nodetypes="cc" />
       <path
-         style="fill:none;fill-rule:evenodd;stroke:#d40000;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:9.12118371, 4.56059186;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker7144)"
+         style="fill:none;fill-rule:evenodd;stroke:#d40000;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker7144)"
          d="m 362.70836,294.93363 -92.47253,-94.4075"
          id="path6102"
          inkscape:connector-curvature="0"
@@ -761,7 +745,7 @@
          inkscape:connector-curvature="0"
          id="path6732"
          d="M 599.69192,296.3622 293.78308,195.88008"
-         style="fill:none;fill-rule:evenodd;stroke:#d40000;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:9.12118371, 4.56059186;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker7942)"
+         style="fill:none;fill-rule:evenodd;stroke:#d40000;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker7942)"
          sodipodi:nodetypes="cc" />
       <rect
          style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4.90590858;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -2181,53 +2165,6 @@
              y="303.83917"
              style="font-size:34.33501816px;fill:#000000;fill-opacity:1" /></flowRegion><flowPara
            id="flowPara111738"
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:34.33501816px;font-family:Avenir;-inkscape-font-specification:'Avenir Heavy';fill:#000000;fill-opacity:1">. . .</flowPara></flowRoot>      <path
-         sodipodi:nodetypes="cc"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker4687)"
-         d="m 65.205775,54.058146 -41.196404,0"
-         id="path4685"
-         inkscape:connector-curvature="0" />
-      <rect
-         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.3030262;stroke-linecap:round;stroke-miterlimit:3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="rect4691"
-         width="159.84004"
-         height="49.786797"
-         x="19"
-         y="17.211449"
-         rx="0"
-         ry="0" />
-      <flowRoot
-         xml:space="preserve"
-         id="flowRoot4693"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.25px;line-height:125%;font-family:Avenir;-inkscape-font-specification:Avenir;letter-spacing:0px;word-spacing:0px;fill:#d40000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         transform="matrix(0.61004482,0,0,0.60337852,299.66228,-136.70545)"><flowRegion
-           id="flowRegion4695"><rect
-             id="rect4697"
-             width="248.49753"
-             height="149.50258"
-             x="-352.54324"
-             y="303.83917"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Avenir;-inkscape-font-specification:Avenir;fill:#d40000;fill-opacity:1" /></flowRegion><flowPara
-           id="flowPara4699"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.45938683px;font-family:Avenir;-inkscape-font-specification:Avenir;fill:#000000;fill-opacity:1">Multi-threaded</flowPara></flowRoot>      <path
-         inkscape:connector-curvature="0"
-         id="path4701"
-         d="m 65.205775,31.137389 -41.196404,0"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4.5605917;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:9.12118284, 4.56059141;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker4711)"
-         sodipodi:nodetypes="cc" />
-      <flowRoot
-         transform="matrix(0.61004482,0,0,0.60337852,295.49723,-159.62621)"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.25px;line-height:125%;font-family:Avenir;-inkscape-font-specification:Avenir;letter-spacing:0px;word-spacing:0px;fill:#d40000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         id="flowRoot4703"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4705"><rect
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Avenir;-inkscape-font-specification:Avenir;fill:#d40000;fill-opacity:1"
-             y="303.83917"
-             x="-352.54324"
-             height="149.50258"
-             width="248.49753"
-             id="rect4707" /></flowRegion><flowPara
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.45938683px;font-family:Avenir;-inkscape-font-specification:Avenir;fill:#000000;fill-opacity:1"
-           id="flowPara4709">Single-threaded</flowPara></flowRoot>    </g>
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:34.33501816px;font-family:Avenir;-inkscape-font-specification:'Avenir Heavy';fill:#000000;fill-opacity:1">. . .</flowPara></flowRoot>    </g>
   </g>
 </svg>
