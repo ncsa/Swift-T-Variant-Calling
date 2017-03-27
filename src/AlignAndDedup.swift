@@ -1,3 +1,62 @@
+/*
+
+*****************************
+ Pseudocode of Main Function
+*****************************
+
+(file outBamArray[]) alignDedupMain() {
+	foreach sample in samples {
+		- Parse sample specific information and construct RG header
+		- Create the sample output directories
+
+		if (ALIGN_DEDUP_STAGE variable == "Y") {
+			**************************
+			*** EXECUTE THIS STAGE ***
+			**************************
+
+			- Create output file handles
+			- Perform alignment
+
+			if (alignment was Successful) {
+				- Perform sorting and deduplication
+
+				if (dedupsorting was successful) {
+					- Perform quality control
+				
+					if (quality control passed) {
+						*** SUCCESS ***
+						- Add the dedupsorted bam file to the output array
+					} else {
+						*** FAILURE ***
+						- Write an error message to the fail log
+					}
+				} else {
+					*** FAILURE ***
+					- Write an error message to the fail log
+				}
+			} else {
+				*** FAILURE ***
+				- Write an error message to the fail log
+			}
+
+		} else {
+			**********************************
+			*** THIS STAGE IS NOT EXECUTED ***
+			**********************************
+
+			if (this samples output file can be found) {
+				- Add the dedupsorted bam file to the output array
+			} else {
+				*** FAILURE ***
+				- Write an error message to the fail log
+			}
+		}
+	}
+
+	- return the outBamArray once all samples are processed
+}
+*/
+
 import unix;					       
 import files;					      
 import string;					     
