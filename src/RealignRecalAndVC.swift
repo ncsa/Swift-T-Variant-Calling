@@ -1,3 +1,94 @@
+/*
+
+*****************************
+ Pseudocode of Main Functions
+*****************************
+
+Note:
+	This stage has two versions of the main function
+		One for variant calling when splitting by chromosome
+		The other for when variants are called on a per sample basis
+
+	This duplication of main functions is caused because they must return different
+	  data structures
+	  	If splitting by chromosome, the output will be a 2D-matrix of VCF files
+	  	Otherwise, it will just be an array of VCF files
+
+********************************************************************************
+
+******************************
+ Pseudocode for No Split Main
+******************************
+
+(file VCFList[]) VCNoSplitMain(file inputBams[]) {
+	foreach sample in samples {
+		if (VC_STAGE variable == "Y") {
+			**************************
+			*** EXECUTE THIS STAGE ***
+			**************************
+
+			- Find the sample name
+			- Gather the recalibration index files
+			- Realign and/or recalibrate
+			- Call variants
+			- Add the output vcf file to the output array
+
+		} else {
+			**********************************
+			*** THIS STAGE IS NOT EXECUTED ***
+			**********************************
+			if (sample VCF file is found) {
+				*** Success ***
+				- Add the output vcf file to the output array
+			} else {
+				*** Failure ***
+				- Write an error message to the fail log
+
+			}
+		}
+	}
+}
+
+********************************************************************************
+
+***************************
+ Pseudocode for Split Main
+***************************
+
+Note: although the input matrix is in the form inputMatrix[chromosome][sample],
+  the output matrix is in the form outputMatrix[sample][chromosome]
+
+
+(file VCF_list[][]) VCSplitMain(file inputBams[][]) {
+	foreach chrSet in inputBams {
+		- Get chromosome name
+
+		foreach inputBam in chrSet {
+			if (VC_STAGE variable == "Y") {
+				**************************
+				*** EXECUTE THIS STAGE ***
+				**************************
+
+				- Get the sample name
+				- Gather the recalibration index files
+				- Realign and/or recalibrate
+				- Call variants
+				- Add the output vcf file to the output array
+
+			} else {
+				if (the output vcf file is found) {
+					*** Success ***
+					- Add the output vcf file to the output array
+				} else {
+					*** Failure ***
+					- Write an error message to the fail log
+				}
+			}
+		}	
+	}
+}
+*/
+
 import files;
 import string;
 import sys;
@@ -205,6 +296,9 @@ VariantCalling (for split chromosome path)
 			VCF_list[index] = gvcfVariants;
 		}
 		else {
+			/************************
+			 Gather the output files
+			*************************/
 			string bamLocation = filename(sample);
 			// Grab all but the '.bam' extension from the sample filename
 			string prefix = substring(bamLocation, 0, strlen(bamLocation) - 4);
@@ -278,6 +372,10 @@ VariantCalling (for split chromosome path)
 			}
 			// If this stage of processing was skipped
 			else {
+				/************************
+			 	 Gather the output files
+				*************************/
+
 				// the bam file will be in the form 'prefix.chr.bam'
 				string bamFileLocation = filename(inputBams[chrIndex][sampleIndex]);
 				// gets rid of '.bam' file extension
