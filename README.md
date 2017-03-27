@@ -241,5 +241,10 @@ Solution: make sure that all tools are specified in your runfile up to the execu
 - The realignment/recalibration stage produces a lot of errors or strange results?
 Solution: make sure you are preparing your reference and extra files (dbsnp, 1000G,...etc) according to the guidelines of section 2.2
 
+- The job is killed as soon as BWA is called?
+Solution: make sure there is no space in front of BWAMEMPARAMS
+DO-THIS:  BWAMEMPARAMS=-k 32 -I 300,30
+NOT-THIS: BWAMEMPARAMS= -k 32 -I 300,30
+
 - I'm not sure how to run on a cluster  that uses torque as a resource manager?
 Clusters are typically configured to kill head node jobs that run longer than a few minutes, to prevent users from hogging the head node. Therefore, you may qsub the initial job, the swift-t command with its set variables, and it will qsub everybody else from its compute node.
