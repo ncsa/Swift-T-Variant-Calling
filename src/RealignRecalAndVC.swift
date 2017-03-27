@@ -38,10 +38,10 @@ Note:
 			*** THIS STAGE IS NOT EXECUTED ***
 			**********************************
 			if (sample VCF file is found) {
-				*** Success ***
+				*** SUCCESS ***
 				- Add the output vcf file to the output array
 			} else {
-				*** Failure ***
+				*** FAILURE ***
 				- Write an error message to the fail log
 
 			}
@@ -77,10 +77,10 @@ Note: although the input matrix is in the form inputMatrix[chromosome][sample],
 
 			} else {
 				if (the output vcf file is found) {
-					*** Success ***
+					*** SUCCESS ***
 					- Add the output vcf file to the output array
 				} else {
-					*** Failure ***
+					*** FAILURE ***
 					- Write an error message to the fail log
 				}
 			}

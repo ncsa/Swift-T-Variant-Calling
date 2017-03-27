@@ -45,6 +45,7 @@
 			**********************************
 
 			if (this samples output file can be found) {
+				*** SUCCESS ***
 				- Add the dedupsorted bam file to the output array
 			} else {
 				*** FAILURE ***

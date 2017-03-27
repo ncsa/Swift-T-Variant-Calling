@@ -1,3 +1,24 @@
+/*
+
+*****************************
+ Pseudocode of Main Function
+*****************************
+
+() jointGenotypingMain(file inputVCFs[]) {
+	if (JOINT_GENOTYPING_STAGE variable == "Y") {
+		**************************
+		*** EXECUTE THIS STAGE ***
+		**************************
+
+		- Create output and log file handles
+
+		foreach sampleVCF and sampleVCFs {
+			- Perform Joint Genotyping
+		}
+	}
+}
+*/
+
 import files;
 import string;
 import sys;

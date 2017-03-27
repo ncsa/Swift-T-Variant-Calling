@@ -1,3 +1,40 @@
+/*
+
+*****************************
+ Pseudocode of Main Function
+*****************************
+
+(file vcfOutfiles[]) combineVariantsMain(file inputVCFs) {
+	
+	foreach sample in samples {
+	
+		- Get the output name
+
+		if (COMBINE_VARIANT_STAGE variable == "Y") {
+			**************************
+			*** EXECUTE THIS STAGE ***
+			**************************
+
+			- CombineGVCFs
+			- Add the VCF file to the output array
+
+		} else {
+			**********************************
+			*** THIS STAGE IS NOT EXECUTED ***
+			**********************************
+
+			if (this samples output file can be found) {
+				*** SUCCESS ***
+				- Add the VCF file to the output array
+			} else {
+				*** FAILURE ***
+				- Write an error message to the fail log
+			}
+		}
+	}
+}
+*/
+
 import files;
 import string;
 import sys;
@@ -5,9 +42,9 @@ import sys;
 import generalfunctions.general;
 import bioapps.merge_vcf;
 
-(file vcfOutfiles[]) combineVariantsMain(file inputBams[][], string vars[string], file failLog) {
+(file vcfOutfiles[]) combineVariantsMain(file inputVCFs[][], string vars[string], file failLog) {
 
-	foreach sampleSet, sampleIndex in inputBams {
+	foreach sampleSet, sampleIndex in inputVCFs {
 
 		// Get the sample name by looking at the first item in the samples chromosome set
 		// It has the form: sampleName.wDedups.sorted.recalibrated.chrA.g.vcf
