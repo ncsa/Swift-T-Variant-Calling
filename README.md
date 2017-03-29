@@ -223,9 +223,10 @@ The complete pipeline implementation is available in the Swift/T branch of this 
 
 To run the pipeline, a variant of the stripped-down one-line command below should be invoked:
 
-```
- swift-t -r $PWD/pipelinefunctions VCcallingPipeline.swift --runfile=<runfile name> 
  ```
+swift-t -n <PBSNODES * PROCPERNODE> -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=<runfile>
+```
+
 
 where the runfile is a file containing the details of the run (programs choices and location within the machine, parameters for the programs, some PBS torque settings, output and sampleinformation file locations). (See section 2.3 for more details) 
 
