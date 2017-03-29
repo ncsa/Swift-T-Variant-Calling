@@ -1,6 +1,6 @@
 To-Do
 ------
-Add third option to executes: E, which stands for "End Here"
+Add third option to execute variables: E, which stands for "End Here"
 
 1 Intended pipeline architecture and function
 ====================================
