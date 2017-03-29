@@ -19,7 +19,7 @@ These stages are implemented in this pipeline, with an optional “Indel Realign
 
 **Figure 1**
 
-![](./media/WorkflowOverview.png)
+<img src=./media/WorkflowOverview.png width="600">
 
 |  **Step** |  **Resource Requirements**
 | --------------- | -------------------------
@@ -32,8 +32,7 @@ These stages are implemented in this pipeline, with an optional “Indel Realign
 
 **Figure 2: Program Structure**
 
-![](./media/ProgramStructure.png)
-
+<img src="./media/ProgramStructure.png" width="500">
 
 Notes (as of Jan. 30th, 2017)
 -----------------------------
