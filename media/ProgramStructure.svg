@@ -14,7 +14,7 @@
    viewBox="0 0 500.86308 794.8883"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.92.1 r"
    sodipodi:docname="ProgramStructure.svg"
    inkscape:export-filename="/Users/jacobheldenbrand/Documents/Swift-T-Variant-Calling/media/ProgramStructure.png"
    inkscape:export-xdpi="350"
@@ -28,16 +28,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
+     inkscape:zoom="1.979899"
      inkscape:cx="229.7667"
-     inkscape:cy="388.09803"
+     inkscape:cy="579.72965"
      inkscape:document-units="px"
      inkscape:current-layer="g4700"
      showgrid="false"
-     inkscape:window-width="1440"
-     inkscape:window-height="805"
-     inkscape:window-x="3"
-     inkscape:window-y="0"
+     inkscape:window-width="1740"
+     inkscape:window-height="955"
+     inkscape:window-x="2001"
+     inkscape:window-y="23"
      inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -51,7 +51,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -111,7 +111,7 @@
         <flowRoot
            xml:space="preserve"
            id="flowRoot4277"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Avenir;-inkscape-font-specification:Avenir;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:Avenir;-inkscape-font-specification:Avenir;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            transform="translate(49.285715,6.5714289)"><flowRegion
              id="flowRegion4279"><rect
                id="rect4281"
@@ -120,7 +120,8 @@
                x="142.14285"
                y="142.3622"
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Avenir;-inkscape-font-specification:Avenir;fill:#ffffff;stroke:#ffffff" /></flowRegion><flowPara
-             id="flowPara4283">Align Only?</flowPara></flowRoot>      </g>
+             id="flowPara4283"
+             style="font-size:15px;line-height:1.25">Align Only?</flowPara></flowRoot>      </g>
       <g
          transform="translate(-53.841216,60.050041)"
          id="g4313"
@@ -135,7 +136,7 @@
            style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
         <flowRoot
            transform="translate(159.39234,60.109514)"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Avenir;-inkscape-font-specification:Avenir;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:Avenir;-inkscape-font-specification:Avenir;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            id="flowRoot4287"
            xml:space="preserve"><flowRegion
              id="flowRegion4289"><rect
@@ -145,7 +146,8 @@
                height="36.42857"
                width="109.28571"
                id="rect4291" /></flowRegion><flowPara
-             id="flowPara4293">Split by Chromosome?</flowPara></flowRoot>      </g>
+             id="flowPara4293"
+             style="font-size:15px;line-height:1.25">Split by Chromosome?</flowPara></flowRoot>      </g>
       <path
          sodipodi:nodetypes="cc"
          inkscape:connector-curvature="0"
@@ -166,7 +168,7 @@
          transform="translate(499,81.785714)"
          xml:space="preserve"
          id="flowRoot4326"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350"><flowRegion
            id="flowRegion4328"><rect
@@ -176,9 +178,9 @@
              x="-191.92899"
              y="139.1843"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" /></flowRegion><flowPara
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif"
            id="flowPara4332">No</flowPara></flowRoot>      <flowRoot
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="flowRoot4357"
          xml:space="preserve"
          transform="translate(378.69647,126.63852)"
@@ -192,8 +194,8 @@
              width="384.36304"
              id="rect4361" /></flowRegion><flowPara
            id="flowPara4363"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:sans-serif">Yes</flowPara></flowRoot>      <flowRoot
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif">Yes</flowPara></flowRoot>      <flowRoot
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="flowRoot4365"
          xml:space="preserve"
          transform="translate(580.17298,126.84774)"
@@ -207,7 +209,7 @@
              width="384.36304"
              id="rect4369" /></flowRegion><flowPara
            id="flowPara4371"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:sans-serif">No</flowPara></flowRoot>      <path
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif">No</flowPara></flowRoot>      <path
          sodipodi:nodetypes="cc"
          inkscape:connector-curvature="0"
          id="path4624"
@@ -256,7 +258,7 @@
          inkscape:export-ydpi="350" />
       <flowRoot
          transform="translate(58.285714,58.857143)"
-         style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#ff9955;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#ff9955;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot4632"
          xml:space="preserve"
          inkscape:export-xdpi="350"
@@ -268,7 +270,7 @@
              height="23.571428"
              width="249.28572"
              id="rect4636" /></flowRegion><flowPara
-           style="font-size:13.75px;opacity:0.81960784;fill:#ff9955"
+           style="font-size:13.75px;line-height:1.25;opacity:0.81960784;fill:#ff9955"
            id="flowPara4638">RealignRecalAndVC.swift</flowPara></flowRoot>      <rect
          style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999988;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="rect4239"
@@ -293,7 +295,7 @@
       <flowRoot
          xml:space="preserve"
          id="flowRoot4642"
-         style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#5fd35f;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#5fd35f;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          transform="translate(-87.611316,-31.125443)"
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350"><flowRegion
@@ -305,7 +307,7 @@
              y="342.36221"
              style="fill:#5fd35f" /></flowRegion><flowPara
            id="flowPara4648"
-           style="font-size:13.75px;opacity:0.81960784;fill:#5fd35f">SplitByChr.swift</flowPara></flowRoot>      <rect
+           style="font-size:13.75px;line-height:1.25;opacity:0.81960784;fill:#5fd35f">SplitByChr.swift</flowPara></flowRoot>      <rect
          rx="0"
          ry="0"
          y="616.55121"
@@ -328,7 +330,7 @@
          inkscape:export-ydpi="350" />
       <flowRoot
          transform="translate(-92.039886,324.90319)"
-         style="font-style:normal;font-weight:normal;font-size:11.25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#5fbcd3;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#5fbcd3;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot4652"
          xml:space="preserve"
          inkscape:export-xdpi="350"
@@ -340,7 +342,7 @@
              height="23.571428"
              width="249.28572"
              id="rect4656" /></flowRegion><flowPara
-           style="font-size:11.25px;opacity:0.81960784;fill:#5fbcd3"
+           style="font-size:11.25px;line-height:1.25;opacity:0.81960784;fill:#5fbcd3"
            id="flowPara4658">CombineVariants.swift</flowPara></flowRoot>      <rect
          style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999988;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="rect4205"
@@ -364,7 +366,7 @@
          inkscape:export-ydpi="350" />
       <flowRoot
          transform="translate(74.105908,-277.89853)"
-         style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#ff80b2;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#ff80b2;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot4662"
          xml:space="preserve"
          inkscape:export-xdpi="350"
@@ -376,7 +378,7 @@
              height="23.571428"
              width="249.28572"
              id="rect4666" /></flowRegion><flowPara
-           style="font-size:12.5px;opacity:0.81960784;fill:#ff80b2"
+           style="font-size:12.5px;line-height:1.25;opacity:0.81960784;fill:#ff80b2"
            id="flowPara4668">AlignAndDedup.swift</flowPara></flowRoot>      <rect
          rx="0"
          ry="0"
@@ -401,7 +403,7 @@
       <flowRoot
          xml:space="preserve"
          id="flowRoot4672"
-         style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#8080ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#8080ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          transform="matrix(0.9781718,0,0,1,78.726634,435.71078)"
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350"><flowRegion
@@ -413,8 +415,8 @@
              y="342.36221"
              style="fill:#8080ff" /></flowRegion><flowPara
            id="flowPara4678"
-           style="font-size:12.5px;opacity:0.81960784;fill:#8080ff">JointGenotyping.swift</flowPara></flowRoot>      <flowRoot
-         style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="font-size:12.5px;line-height:1.25;opacity:0.81960784;fill:#8080ff">JointGenotyping.swift</flowPara></flowRoot>      <flowRoot
+         style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot4684"
          xml:space="preserve"><flowRegion
            id="flowRegion4686"><rect
@@ -424,9 +426,10 @@
              height="72.85714"
              width="417.14285"
              id="rect4688" /></flowRegion><flowPara
-           id="flowPara4690"></flowPara></flowRoot>      <flowRoot
+           id="flowPara4690"
+           style="font-size:20px;line-height:1.25"> </flowPara></flowRoot>      <flowRoot
          transform="translate(24.877448,6.9898475)"
-         style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="flowRoot4692"
          xml:space="preserve"
          inkscape:export-xdpi="350"
@@ -438,8 +441,8 @@
              height="62.857143"
              width="405.71429"
              id="rect4696" /></flowRegion><flowPara
-           style="font-size:25px;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
-           id="flowPara4698">Monolith.swift</flowPara></flowRoot>      <rect
+           style="font-size:25px;line-height:1.25;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
+           id="flowPara4698">VariantCalling.swift</flowPara></flowRoot>      <rect
          style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="rect4207"
          width="168.79085"
@@ -451,7 +454,7 @@
       <flowRoot
          xml:space="preserve"
          id="flowRoot4209"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          transform="translate(425.21385,-53.98572)"
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350"><flowRegion
@@ -462,8 +465,9 @@
              x="-191.92899"
              y="139.1843"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff;stroke:#ffffff" /></flowRegion><flowPara
-           id="flowPara4215">alignDedupMain()</flowPara></flowRoot>      <flowRoot
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="flowPara4215"
+           style="font-size:15px;line-height:1.25">alignDedupMain()</flowPara></flowRoot>      <flowRoot
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="flowRoot4217"
          xml:space="preserve"
          transform="translate(427.92814,-29.84287)"
@@ -476,7 +480,8 @@
              height="38.890873"
              width="384.36304"
              id="rect4221" /></flowRegion><flowPara
-           id="flowPara4223">Align</flowPara></flowRoot>      <circle
+           id="flowPara4223"
+           style="font-size:15px;line-height:1.25">Align</flowPara></flowRoot>      <circle
          style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="circle4225"
          cx="226.64243"
@@ -488,7 +493,7 @@
          transform="translate(427.92814,-7.84287)"
          xml:space="preserve"
          id="flowRoot4227"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350"><flowRegion
            id="flowRegion4229"><rect
@@ -498,7 +503,8 @@
              x="-191.92899"
              y="139.1843"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none" /></flowRegion><flowPara
-           id="flowPara4235">Deduplicate &amp; Sort</flowPara></flowRoot>      <circle
+           id="flowPara4235"
+           style="font-size:15px;line-height:1.25">Deduplicate &amp; Sort</flowPara></flowRoot>      <circle
          cy="140.87646"
          cx="226.64243"
          id="circle4237"
@@ -517,7 +523,7 @@
          inkscape:export-ydpi="350" />
       <flowRoot
          transform="translate(326.17403,288.28865)"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot4389"
          xml:space="preserve"
          inkscape:export-xdpi="350"
@@ -529,7 +535,8 @@
              height="38.890873"
              width="384.36304"
              id="rect4393" /></flowRegion><flowPara
-           id="flowPara4395">VCSplitMain()</flowPara></flowRoot>      <g
+           id="flowPara4395"
+           style="font-size:15px;line-height:1.25">VCSplitMain()</flowPara></flowRoot>      <g
          id="g4409"
          transform="translate(-36.959416,311.91161)"
          inkscape:export-xdpi="350"
@@ -543,7 +550,7 @@
            style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
         <flowRoot
            transform="translate(47.586182,5.8571432)"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Avenir;-inkscape-font-specification:Avenir;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:Avenir;-inkscape-font-specification:Avenir;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            id="flowRoot4413"
            xml:space="preserve"><flowRegion
              id="flowRegion4415"><rect
@@ -553,7 +560,8 @@
                height="36.42857"
                width="109.28571"
                id="rect4417" /></flowRegion><flowPara
-             id="flowPara4419">Realign?</flowPara></flowRoot>      </g>
+             id="flowPara4419"
+             style="font-size:15px;line-height:1.25">Realign?</flowPara></flowRoot>      </g>
       <path
          inkscape:connector-curvature="0"
          id="path4423"
@@ -579,7 +587,7 @@
          transform="translate(291.69648,320.63852)"
          xml:space="preserve"
          id="flowRoot4445"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350"><flowRegion
            id="flowRegion4447"><rect
@@ -589,9 +597,9 @@
              x="-191.92899"
              y="139.1843"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" /></flowRegion><flowPara
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif"
            id="flowPara4451">Yes</flowPara></flowRoot>      <flowRoot
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="flowRoot4453"
          xml:space="preserve"
          transform="translate(435.69648,320.63852)"
@@ -605,7 +613,7 @@
              width="384.36304"
              id="rect4457" /></flowRegion><flowPara
            id="flowPara4459"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:sans-serif;-inkscape-font-specification:sans-serif">No</flowPara></flowRoot>      <path
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif">No</flowPara></flowRoot>      <path
          sodipodi:nodetypes="cc"
          inkscape:connector-curvature="0"
          id="path4463"
@@ -642,7 +650,7 @@
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350">
         <flowRoot
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="flowRoot4471"
            xml:space="preserve"
            transform="translate(532.99778,376.19556)"><flowRegion
@@ -653,7 +661,8 @@
                height="38.890873"
                width="384.36304"
                id="rect4475" /></flowRegion><flowPara
-             id="flowPara4477">Realign</flowPara></flowRoot>        <circle
+             id="flowPara4477"
+             style="font-size:15px;line-height:1.25">Realign</flowPara></flowRoot>        <circle
            style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="circle4479"
            cx="331.71207"
@@ -669,7 +678,7 @@
            transform="translate(532.99778,376.19556)"
            xml:space="preserve"
            id="flowRoot4275"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"><flowRegion
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"><flowRegion
              id="flowRegion4277"><rect
                id="rect4279"
                width="384.36304"
@@ -677,7 +686,8 @@
                x="-191.92899"
                y="139.1843"
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none" /></flowRegion><flowPara
-             id="flowPara4281">Recalibrate</flowPara></flowRoot>        <circle
+             id="flowPara4281"
+             style="font-size:15px;line-height:1.25">Recalibrate</flowPara></flowRoot>        <circle
            r="2.8571427"
            cy="524.91486"
            cx="331.71207"
@@ -690,7 +700,7 @@
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350">
         <flowRoot
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="flowRoot4288"
            xml:space="preserve"
            transform="translate(562.99778,380.19556)"><flowRegion
@@ -701,10 +711,10 @@
                height="38.890873"
                width="384.36304"
                id="rect4292" /></flowRegion><flowPara
-             style="font-size:13.75px"
+             style="font-size:13.75px;line-height:1.25"
              id="flowPara4294">Call Variants</flowPara><flowPara
              id="flowPara4498"
-             style="font-size:13.75px">(Split Version)</flowPara></flowRoot>        <circle
+             style="font-size:13.75px;line-height:1.25">(Split Version)</flowPara></flowRoot>        <circle
            style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="circle4296"
            cx="361.71207"
@@ -723,7 +733,7 @@
       <flowRoot
          xml:space="preserve"
          id="flowRoot4504"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          transform="translate(558.17403,288.28865)"
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350"><flowRegion
@@ -734,7 +744,8 @@
              x="-191.92899"
              y="139.1843"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff;stroke:#ffffff" /></flowRegion><flowPara
-           id="flowPara4510">VCNoSplitMain()</flowPara></flowRoot>      <g
+           id="flowPara4510"
+           style="font-size:15px;line-height:1.25">VCNoSplitMain()</flowPara></flowRoot>      <g
          transform="translate(209.04058,311.91161)"
          id="g4512"
          inkscape:export-xdpi="350"
@@ -749,7 +760,7 @@
         <flowRoot
            xml:space="preserve"
            id="flowRoot4516"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Avenir;-inkscape-font-specification:Avenir;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:Avenir;-inkscape-font-specification:Avenir;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            transform="translate(47.586182,5.8571432)"><flowRegion
              id="flowRegion4518"><rect
                id="rect4520"
@@ -758,7 +769,8 @@
                x="142.14285"
                y="142.3622"
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Avenir;-inkscape-font-specification:Avenir;fill:#ffffff;stroke:#ffffff" /></flowRegion><flowPara
-             id="flowPara4522">Realign?</flowPara></flowRoot>      </g>
+             id="flowPara4522"
+             style="font-size:15px;line-height:1.25">Realign?</flowPara></flowRoot>      </g>
       <path
          style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 425.94818,455.39178 0,-10.6066"
@@ -781,7 +793,7 @@
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350" />
       <flowRoot
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="flowRoot4530"
          xml:space="preserve"
          transform="translate(537.69648,320.63852)"
@@ -795,11 +807,11 @@
              width="384.36304"
              id="rect4534" /></flowRegion><flowPara
            id="flowPara4536"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:sans-serif;-inkscape-font-specification:sans-serif">Yes</flowPara></flowRoot>      <flowRoot
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif">Yes</flowPara></flowRoot>      <flowRoot
          transform="translate(681.69648,320.63852)"
          xml:space="preserve"
          id="flowRoot4538"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350"><flowRegion
            id="flowRegion4540"><rect
@@ -809,7 +821,7 @@
              x="-191.92899"
              y="139.1843"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" /></flowRegion><flowPara
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif"
            id="flowPara4544">No</flowPara></flowRoot>      <path
          style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 425.44271,497.81819 0,23.19545"
@@ -850,7 +862,7 @@
            transform="translate(532.99778,376.19556)"
            xml:space="preserve"
            id="flowRoot4558"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"><flowRegion
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"><flowRegion
              id="flowRegion4560"><rect
                id="rect4562"
                width="384.36304"
@@ -858,7 +870,8 @@
                x="-191.92899"
                y="139.1843"
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none" /></flowRegion><flowPara
-             id="flowPara4564">Realign</flowPara></flowRoot>        <circle
+             id="flowPara4564"
+             style="font-size:15px;line-height:1.25">Realign</flowPara></flowRoot>        <circle
            r="2.8571427"
            cy="524.91486"
            cx="331.71207"
@@ -871,7 +884,7 @@
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350">
         <flowRoot
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="flowRoot4570"
            xml:space="preserve"
            transform="translate(532.99778,376.19556)"><flowRegion
@@ -882,7 +895,8 @@
                height="38.890873"
                width="384.36304"
                id="rect4574" /></flowRegion><flowPara
-             id="flowPara4576">Recalibrate</flowPara></flowRoot>        <circle
+             id="flowPara4576"
+             style="font-size:15px;line-height:1.25">Recalibrate</flowPara></flowRoot>        <circle
            style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="circle4578"
            cx="331.71207"
@@ -898,7 +912,7 @@
            transform="translate(554.99778,380.19556)"
            xml:space="preserve"
            id="flowRoot4582"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"><flowRegion
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"><flowRegion
              id="flowRegion4584"><rect
                id="rect4586"
                width="384.36304"
@@ -907,8 +921,8 @@
                y="139.1843"
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none" /></flowRegion><flowPara
              id="flowPara4588"
-             style="font-size:13.75px">Call Variants</flowPara><flowPara
-             style="font-size:13.75px"
+             style="font-size:13.75px;line-height:1.25">Call Variants</flowPara><flowPara
+             style="font-size:13.75px;line-height:1.25"
              id="flowPara4590">(Non-Split Version)</flowPara></flowRoot>        <circle
            r="2.8571427"
            cy="528.91486"
@@ -927,7 +941,7 @@
          inkscape:export-ydpi="350" />
       <flowRoot
          transform="translate(269.87817,479.44815)"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot4598"
          xml:space="preserve"
          inkscape:export-xdpi="350"
@@ -939,11 +953,12 @@
              height="38.890873"
              width="384.36304"
              id="rect4602" /></flowRegion><flowPara
-           id="flowPara4604">CombineVariantsMain()</flowPara></flowRoot>      <flowRoot
+           id="flowPara4604"
+           style="font-size:15px;line-height:1.25">combineVariantsMain()</flowPara></flowRoot>      <flowRoot
          transform="translate(284.59245,501.59101)"
          xml:space="preserve"
          id="flowRoot4606"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350"><flowRegion
            id="flowRegion4608"><rect
@@ -954,7 +969,7 @@
              y="139.1843"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;text-anchor:start;fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none" /></flowRegion><flowPara
            id="flowPara4620"
-           style="text-align:start;text-anchor:start">Combine Variants</flowPara></flowRoot>      <circle
+           style="font-size:15px;line-height:1.25;text-align:start;text-anchor:start">Combine Variants</flowPara></flowRoot>      <circle
          cy="650.3103"
          cx="83.306725"
          id="circle4616"
@@ -973,7 +988,7 @@
          inkscape:export-ydpi="350" />
       <flowRoot
          transform="translate(418.12337,592.2786)"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot4140"
          xml:space="preserve"
          inkscape:export-xdpi="350"
@@ -985,11 +1000,12 @@
              height="38.890873"
              width="384.36304"
              id="rect4144" /></flowRegion><flowPara
-           id="flowPara4146">jointGenotypeMain()</flowPara></flowRoot>      <flowRoot
+           id="flowPara4146"
+           style="font-size:15px;line-height:1.25">jointGenotypeMain()</flowPara></flowRoot>      <flowRoot
          transform="translate(432.83766,614.42146)"
          xml:space="preserve"
          id="flowRoot4148"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350"><flowRegion
            id="flowRegion4150"><rect
@@ -999,7 +1015,8 @@
              x="-191.92899"
              y="139.1843"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none" /></flowRegion><flowPara
-           id="flowPara4154">Joint Genotyping</flowPara></flowRoot>      <circle
+           id="flowPara4154"
+           style="font-size:15px;line-height:1.25">Joint Genotyping</flowPara></flowRoot>      <circle
          cy="763.14075"
          cx="231.55194"
          id="path4189"
@@ -1019,7 +1036,7 @@
       <flowRoot
          xml:space="preserve"
          id="flowRoot4243"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          transform="translate(305.87817,193.44815)"
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350"><flowRegion
@@ -1030,8 +1047,9 @@
              x="-191.92899"
              y="139.1843"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff;stroke:#ffffff" /></flowRegion><flowPara
-           id="flowPara4249">splitByChrMain()</flowPara></flowRoot>      <flowRoot
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="flowPara4249"
+           style="font-size:15px;line-height:1.25">splitByChrMain()</flowPara></flowRoot>      <flowRoot
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="flowRoot4251"
          xml:space="preserve"
          transform="translate(280.59245,215.59101)"
@@ -1044,7 +1062,7 @@
              height="21.2132"
              width="186.14951"
              id="rect4255" /></flowRegion><flowPara
-           style="text-align:center;text-anchor:middle"
+           style="font-size:15px;line-height:1.25;text-align:center;text-anchor:middle"
            id="flowPara4273">Split by Chromosome</flowPara></flowRoot>      <circle
          style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="circle4259"
@@ -1053,6 +1071,17 @@
          inkscape:export-xdpi="350"
          inkscape:export-ydpi="350"
          r="2.8571427" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:37.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="874.19849"
+         y="398.73785"
+         id="text4160"><tspan
+           sodipodi:role="line"
+           id="tspan4158"
+           x="874.19849"
+           y="432.95023"
+           style="stroke-width:0.9375px" /></text>
     </g>
   </g>
 </svg>
