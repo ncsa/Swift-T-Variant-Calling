@@ -34,16 +34,6 @@ These stages are implemented in this pipeline, with an optional “Indel Realign
 
 <img src="./media/ProgramStructure.png" width="500">
 
-Notes (as of Jan. 30th, 2017)
------------------------------
-In the current implementation of the pipeline, it is written as one monolithic Swift/T script. Because each step of the pipeline requires different resource requirements, we should rewrite each step in its own Swift/T script and wrap them in their own job submissions during execution.
-
-This solves two problems. First, it allows us to more efficiently utilize resources. Secondly, compartmentalizing each step of the workflow will enable us to more easily jump into each part without having to repeat earlier steps.
-
-Jan 31st: although Luda's summary of the workflow says that chromosome splitting is single threaded, it is implemented as multi-threaded as Azza wrote it. Samtools view is used utilizing the @ flag to specify how many threads to be used for compression in addition to the one main thread
-
-How should we deal with this?
-
 Notes (after Feb 21st meeting with Luda and Galen)
 --------------------------------------------------
 1. Put logs in file next to align, realign, variants
