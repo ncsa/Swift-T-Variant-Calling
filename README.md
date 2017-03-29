@@ -106,12 +106,19 @@ In a nutshell, the template below shows the various parameters and how they can 
   SPLIT=<choose whether to split by chromosome or not> {YES|Yes|yes|Y|y or <Anything else> for No}
   PROCPERNODE=<Integer: how many processes should be ran on each node. Number of threads multi-threaded tools use = PBSCORES/PROCPERNODE>
 
+## choose the stages that will be executed
+  ALIGN_DEDUP_STAGE={Y|N}
+  CHR_SPLIT_STAGE={Y|N}
+  VC_STAGE={Y|N}
+  COMBINE_VARIANT_STAGE={Y|N}
+  JOINT_GENOTYPING_STAGE={Y|N}
+
 ## Read group information for the samples: namely, the Library, Platform technology, and sequencing center name. It should be noted that the sample ID, platform unit (PU) and sample name (SM) are set by default to be the same sample name found in the sampleinformation file specified
   SAMPLELB=<name of the library>
   SAMPLEPL=<should be either ILLUMINA, SOLID, LS454, HELICOS or PACBIO>
   SAMPLECN=<name of the sequencing center generating the reads>
 
-## The tools to be used in this run of the pipeline (where a selection can be made)
+## tools to be used
   ALIGNERTOOL=<the tool to be used for the alignment stage of the pipeline. Can be either BWAMEM or NOVOALIGN. Only the respective INDEX and PARAMS need to be specified in the next block of the runfile>
   MARKDUPLICATESTOOL=<the tool to be used for marking duplicates in the pipeline. Can be any of these: samblaster, novosort or PICARD>
 
