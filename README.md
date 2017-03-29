@@ -17,6 +17,8 @@ In its latest version, 3.6, the best practices include the stages:
 
 These stages are implemented in this pipeline, with an optional “Indel Realignment” step (which was recommended in previous GATK best practices &lt; 3.6). 
 
+**Figure 1**
+
 ![](./media/WorkflowOverview.png)
 
 |  **Step** |  **Resource Requirements**
@@ -27,6 +29,10 @@ These stages are implemented in this pipeline, with an optional “Indel Realign
 |  Combine Sample Variants | Nodes = Samples / (Processes per Node\*)
 
 \*Running 10 processes using 20 threads in series may actually be slower than running the 10 processes in pairs utilizing 10 threads each. In this instance, we would be defining "Processes per Node" = 2. Note that the optimal value for this may be different between aligners and variant callers, etc., because they almost certainly scale differently.
+
+**Figure 2: Program Structure**
+
+![](./media/ProgramStructure.png)
 
 
 Notes (as of Jan. 30th, 2017)
@@ -166,11 +172,11 @@ In a nutshell, the template below shows the various parameters and how they can 
 
 The code implementing the pipeline of Figure 1 above are all in the `VCcallingPipeline.swift` file. All supporting functions and modules have been defined in the directory named, `pipelinefunctions`.
 
-The results from a typical run of the pipeline are organized according to the hierarchy shown in Figure \[2\] below. Overall, the `DELIVERYFOLDER` contains the key summarizing files of the run (the cleaned up bams, gvcfs and final vcf from joint calling; in addition to the summary reports regarding the quality of the data, and copies of the `sampleinformation` and `runfile` files). Each sample also has its own directory that contains the files generated after each stage. In Figure \[2\], a color coding schema is employed to differentiate the files that would be generated according to how the user specifies the `ANALYSIS` parameter in the `runfile`. For the time being, there are not many ANALYSIS options available. Note the section named *Current limitations*
+The results from a typical run of the pipeline are organized according to the hierarchy shown in Figure \[3\] below. Overall, the `DELIVERYFOLDER` contains the key summarizing files of the run (the cleaned up bams, gvcfs and final vcf from joint calling; in addition to the summary reports regarding the quality of the data, and copies of the `sampleinformation` and `runfile` files). Each sample also has its own directory that contains the files generated after each stage. In Figure \[3\], a color coding schema is employed to differentiate the files that would be generated according to how the user specifies the `ANALYSIS` parameter in the `runfile`. For the time being, there are not many ANALYSIS options available. Note the section named *Current limitations*
 
 ![](./media/image04.png)
 
-Figure 2: Output directories and files generated from a typical run of
+Figure 3: Output directories and files generated from a typical run of
 the pipeline
 
 3 This Pipeline: its usage and limitations
