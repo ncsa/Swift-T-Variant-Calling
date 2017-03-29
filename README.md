@@ -1,8 +1,7 @@
 To-Do
 ------
-Add third option to execute variables: E, which stands for "End Here"
-Fix figure so it says VariantCalling.swift instead of Monolith.swift
-Fix the JointGenotyping bug
+* Add third option to execute variables: E, which stands for "End Here"
+* Fix the JointGenotyping bug
 
 1 Intended pipeline architecture and function
 ====================================
