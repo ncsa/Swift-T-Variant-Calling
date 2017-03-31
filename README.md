@@ -257,6 +257,9 @@ Solution: make sure that all tools are specified in your runfile up to the execu
 - The realignment/recalibration stage produces a lot of errors or strange results?
 Solution: make sure you are preparing your reference and extra files (dbsnp, 1000G,...etc) according to the guidelines of section 2.2
 
+- Things that should be running in parallel appear to be running sequencially
+Solution: make sure you are setting the -n flag to a value at least one more than PROCPERNODE * PBSNODES, as this allocates MPI processes for Swift/T itself to run
+
 - The job is killed as soon as BWA is called?
 Solution: make sure there is no space in front of BWAMEMPARAMS
 
