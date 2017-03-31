@@ -1,7 +1,10 @@
 To-Do
 ------
 * Add third option to execute variables: E, which stands for "End Here"
-* Fix the JointGenotyping bug
+* Fix the JointGenotyping bug (It appears that JointGenotyping doesn't wait for RealignRecalVC to finish before trying and failing)
+* At Align_only branching in VariantCalling.swift
+* Make sure that when a fatal error occurs (any point where the failLog is written to) the pipeline is killed there, as this will make it clear to the end user where the pipeline failed
+
 
 1 Intended pipeline architecture and function
 ====================================
@@ -229,8 +232,9 @@ The complete pipeline implementation is available in the Swift/T branch of this 
 To run the pipeline, a variant of the stripped-down one-line command below should be invoked:
 
  ```
-swift-t -n <PBSNODES * PROCPERNODE> -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=<runfile>
+swift-t -n <(PBSNODES * PROCPERNODE) + 1 or more > -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=<runfile>
 ```
+* Explanation of -n flag: The total number of workers one wants on a node is PROCPERNODE, which is multiplied by the number of nodes being utilized. However, the Turbine engine itself needs at least 1 process to manage all of the worker processes.
 
 
 where the runfile is a file containing the details of the run (programs choices and location within the machine, parameters for the programs, some PBS torque settings, output and sampleinformation file locations). (See section 2.3 for more details) 
@@ -252,6 +256,9 @@ Solution: make sure that all tools are specified in your runfile up to the execu
 
 - The realignment/recalibration stage produces a lot of errors or strange results?
 Solution: make sure you are preparing your reference and extra files (dbsnp, 1000G,...etc) according to the guidelines of section 2.2
+
+- Things that should be running in parallel appear to be running sequencially
+Solution: make sure you are setting the -n flag to a value at least one more than PROCPERNODE * PBSNODES, as this allocates MPI processes for Swift/T itself to run
 
 - The job is killed as soon as BWA is called?
 Solution: make sure there is no space in front of BWAMEMPARAMS
