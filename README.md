@@ -118,11 +118,11 @@ In a nutshell, the template below shows the various parameters and how they can 
   SPLIT=<choose whether to split by chromosome or not> {YES|Yes|yes|Y|y or <Anything else> for No}
   PROCPERNODE=<Integer: how many processes should be ran on each node. Number of threads multi-threaded tools use = PBSCORES/PROCPERNODE>
 
-## choose the stages that will be executed
-  ALIGN_DEDUP_STAGE={Y|N}
-  CHR_SPLIT_STAGE={Y|N}
-  VC_STAGE={Y|N}
-  COMBINE_VARIANT_STAGE={Y|N}
+## choose the stages that will be executed (E means the pipeline with stop after this stage is executed)
+  ALIGN_DEDUP_STAGE={Y|N|E}
+  CHR_SPLIT_STAGE={Y|N|E}
+  VC_STAGE={Y|N|E}
+  COMBINE_VARIANT_STAGE={Y|N|E}
   JOINT_GENOTYPING_STAGE={Y|N}
 
 ## Read group information for the samples: namely, the Library, Platform technology, and sequencing center name. It should be noted that the sample ID, platform unit (PU) and sample name (SM) are set by default to be the same sample name found in the sampleinformation file specified
