@@ -1,7 +1,7 @@
 To-Do
 ------
 * Add third option to execute variables: E, which stands for "End Here"
-* Fix the JointGenotyping bug
+* Fix the JointGenotyping bug (It appears that JointGenotyping doesn't wait for RealignRecalVC to finish before trying and failing)
 * At Align_only branching in VariantCalling.swift
 * Make sure that when a fatal error occurs (any point where the failLog is written to) the pipeline is killed there, as this will make it clear to the end user where the pipeline failed
 
