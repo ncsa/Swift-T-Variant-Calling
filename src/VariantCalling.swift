@@ -40,6 +40,7 @@ else {
 
 import string;
 import unix;
+import io;
 import files;
 
 import AlignAndDedup;
@@ -107,6 +108,8 @@ file docSampleInfo < strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLD
 // Align, sort, and dedup
 file alignDedupBams[] = alignDedupMain(sampleLines, variables, failureLog);
 
+printf(strcat("\n\n\n\n\n\n\n\nAlignDedupBam size: " + size(alignDedupBams) + "\n\n\n\n\n\n\n\n"));
+
 if (variables["SPLIT"] == "Yes" ||
     variables["SPLIT"] == "YES" ||
     variables["SPLIT"] == "yes" ||
@@ -128,6 +131,10 @@ if (variables["SPLIT"] == "Yes" ||
 else {
 	// Call variants for the aligned files
 	file VCF_list[] = VCNoSplitMain(variables, alignDedupBams, failureLog);
+
+	wait (VCF_list) {
+		printf(strcat("\n\n\n\n\n\n\n\nVCF_List size: " + size(VCF_list) + "\n\n\n\n\n\n\n\n"));
+	}
 
 	// Conduct joint genotyping between all samples
 	jointGenotypingMain(VCF_list, variables);

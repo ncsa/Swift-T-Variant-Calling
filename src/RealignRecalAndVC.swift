@@ -112,8 +112,8 @@ Realignment
 	int threads = string2int(var["PBSCORES"]) %/ string2int(var["PROCPERNODE"]);
 
 	// Log files												    
-	file targetLog < strcat(logPrefix, "_RealignTargetCreator.log") >;				 
-	file realignLog < strcat(logPrefix, "_IndelRealigner.log") >;
+	file targetLog < strcat(logPrefix, "RealignTargetCreator.log") >;				 
+	file realignLog < strcat(logPrefix, "IndelRealigner.log") >;
 
 	file intervals < strcat(prefix, ".realignTargetCreator.intervals") >;			   
 															
@@ -294,7 +294,7 @@ VariantCalling (for split chromosome path)
 			file gvcfVariants < strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/", sampleName,
 					   ".wDedups.sorted.recalibrated.g.vcf"
 					  ) >;
-			gvcfVariants = callVariants(vars, sampleName, recalibratedbam);
+			gvcfVariants = callVariants(vars, sampleName, recalibratedbam) =>
 			VCF_list[index] = gvcfVariants;
 		}
 		else {
@@ -370,7 +370,7 @@ VariantCalling (for split chromosome path)
 				file gvcfVariants < strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/",
 							   sampleName, ".wDedups.sorted.recalibrated.", chr, ".g.vcf"		       
 						 	  ) >;								  
-				gvcfVariants = callChrVariants(vars, sampleName, recalibratedbam, chr);
+				gvcfVariants = callChrVariants(vars, sampleName, recalibratedbam, chr) =>
 				VCF_list[sampleIndex][chrIndex] = gvcfVariants;
 			}
 			// If this stage of processing was skipped

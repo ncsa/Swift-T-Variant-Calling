@@ -59,11 +59,8 @@ jointGenotypingMain(file inputVCFs[], string vars[string]) {
 			variantSampleArray[namePos] = filename(sampleVCF);						  
 		}
 
-		printf(strcat("\n\n\n\n\n\n\nVariantSampleArray: ", size(variantSampleArray), "\n\n\n\n\n\n\n"));
-                printf(strcat("\n\n\n\n\n\n\nInputVCFs: ", size(inputVCFs), "\n\n\n\n\n\n\n"));
-
 		jointVCF, jointLog = GenotypeGVCFs(vars["JAVADIR"], vars["GATKDIR"], strcat(vars["REFGENOMEDIR"],
-						   "/", vars["REFGENOME"]), variantSampleArray
+						   "/", vars["REFGENOME"]), variantSampleArray, vars["PBSCORES"]
 						  );
 	}
 }
