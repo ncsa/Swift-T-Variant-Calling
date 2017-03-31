@@ -3,6 +3,7 @@ To-Do
 * Add third option to execute variables: E, which stands for "End Here"
 * Fix the JointGenotyping bug
 * Make sure that when a fatal error occurs (any point where the failLog is written to) the pipeline is killed there, as this will make it clear to the end user where the pipeline failed
+* Even when trying to run bwa on two samples in parallel on one node (20 cores on 1 node, 10 threads per bwa) they appear to still be running in series. Figure out what is going on. (Maybe we need to space the threads out)
 
 1 Intended pipeline architecture and function
 ====================================
