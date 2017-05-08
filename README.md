@@ -2,6 +2,7 @@ To-Do
 ------
 * Make sure that when a fatal error occurs (any point where the failLog is written to) the pipeline is killed there, as this will make it clear to the end user where the pipeline failed
 
+* Figure out how to make sure that two novosort runs are taking place simulataneously on a single node: novosort grabs a lot of memory, and will likely cause a memory allocation failure if multiple runs are together on a node.
 
 1 Intended pipeline architecture and function
 ====================================
