@@ -1,4 +1,8 @@
-November 2016
+To-Do
+------
+* Make sure that when a fatal error occurs (any point where the failLog is written to) the pipeline is killed there, as this will make it clear to the end user where the pipeline failed
+
+* DONE - just make sure novosort requests all the processors on a node: Figure out how to make sure that two novosort runs are taking place simulataneously on a single node: novosort grabs a lot of memory, and will likely cause a memory allocation failure if multiple runs are together on a node.
 
 1 Intended pipeline architecture and function
 ====================================
@@ -18,11 +22,33 @@ In its latest version, 3.6, the best practices include the stages:
 5.  Joint genotyping –----- (processing done for all samples together)
 
 These stages are implemented in this pipeline, with an optional “Indel Realignment” step (which was recommended in previous GATK best practices &lt; 3.6). 
-Under the hood, this pipeline splits and merges files at different stages to achieve optimal usage of resources. This parallelization of data processing is shown in Figure \[1\] below:
 
-![](./media/image01.png)
+**Figure 1**
 
-Figure 1: Pipeline details. Note: the processing can be split by individual sequences in the reference FASTA file, which could be individual chromosomes, scaffolds, contigs, etc.
+<img src=./media/WorkflowOverview.png width="600">
+
+|  **Step** |  **Resource Requirements**
+| --------------- | -------------------------
+|  Alignment and Deduplication | Nodes = Samples / (Processes per Node\*)
+|  Split by Chromosome/Contig  | Processes = Samples * Chromosomes<br>Nodes = Processes/ (Cores per Node)
+|  Realignment, Recalibration, and Variant Calling | Nodes = [Samples / (Processes per Node\*)] * Chromosomes
+|  Combine Sample Variants | Nodes = Samples / (Processes per Node\*)
+
+\*Running 10 processes using 20 threads in series may actually be slower than running the 10 processes in pairs utilizing 10 threads each. In this instance, we would be defining "Processes per Node" = 2. Note that the optimal value for this may be different between aligners and variant callers, etc., because they almost certainly scale differently.
+
+**Figure 2: Program Structure**
+
+Each Main function has two paths it can use to produce it's output:
+1. One path actually performs the computations of this stage of the pipeline
+2. The other skips the computations and just gathers the output of a prior execution of this stage. This is useful when one wants to jump into different sections of the pipeline, and also allows Swift/T's dependency driven execution to correctly string the stages together into one workflow.
+
+<img src="./media/ProgramStructure.png" width="600">
+
+Notes (after Feb 21st meeting with Luda and Galen)
+--------------------------------------------------
+1. Put logs in file next to align, realign, variants
+2. Wrap tool calls with beginning and end time and exit code checks
+3. Unix alias hack to put the sample id in front of the tool executable 
 
 2 Dependencies
 ==============
@@ -87,13 +113,22 @@ In a nutshell, the template below shows the various parameters and how they can 
 
 ## choose the run case
   ANALYSIS=<depending on the analysis type it can be {ANALYSIS=ALIGNMENT, or ANALYSIS=ALIGN or ANALYSIS=ALIGN\_ONLY} for alignment only, {ANALYSIS=VC\_WITH\_REALIGNMENT} for complete variant calling with realignment, or anything else for complete variant calling without realignment>
+  SPLIT=<choose whether to split by chromosome or not> {YES|Yes|yes|Y|y or <Anything else> for No}
+  PROCPERNODE=<Integer: how many processes should be ran on each node. Number of threads multi-threaded tools use = PBSCORES/PROCPERNODE>
+
+## choose the stages that will be executed (E means the pipeline with stop after this stage is executed)
+  ALIGN_DEDUP_STAGE={Y|N|E}
+  CHR_SPLIT_STAGE={Y|N|E}
+  VC_STAGE={Y|N|E}
+  COMBINE_VARIANT_STAGE={Y|N|E}
+  JOINT_GENOTYPING_STAGE={Y|N}
 
 ## Read group information for the samples: namely, the Library, Platform technology, and sequencing center name. It should be noted that the sample ID, platform unit (PU) and sample name (SM) are set by default to be the same sample name found in the sampleinformation file specified
   SAMPLELB=<name of the library>
   SAMPLEPL=<should be either ILLUMINA, SOLID, LS454, HELICOS or PACBIO>
   SAMPLECN=<name of the sequencing center generating the reads>
 
-## The tools to be used in this run of the pipeline (where a selection can be made)
+## tools to be used
   ALIGNERTOOL=<the tool to be used for the alignment stage of the pipeline. Can be either BWAMEM or NOVOALIGN. Only the respective INDEX and PARAMS need to be specified in the next block of the runfile>
   MARKDUPLICATESTOOL=<the tool to be used for marking duplicates in the pipeline. Can be any of these: samblaster, novosort or PICARD>
 
@@ -141,13 +176,13 @@ In a nutshell, the template below shows the various parameters and how they can 
 2.4 Repo index and outputs
 ---------------------------
 
-The code implementing the pipeline of Figure 1 above are all in the `VCcallingPipeline.swift` file. All supporting functions and modules have been defined in the directory named, `pipelinefunctions`. There are 2 sample runfiles provided here, `HgG0.lowcoverage*` for running the pipeline on my machine..
+The code implementing the pipeline of Figure 1 above are all in the `VCcallingPipeline.swift` file. All supporting functions and modules have been defined in the directory named, `pipelinefunctions`.
 
-The results from a typical run of the pipeline are organized according to the hierarchy shown in Figure \[2\] below. Overall, the `DELIVERYFOLDER` contains the key summarizing files of the run (the cleaned up bams, gvcfs and final vcf from joint calling; in addition to the summary reports regarding the quality of the data, and copies of the `sampleinformation` and `runfile` files). Each sample also has its own directory that contains the files generated after each stage. In Figure \[2\], a color coding schema is employed to differentiate the files that would be generated according to how the user specifies the `ANALYSIS` parameter in the `runfile`. For the time being, there are not many ANALYSIS options available. Note the section named *Current limitations*
+The results from a typical run of the pipeline are organized according to the hierarchy shown in Figure \[3\] below. Overall, the `DELIVERYFOLDER` contains the key summarizing files of the run (the cleaned up bams, gvcfs and final vcf from joint calling; in addition to the summary reports regarding the quality of the data, and copies of the `sampleinformation` and `runfile` files). Each sample also has its own directory that contains the files generated after each stage. In Figure \[3\], a color coding schema is employed to differentiate the files that would be generated according to how the user specifies the `ANALYSIS` parameter in the `runfile`. For the time being, there are not many ANALYSIS options available. Note the section named *Current limitations*
 
 ![](./media/image04.png)
 
-Figure 2: Output directories and files generated from a typical run of
+Figure 3: Output directories and files generated from a typical run of
 the pipeline
 
 3 This Pipeline: its usage and limitations
@@ -190,20 +225,15 @@ More on this, including other scheduler options are available on: http://swift-l
 3.3 Using this pipeline code:
 ------------------------------------------------
 
-The complete pipeline implementation is available in the Swift/T branch of this github repository: https://github.com/edrodri2/Swift-Variant-Calling/tree/Swift-T 
+The complete pipeline implementation is available in the Swift/T branch of this github repository: https://github.com/jacobrh91/Swift-T-Variant-Calling 
 
-To allow flexibility, cloning the repo is the optimal scenario, and here is a sample snippet:
+To run the pipeline, a variant of the stripped-down one-line command below should be invoked:
 
-```
-$ cd path/to/where/you/like/to/put/scripts
-$  git clone git@github.com:edrodri2/Swift-Variant-Calling.git -b Swift-T --single-branch
-```
-
-Now, to run the pipeline, a variant of the stripped-down one-line command below should be invoked:
-
-```
- swift-t -r $PWD/pipelinefunctions VCcallingPipeline.swift --runfile=<runfile name> 
  ```
+swift-t -n <(PBSNODES * PROCPERNODE) + 1 or more > -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=<runfile>
+```
+* Explanation of -n flag: The total number of workers one wants on a node is PROCPERNODE, which is multiplied by the number of nodes being utilized. However, the Turbine engine itself needs at least 1 process to manage all of the worker processes.
+
 
 where the runfile is a file containing the details of the run (programs choices and location within the machine, parameters for the programs, some PBS torque settings, output and sampleinformation file locations). (See section 2.3 for more details) 
 
@@ -225,7 +255,15 @@ Solution: make sure that all tools are specified in your runfile up to the execu
 - The realignment/recalibration stage produces a lot of errors or strange results?
 Solution: make sure you are preparing your reference and extra files (dbsnp, 1000G,...etc) according to the guidelines of section 2.2
 
+- Things that should be running in parallel appear to be running sequencially
+Solution: make sure you are setting the -n flag to a value at least one more than PROCPERNODE * PBSNODES, as this allocates MPI processes for Swift/T itself to run
+
+- The job is killed as soon as BWA is called?
+Solution: make sure there is no space in front of BWAMEMPARAMS
+
+DO-THIS:  BWAMEMPARAMS=-k 32 -I 300,30
+
+NOT-THIS: BWAMEMPARAMS= -k 32 -I 300,30
+
 - I'm not sure how to run on a cluster  that uses torque as a resource manager?
 Clusters are typically configured to kill head node jobs that run longer than a few minutes, to prevent users from hogging the head node. Therefore, you may qsub the initial job, the swift-t command with its set variables, and it will qsub everybody else from its compute node.
-
-(**Question** here: Then resources will be defined in: 1) the qsub header, 2) the turbine variables... am I right?)
