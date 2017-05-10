@@ -116,8 +116,7 @@ import generalfunctions.general;
 	// Because novosort needs a huge amount of memory, running multiple sorts on the same node often causes
 	//   memory allocation failures, the number of threads is not divided by the PROCPERNODE variable.
 	//   This should prevent multiple sorts to be going on simultaneously on a node
-	//int novosort_threads = string2int(vars["PBSCORES"]);
-	//int novosort_threads = 4;
+	int novosort_threads = string2int(vars["PBSCORES"]);
 
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
@@ -136,7 +135,7 @@ import generalfunctions.general;
 		
 		// Sort
 		dedupSortedBam, sortLog = novosort(vars["NOVOSORTDIR"], dedupbam, vars["TMPDIR"],
-						   threads, ["--compression", "1"]
+						   novosort_threads, ["--compression", "1"]
 						  );
 	}
 	else if (vars["MARKDUPLICATESTOOL"] == "PICARD") {
@@ -148,7 +147,7 @@ import generalfunctions.general;
 	
 		// Sort
 		alignedsortedbam, sortLog = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
-						     threads, []
+						     novosort_threads, []
 						    );
 		// Mark Duplicates
 		dedupSortedBam, picardLog, metricsfile = picard(vars["JAVADIR"], vars["PICARDDIR"],
@@ -160,7 +159,7 @@ import generalfunctions.general;
 
 		// Sort and Mark Duplicates in one step
 		dedupSortedBam, novoLog = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
-						   threads, ["--markDuplicates"]
+						   novosort_threads, ["--markDuplicates"]
 						  );
 	}
 }

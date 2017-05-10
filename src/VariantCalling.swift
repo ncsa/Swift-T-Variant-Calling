@@ -12,10 +12,11 @@ This monolithic script uses 'if-else' statements to determine whether or not to 
   However, since Swift-T will try to run everything automatically unless a dependency is detected and we already
   specified that each module will find its input files manually (see note directly above), the Swift-T compiler will
   not automatically wait for each stage to finish before going on to the next one.
-To counter this, we wrote the module pieces such that they return a boolean value upon completion and control the
-  data flow according to those return values.
+To counter this, we wrote the module pieces such that they return the necessary outputs (whether computed then or just
+  retrieved from the output of a previous run) upon completion and control the data flow according to those return
+  values.
 
-Runfile variables (Determine which stages will be ran):
+Runfile variables (Determine which stages will be run):
   ALIGN_DEDUP_STAGE
   CHR_SPLIT_STAGE
   VC_STAGE
@@ -97,8 +98,8 @@ file failureLog < strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLDER"
 file docRunfile < strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLDER"], "/docs/", basename_string(configFilename)
 			) > = configFile;
 
-file docSampleInfo < strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLDER"], "/docs/",				      
-			    basename_string(filename(sampleInfoFile))						      
+file docSampleInfo < strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLDER"], "/docs/",
+			    basename_string(filename(sampleInfoFile)) 
 			   ) > = sampleInfoFile;
 
 /*********************************************************************************************************************
@@ -108,34 +109,57 @@ file docSampleInfo < strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLD
 // Align, sort, and dedup
 file alignDedupBams[] = alignDedupMain(sampleLines, variables, failureLog);
 
-printf(strcat("\n\n\n\n\n\n\n\nAlignDedupBam size: " + size(alignDedupBams) + "\n\n\n\n\n\n\n\n"));
-
-if (variables["SPLIT"] == "Yes" ||
-    variables["SPLIT"] == "YES" ||
-    variables["SPLIT"] == "yes" ||
-    variables["SPLIT"] == "Y" ||
-    variables["SPLIT"] == "y"
+// Continue if the analysis is not align only
+if (variables["ANALYSIS"] != "ALIGN" &&
+    variables["ANALYSIS"] != "ALIGN_ONLY" &&
+    variables["ANALYSIS"] != "ALIGNMENT" &&
+    variables["ALIGN_DEDUP_STAGE"] != "E" &&
+    variables["ALIGN_DEDUP_STAGE"] != "End" &&
+    variables["ALIGN_DEDUP_STAGE"] != "end" 
    ) {
-	// Split aligned files by chromosome
-	file splitBams[][] =  splitByChrMain(alignDedupBams, variables, failureLog);
+	if (variables["SPLIT"] == "Yes" ||
+	    variables["SPLIT"] == "YES" ||
+	    variables["SPLIT"] == "yes" ||
+	    variables["SPLIT"] == "Y" ||
+	    variables["SPLIT"] == "y"
+	   ) {
+		// Split aligned files by chromosome
+		file splitBams[][] =  splitByChrMain(alignDedupBams, variables, failureLog);
 
-	// Calls variants for the aligned files that are split by chromosome
-	file splitVCFs[][] = VCSplitMain(variables, splitBams, failureLog);
+		if (variables["CHR_SPLIT_STAGE"] != "E" &&
+		    variables["CHR_SPLIT_STAGE"] != "End" &&
+		    variables["CHR_SPLIT_STAGE"] != "end"
+		   ) {
+			// Calls variants for the aligned files that are split by chromosome
+			file splitVCFs[][] = VCSplitMain(variables, splitBams, failureLog);
 
-	// Combine the variants for each sample
-	file VCF_list[] = combineVariantsMain(splitVCFs, variables, failureLog);
-	
-	// Conduct joint genotyping between all samples
-	jointGenotypingMain(VCF_list, variables);
-}
-else {
-	// Call variants for the aligned files
-	file VCF_list[] = VCNoSplitMain(variables, alignDedupBams, failureLog);
+			if (variables["VC_STAGE"] != "E" &&
+			    variables["VC_STAGE"] != "End" &&
+			    variables["VC_STAGE"] != "end"
+			   ) {
+				// Combine the variants for each sample
+				file VCF_list[] = combineVariantsMain(splitVCFs, variables, failureLog);
 
-	wait (VCF_list) {
-		printf(strcat("\n\n\n\n\n\n\n\nVCF_List size: " + size(VCF_list) + "\n\n\n\n\n\n\n\n"));
+				if (variables["COMBINE_VARIANT_STAGE"] != "E" &&
+				    variables["COMBINE_VARIANT_STAGE"] != "End" &&
+				    variables["COMBINE_VARIANT_STAGE"] != "end"
+				   ) {
+					// Conduct joint genotyping between all samples
+					jointGenotypingMain(VCF_list, variables);
+				}
+			}
+		}
 	}
+	else {
+		// Call variants for the aligned files
+		file VCF_list[] = VCNoSplitMain(variables, alignDedupBams, failureLog);
 
-	// Conduct joint genotyping between all samples
-	jointGenotypingMain(VCF_list, variables);
+		if (variables["VC_STAGE"] != "E" &&
+		    variables["VC_STAGE"] != "End" &&
+		    variables["VC_STAGE"] != "end"
+		   ) {
+			// Conduct joint genotyping between all samples
+			jointGenotypingMain(VCF_list, variables);
+		}
+	}
 }
