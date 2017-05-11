@@ -265,5 +265,18 @@ DO-THIS:  BWAMEMPARAMS=-k 32 -I 300,30
 
 NOT-THIS: BWAMEMPARAMS= -k 32 -I 300,30
 
+- If you see an error in the swift/t log that looks something like the following:
+Attempting to subscribe to non-existent subscript
+on a closed container:  <16>:variables[EXIT_ON_ERROR] (VariantCalling:69:0)
+	 in: xlb_data_container_reference()
+	 at: src/data.c:778
+ADLB_DATA_CHECK FAILED: src/adlb.c:1967
+CAUGHT ERROR:
+error: adlb::container_reference: <16> failed!
+
+Solution: there is a variable that the program requires in the runfile that is not present. In this example it is the variable called "EXIT_ON_ERROR"
+
+
+
 - I'm not sure how to run on a cluster  that uses torque as a resource manager?
 Clusters are typically configured to kill head node jobs that run longer than a few minutes, to prevent users from hogging the head node. Therefore, you may qsub the initial job, the swift-t command with its set variables, and it will qsub everybody else from its compute node.
