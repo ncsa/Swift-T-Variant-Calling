@@ -274,7 +274,8 @@ import generalfunctions.general;
 						string m = strcat("FAILURE: ", filename(dedupsortedbam),
 								  " failed the QC test: ", cutoff_info
 								 );
-						append(failLog, m);
+						append(failLog, m) =>
+						exitIfFlagGiven(vars, m);
 					}
 				}
 				// If the deduplication process fails, write a message to the failure log file
@@ -283,7 +284,8 @@ import generalfunctions.general;
 							     "Check the log files within ", LogDir, 
 							     sampleName, " for details.\n"
 							    );
-					append(failLog, mssg);
+					append(failLog, mssg) =>
+					exitIfFlagGiven(vars, mssg);
 				}
 			}
 			// If the alignment process fails, write a message to the failure log file
@@ -291,7 +293,8 @@ import generalfunctions.general;
 				string message = strcat("FAILURE: ", filename(alignedbam), " contains no alignments. ", 
 							"Check ", LogDir, sampleName, "_Alignment.log for details.\n"
 						       );
-				append(failLog, message);
+				append(failLog, message) =>
+				exitIfFlagGiven(vars, message);
 			}		
 		}
 		// If this STAGE is to be skipped
@@ -302,10 +305,11 @@ import generalfunctions.general;
 				outputBam[index] = input(outputFile);
 			}
 			else {
-				append(failLog, strcat("ERROR: ", outputFile, " not found. Did you set ",
-							  "ALIGN_DEDUP_STAGE to 'N' by accident?\n"
-						         )
-				       );
+				string message_string = strcat("ERROR: ", outputFile, " not found. Did you set ",
+							       "ALIGN_DEDUP_STAGE to 'N' by accident?\n"
+							      );
+				append(failLog, message_string) =>
+				exitIfFlagGiven(vars, message_string);
 			}
 		}
 	}

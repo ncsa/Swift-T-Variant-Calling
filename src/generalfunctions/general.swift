@@ -3,14 +3,36 @@
 import unix;
 import files;
 import string;
+import assert;
+
 import bioapps.align_dedup;
 
-append(file f, string s) {
-  string fName = filename(f);
-  string original = read(f);
-  string appended = strcat(original, s);
-  file newFile < fName >;
-  newFile = write(appended);
+(boolean signal) append(file f, string s) {
+	string fName = filename(f);
+	string original = read(f);
+	string appended = strcat(original, s);
+	file newFile < fName >;
+	newFile = write(appended) =>
+	signal = true;
+}
+
+exitIfFlagGiven(string vars[string], string message) {
+	// If user doesn't want to kill job if a sample fails
+	if (vars["EXIT_ON_ERROR"] == "F" ||
+	    vars["EXIT_ON_ERROR"] == "f" ||
+	    vars["EXIT_ON_ERROR"] == "False" ||
+	    vars["EXIT_ON_ERROR"] == "false" ||
+	    vars["EXIT_ON_ERROR"] == "FALSE" ||
+	    vars["EXIT_ON_ERROR"] == "N" ||
+	    vars["EXIT_ON_ERROR"] == "n" ||
+	    vars["EXIT_ON_ERROR"] == "No" ||
+	    vars["EXIT_ON_ERROR"] == "NO" ||
+	    vars["EXIT_ON_ERROR"] == "no"
+	   ) {
+		// Do nothing. The user elected to not kill upon failure
+	} else {
+		assert(false, message);
+	}
 }
 
 // Reading the runfile parameters:
