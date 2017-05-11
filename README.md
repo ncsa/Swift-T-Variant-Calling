@@ -276,7 +276,9 @@ error: adlb::container_reference: <16> failed!
 
 Solution: there is a variable that the program requires in the runfile that is not present. In this example it is the variable called "EXIT_ON_ERROR"
 
+- In the Swift/T log: you see something like " Swift: Assertion failed!: FAILURE: ..."
 
+This means that one of the samples in the workflow failed at some stage, and the EXIT_ON_ERROR option was set to abort upon finding any failure. While the swift/t log itself will show information about what caused the error, that information will also be written to the Failures.log
 
 - I'm not sure how to run on a cluster  that uses torque as a resource manager?
 Clusters are typically configured to kill head node jobs that run longer than a few minutes, to prevent users from hogging the head node. Therefore, you may qsub the initial job, the swift-t command with its set variables, and it will qsub everybody else from its compute node.
