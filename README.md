@@ -1,6 +1,6 @@
 To-Do
 ------
-* Make sure that when a fatal error occurs (any point where the failLog is written to) the pipeline is killed there, as this will make it clear to the end user where the pipeline failed (Fix written in the form of assert statements in the VariantCalling.swift script, but has not been tested yet
+* Make sure that when a fatal error occurs (any point where the failLog is written to) the pipeline is killed there, as this will make it clear to the end user where the pipeline failed (Fix written in the form of assert statements in the VariantCalling.swift script, but has not been tested yet)
 
 * Make sure novosort requests all the processors on a node: Figure out how to make sure that two novosort runs are taking place simulataneously on a single node: novosort grabs a lot of memory, and will likely cause a memory allocation failure if multiple runs are together on a node. We may need to figure out how to use the "location" library to make sure that these processes are guaranteed to not be put on the same node at the same time
 
