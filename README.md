@@ -1,9 +1,8 @@
 To-Do
 ------
-* Add check that makes sure that the arrays passed between the modules are not empty
-* Make sure that when a fatal error occurs (any point where the failLog is written to) the pipeline is killed there, as this will make it clear to the end user where the pipeline failed
+* Make sure that when a fatal error occurs (any point where the failLog is written to) the pipeline is killed there, as this will make it clear to the end user where the pipeline failed (Fix written in the form of assert statements in the VariantCalling.swift script, but has not been tested yet
 
-* DONE - just make sure novosort requests all the processors on a node: Figure out how to make sure that two novosort runs are taking place simulataneously on a single node: novosort grabs a lot of memory, and will likely cause a memory allocation failure if multiple runs are together on a node.
+* Make sure novosort requests all the processors on a node: Figure out how to make sure that two novosort runs are taking place simulataneously on a single node: novosort grabs a lot of memory, and will likely cause a memory allocation failure if multiple runs are together on a node. We may need to figure out how to use the "location" library to make sure that these processes are guaranteed to not be put on the same node at the same time
 
 1 Intended pipeline architecture and function
 ====================================
@@ -265,24 +264,6 @@ Solution: make sure there is no space in front of BWAMEMPARAMS
 DO-THIS:  BWAMEMPARAMS=-k 32 -I 300,30
 
 NOT-THIS: BWAMEMPARAMS= -k 32 -I 300,30
-
-- If you see an error in the swift/t log that looks something like the following:
-Attempting to subscribe to non-existent subscript
-on a closed container:  <16>:variables[EXIT_ON_ERROR] (VariantCalling:69:0)
-	 in: xlb_data_container_reference()
-	 at: src/data.c:778
-ADLB_DATA_CHECK FAILED: src/adlb.c:1967
-CAUGHT ERROR:
-error: adlb::container_reference: <16> failed!
-
-Solution: there is a variable that the program requires in the runfile that is not present. In this example it is the variable called "EXIT_ON_ERROR"
-
-- In the Swift/T log: you see something like " Swift: Assertion failed!: FAILURE: ..."
-
-This means that one of the samples in the workflow failed at some stage, and the EXIT_ON_ERROR option was set to abort upon finding any failure. While the swift/t log itself will show information about what caused the error, that information will also be written to the Failures.log
-
-- If an error message like " shell: Command failed with exit code: 256 ..."
-It is possible that all of your samples failed at the same step, and therefore nothing was passed to the next stage. Check the Failures.log
 
 - I'm not sure how to run on a cluster  that uses torque as a resource manager?
 Clusters are typically configured to kill head node jobs that run longer than a few minutes, to prevent users from hogging the head node. Therefore, you may qsub the initial job, the swift-t command with its set variables, and it will qsub everybody else from its compute node.
