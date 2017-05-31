@@ -1,3 +1,7 @@
+Note
+----
+In an effort to get swift to recognize multiple nodes, I'm now using the -m pbs option to launch the jobs, and giving the options passed to swift in a settings.sh file. However, to get the qsub swift creates to go to the right queue, I added the following line to '/usr/local/apps/bioapps/swift-t/swift-t-1.1/turbine/scripts/submit/pbs/turbine.pbs.m4'
+
 To-Do
 ------
 * Make sure that when a fatal error occurs (any point where the failLog is written to) the pipeline is killed there, as this will make it clear to the end user where the pipeline failed (Note: this solution sends the error to the Swift/T log and not the pipeline log
