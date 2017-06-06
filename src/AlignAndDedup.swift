@@ -74,7 +74,7 @@ import generalfunctions.general;
 /*********
  Alignment
 **********/
-(file outputSam) alignReads(string vars[string], string sampleName, string read1, string read2, string rgheader) {
+(file outputSam) alignReads(string vars[string], string sampleName, string reads[], string rgheader) {
 	/*
 	This function returns a .sam file because samblaster requires it
 	To minimize memory usage, delete the .sam file after a .bam file is made from it
@@ -86,18 +86,35 @@ import generalfunctions.general;
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	file alignedLog < strcat(LogDir, sampleName, "_Alignment.log") >;
  	
-	// Use the specified alignment tool
-	if (vars["ALIGNERTOOL"] == "BWAMEM") {
-		// Directly return the .sam file created from bwa_mem
-		outputSam, alignedLog = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], 
-				    [vars["BWAMEMPARAMS"]], threads, rgheader
-				   );
-	} 
-	else { // Novoalign is the default aligner
-		// Directly return the .sam file created from novoalign
-		outputSam, alignedLog = novoalign(vars["NOVOALIGNDIR"], read1, read2, vars["NOVOALIGNINDEX"],
-				      [vars["NOVOALIGNPARAMS"]], threads, rgheader
-				     );
+	if (vars["PAIRED"] == "1") {
+		// Use the specified alignment tool
+		if (vars["ALIGNERTOOL"] == "BWAMEM") {
+			// Directly return the .sam file created from bwa_mem
+			outputSam, alignedLog = bwa_mem(vars["BWADIR"], reads[0], reads[1], vars["BWAINDEX"], 
+					    [vars["BWAMEMPARAMS"]], threads, rgheader
+					   );
+		} 
+		else { // Novoalign is the default aligner
+			// Directly return the .sam file created from novoalign
+			outputSam, alignedLog = novoalign(vars["NOVOALIGNDIR"], reads[0], reads[1], vars["NOVOALIGNINDEX"],
+					      [vars["NOVOALIGNPARAMS"]], threads, rgheader
+					     );
+		}
+	}
+	else {
+		// Use the specified alignment tool
+		if (vars["ALIGNERTOOL"] == "BWAMEM") {
+			// Directly return the .sam file created from bwa_mem
+			outputSam, alignedLog = bwa_mem(vars["BWADIR"], reads[0], vars["BWAINDEX"],
+					    [vars["BWAMEMPARAMS"]], threads, rgheader
+					   );
+		}
+		else { // Novoalign is the default aligner								 
+			// Directly return the .sam file created from novoalign					    
+			outputSam, alignedLog = novoalign(vars["NOVOALIGNDIR"], reads[0], vars["NOVOALIGNINDEX"],
+					      [vars["NOVOALIGNPARAMS"]], threads, rgheader				 
+					     );									    
+		}
 	}
 }
 
@@ -172,9 +189,6 @@ import generalfunctions.general;
 		*****/
 		string sampleInfo[] = split(sample, " ");
 		string sampleName = sampleInfo[0];
-		string read1 = sampleInfo[1];
-		string read2 = sampleInfo[2];
-
 		string rgheader = sprintf("@RG\tID:%s\tLB:%s\tPL:%s\tPU:%s\tSM:%s\tCN:%s", sampleName,
 					  vars["SAMPLELB"], vars["SAMPLEPL"], sampleName, sampleName, vars["SAMPLECN"] 
 					 );
@@ -210,7 +224,18 @@ import generalfunctions.general;
 			/*****
 			Alignment
 			*****/
-			alignedsam = alignReads(vars, sampleName, read1, read2, rgheader);
+			if (vars["PAIRED"] == "1") {
+				string read1 = sampleInfo[1];
+				string read2 = sampleInfo[2];
+				string reads[] = [read1, read2];
+				alignedsam = alignReads(vars, sampleName, reads, rgheader);
+			}
+			else {
+				string read1 = sampleInfo[1];
+				string reads[] = [read1];
+				alignedsam = alignReads(vars, sampleName, reads, rgheader);
+			}
+
 			int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
 			alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, threads, ["-u"]);
 	

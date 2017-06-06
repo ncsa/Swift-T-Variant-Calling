@@ -5,8 +5,18 @@ app (file output, file outLog) bwa_mem (string bwadir, string read1, string read
 }
 
 @dispatch=WORKER
+app (file output, file outLog) bwa_mem (string bwadir, string read1, string INDEX, string bwamemparams[], int PBSCORES,  string rgheader){
+	bwadir "mem" "-M" bwamemparams "-t" PBSCORES "-R" rgheader INDEX read1 @stdout=output @stderr=outLog;
+}
+
+@dispatch=WORKER
 app (file output, file outLog) novoalign (string novoaligndir, string read1, string read2, string INDEX, string novoalignparams[], int PBSCORES, string rgheader) {
 	novoaligndir "-c" PBSCORES "-d" INDEX "-f" read1 read2 "-o" "SAM" rgheader @stdout=output @stderr=outLog; 
+}
+
+@dispatch=WORKER                                                                                                           
+app (file output, file outLog) novoalign (string novoaligndir, string read1, string INDEX, string novoalignparams[], int PBSCORES, string rgheader) {
+        novoaligndir "-c" PBSCORES "-d" INDEX "-f" read1 "-o" "SAM" rgheader @stdout=output @stderr=outLog;          
 }
 
 @dispatch=WORKER
@@ -42,7 +52,7 @@ app (file output, file outLog) novosort (string novosortdir, string inputFile[],
 }
 @dispatch=WORKER
 app (file outputfile, file outLog, file metricsfile) picard (string javadir, string picarddir, string tmpdir, file inputFile ){
-        javadir "-Xmx8g" "-jar" picarddir "MarkDuplicates" "INPUT=" inputFile "OUTPUT=" outputfile "METRICS_FILE=" metricsfile "TMP_DIR=" tmpdir "ASSUME_SORTED=true" "MAX_RECORDS_IN_RAM=null" "CREATE_INDEX=true" "VALIDATION_STRINGENCY=SILENT"@stderr=outLog;
+	javadir "-Xmx8g" "-jar" picarddir "MarkDuplicates" "INPUT=" inputFile "OUTPUT=" outputfile "METRICS_FILE=" metricsfile "TMP_DIR=" tmpdir "ASSUME_SORTED=true" "MAX_RECORDS_IN_RAM=null" "CREATE_INDEX=true" "VALIDATION_STRINGENCY=SILENT"@stderr=outLog;
 
 }
 
