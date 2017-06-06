@@ -62,7 +62,7 @@ import unix;
 import files;					      
 import string;					     
 import sys;						
-import io; 
+import io;
 
 import bioapps.align_dedup;
 import generalfunctions.general;
@@ -113,11 +113,6 @@ import generalfunctions.general;
 
 	int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
 
-	// Because novosort needs a huge amount of memory, running multiple sorts on the same node often causes
-	//   memory allocation failures, the number of threads is not divided by the PROCPERNODE variable.
-	//   This should prevent multiple sorts to be going on simultaneously on a node
-	int novosort_threads = string2int(vars["PBSCORES"]);
-
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
 
@@ -135,7 +130,7 @@ import generalfunctions.general;
 		
 		// Sort
 		dedupSortedBam, sortLog = novosort(vars["NOVOSORTDIR"], dedupbam, vars["TMPDIR"],
-						   novosort_threads, ["--compression", "1"]
+						   threads, ["--compression", "1"], string2int(vars["NOVOSORT_MEMLIMIT"])
 						  );
 	}
 	else if (vars["MARKDUPLICATESTOOL"] == "PICARD") {
@@ -147,20 +142,20 @@ import generalfunctions.general;
 	
 		// Sort
 		alignedsortedbam, sortLog = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
-						     novosort_threads, []
-						    );
+								    threads, [], string2int(vars["NOVOSORT_MEMLIMIT"])
+								   );
 		// Mark Duplicates
 		dedupSortedBam, picardLog, metricsfile = picard(vars["JAVADIR"], vars["PICARDDIR"],
 							 	vars["TMPDIR"], alignedsortedbam
-							       ); 
+							       );
 	}
 	else {	//Novosort is the default duplicate marker
 		file novoLog < strcat(LogDir, sampleName, "_NovosortDedup.log") >;
 
 		// Sort and Mark Duplicates in one step
 		dedupSortedBam, novoLog = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
-						   novosort_threads, ["--markDuplicates"]
-						  );
+							 	  threads, ["--markDuplicates"], string2int(vars["NOVOSORT_MEMLIMIT"])
+								 );
 	}
 }
 

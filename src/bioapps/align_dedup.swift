@@ -28,16 +28,16 @@ app (file output, file outLog) samblaster(string samblasterdir, file inputFile){
 }
 
 @dispatch=WORKER
-app (file output, file outLog) novosort (string novosortdir, file inputFile, string tmpdir, int thr, string sortoptions[]){
+app (file output, file outLog) novosort (string novosortdir, file inputFile, string tmpdir, int thr, string sortoptions[], int memFlag){
 	// processing a single file (sorting and indexing input)
-	novosortdir "--index" "--tmpdir" tmpdir "--threads" thr inputFile "-o" output sortoptions @stderr=outLog; 
+	novosortdir "--index" "-m" memFlag "--tmpdir" tmpdir "--threads" thr inputFile "-o" output sortoptions @stderr=outLog; 
 	// novosort has dual function to also mark duplicates
 }
 
 @dispatch=WORKER
-app (file output, file outLog) novosort (string novosortdir, string inputFile[], string tmpdir, int thr, string sortoptions[]){
+app (file output, file outLog) novosort (string novosortdir, string inputFile[], string tmpdir, int thr, string sortoptions[], int memFlag){
 	// processing multi-input files together (merging files)
-	novosortdir "--index" "--tmpdir" tmpdir "--threads" thr inputFile "-o" output @stderr=outLog; 
+	novosortdir "--index" "-m" memFlag "--tmpdir" tmpdir "--threads" thr inputFile "-o" output sortoptions @stderr=outLog; 
 	// novosort has dual function to also mark duplicates
 }
 @dispatch=WORKER
