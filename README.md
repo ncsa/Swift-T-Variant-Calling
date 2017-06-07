@@ -1,31 +1,21 @@
-Note
-----
-In an effort to get swift to recognize multiple nodes, I'm now using the -m pbs option to launch the jobs, and giving the options passed to swift in a settings.sh file. However, to get the qsub swift creates to go to the right queue, I added the following line to '/usr/local/apps/bioapps/swift-t/swift-t-1.1/turbine/scripts/submit/pbs/turbine.pbs.m4'
-
-To-Do
-------
-* Make sure that when a fatal error occurs (any point where the failLog is written to) the pipeline is killed there, as this will make it clear to the end user where the pipeline failed (Note: this solution sends the error to the Swift/T log and not the pipeline log
-
-* Make sure novosort requests all the processors on a node: Figure out how to make sure that two novosort runs are taking place simulataneously on a single node: novosort grabs a lot of memory, and will likely cause a memory allocation failure if multiple runs are together on a node. We may need to figure out how to use the "location" library to make sure that these processes are guaranteed to not be put on the same node at the same time. The pipeline works on multiple samples now when using multiple nodes, but only sometimes (the ranks are by chance not on the same node)
-
 1 Intended pipeline architecture and function
 ====================================
 
 This pipeline implements the [GATK's best practices](https://software.broadinstitute.org/gatk/best-practices/) for germline variant calling in Whole Genome and Whole Exome Next Generation Sequencing datasets, given a cohort of samples.
 
-In its latest version, 3.6, the best practices include the stages:
+This pipeline was disigned for GATK 3.X, which include the following stages:
 
-1.  Mapping to the reference genome
+1.  Map to the reference genome
 
-2.  Marking duplicates
+2.  Mark duplicates
 
-3.  Base recalibration (BQSR)
+3.  Perform indel realignment and/or base recalibration (BQSR)\*
 
-4.  Variant calling –----- (processing done per sample)
+4.  Call variants on each sample
 
-5.  Joint genotyping –----- (processing done for all samples together)
+5.  Perform joint genotyping
 
-These stages are implemented in this pipeline, with an optional “Indel Realignment” step (which was recommended in previous GATK best practices &lt; 3.6). 
+\* The indel realignment step was recommended in GATK best practices \< 3.6). 
 
 **Figure 1**
 
