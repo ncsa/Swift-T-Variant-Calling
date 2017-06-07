@@ -1,5 +1,6 @@
-1 Intended pipeline architecture and function
-====================================
+# Intro
+
+## Intended pipeline architecture and function
 
 This pipeline implements the [GATK's best practices](https://software.broadinstitute.org/gatk/best-practices/) for germline variant calling in Whole Genome and Whole Exome Next Generation Sequencing datasets, given a cohort of samples.
 
@@ -17,32 +18,63 @@ This pipeline was disigned for GATK 3.X, which include the following stages:
 
 \* The indel realignment step was recommended in GATK best practices \< 3.6). 
 
-**Figure 1**
+Additionally, this workflow provides the option to split the aligned reads by chromosome before calling variants, which often speeds up performance when analyzing WGS data. 
 
 <img src=./media/WorkflowOverview.png width="600">
 
-|  **Step** |  **Resource Requirements**
-| --------------- | -------------------------
-|  Alignment and Deduplication | Nodes = Samples / (Processes per Node\*)
-|  Split by Chromosome/Contig  | Processes = Samples * Chromosomes<br>Nodes = Processes/ (Cores per Node)
-|  Realignment, Recalibration, and Variant Calling | Nodes = [Samples / (Processes per Node\*)] * Chromosomes
-|  Combine Sample Variants | Nodes = Samples / (Processes per Node\*)
+**Figure 1** Overview of Workflow Design
 
-\*Running 10 processes using 20 threads in series may actually be slower than running the 10 processes in pairs utilizing 10 threads each. In this instance, we would be defining "Processes per Node" = 2. Note that the optimal value for this may be different between aligners and variant callers, etc., because they almost certainly scale differently.
+# Installation
+
+## Dependencies
+
+|  **Stage**          |  **Tool options**                                                             |
+| --------------------| ------------------------------------------------------------------------------|
+|  Alignment          | [Bwa mem](https://github.com/lh3/bwa) or [Novoalign](http://novocraft.com/)   |
+|  Sorting            | [Novosort](http://novocraft.com/)                                             |
+|  Marking Duplicates | [Samblaster](https://github.com/GregoryFaust/samblaster), [Novosort](http://novocraft.com/), or [Picard](https://broadinstitute.github.io/picard/)                                                    |
+|  Indel Realignment  | [GATK](https://software.broadinstitute.org/gatk/download/)                    |
+|  Base Recalibration | [GATK](https://software.broadinstitute.org/gatk/download/)                    |
+|  Variant Calling    | [GATK](https://software.broadinstitute.org/gatk/download/)                    |
+|  Joint Genotyping   | [GATK](https://software.broadinstitute.org/gatk/download/)                    |
+|  Miscellaneous      | [Samtools](http://samtools.github.io/)                                        |
+ 
+
+## Workflow Installation
+
+# User Guide
+
+## Runfile Options
+
+## Resource Requirements
+
+|  **Analysis Stage**                              |  **Resource Requirements**
+| ------------------------------------------------ | -------------------------
+|  Alignment and Deduplication                     | Nodes = Samples / (Processes per Node\*)
+|  Split by Chromosome/Contig                      | Processes = Samples * Chromosomes<br>Nodes = Processes/ (Cores per Node)
+|  Realignment, Recalibration, and Variant Calling | Nodes = [Samples / (Processes per Node\*)] * Chromosomes
+|  Combine Sample Variants                         | Nodes = Samples / (Processes per Node\*)
+** Table 1: Pipeline tools **
+
+
+
+\*Running 10 processes using 20 threads in series may actually be slower than running the 10 processes in pairs utilizing 10 threads each
+
+## Pipeline Interruptions and Continuations
+
+Because of the varying resource requirements at various stages of the pipeline, the workflow allows one to stop the pipeline at many stages and jump back in without having to recompute.
+
+This feature is controlled by the STAGE variables of the runfile.
+
+# Under The Hood
+
+<img src="./media/ProgramStructure.png" width="600">
 
 **Figure 2: Program Structure**
 
 Each Main function has two paths it can use to produce it's output:
 1. One path actually performs the computations of this stage of the pipeline
 2. The other skips the computations and just gathers the output of a prior execution of this stage. This is useful when one wants to jump into different sections of the pipeline, and also allows Swift/T's dependency driven execution to correctly string the stages together into one workflow.
-
-<img src="./media/ProgramStructure.png" width="600">
-
-Notes (after Feb 21st meeting with Luda and Galen)
---------------------------------------------------
-1. Put logs in file next to align, realign, variants
-2. Wrap tool calls with beginning and end time and exit code checks
-3. Unix alias hack to put the sample id in front of the tool executable 
 
 2 Dependencies
 ==============
@@ -54,19 +86,6 @@ The pipeline should implement the stages of Figure \[1\], while allowing differe
 
 Table 1: Pipeline tools
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-|  **Stage** |  **Tool options** |
-| --------------- | ------------------------- |
-|  Quality control |            [Fastqc](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)|
-|  Illumina reads trimming  |   [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)|
-|  Alignment |                  [Bwa mem](https://github.com/lh3/bwa), [Novoalign](http://novocraft.com/) |
-|  Marking duplicates  |        [Samblaster](https://github.com/GregoryFaust/samblaster), [Novosort](http://novocraft.com/),[Picard](https://broadinstitute.github.io/picard/) |
-|  Indel realignment  |         [GATK](https://software.broadinstitute.org/gatk/download/) |
-|  Base recalibration  |        [GATK](https://software.broadinstitute.org/gatk/download/) |
-|  Calling variants  |         GATK [HaplotypeCaller](https://www.broadinstitute.org/gatk/gatkdocs/org_broadinstitute_gatk_tools_walkers_haplotypecaller_HaplotypeCaller.php) |
-|  Joint calling of variants  | GATK ([GenotypeGVCFs](https://www.broadinstitute.org/gatk/gatkdocs/org_broadinstitute_gatk_tools_walkers_variantutils_GenotypeGVCFs.php) ) |
-|  Miscellaneous      |         [Samtools](http://samtools.github.io/).  Note: one alternative to samtools (and marking duplicates) is *sambamba*, but it is *not currently implemented* in the code.|
- 
 
 2.2 Data preparation
 ---------------------------
@@ -238,6 +257,13 @@ where the runfile is a file containing the details of the run (programs choices 
 export TURBINE_LOG=1 #Enable turbine logging
 swift-t -L log_file_name myswift.swift #Enable stc logging (compiler logging)
 ```
+**Figure 2: Program Structure**
+
+Each Main function has two paths it can use to produce it's output:
+1. One path actually performs the computations of this stage of the pipeline
+2. The other skips the computations and just gathers the output of a prior execution of this stage. This is useful when one wants to jump into different sections of the pipeline, and also allows Swift/T's dependency driven execution to correctly string the stages together into one workflow.
+
+<img src="./media/ProgramStructure.png" width="600">
 
 
 3 This Pipeline: Troubleshooting area (FAQs) 
