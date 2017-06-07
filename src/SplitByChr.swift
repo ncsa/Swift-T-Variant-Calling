@@ -113,7 +113,8 @@ import generalfunctions.general;
 						            "/docs/Failures.log")
 							   ),
 						     message
-					      );
+					      ) =>
+					exitIfFlagGiven(vars, message);
 				}
 				else {
 					/*
@@ -128,11 +129,11 @@ import generalfunctions.general;
 					outputBams[chrIndex][sampleIndex] = input(outputName);
 				} 
 				else {
-					append(failLog, strcat("ERROR: ", outputName, 
-							       " not found. Did you set CHR_SPLIT_STAGE to",   
-							       " 'N' by accident?\n"					    
-							      )
-				       );
+					string m = strcat("ERROR: ", outputName," not found. Did you set ",
+							  "CHR_SPLIT_STAGE to 'N' by accident?\n"
+							 );
+					append(failLog, m) =>
+					exitIfFlagGiven(vars, m);
 				}
 			}
 		}

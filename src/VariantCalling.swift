@@ -43,6 +43,7 @@ import string;
 import unix;
 import io;
 import files;
+import assert;
 
 import AlignAndDedup;
 import SplitByChr;
@@ -109,6 +110,10 @@ file docSampleInfo < strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLD
 // Align, sort, and dedup
 file alignDedupBams[] = alignDedupMain(sampleLines, variables, failureLog);
 
+assert(size(alignDedupBams) != 0,
+       "FAILURE: The align, sort, and dedup output array was empty: none of the samples finished properly"
+      );
+
 // Continue if the analysis is not align only
 if (variables["ANALYSIS"] != "ALIGN" &&
     variables["ANALYSIS"] != "ALIGN_ONLY" &&
@@ -122,7 +127,7 @@ if (variables["ANALYSIS"] != "ALIGN" &&
 	    variables["SPLIT"] == "yes" ||
 	    variables["SPLIT"] == "Y" ||
 	    variables["SPLIT"] == "y"
-	   ) {
+	   ) {	
 		// Split aligned files by chromosome
 		file splitBams[][] =  splitByChrMain(alignDedupBams, variables, failureLog);
 
@@ -130,6 +135,11 @@ if (variables["ANALYSIS"] != "ALIGN" &&
 		    variables["CHR_SPLIT_STAGE"] != "End" &&
 		    variables["CHR_SPLIT_STAGE"] != "end"
 		   ) {
+
+			assert(size(splitBams) != 0, strcat("FAILURE: The split bam out array was empty: ",
+							    "none of the samples were split properly"
+							   )
+			      );
 			// Calls variants for the aligned files that are split by chromosome
 			file splitVCFs[][] = VCSplitMain(variables, splitBams, failureLog);
 
@@ -137,6 +147,12 @@ if (variables["ANALYSIS"] != "ALIGN" &&
 			    variables["VC_STAGE"] != "End" &&
 			    variables["VC_STAGE"] != "end"
 			   ) {
+
+				assert(size(splitVCFs) != 0, strcat("FAILURE: The split variants array was empty: ",
+							       "none of the split bam files had their varianted called"
+							      )
+				      );
+
 				// Combine the variants for each sample
 				file VCF_list[] = combineVariantsMain(splitVCFs, variables, failureLog);
 
@@ -144,6 +160,9 @@ if (variables["ANALYSIS"] != "ALIGN" &&
 				    variables["COMBINE_VARIANT_STAGE"] != "End" &&
 				    variables["COMBINE_VARIANT_STAGE"] != "end"
 				   ) {
+
+					assert(size(VCF_list) != 0, "FAILURE: The VCFs array was empty");
+
 					// Conduct joint genotyping between all samples
 					jointGenotypingMain(VCF_list, variables);
 				}
@@ -158,6 +177,9 @@ if (variables["ANALYSIS"] != "ALIGN" &&
 		    variables["VC_STAGE"] != "End" &&
 		    variables["VC_STAGE"] != "end"
 		   ) {
+
+			assert(size(VCF_list) != 0, "FAILURE: The VCFs array was empty");
+
 			// Conduct joint genotyping between all samples
 			jointGenotypingMain(VCF_list, variables);
 		}

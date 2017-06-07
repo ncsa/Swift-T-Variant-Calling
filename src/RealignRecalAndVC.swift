@@ -311,10 +311,11 @@ VariantCalling (for split chromosome path)
 				VCF_list[index] = input(vcfLocation);
 			}
 			else {
-				append(failLog, strcat("ERROR: ", vcfLocation, " not found. Did you set VC_STAGE to",
-						       " 'N' by accident?\n"
-						      )
-				      );
+				string message = strcat("ERROR: ", vcfLocation, " not found. Did you set VC_STAGE to",
+							" 'N' by accident?\n"
+						       );
+				append(failLog, message) =>
+				exitIfFlagGiven(vars, message);
 			}
 		}
 	}
@@ -388,10 +389,11 @@ VariantCalling (for split chromosome path)
 					VCF_list[sampleIndex][chrIndex] = input(vcfFileLocation);
 				}
 				else {
-					append(failLog, strcat("ERROR: ", vcfFileLocation, " not found. Did you set ",
-							       "VC_STAGE to 'N' by accident?\n"
-							      )
-					      );
+					string m = strcat("ERROR: ", vcfFileLocation, " not found. Did you set ",
+							  "VC_STAGE to 'N' by accident?\n"
+							 );
+					append(failLog, m) =>
+					exitIfFlagGiven(vars, m);
 				}
 			}
 		}

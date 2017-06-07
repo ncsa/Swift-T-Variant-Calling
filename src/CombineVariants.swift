@@ -96,10 +96,11 @@ import bioapps.merge_vcf;
 				vcfOutfiles[sampleIndex] = input(outputName);
 			}
 			else {
-				append(failLog, strcat("ERROR: ", outputName, " not found. Did you set ", 
-						       "COMBINE_VARIANT_STAGE to 'N' by accident?\n"					    
-						      )								 
-				      );
+				string message = strcat("ERROR: ", outputName, " not found. Did you set ",
+							"COMBINE_VARIANT_STAGE to 'N' by accident?\n"
+						       );
+				append(failLog, message) =>
+				exitIfFlagGiven(vars, message);
 			}
 		}
 	}

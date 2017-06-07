@@ -62,7 +62,7 @@ import unix;
 import files;					      
 import string;					     
 import sys;						
-import io; 
+import io;
 
 import bioapps.align_dedup;
 import generalfunctions.general;
@@ -74,7 +74,7 @@ import generalfunctions.general;
 /*********
  Alignment
 **********/
-(file outputSam) alignReads(string vars[string], string sampleName, string read1, string read2, string rgheader) {
+(file outputSam) alignReads(string vars[string], string sampleName, string reads[], string rgheader) {
 	/*
 	This function returns a .sam file because samblaster requires it
 	To minimize memory usage, delete the .sam file after a .bam file is made from it
@@ -86,18 +86,35 @@ import generalfunctions.general;
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	file alignedLog < strcat(LogDir, sampleName, "_Alignment.log") >;
  	
-	// Use the specified alignment tool
-	if (vars["ALIGNERTOOL"] == "BWAMEM") {
-		// Directly return the .sam file created from bwa_mem
-		outputSam, alignedLog = bwa_mem(vars["BWADIR"], read1, read2, vars["BWAINDEX"], 
-				    [vars["BWAMEMPARAMS"]], threads, rgheader
-				   );
-	} 
-	else { // Novoalign is the default aligner
-		// Directly return the .sam file created from novoalign
-		outputSam, alignedLog = novoalign(vars["NOVOALIGNDIR"], read1, read2, vars["NOVOALIGNINDEX"],
-				      [vars["NOVOALIGNPARAMS"]], threads, rgheader
-				     );
+	if (vars["PAIRED"] == "1") {
+		// Use the specified alignment tool
+		if (vars["ALIGNERTOOL"] == "BWAMEM") {
+			// Directly return the .sam file created from bwa_mem
+			outputSam, alignedLog = bwa_mem(vars["BWADIR"], reads[0], reads[1], vars["BWAINDEX"], 
+					    [vars["BWAMEMPARAMS"]], threads, rgheader
+					   );
+		} 
+		else { // Novoalign is the default aligner
+			// Directly return the .sam file created from novoalign
+			outputSam, alignedLog = novoalign(vars["NOVOALIGNDIR"], reads[0], reads[1], vars["NOVOALIGNINDEX"],
+					      [vars["NOVOALIGNPARAMS"]], threads, rgheader
+					     );
+		}
+	}
+	else {
+		// Use the specified alignment tool
+		if (vars["ALIGNERTOOL"] == "BWAMEM") {
+			// Directly return the .sam file created from bwa_mem
+			outputSam, alignedLog = bwa_mem(vars["BWADIR"], reads[0], vars["BWAINDEX"],
+					    [vars["BWAMEMPARAMS"]], threads, rgheader
+					   );
+		}
+		else { // Novoalign is the default aligner								 
+			// Directly return the .sam file created from novoalign					    
+			outputSam, alignedLog = novoalign(vars["NOVOALIGNDIR"], reads[0], vars["NOVOALIGNINDEX"],
+					      [vars["NOVOALIGNPARAMS"]], threads, rgheader				 
+					     );									    
+		}
 	}
 }
 
@@ -112,11 +129,6 @@ import generalfunctions.general;
 	*/
 
 	int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
-
-	// Because novosort needs a huge amount of memory, running multiple sorts on the same node often causes
-	//   memory allocation failures, the number of threads is not divided by the PROCPERNODE variable.
-	//   This should prevent multiple sorts to be going on simultaneously on a node
-	int novosort_threads = string2int(vars["PBSCORES"]);
 
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
@@ -135,7 +147,7 @@ import generalfunctions.general;
 		
 		// Sort
 		dedupSortedBam, sortLog = novosort(vars["NOVOSORTDIR"], dedupbam, vars["TMPDIR"],
-						   novosort_threads, ["--compression", "1"]
+						   threads, ["--compression", "1"], string2int(vars["NOVOSORT_MEMLIMIT"])
 						  );
 	}
 	else if (vars["MARKDUPLICATESTOOL"] == "PICARD") {
@@ -147,20 +159,20 @@ import generalfunctions.general;
 	
 		// Sort
 		alignedsortedbam, sortLog = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
-						     novosort_threads, []
-						    );
+								    threads, [], string2int(vars["NOVOSORT_MEMLIMIT"])
+								   );
 		// Mark Duplicates
 		dedupSortedBam, picardLog, metricsfile = picard(vars["JAVADIR"], vars["PICARDDIR"],
 							 	vars["TMPDIR"], alignedsortedbam
-							       ); 
+							       );
 	}
 	else {	//Novosort is the default duplicate marker
 		file novoLog < strcat(LogDir, sampleName, "_NovosortDedup.log") >;
 
 		// Sort and Mark Duplicates in one step
 		dedupSortedBam, novoLog = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
-						   novosort_threads, ["--markDuplicates"]
-						  );
+							 	  threads, ["--markDuplicates"], string2int(vars["NOVOSORT_MEMLIMIT"])
+								 );
 	}
 }
 
@@ -177,9 +189,6 @@ import generalfunctions.general;
 		*****/
 		string sampleInfo[] = split(sample, " ");
 		string sampleName = sampleInfo[0];
-		string read1 = sampleInfo[1];
-		string read2 = sampleInfo[2];
-
 		string rgheader = sprintf("@RG\tID:%s\tLB:%s\tPL:%s\tPU:%s\tSM:%s\tCN:%s", sampleName,
 					  vars["SAMPLELB"], vars["SAMPLEPL"], sampleName, sampleName, vars["SAMPLECN"] 
 					 );
@@ -215,7 +224,18 @@ import generalfunctions.general;
 			/*****
 			Alignment
 			*****/
-			alignedsam = alignReads(vars, sampleName, read1, read2, rgheader);
+			if (vars["PAIRED"] == "1") {
+				string read1 = sampleInfo[1];
+				string read2 = sampleInfo[2];
+				string reads[] = [read1, read2];
+				alignedsam = alignReads(vars, sampleName, reads, rgheader);
+			}
+			else {
+				string read1 = sampleInfo[1];
+				string reads[] = [read1];
+				alignedsam = alignReads(vars, sampleName, reads, rgheader);
+			}
+
 			int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
 			alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, threads, ["-u"]);
 	
@@ -274,7 +294,8 @@ import generalfunctions.general;
 						string m = strcat("FAILURE: ", filename(dedupsortedbam),
 								  " failed the QC test: ", cutoff_info
 								 );
-						append(failLog, m);
+						append(failLog, m) =>
+						exitIfFlagGiven(vars, m);
 					}
 				}
 				// If the deduplication process fails, write a message to the failure log file
@@ -283,7 +304,8 @@ import generalfunctions.general;
 							     "Check the log files within ", LogDir, 
 							     sampleName, " for details.\n"
 							    );
-					append(failLog, mssg);
+					append(failLog, mssg) =>
+					exitIfFlagGiven(vars, mssg);
 				}
 			}
 			// If the alignment process fails, write a message to the failure log file
@@ -291,7 +313,8 @@ import generalfunctions.general;
 				string message = strcat("FAILURE: ", filename(alignedbam), " contains no alignments. ", 
 							"Check ", LogDir, sampleName, "_Alignment.log for details.\n"
 						       );
-				append(failLog, message);
+				append(failLog, message) =>
+				exitIfFlagGiven(vars, message);
 			}		
 		}
 		// If this STAGE is to be skipped
@@ -302,10 +325,11 @@ import generalfunctions.general;
 				outputBam[index] = input(outputFile);
 			}
 			else {
-				append(failLog, strcat("ERROR: ", outputFile, " not found. Did you set ",
-							  "ALIGN_DEDUP_STAGE to 'N' by accident?\n"
-						         )
-				       );
+				string message_string = strcat("ERROR: ", outputFile, " not found. Did you set ",
+							       "ALIGN_DEDUP_STAGE to 'N' by accident?\n"
+							      );
+				append(failLog, message_string) =>
+				exitIfFlagGiven(vars, message_string);
 			}
 		}
 	}
