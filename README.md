@@ -26,6 +26,8 @@ Additionally, this workflow provides the option to split the aligned reads by ch
 
 # Installation
 
+
+
 ## Dependencies
 
 |  **Stage**          |  **Tool options**                                                             |
@@ -42,9 +44,69 @@ Additionally, this workflow provides the option to split the aligned reads by ch
 
 ## Workflow Installation
 
+Clone this repository
+
 # User Guide
+The workflow is controlled by modifying the variables contained within a runfile.
+**TO-DO**: add a template runfile 
+
+From this file, one specifies how the workflow is ran
 
 ## Runfile Options
+
+### SAMPLEINFORMATION
+
+The file that contains the paths to each sample's reads
+
+Each sample is on its own line in the following form:
+* SampleName /path/to/read1.fq /path/to/read2.fq
+
+If analyzing single-end reads, the format is simply:
+* SampleName /path/to/read1.fq
+
+### OUTPUTDIR
+
+The path that will serve as the root of all of the output files generated from the pipeline See Figure XXXXXXXXXX)
+
+### DELIVERYFOLDER
+
+Name of the delivery folder (See Figure XXXXXXXX)
+
+### TMPDIR
+
+The path to where temporary files will be stored
+
+### ANALYSIS
+
+Set the type of analysis being conducted:
+
+| **Analysis**                          | **Setting**                           |
+| --------------------------------------|---------------------------------------|
+|  Alignment only                       | ALIGN, ALIGN_ONLY, or ALIGNMENT       |
+|  Variant Calling with Realignment     | VC_REALIGN                            |
+|  Variant Calling without Realignment  | \<Any other input\>                   |
+
+### SPLIT
+
+YES if one wants to split-by-chromosome before calling variants, NO if not.
+
+### PROCPERNODE
+
+This stands for processes per node.
+
+Sometimes it is more efficent to double (or even triple) up runs of an application on the same nodes using half of the available threads than letting one run of the application use all of them. This is because many applications only scale well up to a certain number of threads, and often this is less than the total number of cores available on a node.
+
+Under the hood, this variable simply controls how many threads each tool gets. If PBSCORES is set to 20 but PROCPERNODE is set to 2, each tool will use up to 10 threads. It is up to the user at runtime to be sure that the right number of processes are requested per node when calling Swift-T itself (See section XXXXXXXXXXXXXX), as this is what actually controls how processes are distributed.
+
+### EXIT_ON_ERROR
+
+If this is set to YES, the workflow will quit after a fatal error occurs in any of the samples.
+
+If set to NO, the workflow will let samples fail, and continue processing all of those that did not. The workflow will only stop if none of the samples remain after the failed ones are filtered out.
+
+This option is provided because for large sample sets one may expect a few of the input samples to be malformed in some way, and it may be acceptable to keep going if a few fail. However, exercise caution and monitor the Failures.log generated in the DELIVERYFOLDER/docs folder to gauge how many of the samples are failing.
+
+
 
 ## Resource Requirements
 
