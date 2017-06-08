@@ -96,7 +96,7 @@ import generalfunctions.general;
 				//   defines the number of additional threads
 				int threads = ( string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]) ) - 1;
 	
-				chrDedupSortedBam = samtools_view(vars["SAMTOOLSDIR"], bam,
+				chrDedupSortedBam = samtools_view(vars["SAMTOOLSEXE"], bam,
 								  threads, [strcat(chr)]
 								 );
 			

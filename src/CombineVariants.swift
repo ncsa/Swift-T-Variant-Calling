@@ -83,7 +83,7 @@ import bioapps.merge_vcf;
 						) >;	 
 	
 			gvcfSample, combineLog = CombineGVCFs(vars["JAVAEXE"],							     
-							      vars["GATKDIR"],							     
+							      vars["GATKJAR"],							     
 							      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),			
 							      strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),			    
 							      chrSampleArray							       

@@ -90,13 +90,13 @@ import generalfunctions.general;
 		// Use the specified alignment tool
 		if (vars["ALIGNERTOOL"] == "BWAMEM") {
 			// Directly return the .sam file created from bwa_mem
-			outputSam, alignedLog = bwa_mem(vars["BWADIR"], reads[0], reads[1], vars["BWAINDEX"], 
+			outputSam, alignedLog = bwa_mem(vars["BWAEXE"], reads[0], reads[1], vars["BWAINDEX"], 
 					    [vars["BWAMEMPARAMS"]], threads, rgheader
 					   );
 		} 
 		else { // Novoalign is the default aligner
 			// Directly return the .sam file created from novoalign
-			outputSam, alignedLog = novoalign(vars["NOVOALIGNDIR"], reads[0], reads[1], vars["NOVOALIGNINDEX"],
+			outputSam, alignedLog = novoalign(vars["NOVOALIGNEXE"], reads[0], reads[1], vars["NOVOALIGNINDEX"],
 					      [vars["NOVOALIGNPARAMS"]], threads, rgheader
 					     );
 		}
@@ -105,13 +105,13 @@ import generalfunctions.general;
 		// Use the specified alignment tool
 		if (vars["ALIGNERTOOL"] == "BWAMEM") {
 			// Directly return the .sam file created from bwa_mem
-			outputSam, alignedLog = bwa_mem(vars["BWADIR"], reads[0], vars["BWAINDEX"],
+			outputSam, alignedLog = bwa_mem(vars["BWAEXE"], reads[0], vars["BWAINDEX"],
 					    [vars["BWAMEMPARAMS"]], threads, rgheader
 					   );
 		}
 		else { // Novoalign is the default aligner								 
 			// Directly return the .sam file created from novoalign					    
-			outputSam, alignedLog = novoalign(vars["NOVOALIGNDIR"], reads[0], vars["NOVOALIGNINDEX"],
+			outputSam, alignedLog = novoalign(vars["NOVOALIGNEXE"], reads[0], vars["NOVOALIGNINDEX"],
 					      [vars["NOVOALIGNPARAMS"]], threads, rgheader				 
 					     );									    
 		}
@@ -140,13 +140,13 @@ import generalfunctions.general;
 		file sortLog < strcat(LogDir, sampleName, "_Sort.log") >;       	
 
 		// Mark Duplicates
-		dedupsam, samLog = samblaster(vars["SAMBLASTERDIR"], alignedSam);
-		dedupbam = samtools_view(vars["SAMTOOLSDIR"], dedupsam, threads, ["-u"]);
+		dedupsam, samLog = samblaster(vars["SAMBLASTEREXE"], alignedSam);
+		dedupbam = samtools_view(vars["SAMTOOLSEXE"], dedupsam, threads, ["-u"]);
 		// Delete the dedupsam file once dedupbam has been created
 		rm(dedupsam);
 		
 		// Sort
-		dedupSortedBam, sortLog = novosort(vars["NOVOSORTDIR"], dedupbam, vars["TMPDIR"],
+		dedupSortedBam, sortLog = novosort(vars["NOVOSORTEXE"], dedupbam, vars["TMPDIR"],
 						   threads, ["--compression", "1"], string2int(vars["NOVOSORT_MEMLIMIT"])
 						  );
 	}
@@ -158,11 +158,11 @@ import generalfunctions.general;
 		file sortLog < strcat(LogDir, sampleName, "_Sort.log") >;
 	
 		// Sort
-		alignedsortedbam, sortLog = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
+		alignedsortedbam, sortLog = novosort(vars["NOVOSORTEXE"], alignedBam, vars["TMPDIR"],
 								    threads, [], string2int(vars["NOVOSORT_MEMLIMIT"])
 								   );
 		// Mark Duplicates
-		dedupSortedBam, picardLog, metricsfile = picard(vars["JAVAEXE"], vars["PICARDDIR"],
+		dedupSortedBam, picardLog, metricsfile = picard(vars["JAVAEXE"], vars["PICARDJAR"],
 							 	vars["TMPDIR"], alignedsortedbam
 							       );
 	}
@@ -170,7 +170,7 @@ import generalfunctions.general;
 		file novoLog < strcat(LogDir, sampleName, "_NovosortDedup.log") >;
 
 		// Sort and Mark Duplicates in one step
-		dedupSortedBam, novoLog = novosort(vars["NOVOSORTDIR"], alignedBam, vars["TMPDIR"],
+		dedupSortedBam, novoLog = novosort(vars["NOVOSORTEXE"], alignedBam, vars["TMPDIR"],
 							 	  threads, ["--markDuplicates"], string2int(vars["NOVOSORT_MEMLIMIT"])
 								 );
 	}
@@ -237,7 +237,7 @@ import generalfunctions.general;
 			}
 
 			int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
-			alignedbam = samtools_view(vars["SAMTOOLSDIR"], alignedsam, threads, ["-u"]);
+			alignedbam = samtools_view(vars["SAMTOOLSEXE"], alignedsam, threads, ["-u"]);
 	
 			// Verify alignment was successful
 			if ( checkBam(vars, alignedbam) ) {
@@ -261,7 +261,7 @@ import generalfunctions.general;
 	
 					file flagstats < strcat(AlignDir, sampleName, ".wDedups.sorted.bam", ".flagstats") >;
 	
-					flagstats = samtools_flagstat(vars["SAMTOOLSDIR"], dedupsortedbam);
+					flagstats = samtools_flagstat(vars["SAMTOOLSEXE"], dedupsortedbam);
 	
 					string stat[] = file_lines(flagstats);
 					tot_mapped =  split(stat[4], " ")[0];

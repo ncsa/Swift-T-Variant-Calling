@@ -8,10 +8,10 @@ app (void signal) samtools_index(string samtoolsdir, file inputFilename) {
 }
 
 @dispatch=WORKER
-app (file outputfile, file outLog) RealignerTargetCreator (string javaexe, string gatkexe, string reference,
+app (file outputfile, file outLog) RealignerTargetCreator (string javaexe, string gatkjar, string reference,
    file inputFile, int thr, string known[]
   ) {
-	javaexe "-Xmx8g" "-jar" gatkexe
+	javaexe "-Xmx8g" "-jar" gatkjar
 	"-T" "RealignerTargetCreator"
 	"-R" reference
 	"-I" inputFile known
@@ -21,10 +21,10 @@ app (file outputfile, file outLog) RealignerTargetCreator (string javaexe, strin
 }
 
 @dispatch=WORKER
-app (file outputfile, file outLog) IndelRealigner (string javaexe, string gatkexe, string reference,
+app (file outputfile, file outLog) IndelRealigner (string javaexe, string gatkjar, string reference,
 				   file inputFile, string known[], file intervals
 				  ) {
-	javaexe "-Xmx8g" "-jar" gatkexe
+	javaexe "-Xmx8g" "-jar" gatkjar
 	"-T" "IndelRealigner"
 	"-R" reference
 	"-I" inputFile known 
@@ -34,10 +34,10 @@ app (file outputfile, file outLog) IndelRealigner (string javaexe, string gatkex
 }
 
 @dispatch=WORKER
-app (file outputfile, file outLog) BaseRecalibrator (string javaexe, string gatkexe, string reference,
+app (file outputfile, file outLog) BaseRecalibrator (string javaexe, string gatkjar, string reference,
 				     file inputFile, int thr, string knownindels[], string dbsnp
 				    ) {
-	javaexe "-Xmx16g" "-jar" gatkexe
+	javaexe "-Xmx16g" "-jar" gatkjar
 	"-T" "BaseRecalibrator"
 	"-R" reference
 	"-I" inputFile
@@ -48,10 +48,10 @@ app (file outputfile, file outLog) BaseRecalibrator (string javaexe, string gatk
 }
 
 @dispatch=WORKER
-app (file outputfile, file outLog) PrintReads (string javaexe, string gatkexe, string reference,
+app (file outputfile, file outLog) PrintReads (string javaexe, string gatkjar, string reference,
 			       file inputFile, int thr, file recalreport
 			      ) {
-	javaexe "-Xmx16g" "-jar" gatkexe
+	javaexe "-Xmx16g" "-jar" gatkjar
 	"-T" "PrintReads"
 	"-R" reference
 	"-I" inputFile
@@ -64,10 +64,10 @@ app (file outputfile, file outLog) PrintReads (string javaexe, string gatkexe, s
 
 // The chromosome splitting version
 @dispatch=WORKER
-app (file outputfile, file outLog) HaplotypeCaller(string javaexe, string gatkexe, string reference,
+app (file outputfile, file outLog) HaplotypeCaller(string javaexe, string gatkjar, string reference,
 						   file inputFile, string dbsnp, int thr, int ploidy, string chr
 						  ) {
-	javaexe "-Xmx8g" "-jar" gatkexe
+	javaexe "-Xmx8g" "-jar" gatkjar
 	"-T" "HaplotypeCaller"
 	"-R" reference
 	"-I" inputFile
@@ -94,10 +94,10 @@ app (file outputfile, file outLog) HaplotypeCaller(string javaexe, string gatkex
 
 // The whole genome version
 @dispatch=WORKER	   
-app (file outputfile, file outLog) HaplotypeCaller(string javaexe, string gatkexe, string reference,      
+app (file outputfile, file outLog) HaplotypeCaller(string javaexe, string gatkjar, string reference,      
 						   file inputFile, string dbsnp, int thr	  
 						  ) {			     
-	javaexe "-Xmx8g" "-jar" gatkexe			    
+	javaexe "-Xmx8g" "-jar" gatkjar			    
 	"-T" "HaplotypeCaller"				     
 	"-R" reference     
 	"-I" inputFile     

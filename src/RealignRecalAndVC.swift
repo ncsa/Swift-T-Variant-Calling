@@ -118,11 +118,11 @@ Realignment
 	file intervals < strcat(prefix, ".realignTargetCreator.intervals") >;			   
 															
 	// The inputBam should be indexed before this function is called						
-	intervals, targetLog = RealignerTargetCreator(var["JAVAEXE"], var["GATKDIR"],				 
+	intervals, targetLog = RealignerTargetCreator(var["JAVAEXE"], var["GATKJAR"],				 
 					   strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]),			
 					   inputBam, threads, realparms			    
 					  );									    
-	realignedbam, realignLog = IndelRealigner(var["JAVAEXE"], var["GATKDIR"],				     
+	realignedbam, realignLog = IndelRealigner(var["JAVAEXE"], var["GATKJAR"],				     
 				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]),			     
 				      inputBam, realparms, intervals						    
 				     );										 
@@ -152,12 +152,12 @@ Recalibration
 	file report < strcat(prefix, "recal_report.grp") >;
 
 	// The inputBam should be indexed before this function is called
-	report, recalLog = BaseRecalibrator(var["JAVAEXE"], var["GATKDIR"],
+	report, recalLog = BaseRecalibrator(var["JAVAEXE"], var["GATKJAR"],
 				       strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
 				       threads, recalparmsindels,
 				       strcat(var["REFGENOMEDIR"], "/", var["DBSNP"])
 				      );
-	outBam, printLog = PrintReads(var["JAVAEXE"], var["GATKDIR"],
+	outBam, printLog = PrintReads(var["JAVAEXE"], var["GATKJAR"],
 				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
 				      threads, report
 				     );
@@ -185,7 +185,7 @@ Recalibration
 		file realignedbam < strcat(prefix, ".realigned.bam") >;
 
 		// Wait for index to get created before moving on						
-		samtools_index(var["SAMTOOLSDIR"], inputBam) =>						 
+		samtools_index(var["SAMTOOLSEXE"], inputBam) =>						 
 		realignedbam = realignBam(sampleName, chr, var, realparms, inputBam);				    
 		recalibratedbam = recalibrateBam(sampleName, chr, var, realignedbam, recalparmsindels);		 
 	}												       
@@ -195,7 +195,7 @@ Recalibration
 		*****/
 
 		// Wait for index to get created before moving on						
-		samtools_index(var["SAMTOOLSDIR"], inputBam) =>						 
+		samtools_index(var["SAMTOOLSEXE"], inputBam) =>						 
 		recalibratedbam = recalibrateBam(sampleName, chr, var, inputBam, recalparmsindels);		      
 	}
 }
@@ -216,7 +216,7 @@ VariantCalling (for split chromosome path)
 	// Log file
 	file haploLog < strcat(LogDir, sampleName, ".", chr, "_HaplotypeCaller.log") >;
 
-	outVCF, haploLog = HaplotypeCaller(vars["JAVAEXE"], vars["GATKDIR"],	     
+	outVCF, haploLog = HaplotypeCaller(vars["JAVAEXE"], vars["GATKJAR"],	     
 					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),   
 					   inputBam,					
 					   strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),       
@@ -237,7 +237,7 @@ VariantCalling (for split chromosome path)
 	file haploLog < strcat(LogDir, sampleName, "_HaplotypeCaller.log") >;
 
 	outVCF, haploLog = HaplotypeCaller(vars["JAVAEXE"],
-					   vars["GATKDIR"],
+					   vars["GATKJAR"],
 					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
 					   inputBam,
 					   strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),
