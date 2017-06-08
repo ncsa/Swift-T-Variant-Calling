@@ -197,16 +197,6 @@ Each Main function has two paths it can use to produce it's output:
 1. One path actually performs the computations of this stage of the pipeline
 2. The other skips the computations and just gathers the output of a prior execution of this stage. This is useful when one wants to jump into different sections of the pipeline, and also allows Swift/T's dependency driven execution to correctly string the stages together into one workflow.
 
-2 Dependencies
-==============
-
-2.1 Software tools
-------------------
-
-The pipeline should implement the stages of Figure \[1\], while allowing different software tools at some of the stages depending on user's preference. These are as shown in table \[1\] below, and it is assumed that users would specify the full path to each of them in their runfile as shown in section 2.3.
-
-Table 1: Pipeline tools
-
 
 2.2 Data preparation
 ---------------------------
@@ -378,13 +368,6 @@ where the runfile is a file containing the details of the run (programs choices 
 export TURBINE_LOG=1 #Enable turbine logging
 swift-t -L log_file_name myswift.swift #Enable stc logging (compiler logging)
 ```
-**Figure 2: Program Structure**
-
-Each Main function has two paths it can use to produce it's output:
-1. One path actually performs the computations of this stage of the pipeline
-2. The other skips the computations and just gathers the output of a prior execution of this stage. This is useful when one wants to jump into different sections of the pipeline, and also allows Swift/T's dependency driven execution to correctly string the stages together into one workflow.
-
-<img src="./media/ProgramStructure.png" width="600">
 
 
 3 This Pipeline: Troubleshooting area (FAQs) 
