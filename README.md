@@ -51,106 +51,104 @@ From this file, one specifies how the workflow is ran
 
 ## Runfile Options
 
-**SAMPLEINFORMATION**
+**`SAMPLEINFORMATION`**
 
 The file that contains the paths to each sample's reads
 
-Each sample is on its own line in the following form:
-* SampleName /path/to/read1.fq /path/to/read2.fq
+Each sample is on its own line in the form: `SampleName /path/to/read1.fq /path/to/read2.fq`
 
-If analyzing single-end reads, the format is simply:
-* SampleName /path/to/read1.fq
+If analyzing single-end reads, the format is simply: `SampleName /path/to/read1.fq`
 
-**OUTPUTDIR** The path that will serve as the root of all of the output files generated from the pipeline (See Figure XXXXXXXXXX)
+**`OUTPUTDIR`** The path that will serve as the root of all of the output files generated from the pipeline (See Figure XXXXXXXXXX)
 
-**DELIVERYFOLDER** Name of the delivery folder (See Figure XXXXXXXX)
+**`DELIVERYFOLDER`** Name of the delivery folder (See Figure XXXXXXXX)
 
-**TMPDIR** The path to where temporary files will be stored
+**`TMPDIR`** The path to where temporary files will be stored
 
-**ANALYSIS**
+**`ANALYSIS`**
 
 Set the type of analysis being conducted:
 
 | **Analysis**                          | **Setting**                           |
 | --------------------------------------|---------------------------------------|
-|  Alignment only                       | ALIGN, ALIGN_ONLY, or ALIGNMENT       |
-|  Variant Calling with Realignment     | VC_REALIGN                            |
-|  Variant Calling without Realignment  | \<Any other input\>                   |
+|  Alignment only                       | `ALIGN`, `ALIGN_ONLY`, or `ALIGNMENT` |
+|  Variant Calling with Realignment     | `VC_REALIGN`                          |
+|  Variant Calling without Realignment  | \<Any other non-empty string\>        |
 
-**SPLIT** YES if one wants to split-by-chromosome before calling variants, NO if not.
+**`SPLIT`** YES if one wants to split-by-chromosome before calling variants, NO if not.
 
-**PROCPERNODE**
+**`PROCPERNODE`**
 
 This stands for processes per node.
 
 Sometimes it is more efficent to double (or even triple) up runs of an application on the same nodes using half of the available threads than letting one run of the application use all of them. This is because many applications only scale well up to a certain number of threads, and often this is less than the total number of cores available on a node.
 
-Under the hood, this variable simply controls how many threads each tool gets. If PBSCORES is set to 20 but PROCPERNODE is set to 2, each tool will use up to 10 threads. It is up to the user at runtime to be sure that the right number of processes are requested per node when calling Swift-T itself (See section XXXXXXXXXXXXXX), as this is what actually controls how processes are distributed.
+Under the hood, this variable simply controls how many threads each tool gets. If `PBSCORES` is set to 20 but `PROCPERNODE` is set to 2, each tool will use up to 10 threads. It is up to the user at runtime to be sure that the right number of processes are requested per node when calling Swift-T itself (See section XXXXXXXXXXXXXX), as this is what actually controls how processes are distributed.
 
-**EXIT_ON_ERROR**
+**`EXIT_ON_ERROR`**
 
-If this is set to YES, the workflow will quit after a fatal error occurs in any of the samples.
+If this is set to `YES`, the workflow will quit after a fatal error occurs in any of the samples.
 
-If set to NO, the workflow will let samples fail, and continue processing all of those that did not. The workflow will only stop if none of the samples remain after the failed ones are filtered out.
+If set to `NO`, the workflow will let samples fail, and continue processing all of those that did not. The workflow will only stop if none of the samples remain after the failed ones are filtered out.
 
-This option is provided because for large sample sets one may expect a few of the input samples to be malformed in some way, and it may be acceptable to keep going if a few fail. However, exercise caution and monitor the Failures.log generated in the DELIVERYFOLDER/docs folder to gauge how many of the samples are failing.
+This option is provided because for large sample sets one may expect a few of the input samples to be malformed in some way, and it may be acceptable to keep going if a few fail. However, exercise caution and monitor the `Failures.log` generated in the `DELIVERYFOLDER/docs` folder to gauge how many of the samples are failing.
 
-**ALIGN_DEDUP_STAGE; CHR_SPLIT_STAGE; VC_STAGE; COMBINE_VARIANT_STAGE; JOINT_GENOTYPING_STAGE**
+**`ALIGN_DEDUP_STAGE`; `CHR_SPLIT_STAGE`; `VC_STAGE`; `COMBINE_VARIANT_STAGE`; `JOINT_GENOTYPING_STAGE`**
 
 These variables control whether each stage is ran or skipped (only stages that were successfully run previously can be skipped, as the "skipped" option simply looks for the output files that were generated from a previous run.)
 
-Each of these stage variables can be set to "Y" or "N". In addition, all but the last stage can be set to "End", which will stop the pipeline after that stage has been executed (think of the "End" setting as shorthand for "End after this stage")
+Each of these stage variables can be set to `Y` or `N`. In addition, all but the last stage can be set to `End`, which will stop the pipeline after that stage has been executed (think of the `End` setting as shorthand for "End after this stage")
 
 See the **Pipeline Interruptions and Continuations** Section for more details.
 
 **ALIGNERTOOL; MARKDUPLICATESTOOL**
 
-| **Process**     | **Setting**                     |
-| ----------------|---------------------------------|
-| Alignment       | BWAMEM or NOVOALIGN             |              
-| Mark Duplicates | SAMBLASTER, PICARD, or NOVOSORT |
+| **Process**     | **Setting**                           |
+| ----------------|---------------------------------------|
+| Alignment       | `BWAMEM` or `NOVOALIGN`               |              
+| Mark Duplicates | `SAMBLASTER`, `PICARD`, or `NOVOSORT` |
 
-**BWAINDEX; NOVOALIGNINDEX** Depending on the tool being used, one of these variables specify the location of the index file
+**`BWAINDEX`; `NOVOALIGNINDEX`** Depending on the tool being used, one of these variables specify the location of the index file
 
-**BWAMEMPARAMS; NOVOALIGNPARAMS**
+**`BWAMEMPARAMS`; `NOVOALIGNPARAMS`**
 
 This string is passed directly as arguments to the tool as (an) argument(s)
 
-Example, BWAMEMPARAMS=-k 32 -I 300,30
+Example, `BWAMEMPARAMS=-k 32 -I 300,30`
 
 Note: Do not set the thread count, as this flag is taken care of by the workflow itself
 
-**NOVOSORT_MEMLIMIT**
+**`NOVOSORT_MEMLIMIT`**
 
 Novosort is a tool that used a lot of RAM. If doubling up novosort runs on the same node, this may need to be reduced to avoid an OutOfMemory Error.
 
-This is set in bytes, so if you want to limit novosort to using 30 Gb, one would set it to NOVOSORT_MEMLIMIT=30000000000
+This is set in bytes, so if you want to limit novosort to using 30 GB, one would set it to `NOVOSORT_MEMLIMIT=30000000000`
 
-**MAP_CUTOFF** The minimum percentage of reads that were successfully mapped in a successful alignment
+**`MAP_CUTOFF`** The minimum percentage of reads that were successfully mapped in a successful alignment
 
-**DUP_CUTOFF** The maximum percentage of reads that are marked as duplicates in a successful sample
+**`DUP_CUTOFF`** The maximum percentage of reads that are marked as duplicates in a successful sample
 
-**REFGENOMEDIR** Directory in which the reference genome resides
+**`REFGENOMEDIR`** Directory in which the reference genome resides
 
-**REFGENOME** Name of the reference genome (name only, not full path)
+**`REFGENOME`** Name of the reference genome (name only, not full path)
 
-**DBSNP** Name of the dbsnp vcf file (name only, path should be that of the REFGENOMEDIR
+**`DBSNP`** Name of the dbsnp vcf file (name only, path should be that of the REFGENOMEDIR
 
-**INDELDIR** Directory that contains the indel variant files used in the recalibration step
+**`INDELDIR`** Directory that contains the indel variant files used in the recalibration step
 
-**OMNI** \< Insert explanation here \> Not currently used in workflow
+**`OMNI`** \< Insert explanation here \> Not currently used in workflow
 
-**JAVAEXE; BWAEXE; SAMBLASTEREXE; SAMTOOLSEXE; NOVOALIGNEXE; NOVOSORTEXE**
+**`JAVAEXE`; `BWAEXE`; `SAMBLASTEREXE`; `SAMTOOLSEXE`; `NOVOALIGNEXE`; `NOVOSORTEXE`**
 
 Full path of the appropriate executable file
 
-**PICARDJAR; GATKJAR**
+**`PICARDJAR`; `GATKJAR`**
 
 Full path of the appropriate jar file
 
 ## How to Run the Pipeline
 
-
+TO-DO
 
 ## Data preparation
 
