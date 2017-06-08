@@ -80,7 +80,7 @@ import generalfunctions.general;
 	To minimize memory usage, delete the .sam file after a .bam file is made from it
 	*/
 
-	int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
+	int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
 
 	// Log file
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
@@ -128,7 +128,7 @@ import generalfunctions.general;
 		alignedBam => Picard or Novosort
 	*/
 
-	int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
+	int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
 
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
@@ -236,7 +236,7 @@ import generalfunctions.general;
 				alignedsam = alignReads(vars, sampleName, reads, rgheader);
 			}
 
-			int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
+			int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
 			alignedbam = samtools_view(vars["SAMTOOLSEXE"], alignedsam, threads, ["-u"]);
 	
 			// Verify alignment was successful

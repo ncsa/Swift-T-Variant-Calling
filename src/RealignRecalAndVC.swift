@@ -109,7 +109,7 @@ Realignment
 	string prefix = replace(prePrefix, "..", ".", 0);
 	string logPrefix = replace(preLogPrefix, "..", ".", 0);
 
-	int threads = string2int(var["PBSCORES"]) %/ string2int(var["PROCPERNODE"]);
+	int threads = string2int(var["CORES"]) %/ string2int(var["PROCPERNODE"]);
 
 	// Log files												    
 	file targetLog < strcat(logPrefix, "RealignTargetCreator.log") >;				 
@@ -144,7 +144,7 @@ Recalibration
 	string prefix = replace(prePrefix, "..", ".", 0);
 	string logPrefix = replace(preLogPrefix, "..", ".", 0);
 
-	int threads = string2int(var["PBSCORES"]) %/ string2int(var["PROCPERNODE"]);
+	int threads = string2int(var["CORES"]) %/ string2int(var["PROCPERNODE"]);
 
 	// Log files
 	file recalLog < strcat(logPrefix, "_BaseRecalibrator.log") >;
@@ -205,7 +205,7 @@ VariantCalling (for split chromosome path)
 *******************************************/
 (file outVCF) callChrVariants(string vars[string], string sampleName, file inputBam, string chr) {
 
-	int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
+	int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
 
 	int ploidy;
 	if ( chr == "M" || chr == "chrM" ) { ploidy = 1; }
@@ -229,7 +229,7 @@ VariantCalling (for split chromosome path)
 ***********************************************/
 (file outVCF) callVariants(string vars[string], string sampleName, file inputBam) {
 
-	int threads = string2int(vars["PBSCORES"]) %/ string2int(vars["PROCPERNODE"]);
+	int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
 
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 
