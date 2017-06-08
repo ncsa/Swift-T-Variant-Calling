@@ -99,6 +99,8 @@ This option is provided because for large sample sets one may expect a few of th
 
 These variables control whether each stage is ran or skipped (only stages that were successfully run previously can be skipped, as the "skipped" option simply looks for the output files that were generated from a previous run.)
 
+Each of these stage variables can be set to "Y" or "N". In addition, all but the last stage can be set to "End", which will stop the pipeline after that stage has been executed (think of the "End" setting as shorthand for "End after this stage")
+
 See the **Pipeline Interruptions and Continuations** Section for more details.
 
 **ALIGNERTOOL; MARKDUPLICATESTOOL**
@@ -146,6 +148,10 @@ Full path of the appropriate executable file
 
 Full path of the appropriate jar file
 
+## How to Run the Pipeline
+
+
+
 ## Data preparation
 
 For this pipeline to work, a number of standard files for calling variants are needed (besides the raw reads files which can be fastq/fq/fastq.gz/fq.gz), namely these are the reference sequence and database of known variants (Please see this [link](https://software.broadinstitute.org/gatk/guide/article?id=1247)). Further, the full path to all these needs to be specified in the User’s runfile as specified in section 2.3
@@ -173,9 +179,43 @@ If working with the GATK bundle, the sample script ([*splitVCF-by-chromosome.sh*
 
 ## Pipeline Interruptions and Continuations
 
+### Background
+
 Because of the varying resource requirements at various stages of the pipeline, the workflow allows one to stop the pipeline at many stages and jump back in without having to recompute.
 
-This feature is controlled by the STAGE variables of the runfile.
+This feature is controlled by the STAGE variables of the runfile. At each stage, the variable can be set to "Y" if it should be computed, and "N" if that stage was completed on a previous execution of the workflow. If "N" is selected, the program will simply gather the output that should have been generated from a previous run and pass it to the next stage.
+
+In addition, one can set each stage but the final one to "End", which will stop the pipeline after that stage has been executed. It makes sense to think of "End" and being shorthand for "End after this stage".
+
+### Example
+
+If splitting by chromosome, it may make sense to request different resources at different times.
+
+One may want to execute only the first two stages of the workflow with # Nodes = # Samples. For this step, one would use these settings:
+
+ * ALIGN_DEDUP_STAGE=Y
+ * CHR_SPLIT_STAGE=End         # This will be the last stage that is executed
+ * VC_STAGE=End
+ * COMBINE_VARIANT_STAGE=N
+ * JOINT_GENOTYPING_STAGE=N
+
+Then for the variant calling step, where the optimal resource requirements may be something like # Nodes = (# Samples \* # Chromosomes), one could alter the job submission script to request more resources, then use these settings:
+
+ * ALIGN_DEDUP_STAGE=N
+ * CHR_SPLIT_STAGE=N
+ * VC_STAGE=End                # Only this stage will be executed
+ * COMBINE_VARIANT_STAGE=N
+ * JOINT_GENOTYPING_STAGE=N
+
+Finally, for the last two stages, where it makes sense to set # Nodes = # Samples again, one could alter the submission script again and use these settings:
+
+ * ALIGN_DEDUP_STAGE=N
+ * CHR_SPLIT_STAGE=N
+ * VC_STAGE=N
+ * COMBINE_VARIANT_STAGE=Y
+ * JOINT_GENOTYPING_STAGE=Y
+
+This feature was designed to allow a more efficient use of computational resources.
 
 # Under The Hood
 
