@@ -163,9 +163,9 @@ Directory that contains the indel variant files used in the recalibration step
 
 **OMNI**
 
-<<<<<<< Insert explanation here >>>>>>>>> Not currently used in workflow
+\< Insert explanation here \> Not currently used in workflow
 
-**JAVAEXE; BWAEXE; SAMBLASTEREXE; SAMTOOLSEXE; NOVOALIGNEXE; NOVOSORTEXE **
+**JAVAEXE; BWAEXE; SAMBLASTEREXE; SAMTOOLSEXE; NOVOALIGNEXE; NOVOSORTEXE**
 
 Full path of the appropriate executable file
 
