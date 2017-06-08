@@ -106,26 +106,26 @@ If set to NO, the workflow will let samples fail, and continue processing all of
 
 This option is provided because for large sample sets one may expect a few of the input samples to be malformed in some way, and it may be acceptable to keep going if a few fail. However, exercise caution and monitor the Failures.log generated in the DELIVERYFOLDER/docs folder to gauge how many of the samples are failing.
 
-**ALIGN_DEDUP_STAGE, CHR_SPLIT_STAGE, VC_STAGE, COMBINE_VARIANT_STAGE, JOINT_GENOTYPING_STAGE**
+**ALIGN_DEDUP_STAGE; CHR_SPLIT_STAGE; VC_STAGE; COMBINE_VARIANT_STAGE; JOINT_GENOTYPING_STAGE**
 
 These variables control whether each stage is ran or skipped (only stages that were successfully run previously can be skipped, as the "skipped" option simply looks for the output files that were generated from a previous run.)
 
 See the **Pipeline Interruptions and Continuations** Section for more details.
 
-**ALIGNERTOOL and MARKDUPLICATESTOOL**
+**ALIGNERTOOL; MARKDUPLICATESTOOL**
 
 | **Process**     | **Setting**                     |
 | ----------------|---------------------------------|
 | Alignment       | BWAMEM or NOVOALIGN             |              
 | Mark Duplicates | SAMBLASTER, PICARD, or NOVOSORT |
 
-**BWAINDEX or NOVOALIGNINDEX**
+**BWAINDEX; NOVOALIGNINDEX**
 
 Depending on the tool being used, one of these variables specify the location of the index file
 
-**BWAMEMPARAMS or NOVOALIGNPARAMS**
+**BWAMEMPARAMS; NOVOALIGNPARAMS**
 
-If using BWA mem, this string is passed directly as arguments to the tool as (an) argument(s)
+This string is passed directly as arguments to the tool as (an) argument(s)
 
 Example, BWAMEMPARAMS=-k 32 -I 300,30
 
@@ -165,8 +165,13 @@ Directory that contains the indel variant files used in the recalibration step
 
 <<<<<<< Insert explanation here >>>>>>>>> Not currently used in workflow
 
+**JAVAEXE; BWAEXE; SAMBLASTEREXE; SAMTOOLSEXE; NOVOALIGNEXE; NOVOSORTEXE **
 
+Full path of the appropriate executable file
 
+**PICARDJAR; GATKJAR**
+
+Full path of the appropriate jar file
 
 ## Resource Requirements
 
