@@ -66,7 +66,7 @@ app (void v) rm(file f) {
 (boolean success) checkBam(string vars[string], file bamFile) {						       
 	// Swift/T would try to use samtools_view2 even before bamFile is read. Added explicit wait command		
 	wait (bamFile) {
-		int alignNum = samtools_view2(vars["SAMTOOLSDIR"], filename(bamFile));				
+		int alignNum = samtools_view2(vars["SAMTOOLSEXE"], filename(bamFile));				
 		success = alignNum > 0;										    
 	}
 } 
