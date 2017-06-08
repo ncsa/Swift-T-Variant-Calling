@@ -26,8 +26,6 @@ Additionally, this workflow provides the option to split the aligned reads by ch
 
 # Installation
 
-
-
 ## Dependencies
 
 |  **Stage**          |  **Tool options**                                                             |
@@ -41,7 +39,6 @@ Additionally, this workflow provides the option to split the aligned reads by ch
 |  Joint Genotyping   | [GATK](https://software.broadinstitute.org/gatk/download/)                    |
 |  Miscellaneous      | [Samtools](http://samtools.github.io/)                                        |
  
-
 ## Workflow Installation
 
 Clone this repository
@@ -119,9 +116,7 @@ See the **Pipeline Interruptions and Continuations** Section for more details.
 | Alignment       | BWAMEM or NOVOALIGN             |              
 | Mark Duplicates | SAMBLASTER, PICARD, or NOVOSORT |
 
-**BWAINDEX; NOVOALIGNINDEX**
-
-Depending on the tool being used, one of these variables specify the location of the index file
+**BWAINDEX; NOVOALIGNINDEX** Depending on the tool being used, one of these variables specify the location of the index file
 
 **BWAMEMPARAMS; NOVOALIGNPARAMS**
 
@@ -137,33 +132,19 @@ Novosort is a tool that used a lot of RAM. If doubling up novosort runs on the s
 
 This is set in bytes, so if you want to limit novosort to using 30 Gb, one would set it to NOVOSORT_MEMLIMIT=30000000000
 
-**MAP_CUTOFF**
+**MAP_CUTOFF** The minimum percentage of reads that were successfully mapped in a successful alignment
 
-The minimum percentage of reads that were successfully mapped in a successful alignment
+**DUP_CUTOFF** The maximum percentage of reads that are marked as duplicates in a successful sample
 
-**DUP_CUTOFF**
+**REFGENOMEDIR** Directory in which the reference genome resides
 
-The maximum percentage of reads that are marked as duplicates in a successful sample
+**REFGENOME** Name of the reference genome (name only, not full path)
 
-**REFGENOMEDIR**
+**DBSNP** Name of the dbsnp vcf file (name only, path should be that of the REFGENOMEDIR
 
-Directory in which the reference genome resides
+**INDELDIR** Directory that contains the indel variant files used in the recalibration step
 
-**REFGENOME**
-
-Name of the reference genome (name only, not full path)
-
-**DBSNP**
-
-Name of the dbsnp vcf file (name only, path should be that of the REFGENOMEDIR
-
-**INDELDIR**
-
-Directory that contains the indel variant files used in the recalibration step
-
-**OMNI**
-
-\< Insert explanation here \> Not currently used in workflow
+**OMNI** \< Insert explanation here \> Not currently used in workflow
 
 **JAVAEXE; BWAEXE; SAMBLASTEREXE; SAMTOOLSEXE; NOVOALIGNEXE; NOVOSORTEXE**
 
