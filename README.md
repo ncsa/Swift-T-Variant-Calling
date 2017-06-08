@@ -61,7 +61,7 @@ Each sample is on its own line in the following form:
 If analyzing single-end reads, the format is simply:
 * SampleName /path/to/read1.fq
 
-**OUTPUTDIR** The path that will serve as the root of all of the output files generated from the pipeline See Figure XXXXXXXXXX)
+**OUTPUTDIR** The path that will serve as the root of all of the output files generated from the pipeline (See Figure XXXXXXXXXX)
 
 **DELIVERYFOLDER** Name of the delivery folder (See Figure XXXXXXXX)
 
