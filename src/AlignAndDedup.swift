@@ -162,7 +162,7 @@ import generalfunctions.general;
 								    threads, [], string2int(vars["NOVOSORT_MEMLIMIT"])
 								   );
 		// Mark Duplicates
-		dedupSortedBam, picardLog, metricsfile = picard(vars["JAVADIR"], vars["PICARDDIR"],
+		dedupSortedBam, picardLog, metricsfile = picard(vars["JAVAEXE"], vars["PICARDDIR"],
 							 	vars["TMPDIR"], alignedsortedbam
 							       );
 	}

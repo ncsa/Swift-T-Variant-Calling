@@ -59,7 +59,7 @@ jointGenotypingMain(file inputVCFs[], string vars[string]) {
 			variantSampleArray[namePos] = filename(sampleVCF);						  
 		}
 
-		jointVCF, jointLog = GenotypeGVCFs(vars["JAVADIR"], vars["GATKDIR"], strcat(vars["REFGENOMEDIR"],
+		jointVCF, jointLog = GenotypeGVCFs(vars["JAVAEXE"], vars["GATKDIR"], strcat(vars["REFGENOMEDIR"],
 						   "/", vars["REFGENOME"]), variantSampleArray, vars["PBSCORES"]
 						  );
 	}

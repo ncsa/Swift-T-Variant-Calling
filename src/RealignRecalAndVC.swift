@@ -118,11 +118,11 @@ Realignment
 	file intervals < strcat(prefix, ".realignTargetCreator.intervals") >;			   
 															
 	// The inputBam should be indexed before this function is called						
-	intervals, targetLog = RealignerTargetCreator(var["JAVADIR"], var["GATKDIR"],				 
+	intervals, targetLog = RealignerTargetCreator(var["JAVAEXE"], var["GATKDIR"],				 
 					   strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]),			
 					   inputBam, threads, realparms			    
 					  );									    
-	realignedbam, realignLog = IndelRealigner(var["JAVADIR"], var["GATKDIR"],				     
+	realignedbam, realignLog = IndelRealigner(var["JAVAEXE"], var["GATKDIR"],				     
 				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]),			     
 				      inputBam, realparms, intervals						    
 				     );										 
@@ -152,12 +152,12 @@ Recalibration
 	file report < strcat(prefix, "recal_report.grp") >;
 
 	// The inputBam should be indexed before this function is called
-	report, recalLog = BaseRecalibrator(var["JAVADIR"], var["GATKDIR"],
+	report, recalLog = BaseRecalibrator(var["JAVAEXE"], var["GATKDIR"],
 				       strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
 				       threads, recalparmsindels,
 				       strcat(var["REFGENOMEDIR"], "/", var["DBSNP"])
 				      );
-	outBam, printLog = PrintReads(var["JAVADIR"], var["GATKDIR"],
+	outBam, printLog = PrintReads(var["JAVAEXE"], var["GATKDIR"],
 				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
 				      threads, report
 				     );
@@ -216,7 +216,7 @@ VariantCalling (for split chromosome path)
 	// Log file
 	file haploLog < strcat(LogDir, sampleName, ".", chr, "_HaplotypeCaller.log") >;
 
-	outVCF, haploLog = HaplotypeCaller(vars["JAVADIR"], vars["GATKDIR"],	     
+	outVCF, haploLog = HaplotypeCaller(vars["JAVAEXE"], vars["GATKDIR"],	     
 					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),   
 					   inputBam,					
 					   strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),       
@@ -236,7 +236,7 @@ VariantCalling (for split chromosome path)
 	// Log file
 	file haploLog < strcat(LogDir, sampleName, "_HaplotypeCaller.log") >;
 
-	outVCF, haploLog = HaplotypeCaller(vars["JAVADIR"],
+	outVCF, haploLog = HaplotypeCaller(vars["JAVAEXE"],
 					   vars["GATKDIR"],
 					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
 					   inputBam,

@@ -82,7 +82,7 @@ import bioapps.merge_vcf;
 						 "/logs/", sampleName, "_CombineGVCFs.log"
 						) >;	 
 	
-			gvcfSample, combineLog = CombineGVCFs(vars["JAVADIR"],							     
+			gvcfSample, combineLog = CombineGVCFs(vars["JAVAEXE"],							     
 							      vars["GATKDIR"],							     
 							      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),			
 							      strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),			    
