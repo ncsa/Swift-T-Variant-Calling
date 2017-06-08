@@ -61,17 +61,11 @@ Each sample is on its own line in the following form:
 If analyzing single-end reads, the format is simply:
 * SampleName /path/to/read1.fq
 
-**OUTPUTDIR**
+**OUTPUTDIR** The path that will serve as the root of all of the output files generated from the pipeline See Figure XXXXXXXXXX)
 
-The path that will serve as the root of all of the output files generated from the pipeline See Figure XXXXXXXXXX)
+**DELIVERYFOLDER** Name of the delivery folder (See Figure XXXXXXXX)
 
-**DELIVERYFOLDER**
-
-Name of the delivery folder (See Figure XXXXXXXX)
-
-**TMPDIR**
-
-The path to where temporary files will be stored
+**TMPDIR** The path to where temporary files will be stored
 
 **ANALYSIS**
 
@@ -83,9 +77,7 @@ Set the type of analysis being conducted:
 |  Variant Calling with Realignment     | VC_REALIGN                            |
 |  Variant Calling without Realignment  | \<Any other input\>                   |
 
-**SPLIT**
-
-YES if one wants to split-by-chromosome before calling variants, NO if not.
+**SPLIT** YES if one wants to split-by-chromosome before calling variants, NO if not.
 
 **PROCPERNODE**
 
