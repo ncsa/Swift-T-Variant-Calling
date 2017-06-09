@@ -7,13 +7,9 @@ This pipeline implements the [GATK's best practices](https://software.broadinsti
 This pipeline was disigned for GATK 3.X, which include the following stages:
 
 1.  Map to the reference genome
-
 2.  Mark duplicates
-
 3.  Perform indel realignment and/or base recalibration (BQSR)\*
-
 4.  Call variants on each sample
-
 5.  Perform joint genotyping
 
 \* The indel realignment step was recommended in GATK best practices \< 3.6). 
