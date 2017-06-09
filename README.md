@@ -120,7 +120,7 @@ Note: Do not set the thread count, as this flag is taken care of by the workflow
 List of chromosome/contig names separated by a ':'
 
 Examples:
-* `chr1:ch2:ch3`
+* `chr1:chr2:chr3`
 * `1:2:3`
 
 Note: chromosome names must match those found in the files located in the directory that `INDELDIR` points to
