@@ -157,11 +157,21 @@ Full path of the appropriate executable file
 
 ## How to Run the Pipeline
 
-### Executing the Swift-T Application
+### Executing the Swift-T Application 
 
-`swift-t -u -n \< Node# * PROCPERNODE + 1 or more \> -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/example.runfile`
+`swift-t -O3 -o \</path/to/compiled_output_file.tic\> -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps -u -n \< Node# * PROCPERNODE + 1 or more \> /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/example.runfile`
 
-This command will compile and run the pipeline all in one command (the `-u` flag means that it will only compile if the file is not up-to-date).
+This command will compile and run the pipeline all in one command
+
+**Explanation of flags**
+
+* `-O3` Conduct full optimizations of the Swift-T code during compilation (Even with full optimizations, compilation of the code takes only around 3 seconds)
+* `-o` The path to the compiled swift-t file (has a .tic extension); on the first run, this file will be created.
+* `-I` This includes some source files that are imported during compilation
+* `-r` This includes some tcl package files needed during compilation
+* `-u` Specifies that the Swift-T code will be compiled only if an already up-to-date version is not found
+* `-n` The number of processes (ranks) Swift-T will open for this run of the workflow
+* `-runfile` The path to the runfile with all of the configuration variables for the workflow
 
 This command must be included in a job submission script and not called directly on a head/login node.
 
@@ -193,9 +203,7 @@ For working with human data, one can download most of the needed files from [the
 
 Generally, for the preparation of the reference sequence, the following link is a good start [the GATK’s guidelines](http://gatkforums.broadinstitute.org/wdl/discussion/2798/howto-prepare-a-reference-for-use-with-bwa-and-gatk).
 
-To achieve the parallelization of Figure \[1\] in the realignment/recalibration stages, the pipeline needs a separate vcf file of known variants for each chromosome/contig, and each should be named as: `*${chr_name}.vcf` . Further, all these files need to be in the 
-`INDELDIR` which should be within the `REFGENOMEDIR` directory as per the runfile.
-If working with the GATK bundle, the sample script ([*splitVCF-by-chromosome.sh*](https://github.com/HPCBio/BW_VariantCalling/blob/ParameterSweep/splitVCF-by-chromosome.sh)) can be used to produce the needed files with some minor modifications (mainly, providing the right path to the referencedir, java and GenomeAnalysisTK.jar)
+If splitting by chromosome for the realignment/recalibration/variant-calling stages, the pipeline needs a separate vcf file of known variants for each chromosome/contig, and each should be named as: `*${chr_name}.vcf` . Further, all these files need to be in the `INDELDIR` which should be within the `REFGENOMEDIR` directory as per the runfile.
 
 ## Resource Requirements
 
