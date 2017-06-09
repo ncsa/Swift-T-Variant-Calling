@@ -118,6 +118,16 @@ Example, `BWAMEMPARAMS=-k 32 -I 300,30`
 
 Note: Do not set the thread count, as this flag is taken care of by the workflow itself
 
+**`CHRNAMES`**
+
+List of chromosome/contig names separated by a ':'
+
+Examples:
+chr1:ch2:ch3
+1:2:3
+
+Note: chromosome names must match those found in the files located in the directory that `INDELDIR` points to
+
 **`NOVOSORT_MEMLIMIT`**
 
 Novosort is a tool that used a lot of RAM. If doubling up novosort runs on the same node, this may need to be reduced to avoid an OutOfMemory Error.
