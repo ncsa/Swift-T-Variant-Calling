@@ -234,7 +234,7 @@ Because of the varying resource requirements at various stages of the pipeline, 
 
 This feature is controlled by the STAGE variables of the runfile. At each stage, the variable can be set to "Y" if it should be computed, and "N" if that stage was completed on a previous execution of the workflow. If "N" is selected, the program will simply gather the output that should have been generated from a previous run and pass it to the next stage.
 
-In addition, one can set each stage but the final one to "End", which will stop the pipeline after that stage has been executed. It makes sense to think of "End" and being shorthand for "End after this stage".
+In addition, one can set each stage but the final one to "End", which will stop the pipeline after that stage has been executed. Think of "End" as a shorthand for "End after this stage".
 
 ### Example
 
