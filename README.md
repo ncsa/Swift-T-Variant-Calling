@@ -195,6 +195,15 @@ Setting the environment variable `TURBINE_LOG` to 1 will make the log quite verb
 
 Setting `ADBL_DEBUG_RANKS` to 1 will allow one to be sure the processes are being allocated to the nodes in the way one expects
 
+## Output Structure
+
+TO-DO make better Figure
+
+![](./media/image04.png)
+
+Figure 3: Output directories and files generated from a typical run of
+the pipeline
+
 ## Data preparation
 
 For this pipeline to work, a number of standard files for calling variants are needed (besides the raw reads files which can be fastq/fq/fastq.gz/fq.gz), namely these are the reference sequence and database of known variants (Please see this [link](https://software.broadinstitute.org/gatk/guide/article?id=1247)).
@@ -267,95 +276,21 @@ Each Main function has two paths it can use to produce its output:
 1. One path actually performs the computations of this stage of the pipeline
 2. The other skips the computations and just gathers the output of a prior execution of this stage. This is useful when one wants to jump into different sections of the pipeline, and also allows Swift/T's dependency driven execution to correctly string the stages together into one workflow.
 
+# Troubleshooting
 
+* The pipeline seems to be running, but then prematurely stops at one of the tools?
+  * Solution: make sure that all tools are specified in your runfile up to the executable itself (or the jar file if applicable)
 
+* The realignment/recalibration stage produces a lot of errors or strange results?
+  * Solution: make sure you are preparing your reference and extra files (dbsnp, 1000G,...etc) according to the guidelines of section 2.2
 
+* Things that should be running in parallel appear to be running sequencially
+  * Solution: make sure you are setting the -n flag to a value at least one more than PROCPERNODE * PBSNODES, as this allocates processes for Swift/T itself to run on
 
+* The job is killed as soon as BWA is called?
+  * Solution: make sure there is no space in front of BWAMEMPARAMS
+    * DO-THIS:  BWAMEMPARAMS=-k 32 -I 300,30
+    * NOT-THIS: BWAMEMPARAMS= -k 32 -I 300,30
 
-![](./media/image04.png)
-
-Figure 3: Output directories and files generated from a typical run of
-the pipeline
-
-3 This Pipeline: its usage and limitations
-====================================
-
-3.1 Installing Swift/T on a system:
------------------------------------
-
-Swift/T can be found [publically-installed](http://swift-lang.github.io/swift-t/sites.html#_public_installations on some systems) (but can be probably out-of-date), or it would need to be [built](http://swift-lang.github.io/swift-t/sites.html#_build_procedures). 
-In the later case, easiest way is to run the installer directly after downloading the Swift/T package as per the guidelines of the [installation link](http://swift-lang.github.io/swift-t/guide.html#_installation). In some cases additional configurations would be needed as highlighted below:
-* PBS torque systems: No specific settings are needed.. Voila!
-* Blue Waters: Specific changes to configuration files are needed in this case as per http://swift-lang.github.io/swift-t/sites.html#_blue_waters  .
- *Note:* One needs to follow the instructions for *only either* : the _"public installation":_ *OR* the _build procedure_. The Public installations for Blue Waters date back to 2013, it is probably wiser to stick to the build procedure instructions 
-* SunGridEngine based systems: There exists the script: `turbine-sge-run.zsh`, which should be used in this case, but the entry is _not there in the documentation yet_, And The last commit to this file in the github repo reads: " _SGE almost works_")
-
-
-3.2 Running Swift/T scripts:
----------------------------------------------
-
-The easiest way to run a Swift/T script is:  `swift-t <script.swift>`. However, running java can be problematic within an HPC environment, and the solution is to compile the script on the local machine first, and then to copy the resulting `script.tic` file to the HPC and run it using turbine _provided that versions are the same_. Taking the example of a PBS torque system, these 2 alternative are shown in the example below:
-
-```
-$ cat settings.sh
-export QUEUE=<PBS torque queue name>
-export PPN=<PBS torque ppn (processes per node)>
-
-$ ## The one line solution, on a remote machine:
-$ cd path/to/swift-t/scripts
-$ swift-t -m pbs -n <number of processes> -s settings.sh <script.swift>
-
-$ ## An alternative in 2 steps:
-$ stc <script.swift> # on local machine
-$ scp <script.tic> username@hpc_ip_address://path_in_HPC_where you_want_to_put_scripts
-$
-$turbine -m pbs -n <number of processes> -s settings.sh <program.tic> # on the HPC
-```
- 
-More on this, including other scheduler options are available on: http://swift-lang.github.io/swift-t/sites.html#scheduled_systems 
-
-3.3 Using this pipeline code:
-------------------------------------------------
-
-The complete pipeline implementation is available in the Swift/T branch of this github repository: https://github.com/jacobrh91/Swift-T-Variant-Calling 
-
-To run the pipeline, a variant of the stripped-down one-line command below should be invoked:
-
- ```
-swift-t -n <(PBSNODES * PROCPERNODE) + 1 or more > -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=<runfile>
-```
-* Explanation of -n flag: The total number of workers one wants on a node is PROCPERNODE, which is multiplied by the number of nodes being utilized. However, the Turbine engine itself needs at least 1 process to manage all of the worker processes.
-
-
-where the runfile is a file containing the details of the run (programs choices and location within the machine, parameters for the programs, some PBS torque settings, output and sampleinformation file locations). (See section 2.3 for more details) 
-
-
-*Note:* If you need to enable logging of turbine output, you may wish to change some environment variables (this is true if using newer version of Swift/T):
-
-```
-export TURBINE_LOG=1 #Enable turbine logging
-swift-t -L log_file_name myswift.swift #Enable stc logging (compiler logging)
-```
-
-
-3 This Pipeline: Troubleshooting area (FAQs) 
-====================================
-
-- The pipeline seems to be running, but then prematurely stops at one of the tools?
-Solution: make sure that all tools are specified in your runfile up to the executable itself (or the jar file if applicable)
-
-- The realignment/recalibration stage produces a lot of errors or strange results?
-Solution: make sure you are preparing your reference and extra files (dbsnp, 1000G,...etc) according to the guidelines of section 2.2
-
-- Things that should be running in parallel appear to be running sequencially
-Solution: make sure you are setting the -n flag to a value at least one more than PROCPERNODE * PBSNODES, as this allocates MPI processes for Swift/T itself to run
-
-- The job is killed as soon as BWA is called?
-Solution: make sure there is no space in front of BWAMEMPARAMS
-
-DO-THIS:  BWAMEMPARAMS=-k 32 -I 300,30
-
-NOT-THIS: BWAMEMPARAMS= -k 32 -I 300,30
-
-- I'm not sure how to run on a cluster  that uses torque as a resource manager?
-Clusters are typically configured to kill head node jobs that run longer than a few minutes, to prevent users from hogging the head node. Therefore, you may qsub the initial job, the swift-t command with its set variables, and it will qsub everybody else from its compute node.
+* I'm not sure how to run on a cluster that uses torque as a resource manager?
+  * Clusters are typically configured to kill head node jobs that run longer than a few minutes, to prevent users from hogging the head node. Therefore, you may qsub the initial job, the swift-t command with its set variables, and it will qsub everybody else from its compute node.
