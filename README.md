@@ -98,6 +98,8 @@ Each of these stage variables can be set to `Y` or `N`. In addition, all but the
 
 See the **Pipeline Interruptions and Continuations** Section for more details.
 
+**PAIRED** 0 if reads are single-ended only; 1 if they are paired-end reads
+
 **ALIGNERTOOL; MARKDUPLICATESTOOL**
 
 | **Process**     | **Setting**                           |
