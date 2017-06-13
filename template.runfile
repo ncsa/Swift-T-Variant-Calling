@@ -55,7 +55,7 @@ PICARDJAR=/path/to/picard-tools-X.Y.Z/picard.jar
 SAMBLASTEREXE=/path/to/samblaster-X.Y.Z/bin/samblaster
 SAMTOOLSEXE=/path/to/samtools-X.Y.Z/bin/samtools
 NOVOALIGNEXE=/path/to/novocraft-X.YZ/novoalign
-NOVOSORTEXE=/path/to/novocraft-X.YZ/novocraft
+NOVOSORTEXE=/path/to/novocraft-X.YZ/novosort
 GATKJAR=/path/to/gatk-3.X/GenomeAnalysisTK.jar
 
 # resources
