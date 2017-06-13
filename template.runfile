@@ -16,6 +16,8 @@ VC_STAGE={Y|N|End}
 COMBINE_VARIANT_STAGE={Y|N|End}
 JOINT_GENOTYPING_STAGE={Y|N}
 
+PAIRED={0 for single-ended reads | 1 for paired-end reads}
+
 # Read group information for the samples: namely, the Library, Platform technology, and sequencing center name. It should be noted that the sample ID, platform unit (PU) and sample name (SM) are set by default to be the same sample name found in the sampleinformation file specified
 SAMPLELB=<name of the library>
 SAMPLEPL=<should be either ILLUMINA, SOLID, LS454, HELICOS or PACBIO>
