@@ -6,7 +6,8 @@ TMPDIR=<path to where temporary files are stored>
 
 # choose the type of analysis and execution parameters
 ANALYSIS=<{ALIGN|ALIGN_ONLY|ALIGNMENT for alignment only; VC_REALIGN for variant calling with realignment; Any other non-empty string for variant calling without realignment (VC_NO_REALIGN recommmended for clarity)}
-SPLIT={YES|No}
+SPLIT={Yes|No}
+EXIT_ON_ERROR={Yes|No}
 PROCPERNODE=<Integer: how many processes should be ran on each node. Number of threads multi-threaded tools use = PBSCORES/PROCPERNODE>
 
 # choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
