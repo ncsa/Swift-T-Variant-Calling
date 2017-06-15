@@ -30,7 +30,7 @@ MARKDUPLICATESTOOL={SAMBLASTER|PICARD|NOVOSORT}<the tool to be used for marking 
 
 CHRNAMES=<a colon (:) separated list of chromosome or contig names to split files by.>
 
-# Alignment block parameters and Trimming options.
+# Alignment parameters
 BWAINDEX=<Path to the indexed reference file for bwa, if it is the desired aligner >
 BWAMEMPARAMS=<optional parameters to bwa mem, if used as an aligner. Example: -k 32 -I 30,30. Note: do not set thread count with these variables>
 
