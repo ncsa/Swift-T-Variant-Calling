@@ -16,7 +16,7 @@ Functionalities
     8b. VC_REALIGN
     8c. VC_NO_REALIGN
 
-9. Splitting by chromosome (SPLIT=Y)
+9. Splitting by chromosome (SPLIT=Y; CHRNAMES)
 10. Not Splitting by chromosome (SPLIT=N)
 
 11. Exit on error
@@ -25,6 +25,11 @@ Functionalities
     
 12. Stop if no samples passed QC
     This can be tested by setting the cutoffs to impossible levels that no sample could pass (i.e. MAP_CUTOFF=101)
-    If this functionality is working, this should cause the workflow to stop with a message to the log file stating that there were
-    no samples left to test
-    
+    If this functionality is working, this should cause the workflow to stop with a message to the log file stating that
+    there were no samples left to test
+
+13. Paired-end reads
+14. Single-end reads
+
+15. Test that PROCPERNODE=2 actually runs two jobs on a node simultaneously
+16. Novosort memlimit works with at least 2 PROCSPERNODE
