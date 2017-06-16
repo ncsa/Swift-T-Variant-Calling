@@ -102,6 +102,12 @@ Realignment
 
 (file realignedbam) realignBam(string sampleName, string chr, string var[string], string realparms[], file inputBam
 			      ) {
+	/*
+	 * In Matt's test, the preLogPrefix sampleName variable is the sampleName.wDedups.sorted.14.bam
+	 *   
+	 *
+	 */
+	
 	string prePrefix = strcat(var["OUTPUTDIR"],"/", sampleName, "/realign/", sampleName, ".wDedups.sorted.", chr);
 	string preLogPrefix = strcat(var["OUTPUTDIR"],"/", sampleName, "/logs/", sampleName, ".wDedups.sorted.", chr);	
 	
