@@ -260,7 +260,17 @@ VariantCalling (for split chromosome path)
 		string baseName = basename(sample); 
 		string sampleName = substring(baseName, 0, strlen(baseName) - 23);  // Verified
 
-		if (vars["VC_STAGE"] == "Y") {
+		if (vars["VC_STAGE"] == "Y" ||
+		    vars["VC_STAGE"] == "y" ||
+		    vars["VC_STAGE"] == "YES" ||
+		    vars["VC_STAGE"] == "yes" ||
+		    vars["VC_STAGE"] == "Yes" ||
+		    vars["VC_STAGE"] == "End" ||
+		    vars["VC_STAGE"] == "end" ||
+		    vars["VC_STAGE"] == "E" ||
+		    vars["VC_STAGE"] == "e" ||
+		    vars["VC_STAGE"] == "END"
+		   ) {
 
 			/*************************************  
 			 Gather the recalibration index files
@@ -340,7 +350,17 @@ VariantCalling (for split chromosome path)
 		string sampleName = substring(base, 0, strlen(base) - strlen(chr) - 1);
 
 		foreach inputBam, sampleIndex in chrSet {
-			if (vars["VC_STAGE"] == "Y") {
+			if (vars["VC_STAGE"] == "Y" ||
+			    vars["VC_STAGE"] == "y" ||
+			    vars["VC_STAGE"] == "YES" ||
+			    vars["VC_STAGE"] == "yes" ||
+			    vars["VC_STAGE"] == "Yes" ||
+			    vars["VC_STAGE"] == "End" ||
+			    vars["VC_STAGE"] == "end" ||
+			    vars["VC_STAGE"] == "E" ||
+			    vars["VC_STAGE"] == "e" ||
+			    vars["VC_STAGE"] == "END"
+			   ) {
  				/*************************************							  
 				 Gather the recalibration index files							   
 				**************************************/							 
