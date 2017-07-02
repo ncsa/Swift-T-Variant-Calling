@@ -129,7 +129,7 @@ Note: chromosome names must match those found in the files located in the direct
 
 **`NOVOSORT_MEMLIMIT`**
 
-Novosort is a tool that used a lot of RAM. If doubling up novosort runs on the same node, this may need to be reduced to avoid an OutOfMemory Error. Otherwise, just set it to most of the RAM on a node
+Novosort is a tool that used a lot of RAM. If doubling up novosort runs on the same node, this may need to be reduced to avoid an OutOfMemory Error. Otherwise, just set it to most of the RAM on a node. **Note: This is a mandatory field**
 
 This is set in bytes, so if you want to limit novosort to using 30 GB, one would set it to `NOVOSORT_MEMLIMIT=30000000000`
 
@@ -145,7 +145,7 @@ This is set in bytes, so if you want to limit novosort to using 30 GB, one would
 
 **`INDELDIR`** Directory that contains the indel variant files used in the recalibration step
 
-**`OMNI`** \< Insert explanation here \> Not currently used in workflow
+**`OMNI`** \< This is currently NOT used in the workflow.  For completion, this parameter refers to the omni 2.5 chip array file which can be used for training the VQSR model when working with human samples\> 
 
 **`JAVAEXE`; `BWAEXE`; `SAMBLASTEREXE`; `SAMTOOLSEXE`; `NOVOALIGNEXE`; `NOVOSORTEXE`**
 

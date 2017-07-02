@@ -58,6 +58,8 @@ jointGenotypingMain(file inputVCFs[], string vars[string]) {
 			variantSampleArray[varFlagPos] = "--variant";
 			variantSampleArray[namePos] = filename(sampleVCF);						  
 		}
+		
+		trace("***********\t variantSampleArray is: " + join(variantSampleArray,"\t") + "*********************");
 
 		jointVCF, jointLog = GenotypeGVCFs(vars["JAVAEXE"], vars["GATKJAR"], strcat(vars["REFGENOMEDIR"],
 						   "/", vars["REFGENOME"]), variantSampleArray, vars["CORES"]

@@ -8,7 +8,7 @@ TMPDIR=<path to where temporary files are stored>
 ANALYSIS=<{ALIGN|ALIGN_ONLY|ALIGNMENT for alignment only; VC_REALIGN for variant calling with realignment; Any other non-empty string for variant calling without realignment (VC_NO_REALIGN recommmended for clarity)}
 SPLIT={YES|NO}
 EXIT_ON_ERROR={YES|NO}
-PROCPERNODE=<Integer: how many processes should be ran on each node. Number of threads multi-threaded tools use = PBSCORES/PROCPERNODE>
+PROCPERNODE=<Integer: how many processes should be run on each node. Number of threads multi-threaded tools use = PBSCORES/PROCPERNODE>
 
 # choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
 ALIGN_DEDUP_STAGE={Y|N|End}
@@ -25,8 +25,8 @@ SAMPLEPL=<should be either ILLUMINA, SOLID, LS454, HELICOS or PACBIO>
 SAMPLECN=<name of the sequencing center generating the reads>
 
 # tools to be used
-ALIGNERTOOL=<{BWAMEM|NOVOALIGN} The tool to be used for the alignment stage of the pipeline.>
-MARKDUPLICATESTOOL={SAMBLASTER|PICARD|NOVOSORT}<the tool to be used for marking duplicates in the pipeline.>
+ALIGNERTOOL={BWAMEM|NOVOALIGN} <The tool to be used for the alignment stage of the pipeline.>
+MARKDUPLICATESTOOL={SAMBLASTER|PICARD|NOVOSORT} <The tool to be used for marking duplicates in the pipeline.>
 
 CHRNAMES=<a colon (:) separated list of chromosome or contig names to split files by.>
 

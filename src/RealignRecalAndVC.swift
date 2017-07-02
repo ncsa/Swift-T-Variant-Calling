@@ -342,12 +342,13 @@ VariantCalling (for split chromosome path)
 		// Input files will have names in the form 'prefix.chrA.bam'
 		// This will grab the chr name from the first sample in that chromosome list
 		string base = basename(chrSet[0]);
-		string trimmed = substring(base, 0, strlen(base) - 4);  // gets rid of 'bam' extension
+		string trimmed = substring(base, 0, strlen(base) - 8);  // gets rid of '.bam' extension
 		string pieces[] = split(trimmed, ".");		// Splits the string by '.'
 		string chr = pieces[size(pieces) - 1];		// Grabs the last part, which is the chromosome part
 
-		// Removes '.chr' part of the sample's name
-		string sampleName = substring(base, 0, strlen(base) - strlen(chr) - 1);
+		// Removes '.wDedups.sorted.chr' part of the sample's name
+		string sampleName = substring(trimmed, 0, strlen(trimmed) - strlen(chr) - 16); //verified 
+
 
 		foreach inputBam, sampleIndex in chrSet {
 			if (vars["VC_STAGE"] == "Y" ||
