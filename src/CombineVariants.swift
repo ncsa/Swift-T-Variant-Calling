@@ -94,7 +94,7 @@ import bioapps.merge_vcf;
 							      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),			
 							      strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),			    
 							      chrSampleArray							       
-							     );
+							     ) =>
 			vcfOutfiles[sampleIndex] = gvcfSample;
 		}
 		// If this section is to be skipped
