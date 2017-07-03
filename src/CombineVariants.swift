@@ -84,7 +84,6 @@ import bioapps.merge_vcf;
 			// CombineGVCF output file
 			file gvcfSample < outputName >;
 
-			trace("**************** chrSampleArray is \t" + join(chrSampleArray, ":") + "********************* ");
 			// Log file for CombineGVCFs
 			file combineLog < strcat(vars["OUTPUTDIR"], "/", sampleName,
 						 "/logs/", sampleName, "_CombineGVCFs.log"
