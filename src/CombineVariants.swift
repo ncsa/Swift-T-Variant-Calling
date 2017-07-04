@@ -42,7 +42,7 @@ import sys;
 import generalfunctions.general;
 import bioapps.merge_vcf;
 
-(file vcfOutfiles[]) combineVariantsMain(file inputVCFs[][], string vars[string], file failLog) {
+(file vcfOutfiles[]) combineVariantsMain(file inputVCFs[][], string vars[string], file failLog, file timeLog) {
 
 	foreach sampleSet, sampleIndex in inputVCFs {
 

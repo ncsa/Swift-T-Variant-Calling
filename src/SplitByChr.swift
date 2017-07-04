@@ -64,7 +64,7 @@ import generalfunctions.general;
  Main function
 *******************************/
 
-(file outputBams[][]) splitByChrMain(file inputBams[], string vars[string], file failLog) {
+(file outputBams[][]) splitByChrMain(file inputBams[], string vars[string], file failLog, file timeLog) {
 	string indices[] = split(vars["CHRNAMES"], ":");
 
 	foreach chr, chrIndex in indices {

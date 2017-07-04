@@ -182,7 +182,7 @@ import generalfunctions.general;
 
 // For now, we will just feed in the lines array as the starting point. If fastq quality control STAGES are
 //   implemented, this would probably need be to be altered
-(file outputBam[]) alignDedupMain(string lines[], string vars[string], file failLog) {
+(file outputBam[]) alignDedupMain(string lines[], string vars[string], file failLog, file timeLog) {
 	foreach sample, index in lines {
 		/*****
 		Parse sample specific information and construct RG header

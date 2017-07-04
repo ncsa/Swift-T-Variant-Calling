@@ -254,7 +254,7 @@ VariantCalling (for split chromosome path)
 /***********************
  Main Functions
 ************************/
-(file VCF_list[]) VCNoSplitMain(string vars[string], file inputBams[], file failLog) {
+(file VCF_list[]) VCNoSplitMain(string vars[string], file inputBams[], file failLog, file timeLog) {
 	foreach sample, index in inputBams {
 		
 		string baseName = basename(sample); 
@@ -337,7 +337,7 @@ VariantCalling (for split chromosome path)
 	}
 }
 
-(file VCF_list[][]) VCSplitMain(string vars[string], file inputBams[][], file failLog) {
+(file VCF_list[][]) VCSplitMain(string vars[string], file inputBams[][], file failLog, file timeLog) {
 	foreach chrSet, chrIndex in inputBams {
 		// Input files will have names in the form 'prefix.chrA.bam'
 		// This will grab the chr name from the first sample in that chromosome list
