@@ -65,6 +65,8 @@ import sys;
 import io;
 
 import bioapps.align_dedup;
+import bioappsLoggingFunctions.align_dedup_logging;
+
 import generalfunctions.general;
 
 /********************************************************
@@ -85,35 +87,37 @@ import generalfunctions.general;
 	// Log file
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	file alignedLog < strcat(LogDir, sampleName, "_Alignment.log") >;
- 	
+	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
+ 	file tmpalignedLog < strcat(tmpLogDir, sampleName, "_Alignment.log")>;
+	
 	if (vars["PAIRED"] == "1") {
 		// Use the specified alignment tool
 		if (vars["ALIGNERTOOL"] == "BWAMEM") {
 			// Directly return the .sam file created from bwa_mem
-			outputSam, alignedLog = bwa_mem(vars["BWAEXE"], reads[0], reads[1], vars["BWAINDEX"], 
+			outputSam, alignedLog, tmpalignedLog = bwa_mem_logged(vars["BWAEXE"], reads[0], reads[1], vars["BWAINDEX"], 
 					    [vars["BWAMEMPARAMS"]], threads, rgheader
-					   );
+					   ) ;
 		} 
 		else { // Novoalign is the default aligner
 			// Directly return the .sam file created from novoalign
-			outputSam, alignedLog = novoalign(vars["NOVOALIGNEXE"], reads[0], reads[1], vars["NOVOALIGNINDEX"],
-					      [vars["NOVOALIGNPARAMS"]], threads, rgheader
-					     );
+			outputSam, alignedLog, tmpalignedLog = novoalign_logged(vars["NOVOALIGNEXE"], reads[0], reads[1],
+					      vars["NOVOALIGNINDEX"], [vars["NOVOALIGNPARAMS"]], threads, rgheader
+					     ) ; 
 		}
 	}
 	else {
 		// Use the specified alignment tool
 		if (vars["ALIGNERTOOL"] == "BWAMEM") {
 			// Directly return the .sam file created from bwa_mem
-			outputSam, alignedLog = bwa_mem(vars["BWAEXE"], reads[0], vars["BWAINDEX"],
+			outputSam, alignedLog, tmpalignedLog = bwa_mem_logged(vars["BWAEXE"], reads[0], vars["BWAINDEX"],
 					    [vars["BWAMEMPARAMS"]], threads, rgheader
-					   );
+					   ) ; 
 		}
 		else { // Novoalign is the default aligner								 
-			// Directly return the .sam file created from novoalign					    
-			outputSam, alignedLog = novoalign(vars["NOVOALIGNEXE"], reads[0], vars["NOVOALIGNINDEX"],
-					      [vars["NOVOALIGNPARAMS"]], threads, rgheader				 
-					     );									    
+			// Directly return the .sam file created from novoalign
+			outputSam, alignedLog, tmpalignedLog = novoalign_logged(vars["NOVOALIGNEXE"], reads[0], 
+					      vars["NOVOALIGNINDEX"], [vars["NOVOALIGNPARAMS"]], threads, rgheader 
+					     ) ; 
 		}
 	}
 }
@@ -132,21 +136,25 @@ import generalfunctions.general;
 
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
+	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
 
 	if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
 		file dedupsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".wDedups.sam") >;
 		file dedupbam < strcat(AlignDir, sampleName, ".wDedups.bam") >;
 		file samLog < strcat(LogDir, sampleName, "_SamblasterDedup.log") >; 
-		file sortLog < strcat(LogDir, sampleName, "_Sort.log") >;       	
+		file sortLog < strcat(LogDir, sampleName, "_Sort.log") >;
+		file tmpsamblasterLog < strcat(tmpLogDir, sampleName, "_SamblasterDedup.log")>;	
+		file tmpsamtoolsLog < strcat(tmpLogDir, sampleName, "_samtoolsDedup.log")>;	
+		file tmpnovosortLog < strcat(tmpLogDir, sampleName, "_NovoSortDedup.log")>;	
 
 		// Mark Duplicates
-		dedupsam, samLog = samblaster(vars["SAMBLASTEREXE"], alignedSam);
-		dedupbam = samtools_view(vars["SAMTOOLSEXE"], dedupsam, threads, ["-u"]);
+		dedupsam, samLog, tmpsamblasterLog = samblaster_logged(vars["SAMBLASTEREXE"], alignedSam);
+		dedupbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"], dedupsam, threads, ["-u"]) ;
 		// Delete the dedupsam file once dedupbam has been created
 		rm(dedupsam);
 		
 		// Sort
-		dedupSortedBam, sortLog = novosort(vars["NOVOSORTEXE"], dedupbam, vars["TMPDIR"],
+		dedupSortedBam, sortLog, tmpnovosortLog = novosort_logged(vars["NOVOSORTEXE"], dedupbam, vars["TMPDIR"],
 						   threads, ["--compression", "1"], string2int(vars["NOVOSORT_MEMLIMIT"])
 						  );
 	}
@@ -156,21 +164,24 @@ import generalfunctions.general;
 		file alignedsortedbam < strcat(AlignDir, sampleName, ".noDedups.sorted.bam") >;
 		file picardLog < strcat(LogDir, sampleName, "_PicardDedup.log") >;
 		file sortLog < strcat(LogDir, sampleName, "_Sort.log") >;
-	
+		file tmpnovosortLog < strcat(tmpLogDir, sampleName, "_NovoSortDedup.log")>;	
+		file tmppicardLog < strcat(tmpLogDir, sampleName, "_PicardDedup.log")>;	
+
 		// Sort
-		alignedsortedbam, sortLog = novosort(vars["NOVOSORTEXE"], alignedBam, vars["TMPDIR"],
+		alignedsortedbam, sortLog, tmpnovosortLog = novosort_logged(vars["NOVOSORTEXE"], alignedBam, vars["TMPDIR"],
 								    threads, [], string2int(vars["NOVOSORT_MEMLIMIT"])
 								   );
 		// Mark Duplicates
-		dedupSortedBam, picardLog, metricsfile = picard(vars["JAVAEXE"], vars["PICARDJAR"],
+		dedupSortedBam, picardLog, metricsfile, tmppicardLog = picard_logged(vars["JAVAEXE"], vars["PICARDJAR"],
 							 	vars["TMPDIR"], alignedsortedbam
 							       );
 	}
 	else {	//Novosort is the default duplicate marker
 		file novoLog < strcat(LogDir, sampleName, "_NovosortDedup.log") >;
+		file tmpnovosortLog < strcat(tmpLogDir, sampleName, "_NovoSortDedup.log")>;
 
 		// Sort and Mark Duplicates in one step
-		dedupSortedBam, novoLog = novosort(vars["NOVOSORTEXE"], alignedBam, vars["TMPDIR"],
+		dedupSortedBam, novoLog, tmpnovosortLog = novosort_logged(vars["NOVOSORTEXE"], alignedBam, vars["TMPDIR"],
 							 	  threads, ["--markDuplicates"], string2int(vars["NOVOSORT_MEMLIMIT"])
 								 );
 	}
@@ -182,7 +193,7 @@ import generalfunctions.general;
 
 // For now, we will just feed in the lines array as the starting point. If fastq quality control STAGES are
 //   implemented, this would probably need be to be altered
-(file outputBam[]) alignDedupMain(string lines[], string vars[string], file failLog, file timeLog) {
+(file outputBam[]) alignDedupMain(string lines[], string vars[string], file failLog) {
 	foreach sample, index in lines {
 		/*****
 		Parse sample specific information and construct RG header
@@ -205,6 +216,7 @@ import generalfunctions.general;
 		string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
 		string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/"); 
 		string VarcallDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/");
+		string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
 
 		if (vars["ALIGN_DEDUP_STAGE"] == "Y") {
 
@@ -212,6 +224,7 @@ import generalfunctions.general;
 			mkdir(AlignDir);
 			mkdir(RealignDir);
 			mkdir(VarcallDir);
+			mkdir(tmpLogDir);
 
 			/*****
 			Create output file handles
@@ -220,6 +233,7 @@ import generalfunctions.general;
 	
 			// These are temporary files: If piping is implemented, they would not be needed.
 			file alignedsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".noDedups.sam") >;
+			file tmpsamtoolsLog < strcat(tmpLogDir, sampleName, "_samtools.log")>;
 	
 			/*****
 			Alignment
@@ -234,10 +248,11 @@ import generalfunctions.general;
 				string read1 = sampleInfo[1];
 				string reads[] = [read1];
 				alignedsam = alignReads(vars, sampleName, reads, rgheader);
+
 			}
 
 			int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
-			alignedbam = samtools_view(vars["SAMTOOLSEXE"], alignedsam, threads, ["-u"]);
+			alignedbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"], alignedsam, threads, ["-u"]);
 	
 			// Verify alignment was successful
 			if ( checkBam(vars, alignedbam) ) {
@@ -260,8 +275,9 @@ import generalfunctions.general;
 					*****/
 	
 					file flagstats < strcat(AlignDir, sampleName, ".wDedups.sorted.bam", ".flagstats") >;
+					file tmpsamtoolsflagstatLog < strcat(tmpLogDir, sampleName, "_samtoolsflagstat.log")>;
 	
-					flagstats = samtools_flagstat(vars["SAMTOOLSEXE"], dedupsortedbam);
+					flagstats, tmpsamtoolsflagstatLog = samtools_flagstat_logged(vars["SAMTOOLSEXE"], dedupsortedbam);
 	
 					string stat[] = file_lines(flagstats);
 					tot_mapped =  split(stat[4], " ")[0];

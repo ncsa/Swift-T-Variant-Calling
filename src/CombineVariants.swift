@@ -41,8 +41,9 @@ import sys;
 
 import generalfunctions.general;
 import bioapps.merge_vcf;
+import bioappsLoggingFunctions.merge_vcf_logging;
 
-(file vcfOutfiles[]) combineVariantsMain(file inputVCFs[][], string vars[string], file failLog, file timeLog) {
+(file vcfOutfiles[]) combineVariantsMain(file inputVCFs[][], string vars[string], file failLog ) {
 
 	foreach sampleSet, sampleIndex in inputVCFs {
 
@@ -87,9 +88,12 @@ import bioapps.merge_vcf;
 			// Log file for CombineGVCFs
 			file combineLog < strcat(vars["OUTPUTDIR"], "/", sampleName,
 						 "/logs/", sampleName, "_CombineGVCFs.log"
-						) >;	 
+						) >;
+
+			string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
+			file tmpcombineLog < strcat(tmpLogDir, sampleName, ".", chr, "_CombineGVCFs.log") > ; 
 	
-			gvcfSample, combineLog = CombineGVCFs(vars["JAVAEXE"],							     
+			gvcfSample, combineLog, tmpcombineLog = CombineGVCFs_logged (vars["JAVAEXE"], 
 							      vars["GATKJAR"],							     
 							      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),			
 							      strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),			    

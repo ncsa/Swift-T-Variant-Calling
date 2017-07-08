@@ -94,6 +94,7 @@ import string;
 import sys;
 
 import bioapps.realign_varcal;
+import bioappsLoggingFunctions.realign_varcal_logging;
 import generalfunctions.general;
 
 /**********
@@ -114,21 +115,25 @@ Realignment
 	// Removes extra '.' when there is no split by chromosome
 	string prefix = replace(prePrefix, "..", ".", 0);
 	string logPrefix = replace(preLogPrefix, "..", ".", 0);
-
+	
 	int threads = string2int(var["CORES"]) %/ string2int(var["PROCPERNODE"]);
 
 	// Log files												    
-	file targetLog < strcat(logPrefix, "RealignTargetCreator.log") >;				 
-	file realignLog < strcat(logPrefix, "IndelRealigner.log") >;
+	file targetLog < strcat(logPrefix, "_RealignTargetCreator.log") >;				 
+	file realignLog < strcat(logPrefix, "_IndelRealigner.log") >;
+
+	string tmpLogDir = strcat(var["TMPDIR"], "/timinglogs/" );
+	file tmptargetLog < strcat(tmpLogDir, sampleName, ".", chr, "_RealignTargetCreator.log")>;
+	file tmprealignLog < strcat(tmpLogDir, sampleName, ".", chr, "_IndelRealigner.log")>;
 
 	file intervals < strcat(prefix, ".realignTargetCreator.intervals") >;			   
 															
 	// The inputBam should be indexed before this function is called						
-	intervals, targetLog = RealignerTargetCreator(var["JAVAEXE"], var["GATKJAR"],				 
+	intervals, targetLog, tmptargetLog = RealignerTargetCreator_logged (var["JAVAEXE"], var["GATKJAR"],				 
 					   strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]),			
 					   inputBam, threads, realparms			    
 					  );									    
-	realignedbam, realignLog = IndelRealigner(var["JAVAEXE"], var["GATKJAR"],				     
+	realignedbam, realignLog, tmprealignLog = IndelRealigner_logged (var["JAVAEXE"], var["GATKJAR"],				     
 				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]),			     
 				      inputBam, realparms, intervals						    
 				     );										 
@@ -157,13 +162,18 @@ Recalibration
 	file printLog < strcat(logPrefix, "_PrintReads.log") >;
 	file report < strcat(prefix, "recal_report.grp") >;
 
+	string tmpLogDir = strcat(var["TMPDIR"], "/timinglogs/" );
+	file tmprecalLog < strcat(tmpLogDir, sampleName, ".", chr, "_BaseRecalibrator.log")>;
+	file tmpprintLog < strcat(tmpLogDir, sampleName, ".", chr, "_PrintReads.log")>;
+
+
 	// The inputBam should be indexed before this function is called
-	report, recalLog = BaseRecalibrator(var["JAVAEXE"], var["GATKJAR"],
+	report, recalLog, tmprecalLog = BaseRecalibrator_logged (var["JAVAEXE"], var["GATKJAR"],
 				       strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
 				       threads, recalparmsindels,
 				       strcat(var["REFGENOMEDIR"], "/", var["DBSNP"])
 				      );
-	outBam, printLog = PrintReads(var["JAVAEXE"], var["GATKJAR"],
+	outBam, printLog, tmpprintLog = PrintReads_logged (var["JAVAEXE"], var["GATKJAR"],
 				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
 				      threads, report
 				     );
@@ -222,7 +232,10 @@ VariantCalling (for split chromosome path)
 	// Log file
 	file haploLog < strcat(LogDir, sampleName, ".", chr, "_HaplotypeCaller.log") >;
 
-	outVCF, haploLog = HaplotypeCaller(vars["JAVAEXE"], vars["GATKJAR"],	     
+	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
+	file tmphaploLog < strcat(tmpLogDir, sampleName, ".", chr, "_HaplotypeCaller.log")>;
+
+	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged (vars["JAVAEXE"], vars["GATKJAR"],	     
 					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),   
 					   inputBam,					
 					   strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),       
@@ -242,7 +255,10 @@ VariantCalling (for split chromosome path)
 	// Log file
 	file haploLog < strcat(LogDir, sampleName, "_HaplotypeCaller.log") >;
 
-	outVCF, haploLog = HaplotypeCaller(vars["JAVAEXE"],
+	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
+	file tmphaploLog < strcat(tmpLogDir, sampleName, "_HaplotypeCaller.log")>;
+
+	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged (vars["JAVAEXE"],
 					   vars["GATKJAR"],
 					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
 					   inputBam,
@@ -254,7 +270,7 @@ VariantCalling (for split chromosome path)
 /***********************
  Main Functions
 ************************/
-(file VCF_list[]) VCNoSplitMain(string vars[string], file inputBams[], file failLog, file timeLog) {
+(file VCF_list[]) VCNoSplitMain(string vars[string], file inputBams[], file failLog) {
 	foreach sample, index in inputBams {
 		
 		string baseName = basename(sample); 
@@ -337,7 +353,7 @@ VariantCalling (for split chromosome path)
 	}
 }
 
-(file VCF_list[][]) VCSplitMain(string vars[string], file inputBams[][], file failLog, file timeLog) {
+(file VCF_list[][]) VCSplitMain(string vars[string], file inputBams[][], file failLog) {
 	foreach chrSet, chrIndex in inputBams {
 		// Input files will have names in the form 'prefix.chrA.bam'
 		// This will grab the chr name from the first sample in that chromosome list
