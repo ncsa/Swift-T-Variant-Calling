@@ -32,7 +32,7 @@ import bioappsLoggingFunctions.joint_vcf_logging;
  Main function for Joint Genotyping
 *******************/
 
-jointGenotypingMain(file inputVCFs[], string vars[string]) {
+jointGenotypingMain(file inputVCFs[], string vars[string], file timeLog) {
 	// Since this is the last step, I only check to make sure this step is one of the executed stages.
 	// If it is not, then nothing happens.
 	if (vars["JOINT_GENOTYPING_STAGE"] == "Y") {
@@ -64,6 +64,7 @@ jointGenotypingMain(file inputVCFs[], string vars[string]) {
 		
 		jointVCF, jointLog, tmpjointLog = GenotypeGVCFs_logged (vars["JAVAEXE"], vars["GATKJAR"], strcat(vars["REFGENOMEDIR"],
 						   "/", vars["REFGENOME"]), variantSampleArray, vars["CORES"]
-						  );
+						  ) =>
+		logging(variables["TMPDIR"], timeLog);
 	}
 }

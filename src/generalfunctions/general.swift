@@ -55,6 +55,16 @@ app (void v) rm(file f) {
 	"rm" f;													 
 }
 
+app (void v) rm(file f[]) { 
+	"rm" f;													 
+}
+
+() logging (string tmpdir, file timeLog){
+        file tmplogs[] = glob(strcat(tmpdir, "/timinglogs/*"));
+        append(timeLog, read(cat(tmplogs))) =>
+        rm(tmplogs);
+}
+
 // Convert an array of files to an array of strings with those file names
 (string filenames[]) filesToFileNames(file files[]) {
 	foreach f, index in files {
