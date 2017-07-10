@@ -51,10 +51,8 @@ app (file output) find_files (string dir, string pattern){
 	"find" dir "-name" pattern @stdout=output;
 }
 
-app (void v) rm(file f) {
-	if (file_exists(f)) {
-		"rm" f;
-	}
+app (void v) rm(file f) {	
+	"rm" f;
 }
 
 // Convert an array of files to an array of strings with those file names

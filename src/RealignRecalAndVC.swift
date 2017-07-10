@@ -92,6 +92,7 @@ Note: although the input matrix is in the form inputMatrix[chromosome][sample],
 import files;
 import string;
 import sys;
+import io;
 
 import bioapps.realign_varcal;
 import generalfunctions.general;
@@ -257,7 +258,7 @@ VariantCalling (for split chromosome path)
 (file VCF_list[]) VCNoSplitMain(string vars[string], file inputBams[], file failLog) {
 	foreach sample, index in inputBams {
 		
-		string baseName = basename(sample); 
+		string baseName = basename_string(filename(sample)); 
 		string sampleName = substring(baseName, 0, strlen(baseName) - 23);  // Verified
 
 		if (vars["VC_STAGE"] == "Y" ||
@@ -341,7 +342,9 @@ VariantCalling (for split chromosome path)
 	foreach chrSet, chrIndex in inputBams {
 		// Input files will have names in the form 'prefix.chrA.bam'
 		// This will grab the chr name from the first sample in that chromosome list
-		string base = basename(chrSet[0]);
+		printf(strcat("chrSet: ", filename(chrSet[0]), "\n"));
+		string base = basename_string(filename(chrSet[0]));
+		printf(strcat("base: ", base, "\n\n\n\n\n\n\n\n"));
 		string trimmed = substring(base, 0, strlen(base) - 4);  // gets rid of 'bam' extension
 		string pieces[] = split(trimmed, ".");		// Splits the string by '.'
 		string chr = pieces[size(pieces) - 1];		// Grabs the last part, which is the chromosome part
@@ -379,7 +382,7 @@ VariantCalling (for split chromosome path)
 				string realparms[] = split(								     
 					trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " "	    
 							  ) =>								  
-				rm(recalfiles);
+				//rm(recalfiles);
 			
 				/***************************
 				 Realign and/or recalibrate
