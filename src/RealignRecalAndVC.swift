@@ -344,13 +344,16 @@ VariantCalling (for split chromosome path)
 		// This will grab the chr name from the first sample in that chromosome list
 		printf(strcat("chrSet: ", filename(chrSet[0]), "\n"));
 		string base = basename_string(filename(chrSet[0]));
-		printf(strcat("base: ", base, "\n\n\n\n\n\n\n\n"));
+		printf(strcat("base: ", base, "\n"));
 		string trimmed = substring(base, 0, strlen(base) - 4);  // gets rid of 'bam' extension
+		printf(strcat("trimmed: ", trimmed, "\n"));
 		string pieces[] = split(trimmed, ".");		// Splits the string by '.'
 		string chr = pieces[size(pieces) - 1];		// Grabs the last part, which is the chromosome part
+		printf(strcat("chr: ", chr, "\n"));
 
-		// Removes '.chr' part of the sample's name
-		string sampleName = substring(base, 0, strlen(base) - strlen(chr) - 1);
+		// Removes the .wDedups.sorted.<chr> portion of the trimmed string, leaving only the sample name
+		string sampleName = substring(trimmed, 0, strlen(trimmed) - strlen(chr) - 1 - 15);
+		printf(strcat("sampleName: ", sampleName, "\n\n\n\n\n"));
 
 		foreach inputBam, sampleIndex in chrSet {
 			if (vars["VC_STAGE"] == "Y" ||
@@ -382,7 +385,7 @@ VariantCalling (for split chromosome path)
 				string realparms[] = split(								     
 					trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " "	    
 							  ) =>								  
-				//rm(recalfiles);
+				rm(recalfiles);
 			
 				/***************************
 				 Realign and/or recalibrate
