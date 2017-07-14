@@ -92,6 +92,7 @@ Note: although the input matrix is in the form inputMatrix[chromosome][sample],
 import files;
 import string;
 import sys;
+import io;
 
 import bioapps.realign_varcal;
 import bioappsLoggingFunctions.realign_varcal_logging;
@@ -273,7 +274,7 @@ VariantCalling (for split chromosome path)
 (file VCF_list[]) VCNoSplitMain(string vars[string], file inputBams[], file failLog) {
 	foreach sample, index in inputBams {
 		
-		string baseName = basename(sample); 
+		string baseName = basename_string(filename(sample)); 
 		string sampleName = substring(baseName, 0, strlen(baseName) - 23);  // Verified
 
 		if (vars["VC_STAGE"] == "Y" ||
@@ -357,14 +358,15 @@ VariantCalling (for split chromosome path)
 	foreach chrSet, chrIndex in inputBams {
 		// Input files will have names in the form 'prefix.chrA.bam'
 		// This will grab the chr name from the first sample in that chromosome list
+
 		string base = basename(chrSet[0]);
 		string trimmed = substring(base, 0, strlen(base) - 8);  // gets rid of '.bam' extension
 		string pieces[] = split(trimmed, ".");		// Splits the string by '.'
 		string chr = pieces[size(pieces) - 1];		// Grabs the last part, which is the chromosome part
+		printf(strcat("chr: ", chr, "\n"));
 
 		// Removes '.wDedups.sorted.chr' part of the sample's name
 		string sampleName = substring(trimmed, 0, strlen(trimmed) - strlen(chr) - 16); //verified 
-
 
 		foreach inputBam, sampleIndex in chrSet {
 			if (vars["VC_STAGE"] == "Y" ||
