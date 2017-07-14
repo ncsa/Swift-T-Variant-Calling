@@ -2,6 +2,19 @@
 
 import bioapps.align_dedup;
 
+/*
+ 
+//Ideally, this function would work, and save all the re-coding effort; but not at the moment :(
+
+(boolean done) logme (string function_name, string function_call, file timingLog){
+	string startmsg = strcat(function_name, " start", "\t", toString(clock_seconds()), "\n") =>
+	function_call =>
+	string endmsg = strcat(function_name, " end", "\t", toString(clock_seconds()), "\n") =>
+	timeLog = echo(strcat(startmsg, endmsg)) =>
+	done = true;
+}
+*/
+
 /////// Alignment functions:
 
 (file output, file outLog, file tmptimeLog) bwa_mem_logged (string bwaexe, string read1, string read2, string INDEX, string bwamemparams[], int PBSCORES,  string rgheader){
@@ -34,16 +47,16 @@ import bioapps.align_dedup;
 }
 
 (file output, file tmptimeLog) samtools_view_logged (string samtoolsexe, file inputFile, int thr, string args[]){
-	string startmsg = strcat("SAMTOOLS VIEW start", "\t", toString(clock_seconds()), "\n") => 
+	string startmsg = strcat("SAMTOOLS_VIEW start", "\t", toString(clock_seconds()), "\n") => 
 	output =  samtools_view(samtoolsexe, inputFile, thr, args) =>
-	string endmsg =  strcat("SAMTOOLS VIEW end", "\t", toString(clock_seconds()), "\n") =>
+	string endmsg =  strcat("SAMTOOLS_VIEW end", "\t", toString(clock_seconds()), "\n") =>
 	tmptimeLog = write(strcat(startmsg, endmsg)); 
 }
 
 (int numAlignments, file tmptimeLog) samtools_view2_logged(string samtoolsexe, string inputFile){
-	string startmsg = strcat("SAMTOOLS VIEW start", "\t", toString(clock_seconds()), "\n") =>
+	string startmsg = strcat("SAMTOOLS_VIEW start", "\t", toString(clock_seconds()), "\n") =>
 	numAlignments = samtools_view2(samtoolsexe, inputFile) =>
-	string endmsg = strcat("SAMTOOLS VIEW end", "\t", toString(clock_seconds()), "\n") =>
+	string endmsg = strcat("SAMTOOLS_VIEW end", "\t", toString(clock_seconds()), "\n") =>
 	tmptimeLog = write(strcat(startmsg, endmsg));
 }
 
@@ -76,19 +89,11 @@ import bioapps.align_dedup;
 }
 
 (file output, file tmptimeLog) samtools_flagstat_logged(string samtoolsexe, file inputFile){
-	string startmsg = strcat("SAMTOOLS FLAGSTATS start", "\t", toString(clock_seconds()), "\n") =>
+	string startmsg = strcat("SAMTOOLS_FLAGSTATS start", "\t", toString(clock_seconds()), "\n") =>
 	output = samtools_flagstat(samtoolsexe, inputFile) =>
-	string endmsg = strcat("SAMTOOLS FLAGSTATS end", "\t", toString(clock_seconds()), "\n") =>
+	string endmsg = strcat("SAMTOOLS_FLAGSTATS end", "\t", toString(clock_seconds()), "\n") =>
 	tmptimeLog = write(strcat(startmsg, endmsg));
 }
 
 
-/* Cool if this one works!
-(boolean done) logme (string function_name, string function_call, file timingLog){
-	string startmsg = strcat(function_name, " start", "\t", toString(clock_seconds()), "\n") =>
-	function_call =>
-	string endmsg = strcat(function_name, " end", "\t", toString(clock_seconds()), "\n") =>
-	timeLog = echo(strcat(startmsg, endmsg)) =>
-	done = true;
-}
-*/
+
