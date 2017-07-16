@@ -303,7 +303,7 @@ VariantCalling (for split chromosome path)
 							 ) =>
 			string realparms[] = split(
 				trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " "
-						  ) =>
+						  )  =>
 			rm(recalfiles);
 
 			/***************************
@@ -363,7 +363,6 @@ VariantCalling (for split chromosome path)
 		string trimmed = substring(base, 0, strlen(base) - 8);  // gets rid of '.bam' extension
 		string pieces[] = split(trimmed, ".");		// Splits the string by '.'
 		string chr = pieces[size(pieces) - 1];		// Grabs the last part, which is the chromosome part
-		printf(strcat("chr: ", chr, "\n"));
 
 		// Removes '.wDedups.sorted.chr' part of the sample's name
 		string sampleName = substring(trimmed, 0, strlen(trimmed) - strlen(chr) - 16); //verified 

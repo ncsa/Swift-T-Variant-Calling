@@ -51,7 +51,7 @@ app (file output) find_files (string dir, string pattern){
 	"find" dir "-name" pattern @stdout=output;
 }
 
-app (void v) rm(file f) {	
+app (void v) rm(file f) {
 	"rm" f;
 }
 
