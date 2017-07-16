@@ -90,7 +90,7 @@ Create the Failures.log
 
 // This file is initialized with an empty string, so it can be appended to later on
 file failureLog < strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLDER"], "/docs/Failures.log") > = write("");
-file timingLog < strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLDER"], "/docs/Timing.log") > = write("App status\tTime\n");
+file timingLog < strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLDER"], "/docs/Timing.log") > = write("Sample\t Chromosome\tApp status\tTime\n");
 
 /*******************************************
  Copy input files for documentation purposes

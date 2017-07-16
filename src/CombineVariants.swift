@@ -97,7 +97,7 @@ import bioappsLoggingFunctions.merge_vcf_logging;
 							      vars["GATKJAR"],							     
 							      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),			
 							      strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),			    
-							      chrSampleArray							       
+							      chrSampleArray, sampleName 
 							     ) =>
 			vcfOutfiles[sampleIndex] = gvcfSample;
 		}

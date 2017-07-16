@@ -132,12 +132,12 @@ Realignment
 	// The inputBam should be indexed before this function is called						
 	intervals, targetLog, tmptargetLog = RealignerTargetCreator_logged (var["JAVAEXE"], var["GATKJAR"],				 
 					   strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]),			
-					   inputBam, threads, realparms			    
+					   inputBam, threads, realparms, sampleName, chr 
 					  );									    
 	realignedbam, realignLog, tmprealignLog = IndelRealigner_logged (var["JAVAEXE"], var["GATKJAR"],				     
 				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]),			     
-				      inputBam, realparms, intervals						    
-				     );										 
+				      inputBam, realparms, intervals, sampleName, chr 
+				     ) ; 
 	checkBam(var, realignedbam);
 }			   
 
@@ -172,12 +172,12 @@ Recalibration
 	report, recalLog, tmprecalLog = BaseRecalibrator_logged (var["JAVAEXE"], var["GATKJAR"],
 				       strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
 				       threads, recalparmsindels,
-				       strcat(var["REFGENOMEDIR"], "/", var["DBSNP"])
+				       strcat(var["REFGENOMEDIR"], "/", var["DBSNP"]), sampleName, chr
 				      );
 	outBam, printLog, tmpprintLog = PrintReads_logged (var["JAVAEXE"], var["GATKJAR"],
 				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
-				      threads, report
-				     );
+				      threads, report, sampleName, chr
+				     ) ; 
 	checkBam(var, outBam);
 }
 
@@ -240,7 +240,7 @@ VariantCalling (for split chromosome path)
 					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),   
 					   inputBam,					
 					   strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),       
-					   threads, ploidy, chr	       
+					   threads, ploidy, chr, sampleName	       
 					  );
 }
 
@@ -264,7 +264,7 @@ VariantCalling (for split chromosome path)
 					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
 					   inputBam,
 					   strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),
-					   threads
+					   threads, sampleName
 					  );
 }
 
