@@ -200,6 +200,7 @@ Recalibration
 
 		// Realign file handles
 		file realignedbam < strcat(prefix, ".realigned.bam") >;
+		trace("recalibrationWrapper call\t", sampleName, "\t", chr);
 
 		// Wait for index to get created before moving on						
 		samtools_index(var["SAMTOOLSEXE"], inputBam) =>						 
@@ -303,8 +304,8 @@ VariantCalling (for split chromosome path)
 							 ) =>
 			string realparms[] = split(
 				trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " "
-						  )  =>
-			rm(recalfiles);
+						  ) ;// =>
+			//rm(recalfiles);
 
 			/***************************
 			 Realign and/or recalibrate
@@ -382,7 +383,8 @@ VariantCalling (for split chromosome path)
  				/*************************************							  
 				 Gather the recalibration index files							   
 				**************************************/							 
-															
+				trace("VCNoSplitMain\t", sampleName, "\t", chr);
+							
 				// Temporary file									       
 				file recalfiles < strcat(vars["TMPDIR"], "/", sampleName, ".", chr, 
 							 ".recal_foundfiles.txt"
@@ -396,8 +398,8 @@ VariantCalling (for split chromosome path)
 								 ) =>							   
 				string realparms[] = split(								     
 					trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " "	    
-							  ) =>								  
-				rm(recalfiles);
+							  );// =>								  
+				//rm(recalfiles);
 			
 				/***************************
 				 Realign and/or recalibrate

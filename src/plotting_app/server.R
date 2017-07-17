@@ -56,7 +56,8 @@ shinyServer(function(input, output, session) {
     
     plot <- data %>% 
       ggplot(aes(start_App))  +
-      geom_linerange(aes(ymin = start_time, ymax = end_time, color = Sample)) +
+      geom_linerange(aes(ymin = start_time, ymax = end_time, linetype = Sample, 
+                         color = Sample), alpha = .4, size = 2) +
       coord_flip()
   })
   
