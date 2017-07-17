@@ -52,7 +52,7 @@ app (file output, file outLog) novosort (string novosortexe, string inputFile[],
 }
 @dispatch=WORKER
 app (file outputfile, file outLog, file metricsfile) picard (string javaexe, string picardjar, string tmpdir, file inputFile ){
-	javaexe "-Xmx8g" "-jar" picardjar "MarkDuplicates" "INPUT=" inputFile "OUTPUT=" outputfile "METRICS_FILE=" metricsfile "TMP_DIR=" tmpdir "ASSUME_SORTED=true" "MAX_RECORDS_IN_RAM=null" "CREATE_INDEX=true" "VALIDATION_STRINGENCY=SILENT"@stderr=outLog;
+	javaexe "-Xmx16g" "-jar" picardjar "MarkDuplicates" "INPUT=" inputFile "OUTPUT=" outputfile "METRICS_FILE=" metricsfile "TMP_DIR=" tmpdir "ASSUME_SORTED=true" "MAX_RECORDS_IN_RAM=null" "CREATE_INDEX=true" "VALIDATION_STRINGENCY=SILENT"@stderr=outLog;
 
 }
 

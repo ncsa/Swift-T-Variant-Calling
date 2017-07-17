@@ -103,12 +103,7 @@ Realignment
 
 (file realignedbam) realignBam(string sampleName, string chr, string var[string], string realparms[], file inputBam
 			      ) {
-	/*
-	 * In Matt's test, the preLogPrefix sampleName variable is the sampleName.wDedups.sorted.14.bam
-	 *   
-	 *
-	 */
-	
+
 	string prePrefix = strcat(var["OUTPUTDIR"],"/", sampleName, "/realign/", sampleName, ".wDedups.sorted.", chr);
 	string preLogPrefix = strcat(var["OUTPUTDIR"],"/", sampleName, "/logs/", sampleName, ".wDedups.sorted.", chr);	
 	
@@ -119,8 +114,8 @@ Realignment
 	int threads = string2int(var["CORES"]) %/ string2int(var["PROCPERNODE"]);
 
 	// Log files												    
-	file targetLog < strcat(logPrefix, "RealignTargetCreator.log") >;				 
-	file realignLog < strcat(logPrefix, "IndelRealigner.log") >;
+	file targetLog < strcat(logPrefix, "_RealignTargetCreator.log") >;				 
+	file realignLog < strcat(logPrefix, "_IndelRealigner.log") >;
 
 	file intervals < strcat(prefix, ".realignTargetCreator.intervals") >;			   
 															
@@ -128,11 +123,11 @@ Realignment
 	intervals, targetLog = RealignerTargetCreator(var["JAVAEXE"], var["GATKJAR"],				 
 					   strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]),			
 					   inputBam, threads, realparms			    
-					  );									    
+					  ) =>
 	realignedbam, realignLog = IndelRealigner(var["JAVAEXE"], var["GATKJAR"],				     
 				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]),			     
 				      inputBam, realparms, intervals						    
-				     );										 
+				     ) =>							 
 	checkBam(var, realignedbam);
 }			   
 
@@ -156,18 +151,18 @@ Recalibration
 	// Log files
 	file recalLog < strcat(logPrefix, "_BaseRecalibrator.log") >;
 	file printLog < strcat(logPrefix, "_PrintReads.log") >;
-	file report < strcat(prefix, "recal_report.grp") >;
+	file report < strcat(prefix, ".recal_report.grp") >;
 
 	// The inputBam should be indexed before this function is called
 	report, recalLog = BaseRecalibrator(var["JAVAEXE"], var["GATKJAR"],
 				       strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
 				       threads, recalparmsindels,
 				       strcat(var["REFGENOMEDIR"], "/", var["DBSNP"])
-				      );
+				      ) =>
 	outBam, printLog = PrintReads(var["JAVAEXE"], var["GATKJAR"],
 				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
 				      threads, report
-				     );
+				     ) =>
 	checkBam(var, outBam);
 }
 
@@ -179,7 +174,7 @@ Recalibration
 					    file inputBam, string realparms[], string recalparmsindels[]
 					   ) {
 
-	string prePrefix = strcat(var["OUTPUTDIR"], "/", sampleName, "/realign/", sampleName, ".", chr);
+	string prePrefix = strcat(var["OUTPUTDIR"], "/", sampleName, "/realign/", sampleName, ".wDedups.sorted.", chr);
 	// If no chr, there will be an extra '.'
 	string prefix = replace(prePrefix, "..", ".", 0);
 
@@ -193,7 +188,7 @@ Recalibration
 
 		// Wait for index to get created before moving on						
 		samtools_index(var["SAMTOOLSEXE"], inputBam) =>						 
-		realignedbam = realignBam(sampleName, chr, var, realparms, inputBam);				    
+		realignedbam = realignBam(sampleName, chr, var, realparms, inputBam) =>				    
 		recalibratedbam = recalibrateBam(sampleName, chr, var, realignedbam, recalparmsindels);		 
 	}												       
 	else {												  
@@ -288,7 +283,7 @@ VariantCalling (for split chromosome path)
 			string realparms[] = split(
 				trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " "
 						  ) =>
-			rm(recalfiles);
+			//rm(recalfiles);
 
 			/***************************
 			 Realign and/or recalibrate
@@ -303,7 +298,7 @@ VariantCalling (for split chromosome path)
 						     ) >;
 			recalibratedbam = recalibrationWrapper(sampleName, "", vars, inputBam,
 							       realparms, recalparmsindels
-							      );    
+							      ) =>
 
 			/**************
 			 Call variants
@@ -342,8 +337,8 @@ VariantCalling (for split chromosome path)
 	foreach chrSet, chrIndex in inputBams {
 		// Input files will have names in the form 'prefix.chrA.bam'
 		// This will grab the chr name from the first sample in that chromosome list
-		printf(strcat("chrSet: ", filename(chrSet[0]), "\n"));
-		string base = basename_string(filename(chrSet[0]));
+		printf(strcat("chrSet: ", filename(chrSet[chrIndex]), "\n"));
+		string base = basename_string(filename(chrSet[chrIndex]));
 		printf(strcat("base: ", base, "\n"));
 		string trimmed = substring(base, 0, strlen(base) - 4);  // gets rid of 'bam' extension
 		printf(strcat("trimmed: ", trimmed, "\n"));
@@ -376,7 +371,7 @@ VariantCalling (for split chromosome path)
 							 ".recal_foundfiles.txt"
 							) >; 
 				recalfiles = find_files(strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"),	       
-							strcat("*", chr, ".vcf" )					       
+							strcat("*.", chr, ".vcf" )	// changed from strcat("*",chr, ".vcf")
 					       ) =>	
 				// Get the realign parameters								   
 				string recalparmsindels[] = split(							      
@@ -385,7 +380,7 @@ VariantCalling (for split chromosome path)
 				string realparms[] = split(								     
 					trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " "	    
 							  ) =>								  
-				rm(recalfiles);
+				//rm(recalfiles);
 			
 				/***************************
 				 Realign and/or recalibrate
@@ -395,14 +390,14 @@ VariantCalling (for split chromosome path)
 							     ) >;							       
 				recalibratedbam = recalibrationWrapper(sampleName, chr, vars, inputBam,			 
 								       realparms, recalparmsindels			      
-								      );
+								      ) =>
 			
 				/**************										 
 				 Call variants										  
 				***************/								       
 				file gvcfVariants < strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/",
-							   sampleName, ".wDedups.sorted.recalibrated.", chr, ".g.vcf"		       
-						 	  ) >;								  
+							   sampleName, ".wDedups.sorted.recalibrated.", chr, ".g.vcf"
+						 	  ) >;
 				gvcfVariants = callChrVariants(vars, sampleName, recalibratedbam, chr) =>
 				VCF_list[sampleIndex][chrIndex] = gvcfVariants;
 			}
