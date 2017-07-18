@@ -141,7 +141,13 @@ This is set in bytes, so if you want to limit novosort to using 30 GB, one would
 
 **`REFGENOME`** Name of the reference genome (name only, not full path)
 
-**`DBSNP`** Name of the dbsnp vcf file (name only, path should be that of the REFGENOMEDIR
+**`DBSNP`** 
+
+Name of the dbsnp vcf file (name only, path should be that of the REFGENOMEDIR
+
+Within the directory, the vcf files should be named with only the chromosome name in front and nothing else.
+
+For example, if the chromosome is `chr12` or `12`, name the vcf files `chr12.vcf` or `12.vcf`, respectively.
 
 **`INDELDIR`** Directory that contains the indel variant files used in the recalibration step
 
