@@ -101,8 +101,7 @@ import generalfunctions.general;
 Realignment
 ***********/
 
-(file realignedbam) realignBam(string sampleName, string chr, string var[string], string realparms[], file inputBam
-			      ) {
+(file realignedbam) realignBam(string sampleName, string chr, string var[string], string realparms[], file inputBam) {
 
 	string prePrefix = strcat(var["OUTPUTDIR"],"/", sampleName, "/realign/", sampleName, ".wDedups.sorted.", chr);
 	string preLogPrefix = strcat(var["OUTPUTDIR"],"/", sampleName, "/logs/", sampleName, ".wDedups.sorted.", chr);	
@@ -186,19 +185,19 @@ Recalibration
 		// Realign file handles
 		file realignedbam < strcat(prefix, ".realigned.bam") >;
 
-		// Wait for index to get created before moving on						
-		samtools_index(var["SAMTOOLSEXE"], inputBam) =>						 
-		realignedbam = realignBam(sampleName, chr, var, realparms, inputBam) =>				    
-		recalibratedbam = recalibrateBam(sampleName, chr, var, realignedbam, recalparmsindels);		 
-	}												       
-	else {												  
+		// Wait for index to get created before moving on
+		samtools_index(var["SAMTOOLSEXE"], inputBam) =>
+		realignedbam = realignBam(sampleName, chr, var, realparms, inputBam) =>
+		recalibratedbam = recalibrateBam(sampleName, chr, var, realignedbam, recalparmsindels);
+	}
+	else {
 		/*****
-		 Recalibration Only									     
+		 Recalibration Only
 		*****/
 
-		// Wait for index to get created before moving on						
-		samtools_index(var["SAMTOOLSEXE"], inputBam) =>						 
-		recalibratedbam = recalibrateBam(sampleName, chr, var, inputBam, recalparmsindels);		      
+		// Wait for index to get created before moving on
+		samtools_index(var["SAMTOOLSEXE"], inputBam) =>
+		recalibratedbam = recalibrateBam(sampleName, chr, var, inputBam, recalparmsindels);
 	}
 }
 
@@ -335,21 +334,6 @@ VariantCalling (for split chromosome path)
 
 (file VCF_list[][]) VCSplitMain(string vars[string], file inputBams[][], file failLog) {
 	foreach chrSet, chrIndex in inputBams {
-		// Input files will have names in the form 'prefix.chrA.bam'
-		// This will grab the chr name from the first sample in that chromosome list
-		printf(strcat("chrSet: ", filename(chrSet[chrIndex]), "\n"));
-		string base = basename_string(filename(chrSet[chrIndex]));
-		printf(strcat("base: ", base, "\n"));
-		string trimmed = substring(base, 0, strlen(base) - 4);  // gets rid of 'bam' extension
-		printf(strcat("trimmed: ", trimmed, "\n"));
-		string pieces[] = split(trimmed, ".");		// Splits the string by '.'
-		string chr = pieces[size(pieces) - 1];		// Grabs the last part, which is the chromosome part
-		printf(strcat("chr: ", chr, "\n"));
-
-		// Removes the .wDedups.sorted.<chr> portion of the trimmed string, leaving only the sample name
-		string sampleName = substring(trimmed, 0, strlen(trimmed) - strlen(chr) - 1 - 15);
-		printf(strcat("sampleName: ", sampleName, "\n\n\n\n\n"));
-
 		foreach inputBam, sampleIndex in chrSet {
 			if (vars["VC_STAGE"] == "Y" ||
 			    vars["VC_STAGE"] == "y" ||
@@ -362,34 +346,46 @@ VariantCalling (for split chromosome path)
 			    vars["VC_STAGE"] == "e" ||
 			    vars["VC_STAGE"] == "END"
 			   ) {
- 				/*************************************							  
-				 Gather the recalibration index files							   
-				**************************************/							 
-															
-				// Temporary file									       
-				file recalfiles < strcat(vars["TMPDIR"], "/", sampleName, ".", chr, 
+				// Input files will have names in the form 'prefix.chrA.bam'
+                		// This will grab the chr name from the first sample in that chromosome list
+                		string base = basename_string(filename(chrSet[sampleIndex]));
+                		string trimmed = substring(base, 0, strlen(base) - 4);  // gets rid of 'bam' extension
+				string pieces[] = split(trimmed, ".");          // Splits the string by '.'
+				string chr = pieces[size(pieces) - 1];// Grabs the last part: the chromosome name
+
+				string nameBase = basename_string(filename(inputBam));
+				// Removes the .wDedups.sorted.<chr>.bam portion of the trimmed string,
+				//   leaving only the sample name
+				string sampleName = substring(nameBase, 0, strlen(nameBase) - strlen(chr) - 1 - 19);
+
+ 				/*************************************
+				 Gather the recalibration index files
+				**************************************/
+
+				// Temporary file
+				file recalfiles < strcat(vars["TMPDIR"], "/", sampleName, ".", chr,
 							 ".recal_foundfiles.txt"
-							) >; 
-				recalfiles = find_files(strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"),	       
-							strcat("*.", chr, ".vcf" )	// changed from strcat("*",chr, ".vcf")
-					       ) =>	
+							) >;
+				recalfiles = find_files(strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"), 
+							strcat(chr, ".vcf" )// changed from strcat("*",chr, ".vcf")
+					       ) =>
 				// Get the realign parameters								   
-				string recalparmsindels[] = split(							      
-					trim(replace_all(read(sed(recalfiles, "s/^/--knownSites /g")), "\n", " ", 0)), " "      
-								 ) =>							   
-				string realparms[] = split(								     
-					trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " "	    
-							  ) =>								  
+				string recalparmsindels[] = split(
+					trim(replace_all(read(sed(recalfiles, "s/^/--knownSites /g")), "\n", " ", 0)), " "
+								 ) =>
+				string realparms[] = split(
+					trim(replace_all(read(sed(recalfiles, "s/^/-known /g")), "\n", " ", 0)), " "
+							  ) =>
 				//rm(recalfiles);
-			
+
 				/***************************
 				 Realign and/or recalibrate
 				****************************/
 				file recalibratedbam < strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/",
-							      sampleName, ".wDedups.sorted.recalibrated.", chr, ".bam"		      
-							     ) >;							       
-				recalibratedbam = recalibrationWrapper(sampleName, chr, vars, inputBam,			 
-								       realparms, recalparmsindels			      
+							      sampleName, ".wDedups.sorted.recalibrated.", chr, ".bam" 
+							     ) >;
+				recalibratedbam = recalibrationWrapper(sampleName, chr, vars, inputBam,
+								       realparms, recalparmsindels
 								      ) =>
 			
 				/**************										 
@@ -403,10 +399,24 @@ VariantCalling (for split chromosome path)
 			}
 			// If this stage of processing was skipped
 			else {
+
+				// Input files will have names in the form 'prefix.chrA.bam'                               
+                                // This will grab the chr name from the first sample in that chromosome list               
+                                string base = basename_string(filename(chrSet[sampleIndex]));                              
+                                string trimmed = substring(base, 0, strlen(base) - 4);  // gets rid of 'bam' extension  
+                                string pieces[] = split(trimmed, ".");          // Splits the string by '.'                
+                                string chr = pieces[size(pieces) - 1];// Grabs the last part: the chromosome name
+
 				/************************
 			 	 Gather the output files
 				*************************/
-				string vcfFileLocation = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/",               
+
+				string nameBase = basename_string(filename(inputBam));                                     
+                                // Removes the .wDedups.sorted.<chr>.bam portion of the trimmed string,                    
+                                //   leaving only the sample name                                                          
+                                string sampleName = substring(nameBase, 0, strlen(nameBase) - strlen(chr) - 1 - 19);
+
+				string vcfFileLocation = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/",
 								sampleName, ".wDedups.sorted.recalibrated.",
 								chr, ".g.vcf"
 							       );
