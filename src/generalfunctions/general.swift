@@ -51,8 +51,8 @@ app (file output) find_files (string dir, string pattern){
 	"find" dir "-name" pattern @stdout=output;
 }
 
-app (void v) rm(file f) {											       
-	"rm" f;													 
+app (void v) rm(file f) {	
+	"rm" f;
 }
 
 // Convert an array of files to an array of strings with those file names
@@ -66,7 +66,7 @@ app (void v) rm(file f) {
 (boolean success) checkBam(string vars[string], file bamFile) {						       
 	// Swift/T would try to use samtools_view2 even before bamFile is read. Added explicit wait command		
 	wait (bamFile) {
-		int alignNum = samtools_view2(vars["SAMTOOLSDIR"], filename(bamFile));				
+		int alignNum = samtools_view2(vars["SAMTOOLSEXE"], filename(bamFile));				
 		success = alignNum > 0;										    
 	}
 } 

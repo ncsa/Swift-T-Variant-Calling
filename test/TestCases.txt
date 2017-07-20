@@ -1,0 +1,35 @@
+Tools to test (Not necessary to test all combinations of these, just have at least one run that uses them at some stage)
+-------------
+1. BWA
+2. Novoalign
+3a. Novosort (Sorting only; done on every run)
+3b. Novosort (Sorting and marking duplicates)
+4. Samblaster
+5. Picard
+6. GATK
+7. samtools (Used during every run)
+
+Functionalities
+----------------
+8. ANALYSIS type
+    8a. ALIGN_ONLY
+    8b. VC_REALIGN
+    8c. VC_NO_REALIGN
+
+9. Splitting by chromosome (SPLIT=Y; CHRNAMES)
+10. Not Splitting by chromosome (SPLIT=N)
+
+11. Exit on error
+    This can be tested by analyzing two samples and setting the mark duplicates cutoff so that only one of them will fail.
+    If this flag is working correctly, it will stop the workflow when set to Y, and will keep going with the sample that passed with N.
+    
+12. Stop if no samples passed QC
+    This can be tested by setting the cutoffs to impossible levels that no sample could pass (i.e. MAP_CUTOFF=101)
+    If this functionality is working, this should cause the workflow to stop with a message to the log file stating that
+    there were no samples left to test
+
+13. Paired-end reads
+14. Single-end reads
+
+15. Test that PROCPERNODE=2 actually runs two jobs on a node simultaneously
+16. Novosort memlimit works with at least 2 PROCSPERNODE

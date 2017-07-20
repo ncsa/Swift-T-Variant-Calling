@@ -1,63 +1,63 @@
 /////// Alignment functions:
 @dispatch=WORKER
-app (file output, file outLog) bwa_mem (string bwadir, string read1, string read2, string INDEX, string bwamemparams[], int PBSCORES,  string rgheader){
-	bwadir "mem" "-M" bwamemparams "-t" PBSCORES "-R" rgheader INDEX read1 read2 @stdout=output @stderr=outLog;
+app (file output, file outLog) bwa_mem (string bwaexe, string read1, string read2, string INDEX, string bwamemparams[], int PBSCORES,  string rgheader){
+	bwaexe "mem" "-M" bwamemparams "-t" PBSCORES "-R" rgheader INDEX read1 read2 @stdout=output @stderr=outLog;
 }
 
 @dispatch=WORKER
-app (file output, file outLog) bwa_mem (string bwadir, string read1, string INDEX, string bwamemparams[], int PBSCORES,  string rgheader){
-	bwadir "mem" "-M" bwamemparams "-t" PBSCORES "-R" rgheader INDEX read1 @stdout=output @stderr=outLog;
+app (file output, file outLog) bwa_mem (string bwaexe, string read1, string INDEX, string bwamemparams[], int PBSCORES,  string rgheader){
+	bwaexe "mem" "-M" bwamemparams "-t" PBSCORES "-R" rgheader INDEX read1 @stdout=output @stderr=outLog;
 }
 
 @dispatch=WORKER
-app (file output, file outLog) novoalign (string novoaligndir, string read1, string read2, string INDEX, string novoalignparams[], int PBSCORES, string rgheader) {
-	novoaligndir "-c" PBSCORES "-d" INDEX "-f" read1 read2 "-o" "SAM" rgheader @stdout=output @stderr=outLog; 
+app (file output, file outLog) novoalign (string novoalignexe, string read1, string read2, string INDEX, string novoalignparams[], int PBSCORES, string rgheader) {
+	novoalignexe "-c" PBSCORES "-d" INDEX "-f" read1 read2 "-o" "SAM" rgheader @stdout=output @stderr=outLog; 
 }
 
 @dispatch=WORKER                                                                                                           
-app (file output, file outLog) novoalign (string novoaligndir, string read1, string INDEX, string novoalignparams[], int PBSCORES, string rgheader) {
-        novoaligndir "-c" PBSCORES "-d" INDEX "-f" read1 "-o" "SAM" rgheader @stdout=output @stderr=outLog;          
+app (file output, file outLog) novoalign (string novoalignexe, string read1, string INDEX, string novoalignparams[], int PBSCORES, string rgheader) {
+        novoalignexe "-c" PBSCORES "-d" INDEX "-f" read1 "-o" "SAM" rgheader @stdout=output @stderr=outLog;          
 }
 
 @dispatch=WORKER
-app (file output) samtools_view(string samtoolsdir, file inputFile, int thr, string args[]){
+app (file output) samtools_view(string samtoolsexe, file inputFile, int thr, string args[]){
 	// Converting sam to bam
-	samtoolsdir "view" "-@" thr "-bS" inputFile args @stdout=output;
+	samtoolsexe "view" "-@" thr "-bS" inputFile args @stdout=output;
 }
 
 // Counting the number of alignments
 @dispatch=WORKER
-(int numAlignments) samtools_view2(string samtoolsdir, string inputFile)
+(int numAlignments) samtools_view2(string samtoolsexe, string inputFile)
 	"align" "0.2" [	
-	"set <<numAlignments>> [ alignment::samtools_view <<samtoolsdir>> <<inputFile>> ]"
+	"set <<numAlignments>> [ alignment::samtools_view <<samtoolsexe>> <<inputFile>> ]"
 ];
 
 @dispatch=WORKER
-app (file output, file outLog) samblaster(string samblasterdir, file inputFile){
-	samblasterdir "-M" "-i" inputFile @stdout=output @stderr=outLog;
+app (file output, file outLog) samblaster(string samblasterexe, file inputFile){
+	samblasterexe "-M" "-i" inputFile @stdout=output @stderr=outLog;
 }
 
 @dispatch=WORKER
-app (file output, file outLog) novosort (string novosortdir, file inputFile, string tmpdir, int thr, string sortoptions[], int memFlag){
+app (file output, file outLog) novosort (string novosortexe, file inputFile, string tmpdir, int thr, string sortoptions[], int memFlag){
 	// processing a single file (sorting and indexing input)
-	novosortdir "--index" "-m" memFlag "--tmpdir" tmpdir "--threads" thr inputFile "-o" output sortoptions @stderr=outLog; 
+	novosortexe "--index" "-m" memFlag "--tmpdir" tmpdir "--threads" thr inputFile "-o" output sortoptions @stderr=outLog; 
 	// novosort has dual function to also mark duplicates
 }
 
 @dispatch=WORKER
-app (file output, file outLog) novosort (string novosortdir, string inputFile[], string tmpdir, int thr, string sortoptions[], int memFlag){
+app (file output, file outLog) novosort (string novosortexe, string inputFile[], string tmpdir, int thr, string sortoptions[], int memFlag){
 	// processing multi-input files together (merging files)
-	novosortdir "--index" "-m" memFlag "--tmpdir" tmpdir "--threads" thr inputFile "-o" output sortoptions @stderr=outLog; 
+	novosortexe "--index" "-m" memFlag "--tmpdir" tmpdir "--threads" thr inputFile "-o" output sortoptions @stderr=outLog; 
 	// novosort has dual function to also mark duplicates
 }
 @dispatch=WORKER
-app (file outputfile, file outLog, file metricsfile) picard (string javadir, string picarddir, string tmpdir, file inputFile ){
-	javadir "-Xmx8g" "-jar" picarddir "MarkDuplicates" "INPUT=" inputFile "OUTPUT=" outputfile "METRICS_FILE=" metricsfile "TMP_DIR=" tmpdir "ASSUME_SORTED=true" "MAX_RECORDS_IN_RAM=null" "CREATE_INDEX=true" "VALIDATION_STRINGENCY=SILENT"@stderr=outLog;
+app (file outputfile, file outLog, file metricsfile) picard (string javaexe, string picardjar, string tmpdir, file inputFile ){
+	javaexe "-Xmx16g" "-jar" picardjar "MarkDuplicates" "INPUT=" inputFile "OUTPUT=" outputfile "METRICS_FILE=" metricsfile "TMP_DIR=" tmpdir "ASSUME_SORTED=true" "MAX_RECORDS_IN_RAM=null" "CREATE_INDEX=true" "VALIDATION_STRINGENCY=SILENT"@stderr=outLog;
 
 }
 
 @dispatch=WORKER
-app (file output) samtools_flagstat(string samtoolsdir, file inputFile){
-	samtoolsdir "flagstat" inputFile @stdout=output;
+app (file output) samtools_flagstat(string samtoolsexe, file inputFile){
+	samtoolsexe "flagstat" inputFile @stdout=output;
 }
 
