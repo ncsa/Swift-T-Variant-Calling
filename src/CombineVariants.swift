@@ -41,16 +41,24 @@ import sys;
 
 import generalfunctions.general;
 import bioapps.merge_vcf;
+import bioappsLoggingFunctions.merge_vcf_logging;
 
-(file vcfOutfiles[]) combineVariantsMain(file inputVCFs[][], string vars[string], file failLog) {
+(file vcfOutfiles[]) combineVariantsMain(file inputVCFs[][], string vars[string], file failLog ) {
 
 	foreach sampleSet, sampleIndex in inputVCFs {
 
 		// Get the sample name by looking at the first item in the samples chromosome set
 		// It has the form: sampleName.wDedups.sorted.recalibrated.chrA.g.vcf
 		string baseName = basename(sampleSet[0]);
-		string pieces[] = split(baseName, ".");
-		string sampleName = pieces[0]; // Note: this assumes that the sample name has no '.' character in it
+		string trimmed = substring(baseName, 0, strlen(baseName) - 10);  // gets rid of '.g.vcf' extension
+		string pieces[] = split(trimmed, ".");
+		string chr = pieces[size(pieces) - 1];          // Grabs the last part, which is the chromosome part
+
+		//string sampleName = pieces[0]; // Note: this assumes that the sample name has no '.' character in it- 
+		//This is a strange assumption given that it was never asserted in previous scripts that are able to deal with such scenarios
+
+                // Removes '.wDedups.sorted.recalibrated.chr' part of the sample's name
+                string sampleName = substring(trimmed, 0, strlen(trimmed) - strlen(chr) - 29); //verified 
 
 		string outputName = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/", sampleName,
 					   ".wDedups.sorted.recalibrated.g.vcf"
@@ -80,14 +88,17 @@ import bioapps.merge_vcf;
 			// Log file for CombineGVCFs
 			file combineLog < strcat(vars["OUTPUTDIR"], "/", sampleName,
 						 "/logs/", sampleName, "_CombineGVCFs.log"
-						) >;	 
+						) >;
+
+			string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
+			file tmpcombineLog < strcat(tmpLogDir, sampleName, ".", chr, "_CombineGVCFs.log") > ; 
 	
-			gvcfSample, combineLog = CombineGVCFs(vars["JAVAEXE"],							     
+			gvcfSample, combineLog, tmpcombineLog = CombineGVCFs_logged (vars["JAVAEXE"], 
 							      vars["GATKJAR"],							     
 							      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),			
 							      strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),			    
-							      chrSampleArray							       
-							     );
+							      chrSampleArray, sampleName 
+							     ) =>
 			vcfOutfiles[sampleIndex] = gvcfSample;
 		}
 		// If this section is to be skipped

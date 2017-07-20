@@ -51,8 +51,18 @@ app (file output) find_files (string dir, string pattern){
 	"find" dir "-name" pattern @stdout=output;
 }
 
-app (void v) rm(file f) {	
+app (void v) rm(file f) {
 	"rm" f;
+}
+
+app (void v) rm(file f[]) { 
+	"rm" f;													 
+}
+
+() logging (string tmpdir, file timeLog){
+        file tmplogs[] = glob(strcat(tmpdir, "/timinglogs/*"));
+        append(timeLog, read(cat(tmplogs))) =>
+        rm(tmplogs);
 }
 
 // Convert an array of files to an array of strings with those file names
