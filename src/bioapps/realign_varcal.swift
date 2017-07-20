@@ -11,7 +11,7 @@ app (void signal) samtools_index(string samtoolsdir, file inputFilename) {
 app (file outputfile, file outLog) RealignerTargetCreator (string javaexe, string gatkjar, string reference,
    file inputFile, int thr, string known[]
   ) {
-	javaexe "-Xmx8g" "-jar" gatkjar
+	javaexe "-Xmx16g" "-jar" gatkjar
 	"-T" "RealignerTargetCreator"
 	"-R" reference
 	"-I" inputFile known
@@ -24,7 +24,7 @@ app (file outputfile, file outLog) RealignerTargetCreator (string javaexe, strin
 app (file outputfile, file outLog) IndelRealigner (string javaexe, string gatkjar, string reference,
 				   file inputFile, string known[], file intervals
 				  ) {
-	javaexe "-Xmx8g" "-jar" gatkjar
+	javaexe "-Xmx16g" "-jar" gatkjar
 	"-T" "IndelRealigner"
 	"-R" reference
 	"-I" inputFile known 
@@ -67,7 +67,7 @@ app (file outputfile, file outLog) PrintReads (string javaexe, string gatkjar, s
 app (file outputfile, file outLog) HaplotypeCaller(string javaexe, string gatkjar, string reference,
 						   file inputFile, string dbsnp, int thr, int ploidy, string chr
 						  ) {
-	javaexe "-Xmx8g" "-jar" gatkjar
+	javaexe "-Xmx16g" "-jar" gatkjar
 	"-T" "HaplotypeCaller"
 	"-R" reference
 	"-I" inputFile
@@ -97,7 +97,7 @@ app (file outputfile, file outLog) HaplotypeCaller(string javaexe, string gatkja
 app (file outputfile, file outLog) HaplotypeCaller(string javaexe, string gatkjar, string reference,      
 						   file inputFile, string dbsnp, int thr	  
 						  ) {			     
-	javaexe "-Xmx8g" "-jar" gatkjar			    
+	javaexe "-Xmx16g" "-jar" gatkjar			    
 	"-T" "HaplotypeCaller"				     
 	"-R" reference     
 	"-I" inputFile     
