@@ -1,30 +1,43 @@
-# Logging functionality
-
-The provided scripts allow you to check out the trace of a successful run of the pipeline. To invoke it, and for the time being, you need R installed in your environment along with the `shiny` package. 
-
-To do so, proceed as follows:
-
-1. Go to the [R-project webpage](http://ftp.heanet.ie/mirrors/cran.r-project.org/), and follow the instructions based on your system
-2. Once the step above is completed and R is installed, open a terminal window, type `R`, then proceed as follows:
 
 
-```
-install.packages('shiny')
-runGitHub(repo = "jacobrh91/Swift-T-Variant-Calling", ref = "dev-logging",
-          subdir = "src/plotting_app" )
-```
+# Variant Calling with Swift-T
 
-The first time you run these commands in your system it will also install some libraries for you in case you don't have them already, namely: `lubridate, tidyverse and forcats`.
+## Intended pipeline architecture and function
 
-Once all is done, a webpage should open up for you to actually take a look at your trace files. For a taste of how things look, you may take a look at the sample `Timing.log` file provided [in the repo](https://github.com/jacobrh91/Swift-T-Variant-Calling/tree/dev-logging/src/plotting_app)
+This pipeline implements the [GATK's best practices](https://software.broadinstitute.org/gatk/best-practices/) for germline variant calling in Whole Genome and Whole Exome Next Generation Sequencing datasets, given a cohort of samples.
 
-To take a look at your own analysis trace, you need to have a copy of this branch first, Run it on you samples, and then find your own `Timing.log` file within `Results_folder_path/delivery/docs`. Simply upload this file, and start using the app.
+This pipeline was disigned for GATK 3.X, which include the following stages:
 
-## Important Notes:
+1.  Map to the reference genome
+2.  Mark duplicates
+3.  Perform indel realignment and/or base recalibration (BQSR)\*
+4.  Call variants on each sample
+5.  Perform joint genotyping
 
-One problem spotted from using the app with 2 samples is that the analysis is done for only one of them (the realignment/recalibration stages are problemetic, where sampleNames get swapped haphazardly, and only one sample gets fully analyzed, which is what the supplied example `Timing.log` file shows - **this needs a closer look**)
+\* The indel realignment step was recommended in GATK best practices \< 3.6). 
 
-It should also be noted that running this pipeline in its current form is expected to be more expensive than normal, due to the manual logging involved. The alternative is to use the native `MPE` library (or equivalent), which requires re-compiling the Swift/T source. This approach is **currently limited at the moment**, but some discussions with the Swift/T team on this is found on their [repo ](https://github.com/swift-lang/swift-t/issues/118)
+Additionally, this workflow provides the option to split the aligned reads by chromosome before calling variants, which often speeds up performance when analyzing WGS data. 
+
+<img src=./media/WorkflowOverview.png width="600">
+
+**Figure 1** Overview of Workflow Design
+
+## Installation
+
+### Dependencies
+
+|  **Stage**          |  **Tool options**                                                             |
+| --------------------| ------------------------------------------------------------------------------|
+|  Alignment          | [Bwa mem](https://github.com/lh3/bwa) or [Novoalign](http://novocraft.com/)   |
+|  Sorting            | [Novosort](http://novocraft.com/)                                             |
+|  Marking Duplicates | [Samblaster](https://github.com/GregoryFaust/samblaster), [Novosort](http://novocraft.com/), or [Picard](https://broadinstitute.github.io/picard/)                                                    |
+|  Indel Realignment  | [GATK](https://software.broadinstitute.org/gatk/download/)                    |
+|  Base Recalibration | [GATK](https://software.broadinstitute.org/gatk/download/)                    |
+|  Variant Calling    | [GATK](https://software.broadinstitute.org/gatk/download/)                    |
+|  Joint Genotyping   | [GATK](https://software.broadinstitute.org/gatk/download/)                    |
+|  Miscellaneous      | [Samtools](http://samtools.github.io/)                                        |
+ 
+### Workflow Installation
 
 Clone this repository
 
@@ -258,6 +271,34 @@ Finally, for the last two stages, where it makes sense to set # Nodes = # Sample
  * JOINT_GENOTYPING_STAGE=Y
 
 This feature was designed to allow a more efficient use of computational resources.
+
+## Logging functionality
+
+The provided scripts allow you to check out the trace of a successful run of the pipeline. To invoke it, and for the time being, you need R installed in your environment along with the `shiny` package. 
+
+To do so, proceed as follows:
+
+1. Go to the [R-project webpage](http://ftp.heanet.ie/mirrors/cran.r-project.org/), and follow the instructions based on your system
+2. Once the step above is completed and R is installed, open a terminal window, type `R`, then proceed as follows:
+
+
+```
+install.packages('shiny')
+runGitHub(repo = "jacobrh91/Swift-T-Variant-Calling", ref = "master",
+          subdir = "src/plotting_app" )
+```
+
+The first time you run these commands in your system it will also install some libraries for you in case you don't have them already, namely: `lubridate, tidyverse and forcats`.
+
+Once all is done, a webpage should open up for you to actually take a look at your trace files. For a taste of how things look, you may take a look at the sample `Timing.log` file provided [in the repo](https://github.com/jacobrh91/Swift-T-Variant-Calling/master/src/plotting_app)
+
+To take a look at your own analysis trace, you need to have a copy of this branch first, Run it on you samples, and then find your own `Timing.log` file within `Results_folder_path/delivery/docs`. Simply upload this file, and start using the app.
+
+### Important Notes:
+
+One problem spotted from using the app with 2 samples is that the analysis is done for only one of them (the realignment/recalibration stages are problemetic, where sampleNames get swapped haphazardly, and only one sample gets fully analyzed, which is what the supplied example `Timing.log` file shows - **this needs a closer look**)
+
+It should also be noted that running this pipeline in its current form is expected to be more expensive than normal, due to the manual logging involved. The alternative is to use the native `MPE` library (or equivalent), which requires re-compiling the Swift/T source. This approach is **currently limited at the moment**, but some discussions with the Swift/T team on this is found on their [repo ](https://github.com/swift-lang/swift-t/issues/118)
 
 ## Under The Hood
 
