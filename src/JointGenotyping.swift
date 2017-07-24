@@ -26,13 +26,12 @@ import io;
 
 import bioapps.joint_vcf;
 import generalfunctions.general;
-import bioappsLoggingFunctions.joint_vcf_logging;
 
 /******************
  Main function for Joint Genotyping
 *******************/
 
-jointGenotypingMain(file inputVCFs[], string vars[string], file timeLog) {
+jointGenotypingMain(file inputVCFs[], string vars[string]) {
 	// Since this is the last step, I only check to make sure this step is one of the executed stages.
 	// If it is not, then nothing happens.
 	if (vars["JOINT_GENOTYPING_STAGE"] == "Y") {
@@ -42,11 +41,9 @@ jointGenotypingMain(file inputVCFs[], string vars[string], file timeLog) {
 	
 		// Log file for Joint Genotyping
 		file jointLog < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs/jointVCF.log") >;
+		
 		mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs"));
-
-		string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
-		file tmpjointLog < strcat(tmpLogDir, "jointVCF.log") >;	
-				
+		
 		// This array holds the vcf file for each sample along with the "--variants" flags necessary for GenotypeGVCFs
 		string variantSampleArray[];
 		
@@ -61,10 +58,9 @@ jointGenotypingMain(file inputVCFs[], string vars[string], file timeLog) {
 			variantSampleArray[varFlagPos] = "--variant";
 			variantSampleArray[namePos] = filename(sampleVCF);						  
 		}
-		
-		jointVCF, jointLog, tmpjointLog = GenotypeGVCFs_logged (vars["JAVAEXE"], vars["GATKJAR"], strcat(vars["REFGENOMEDIR"],
+
+		jointVCF, jointLog = GenotypeGVCFs(vars["JAVAEXE"], vars["GATKJAR"], strcat(vars["REFGENOMEDIR"],
 						   "/", vars["REFGENOME"]), variantSampleArray, vars["CORES"]
-						  ) =>
-		logging(variables["TMPDIR"], timeLog);
+						  );
 	}
 }
