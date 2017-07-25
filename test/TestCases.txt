@@ -39,3 +39,5 @@ Functionalities
     17b. Realign, Recal, and Variant Calling
     17c. Combine Chromosomes
     17d. Joint Genotyping
+
+18. Test Timing.log is outputed correctly
