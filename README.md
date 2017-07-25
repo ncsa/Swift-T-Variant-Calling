@@ -165,6 +165,13 @@ Full path of the appropriate executable file
 
 #### Executing the Swift-T Application 
 
+If using multiple nodes, one should set the `SWIFT_TMP` to another location besides the default `/tmp`, that is shared by all of the nodes
+
+For example,
+`export SWIFT_TMP=~/temp`
+
+Then to actually run the pipeline, use
+
 `swift-t -O3 -o </path/to/compiled_output_file.tic> -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps -u -n < Node# * PROCPERNODE + 1 or more > /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/example.runfile`
 
 This command will compile and run the pipeline all in one command
