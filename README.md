@@ -203,13 +203,13 @@ Additionally, to get the right number of processes on each node to make the `PRO
 So, with that understanding, call swift-t in the following way:
 
 `export CRAY_PPN=true`
-`export PPN=<PROCPERNODE + 1>`
+`export PPN=<PROCPERNODE>`
 `export WALLTIME=<HH:MM:SS>`
 `export PROJECT=<Project ID>`
 `export QUEUE=<Queue>`
 `export NODES=<#samples/PROCPERNODE + (1 or more)>`
 
-`swift-t -m cray -O3 -o /path/to/where/compiled/should/be/saved/compiled.tic -I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps -n <PROCPERNODE> /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile`
+`swift-t -m cray -O3 -o /path/to/where/compiled/should/be/saved/compiled.tic -I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile`
 
 Swift-T will create and run the qsub command for you.
 
