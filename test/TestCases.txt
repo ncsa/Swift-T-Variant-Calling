@@ -33,3 +33,9 @@ Functionalities
 
 15. Test that PROCPERNODE=2 actually runs two jobs on a node simultaneously
 16. Novosort memlimit works with at least 2 PROCSPERNODE
+
+17. Jump in at:
+    17a. Chromosome Splitting
+    17b. Realign, Recal, and Variant Calling
+    17c. Combine Chromosomes
+    17d. Joint Genotyping
