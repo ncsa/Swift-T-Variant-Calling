@@ -163,6 +163,12 @@ Full path of the appropriate executable file
 
 ### Running the Pipeline
 
+#### Requesting Resources from the Job Scheduler
+
+Swift-T works by opening up multiple "slots", called processes, where applications can run. There are two types of processes this workflow allocates
+* SERVERS - Control the execution of Swift-T itself; all Swift-T applications must have at least one of these
+* WORKERS - Run the actual work of each application in the workflow; these will make up the vast majority of processes
+
 #### Executing the Swift-T Application 
 
 If using multiple nodes, one should set the `SWIFT_TMP` to another location besides the default `/tmp`, that is shared by all of the nodes
@@ -170,13 +176,44 @@ If using multiple nodes, one should set the `SWIFT_TMP` to another location besi
 For example,
 `export SWIFT_TMP=~/temp`
 
-Then to actually run the pipeline, use
+**The type of job scheduler dictates how one calls Swift-T**
+
+##### PBS Torque
+
+This command must be included (along with any exported environment variables) in a job submission script and not called directly on a head/login node.
 
 `swift-t -O3 -o </path/to/compiled_output_file.tic> -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps -u -n < Node# * PROCPERNODE + 1 or more > /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/example.runfile`
 
 This command will compile and run the pipeline all in one command
 
-**Explanation of flags**
+It is important to note that (at least for PBS Torque schedulers) when submitting a qsub script, ppn option should be set, not to the number of cores on each compute node, but to the number of WORKERS Swift-T needs to open up on that node. 
+
+**Example**
+
+If one is wanting to run a 4 sample job with `PROCPERNODE` set to 2 in the runfile (meaning that two bwa runs can be executing simultaneously on a given node, for example), one would set the PBS flag to `-l nodes=2:ppn=2` and the `-n` flag when calling the workflow to 5 \( nodes\*ppn + 1 \)
+
+##### Cray System (Like Blue Waters at UIUC)
+
+This call of the workflow requires many more environmental variables and no submission script: Swift-T itself will create and submit a job.
+
+Additionally, to get the right number of processes on each node to make the `PROCPERNODE` work correctly, one must set `PPN= PROCPERNODE` and `NODES` to `#samples/PROCPERNODE + (1 or more)`, because at least one process must be a Swift-T SERVER. If one wanted to try running 4 samples on 2 nodes but with `PPN=3` to make room for the processes that need to be SERVER types, one of the nodes may end up with 3 of your WORKER processes running simultaneously, which may lead to memory problems when Novosort is called.
+
+(The exception to this would be when using a single node. In that case, just set `PPN=#PROCPERNODE + 1`)
+
+So, with that understanding, call swift-t in the following way:
+
+`export CRAY_PPN=true`
+`export PPN=<PROCPERNODE + 1>`
+`export WALLTIME=<HH:MM:SS>`
+`export PROJECT=<Project ID>`
+`export QUEUE=<Queue>`
+`export NODES=<#samples/PROCPERNODE + (1 or more)>`
+
+`swift-t -m cray -O3 -o /path/to/where/compiled/should/be/saved/compiled.tic -I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps -n <PROCPERNODE> /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile`
+
+Swift-T will create and run the qsub command for you.
+
+**Explanation of flags used in calls to swift-t**
 
 * `-O3` Conduct full optimizations of the Swift-T code during compilation (Even with full optimizations, compilation of the code takes only around 3 seconds)
 * `-o` The path to the compiled swift-t file (has a .tic extension); on the first run, this file will be created.
@@ -186,19 +223,6 @@ This command will compile and run the pipeline all in one command
 * `-n` The number of processes (ranks) Swift-T will open for this run of the workflow
 * `-runfile` The path to the runfile with all of the configuration variables for the workflow
 
-This command must be included in a job submission script and not called directly on a head/login node.
-
-#### Requesting Resources from the Job Scheduler
-
-Swift-T works by opening up multiple "slots", called processes, where applications can run. There are two types of processes this workflow allocates
-* SERVERS - Control the execution of Swift-T itself; all Swift-T applications must have at least one of these
-* WORKERS - Run the actual work of each application in the workflow; these will make up the vast majority of processes
-
-It is important to note that (at least for PBS Torque schedulers) when submitting a qsub script, ppn option should be set, not to the number of cores on each compute node, but to the number of WORKERS Swift-T needs to open up on that node. 
-
-**Example**
-
-If one is wanting to run a 4 sample job with `PROCPERNODE` set to 2 in the runfile (meaning that two bwa runs can be executing simultaneously on a given node, for example), one would set the PBS flag to `-l nodes=2:ppn=2` and the `-n` flag when calling the workflow to 5 \( nodes\*ppn + 1 \)
 
 #### Logging Options
 
