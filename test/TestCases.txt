@@ -41,3 +41,4 @@ Functionalities
     17d. Joint Genotyping
 
 18. Test Timing.log is outputed correctly
+19. Full run (Y for each stage)
