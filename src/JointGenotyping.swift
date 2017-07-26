@@ -38,11 +38,11 @@ jointGenotypingMain(file inputVCFs[], string vars[string], file timeLog) {
 	if (vars["JOINT_GENOTYPING_STAGE"] == "Y") {
 
 		// The joint genotype output file
-		file jointVCF < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs/jointVCFcalled.vcf") >;
+		file jointVCF < strcat(vars["OUTPUTDIR"], "/deliverables/jointVCFs/jointVCFcalled.vcf") >;
 	
 		// Log file for Joint Genotyping
-		file jointLog < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs/jointVCF.log") >;
-		mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs"));
+		file jointLog < strcat(vars["OUTPUTDIR"], "/deliverables/jointVCFs/jointVCF.log") >;
+		mkdir(strcat(vars["OUTPUTDIR"], "/deliverables/jointVCFs"));
 
 		string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
 		file tmpjointLog < strcat(tmpLogDir, "jointVCF.log") >;	

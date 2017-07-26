@@ -84,24 +84,24 @@ string sampleLines[] = file_lines(sampleInfoFile);
 
 mkdir(variables["OUTPUTDIR"]) =>
 mkdir(variables["TMPDIR"]) =>
-mkdir(strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLDER"], "/docs")) =>
+mkdir(strcat(variables["OUTPUTDIR"], "/deliverables/docs")) =>
 /**********************
 Create the Failures.log
 ***********************/
 
 // This file is initialized with an empty string, so it can be appended to later on
-file failureLog < strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLDER"], "/docs/Failures.log") > = write("") =>
-file timingLog < strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLDER"], "/docs/Timing.log") > = write("Sample\t Chromosome\tApp status\tTime\n") =>
+file failureLog < strcat(variables["OUTPUTDIR"], "/deliverables/docs/Failures.log") > = write("") =>
+file timingLog < strcat(variables["OUTPUTDIR"], "/deliverables/docs/Timing.log") > = write("Sample\t Chromosome\tApp status\tTime\n") =>
 
 /*******************************************
  Copy input files for documentation purposes
 *******************************************/
 
 // Copy the runfile and sampleInfoFile to the docs directory for documentation purposes
-file docRunfile < strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLDER"], "/docs/", basename_string(configFilename)
+file docRunfile < strcat(variables["OUTPUTDIR"], "/deliverables/docs/", basename_string(configFilename)
 			) > = configFile =>
 
-file docSampleInfo < strcat(variables["OUTPUTDIR"], "/", variables["DELIVERYFOLDER"], "/docs/",
+file docSampleInfo < strcat(variables["OUTPUTDIR"], "/deliverables/docs/",
 			    basename_string(filename(sampleInfoFile)) 
 			   ) > = sampleInfoFile =>
 

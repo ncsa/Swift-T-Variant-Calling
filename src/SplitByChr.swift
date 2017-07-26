@@ -109,10 +109,8 @@ import generalfunctions.general;
 								" contains no alignments. Chromosome splitting failed\n"
 							       );
 					// Update the failure log file
-					append(input(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"],
-						            "/docs/Failures.log")
-							   ),
-						     message
+					append(input(strcat(vars["OUTPUTDIR"], "/deliverables/docs/Failures.log")),
+					       message
 					      ) =>
 					exitIfFlagGiven(vars, message);
 				}
