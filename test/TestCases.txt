@@ -1,10 +1,10 @@
 Tools to test (Not necessary to test all combinations of these, just have at least one run that uses them at some stage)
 -------------
 1. BWA
-2. Novoalign
+2. Novoalign // Matt
 3a. Novosort (Sorting only; done on every run)
 3b. Novosort (Sorting and marking duplicates)
-4. Samblaster
+4. Samblaster // Matt
 5. Picard
 6. GATK
 7. samtools (Used during every run)
