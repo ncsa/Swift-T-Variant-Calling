@@ -230,15 +230,18 @@ So, with that understanding, call swift-t in the following way:
 
 `export PPN=<PROCPERNODE>`
 
+`export NODES=<#samples/PROCPERNODE + (1 or more)>`
+
+`export PROCS=$(($PPN * $NODES))`
+
 `export WALLTIME=<HH:MM:SS>`
 
 `export PROJECT=<Project ID>`
 
 `export QUEUE=<Queue>`
 
-`export NODES=<#samples/PROCPERNODE + (1 or more)>`
 
-`swift-t -m cray -O3 -o /path/to/where/compiled/should/be/saved/compiled.tic -I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile`
+`swift-t -m cray -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/compiled.tic -I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile`
 
 Swift-T will create and run the qsub command for you.
 
@@ -367,6 +370,17 @@ Each Main function has two paths it can use to produce its output:
 2. The other skips the computations and just gathers the output of a prior execution of this stage. This is useful when one wants to jump into different sections of the pipeline, and also allows Swift/T's dependency driven execution to correctly string the stages together into one workflow.
 
 ## Troubleshooting
+
+** General Troubleshooting Tips **
+
+Regardless of the platform, one can use the following environmental variables to better debug the workflow:
+
+`ADLB_DEBUG_RANKS=1` One can see if the processes are spread across the nodes correctly
+
+`TURBINE_LOG=1` Makes the Swift-T log output very verbose
+`TURBINE_LOG_FILE=<filePath>` Changes the Swift-T log output from StdOut to the file of choice
+
+More debug info can be found [here](http://swift-lang.github.io/swift-t/guide.html)
 
 * The pipeline seems to be running, but then prematurely stops at one of the tools?
   * Solution: make sure that all tools are specified in your runfile up to the executable itself (or the jar file if applicable)
