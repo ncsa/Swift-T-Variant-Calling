@@ -2,6 +2,32 @@
 
 # Variant Calling with Swift-T
 
+**Table of Contents**
+
+- [Variant Calling with Swift-T](#variant-calling-with-swift-t)
+	- [Intended pipeline architecture and function](#intended-pipeline-architecture-and-function)
+	- [Installation](#installation)
+		- [Dependencies](#dependencies)
+		- [Workflow Installation](#workflow-installation)
+	- [User Guide](#user-guide)
+		- [Runfile Options](#runfile-options)
+		- [Running the Pipeline](#running-the-pipeline)
+			- [Requesting Resources from the Job Scheduler](#requesting-resources-from-the-job-scheduler)
+			- [Executing the Swift-T Application](#executing-the-swift-t-application)
+				- [PBS Torque](#pbs-torque)
+				- [Cray System (Like Blue Waters at UIUC)](#cray-system-like-blue-waters-at-uiuc)
+			- [Logging Options](#logging-options)
+		- [Output Structure](#output-structure)
+		- [Data preparation](#data-preparation)
+		- [Resource Requirements](#resource-requirements)
+		- [Pipeline Interruptions and Continuations](#pipeline-interruptions-and-continuations)
+			- [Background](#background)
+			- [Example](#example)
+		- [Logging functionality](#logging-functionality)
+			- [Important Notes](#important-notes)
+	- [Under The Hood](#under-the-hood)
+	- [Troubleshooting](#troubleshooting)
+
 ## Intended pipeline architecture and function
 
 This pipeline implements the [GATK's best practices](https://software.broadinstitute.org/gatk/best-practices/) for germline variant calling in Whole Genome and Whole Exome Next Generation Sequencing datasets, given a cohort of samples.
@@ -324,7 +350,7 @@ Once all is done, a webpage should open up for you to actually take a look at yo
 
 To take a look at your own analysis trace, you need to have a copy of this branch first, Run it on you samples, and then find your own `Timing.log` file within `Results_folder_path/delivery/docs`. Simply upload this file, and start using the app.
 
-#### Important Notes:
+#### Important Notes
 
 One problem spotted from using the app with 2 samples is that the analysis is done for only one of them (the realignment/recalibration stages are problemetic, where sampleNames get swapped haphazardly, and only one sample gets fully analyzed, which is what the supplied example `Timing.log` file shows - **this needs a closer look**)
 
