@@ -218,7 +218,16 @@ import generalfunctions.general;
 		string VarcallDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/");
 		string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
 
-		if (vars["ALIGN_DEDUP_STAGE"] == "Y") {
+		if (vars["ALIGN_DEDUP_STAGE"] == "Y" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "Yes" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "YES" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "y" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "yes" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "End" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "end" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "E" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "e"
+		   ) {
 
 			mkdir(LogDir);
 			mkdir(AlignDir);
