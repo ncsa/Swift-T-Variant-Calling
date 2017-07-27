@@ -262,9 +262,9 @@ If splitting by chromosome for the realignment/recalibration/variant-calling sta
 
 \*Running 10 processes using 20 threads in series may actually be slower than running the 10 processes in pairs utilizing 10 threads each
 
-## Pipeline Interruptions and Continuations
+### Pipeline Interruptions and Continuations
 
-### Background
+#### Background
 
 Because of the varying resource requirements at various stages of the pipeline, the workflow allows one to stop the pipeline at many stages and jump back in without having to recompute.
 
@@ -272,7 +272,7 @@ This feature is controlled by the STAGE variables of the runfile. At each stage,
 
 In addition, one can set each stage but the final one to "End", which will stop the pipeline after that stage has been executed. Think of "End" as a shorthand for "End after this stage".
 
-### Example
+#### Example
 
 If splitting by chromosome, it may make sense to request different resources at different times.
 
@@ -302,7 +302,7 @@ Finally, for the last two stages, where it makes sense to set # Nodes = # Sample
 
 This feature was designed to allow a more efficient use of computational resources.
 
-## Logging functionality
+### Logging functionality
 
 The provided scripts allow you to check out the trace of a successful run of the pipeline. To invoke it, and for the time being, you need R installed in your environment along with the `shiny` package. 
 
@@ -324,7 +324,7 @@ Once all is done, a webpage should open up for you to actually take a look at yo
 
 To take a look at your own analysis trace, you need to have a copy of this branch first, Run it on you samples, and then find your own `Timing.log` file within `Results_folder_path/delivery/docs`. Simply upload this file, and start using the app.
 
-### Important Notes:
+#### Important Notes:
 
 One problem spotted from using the app with 2 samples is that the analysis is done for only one of them (the realignment/recalibration stages are problemetic, where sampleNames get swapped haphazardly, and only one sample gets fully analyzed, which is what the supplied example `Timing.log` file shows - **this needs a closer look**)
 
