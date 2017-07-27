@@ -58,11 +58,9 @@ Each sample is on its own line in the form: `SampleName /path/to/read1.fq /path/
 
 If analyzing single-end reads, the format is simply: `SampleName /path/to/read1.fq`
 
-**`OUTPUTDIR`** The path that will serve as the root of all of the output files generated from the pipeline (See Figure XXXXXXXXXX)
+**`OUTPUTDIR`** The path that will serve as the root of all of the output files generated from the pipeline (See `Figure 2`)
 
-**`DELIVERYFOLDER`** Name of the delivery folder (See Figure XXXXXXXX)
-
-**`TMPDIR`** The path to where temporary files will be stored
+**`TMPDIR`** The path to where temporary files will be stored (See `Figure 2`)
 
 **`ANALYSIS`**
 
@@ -238,7 +236,7 @@ Setting `ADBL_DEBUG_RANKS` to 1 will allow one to be sure the processes are bein
 
 ### Output Structure
 
-![](./media/OutputLayout.png)
+<img src=./media/OutputLayout.png width="700">
 
 **Figure 2:** Output directories and files generated from a typical run of
 the pipeline
@@ -261,7 +259,6 @@ If splitting by chromosome for the realignment/recalibration/variant-calling sta
 |  Split by Chromosome/Contig                      | Processes = Samples * Chromosomes<br>Nodes = Processes/ (Cores per Node)
 |  Realignment, Recalibration, and Variant Calling | Nodes = [Samples / (Processes per Node\*)] * Chromosomes
 |  Combine Sample Variants                         | Nodes = Samples / (Processes per Node\*)
-** Table 1: Pipeline tools **
 
 \*Running 10 processes using 20 threads in series may actually be slower than running the 10 processes in pairs utilizing 10 threads each
 
@@ -335,7 +332,7 @@ It should also be noted that running this pipeline in its current form is expect
 
 ## Under The Hood
 
-<img src="./media/ProgramStructure.png" width="600">
+<img src="./media/ProgramStructure.png" width="400">
 
 **Figure 3:** Program Structure
 
