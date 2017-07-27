@@ -1,10 +1,10 @@
 Tools to test (Not necessary to test all combinations of these, just have at least one run that uses them at some stage)
 -------------
 1. BWA
-2. Novoalign
+2. Novoalign // Matt
 3a. Novosort (Sorting only; done on every run)
 3b. Novosort (Sorting and marking duplicates)
-4. Samblaster
+4. Samblaster // Matt
 5. Picard
 6. GATK
 7. samtools (Used during every run)
@@ -29,7 +29,7 @@ Functionalities
     there were no samples left to test
 
 13. Paired-end reads
-14. Single-end reads
+14. Single-end reads // Matt
 
 15. Test that PROCPERNODE=2 actually runs two jobs on a node simultaneously
 16. Novosort memlimit works with at least 2 PROCSPERNODE
