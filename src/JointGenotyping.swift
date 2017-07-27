@@ -35,8 +35,17 @@ import bioappsLoggingFunctions.joint_vcf_logging;
 jointGenotypingMain(file inputVCFs[], string vars[string], file timeLog) {
 	// Since this is the last step, I only check to make sure this step is one of the executed stages.
 	// If it is not, then nothing happens.
-	if (vars["JOINT_GENOTYPING_STAGE"] == "Y") {
-
+	if (vars["JOINT_GENOTYPING_STAGE"] == "Y"
+	    vars["JOINT_GENOTYPING_STAGE"] == "Y" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "Yes" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "YES" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "y" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "yes" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "End" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "end" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "E" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "e"
+	   ) {
 		// The joint genotype output file
 		file jointVCF < strcat(vars["OUTPUTDIR"], "/deliverables/jointVCFs/jointVCFcalled.vcf") >;
 	
