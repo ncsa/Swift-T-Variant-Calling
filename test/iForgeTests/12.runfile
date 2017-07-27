@@ -5,7 +5,7 @@ TMPDIR=/projects/bioinformatics/TestingSwiftWorkflow/Matt_bug/temp
 
 # choose the type of analysis and execution parameters
 ANALYSIS=VC_NO_REALIGN
-SPLIT=NO
+SPLIT=YES
 PROCPERNODE=2
 
 #Paired_reads?
@@ -16,7 +16,7 @@ EXIT_ON_ERROR=YES
 
 # choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
 ALIGN_DEDUP_STAGE=Y
-CHR_SPLIT_STAGE=Y
+CHR_SPLIT_STAGE=End
 VC_STAGE=Y
 COMBINE_VARIANT_STAGE=Y
 JOINT_GENOTYPING_STAGE=Y
@@ -43,7 +43,7 @@ NOVOALIGNPARAMS=<optional parameters to novoalign, if used as an aligner. Note: 
 NOVOSORT_MEMLIMIT=100000000000
 
 # Quality thresholds
-MAP_CUTOFF=95
+MAP_CUTOFF=101 # This should cause no samples to pass
 DUP_CUTOFF=5
 
 # Resource paths
@@ -64,7 +64,7 @@ NOVOSORTEXE=/projects/bioinformatics/builds/novocraftV3.04.06.Linux2.6/novosort
 GATKJAR=/projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar
 
 # resources
-NODES=3
+NODES=8
 CORES=20
 QUEUE=big_mem
 WALLTIME=24:00:00
