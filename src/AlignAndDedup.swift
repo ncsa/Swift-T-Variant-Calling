@@ -149,8 +149,8 @@ import generalfunctions.general;
 
 		// Mark Duplicates
 		dedupsam, samLog, tmpsamblasterLog = samblaster_logged(vars["SAMBLASTEREXE"], alignedSam, sampleName);
-		dedupbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"], dedupsam, threads, ["-u"], sampleName) ;
-		// Delete the dedupsam file once dedupbam has been created
+		dedupbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"], dedupsam, threads, ["-u"], sampleName) =>
+		// Delete the dedupsam file once dedupbam has been created (wait for dedupbam to be finished)
 		rm(dedupsam);
 		
 		// Sort
