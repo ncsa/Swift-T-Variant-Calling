@@ -64,8 +64,16 @@ import bioappsLoggingFunctions.merge_vcf_logging;
 					   ".wDedups.sorted.recalibrated.g.vcf"
 					  );
 	
-		if (vars["COMBINE_VARIANT_STAGE"] == "Y") {
-
+		if (vars["COMBINE_VARIANT_STAGE"] == "Y" ||
+		    vars["COMBINE_VARIANT_STAGE"] == "Yes" ||
+		    vars["COMBINE_VARIANT_STAGE"] == "YES" ||
+		    vars["COMBINE_VARIANT_STAGE"] == "y" ||
+		    vars["COMBINE_VARIANT_STAGE"] == "yes" ||
+		    vars["COMBINE_VARIANT_STAGE"] == "End" ||
+		    vars["COMBINE_VARIANT_STAGE"] == "end" ||
+		    vars["COMBINE_VARIANT_STAGE"] == "E" ||
+		    vars["COMBINE_VARIANT_STAGE"] == "e"
+		   ) {
 			// This array holds all of the chromosome vcf files for this sample along with the --variants flags
 			string chrSampleArray[];
 

@@ -2,6 +2,32 @@
 
 # Variant Calling with Swift-T
 
+**Table of Contents**
+
+- [Variant Calling with Swift-T](#variant-calling-with-swift-t)
+	- [Intended pipeline architecture and function](#intended-pipeline-architecture-and-function)
+	- [Installation](#installation)
+		- [Dependencies](#dependencies)
+		- [Workflow Installation](#workflow-installation)
+	- [User Guide](#user-guide)
+		- [Runfile Options](#runfile-options)
+		- [Running the Pipeline](#running-the-pipeline)
+			- [Requesting Resources from the Job Scheduler](#requesting-resources-from-the-job-scheduler)
+			- [Executing the Swift-T Application](#executing-the-swift-t-application)
+				- [PBS Torque](#pbs-torque)
+				- [Cray System (Like Blue Waters at UIUC)](#cray-system-like-blue-waters-at-uiuc)
+			- [Logging Options](#logging-options)
+		- [Output Structure](#output-structure)
+		- [Data preparation](#data-preparation)
+		- [Resource Requirements](#resource-requirements)
+		- [Pipeline Interruptions and Continuations](#pipeline-interruptions-and-continuations)
+			- [Background](#background)
+			- [Example](#example)
+		- [Logging functionality](#logging-functionality)
+			- [Important Notes](#important-notes)
+	- [Under The Hood](#under-the-hood)
+	- [Troubleshooting](#troubleshooting)
+
 ## Intended pipeline architecture and function
 
 This pipeline implements the [GATK's best practices](https://software.broadinstitute.org/gatk/best-practices/) for germline variant calling in Whole Genome and Whole Exome Next Generation Sequencing datasets, given a cohort of samples.
@@ -20,7 +46,7 @@ Additionally, this workflow provides the option to split the aligned reads by ch
 
 <img src=./media/WorkflowOverview.png width="600">
 
-**Figure 1** Overview of Workflow Design
+**Figure 1:** Overview of Workflow Design
 
 ## Installation
 
@@ -58,11 +84,9 @@ Each sample is on its own line in the form: `SampleName /path/to/read1.fq /path/
 
 If analyzing single-end reads, the format is simply: `SampleName /path/to/read1.fq`
 
-**`OUTPUTDIR`** The path that will serve as the root of all of the output files generated from the pipeline (See Figure XXXXXXXXXX)
+**`OUTPUTDIR`** The path that will serve as the root of all of the output files generated from the pipeline (See `Figure 2`)
 
-**`DELIVERYFOLDER`** Name of the delivery folder (See Figure XXXXXXXX)
-
-**`TMPDIR`** The path to where temporary files will be stored
+**`TMPDIR`** The path to where temporary files will be stored (See `Figure 2`)
 
 **`ANALYSIS`**
 
@@ -82,7 +106,7 @@ This stands for processes per node.
 
 Sometimes it is more efficent to double (or even triple) up runs of an application on the same nodes using half of the available threads than letting one run of the application use all of them. This is because many applications only scale well up to a certain number of threads, and often this is less than the total number of cores available on a node.
 
-Under the hood, this variable simply controls how many threads each tool gets. If `PBSCORES` is set to 20 but `PROCPERNODE` is set to 2, each tool will use up to 10 threads. It is up to the user at runtime to be sure that the right number of processes are requested per node when calling Swift-T itself (See section XXXXXXXXXXXXXX), as this is what actually controls how processes are distributed.
+Under the hood, this variable simply controls how many threads each tool gets. If `PBSCORES` is set to 20 but `PROCPERNODE` is set to 2, each tool will use up to 10 threads. It is up to the user at runtime to be sure that the right number of processes are requested per node when calling Swift-T itself (See the `Running the Pipeline` section), as this is what actually controls how processes are distributed.
 
 **`EXIT_ON_ERROR`**
 
@@ -206,15 +230,18 @@ So, with that understanding, call swift-t in the following way:
 
 `export PPN=<PROCPERNODE>`
 
+`export NODES=<#samples/PROCPERNODE + (1 or more)>`
+
+`export PROCS=$(($PPN * $NODES))`
+
 `export WALLTIME=<HH:MM:SS>`
 
 `export PROJECT=<Project ID>`
 
 `export QUEUE=<Queue>`
 
-`export NODES=<#samples/PROCPERNODE + (1 or more)>`
 
-`swift-t -m cray -O3 -o /path/to/where/compiled/should/be/saved/compiled.tic -I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile`
+`swift-t -m cray -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/compiled.tic -I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile`
 
 Swift-T will create and run the qsub command for you.
 
@@ -228,7 +255,6 @@ Swift-T will create and run the qsub command for you.
 * `-n` The number of processes (ranks) Swift-T will open for this run of the workflow
 * `-runfile` The path to the runfile with all of the configuration variables for the workflow
 
-
 #### Logging Options
 
 While the outputs generated by all the tools of the workflow itself will be logged in the log folders within the `OUTDIR` structure, Swift-T generates a log itself that may help debug if problems occur.
@@ -239,11 +265,9 @@ Setting `ADBL_DEBUG_RANKS` to 1 will allow one to be sure the processes are bein
 
 ### Output Structure
 
-TO-DO make better Figure
+<img src=./media/OutputLayout.png width="700">
 
-![](./media/image04.png)
-
-Figure 3: Output directories and files generated from a typical run of
+**Figure 2:** Output directories and files generated from a typical run of
 the pipeline
 
 ### Data preparation
@@ -264,13 +288,12 @@ If splitting by chromosome for the realignment/recalibration/variant-calling sta
 |  Split by Chromosome/Contig                      | Processes = Samples * Chromosomes<br>Nodes = Processes/ (Cores per Node)
 |  Realignment, Recalibration, and Variant Calling | Nodes = [Samples / (Processes per Node\*)] * Chromosomes
 |  Combine Sample Variants                         | Nodes = Samples / (Processes per Node\*)
-** Table 1: Pipeline tools **
 
 \*Running 10 processes using 20 threads in series may actually be slower than running the 10 processes in pairs utilizing 10 threads each
 
-## Pipeline Interruptions and Continuations
+### Pipeline Interruptions and Continuations
 
-### Background
+#### Background
 
 Because of the varying resource requirements at various stages of the pipeline, the workflow allows one to stop the pipeline at many stages and jump back in without having to recompute.
 
@@ -278,7 +301,7 @@ This feature is controlled by the STAGE variables of the runfile. At each stage,
 
 In addition, one can set each stage but the final one to "End", which will stop the pipeline after that stage has been executed. Think of "End" as a shorthand for "End after this stage".
 
-### Example
+#### Example
 
 If splitting by chromosome, it may make sense to request different resources at different times.
 
@@ -308,7 +331,7 @@ Finally, for the last two stages, where it makes sense to set # Nodes = # Sample
 
 This feature was designed to allow a more efficient use of computational resources.
 
-## Logging functionality
+### Logging functionality
 
 The provided scripts allow you to check out the trace of a successful run of the pipeline. To invoke it, and for the time being, you need R installed in your environment along with the `shiny` package. 
 
@@ -330,7 +353,7 @@ Once all is done, a webpage should open up for you to actually take a look at yo
 
 To take a look at your own analysis trace, you need to have a copy of this branch first, Run it on you samples, and then find your own `Timing.log` file within `Results_folder_path/delivery/docs`. Simply upload this file, and start using the app.
 
-### Important Notes:
+#### Important Notes
 
 One problem spotted from using the app with 2 samples is that the analysis is done for only one of them (the realignment/recalibration stages are problemetic, where sampleNames get swapped haphazardly, and only one sample gets fully analyzed, which is what the supplied example `Timing.log` file shows - **this needs a closer look**)
 
@@ -338,15 +361,26 @@ It should also be noted that running this pipeline in its current form is expect
 
 ## Under The Hood
 
-<img src="./media/ProgramStructure.png" width="600">
+<img src="./media/ProgramStructure.png" width="400">
 
-**Figure 2: Program Structure**
+**Figure 3:** Program Structure
 
 Each Main function has two paths it can use to produce its output:
 1. One path actually performs the computations of this stage of the pipeline
 2. The other skips the computations and just gathers the output of a prior execution of this stage. This is useful when one wants to jump into different sections of the pipeline, and also allows Swift/T's dependency driven execution to correctly string the stages together into one workflow.
 
 ## Troubleshooting
+
+** General Troubleshooting Tips **
+
+Regardless of the platform, one can use the following environmental variables to better debug the workflow:
+
+`ADLB_DEBUG_RANKS=1` One can see if the processes are spread across the nodes correctly
+
+`TURBINE_LOG=1` Makes the Swift-T log output very verbose
+`TURBINE_LOG_FILE=<filePath>` Changes the Swift-T log output from StdOut to the file of choice
+
+More debug info can be found [here](http://swift-lang.github.io/swift-t/guide.html)
 
 * The pipeline seems to be running, but then prematurely stops at one of the tools?
   * Solution: make sure that all tools are specified in your runfile up to the executable itself (or the jar file if applicable)

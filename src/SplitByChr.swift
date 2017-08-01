@@ -81,7 +81,16 @@ import generalfunctions.general;
 						   chr, ".bam"
 						  );			
 
-			if (vars["CHR_SPLIT_STAGE"] == "Y") {
+			if (vars["CHR_SPLIT_STAGE"] == "Y" ||
+		            vars["CHR_SPLIT_STAGE"] == "Yes" ||
+		            vars["CHR_SPLIT_STAGE"] == "YES" ||
+		            vars["CHR_SPLIT_STAGE"] == "y" ||
+		            vars["CHR_SPLIT_STAGE"] == "yes" ||
+		            vars["CHR_SPLIT_STAGE"] == "End" ||
+		            vars["CHR_SPLIT_STAGE"] == "end" ||
+		            vars["CHR_SPLIT_STAGE"] == "E" ||
+		            vars["CHR_SPLIT_STAGE"] == "e"
+			   ) {
 
 				/********************
 	 			 Split by chromosome
