@@ -52,7 +52,7 @@ Additionally, this workflow provides the option to split the aligned reads by ch
 
 ### Dependencies
 
-|  **Stage**          |  **Tool options**                                                             |
+|  **Step**          |  **Tool options**                                                             |
 | --------------------| ------------------------------------------------------------------------------|
 |  Alignment          | [Bwa mem](https://github.com/lh3/bwa) or [Novoalign](http://novocraft.com/)   |
 |  Sorting            | [Novosort](http://novocraft.com/)                                             |
