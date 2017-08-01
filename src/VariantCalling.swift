@@ -26,15 +26,15 @@ Runfile variables (Determine which stages will be run):
 Within each STAGE, it checks whether it is executed. If so, it runs and returns the output needed for the next STAGE.
   Otherwise, it just finds the output that is already produced, and feeds that to the next STAGE.
 
-string alignBams[] alignMain()
+string alignBams[] alignRun()
 if SPLIT {
-	chrOut chrSplitMain(outBams)
-	vcOut vcSplitMain(chrOut)
-	combineOut combineMain(vcOut)
-	jointOut jointMain(combineOut)
+	chrOut chrSplitRun(outBams)
+	vcOut vcSplitRun(chrOut)
+	combineOut combineRun(vcOut)
+	jointOut jointRun(combineOut)
 else {
-	vcOut vcNoSplitMain(chrOut)
-	jointOut jointMain(vcOut)
+	vcOut vcNoSplitRun(chrOut)
+	jointOut jointRun(vcOut)
 }
 
 */
@@ -110,7 +110,7 @@ file docSampleInfo < strcat(variables["OUTPUTDIR"], "/deliverables/docs/",
 **********************************************************************************************************************/
 
 // Align, sort, and dedup
-file alignDedupBams[] = alignDedupMain(sampleLines, variables, failureLog)  =>
+file alignDedupBams[] = alignDedupRun(sampleLines, variables, failureLog)  =>
 logging(variables["TMPDIR"], timingLog);
 
 assert(size(alignDedupBams) != 0,
@@ -132,7 +132,7 @@ if (variables["ANALYSIS"] != "ALIGN" &&
 	    variables["SPLIT"] == "y"
 	   ) {	
 		// Split aligned files by chromosome
-		file splitBams[][] =  splitByChrMain(alignDedupBams, variables, failureLog);
+		file splitBams[][] =  splitByChrRun(alignDedupBams, variables, failureLog);
 
 		if (variables["CHR_SPLIT_STAGE"] != "E" &&
 		    variables["CHR_SPLIT_STAGE"] != "End" &&
@@ -144,7 +144,7 @@ if (variables["ANALYSIS"] != "ALIGN" &&
 							   )
 			      );
 			// Calls variants for the aligned files that are split by chromosome
-			file splitVCFs[][] = VCSplitMain(variables, splitBams, failureLog) =>
+			file splitVCFs[][] = VCSplitRun(variables, splitBams, failureLog) =>
 			logging(variables["TMPDIR"], timingLog); 
 
 			if (variables["VC_STAGE"] != "E" &&
@@ -158,7 +158,7 @@ if (variables["ANALYSIS"] != "ALIGN" &&
 				      );
 
 				// Combine the variants for each sample
-				file VCF_list[] = combineVariantsMain(splitVCFs, variables, failureLog) =>
+				file VCF_list[] = combineVariantsRun(splitVCFs, variables, failureLog) =>
 				logging(variables["TMPDIR"], timingLog); 
 
 				if (variables["COMBINE_VARIANT_STAGE"] != "E" &&
@@ -169,7 +169,7 @@ if (variables["ANALYSIS"] != "ALIGN" &&
 					assert(size(VCF_list) != 0, "FAILURE: The VCFs array was empty");
 
 					// Conduct joint genotyping between all samples
-					jointGenotypingMain(VCF_list, variables, timingLog); 
+					jointGenotypingRun(VCF_list, variables, timingLog); 
 
 				}
 			}
@@ -177,7 +177,7 @@ if (variables["ANALYSIS"] != "ALIGN" &&
 	}
 	else {
 		// Call variants for the aligned files
-		file VCF_list[] = VCNoSplitMain(variables, alignDedupBams, failureLog) =>
+		file VCF_list[] = VCNoSplitRun(variables, alignDedupBams, failureLog) =>
 		logging(variables["TMPDIR"], timingLog);
 
 		if (variables["VC_STAGE"] != "E" &&
@@ -188,7 +188,7 @@ if (variables["ANALYSIS"] != "ALIGN" &&
 			assert(size(VCF_list) != 0, "FAILURE: The VCFs array was empty");
 
 			// Conduct joint genotyping between all samples
-			jointGenotypingMain(VCF_list, variables, timingLog); 
+			jointGenotypingRun(VCF_list, variables, timingLog); 
 		}
 	}
 }

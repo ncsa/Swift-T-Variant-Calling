@@ -1,7 +1,7 @@
 /*
 
 *****************************
- Pseudocode of Main Functions
+ Pseudocode of Run Functions
 *****************************
 
 Note:
@@ -17,10 +17,10 @@ Note:
 ********************************************************************************
 
 ******************************
- Pseudocode for No Split Main
+ Pseudocode for No Split Run
 ******************************
 
-(file VCFList[]) VCNoSplitMain(file inputBams[]) {
+(file VCFList[]) VCNoSplitRun(file inputBams[]) {
 	foreach sample in samples {
 		if (VC_STAGE variable == "Y") {
 			**************************
@@ -52,14 +52,14 @@ Note:
 ********************************************************************************
 
 ***************************
- Pseudocode for Split Main
+ Pseudocode for Split Run
 ***************************
 
 Note: although the input matrix is in the form inputMatrix[chromosome][sample],
   the output matrix is in the form outputMatrix[sample][chromosome]
 
 
-(file VCF_list[][]) VCSplitMain(file inputBams[][]) {
+(file VCF_list[][]) VCSplitRun(file inputBams[][]) {
 	foreach chrSet in inputBams {
 		- Get chromosome name
 
@@ -266,9 +266,9 @@ VariantCalling (for split chromosome path)
 }
 
 /***********************
- Main Functions
+ Run Functions
 ************************/
-(file VCF_list[]) VCNoSplitMain(string vars[string], file inputBams[], file failLog) {
+(file VCF_list[]) VCNoSplitRun(string vars[string], file inputBams[], file failLog) {
 	foreach sample, index in inputBams {
 		
 		string baseName = basename_string(filename(sample)); 
@@ -352,7 +352,7 @@ VariantCalling (for split chromosome path)
 	}
 }
 
-(file VCF_list[][]) VCSplitMain(string vars[string], file inputBams[][], file failLog) {
+(file VCF_list[][]) VCSplitRun(string vars[string], file inputBams[][], file failLog) {
 	foreach chrSet, chrIndex in inputBams {
 		foreach inputBam, sampleIndex in chrSet {
 			if (vars["VC_STAGE"] == "Y" ||
@@ -378,7 +378,7 @@ VariantCalling (for split chromosome path)
 				//   leaving only the sample name
 				string sampleName = substring(nameBase, 0, strlen(nameBase) - strlen(chr) - 1 - 19);
 
-        trace("VCNoSplitMain\t", sampleName, "\t", chr);                         
+        			trace("VCNoSplitRun\t", sampleName, "\t", chr);                         
         
  				/*************************************
 				 Gather the recalibration index files

@@ -1,10 +1,10 @@
 /*
 
 *****************************
- Pseudocode of Main Function
+ Pseudocode of Run Function
 *****************************
 
-(file outBamArray[]) alignDedupMain() {
+(file outBamArray[]) alignDedupRun() {
 	foreach sample in samples {
 		- Parse sample specific information and construct RG header
 		- Create the sample output directories
@@ -188,12 +188,12 @@ import generalfunctions.general;
 }
 
 /*************************
- Main function
+ Run function
 **************************/
 
 // For now, we will just feed in the lines array as the starting point. If fastq quality control STAGES are
 //   implemented, this would probably need be to be altered
-(file outputBam[]) alignDedupMain(string lines[], string vars[string], file failLog) {
+(file outputBam[]) alignDedupRun(string lines[], string vars[string], file failLog) {
 	foreach sample, index in lines {
 		/*****
 		Parse sample specific information and construct RG header

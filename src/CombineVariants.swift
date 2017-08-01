@@ -1,10 +1,10 @@
 /*
 
 *****************************
- Pseudocode of Main Function
+ Pseudocode of Run Function
 *****************************
 
-(file vcfOutfiles[]) combineVariantsMain(file inputVCFs) {
+(file vcfOutfiles[]) combineVariantsRun(file inputVCFs) {
 	
 	foreach sample in samples {
 	
@@ -43,7 +43,7 @@ import generalfunctions.general;
 import bioapps.merge_vcf;
 import bioappsLoggingFunctions.merge_vcf_logging;
 
-(file vcfOutfiles[]) combineVariantsMain(file inputVCFs[][], string vars[string], file failLog ) {
+(file vcfOutfiles[]) combineVariantsRun(file inputVCFs[][], string vars[string], file failLog ) {
 
 	foreach sampleSet, sampleIndex in inputVCFs {
 
