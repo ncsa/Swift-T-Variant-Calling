@@ -1,10 +1,10 @@
 /*
 
 *****************************
- Pseudocode of Main Function
+ Pseudocode of Run Function
 *****************************
 
-(file outBamArray[]) alignDedupMain() {
+(file outBamArray[]) alignDedupRun() {
 	foreach sample in samples {
 		- Parse sample specific information and construct RG header
 		- Create the sample output directories
@@ -149,8 +149,8 @@ import generalfunctions.general;
 
 		// Mark Duplicates
 		dedupsam, samLog, tmpsamblasterLog = samblaster_logged(vars["SAMBLASTEREXE"], alignedSam, sampleName);
-		dedupbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"], dedupsam, threads, ["-u"], sampleName) ;
-		// Delete the dedupsam file once dedupbam has been created
+		dedupbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"], dedupsam, threads, ["-u"], sampleName) =>
+		// Delete the dedupsam file once dedupbam has been created (wait for dedupbam to be finished)
 		rm(dedupsam);
 		
 		// Sort
@@ -188,12 +188,12 @@ import generalfunctions.general;
 }
 
 /*************************
- Main function
+ Run function
 **************************/
 
 // For now, we will just feed in the lines array as the starting point. If fastq quality control STAGES are
 //   implemented, this would probably need be to be altered
-(file outputBam[]) alignDedupMain(string lines[], string vars[string], file failLog) {
+(file outputBam[]) alignDedupRun(string lines[], string vars[string], file failLog) {
 	foreach sample, index in lines {
 		/*****
 		Parse sample specific information and construct RG header
@@ -218,7 +218,16 @@ import generalfunctions.general;
 		string VarcallDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/");
 		string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
 
-		if (vars["ALIGN_DEDUP_STAGE"] == "Y") {
+		if (vars["ALIGN_DEDUP_STAGE"] == "Y" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "Yes" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "YES" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "y" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "yes" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "End" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "end" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "E" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "e"
+		   ) {
 
 			mkdir(LogDir);
 			mkdir(AlignDir);
