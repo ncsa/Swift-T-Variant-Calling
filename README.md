@@ -198,7 +198,7 @@ Swift-T works by opening up multiple "slots", called processes, where applicatio
 If using multiple nodes, one should set the `SWIFT_TMP` to another location besides the default `/tmp`, that is shared by all of the nodes
 
 For example,
-`export SWIFT_TMP=~/temp`
+`export SWIFT_TMP=/path/to/home/directory/temp`
 
 **The type of job scheduler dictates how one calls Swift-T**
 
