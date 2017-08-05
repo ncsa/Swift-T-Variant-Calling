@@ -1,6 +1,6 @@
 /*
 *****************************
- Pseudocode of Main Function
+ Pseudocode of Run Function
 *****************************
 
 *** Note:
@@ -13,7 +13,7 @@
 
 ****************************************************************************
 
-(file outputBams[][]) splitByChrMain(file inputBams[]) {
+(file outputBams[][]) splitByChrRun(file inputBams[]) {
 	- Get the chromosome names
 
 	foreach chromosome in chromosomes {
@@ -61,10 +61,10 @@ import bioapps.align_dedup;
 import generalfunctions.general;
 
 /******************************
- Main function
+ Run function
 *******************************/
 
-(file outputBams[][]) splitByChrMain(file inputBams[], string vars[string], file failLog) {
+(file outputBams[][]) splitByChrRun(file inputBams[], string vars[string], file failLog) {
 	string indices[] = split(vars["CHRNAMES"], ":");
 
 	foreach chr, chrIndex in indices {
