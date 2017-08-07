@@ -103,7 +103,7 @@ import generalfunctions.general;
 	
 				// Subtract 1 because the main thread takes up is a thread, "threads"
 				//   defines the number of additional threads
-				int threads = ( string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]) ) - 1;
+				int threads = ( string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]) ) - 1;
 	
 				chrDedupSortedBam = samtools_view(vars["SAMTOOLSEXE"], bam,
 								  threads, [strcat(chr)]
