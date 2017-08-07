@@ -92,11 +92,11 @@ If analyzing single-end reads, the format is simply: `SampleName /path/to/read1.
 
 Set the type of analysis being conducted:
 
-| **Analysis**                          | **Setting**                           |
-| --------------------------------------|---------------------------------------|
-|  Alignment only                       | `ALIGN`, `ALIGN_ONLY`, or `ALIGNMENT` |
-|  Variant Calling with Realignment     | `VC_REALIGN`                          |
-|  Variant Calling without Realignment  | \<Any other non-empty string\>        |
+| **Analysis**                          | **Setting**                                      |
+| --------------------------------------|--------------------------------------------------|
+|  Alignment only                       | `ALIGN`, `ALIGN_ONLY`, or `ALIGNMENT` 	   |
+|  Variant Calling with Realignment     | `VC_REALIGN`                                     |
+|  Variant Calling without Realignment  | `VC_NO_REALIGN`or \<Any other non-empty string\> |
 
 **`SPLIT`** YES if one wants to split-by-chromosome before calling variants, NO if not.
 
