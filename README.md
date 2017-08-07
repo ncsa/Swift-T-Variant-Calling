@@ -195,6 +195,10 @@ Swift-T works by opening up multiple "slots", called processes, where applicatio
 * SERVERS - Control the execution of Swift-T itself; all Swift-T applications must have at least one of these
 * WORKERS - Run the actual work of each application in the workflow; these will make up the vast majority of processes
 
+For users unfamiliar with Swift/T, we recommend always setting the environment variable `ADBL_DEBUG_RANKS=1` and checking the beginning of the Swift/T log to be sure processes are being allocated as the user expects.
+
+Often when we use a cluster we set the `ppn` variable to the number of cores on each node, but with Swift/T this usually needs to be set to the number of processes opened on each node (unless a particular cluster configuration allocates resources differently).
+
 #### Executing the Swift-T Application 
 
 If using multiple nodes, one should set the `SWIFT_TMP` to another location besides the default `/tmp`, that is shared by all of the nodes
