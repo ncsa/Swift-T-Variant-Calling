@@ -8,8 +8,8 @@ ANALYSIS=<{ALIGN|ALIGN_ONLY|ALIGNMENT for alignment only; VC_REALIGN for variant
 SPLIT={YES|NO}
 EXIT_ON_ERROR={YES|NO}
 
-PROCPERNODE=<Integer: how many processes should be run on each node. Number of threads multi-threaded tools use = CORES/PROCPERNODE>
-CORES=<number of cores on each node of the cluster>
+PROGRAMS_PER_NODE=<Integer: how many processes should be run on each node. Number of threads multi-threaded tools use = CORES_PER_NODE/PROGRAMS_PER_NODE>
+CORES_PER_NODE=<number of cores on each node of the cluster>
 
 # choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
 ALIGN_DEDUP_STAGE={Y|N|End}
