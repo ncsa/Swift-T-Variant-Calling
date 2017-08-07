@@ -208,9 +208,31 @@ For example,
 
 **The type of job scheduler dictates how one calls Swift-T**
 
-##### PBS Torque
+##### PBS Torque (general)
 
-This command must be included (along with any exported environment variables) in a job submission script and not called directly on a head/login node.
+Usually, one can use swift-t's built-in job launcher for PBS Torque schedulers (calling swift-t with `-m pbs`)
+
+```
+export PPN=<PROGRAMS_PER_NODE>
+export NODES=<#samples/PROGRAMS_PER_NODE + (1 or more)>
+export PROCS=$(($PPN * $NODES))
+export WALLTIME=<HH:MM::SS>
+export PROJECT=<Project ID>
+export QUEUE=<queue>
+export SWIFT_TMP=/path/to/directory/temp
+
+# (Optional variables to set)
+export TURBINE_LOG=1
+export ADBL_DEBUG_RANKS=1
+export TURBINE_OUTPUT=/path/to/output_log_location
+
+swift-t -m pbs -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/compiled.tic -I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile
+```
+##### PBS Torque (alternative)
+
+If you need to import a module to use Swift/T (as is the case on iForge at UIUC), one cannot simply use the swift-t launcher as outlined above, since the module load command is not part of the qsub file that Swift-t generates and submits.
+
+This command must be included (along with any exported environment variables and module load commands) in a job submission script and not called directly on a head/login node.
 
 `swift-t -O3 -o </path/to/compiled_output_file.tic> -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps -n < Node# * PROGRAMS_PER_NODE + 1 or more > /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/example.runfile`
 
@@ -220,7 +242,7 @@ It is important to note that (at least for PBS Torque schedulers) when submittin
 
 **Example**
 
-If one is wanting to run a 4 sample job with `PROGRAMS_PER_NODE` set to 2 in the runfile (meaning that two bwa runs can be executing simultaneously on a given node, for example), one would set the PBS flag to `-l nodes=2:ppn=2` and the `-n` flag when calling the workflow to 5 \( nodes\*ppn + 1 \)
+If one is wanting to run a 4 sample job with `PROGRAMS_PER_NODE` set to 2 in the runfile (meaning that two BWA runs can be executing simultaneously on a given node, for example), one would set the PBS flag to `-l nodes=2:ppn=2` and the `-n` flag when calling the workflow to 5 \( nodes\*ppn + 1 \)
 
 ##### Cray System (Like Blue Waters at UIUC)
 
