@@ -155,7 +155,7 @@ Note: chromosome names must match those found in the files located in the direct
 
 **`NOVOSORT_MEMLIMIT`**
 
-Novosort is a tool that used a lot of RAM. If doubling up novosort runs on the same node, this may need to be reduced to avoid an OutOfMemory Error. Otherwise, just set it to most of the RAM on a node
+Novosort is a tool that used a lot of RAM. If doubling up novosort runs on the same node, this may need to be reduced to avoid an OutOfMemory Error. Otherwise, just set it to most of the RAM on a node. _You need to set this value regardless of you analysis scenario_
 
 This is set in bytes, so if you want to limit novosort to using 30 GB, one would set it to `NOVOSORT_MEMLIMIT=30000000000`
 
@@ -175,7 +175,7 @@ Within the directory, the vcf files should be named with only the chromosome nam
 
 For example, if the chromosome is `chr12` or `12`, name the vcf files `chr12.vcf` or `12.vcf`, respectively.
 
-**`INDELDIR`** Directory that contains the indel variant files used in the recalibration step
+**`INDELDIR`** Directory that contains the standard indel variant files used in the realignment/recalibration step
 
 **`OMNI`** \< Insert explanation here \> Not currently used in workflow
 
@@ -184,6 +184,8 @@ For example, if the chromosome is `chr12` or `12`, name the vcf files `chr12.vcf
 Full path of the appropriate executable file
 
 **`PICARDJAR`; `GATKJAR`** Full path of the appropriate jar file
+
+** `CORES` ** Number of cores within nodes to be used in the analysis. For multi-threaded tools, the number of threads = `CORES/PROCSPERNODE`
 
 ### Running the Pipeline
 
