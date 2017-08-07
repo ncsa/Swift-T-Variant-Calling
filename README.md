@@ -250,6 +250,8 @@ So, with that understanding, call swift-t in the following way:
 
 `TURBINE_LOG=1    # This produces verbose logging info; great for debugging`
 
+`ADBL_DEBUG_RANKS=1	Displays layout of ranks and nodes`
+
 `TURBINE_OUTPUT=/path/to/log/directory		# This specifies where the log info will be stored; defaults to one's home directory`
 
 `swift-t -m cray -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/compiled.tic -I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile`
