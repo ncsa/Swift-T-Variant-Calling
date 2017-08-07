@@ -208,7 +208,7 @@ For example,
 
 This command must be included (along with any exported environment variables) in a job submission script and not called directly on a head/login node.
 
-`swift-t -O3 -o </path/to/compiled_output_file.tic> -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps -u -n < Node# * PROGRAMS_PER_NODE + 1 or more > /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/example.runfile`
+`swift-t -O3 -o </path/to/compiled_output_file.tic> -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps -n < Node# * PROGRAMS_PER_NODE + 1 or more > /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/example.runfile`
 
 This command will compile and run the pipeline all in one command
 
@@ -258,7 +258,6 @@ Swift-T will create and run the qsub command for you.
 * `-o` The path to the compiled swift-t file (has a .tic extension); on the first run, this file will be created.
 * `-I` This includes some source files that are imported during compilation
 * `-r` This includes some tcl package files needed during compilation
-* `-u` Specifies that the Swift-T code will be compiled only if an already up-to-date version is not found
 * `-n` The number of processes (ranks) Swift-T will open for this run of the workflow
 * `-runfile` The path to the runfile with all of the configuration variables for the workflow
 
