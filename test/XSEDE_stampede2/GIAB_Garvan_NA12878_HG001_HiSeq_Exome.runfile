@@ -1,7 +1,7 @@
 # i/o
-SAMPLEINFORMATION=/home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/test/XSEDE_stampede2
-OUTPUTDIR=/work/04525/tg838247/stampede2/swift_T_project/results
-TMPDIR=/work/04525/tg838247/stampede2/swift_T_project/tmp
+SAMPLEINFORMATION=/home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/test/XSEDE_stampede2/GIAB_Garvan_NA12878_HG001_HiSeq_Exome.sampleinfo
+OUTPUTDIR=/scratch/04525/tg838247/swift_T_project/results
+TMPDIR=/scratch/04525/tg838247/swift_T_project/tmp_analysis
 
 # choose the type of analysis and execution parameters
 ANALYSIS=ALIGN
@@ -27,17 +27,17 @@ SAMPLEPL=ILLUMINA
 SAMPLECN=GIAB
 
 # tools to be used
-ALIGNERTOOL=BWAMEM
+ALIGNERTOOL=NOVOALIGN
 MARKDUPLICATESTOOL=PICARD
 
 CHRNAMES=1:2:3
 
 # Alignment block parameters and Trimming options.
-BWAINDEX=/work/04525/tg838247/stampede2/swift_T_project/data/genome/gatk-bundle/b37/
+BWAINDEX=/work/04525/tg838247/stampede2/swift_T_project/data/genome/gatk-bundle/b37/human_g1k_v37.fasta
 
 BWAMEMPARAMS=-k 32 
 
-NOVOALIGNINDEX=/work/04525/tg838247/stampede2/swift_T_project/data/genome/gatk-bundle/b37
+NOVOALIGNINDEX=/work/04525/tg838247/stampede2/swift_T_project/data/genome/gatk-bundle/b37/human_g1k_v37.nix
 NOVOALIGNPARAMS=
 
 # Memory limit
@@ -49,7 +49,7 @@ DUP_CUTOFF=5
 
 # Resource paths
 REFGENOMEDIR=/work/04525/tg838247/stampede2/swift_T_project/data/genome/gatk-bundle/b37
-REFGENOME=human_g1k_v37_decoy.fasta.gz
+REFGENOME=human_g1k_v37.fasta
 DBSNP=dbsnp_138.b37.vcf.gz
 INDELDIR=IndelsPerChrom
 OMNI=1000G_omni2.5.b37.vcf.gz
@@ -57,15 +57,12 @@ OMNI=1000G_omni2.5.b37.vcf.gz
 # Tool paths
 JAVAEXE=/bin/java
 BWAEXE=/home1/04525/tg838247/software/bwa/bwa-0.7.16/bwa
-PICARDJAR=/home1/04525/tg838247/software/picard/picard-2.10.5/picard.jar
+PICARDJAR=/home1/04525/tg838247/software/picard/picard-2.10.7/picard.jar
 SAMBLASTEREXE=/home1/04525/tg838247/software/samblaster/samblaster-v.0.1.24/samblaster
 SAMTOOLSEXE=/home1/04525/tg838247/software/samtools/samtools-1.5/samtools
 NOVOALIGNEXE=/home1/04525/tg838247/software/novocraft/novocraft-3.08.00/novoalign
 NOVOSORTEXE=/home1/04525/tg838247/software/novocraft/novocraft-3.08.00/novosort
-GATKJAR=/home1/04525/tg838247/software/gatk/GenomeAnalysisTK-3.8-0-ge9d806836/GenomeAnalysisTK.jar
+GATKJAR=/home1/04525/tg838247/software/gatk/GenomeAnalysisTK-3.7/GenomeAnalysisTK.jar
 
 # resources
-NODES=4
-CORES=20
-QUEUE=normal
-WALLTIME=5:00:00
+CORES=10
