@@ -106,7 +106,7 @@ Sometimes it is more efficent to double (or even triple) up runs of an applicati
 
 Under the hood, this variable simply controls how many threads each tool gets. If `CORES_PER_NODE` is set to 20 but `PROGRAMS_PER_NODE` is set to 2, each tool will use up to 10 threads. 
 
-**!!!!!!!!!IMPORTANT NOTE!!!!!!!!!** It is up to the user at runtime to be sure that the right number of processes are requested per node when calling Swift-T itself (See the `Running the Pipeline` section), as this is what actually controls how processes are distributed.
+**!!!!!!!!! IMPORTANT NOTE !!!!!!!!!** It is up to the user at runtime to be sure that the right number of processes are requested per node when calling Swift-T itself (See the `Running the Pipeline` section), as this is what actually controls how processes are distributed.
 
 **`EXIT_ON_ERROR`**
 
