@@ -1,14 +1,15 @@
 # i/o
 SAMPLEINFORMATION=<path to the sampleinformation file>
 OUTPUTDIR=<path to the output directory>
-DELIVERYFOLDER=<path where summary deliverables from the pipeline are stored. It is a subdirectory within the OUTPUTDIR>
 TMPDIR=<path to where temporary files are stored>
 
 # choose the type of analysis and execution parameters
 ANALYSIS=<{ALIGN|ALIGN_ONLY|ALIGNMENT for alignment only; VC_REALIGN for variant calling with realignment; Any other non-empty string for variant calling without realignment (VC_NO_REALIGN recommmended for clarity)}
 SPLIT={YES|NO}
 EXIT_ON_ERROR={YES|NO}
-PROCPERNODE=<Integer: how many processes should be run on each node. Number of threads multi-threaded tools use = PBSCORES/PROCPERNODE>
+
+PROCPERNODE=<Integer: how many processes should be run on each node. Number of threads multi-threaded tools use = CORES/PROCPERNODE>
+CORES=<number of cores on each node of the cluster>
 
 # choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
 ALIGN_DEDUP_STAGE={Y|N|End}
@@ -60,9 +61,3 @@ SAMTOOLSEXE=/path/to/samtools-X.Y.Z/bin/samtools
 NOVOALIGNEXE=/path/to/novocraft-X.YZ/novoalign
 NOVOSORTEXE=/path/to/novocraft-X.YZ/novosort
 GATKJAR=/path/to/gatk-3.X/GenomeAnalysisTK.jar
-
-# resources
-NODES=<number of nodes>
-CORES=<number of cores>
-QUEUE=<queue name>
-WALLTIME=<wall time in HH:MM:SS or MM:SS>
