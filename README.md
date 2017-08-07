@@ -100,13 +100,13 @@ Set the type of analysis being conducted:
 
 **`SPLIT`** YES if one wants to split-by-chromosome before calling variants, NO if not.
 
-**`PROCPERNODE`**
-
-This stands for processes per node.
+**`PROGRAMS_PER_NODE`**
 
 Sometimes it is more efficent to double (or even triple) up runs of an application on the same nodes using half of the available threads than letting one run of the application use all of them. This is because many applications only scale well up to a certain number of threads, and often this is less than the total number of cores available on a node.
 
-Under the hood, this variable simply controls how many threads each tool gets. If `PBSCORES` is set to 20 but `PROCPERNODE` is set to 2, each tool will use up to 10 threads. It is up to the user at runtime to be sure that the right number of processes are requested per node when calling Swift-T itself (See the `Running the Pipeline` section), as this is what actually controls how processes are distributed.
+Under the hood, this variable simply controls how many threads each tool gets. If `CORES_PER_NODE` is set to 20 but `PROGRAMS_PER_NODE` is set to 2, each tool will use up to 10 threads. 
+
+**!!!!!!!!!IMPORTANT NOTE!!!!!!!!!** It is up to the user at runtime to be sure that the right number of processes are requested per node when calling Swift-T itself (See the `Running the Pipeline` section), as this is what actually controls how processes are distributed.
 
 **`EXIT_ON_ERROR`**
 
@@ -185,7 +185,7 @@ Full path of the appropriate executable file
 
 **`PICARDJAR`; `GATKJAR`** Full path of the appropriate jar file
 
-** `CORES` ** Number of cores within nodes to be used in the analysis. For multi-threaded tools, the number of threads = `CORES/PROCSPERNODE`
+** `CORES_PER_NODE` ** Number of cores within nodes to be used in the analysis. For multi-threaded tools, the number of threads = `CORES_PER_NODE/PROGRAMS_PER_NODE`
 
 ### Running the Pipeline
 
@@ -208,7 +208,7 @@ For example,
 
 This command must be included (along with any exported environment variables) in a job submission script and not called directly on a head/login node.
 
-`swift-t -O3 -o </path/to/compiled_output_file.tic> -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps -u -n < Node# * PROCPERNODE + 1 or more > /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/example.runfile`
+`swift-t -O3 -o </path/to/compiled_output_file.tic> -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps -u -n < Node# * PROGRAMS_PER_NODE + 1 or more > /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/example.runfile`
 
 This command will compile and run the pipeline all in one command
 
@@ -216,23 +216,23 @@ It is important to note that (at least for PBS Torque schedulers) when submittin
 
 **Example**
 
-If one is wanting to run a 4 sample job with `PROCPERNODE` set to 2 in the runfile (meaning that two bwa runs can be executing simultaneously on a given node, for example), one would set the PBS flag to `-l nodes=2:ppn=2` and the `-n` flag when calling the workflow to 5 \( nodes\*ppn + 1 \)
+If one is wanting to run a 4 sample job with `PROGRAMS_PER_NODE` set to 2 in the runfile (meaning that two bwa runs can be executing simultaneously on a given node, for example), one would set the PBS flag to `-l nodes=2:ppn=2` and the `-n` flag when calling the workflow to 5 \( nodes\*ppn + 1 \)
 
 ##### Cray System (Like Blue Waters at UIUC)
 
 This call of the workflow requires many more environmental variables and no submission script: Swift-T itself will create and submit a job.
 
-Additionally, to get the right number of processes on each node to make the `PROCPERNODE` work correctly, one must set `PPN= PROCPERNODE` and `NODES` to `#samples/PROCPERNODE + (1 or more)`, because at least one process must be a Swift-T SERVER. If one wanted to try running 4 samples on 2 nodes but with `PPN=3` to make room for the processes that need to be SERVER types, one of the nodes may end up with 3 of your WORKER processes running simultaneously, which may lead to memory problems when Novosort is called.
+Additionally, to get the right number of processes on each node to make the `PROGRAMS_PER_NODE` work correctly, one must set `PPN= PROGRAMS_PER_NODE` and `NODES` to `#samples/PROGRAMS_PER_NODE + (1 or more)`, because at least one process must be a Swift-T SERVER. If one wanted to try running 4 samples on 2 nodes but with `PPN=3` to make room for the processes that need to be SERVER types, one of the nodes may end up with 3 of your WORKER processes running simultaneously, which may lead to memory problems when Novosort is called.
 
-(The exception to this would be when using a single node. In that case, just set `PPN=#PROCPERNODE + 1`)
+(The exception to this would be when using a single node. In that case, just set `PPN=#PROGRAMS_PER_NODE + 1`)
 
 So, with that understanding, call swift-t in the following way:
 
 `export CRAY_PPN=true`
 
-`export PPN=<PROCPERNODE>`
+`export PPN=<PROGRAMS_PER_NODE>`
 
-`export NODES=<#samples/PROCPERNODE + (1 or more)>`
+`export NODES=<#samples/PROGRAMS_PER_NODE + (1 or more)>`
 
 `export PROCS=$(($PPN * $NODES))`
 
@@ -396,7 +396,7 @@ More debug info can be found [here](http://swift-lang.github.io/swift-t/guide.ht
   * Solution: make sure you are preparing your reference and extra files (dbsnp, 1000G,...etc) according to the guidelines of section 2.2
 
 * Things that should be running in parallel appear to be running sequencially
-  * Solution: make sure you are setting the `-n` flag to a value at least one more than `PROCPERNODE` * `PBSNODES`, as this allocates processes for Swift/T itself to run on
+  * Solution: make sure you are setting the `-n` flag to a value at least one more than `PROGRAMS_PER_NODE` * `NODES`, as this allocates processes for Swift/T itself to run on
 
 * The job is killed as soon as BWA is called?
   * Solution: make sure there is no space in front of `BWAMEMPARAMS`
