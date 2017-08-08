@@ -118,10 +118,7 @@ assert(size(alignDedupBams) != 0,
       );
 
 // Continue if the analysis is not align only
-if (variables["ANALYSIS"] != "ALIGN" &&
-    variables["ANALYSIS"] != "ALIGN_ONLY" &&
-    variables["ANALYSIS"] != "ALIGNMENT" &&
-    variables["ALIGN_DEDUP_STAGE"] != "E" &&
+if (variables["ALIGN_DEDUP_STAGE"] != "E" &&
     variables["ALIGN_DEDUP_STAGE"] != "End" &&
     variables["ALIGN_DEDUP_STAGE"] != "end" 
    ) {
