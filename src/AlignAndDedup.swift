@@ -247,7 +247,18 @@ import generalfunctions.general;
 			/*****
 			Alignment
 			*****/
-			if (vars["PAIRED"] == "1") {
+			if (vars["PAIRED"] == "1" ||
+			    vars["PAIRED"] == "YES" ||
+			    vars["PAIRED"] == "Yes" ||
+			    vars["PAIRED"] == "yes" ||
+			    vars["PAIRED"] == "Y" ||
+			    vars["PAIRED"] == "y" ||
+			    vars["PAIRED"] == "TRUE" ||
+			    vars["PAIRED"] == "True" ||
+			    vars["PAIRED"] == "true" ||
+			    vars["PAIRED"] == "T" ||
+			    vars["PAIRED"] == "t"
+			   ) {
 				string read1 = sampleInfo[1];
 				string read2 = sampleInfo[2];
 				string reads[] = [read1, read2];
