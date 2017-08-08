@@ -1,0 +1,58 @@
+## i/o
+SAMPLEINFORMATION=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/config/H3A_NextGen_assessment.Chr1_50X.set3.sampleinfo
+OUTPUTDIR=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/results/Align.H3A_NextGen_assessment_set3.June_2016/run0221
+TMPDIR=/home/groups/hpcbio_shared/azza/H3A_NextGen_assesmeht_set3/results/tmp_analysis
+
+# choose the type of analysis and execution parameters
+REALIGN=YES
+SPLIT=YES
+EXIT_ON_ERROR=YES
+
+PROGRAMS_PER_NODE=2
+CORES_PER_NODE=3
+
+# choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
+ALIGN_DEDUP_STAGE=Y
+CHR_SPLIT_STAGE=Y
+VC_STAGE=Y
+COMBINE_VARIANT_STAGE=Y
+JOINT_GENOTYPING_STAGE=Y
+
+## input data
+PAIRED=YES
+SAMPLELB=synthetic
+SAMPLEPL=illumina
+SAMPLECN=synthetic
+
+## tools to be used
+ALIGNERTOOL=BWAMEM
+MARKDUPLICATESTOOL=PICARD
+
+CHRNAMES=chr1
+
+## alignment block parameters
+BWAINDEX=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/human
+BWAMEMPARAMS=-k 32 -I 300,30 
+#% I really only need that for the playful dataset. later separate chromosome names by (:)
+
+## Quality thresholds:
+MAP_CUTOFF=95
+DUP_CUTOFF=1
+
+# Resource paths
+REFGENOMEDIR=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome
+REFGENOME=ucsc.hg19.fasta
+DBSNP=dbsnp_138.hg19.vcf
+INDELDIR=IndelsByChr
+OMNI=1000G_omni2.5.hg19.sites.vcf
+
+# Tool paths
+JAVAEXE=/home/apps/java/jdk1.8.0_65/bin
+BWAEXE=/home/apps/bwa/bwa-0.7.15
+SAMBLASTEREXE=/home/apps/samblaster/samblaster-0.1.22/bin
+PICARDJAR=/home/apps/picard-tools/picard-tools-2.4.1
+GATKJAR=/home/apps/gatk/gatk-3.6
+SAMTOOLSEXE=/home/apps/samtools/samtools-1.3.1/bin
+NOVOALIGNEXE=/home/apps/novocraft/novocraft-3.02/novoalign
+NOVOSORTEXE=/home/apps/novocraft/novocraft-3.02/novosort
+

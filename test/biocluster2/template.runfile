@@ -1,0 +1,63 @@
+# i/o
+SAMPLEINFORMATION=<path to the sampleinformation file>
+OUTPUTDIR=<path to the output directory>
+TMPDIR=<path to where temporary files are stored>
+
+# choose the type of analysis and execution parameters
+REALIGN={YES|NO}
+SPLIT={YES|NO}
+EXIT_ON_ERROR={YES|NO}
+
+PROGRAMS_PER_NODE=<Integer: how many processes should be run on each node. Number of threads multi-threaded tools use = CORES_PER_NODE/PROGRAMS_PER_NODE>
+CORES_PER_NODE=<number of cores on each node of the cluster>
+
+# choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
+ALIGN_DEDUP_STAGE={Y|N|End}
+CHR_SPLIT_STAGE={Y|N|End}
+VC_STAGE={Y|N|End}
+COMBINE_VARIANT_STAGE={Y|N|End}
+JOINT_GENOTYPING_STAGE={Y|N}
+
+PAIRED={NO for single-ended reads | YES for paired-end reads}
+
+# Read group information for the samples: namely, the Library, Platform technology, and sequencing center name. It should be noted that the sample ID, platform unit (PU) and sample name (SM) are set by default to be the same sample name found in the sampleinformation file specified
+SAMPLELB=<name of the library>
+SAMPLEPL=<should be either ILLUMINA, SOLID, LS454, HELICOS or PACBIO>
+SAMPLECN=<name of the sequencing center generating the reads>
+
+# tools to be used
+ALIGNERTOOL={BWAMEM|NOVOALIGN} <The tool to be used for the alignment stage of the pipeline.>
+MARKDUPLICATESTOOL={SAMBLASTER|PICARD|NOVOSORT} <The tool to be used for marking duplicates in the pipeline.>
+
+CHRNAMES=<a colon (:) separated list of chromosome or contig names to split files by.>
+
+# Alignment parameters
+BWAINDEX=<Path to the indexed reference file for bwa, if it is the desired aligner >
+BWAMEMPARAMS=<optional parameters to bwa mem, if used as an aligner. Example: -k 32 -I 30,30. Note: do not set thread count with these variables>
+
+NOVOALIGNINDEX=<path to the indexed reference file for novoalign, if it is the desired aligner>
+NOVOALIGNPARAMS=<optional parameters to novoalign, if used as an aligner. Note: do not set the thread count here>
+
+# Memory limit
+NOVOSORT_MEMLIMIT=<Max RAM used by one novosort instance. Must be an Integer in bytes; See the README for details>
+
+# Quality thresholds
+MAP_CUTOFF=<minimum mapping quality of reads to pass QC test after alignment>
+DUP_CUTOFF=<maximum duplication level in reads to pass QC test after alignment>
+
+# Resource paths
+REFGENOMEDIR=<path to the directory where all reference files and databases are stored>
+REFGENOME=<name of the reference genome file within REFGENOMEDIR. Example ucsc.hg19.fasta in the GATK bundle 2.8>
+DBSNP=<name of the dbsnp file within REFGENOMEDIR. Example dbsnp_138.hg19.vcf in the GATK bundle 2.8>
+INDELDIR=<name of the directory within REFGENOMEDIR that contains a vcf file for each chromosome/contig specified by the CHRNAMES parameter. These files need to be named as: \*\${chr\_name}.vcf >
+OMNI=<name of the omni variants file. Example: 1000G_omni2.5.hg19.sites.vcf in the GATK bundle 2.8>
+
+# Tool paths
+JAVAEXE=/path/to/bin/java
+BWAEXE=/path/to/bin/bwa
+PICARDJAR=/path/to/picard-tools-X.Y.Z/picard.jar
+SAMBLASTEREXE=/path/to/samblaster-X.Y.Z/bin/samblaster
+SAMTOOLSEXE=/path/to/samtools-X.Y.Z/bin/samtools
+NOVOALIGNEXE=/path/to/novocraft-X.YZ/novoalign
+NOVOSORTEXE=/path/to/novocraft-X.YZ/novosort
+GATKJAR=/path/to/gatk-3.X/GenomeAnalysisTK.jar
