@@ -147,7 +147,7 @@ Examples:
 * `chr1:chr2:chr3`
 * `1:2:3`
 
-Note: chromosome names must match those found in the files located in the directory that `INDELDIR` points to
+Note: chromosome names must match those found in the files located in the directory that `INDELDIR` points to, as well as those in the reference fasta files
 
 **`NOVOSORT_MEMLIMIT`**
 
