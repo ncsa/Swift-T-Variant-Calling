@@ -89,15 +89,7 @@ If analyzing single-end reads, the format is simply: `SampleName /path/to/read1.
 
 **`TMPDIR`** The path to where temporary files will be stored (See `Figure 2`)
 
-**`ANALYSIS`**
-
-Set the type of analysis being conducted:
-
-| **Analysis**                          | **Setting**                                      |
-| --------------------------------------|--------------------------------------------------|
-|  Alignment only                       | `ALIGN`, `ALIGN_ONLY`, or `ALIGNMENT` 	   |
-|  Variant Calling with Realignment     | `VC_REALIGN`                                     |
-|  Variant Calling without Realignment  | `VC_NO_REALIGN`or \<Any other non-empty string\> |
+**`REALIGN`** YES if one wants to realign before recalibration, NO if not.
 
 **`SPLIT`** YES if one wants to split-by-chromosome before calling variants, NO if not.
 
@@ -172,13 +164,15 @@ This is set in bytes, so if you want to limit novosort to using 30 GB, one would
 
 **`DBSNP`** 
 
-Name of the dbsnp vcf file (name only, path should be that of the REFGENOMEDIR
+Name of the dbsnp vcf file (name only, path should be that of the REFGENOMEDIR)
+
+**`INDELDIR`** 
+
+Directory that contains the standard indel variant files used in the realignment/recalibration step
 
 Within the directory, the vcf files should be named with only the chromosome name in front and nothing else.
 
 For example, if the chromosome is `chr12` or `12`, name the vcf files `chr12.vcf` or `12.vcf`, respectively.
-
-**`INDELDIR`** Directory that contains the standard indel variant files used in the realignment/recalibration step
 
 **`OMNI`** \< Insert explanation here \> Not currently used in workflow
 
