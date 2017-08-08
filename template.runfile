@@ -4,7 +4,7 @@ OUTPUTDIR=<path to the output directory>
 TMPDIR=<path to where temporary files are stored>
 
 # choose the type of analysis and execution parameters
-ANALYSIS=<{ALIGN|ALIGN_ONLY|ALIGNMENT for alignment only; VC_REALIGN for variant calling with realignment; Any other non-empty string for variant calling without realignment (VC_NO_REALIGN recommmended for clarity)}
+REALIGN={YES|NO}
 SPLIT={YES|NO}
 EXIT_ON_ERROR={YES|NO}
 
@@ -18,7 +18,7 @@ VC_STAGE={Y|N|End}
 COMBINE_VARIANT_STAGE={Y|N|End}
 JOINT_GENOTYPING_STAGE={Y|N}
 
-PAIRED={0 for single-ended reads | 1 for paired-end reads}
+PAIRED={NO for single-ended reads | YES for paired-end reads}
 
 # Read group information for the samples: namely, the Library, Platform technology, and sequencing center name. It should be noted that the sample ID, platform unit (PU) and sample name (SM) are set by default to be the same sample name found in the sampleinformation file specified
 SAMPLELB=<name of the library>
