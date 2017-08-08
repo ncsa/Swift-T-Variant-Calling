@@ -189,7 +189,17 @@ Recalibration
 	// If no chr, there will be an extra '.'
 	string prefix = replace(prePrefix, "..", ".", 0);
 
-	if (var["ANALYSIS"] == "VC_REALIGN") {
+	if (var["REALIGN"] == "YES" ||
+	    var["REALIGN"] == "Yes" ||
+	    var["REALIGN"] == "yes" ||
+	    var["REALIGN"] == "Y" ||
+	    var["REALIGN"] == "y" ||
+	    var["REALIGN"] == "TRUE" ||
+	    var["REALIGN"] == "True" ||
+	    var["REALIGN"] == "true" ||
+	    var["REALIGN"] == "T" ||
+	    var["REALIGN"] == "t"
+	   ) {
 		/*****
 		 Realignment and Recalibration
 		*****/
