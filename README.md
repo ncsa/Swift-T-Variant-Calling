@@ -307,12 +307,14 @@ If splitting by chromosome for the realignment/recalibration/variant-calling sta
 
 ### Resource Requirements
 
+The table below describes the number of does each stage needs to achieve the maximum level of parallelism. One can request fewer resources if necessary, but at the cost of having some portions running in series.
+
 |  **Analysis Stage**                                                     |  **Resource Requirements**
 | ----------------------------------------------------------------------- | -------------------------
 |  Alignment and Deduplication             			          | Nodes = Samples / (PROGRAMS_PER_NODE\*)
-|  Split by Chromosome/Contig                                             | Nodes = (Samples * Chromosomes)/ PROGRAMS_PER_NODE
+|  Split by Chromosome/Contig                                             | Nodes = (Samples * Chromosomes)/ PROGRAMS_PER_NODE\*
 |  Realignment, Recalibration, and Variant Calling (w/o splitting by chr) | Nodes = Samples / (PROGRAMS_PER_NODE\*)
-|  Realignment, Recalibration, and Variant Calling (w/ splitting by chr)  | Nodes = (Samples * Chromosomes)/ PROGRAMS_PER_NODE
+|  Realignment, Recalibration, and Variant Calling (w/ splitting by chr)  | Nodes = (Samples * Chromosomes)/ PROGRAMS_PER_NODE\*
 |  Combine Sample Variants                         			  | Nodes = Samples / (PROGRAMS_PER_NODE\*)
 |  Joint Genotyping							  | Nodes = 1\*\*
 
