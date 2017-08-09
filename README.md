@@ -332,27 +332,33 @@ If splitting by chromosome, it may make sense to request different resources at 
 
 One may want to execute only the first two stages of the workflow with # Nodes = # Samples. For this step, one would use these settings:
 
- * ALIGN_DEDUP_STAGE=Y
- * CHR_SPLIT_STAGE=End         # This will be the last stage that is executed
- * VC_STAGE=N
- * COMBINE_VARIANT_STAGE=N
- * JOINT_GENOTYPING_STAGE=N
+```
+ALIGN_DEDUP_STAGE=Y
+CHR_SPLIT_STAGE=End         # This will be the last stage that is executed
+VC_STAGE=N
+COMBINE_VARIANT_STAGE=N
+JOINT_GENOTYPING_STAGE=N
+```
 
 Then for the variant calling step, where the optimal resource requirements may be something like # Nodes = (# Samples \* # Chromosomes), one could alter the job submission script to request more resources, then use these settings:
 
- * ALIGN_DEDUP_STAGE=N
- * CHR_SPLIT_STAGE=N
- * VC_STAGE=End                # Only this stage will be executed
- * COMBINE_VARIANT_STAGE=N
- * JOINT_GENOTYPING_STAGE=N
+```
+ALIGN_DEDUP_STAGE=N
+CHR_SPLIT_STAGE=N
+VC_STAGE=End                # Only this stage will be executed
+COMBINE_VARIANT_STAGE=N
+JOINT_GENOTYPING_STAGE=N
+```
 
 Finally, for the last two stages, where it makes sense to set # Nodes = # Samples again, one could alter the submission script again and use these settings:
 
- * ALIGN_DEDUP_STAGE=N
- * CHR_SPLIT_STAGE=N
- * VC_STAGE=N
- * COMBINE_VARIANT_STAGE=Y
- * JOINT_GENOTYPING_STAGE=Y
+```
+ALIGN_DEDUP_STAGE=N
+CHR_SPLIT_STAGE=N
+VC_STAGE=N
+COMBINE_VARIANT_STAGE=Y
+JOINT_GENOTYPING_STAGE=Y
+```
 
 This feature was designed to allow a more efficient use of computational resources.
 
