@@ -234,7 +234,7 @@ This command must be included (along with any exported environment variables and
 
 This command will compile and run the pipeline all in one command
 
-It is important to note that (at least for PBS Torque schedulers) when submitting a qsub script, ppn option should be set, not to the number of cores on each compute node, but to the number of WORKERS Swift-T needs to open up on that node. 
+It is important to note that (at least for PBS Torque schedulers) when submitting a qsub script, the `ppn` option should be set, not to the number of cores on each compute node, but to the number of WORKERS Swift-T needs to open up on that node. 
 
 **Example**
 
