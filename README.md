@@ -307,14 +307,18 @@ If splitting by chromosome for the realignment/recalibration/variant-calling sta
 
 ### Resource Requirements
 
-|  **Analysis Stage**                              |  **Resource Requirements**
-| ------------------------------------------------ | -------------------------
-|  Alignment and Deduplication                     | Nodes = Samples / (Processes per Node\*)
-|  Split by Chromosome/Contig                      | Processes = Samples * Chromosomes<br>Nodes = Processes/ (Cores per Node)
-|  Realignment, Recalibration, and Variant Calling | Nodes = [Samples / (Processes per Node\*)] * Chromosomes
-|  Combine Sample Variants                         | Nodes = Samples / (Processes per Node\*)
+|  **Analysis Stage**                                                     |  **Resource Requirements**
+| ----------------------------------------------------------------------- | -------------------------
+|  Alignment and Deduplication             			          | Nodes = Samples / (PROGRAMS_PER_NODE\*)
+|  Split by Chromosome/Contig                                             | Nodes = (Samples * Chromosomes)/ PROGRAMS_PER_NODE
+|  Realignment, Recalibration, and Variant Calling (w/o splitting by chr) | Nodes = Samples / (PROGRAMS_PER_NODE\*)
+|  Realignment, Recalibration, and Variant Calling (w/ splitting by chr)  | Nodes = (Samples * Chromosomes)/ PROGRAMS_PER_NODE
+|  Combine Sample Variants                         			  | Nodes = Samples / (PROGRAMS_PER_NODE\*)
+|  Joint Genotyping							  | Nodes = 1\*\*
 
-\*Running 10 processes using 20 threads in series may actually be slower than running the 10 processes in pairs utilizing 10 threads each
+\* PROGRAMS_PER_NODE is a variable set in the runfile. Running 10 processes using 20 threads in series may actually be slower than running the 10 processes in pairs utilizing 10 threads each
+
+\*\* The call to GATK's GenotypeGVCFs must be done on a single node. It is best to separate out this stage into its own job submission, so as to not waste unused resources.
 
 ### Pipeline Interruptions and Continuations
 
