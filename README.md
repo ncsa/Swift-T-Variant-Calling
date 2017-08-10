@@ -137,7 +137,7 @@ This string is passed directly as arguments to the tool as (an) argument(s)
 Example, `BWAMEMPARAMS=-k 32 -I 300,30`
 
 Note: There is no space between the '=' character and your parameters
-Note: Do not set the thread count, as this flag is taken care of by the workflow itself
+Note: Do not set the thread count or paired/single-ended flags, as they are taken care of by the workflow itself
 
 **`CHRNAMES`**
 
