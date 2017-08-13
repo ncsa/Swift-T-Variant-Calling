@@ -200,7 +200,7 @@ import generalfunctions.general;
 		*****/
 		string sampleInfo[] = split(sample, " ");
 		string sampleName = sampleInfo[0];
-		string rgheader = sprintf("@RG\tID:%s\tLB:%s\tPL:%s\tPU:%s\tSM:%s\tCN:%s", sampleName,
+		string rgheader = sprintf("@RG\\tID:%s\\tLB:%s\\tPL:%s\\tPU:%s\\tSM:%s\\tCN:%s", sampleName,
 					  vars["SAMPLELB"], vars["SAMPLEPL"], sampleName, sampleName, vars["SAMPLECN"] 
 					 );
 

@@ -1,18 +1,16 @@
 # i/o
-SAMPLEINFORMATION=/home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/test/XSEDE_stampede2/GIAB_Garvan_NA12878_HG001_HiSeq_Exome.sampleinfo
+SAMPLEINFORMATION=/home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/test/XSEDE_stampede2/H3A_Practice_config/H3ABioNet_Practice_data.sampleinfo
 OUTPUTDIR=/scratch/04525/tg838247/swift_T_project/results
 TMPDIR=/scratch/04525/tg838247/swift_T_project/tmp_analysis
 
 # choose the type of analysis and execution parameters
-ANALYSIS=ALIGN
+REALIGN=YES
 SPLIT=YES
-PROCPERNODE=2
-
-#Paired_reads?
-PAIRED=1
-
-#exit on error, select YES or NO
 EXIT_ON_ERROR=YES
+
+# Parallelization options
+CORES_PER_NODE=6
+PROGRAMS_PER_NODE=2
 
 # choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
 ALIGN_DEDUP_STAGE=Y
@@ -21,13 +19,16 @@ VC_STAGE=Y
 COMBINE_VARIANT_STAGE=Y
 JOINT_GENOTYPING_STAGE=Y
 
+#Paired_reads?
+PAIRED=YES
+
 # Read group information for the samples: namely, the Library, Platform technology, and sequencing center name. It should be noted that the sample ID, platform unit (PU) and sample name (SM) are set by default to be the same sample name found in the sampleinformation file specified
-SAMPLELB=NA12878
+SAMPLELB=synthetic
 SAMPLEPL=ILLUMINA
-SAMPLECN=GIAB
+SAMPLECN=H3ABioNet_practice_data
 
 # tools to be used
-ALIGNERTOOL=NOVOALIGN
+ALIGNERTOOL=BWAMEM
 MARKDUPLICATESTOOL=PICARD
 
 CHRNAMES=1:2:3
@@ -56,13 +57,10 @@ OMNI=1000G_omni2.5.b37.vcf.gz
 
 # Tool paths
 JAVAEXE=/bin/java
-BWAEXE=/home1/04525/tg838247/software/bwa/bwa-0.7.16/bwa
+BWAEXE=/home1/04525/tg838247/software/bwa/bwa-0.7.15/bwa
 PICARDJAR=/home1/04525/tg838247/software/picard/picard-2.10.7/picard.jar
 SAMBLASTEREXE=/home1/04525/tg838247/software/samblaster/samblaster-v.0.1.24/samblaster
 SAMTOOLSEXE=/home1/04525/tg838247/software/samtools/samtools-1.5/samtools
 NOVOALIGNEXE=/home1/04525/tg838247/software/novocraft/novocraft-3.08.00/novoalign
 NOVOSORTEXE=/home1/04525/tg838247/software/novocraft/novocraft-3.08.00/novosort
 GATKJAR=/home1/04525/tg838247/software/gatk/GenomeAnalysisTK-3.7/GenomeAnalysisTK.jar
-
-# resources
-CORES=10
