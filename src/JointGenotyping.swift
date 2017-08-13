@@ -71,7 +71,7 @@ jointGenotypingRun(file inputVCFs[], string vars[string], file timeLog) {
 		}
 		
 		jointVCF, jointLog, tmpjointLog = GenotypeGVCFs_logged (vars["JAVAEXE"], vars["GATKJAR"], strcat(vars["REFGENOMEDIR"],
-						   "/", vars["REFGENOME"]), variantSampleArray, vars["CORES"]
+						   "/", vars["REFGENOME"]), variantSampleArray, vars["CORES_PER_NODE"]
 						  ) =>
 		logging(variables["TMPDIR"], timeLog);
 	}

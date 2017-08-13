@@ -82,7 +82,7 @@ import generalfunctions.general;
 	To minimize memory usage, delete the .sam file after a .bam file is made from it
 	*/
 
-	int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
+	int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
 
 	// Log file
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
@@ -132,7 +132,7 @@ import generalfunctions.general;
 		alignedBam => Picard or Novosort
 	*/
 
-	int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
+	int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
 
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
@@ -247,7 +247,18 @@ import generalfunctions.general;
 			/*****
 			Alignment
 			*****/
-			if (vars["PAIRED"] == "1") {
+			if (vars["PAIRED"] == "1" ||
+			    vars["PAIRED"] == "YES" ||
+			    vars["PAIRED"] == "Yes" ||
+			    vars["PAIRED"] == "yes" ||
+			    vars["PAIRED"] == "Y" ||
+			    vars["PAIRED"] == "y" ||
+			    vars["PAIRED"] == "TRUE" ||
+			    vars["PAIRED"] == "True" ||
+			    vars["PAIRED"] == "true" ||
+			    vars["PAIRED"] == "T" ||
+			    vars["PAIRED"] == "t"
+			   ) {
 				string read1 = sampleInfo[1];
 				string read2 = sampleInfo[2];
 				string reads[] = [read1, read2];
@@ -260,7 +271,7 @@ import generalfunctions.general;
 
 			}
 
-			int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
+			int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
 			alignedbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"], alignedsam, threads, ["-u"], sampleName);
 	
 			// Verify alignment was successful

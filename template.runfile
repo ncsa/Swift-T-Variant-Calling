@@ -1,14 +1,15 @@
 # i/o
 SAMPLEINFORMATION=<path to the sampleinformation file>
 OUTPUTDIR=<path to the output directory>
-DELIVERYFOLDER=<path where summary deliverables from the pipeline are stored. It is a subdirectory within the OUTPUTDIR>
 TMPDIR=<path to where temporary files are stored>
 
 # choose the type of analysis and execution parameters
-ANALYSIS=<{ALIGN|ALIGN_ONLY|ALIGNMENT for alignment only; VC_REALIGN for variant calling with realignment; Any other non-empty string for variant calling without realignment (VC_NO_REALIGN recommmended for clarity)}
+REALIGN={YES|NO}
 SPLIT={YES|NO}
 EXIT_ON_ERROR={YES|NO}
-PROCPERNODE=<Integer: how many processes should be run on each node. Number of threads multi-threaded tools use = PBSCORES/PROCPERNODE>
+
+PROGRAMS_PER_NODE=<Integer: how many processes should be run on each node. Number of threads multi-threaded tools use = CORES_PER_NODE/PROGRAMS_PER_NODE>
+CORES_PER_NODE=<number of cores on each node of the cluster>
 
 # choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
 ALIGN_DEDUP_STAGE={Y|N|End}
@@ -17,7 +18,7 @@ VC_STAGE={Y|N|End}
 COMBINE_VARIANT_STAGE={Y|N|End}
 JOINT_GENOTYPING_STAGE={Y|N}
 
-PAIRED={0 for single-ended reads | 1 for paired-end reads}
+PAIRED={NO for single-ended reads | YES for paired-end reads}
 
 # Read group information for the samples: namely, the Library, Platform technology, and sequencing center name. It should be noted that the sample ID, platform unit (PU) and sample name (SM) are set by default to be the same sample name found in the sampleinformation file specified
 SAMPLELB=<name of the library>
@@ -60,9 +61,3 @@ SAMTOOLSEXE=/path/to/samtools-X.Y.Z/bin/samtools
 NOVOALIGNEXE=/path/to/novocraft-X.YZ/novoalign
 NOVOSORTEXE=/path/to/novocraft-X.YZ/novosort
 GATKJAR=/path/to/gatk-3.X/GenomeAnalysisTK.jar
-
-# resources
-NODES=<number of nodes>
-CORES=<number of cores>
-QUEUE=<queue name>
-WALLTIME=<wall time in HH:MM:SS or MM:SS>

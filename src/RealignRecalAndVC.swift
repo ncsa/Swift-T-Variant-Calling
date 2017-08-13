@@ -111,7 +111,7 @@ Realignment
 	string prefix = replace(prePrefix, "..", ".", 0);
 	string logPrefix = replace(preLogPrefix, "..", ".", 0);
 	
-	int threads = string2int(var["CORES"]) %/ string2int(var["PROCPERNODE"]);
+	int threads = string2int(var["CORES_PER_NODE"]) %/ string2int(var["PROGRAMS_PER_NODE"]);
 
 	// Log files												    
 	file targetLog < strcat(logPrefix, "_RealignTargetCreator.log") >;				 
@@ -152,7 +152,7 @@ Recalibration
 	string prefix = replace(prePrefix, "..", ".", 0);
 	string logPrefix = replace(preLogPrefix, "..", ".", 0);
 
-	int threads = string2int(var["CORES"]) %/ string2int(var["PROCPERNODE"]);
+	int threads = string2int(var["CORES_PER_NODE"]) %/ string2int(var["PROGRAMS_PER_NODE"]);
 
 	// Log files
 	file recalLog < strcat(logPrefix, "_BaseRecalibrator.log") >;
@@ -189,7 +189,17 @@ Recalibration
 	// If no chr, there will be an extra '.'
 	string prefix = replace(prePrefix, "..", ".", 0);
 
-	if (var["ANALYSIS"] == "VC_REALIGN") {
+	if (var["REALIGN"] == "YES" ||
+	    var["REALIGN"] == "Yes" ||
+	    var["REALIGN"] == "yes" ||
+	    var["REALIGN"] == "Y" ||
+	    var["REALIGN"] == "y" ||
+	    var["REALIGN"] == "TRUE" ||
+	    var["REALIGN"] == "True" ||
+	    var["REALIGN"] == "true" ||
+	    var["REALIGN"] == "T" ||
+	    var["REALIGN"] == "t"
+	   ) {
 		/*****
 		 Realignment and Recalibration
 		*****/
@@ -219,7 +229,7 @@ VariantCalling (for split chromosome path)
 *******************************************/
 (file outVCF) callChrVariants(string vars[string], string sampleName, file inputBam, string chr) {
 
-	int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
+	int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
 
 	int ploidy;
 	if ( chr == "M" || chr == "chrM" ) { ploidy = 1; }
@@ -246,7 +256,7 @@ VariantCalling (for split chromosome path)
 ***********************************************/
 (file outVCF) callVariants(string vars[string], string sampleName, file inputBam) {
 
-	int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
+	int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
 
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 
