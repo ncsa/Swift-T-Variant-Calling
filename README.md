@@ -79,11 +79,9 @@ From this file, one specifies how the workflow is ran
 
 **`SAMPLEINFORMATION`**
 
-The file that contains the paths to each sample's reads
+The file that contains the paths to each sample's reads, where each sample is on its own line in the form: `SampleName /path/to/read1.fq /path/to/read2.fq`. Alternatively, if analyzing single-end reads, the format is simply: `SampleName /path/to/read1.fq`
 
-Each sample is on its own line in the form: `SampleName /path/to/read1.fq /path/to/read2.fq`
-
-If analyzing single-end reads, the format is simply: `SampleName /path/to/read1.fq`
+_It is necessary that no empty line is inserted at the end of this file_
 
 **`OUTPUTDIR`** The path that will serve as the root of all of the output files generated from the pipeline (See `Figure 2`)
 
