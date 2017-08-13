@@ -90,7 +90,18 @@ import generalfunctions.general;
 	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
  	file tmpalignedLog < strcat(tmpLogDir, sampleName, "_Alignment.log")>;
 	
-	if (vars["PAIRED"] == "1") {
+	if (vars["PAIRED"] == "1" ||
+	    vars["PAIRED"] == "YES" ||
+	    vars["PAIRED"] == "Yes" ||
+	    vars["PAIRED"] == "yes" ||
+	    vars["PAIRED"] == "Y" ||
+	    vars["PAIRED"] == "y" ||
+	    vars["PAIRED"] == "TRUE" ||
+	    vars["PAIRED"] == "True" ||
+	    vars["PAIRED"] == "true" ||
+	    vars["PAIRED"] == "T" ||
+	    vars["PAIRED"] == "t"
+	    ) {
 		// Use the specified alignment tool
 		if (vars["ALIGNERTOOL"] == "BWAMEM") {
 			// Directly return the .sam file created from bwa_mem
