@@ -1,0 +1,72 @@
+## i/o
+SAMPLEINFORMATION=/ui/ncsa/jacobrh/res_vc_test/H3A_set5.sampleinfo
+OUTPUTDIR=/ui/ncsa/jacobrh/res_vc_test/out_dir
+DELIVERYFOLDER=summary_info
+TMPDIR=/ui/ncsa/jacobrh/res_vc_test/tmp_dir
+
+## choose the type of analysis and execution parameters
+ANALYSIS=VC_REALIGN
+SPLIT=YES
+PROCPERNODE=1
+EXIT_ON_ERROR=N
+
+## Choose the stages that will be executed {Y|N}
+ALIGN_DEDUP_STAGE=Y
+CHR_SPLIT_STAGE=Y
+VC_STAGE=End
+COMBINE_VARIANT_STAGE=N
+JOINT_GENOTYPING_STAGE=N
+
+## input data
+INPUTFORMAT=FASTQ
+PAIRED=1 # {1|0} WHERE 1 FOR PAIRED END, AND 0 FOR SINGLE-ENDED READS
+READLENGTH=100
+MULTISAMPLE=NO
+PROVENANCE=
+SAMPLEID=synthetic
+SAMPLELB=synthetic
+SAMPLEPL=illumina
+SAMPLEPU=synthetic
+SAMPLESM=synthetic
+SAMPLECN=synthetic
+
+## tools to be used
+MARKDUPLICATESTOOL=PICARD
+ALIGNERTOOL=BWAMEM
+
+## alignment block parameters
+BWAINDEX=/projects/bioinformatics/TestData/HG19/gatk_bundle_2.8/2.8/hg19/HG19_GATKbundle2.8_noDecoys.fa
+BWAMEMPARAMS=-k 32 -I 300,30
+CHRNAMES=chr1:chr2
+
+NOVOALIGNINDEX=/projects/bioinformatics/TestData/HG19/gatk_bundle_2.8/2.8/hg19/HG19_GATKbundle2.8_noDecoys.nix
+NOVOALIGNPARAMS=
+
+NOVOSORT_MEMLIMIT=20000000000 # Integer in bytes; cannot use 20G, for example. Must say 20000000000
+
+## Quality thresholds:
+MAP_CUTOFF=95
+DUP_CUTOFF=0.131 # Usual default is 1. sample1 will be 0.1308% and sample2 will be 0.131717%. Set to let only one fail
+
+## paths to input output and tools - DO NOT EDIT
+REFGENOMEDIR=/projects/bioinformatics/TestData/HG19/gatk_bundle_2.8/2.8/hg19
+REFGENOME=HG19_GATKbundle2.8_noDecoys.fa
+DBSNP=dbsnp_138.hg19.vcf
+INDELDIR=vcf_per_chr_with_chr_added
+OMNI=1000G_omni2.5.hg19.sites.vcf.gz
+
+# Programs to be used:
+JAVAEXE=/usr/local/apps/bioapps/java/java-1.8-64bit/bin/java                                                               
+BWAEXE=/usr/local/apps/bioapps/bwa/bwa/bwa                                                                                 
+PICARDJAR=/usr/local/apps/bioapps/picard/picard.jar                                                                        
+SAMBLASTEREXE=/usr/local/apps/bioapps/samblaster/samblaster-v.0.1.24/samblaster                                            
+SAMTOOLSEXE=/projects/bioinformatics/builds/samtools-1.3.1/bin/samtools                                                    
+NOVOALIGNEXE=/projects/bioinformatics/builds/novocraftV3.04.06.Linux2.6/novoalign                                          
+NOVOSORTEXE=/projects/bioinformatics/builds/novocraftV3.04.06.Linux2.6/novosort                                            
+GATKJAR=/projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar
+
+## resources
+NODES=1
+CORES=20		# Remember to change bwa parameters
+QUEUE=big_mem
+WALLTIME=4:00:00

@@ -1,7 +1,7 @@
 /*
 
 *****************************
- Pseudocode of Main Functions
+ Pseudocode of Run Functions
 *****************************
 
 Note:
@@ -17,10 +17,10 @@ Note:
 ********************************************************************************
 
 ******************************
- Pseudocode for No Split Main
+ Pseudocode for No Split Run
 ******************************
 
-(file VCFList[]) VCNoSplitMain(file inputBams[]) {
+(file VCFList[]) VCNoSplitRun(file inputBams[]) {
 	foreach sample in samples {
 		if (VC_STAGE variable == "Y") {
 			**************************
@@ -52,14 +52,14 @@ Note:
 ********************************************************************************
 
 ***************************
- Pseudocode for Split Main
+ Pseudocode for Split Run
 ***************************
 
 Note: although the input matrix is in the form inputMatrix[chromosome][sample],
   the output matrix is in the form outputMatrix[sample][chromosome]
 
 
-(file VCF_list[][]) VCSplitMain(file inputBams[][]) {
+(file VCF_list[][]) VCSplitRun(file inputBams[][]) {
 	foreach chrSet in inputBams {
 		- Get chromosome name
 
@@ -111,7 +111,7 @@ Realignment
 	string prefix = replace(prePrefix, "..", ".", 0);
 	string logPrefix = replace(preLogPrefix, "..", ".", 0);
 	
-	int threads = string2int(var["CORES"]) %/ string2int(var["PROCPERNODE"]);
+	int threads = string2int(var["CORES_PER_NODE"]) %/ string2int(var["PROGRAMS_PER_NODE"]);
 
 	// Log files												    
 	file targetLog < strcat(logPrefix, "_RealignTargetCreator.log") >;				 
@@ -152,7 +152,7 @@ Recalibration
 	string prefix = replace(prePrefix, "..", ".", 0);
 	string logPrefix = replace(preLogPrefix, "..", ".", 0);
 
-	int threads = string2int(var["CORES"]) %/ string2int(var["PROCPERNODE"]);
+	int threads = string2int(var["CORES_PER_NODE"]) %/ string2int(var["PROGRAMS_PER_NODE"]);
 
 	// Log files
 	file recalLog < strcat(logPrefix, "_BaseRecalibrator.log") >;
@@ -189,7 +189,17 @@ Recalibration
 	// If no chr, there will be an extra '.'
 	string prefix = replace(prePrefix, "..", ".", 0);
 
-	if (var["ANALYSIS"] == "VC_REALIGN") {
+	if (var["REALIGN"] == "YES" ||
+	    var["REALIGN"] == "Yes" ||
+	    var["REALIGN"] == "yes" ||
+	    var["REALIGN"] == "Y" ||
+	    var["REALIGN"] == "y" ||
+	    var["REALIGN"] == "TRUE" ||
+	    var["REALIGN"] == "True" ||
+	    var["REALIGN"] == "true" ||
+	    var["REALIGN"] == "T" ||
+	    var["REALIGN"] == "t"
+	   ) {
 		/*****
 		 Realignment and Recalibration
 		*****/
@@ -219,7 +229,7 @@ VariantCalling (for split chromosome path)
 *******************************************/
 (file outVCF) callChrVariants(string vars[string], string sampleName, file inputBam, string chr) {
 
-	int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
+	int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
 
 	int ploidy;
 	if ( chr == "M" || chr == "chrM" ) { ploidy = 1; }
@@ -246,7 +256,7 @@ VariantCalling (for split chromosome path)
 ***********************************************/
 (file outVCF) callVariants(string vars[string], string sampleName, file inputBam) {
 
-	int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
+	int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
 
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 
@@ -266,13 +276,13 @@ VariantCalling (for split chromosome path)
 }
 
 /***********************
- Main Functions
+ Run Functions
 ************************/
-(file VCF_list[]) VCNoSplitMain(string vars[string], file inputBams[], file failLog) {
+(file VCF_list[]) VCNoSplitRun(string vars[string], file inputBams[], file failLog) {
 	foreach sample, index in inputBams {
 		
 		string baseName = basename_string(filename(sample)); 
-		string sampleName = substring(baseName, 0, strlen(baseName) - 23);  // Verified
+		string sampleName = substring(baseName, 0, strlen(baseName) - 19);  // Verified on Aug 14th, 2017 
 
 		if (vars["VC_STAGE"] == "Y" ||
 		    vars["VC_STAGE"] == "y" ||
@@ -352,7 +362,7 @@ VariantCalling (for split chromosome path)
 	}
 }
 
-(file VCF_list[][]) VCSplitMain(string vars[string], file inputBams[][], file failLog) {
+(file VCF_list[][]) VCSplitRun(string vars[string], file inputBams[][], file failLog) {
 	foreach chrSet, chrIndex in inputBams {
 		foreach inputBam, sampleIndex in chrSet {
 			if (vars["VC_STAGE"] == "Y" ||
@@ -378,7 +388,7 @@ VariantCalling (for split chromosome path)
 				//   leaving only the sample name
 				string sampleName = substring(nameBase, 0, strlen(nameBase) - strlen(chr) - 1 - 19);
 
-        trace("VCNoSplitMain\t", sampleName, "\t", chr);                         
+        			trace("VCNoSplitRun\t", sampleName, "\t", chr);                         
         
  				/*************************************
 				 Gather the recalibration index files

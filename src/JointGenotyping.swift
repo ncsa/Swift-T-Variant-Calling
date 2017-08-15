@@ -1,10 +1,10 @@
 /*
 
 *****************************
- Pseudocode of Main Function
+ Pseudocode of Run Function
 *****************************
 
-() jointGenotypingMain(file inputVCFs[]) {
+() jointGenotypingRun(file inputVCFs[]) {
 	if (JOINT_GENOTYPING_STAGE variable == "Y") {
 		**************************
 		*** EXECUTE THIS STAGE ***
@@ -29,20 +29,28 @@ import generalfunctions.general;
 import bioappsLoggingFunctions.joint_vcf_logging;
 
 /******************
- Main function for Joint Genotyping
+ Run function for Joint Genotyping
 *******************/
 
-jointGenotypingMain(file inputVCFs[], string vars[string], file timeLog) {
+jointGenotypingRun(file inputVCFs[], string vars[string], file timeLog) {
 	// Since this is the last step, I only check to make sure this step is one of the executed stages.
 	// If it is not, then nothing happens.
-	if (vars["JOINT_GENOTYPING_STAGE"] == "Y") {
-
+	if (vars["JOINT_GENOTYPING_STAGE"] == "Y" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "Yes" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "YES" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "y" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "yes" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "End" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "end" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "E" ||
+	    vars["JOINT_GENOTYPING_STAGE"] == "e"
+	   ) {
 		// The joint genotype output file
-		file jointVCF < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs/jointVCFcalled.vcf") >;
+		file jointVCF < strcat(vars["OUTPUTDIR"], "/deliverables/jointVCFs/jointVCFcalled.vcf") >;
 	
 		// Log file for Joint Genotyping
-		file jointLog < strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs/jointVCF.log") >;
-		mkdir(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"], "/jointVCFs"));
+		file jointLog < strcat(vars["OUTPUTDIR"], "/deliverables/jointVCFs/jointVCF.log") >;
+		mkdir(strcat(vars["OUTPUTDIR"], "/deliverables/jointVCFs"));
 
 		string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
 		file tmpjointLog < strcat(tmpLogDir, "jointVCF.log") >;	
@@ -63,7 +71,7 @@ jointGenotypingMain(file inputVCFs[], string vars[string], file timeLog) {
 		}
 		
 		jointVCF, jointLog, tmpjointLog = GenotypeGVCFs_logged (vars["JAVAEXE"], vars["GATKJAR"], strcat(vars["REFGENOMEDIR"],
-						   "/", vars["REFGENOME"]), variantSampleArray, vars["CORES"]
+						   "/", vars["REFGENOME"]), variantSampleArray, vars["CORES_PER_NODE"]
 						  ) =>
 		logging(variables["TMPDIR"], timeLog);
 	}

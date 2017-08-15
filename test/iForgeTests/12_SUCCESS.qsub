@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -N swift_variant_calling
+#PBS -l nodes=8:ppn=2,walltime=24:00:00
+#PBS -S /bin/bash
+#PBS -A aaa
+#PBS -q big_mem
+
+module load /usr/local/apps/bioapps/modules/swift-t/swift-t-1.1
+
+export TURBINE_LOG=1
+export SWIFT_TMP=/projects/bioinformatics/TestingSwiftWorkflow/Matt_bug/temp
+
+swift-t -O3 -o /projects/bioinformatics/TestingSwiftWorkflow/Matt_bug/compiled_output_file.tic -I /ui/ncsa/jacobrh/Swift-T-Variant-Calling/src/ -r /ui/ncsa/jacobrh/Swift-T-Variant-Calling/src/bioapps -n 17 /ui/ncsa/jacobrh/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/ui/ncsa/jacobrh/Swift-T-Variant-Calling/test/iForgeTests/12.runfile &> /projects/bioinformatics/TestingSwiftWorkflow/Matt_bug/testB.eo

@@ -1,10 +1,10 @@
 /*
 
 *****************************
- Pseudocode of Main Function
+ Pseudocode of Run Function
 *****************************
 
-(file outBamArray[]) alignDedupMain() {
+(file outBamArray[]) alignDedupRun() {
 	foreach sample in samples {
 		- Parse sample specific information and construct RG header
 		- Create the sample output directories
@@ -82,7 +82,7 @@ import generalfunctions.general;
 	To minimize memory usage, delete the .sam file after a .bam file is made from it
 	*/
 
-	int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
+	int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
 
 	// Log file
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
@@ -90,7 +90,18 @@ import generalfunctions.general;
 	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
  	file tmpalignedLog < strcat(tmpLogDir, sampleName, "_Alignment.log")>;
 	
-	if (vars["PAIRED"] == "1") {
+	if (vars["PAIRED"] == "1" ||
+	    vars["PAIRED"] == "YES" ||
+	    vars["PAIRED"] == "Yes" ||
+	    vars["PAIRED"] == "yes" ||
+	    vars["PAIRED"] == "Y" ||
+	    vars["PAIRED"] == "y" ||
+	    vars["PAIRED"] == "TRUE" ||
+	    vars["PAIRED"] == "True" ||
+	    vars["PAIRED"] == "true" ||
+	    vars["PAIRED"] == "T" ||
+	    vars["PAIRED"] == "t"
+	    ) {
 		// Use the specified alignment tool
 		if (vars["ALIGNERTOOL"] == "BWAMEM") {
 			// Directly return the .sam file created from bwa_mem
@@ -132,7 +143,7 @@ import generalfunctions.general;
 		alignedBam => Picard or Novosort
 	*/
 
-	int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
+	int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
 
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
@@ -149,8 +160,8 @@ import generalfunctions.general;
 
 		// Mark Duplicates
 		dedupsam, samLog, tmpsamblasterLog = samblaster_logged(vars["SAMBLASTEREXE"], alignedSam, sampleName);
-		dedupbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"], dedupsam, threads, ["-u"], sampleName) ;
-		// Delete the dedupsam file once dedupbam has been created
+		dedupbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"], dedupsam, threads, ["-u"], sampleName) =>
+		// Delete the dedupsam file once dedupbam has been created (wait for dedupbam to be finished)
 		rm(dedupsam);
 		
 		// Sort
@@ -188,19 +199,19 @@ import generalfunctions.general;
 }
 
 /*************************
- Main function
+ Run function
 **************************/
 
 // For now, we will just feed in the lines array as the starting point. If fastq quality control STAGES are
 //   implemented, this would probably need be to be altered
-(file outputBam[]) alignDedupMain(string lines[], string vars[string], file failLog) {
+(file outputBam[]) alignDedupRun(string lines[], string vars[string], file failLog) {
 	foreach sample, index in lines {
 		/*****
 		Parse sample specific information and construct RG header
 		*****/
 		string sampleInfo[] = split(sample, " ");
 		string sampleName = sampleInfo[0];
-		string rgheader = sprintf("@RG\tID:%s\tLB:%s\tPL:%s\tPU:%s\tSM:%s\tCN:%s", sampleName,
+		string rgheader = sprintf("@RG\\tID:%s\\tLB:%s\\tPL:%s\\tPU:%s\\tSM:%s\\tCN:%s", sampleName,
 					  vars["SAMPLELB"], vars["SAMPLEPL"], sampleName, sampleName, vars["SAMPLECN"] 
 					 );
 
@@ -218,7 +229,16 @@ import generalfunctions.general;
 		string VarcallDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/");
 		string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
 
-		if (vars["ALIGN_DEDUP_STAGE"] == "Y") {
+		if (vars["ALIGN_DEDUP_STAGE"] == "Y" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "Yes" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "YES" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "y" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "yes" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "End" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "end" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "E" ||
+		    vars["ALIGN_DEDUP_STAGE"] == "e"
+		   ) {
 
 			mkdir(LogDir);
 			mkdir(AlignDir);
@@ -238,7 +258,18 @@ import generalfunctions.general;
 			/*****
 			Alignment
 			*****/
-			if (vars["PAIRED"] == "1") {
+			if (vars["PAIRED"] == "1" ||
+			    vars["PAIRED"] == "YES" ||
+			    vars["PAIRED"] == "Yes" ||
+			    vars["PAIRED"] == "yes" ||
+			    vars["PAIRED"] == "Y" ||
+			    vars["PAIRED"] == "y" ||
+			    vars["PAIRED"] == "TRUE" ||
+			    vars["PAIRED"] == "True" ||
+			    vars["PAIRED"] == "true" ||
+			    vars["PAIRED"] == "T" ||
+			    vars["PAIRED"] == "t"
+			   ) {
 				string read1 = sampleInfo[1];
 				string read2 = sampleInfo[2];
 				string reads[] = [read1, read2];
@@ -251,7 +282,7 @@ import generalfunctions.general;
 
 			}
 
-			int threads = string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]);
+			int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
 			alignedbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"], alignedsam, threads, ["-u"], sampleName);
 	
 			// Verify alignment was successful

@@ -1,6 +1,6 @@
 /*
 *****************************
- Pseudocode of Main Function
+ Pseudocode of Run Function
 *****************************
 
 *** Note:
@@ -13,7 +13,7 @@
 
 ****************************************************************************
 
-(file outputBams[][]) splitByChrMain(file inputBams[]) {
+(file outputBams[][]) splitByChrRun(file inputBams[]) {
 	- Get the chromosome names
 
 	foreach chromosome in chromosomes {
@@ -61,10 +61,10 @@ import bioapps.align_dedup;
 import generalfunctions.general;
 
 /******************************
- Main function
+ Run function
 *******************************/
 
-(file outputBams[][]) splitByChrMain(file inputBams[], string vars[string], file failLog) {
+(file outputBams[][]) splitByChrRun(file inputBams[], string vars[string], file failLog) {
 	string indices[] = split(vars["CHRNAMES"], ":");
 
 	foreach chr, chrIndex in indices {
@@ -81,7 +81,16 @@ import generalfunctions.general;
 						   chr, ".bam"
 						  );			
 
-			if (vars["CHR_SPLIT_STAGE"] == "Y") {
+			if (vars["CHR_SPLIT_STAGE"] == "Y" ||
+		            vars["CHR_SPLIT_STAGE"] == "Yes" ||
+		            vars["CHR_SPLIT_STAGE"] == "YES" ||
+		            vars["CHR_SPLIT_STAGE"] == "y" ||
+		            vars["CHR_SPLIT_STAGE"] == "yes" ||
+		            vars["CHR_SPLIT_STAGE"] == "End" ||
+		            vars["CHR_SPLIT_STAGE"] == "end" ||
+		            vars["CHR_SPLIT_STAGE"] == "E" ||
+		            vars["CHR_SPLIT_STAGE"] == "e"
+			   ) {
 
 				/********************
 	 			 Split by chromosome
@@ -94,7 +103,7 @@ import generalfunctions.general;
 	
 				// Subtract 1 because the main thread takes up is a thread, "threads"
 				//   defines the number of additional threads
-				int threads = ( string2int(vars["CORES"]) %/ string2int(vars["PROCPERNODE"]) ) - 1;
+				int threads = ( string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]) ) - 1;
 	
 				chrDedupSortedBam = samtools_view(vars["SAMTOOLSEXE"], bam,
 								  threads, [strcat(chr)]
@@ -109,10 +118,8 @@ import generalfunctions.general;
 								" contains no alignments. Chromosome splitting failed\n"
 							       );
 					// Update the failure log file
-					append(input(strcat(vars["OUTPUTDIR"], "/", vars["DELIVERYFOLDER"],
-						            "/docs/Failures.log")
-							   ),
-						     message
+					append(input(strcat(vars["OUTPUTDIR"], "/deliverables/docs/Failures.log")),
+					       message
 					      ) =>
 					exitIfFlagGiven(vars, message);
 				}
