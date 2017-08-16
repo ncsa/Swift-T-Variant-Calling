@@ -29,8 +29,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="-18.342455"
-     inkscape:cy="439.27306"
+     inkscape:cx="89.010668"
+     inkscape:cy="497.73198"
      inkscape:document-units="px"
      inkscape:current-layer="g4700"
      showgrid="false"
@@ -51,7 +51,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -77,6 +77,35 @@
            width="498.86307"
            id="rect4682"
            style="opacity:0.25100002;fill:#f2f2f2;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999988;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="350"
+           inkscape:export-xdpi="350"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path4324"
+           d="m 301.75277,115.12447 0,143.26215"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3.99999976;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect4973"
+           width="169.11"
+           height="64.001511"
+           x="216.53072"
+           y="172.1275"
+           ry="0"
+           rx="0"
+           inkscape:export-xdpi="350"
+           inkscape:export-ydpi="350" />
+        <rect
+           ry="14.602903"
+           y="152.23723"
+           x="209.23717"
+           height="90.580879"
+           width="185.10962"
+           id="rect4995"
+           style="opacity:0.25100002;fill:#d4ff2a;fill-opacity:1;fill-rule:evenodd;stroke:#445500;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           inkscape:export-xdpi="350"
+           inkscape:export-ydpi="350" />
         <rect
            inkscape:export-ydpi="350"
            inkscape:export-xdpi="350"
@@ -99,26 +128,6 @@
            id="rect4500"
            style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
         <ellipse
-           style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="path4275"
-           cx="302.07034"
-           cy="199.46095"
-           rx="47.142853"
-           ry="18.058146" />
-        <flowRoot
-           xml:space="preserve"
-           id="flowRoot4277"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:Avenir;-inkscape-font-specification:Avenir;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           transform="translate(120.78463,47.469182)"><flowRegion
-             id="flowRegion4279"><rect
-               id="rect4281"
-               width="109.28571"
-               height="36.42857"
-               x="142.14285"
-               y="142.3622"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Avenir;-inkscape-font-specification:Avenir;fill:#ffffff;stroke:#ffffff" /></flowRegion><flowPara
-             id="flowPara4283"
-             style="font-size:15px;line-height:1.25">Align Only?</flowPara></flowRoot>        <ellipse
            ry="26.896978"
            rx="55.729145"
            cy="284.00034"
@@ -138,38 +147,7 @@
                width="109.28571"
                id="rect4291" /></flowRegion><flowPara
              id="flowPara4293"
-             style="font-size:15px;line-height:1.25">Split by Chromosome?</flowPara></flowRoot>        <path
-           inkscape:export-ydpi="350"
-           inkscape:export-xdpi="350"
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           d="m 301.75278,155.83876 0,29.41589"
-           id="path4320"
-           inkscape:connector-curvature="0"
-           sodipodi:nodetypes="cc" />
-        <path
-           inkscape:export-ydpi="350"
-           inkscape:export-xdpi="350"
-           sodipodi:nodetypes="cc"
-           inkscape:connector-curvature="0"
-           id="path4324"
-           d="m 301.75278,215.83876 0,42.54787"
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-        <flowRoot
-           inkscape:export-ydpi="350"
-           inkscape:export-xdpi="350"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="flowRoot4326"
-           xml:space="preserve"
-           transform="translate(499,81.785714)"><flowRegion
-             id="flowRegion4328"><rect
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
-               y="139.1843"
-               x="-191.92899"
-               height="38.890873"
-               width="384.36304"
-               id="rect4330" /></flowRegion><flowPara
-             id="flowPara4332"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif">No</flowPara></flowRoot>        <flowRoot
+             style="font-size:15px;line-height:1.25">Split by Chromosome?</flowPara></flowRoot>        <flowRoot
            inkscape:export-ydpi="350"
            inkscape:export-xdpi="350"
            transform="translate(378.69647,126.63852)"
@@ -338,29 +316,19 @@
            inkscape:export-xdpi="350"
            rx="0"
            ry="0"
-           y="84.12751"
+           y="80.12751"
            x="216.53072"
-           height="70.831833"
+           height="45.072941"
            width="169.11"
            id="rect4205"
-           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999988;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-        <rect
-           inkscape:export-ydpi="350"
-           inkscape:export-xdpi="350"
-           style="opacity:0.25100002;fill:#ff80b2;fill-opacity:1;fill-rule:evenodd;stroke:#d40055;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="rect4660"
-           width="185.10962"
-           height="101.29517"
-           x="209.23717"
-           y="62.237228"
-           ry="16.330196" />
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
         <flowRoot
            inkscape:export-ydpi="350"
            inkscape:export-xdpi="350"
            xml:space="preserve"
            id="flowRoot4662"
            style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#ff5db2;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           transform="translate(74.105908,-277.89853)"><flowRegion
+           transform="translate(108.10591,-281.89853)"><flowRegion
              id="flowRegion4664"><rect
                id="rect4666"
                width="249.28572"
@@ -369,7 +337,7 @@
                y="342.36221"
                style="fill:#ff5db2;fill-opacity:1" /></flowRegion><flowPara
              id="flowPara4668"
-             style="font-size:12.5px;line-height:1.25;opacity:0.81960784;fill:#ff5db2;fill-opacity:1">AlignAndDedup.swift</flowPara></flowRoot>        <rect
+             style="font-size:12.5px;line-height:1.25;opacity:0.81960784;fill:#ff5db2;fill-opacity:1">Align.swift</flowPara></flowRoot>        <rect
            inkscape:export-ydpi="350"
            inkscape:export-xdpi="350"
            style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -435,7 +403,7 @@
              style="font-size:25px;line-height:1.25;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none">VariantCalling.swift</flowPara></flowRoot>        <rect
            inkscape:export-ydpi="350"
            inkscape:export-xdpi="350"
-           y="84.256126"
+           y="80.256126"
            x="216.6472"
            height="22.513044"
            width="168.79085"
@@ -444,22 +412,7 @@
         <flowRoot
            inkscape:export-ydpi="350"
            inkscape:export-xdpi="350"
-           transform="translate(431.21385,-53.98572)"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           id="flowRoot4209"
-           xml:space="preserve"><flowRegion
-             id="flowRegion4211"><rect
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff;stroke:#ffffff"
-               y="139.1843"
-               x="-191.92899"
-               height="38.890873"
-               width="384.36304"
-               id="rect4213" /></flowRegion><flowPara
-             style="font-size:15px;line-height:1.25"
-             id="flowPara4215">alignDedupRun()</flowPara></flowRoot>        <flowRoot
-           inkscape:export-ydpi="350"
-           inkscape:export-xdpi="350"
-           transform="translate(427.92814,-29.84287)"
+           transform="translate(427.92814,-35.84287)"
            xml:space="preserve"
            id="flowRoot4217"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"><flowRegion
@@ -472,20 +425,20 @@
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none" /></flowRegion><flowPara
              style="font-size:15px;line-height:1.25"
              id="flowPara4223">Align</flowPara></flowRoot>        <circle
-           r="2.8571427"
            inkscape:export-ydpi="350"
            inkscape:export-xdpi="350"
-           cy="118.87646"
+           cy="112.87646"
            cx="226.64243"
            id="circle4225"
-           style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+           style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           r="2.8571427" />
         <flowRoot
            inkscape:export-ydpi="350"
            inkscape:export-xdpi="350"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="flowRoot4227"
            xml:space="preserve"
-           transform="translate(427.92814,-7.84287)"><flowRegion
+           transform="translate(427.92814,6.15713)"><flowRegion
              id="flowRegion4229"><rect
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
                y="139.1843"
@@ -494,15 +447,7 @@
                width="384.36304"
                id="rect4231" /></flowRegion><flowPara
              style="font-size:15px;line-height:1.25"
-             id="flowPara4235">Deduplicate &amp; Sort</flowPara></flowRoot>        <circle
-           r="2.8571427"
-           inkscape:export-ydpi="350"
-           inkscape:export-xdpi="350"
-           style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="circle4237"
-           cx="226.64243"
-           cy="140.87646" />
-        <rect
+             id="flowPara4235" /></flowRoot>        <rect
            inkscape:export-ydpi="350"
            inkscape:export-xdpi="350"
            style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1013,6 +958,116 @@
            cx="91.306725"
            id="circle4259"
            style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        <rect
+           inkscape:export-ydpi="350"
+           inkscape:export-xdpi="350"
+           style="opacity:0.25100002;fill:#ff80b2;fill-opacity:1;fill-rule:evenodd;stroke:#d40055;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect4660"
+           width="185.10962"
+           height="70.580887"
+           x="209.23717"
+           y="60.237228"
+           ry="11.378625" />
+        <flowRoot
+           inkscape:export-ydpi="350"
+           inkscape:export-xdpi="350"
+           transform="translate(455.21385,-57.98572)"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           id="flowRoot4209"
+           xml:space="preserve"><flowRegion
+             id="flowRegion4211"><rect
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff;stroke:#ffffff"
+               y="139.1843"
+               x="-191.92899"
+               height="38.890873"
+               width="384.36304"
+               id="rect4213" /></flowRegion><flowPara
+             style="font-size:15px;line-height:1.25"
+             id="flowPara4215">alignRun()</flowPara></flowRoot>        <flowRoot
+           transform="matrix(0.80426368,0,0,0.80426368,85.518059,-120.50973)"
+           style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#88aa00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+           id="flowRoot4975"
+           xml:space="preserve"
+           inkscape:export-xdpi="350"
+           inkscape:export-ydpi="350"><flowRegion
+             id="flowRegion4977"><rect
+               style="fill:#88aa00;fill-opacity:1;"
+               y="342.36221"
+               x="160.71428"
+               height="23.571428"
+               width="249.28572"
+               id="rect4979" /></flowRegion><flowPara
+             style="font-size:12.5px;line-height:1.25;opacity:0.81960784;fill:#88aa00;fill-opacity:1;"
+             id="flowPara4981">DedupSort.swift</flowPara></flowRoot>        <rect
+           style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect4983"
+           width="168.79085"
+           height="22.513044"
+           x="216.6472"
+           y="172.25613"
+           inkscape:export-xdpi="350"
+           inkscape:export-ydpi="350" />
+        <flowRoot
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="flowRoot4985"
+           xml:space="preserve"
+           transform="translate(427.92814,56.15713)"
+           inkscape:export-xdpi="350"
+           inkscape:export-ydpi="350"><flowRegion
+             id="flowRegion4987"><rect
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
+               y="139.1843"
+               x="-191.92899"
+               height="38.890873"
+               width="384.36304"
+               id="rect4989" /></flowRegion><flowPara
+             id="flowPara4991"
+             style="font-size:15px;line-height:1.25">Deduplicate</flowPara></flowRoot>        <circle
+           r="2.8571427"
+           style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="circle4993"
+           cx="226.64243"
+           cy="204.87646"
+           inkscape:export-xdpi="350"
+           inkscape:export-ydpi="350" />
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot4997"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           transform="translate(435.21385,34.01428)"
+           inkscape:export-xdpi="350"
+           inkscape:export-ydpi="350"><flowRegion
+             id="flowRegion4999"><rect
+               id="rect5001"
+               width="384.36304"
+               height="38.890873"
+               x="-191.92899"
+               y="139.1843"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff;stroke:#ffffff" /></flowRegion><flowPara
+             id="flowPara5003"
+             style="font-size:15px;line-height:1.25">dedupSortRun()</flowPara></flowRoot>        <flowRoot
+           inkscape:export-ydpi="350"
+           inkscape:export-xdpi="350"
+           transform="translate(427.92814,76.15713)"
+           xml:space="preserve"
+           id="flowRoot5005"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0.01%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"><flowRegion
+             id="flowRegion5007"><rect
+               id="rect5009"
+               width="384.36304"
+               height="38.890873"
+               x="-191.92899"
+               y="139.1843"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none" /></flowRegion><flowPara
+             style="font-size:15px;line-height:1.25"
+             id="flowPara5011">Sort</flowPara></flowRoot>        <circle
+           inkscape:export-ydpi="350"
+           inkscape:export-xdpi="350"
+           cy="224.87646"
+           cx="226.64243"
+           id="circle5013"
+           style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           r="2.8571427" />
       </g>
       <text
          xml:space="preserve"
