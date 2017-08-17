@@ -25,19 +25,7 @@ Runfile variables (Determine which stages will be run):
   JOINT_GENOTYPING_STAGE
 
 Within each STAGE, it checks whether it is executed. If so, it runs and returns the output needed for the next STAGE.
-  Otherwise, it just finds the output that is already produced, and feeds that to the next STAGE.
-
-string alignBams[] alignRun()
-if SPLIT {
-	chrOut chrSplitRun(outBams)
-	vcOut vcSplitRun(chrOut)
-	combineOut combineRun(vcOut)
-	jointOut jointRun(combineOut)
-else {
-	vcOut vcNoSplitRun(chrOut)
-	jointOut jointRun(vcOut)
-}
-
+  Otherwise, it just finds the output that is already produced, and feeds that to the next STAGE.\
 */
 
 import string;
