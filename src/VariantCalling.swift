@@ -169,22 +169,21 @@ if (variables["ALIGN_STAGE"] != "E" &&
 					}
 				}
 			}
-		}
-	}
-	else {
-		// Call variants for the aligned files
-		file VCF_list[] = VCNoSplitRun(variables, dedupSortedBams, failureLog) =>
-		logging(variables["TMPDIR"], timingLog);
+		} else {
+			// Call variants for the aligned files
+			file VCF_list[] = VCNoSplitRun(variables, dedupSortedBams, failureLog) =>
+			logging(variables["TMPDIR"], timingLog);
 
-		if (variables["VC_STAGE"] != "E" &&
-		    variables["VC_STAGE"] != "End" &&
-		    variables["VC_STAGE"] != "end"
-		   ) {
+			if (variables["VC_STAGE"] != "E" &&
+			    variables["VC_STAGE"] != "End" &&
+			    variables["VC_STAGE"] != "end"
+			   ) {
 
-			assert(size(VCF_list) != 0, "FAILURE: The VCFs array was empty");
+				assert(size(VCF_list) != 0, "FAILURE: The VCFs array was empty");
 
-			// Conduct joint genotyping between all samples
-			jointGenotypingRun(VCF_list, variables, timingLog); 
+				// Conduct joint genotyping between all samples
+				jointGenotypingRun(VCF_list, variables, timingLog); 
+			}
 		}
 	}
 }
