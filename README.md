@@ -79,11 +79,9 @@ From this file, one specifies how the workflow is ran
 
 **`SAMPLEINFORMATION`**
 
-The file that contains the paths to each sample's reads
+The file that contains the paths to each sample's reads, where each sample is on its own line in the form: `SampleName /path/to/read1.fq /path/to/read2.fq`. Alternatively, if analyzing single-end reads, the format is simply: `SampleName /path/to/read1.fq`
 
-Each sample is on its own line in the form: `SampleName /path/to/read1.fq /path/to/read2.fq`
-
-If analyzing single-end reads, the format is simply: `SampleName /path/to/read1.fq`
+_It is necessary that no empty line is inserted at the end of this file_
 
 **`OUTPUTDIR`** The path that will serve as the root of all of the output files generated from the pipeline (See `Figure 2`)
 
@@ -137,7 +135,7 @@ This string is passed directly as arguments to the tool as (an) argument(s)
 Example, `BWAMEMPARAMS=-k 32 -I 300,30`
 
 Note: There is no space between the '=' character and your parameters
-Note: Do not set the thread count, as this flag is taken care of by the workflow itself
+Note: Do not set the thread count or paired/single-ended flags, as they are taken care of by the workflow itself
 
 **`CHRNAMES`**
 
@@ -191,9 +189,13 @@ Swift-T works by opening up multiple "slots", called processes, where applicatio
 * SERVERS - Control the execution of Swift-T itself; all Swift-T applications must have at least one of these
 * WORKERS - Run the actual work of each application in the workflow; these will make up the vast majority of processes
 
-For users unfamiliar with Swift/T, we recommend always setting the environment variable `ADBL_DEBUG_RANKS=1` and checking the beginning of the Swift/T log to be sure processes are being allocated as the user expects.
+Controlling various aspects of the job submission is achieved by setting environment variables to the desired values. For example, the user can fine control the total number of processes needed by setting `PROCS=<Number of MPI processes>`, and/or the number of workers via `TURBINE_WORKERS` and the number of servers via `ADLB_SERVERS`. Similarly, one can specify `QUEUE`, `WALLTIME` and `PROJECT` specifications. More coverage of these is provided in [the Swift/T sites guide](http://swift-lang.github.io/swift-t/sites.html#variables).
 
-Often when we use a cluster we set the `ppn` variable to the number of cores on each node, but with Swift/T this usually needs to be set to the number of processes opened on each node (unless a particular cluster configuration allocates resources differently).
+Other options allow control of logging options. Especially for users unfamiliar with Swift/T, we recommend always setting the environment variable `ADBL_DEBUG_RANKS=1` and checking the beginning of the Swift/T log to be sure processes are being allocated as the user expects.
+
+Often when we use a cluster we set the `ppn` variable to the number of cores on each node, but with Swift/T this usually needs to be set to the number of processes opened on each node (unless a particular cluster configuration allocates resources differently). =====> **Jacob, this is really to say that ppn is number of processes on each node, but it is not neccesarily the number of cores on each node, right?**  **Do we need to state this, or is it sufficient to refer the user to the guide link above, and show this in the examples/discussions of systems below?**
+
+For convenience, we recommend setting all such environment variables in a file, and then adding it to the Swift/T command. This is shown in the sections below for different schedulers (pbs, cray, slurm).
 
 #### Executing the Swift-T Application 
 
@@ -209,6 +211,7 @@ For example,
 Usually, one can use swift-t's built-in job launcher for PBS Torque schedulers (calling swift-t with `-m pbs`)
 
 ```
+$ cat settings.sh		# For convenience, we save all environment variables in a file named settings.sh for example
 export PPN=<PROGRAMS_PER_NODE>
 export NODES=<#samples/PROGRAMS_PER_NODE + (1 or more)>
 export PROCS=$(($PPN * $NODES))
@@ -222,8 +225,20 @@ export TURBINE_LOG=1
 export ADBL_DEBUG_RANKS=1
 export TURBINE_OUTPUT=/path/to/output_log_location
 
-swift-t -m pbs -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/compiled.tic -I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile
+$ swift-t -m pbs -O3 -s settings.sh -o /path/to/where/compiled/should/be/saved/compiled.tic -I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile
 ```
+This command will compile and run the pipeline all in one command, and the flags used in this call do the following:
+
+* `-O3` Conduct full optimizations of the Swift-T code during compilation (Even with full optimizations, compilation of the code takes only around 3 seconds)
+* `-m pbs` The job scheduler type, pbs torque in this case
+* `-s settings.sh` The file with environment variables' settings for the scheduler
+* `-o` The path to the compiled swift-t file (has a .tic extension); on the first run, this file will be created.
+* `-I` This includes some source files that are imported during compilation
+* `-r` This includes some tcl package files needed during compilation
+* `-n` The number of processes (ranks) Swift-T will open for this run of the workflow **(this overrides the PROCS specification above, so I'm not sure we should use both -- ask/advise)**
+* `-runfile` The path to the runfile with all of the configuration variables for the workflow
+
+
 ##### PBS Torque (alternative)
 
 If you need to import a module to use Swift/T (as is the case on iForge at UIUC), one cannot simply use the swift-t launcher as outlined above, since the module load command is not part of the qsub file that Swift-t generates and submits.
@@ -232,9 +247,7 @@ This command must be included (along with any exported environment variables and
 
 `swift-t -O3 -o </path/to/compiled_output_file.tic> -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps -n < Node# * PROGRAMS_PER_NODE + 1 or more > /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/example.runfile`
 
-This command will compile and run the pipeline all in one command
-
-It is important to note that (at least for PBS Torque schedulers) when submitting a qsub script, ppn option should be set, not to the number of cores on each compute node, but to the number of WORKERS Swift-T needs to open up on that node. 
+It is important to note that (at least for PBS Torque schedulers) when submitting a qsub script, the `ppn` option should be set, not to the number of cores on each compute node, but to the number of WORKERS Swift-T needs to open up on that node. 
 
 **Example**
 
@@ -250,7 +263,7 @@ Additionally, to get the right number of processes on each node to make the `PRO
 
 So, with that understanding, call swift-t in the following way:
 ```
-export CRAY_PPN=true
+$ cat settings.sh
 export PPN=<PROGRAMS_PER_NODE>
 export NODES=<#samples/PROGRAMS_PER_NODE + (1 or more)>
 export PROCS=$(($PPN * $NODES))
@@ -259,26 +272,50 @@ export PROJECT=<Project ID>
 export QUEUE=<Queue>
 export SWIFT_TMP=/path/to/directory/temp
 
+# CRAY specific settings:
+export CRAY_PPN=true
+
 # (Optional variables to set)
 export TURBINE_LOG=1    # This produces verbose logging info; great for debugging
 export ADBL_DEBUG_RANKS=1	# Displays layout of ranks and nodes
 export TURBINE_OUTPUT=/path/to/log/directory	# This specifies where the log info will be stored; defaults to one's home directory
 
-swift-t -m cray -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/compiled.tic \
+$ swift-t -m cray -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/compiled.tic \
 -I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps \
 /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile
 ```
 
 Swift-T will create and run the qsub command for you.
 
-**Explanation of flags used in calls to swift-t**
+##### SLURM based Systems (Like Biocluster2 at UIUC, and Stampede1/Stampede2 on XSEDE)
 
-* `-O3` Conduct full optimizations of the Swift-T code during compilation (Even with full optimizations, compilation of the code takes only around 3 seconds)
-* `-o` The path to the compiled swift-t file (has a .tic extension); on the first run, this file will be created.
-* `-I` This includes some source files that are imported during compilation
-* `-r` This includes some tcl package files needed during compilation
-* `-n` The number of processes (ranks) Swift-T will open for this run of the workflow
-* `-runfile` The path to the runfile with all of the configuration variables for the workflow
+As in the case with the pbs-based clusters, it is sufficient to only specify the scheduler using `-m slurm`, and then proceed as above. Additionaly, the same `settings.sh` file can be used, except that the user can also instruct the scheduler to send email notifications as well. The example below clarifies these:
+
+```
+$ cat settings.sh
+export PPN=<PROGRAMS_PER_NODE>
+export NODES=<#samples/PROGRAMS_PER_NODE + (1 or more)>
+export PROCS=$(($PPN * $NODES))
+export WALLTIME=<HH:MM:SS>
+export PROJECT=<Project ID>
+export QUEUE=<Queue>
+export SWIFT_TMP=/path/to/directory/temp
+
+# SLURM specific settings
+export  MAIL_ENABLED=1 
+export  MAIL_ADDRESS=<the desired email address for sending notifications- on job start, fail and finish >
+export TURBINE_SBATCH_ARGS=<Other optional arguments passed to sbatch, like --exclusive and --constraint=.. etc>
+
+# (Optional variables to set)
+export TURBINE_LOG=1    # This produces verbose logging info; great for debugging
+export ADBL_DEBUG_RANKS=1	# Displays layout of ranks and nodes
+export TURBINE_OUTPUT=/path/to/log/directory	# This specifies where the log info will be stored; defaults to one's home directory
+
+$ swift-t -m slurm -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/compiled.tic \
+-I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps \
+/path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile
+
+```
 
 #### Logging Options
 
@@ -307,14 +344,21 @@ If splitting by chromosome for the realignment/recalibration/variant-calling sta
 
 ### Resource Requirements
 
-|  **Analysis Stage**                              |  **Resource Requirements**
-| ------------------------------------------------ | -------------------------
-|  Alignment and Deduplication                     | Nodes = Samples / (Processes per Node\*)
-|  Split by Chromosome/Contig                      | Processes = Samples * Chromosomes<br>Nodes = Processes/ (Cores per Node)
-|  Realignment, Recalibration, and Variant Calling | Nodes = [Samples / (Processes per Node\*)] * Chromosomes
-|  Combine Sample Variants                         | Nodes = Samples / (Processes per Node\*)
+The table below describes the number of does each stage needs to achieve the maximum level of parallelism. One can request fewer resources if necessary, but at the cost of having some portions running in series.
 
-\*Running 10 processes using 20 threads in series may actually be slower than running the 10 processes in pairs utilizing 10 threads each
+|  **Analysis Stage**                                               |  **Resource Requirements**
+| -----------------------------------------------------------------  | -------------------------
+| Alignment							      | Nodes = Samples / (PROGRAMS_PER_NODE\*)
+| Deduplication and sorting					       | Nodes = Samples / (PROGRAMS_PER_NODE\*)
+| Split by Chromosome/Contig					        | Nodes = (Samples * Chromosomes)/ PROGRAMS_PER_NODE\*
+| Realignment, Recalibration, and Variant Calling (w/o splitting by chr)| Nodes = Samples / (PROGRAMS_PER_NODE\*)
+| Realignment, Recalibration, and Variant Calling (w/ splitting by chr) | Nodes = (Samples * Chromosomes)/ PROGRAMS_PER_NODE\*
+| Combine Sample Variants                         		       | Nodes = Samples / (PROGRAMS_PER_NODE\*)
+| Joint Genotyping						      | Nodes = 1\*\*
+
+\* PROGRAMS_PER_NODE is a variable set in the runfile. Running 10 processes using 20 threads in series may actually be slower than running the 10 processes in pairs utilizing 10 threads each
+
+\*\* The call to GATK's GenotypeGVCFs must be done on a single node. It is best to separate out this stage into its own job submission, so as to not waste unused resources.
 
 ### Pipeline Interruptions and Continuations
 
@@ -332,27 +376,36 @@ If splitting by chromosome, it may make sense to request different resources at 
 
 One may want to execute only the first two stages of the workflow with # Nodes = # Samples. For this step, one would use these settings:
 
- * ALIGN_DEDUP_STAGE=Y
- * CHR_SPLIT_STAGE=End         # This will be the last stage that is executed
- * VC_STAGE=N
- * COMBINE_VARIANT_STAGE=N
- * JOINT_GENOTYPING_STAGE=N
+```
+ALIGN_STAGE=Y
+DEDUP_SORT_STAGE=Y
+CHR_SPLIT_STAGE=End         # This will be the last stage that is executed
+VC_STAGE=N
+COMBINE_VARIANT_STAGE=N
+JOINT_GENOTYPING_STAGE=N
+```
 
 Then for the variant calling step, where the optimal resource requirements may be something like # Nodes = (# Samples \* # Chromosomes), one could alter the job submission script to request more resources, then use these settings:
 
- * ALIGN_DEDUP_STAGE=N
- * CHR_SPLIT_STAGE=N
- * VC_STAGE=End                # Only this stage will be executed
- * COMBINE_VARIANT_STAGE=N
- * JOINT_GENOTYPING_STAGE=N
+```
+ALIGN_STAGE=N
+DEDUP_SORT_STAGE=N
+CHR_SPLIT_STAGE=N
+VC_STAGE=End                # Only this stage will be executed
+COMBINE_VARIANT_STAGE=N
+JOINT_GENOTYPING_STAGE=N
+```
 
 Finally, for the last two stages, where it makes sense to set # Nodes = # Samples again, one could alter the submission script again and use these settings:
 
- * ALIGN_DEDUP_STAGE=N
- * CHR_SPLIT_STAGE=N
- * VC_STAGE=N
- * COMBINE_VARIANT_STAGE=Y
- * JOINT_GENOTYPING_STAGE=Y
+```
+ALIGN_STAGE=N
+DEDUP_SORT_STAGE=N
+CHR_SPLIT_STAGE=N
+VC_STAGE=N
+COMBINE_VARIANT_STAGE=Y
+JOINT_GENOTYPING_STAGE=Y
+```
 
 This feature was designed to allow a more efficient use of computational resources.
 

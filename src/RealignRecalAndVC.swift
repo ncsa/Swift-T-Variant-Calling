@@ -282,7 +282,7 @@ VariantCalling (for split chromosome path)
 	foreach sample, index in inputBams {
 		
 		string baseName = basename_string(filename(sample)); 
-		string sampleName = substring(baseName, 0, strlen(baseName) - 23);  // Verified
+		string sampleName = substring(baseName, 0, strlen(baseName) - 19);  // Verified on Aug 14th, 2017 
 
 		if (vars["VC_STAGE"] == "Y" ||
 		    vars["VC_STAGE"] == "y" ||
