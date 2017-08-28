@@ -1,4 +1,4 @@
-#export PROCS=10 #total number of MPI processes
+export PROCS=10 #total number of MPI processes
 export PPN=2 #Number of processes per node 
 export NODES=6
 export QUEUE=normal
@@ -11,8 +11,7 @@ export MAIL_ADDRESS=azzaea@gmail.com
 #export  ADLB_REPORT_LEAKS=1
 #export  ADLB_TRACE=true
 #export ADLB_DEBUG=true 
-export TURBINE_LOG=1
-export ADLB_DEBUG_RANKS=1
-export SWIFT_TMP=/home/groups/hpcbio_shared/azza/swift_T_project/tmp_swift
+export  ADLB_DEBUG_RANKS=1
+export SWIFT_TMP=/scratch/04525/tg838247/swift_T_project/tmp_swift
 
 
