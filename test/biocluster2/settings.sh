@@ -1,7 +1,7 @@
-export PROCS=10 #total number of MPI processes
+#export PROCS=10 #total number of MPI processes
 export PPN=2 #Number of processes per node 
 export NODES=6
-export QUEUE=default
+export QUEUE=normal
 export WALLTIME=24:00:00
 export TURBINE_LOG=1
 export MAIL_ENABLED=1
