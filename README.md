@@ -346,14 +346,15 @@ If splitting by chromosome for the realignment/recalibration/variant-calling sta
 
 The table below describes the number of does each stage needs to achieve the maximum level of parallelism. One can request fewer resources if necessary, but at the cost of having some portions running in series.
 
-|  **Analysis Stage**                                                     |  **Resource Requirements**
-| ----------------------------------------------------------------------- | -------------------------
-|  Alignment and Deduplication             			          | Nodes = Samples / (PROGRAMS_PER_NODE\*)
-|  Split by Chromosome/Contig                                             | Nodes = (Samples * Chromosomes)/ PROGRAMS_PER_NODE\*
-|  Realignment, Recalibration, and Variant Calling (w/o splitting by chr) | Nodes = Samples / (PROGRAMS_PER_NODE\*)
-|  Realignment, Recalibration, and Variant Calling (w/ splitting by chr)  | Nodes = (Samples * Chromosomes)/ PROGRAMS_PER_NODE\*
-|  Combine Sample Variants                         			  | Nodes = Samples / (PROGRAMS_PER_NODE\*)
-|  Joint Genotyping							  | Nodes = 1\*\*
+|  **Analysis Stage**                                               |  **Resource Requirements**
+| -----------------------------------------------------------------  | -------------------------
+| Alignment							      | Nodes = Samples / (PROGRAMS_PER_NODE\*)
+| Deduplication and sorting					       | Nodes = Samples / (PROGRAMS_PER_NODE\*)
+| Split by Chromosome/Contig					        | Nodes = (Samples * Chromosomes)/ PROGRAMS_PER_NODE\*
+| Realignment, Recalibration, and Variant Calling (w/o splitting by chr)| Nodes = Samples / (PROGRAMS_PER_NODE\*)
+| Realignment, Recalibration, and Variant Calling (w/ splitting by chr) | Nodes = (Samples * Chromosomes)/ PROGRAMS_PER_NODE\*
+| Combine Sample Variants                         		       | Nodes = Samples / (PROGRAMS_PER_NODE\*)
+| Joint Genotyping						      | Nodes = 1\*\*
 
 \* PROGRAMS_PER_NODE is a variable set in the runfile. Running 10 processes using 20 threads in series may actually be slower than running the 10 processes in pairs utilizing 10 threads each
 
@@ -376,7 +377,8 @@ If splitting by chromosome, it may make sense to request different resources at 
 One may want to execute only the first two stages of the workflow with # Nodes = # Samples. For this step, one would use these settings:
 
 ```
-ALIGN_DEDUP_STAGE=Y
+ALIGN_STAGE=Y
+DEDUP_SORT_STAGE=Y
 CHR_SPLIT_STAGE=End         # This will be the last stage that is executed
 VC_STAGE=N
 COMBINE_VARIANT_STAGE=N
@@ -386,7 +388,8 @@ JOINT_GENOTYPING_STAGE=N
 Then for the variant calling step, where the optimal resource requirements may be something like # Nodes = (# Samples \* # Chromosomes), one could alter the job submission script to request more resources, then use these settings:
 
 ```
-ALIGN_DEDUP_STAGE=N
+ALIGN_STAGE=N
+DEDUP_SORT_STAGE=N
 CHR_SPLIT_STAGE=N
 VC_STAGE=End                # Only this stage will be executed
 COMBINE_VARIANT_STAGE=N
@@ -396,7 +399,8 @@ JOINT_GENOTYPING_STAGE=N
 Finally, for the last two stages, where it makes sense to set # Nodes = # Samples again, one could alter the submission script again and use these settings:
 
 ```
-ALIGN_DEDUP_STAGE=N
+ALIGN_STAGE=N
+DEDUP_SORT_STAGE=N
 CHR_SPLIT_STAGE=N
 VC_STAGE=N
 COMBINE_VARIANT_STAGE=Y

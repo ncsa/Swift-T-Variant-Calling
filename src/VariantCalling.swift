@@ -17,26 +17,15 @@ To counter this, we wrote the module pieces such that they return the necessary 
   values.
 
 Runfile variables (Determine which stages will be run):
-  ALIGN_DEDUP_STAGE
+  ALIGN_STAGE
+  DEDUP_SORT_STAGE
   CHR_SPLIT_STAGE
   VC_STAGE
   COMBINE_VARIANT_STAGE
   JOINT_GENOTYPING_STAGE
 
 Within each STAGE, it checks whether it is executed. If so, it runs and returns the output needed for the next STAGE.
-  Otherwise, it just finds the output that is already produced, and feeds that to the next STAGE.
-
-string alignBams[] alignRun()
-if SPLIT {
-	chrOut chrSplitRun(outBams)
-	vcOut vcSplitRun(chrOut)
-	combineOut combineRun(vcOut)
-	jointOut jointRun(combineOut)
-else {
-	vcOut vcNoSplitRun(chrOut)
-	jointOut jointRun(vcOut)
-}
-
+  Otherwise, it just finds the output that is already produced, and feeds that to the next STAGE.\
 */
 
 import string;
@@ -46,7 +35,8 @@ import files;
 import assert;
 
 import generalfunctions.general;
-import AlignAndDedup;
+import Align;
+import DedupSort;
 import SplitByChr;
 import RealignRecalAndVC;
 import CombineVariants;
@@ -110,82 +100,90 @@ file docSampleInfo < strcat(variables["OUTPUTDIR"], "/deliverables/docs/",
 **********************************************************************************************************************/
 
 // Align, sort, and dedup
-file alignDedupBams[] = alignDedupRun(sampleLines, variables, failureLog)  =>
+file alignBams[] = alignRun(sampleLines, variables, failureLog)  =>
 logging(variables["TMPDIR"], timingLog);
 
-assert(size(alignDedupBams) != 0,
-       "FAILURE: The align, sort, and dedup output array was empty: none of the samples finished properly"
+assert(size(alignBams) != 0,
+       "FAILURE: The aligned bam array was empty: none of the samples finished properly"
       );
 
-// Continue if the analysis is not align only
-if (variables["ALIGN_DEDUP_STAGE"] != "E" &&
-    variables["ALIGN_DEDUP_STAGE"] != "End" &&
-    variables["ALIGN_DEDUP_STAGE"] != "end" 
+if (variables["ALIGN_STAGE"] != "E" &&
+    variables["ALIGN_STAGE"] != "End" &&
+    variables["ALIGN_STAGE"] != "end" 
    ) {
-	if (variables["SPLIT"] == "Yes" ||
-	    variables["SPLIT"] == "YES" ||
-	    variables["SPLIT"] == "yes" ||
-	    variables["SPLIT"] == "Y" ||
-	    variables["SPLIT"] == "y"
-	   ) {	
-		// Split aligned files by chromosome
-		file splitBams[][] =  splitByChrRun(alignDedupBams, variables, failureLog);
+	file dedupSortedBams[] = dedupSortRun(alignBams, variables, failureLog);
+	assert(size(dedupSortedBams) != 0, strcat("FAILURE: The dedupped and sorted bam array was empty: ",
+						  "none of the samples finished properly")
+	);
+	
+	if (variables["DEDUP_SORT_STAGE"] != "E" &&
+	    variables["DEDUP_SORT_STAGE"] != "End" &&
+	    variables["DEDUP_SORT_STAGE"] != "end"
+	) {
 
-		if (variables["CHR_SPLIT_STAGE"] != "E" &&
-		    variables["CHR_SPLIT_STAGE"] != "End" &&
-		    variables["CHR_SPLIT_STAGE"] != "end"
-		   ) {
+		if (variables["SPLIT"] == "Yes" ||
+		    variables["SPLIT"] == "YES" ||
+		    variables["SPLIT"] == "yes" ||
+		    variables["SPLIT"] == "Y" ||
+		    variables["SPLIT"] == "y"
+		   ) {	
+			// Split aligned files by chromosome
+			file splitBams[][] =  splitByChrRun(dedupSortedBams, variables, failureLog);
 
-			assert(size(splitBams) != 0, strcat("FAILURE: The split bam out array was empty: ",
-							    "none of the samples were split properly"
-							   )
-			      );
-			// Calls variants for the aligned files that are split by chromosome
-			file splitVCFs[][] = VCSplitRun(variables, splitBams, failureLog) =>
-			logging(variables["TMPDIR"], timingLog); 
+			if (variables["CHR_SPLIT_STAGE"] != "E" &&
+			    variables["CHR_SPLIT_STAGE"] != "End" &&
+			    variables["CHR_SPLIT_STAGE"] != "end"
+			   ) {
+
+				assert(size(splitBams) != 0, strcat("FAILURE: The split bam out array was empty: ",
+								    "none of the samples were split properly"
+								   )
+				      );
+				// Calls variants for the aligned files that are split by chromosome
+				file splitVCFs[][] = VCSplitRun(variables, splitBams, failureLog) =>
+				logging(variables["TMPDIR"], timingLog); 
+
+				if (variables["VC_STAGE"] != "E" &&
+				    variables["VC_STAGE"] != "End" &&
+				    variables["VC_STAGE"] != "end"
+				   ) {
+
+					assert(size(splitVCFs) != 0, strcat("FAILURE: The split variants array was empty: ",
+								       "none of the split bam files had their varianted called"
+								      )
+					      );
+
+					// Combine the variants for each sample
+					file VCF_list[] = combineVariantsRun(splitVCFs, variables, failureLog) =>
+					logging(variables["TMPDIR"], timingLog); 
+
+					if (variables["COMBINE_VARIANT_STAGE"] != "E" &&
+					    variables["COMBINE_VARIANT_STAGE"] != "End" &&
+					    variables["COMBINE_VARIANT_STAGE"] != "end"
+					   ) {
+
+						assert(size(VCF_list) != 0, "FAILURE: The VCFs array was empty");
+
+						// Conduct joint genotyping between all samples
+						jointGenotypingRun(VCF_list, variables, timingLog); 
+					}
+				}
+			}
+		} else {
+			// Call variants for the aligned files
+			file VCF_list[] = VCNoSplitRun(variables, dedupSortedBams, failureLog) =>
+			logging(variables["TMPDIR"], timingLog);
 
 			if (variables["VC_STAGE"] != "E" &&
 			    variables["VC_STAGE"] != "End" &&
 			    variables["VC_STAGE"] != "end"
 			   ) {
 
-				assert(size(splitVCFs) != 0, strcat("FAILURE: The split variants array was empty: ",
-							       "none of the split bam files had their varianted called"
-							      )
-				      );
+				assert(size(VCF_list) != 0, "FAILURE: The VCFs array was empty");
 
-				// Combine the variants for each sample
-				file VCF_list[] = combineVariantsRun(splitVCFs, variables, failureLog) =>
-				logging(variables["TMPDIR"], timingLog); 
-
-				if (variables["COMBINE_VARIANT_STAGE"] != "E" &&
-				    variables["COMBINE_VARIANT_STAGE"] != "End" &&
-				    variables["COMBINE_VARIANT_STAGE"] != "end"
-				   ) {
-
-					assert(size(VCF_list) != 0, "FAILURE: The VCFs array was empty");
-
-					// Conduct joint genotyping between all samples
-					jointGenotypingRun(VCF_list, variables, timingLog); 
-
-				}
+				// Conduct joint genotyping between all samples
+				jointGenotypingRun(VCF_list, variables, timingLog); 
 			}
-		}
-	}
-	else {
-		// Call variants for the aligned files
-		file VCF_list[] = VCNoSplitRun(variables, alignDedupBams, failureLog) =>
-		logging(variables["TMPDIR"], timingLog);
-
-		if (variables["VC_STAGE"] != "E" &&
-		    variables["VC_STAGE"] != "End" &&
-		    variables["VC_STAGE"] != "end"
-		   ) {
-
-			assert(size(VCF_list) != 0, "FAILURE: The VCFs array was empty");
-
-			// Conduct joint genotyping between all samples
-			jointGenotypingRun(VCF_list, variables, timingLog); 
 		}
 	}
 }
