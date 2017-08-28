@@ -1,7 +1,7 @@
 ## i/o
 SAMPLEINFORMATION=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/config/H3A_NextGen_assessment.Chr1_50X.set3.sampleinfo
-OUTPUTDIR=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/results/Align.H3A_NextGen_assessment_set3.June_2016/run0221
-TMPDIR=/home/groups/hpcbio_shared/azza/H3A_NextGen_assesmeht_set3/results/tmp_analysis
+OUTPUTDIR=/home/a-m/azzaea/azza/swift_T_project/results/H3A_NextGen_assessment.Chr1_50X.set3
+TMPDIR=/home/a-m/azzaea/azza/swift_T_project/tmp_analysis
 
 # choose the type of analysis and execution parameters
 REALIGN=YES

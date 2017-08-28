@@ -1,5 +1,7 @@
 #!/bin/bash
 
+module load swift-t
+
 set -x
 
 scriptdir="/home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling"
