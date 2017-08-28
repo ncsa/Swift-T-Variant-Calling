@@ -3,6 +3,9 @@ import string;
 
 string chr = "2222";
 
+app f() { "false" ; }
+f();
+
 
 file bam = input("/home/azza/swift-project/Results/run2/HG00108.lowcoverage.chr20.smallregion/align/HG00108.lowcoverage.chr20.smallregion.wDedups.sorted.bam");
 
