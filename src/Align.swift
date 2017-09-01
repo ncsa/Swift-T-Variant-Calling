@@ -152,20 +152,20 @@ import generalfunctions.general;
 		    vars["ALIGN_STAGE"] == "e"
 		   ) {
 
-			mkdir(LogDir);
-			mkdir(AlignDir);
-			mkdir(RealignDir);
-			mkdir(VarcallDir);
-			mkdir(tmpLogDir);
+			mkdir(LogDir) =>
+			mkdir(AlignDir) =>
+			mkdir(RealignDir) => /* Explicit waiting added to try to fix mkdir collision: Issue #22 */
+			mkdir(VarcallDir) =>
+			mkdir(tmpLogDir) =>
 
 			/*****
 			Create output file handles
 			*****/
-			file alignedbam < strcat(AlignDir, sampleName, ".noDedups.bam") >;
+			file alignedbam < strcat(AlignDir, sampleName, ".noDedups.bam") > =>
 	
 			// These are temporary files: If piping is implemented, they would not be needed.
-			file alignedsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".noDedups.sam") >;
-			file tmpsamtoolsLog < strcat(tmpLogDir, sampleName, "_samtools.log")>;
+			file alignedsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".noDedups.sam") > =>
+			file tmpsamtoolsLog < strcat(tmpLogDir, sampleName, "_samtools.log")> =>
 	
 			/*****
 			Alignment
