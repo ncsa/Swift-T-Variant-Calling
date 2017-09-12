@@ -173,6 +173,8 @@ Within the directory, the vcf files should be named with only the chromosome nam
 
 For example, if the chromosome is `chr12` or `12`, name the vcf files `chr12.vcf` or `12.vcf`, respectively.
 
+If not splitting by chromosome, the workflow will look for all of the vcf files in the directory.
+
 **`OMNI`** \< Insert explanation here \> Not currently used in workflow
 
 **`JAVAEXE`; `BWAEXE`; `SAMBLASTEREXE`; `SAMTOOLSEXE`; `NOVOALIGNEXE`; `NOVOSORTEXE`**
