@@ -83,8 +83,6 @@ app (file outputfile, file outLog) HaplotypeCaller(string javaexe, string gatkja
 	"-A" "QualByDepth"
 	"-A" "RMSMappingQuality"
 	"-A" "ReadPosRankSumTest"
-	"-stand_call_conf" 30
-	"-stand_emit_conf" 30
 	"--sample_ploidy" ploidy
 	"-nt" 1
 	"-nct" thr
@@ -112,9 +110,7 @@ app (file outputfile, file outLog) HaplotypeCaller(string javaexe, string gatkja
 	"-A" "MappingQualityRankSumTest"			   
 	"-A" "QualByDepth" 
 	"-A" "RMSMappingQuality"				   
-	"-A" "ReadPosRankSumTest"				  
-	"-stand_call_conf" 30				      
-	"-stand_emit_conf" 30				      
+	"-A" "ReadPosRankSumTest"				  			      
 	"-nt" 1	    
 	"-nct" thr				    
 	@stderr=outLog;    

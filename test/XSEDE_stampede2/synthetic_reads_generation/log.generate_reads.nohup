@@ -1,0 +1,51 @@
+nohup: ignoring input
++ NEAT2_path=/home1/04525/tg838247/software/neat-genreads
++ samtools_path=/home1/04525/tg838247/software/samtools/samtools-1.5
++ reference=/work/04525/tg838247/stampede2/swift_T_project/data/genome/gatk-bundle/b37/human_g1k_v37.fasta
++ targeted_region=/work/04525/tg838247/stampede2/swift_T_project/data/truseq-exome-targeted-regions-manifest-v1-2.bed
++ OutputDir=/work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads
++ rm -rf /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads
++ DatasetName=synthetic_WES_Sep_2017
++ NumberOfChunks=1
++ NumberOfSamples=3
++ echo 'sample_number read_depth'
+./generate_reads.sh: line 25: /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/simulation_parameters.txt: No such file or directory
++ echo 'NEAT parameters are:'
+./generate_reads.sh: line 27: /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/neat_parameters.txt: No such file or directory
+++ seq 1 3
++ for i in '$(seq 1 ${NumberOfSamples})'
+++ awk -v i=1 'BEGIN{print (i*20+10) }'
++ read_depth=30
++ echo 1 30
+./generate_reads.sh: line 33: /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/simulation_parameters.txt: No such file or directory
++ NeatParams='-R 101 -c 30 -p 2 -t /work/04525/tg838247/stampede2/swift_T_project/data/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf '
++ echo -R 101 -c 30 -p 2 -t /work/04525/tg838247/stampede2/swift_T_project/data/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf
+./generate_reads.sh: line 35: /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/neat_parameters.txt: No such file or directory
++ OutputFolder=/work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1
++ OutputLogsFolder=/work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Logs
++ '[' '!' -d /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Logs ']'
++ mkdir -p /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Logs
++ OutputChunksFolder=/work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Chunks
++ '[' '!' -d /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Chunks ']'
++ mkdir -p /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Chunks
++ OutputMergedFolder=/work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Merged
++ '[' '!' -d /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Merged ']'
++ mkdir -p /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Merged
++ echo '#!/bin/bash'
++ echo '#SBATCH -p normal'
++ echo '#SBATCH -c 5'
++ echo '#SBATCH -n 30'
++ echo '#SBATCH --time=24:00:00'
++ echo '#SBATCH --mail-user=azzaea@gmail.com'
++ echo '#SBATCH --mail-type=ALL'
++ AllChunksJobIds=
++ (( jobnumber=1 ))
++ (( jobnumber<=1 ))
++ cat /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_1_of_1'
++ echo '#SBATCH -e /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_1.er'
++ echo '#SBATCH -o /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_1.ou'
++ echo ' '
++ echo 'module load python'
++ echo 'python -u /home1/04525/tg838247/software/neat-genreads/genReads.py -r /work/04525/tg838247/stampede2/swift_T_project/data/genome/gatk-bundle/b37/human_g1k_v37.fasta -o /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Chunks/synthetic_WES_Sep_2017 -R 101 -c 30 -p 2 -t /work/04525/tg838247/stampede2/swift_T_project/data/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 1 1 >  /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_1.log '
+++ sbatch /work/04525/tg838247/stampede2/swift_T_project/data/reads/synthetic_reads/1/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_1.sbatch

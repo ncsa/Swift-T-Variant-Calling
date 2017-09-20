@@ -1,25 +1,26 @@
 # i/o
-SAMPLEINFORMATION=/home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/test/XSEDE_stampede2/GIAB_Garvan_NA12878_HG001_HiSeq_Exome.sampleinfo
+SAMPLEINFORMATION=/home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/test/XSEDE_stampede2/GIAB_example_config/GIAB_Garvan_NA12878_HG001_HiSeq_Exome.sampleinfo
 OUTPUTDIR=/scratch/04525/tg838247/swift_T_project/results
 TMPDIR=/scratch/04525/tg838247/swift_T_project/tmp_analysis
 
 # choose the type of analysis and execution parameters
-ANALYSIS=ALIGN
+REALIGN=YES
 SPLIT=YES
-PROCPERNODE=2
+EXIT_ON_ERROR=YES
+
+PROGRAMS_PER_NODE=2
+CORES_PER_NODE=3
+
+# choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
+ALIGN_STAGE=Y
+DEDUP_SORT_STAGE=N
+CHR_SPLIT_STAGE=N
+VC_STAGE=N
+COMBINE_VARIANT_STAGE=N
+JOINT_GENOTYPING_STAGE=N
 
 #Paired_reads?
 PAIRED=1
-
-#exit on error, select YES or NO
-EXIT_ON_ERROR=YES
-
-# choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
-ALIGN_DEDUP_STAGE=Y
-CHR_SPLIT_STAGE=Y
-VC_STAGE=Y
-COMBINE_VARIANT_STAGE=Y
-JOINT_GENOTYPING_STAGE=Y
 
 # Read group information for the samples: namely, the Library, Platform technology, and sequencing center name. It should be noted that the sample ID, platform unit (PU) and sample name (SM) are set by default to be the same sample name found in the sampleinformation file specified
 SAMPLELB=NA12878
@@ -64,5 +65,3 @@ NOVOALIGNEXE=/home1/04525/tg838247/software/novocraft/novocraft-3.08.00/novoalig
 NOVOSORTEXE=/home1/04525/tg838247/software/novocraft/novocraft-3.08.00/novosort
 GATKJAR=/home1/04525/tg838247/software/gatk/GenomeAnalysisTK-3.7/GenomeAnalysisTK.jar
 
-# resources
-CORES=10

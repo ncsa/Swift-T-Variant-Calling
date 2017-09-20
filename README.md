@@ -103,11 +103,11 @@ Under the hood, this variable simply controls how many threads each tool gets. I
 
 **`EXIT_ON_ERROR`**
 
-If this is set to `YES`, the workflow will quit after a fatal error occurs in any of the samples.
+If this is set to `YES`, the workflow will quit after a sample fails quality control.
 
 If set to `NO`, the workflow will let samples fail, and continue processing all of those that did not. The workflow will only stop if none of the samples remain after the failed ones are filtered out.
 
-This option is provided because for large sample sets one may expect a few of the input samples to be malformed in some way, and it may be acceptable to keep going if a few fail. However, exercise caution and monitor the `Failures.log` generated in the `DELIVERYFOLDER/docs` folder to gauge how many of the samples are failing.
+This option is provided because for large sample sets one may expect a few of the input samples to fail quality control, and it may be acceptable to keep going if a few fail. However, exercise caution and monitor the `Failures.log` generated in the `DELIVERYFOLDER/docs` folder to gauge how many of the samples are failing.
 
 **`ALIGN_DEDUP_STAGE`; `CHR_SPLIT_STAGE`; `VC_STAGE`; `COMBINE_VARIANT_STAGE`; `JOINT_GENOTYPING_STAGE`**
 
@@ -172,6 +172,8 @@ Directory that contains the standard indel variant files used in the realignment
 Within the directory, the vcf files should be named with only the chromosome name in front and nothing else.
 
 For example, if the chromosome is `chr12` or `12`, name the vcf files `chr12.vcf` or `12.vcf`, respectively.
+
+If not splitting by chromosome, the workflow will look for all of the vcf files in the directory.
 
 **`OMNI`** \< Insert explanation here \> Not currently used in workflow
 
