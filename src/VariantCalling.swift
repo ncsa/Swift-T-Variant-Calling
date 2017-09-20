@@ -74,6 +74,7 @@ string sampleLines[] = file_lines(sampleInfoFile);
 
 mkdir(variables["OUTPUTDIR"]) =>
 mkdir(variables["TMPDIR"]) =>
+mkdir(strcat(variables["TMPDIR"], "/timinglogs")) =>			/* Potential bug fix */
 mkdir(strcat(variables["OUTPUTDIR"], "/deliverables/docs")) =>
 /**********************
 Create the Failures.log

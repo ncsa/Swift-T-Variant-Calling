@@ -152,11 +152,11 @@ import generalfunctions.general;
 		    vars["ALIGN_STAGE"] == "e"
 		   ) {
 
-			mkdir(LogDir);
-			mkdir(AlignDir);
-			mkdir(RealignDir);
-			mkdir(VarcallDir);
-			mkdir(tmpLogDir);
+			mkdir(LogDir) =>
+			mkdir(AlignDir) =>
+			mkdir(RealignDir) => /* Explicit waiting added to try to fix mkdir collision: Issue #22 */
+			mkdir(VarcallDir) =>
+			void mkdirSignal = mkdir(tmpLogDir);
 
 			/*****
 			Create output file handles
@@ -185,13 +185,16 @@ import generalfunctions.general;
 				string read1 = sampleInfo[1];
 				string read2 = sampleInfo[2];
 				string reads[] = [read1, read2];
-				alignedsam = alignReads(vars, sampleName, reads, rgheader);
+				wait (mkdirSignal) {
+					alignedsam = alignReads(vars, sampleName, reads, rgheader);
+				}
 			}
 			else {
 				string read1 = sampleInfo[1];
 				string reads[] = [read1];
-				alignedsam = alignReads(vars, sampleName, reads, rgheader);
-
+				wait (mkdirSignal) {
+					alignedsam = alignReads(vars, sampleName, reads, rgheader);
+				}
 			}
 
 			int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
