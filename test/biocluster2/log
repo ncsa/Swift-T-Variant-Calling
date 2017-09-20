@@ -1,17 +1,17 @@
 Swift/T
 Compiling: /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/VariantCalling.swift
-       to: /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.UBt.tic
-	/home/apps/software/swift-t/1.3-IGB-gcc-4.9.4/stc/bin/stc -I /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src -r /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/bioapps /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/VariantCalling.swift /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.UBt.tic
-Running:   /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.UBt.tic
-	/home/apps/software/swift-t/1.3-IGB-gcc-4.9.4/turbine/bin/turbine -m slurm -l -s settings.sh /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.UBt.tic -runfile=/home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/test/biocluster2/H3A_NextGen_assessment.Chr1_50X.set3.runfile
+       to: /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.c4Z.tic
+	/home/apps/software/swift-t/1.3-IGB-gcc-4.9.4/stc/bin/stc -I /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src -r /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/bioapps /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/VariantCalling.swift /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.c4Z.tic
+Running:   /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.c4Z.tic
+	/home/apps/software/swift-t/1.3-IGB-gcc-4.9.4/turbine/bin/turbine -m slurm -l -s settings.sh /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.c4Z.tic -runfile=/home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/test/biocluster2/H3A_NextGen_assessment.Chr1_50X.set3.runfile
 TURBINE-SLURM SCRIPT
 NODES=2
 PROCS=2
 PPN=1
 sourcing: settings.sh
 done: settings.sh
-TURBINE_OUTPUT=/home/a-m/azzaea/turbine-output/2017/08/28/06/35/12
+TURBINE_OUTPUT=/home/a-m/azzaea/turbine-output/2017/08/30/03/06/50
 TURBINE_HOME=/home/apps/software/swift-t/1.3-IGB-gcc-4.9.4/turbine
-wrote: /home/a-m/azzaea/turbine-output/2017/08/28/06/35/12/turbine-slurm.sh
-JOB_ID=30421
-Removing: /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.UBt.tic
+wrote: /home/a-m/azzaea/turbine-output/2017/08/30/03/06/50/turbine-slurm.sh
+JOB_ID=30693
+Removing: /home/a-m/azzaea/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.c4Z.tic

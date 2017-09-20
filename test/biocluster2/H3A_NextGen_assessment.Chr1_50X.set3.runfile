@@ -9,7 +9,7 @@ SPLIT=YES
 EXIT_ON_ERROR=YES
 
 PROGRAMS_PER_NODE=2
-CORES_PER_NODE=3
+CORES_PER_NODE=10
 
 # choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
 ALIGN_STAGE=Y
