@@ -1,0 +1,16 @@
+Swift/T
+Compiling: /home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/src/VariantCalling.swift
+       to: /home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.3Fr.tic
+	/home1/04525/tg838247/software/swift-t/swift-t-1.3_no_mpe/stc/bin/stc -I /home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/src -r /home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/src/bioapps /home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/src/VariantCalling.swift /home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.3Fr.tic
+Running:   /home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.3Fr.tic
+	/home1/04525/tg838247/software/swift-t/swift-t-1.3_no_mpe/turbine/bin/turbine -m slurm -l -s settings.sh /home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.3Fr.tic -runfile=/home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/test/XSEDE_stampede2/GIAB_example_config/GIAB_Garvan_NA12878_HG001_HiSeq_Exome.runfile
+TURBINE-SLURM SCRIPT
+NODES=2
+PROCS=2
+PPN=1
+sourcing: settings.sh
+done: settings.sh
+TURBINE_OUTPUT=/home1/04525/tg838247/turbine-output/2017/08/28/07/07/01
+TURBINE_HOME=/home1/04525/tg838247/software/swift-t/swift-t-1.3_no_mpe/turbine
+wrote: /home1/04525/tg838247/turbine-output/2017/08/28/07/07/01/turbine-slurm.sh
+Removing: /home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.3Fr.tic

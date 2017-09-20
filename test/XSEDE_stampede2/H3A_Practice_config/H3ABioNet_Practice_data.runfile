@@ -36,7 +36,7 @@ CHRNAMES=1:2:3
 # Alignment block parameters and Trimming options.
 BWAINDEX=/work/04525/tg838247/stampede2/swift_T_project/data/genome/gatk-bundle/b37/human_g1k_v37.fasta
 
-BWAMEMPARAMS=-k 32 
+BWAMEMPARAMS=-k 32
 
 NOVOALIGNINDEX=/work/04525/tg838247/stampede2/swift_T_project/data/genome/gatk-bundle/b37/human_g1k_v37.nix
 NOVOALIGNPARAMS=
@@ -45,7 +45,7 @@ NOVOALIGNPARAMS=
 NOVOSORT_MEMLIMIT=100000000000
 
 # Quality thresholds
-MAP_CUTOFF=89.99 # This should cause no samples to pass
+MAP_CUTOFF=101 # This should cause no samples to pass
 DUP_CUTOFF=5
 
 # Resource paths
