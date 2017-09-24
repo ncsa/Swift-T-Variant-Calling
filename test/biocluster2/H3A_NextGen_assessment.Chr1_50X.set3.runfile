@@ -13,7 +13,7 @@ CORES_PER_NODE=10
 
 # choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
 ALIGN_STAGE=Y
-DEDUP_SORT_STAGE=N
+DEDUP_SORT_STAGE=END
 CHR_SPLIT_STAGE=N
 VC_STAGE=N
 COMBINE_VARIANT_STAGE=N
