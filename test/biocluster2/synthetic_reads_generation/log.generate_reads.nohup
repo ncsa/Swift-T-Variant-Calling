@@ -7,77 +7,77 @@ nohup: ignoring input
 + mkdir /home/a-m/azzaea/swift_T_project/results/synthetic_reads
 + cd /home/a-m/azzaea/swift_T_project/results/synthetic_reads
 + wget https://support.illumina.com/content/dam/illumina-support/documents/downloads/productfiles/truseq/truseq-exome-targeted-regions-manifest-v1-2-bed.zip
---2017-09-24 13:44:43--  https://support.illumina.com/content/dam/illumina-support/documents/downloads/productfiles/truseq/truseq-exome-targeted-regions-manifest-v1-2-bed.zip
-Resolving support.illumina.com (support.illumina.com)... 52.2.83.132, 52.1.120.76, 34.206.19.76
-Connecting to support.illumina.com (support.illumina.com)|52.2.83.132|:443... connected.
+--2017-09-27 01:23:37--  https://support.illumina.com/content/dam/illumina-support/documents/downloads/productfiles/truseq/truseq-exome-targeted-regions-manifest-v1-2-bed.zip
+Resolving support.illumina.com (support.illumina.com)... 52.201.30.116, 52.55.34.94, 34.235.36.228
+Connecting to support.illumina.com (support.illumina.com)|52.201.30.116|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 2768323 (2.6M) [application/zip]
 Saving to: ‘truseq-exome-targeted-regions-manifest-v1-2-bed.zip’
 
-     0K .......... .......... .......... .......... ..........  1% 2.57M 1s
-    50K .......... .......... .......... .......... ..........  3% 2.42M 1s
-   100K .......... .......... .......... .......... ..........  5% 77.6M 1s
-   150K .......... .......... .......... .......... ..........  7% 2.46M 1s
-   200K .......... .......... .......... .......... ..........  9% 50.1M 1s
-   250K .......... .......... .......... .......... .......... 11% 93.8M 0s
-   300K .......... .......... .......... .......... .......... 12% 51.6M 0s
-   350K .......... .......... .......... .......... .......... 14% 86.1M 0s
-   400K .......... .......... .......... .......... .......... 16% 2.72M 0s
-   450K .......... .......... .......... .......... .......... 18% 89.4M 0s
-   500K .......... .......... .......... .......... .......... 20% 55.1M 0s
-   550K .......... .......... .......... .......... .......... 22% 89.5M 0s
-   600K .......... .......... .......... .......... .......... 24% 62.6M 0s
-   650K .......... .......... .......... .......... .......... 25% 52.2M 0s
-   700K .......... .......... .......... .......... .......... 27% 2.98M 0s
-   750K .......... .......... .......... .......... .......... 29% 56.6M 0s
-   800K .......... .......... .......... .......... .......... 31% 74.6M 0s
-   850K .......... .......... .......... .......... .......... 33% 75.7M 0s
-   900K .......... .......... .......... .......... .......... 35% 64.2M 0s
-   950K .......... .......... .......... .......... .......... 36% 88.4M 0s
-  1000K .......... .......... .......... .......... .......... 38% 59.2M 0s
-  1050K .......... .......... .......... .......... .......... 40% 75.9M 0s
-  1100K .......... .......... .......... .......... .......... 42% 65.5M 0s
-  1150K .......... .......... .......... .......... .......... 44% 82.6M 0s
-  1200K .......... .......... .......... .......... .......... 46% 70.5M 0s
-  1250K .......... .......... .......... .......... .......... 48% 64.1M 0s
-  1300K .......... .......... .......... .......... .......... 49% 92.0M 0s
-  1350K .......... .......... .......... .......... .......... 51% 76.5M 0s
-  1400K .......... .......... .......... .......... .......... 53% 56.0M 0s
-  1450K .......... .......... .......... .......... .......... 55% 4.55M 0s
-  1500K .......... .......... .......... .......... .......... 57% 62.6M 0s
-  1550K .......... .......... .......... .......... .......... 59% 82.5M 0s
-  1600K .......... .......... .......... .......... .......... 61% 75.1M 0s
-  1650K .......... .......... .......... .......... .......... 62% 61.8M 0s
-  1700K .......... .......... .......... .......... .......... 64% 78.4M 0s
-  1750K .......... .......... .......... .......... .......... 66% 77.4M 0s
-  1800K .......... .......... .......... .......... .......... 68% 48.3M 0s
-  1850K .......... .......... .......... .......... .......... 70% 71.4M 0s
-  1900K .......... .......... .......... .......... .......... 72% 77.6M 0s
-  1950K .......... .......... .......... .......... .......... 73% 78.0M 0s
-  2000K .......... .......... .......... .......... .......... 75% 69.0M 0s
-  2050K .......... .......... .......... .......... .......... 77% 70.6M 0s
-  2100K .......... .......... .......... .......... .......... 79% 80.1M 0s
-  2150K .......... .......... .......... .......... .......... 81% 71.5M 0s
-  2200K .......... .......... .......... .......... .......... 83% 48.7M 0s
-  2250K .......... .......... .......... .......... .......... 85% 62.1M 0s
-  2300K .......... .......... .......... .......... .......... 86% 91.7M 0s
-  2350K .......... .......... .......... .......... .......... 88% 69.6M 0s
-  2400K .......... .......... .......... .......... .......... 90% 71.9M 0s
-  2450K .......... .......... .......... .......... .......... 92% 7.41M 0s
-  2500K .......... .......... .......... .......... .......... 94% 55.3M 0s
-  2550K .......... .......... .......... .......... .......... 96% 52.8M 0s
-  2600K .......... .......... .......... .......... .......... 98% 58.9M 0s
-  2650K .......... .......... .......... .......... .......... 99%  109M 0s
+     0K .......... .......... .......... .......... ..........  1%  132M 0s
+    50K .......... .......... .......... .......... ..........  3% 2.87M 0s
+   100K .......... .......... .......... .......... ..........  5% 14.1M 0s
+   150K .......... .......... .......... .......... ..........  7% 74.9M 0s
+   200K .......... .......... .......... .......... ..........  9% 2.85M 0s
+   250K .......... .......... .......... .......... .......... 11% 17.4M 0s
+   300K .......... .......... .......... .......... .......... 12%  110M 0s
+   350K .......... .......... .......... .......... .......... 14%  107M 0s
+   400K .......... .......... .......... .......... .......... 16% 2.97M 0s
+   450K .......... .......... .......... .......... .......... 18%  119M 0s
+   500K .......... .......... .......... .......... .......... 20%  209M 0s
+   550K .......... .......... .......... .......... .......... 22%  134M 0s
+   600K .......... .......... .......... .......... .......... 24% 19.6M 0s
+   650K .......... .......... .......... .......... .......... 25%  139M 0s
+   700K .......... .......... .......... .......... .......... 27%  154M 0s
+   750K .......... .......... .......... .......... .......... 29%  133M 0s
+   800K .......... .......... .......... .......... .......... 31%  124M 0s
+   850K .......... .......... .......... .......... .......... 33% 3.13M 0s
+   900K .......... .......... .......... .......... .......... 35%  116M 0s
+   950K .......... .......... .......... .......... .......... 36%  166M 0s
+  1000K .......... .......... .......... .......... .......... 38%  116M 0s
+  1050K .......... .......... .......... .......... .......... 40%  163M 0s
+  1100K .......... .......... .......... .......... .......... 42%  127M 0s
+  1150K .......... .......... .......... .......... .......... 44%  142M 0s
+  1200K .......... .......... .......... .......... .......... 46% 37.1M 0s
+  1250K .......... .......... .......... .......... .......... 48%  117M 0s
+  1300K .......... .......... .......... .......... .......... 49%  157M 0s
+  1350K .......... .......... .......... .......... .......... 51%  166M 0s
+  1400K .......... .......... .......... .......... .......... 53%  111M 0s
+  1450K .......... .......... .......... .......... .......... 55%  112M 0s
+  1500K .......... .......... .......... .......... .......... 57%  163M 0s
+  1550K .......... .......... .......... .......... .......... 59%  163M 0s
+  1600K .......... .......... .......... .......... .......... 61%  117M 0s
+  1650K .......... .......... .......... .......... .......... 62%  159M 0s
+  1700K .......... .......... .......... .......... .......... 64% 3.56M 0s
+  1750K .......... .......... .......... .......... .......... 66%  129M 0s
+  1800K .......... .......... .......... .......... .......... 68%  134M 0s
+  1850K .......... .......... .......... .......... .......... 70%  152M 0s
+  1900K .......... .......... .......... .......... .......... 72%  133M 0s
+  1950K .......... .......... .......... .......... .......... 73%  161M 0s
+  2000K .......... .......... .......... .......... .......... 75%  141M 0s
+  2050K .......... .......... .......... .......... .......... 77%  112M 0s
+  2100K .......... .......... .......... .......... .......... 79%  165M 0s
+  2150K .......... .......... .......... .......... .......... 81%  165M 0s
+  2200K .......... .......... .......... .......... .......... 83%  111M 0s
+  2250K .......... .......... .......... .......... .......... 85%  104M 0s
+  2300K .......... .......... .......... .......... .......... 86%  180M 0s
+  2350K .......... .......... .......... .......... .......... 88%  159M 0s
+  2400K .......... .......... .......... .......... .......... 90%  130M 0s
+  2450K .......... .......... .......... .......... .......... 92%  125M 0s
+  2500K .......... .......... .......... .......... .......... 94%  165M 0s
+  2550K .......... .......... .......... .......... .......... 96%  158M 0s
+  2600K .......... .......... .......... .......... .......... 98% 97.4M 0s
+  2650K .......... .......... .......... .......... .......... 99%  226M 0s
   2700K ...                                                   100% 6562G=0.1s
 
-2017-09-24 13:44:43 (18.3 MB/s) - ‘truseq-exome-targeted-regions-manifest-v1-2-bed.zip’ saved [2768323/2768323]
+2017-09-27 01:23:37 (24.8 MB/s) - ‘truseq-exome-targeted-regions-manifest-v1-2-bed.zip’ saved [2768323/2768323]
 
 + unzip truseq-exome-targeted-regions-manifest-v1-2-bed.zip
 Archive:  truseq-exome-targeted-regions-manifest-v1-2-bed.zip
   inflating: truseq-exome-targeted-regions-manifest-v1-2.bed  
 + targeted_region=/home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed
 + DatasetName=synthetic_WES_Sep_2017
-+ NumberOfChunks=3
++ NumberOfChunks=5
 + NumberOfSamples=3
 + echo 'sample_number read_depth'
 + echo 'NEAT parameters are:'
@@ -106,53 +106,79 @@ Archive:  truseq-exome-targeted-regions-manifest-v1-2-bed.zip
 + echo '#SBATCH --mail-type=ALL'
 + AllChunksJobIds=
 + (( jobnumber=1 ))
-+ (( jobnumber<=3 ))
++ (( jobnumber<=5 ))
 + cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/GenericSbatch.header
-+ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3'
-+ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3.er'
-+ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3.ou'
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.ou'
 + echo ' '
-+ echo 'module load python'
-+ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 30 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 1 3 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3.log '
-++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3.sbatch
-+ ChunkJobId='Submitted batch job 38793'
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 30 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 1 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.sbatch
++ ChunkJobId='Submitted batch job 40845'
 + ChunkJobId=
 + AllChunksJobIds=:
 + (( jobnumber++  ))
-+ (( jobnumber<=3 ))
++ (( jobnumber<=5 ))
 + cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/GenericSbatch.header
-+ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3'
-+ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3.er'
-+ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3.ou'
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.ou'
 + echo ' '
-+ echo 'module load python'
-+ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 30 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 2 3 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3.log '
-++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3.sbatch
-+ ChunkJobId='Submitted batch job 38794'
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 30 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 2 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.sbatch
++ ChunkJobId='Submitted batch job 40846'
 + ChunkJobId=
 + AllChunksJobIds=::
 + (( jobnumber++  ))
-+ (( jobnumber<=3 ))
++ (( jobnumber<=5 ))
 + cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/GenericSbatch.header
-+ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3'
-+ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3.er'
-+ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3.ou'
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.ou'
 + echo ' '
-+ echo 'module load python'
-+ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 30 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 3 3 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3.log '
-++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3.sbatch
-+ ChunkJobId='Submitted batch job 38795'
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 30 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 3 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.sbatch
++ ChunkJobId='Submitted batch job 40847'
 + ChunkJobId=
 + AllChunksJobIds=:::
 + (( jobnumber++  ))
-+ (( jobnumber<=3 ))
++ (( jobnumber<=5 ))
++ cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 30 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 4 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.sbatch
++ ChunkJobId='Submitted batch job 40848'
++ ChunkJobId=
++ AllChunksJobIds=::::
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 30 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 5 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.sbatch
++ ChunkJobId='Submitted batch job 40849'
++ ChunkJobId=
++ AllChunksJobIds=:::::
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
 + cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/GenericSbatch.header
 + echo '#SBATCH -J synthetic_WES_Sep_2017.MergeChunks'
 + echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.MergeChunks.er'
 + echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.MergeChunks.ou'
-+ echo '#SBATCH -depend=afterok::::'
++ echo '#SBATCH -depend=afterok::::::'
 + echo ' '
-+ echo 'module load python'
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
 + echo 'python /home/a-m/azzaea/software/neat2/neat-genreads/mergeJobs.py -i /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Merged/synthetic_WES_Sep_2017_merged -s  home/apps/samtools/samtools-1.3.1/bin/samtools'
 + sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.MergeChunks.sbatch
 sbatch: error: Batch job submission failed: Job dependency problem
@@ -180,53 +206,79 @@ sbatch: error: Batch job submission failed: Job dependency problem
 + echo '#SBATCH --mail-type=ALL'
 + AllChunksJobIds=
 + (( jobnumber=1 ))
-+ (( jobnumber<=3 ))
++ (( jobnumber<=5 ))
 + cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/GenericSbatch.header
-+ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3'
-+ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3.er'
-+ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3.ou'
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.ou'
 + echo ' '
-+ echo 'module load python'
-+ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 50 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 1 3 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3.log '
-++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3.sbatch
-+ ChunkJobId='Submitted batch job 38797'
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 50 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 1 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.sbatch
++ ChunkJobId='Submitted batch job 40851'
 + ChunkJobId=
 + AllChunksJobIds=:
 + (( jobnumber++  ))
-+ (( jobnumber<=3 ))
++ (( jobnumber<=5 ))
 + cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/GenericSbatch.header
-+ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3'
-+ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3.er'
-+ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3.ou'
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.ou'
 + echo ' '
-+ echo 'module load python'
-+ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 50 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 2 3 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3.log '
-++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3.sbatch
-+ ChunkJobId='Submitted batch job 38798'
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 50 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 2 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.sbatch
++ ChunkJobId='Submitted batch job 40852'
 + ChunkJobId=
 + AllChunksJobIds=::
 + (( jobnumber++  ))
-+ (( jobnumber<=3 ))
++ (( jobnumber<=5 ))
 + cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/GenericSbatch.header
-+ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3'
-+ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3.er'
-+ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3.ou'
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.ou'
 + echo ' '
-+ echo 'module load python'
-+ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 50 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 3 3 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3.log '
-++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3.sbatch
-+ ChunkJobId='Submitted batch job 38799'
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 50 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 3 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.sbatch
++ ChunkJobId='Submitted batch job 40853'
 + ChunkJobId=
 + AllChunksJobIds=:::
 + (( jobnumber++  ))
-+ (( jobnumber<=3 ))
++ (( jobnumber<=5 ))
++ cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 50 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 4 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.sbatch
++ ChunkJobId='Submitted batch job 40854'
++ ChunkJobId=
++ AllChunksJobIds=::::
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 50 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 5 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.sbatch
++ ChunkJobId='Submitted batch job 40855'
++ ChunkJobId=
++ AllChunksJobIds=:::::
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
 + cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/GenericSbatch.header
 + echo '#SBATCH -J synthetic_WES_Sep_2017.MergeChunks'
 + echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.MergeChunks.er'
 + echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.MergeChunks.ou'
-+ echo '#SBATCH -depend=afterok::::'
++ echo '#SBATCH -depend=afterok::::::'
 + echo ' '
-+ echo 'module load python'
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
 + echo 'python /home/a-m/azzaea/software/neat2/neat-genreads/mergeJobs.py -i /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Merged/synthetic_WES_Sep_2017_merged -s  home/apps/samtools/samtools-1.3.1/bin/samtools'
 + sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.MergeChunks.sbatch
 sbatch: error: Batch job submission failed: Job dependency problem
@@ -254,53 +306,79 @@ sbatch: error: Batch job submission failed: Job dependency problem
 + echo '#SBATCH --mail-type=ALL'
 + AllChunksJobIds=
 + (( jobnumber=1 ))
-+ (( jobnumber<=3 ))
++ (( jobnumber<=5 ))
 + cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/GenericSbatch.header
-+ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3'
-+ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3.er'
-+ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3.ou'
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.ou'
 + echo ' '
-+ echo 'module load python'
-+ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 70 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 1 3 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3.log '
-++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_3.sbatch
-+ ChunkJobId='Submitted batch job 38801'
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 70 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 1 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.sbatch
++ ChunkJobId='Submitted batch job 40857'
 + ChunkJobId=
 + AllChunksJobIds=:
 + (( jobnumber++  ))
-+ (( jobnumber<=3 ))
++ (( jobnumber<=5 ))
 + cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/GenericSbatch.header
-+ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3'
-+ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3.er'
-+ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3.ou'
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.ou'
 + echo ' '
-+ echo 'module load python'
-+ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 70 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 2 3 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3.log '
-++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_3.sbatch
-+ ChunkJobId='Submitted batch job 38802'
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 70 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 2 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.sbatch
++ ChunkJobId='Submitted batch job 40858'
 + ChunkJobId=
 + AllChunksJobIds=::
 + (( jobnumber++  ))
-+ (( jobnumber<=3 ))
++ (( jobnumber<=5 ))
 + cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/GenericSbatch.header
-+ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3'
-+ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3.er'
-+ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3.ou'
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.ou'
 + echo ' '
-+ echo 'module load python'
-+ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 70 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 3 3 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3.log '
-++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_3.sbatch
-+ ChunkJobId='Submitted batch job 38803'
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 70 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 3 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.sbatch
++ ChunkJobId='Submitted batch job 40859'
 + ChunkJobId=
 + AllChunksJobIds=:::
 + (( jobnumber++  ))
-+ (( jobnumber<=3 ))
++ (( jobnumber<=5 ))
++ cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 70 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 4 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.sbatch
++ ChunkJobId='Submitted batch job 40860'
++ ChunkJobId=
++ AllChunksJobIds=::::
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5'
++ echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.er'
++ echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 70 -p 2 -t /home/a-m/azzaea/swift_T_project/results/synthetic_reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 5 5 >  /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.log '
+++ sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.sbatch
++ ChunkJobId='Submitted batch job 40861'
++ ChunkJobId=
++ AllChunksJobIds=:::::
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
 + cat /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/GenericSbatch.header
 + echo '#SBATCH -J synthetic_WES_Sep_2017.MergeChunks'
 + echo '#SBATCH -e /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.MergeChunks.er'
 + echo '#SBATCH -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.MergeChunks.ou'
-+ echo '#SBATCH -depend=afterok::::'
++ echo '#SBATCH -depend=afterok::::::'
 + echo ' '
-+ echo 'module load python'
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
 + echo 'python /home/a-m/azzaea/software/neat2/neat-genreads/mergeJobs.py -i /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -o /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Merged/synthetic_WES_Sep_2017_merged -s  home/apps/samtools/samtools-1.3.1/bin/samtools'
 + sbatch /home/a-m/azzaea/swift_T_project/results/synthetic_reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.MergeChunks.sbatch
 sbatch: error: Batch job submission failed: Job dependency problem
