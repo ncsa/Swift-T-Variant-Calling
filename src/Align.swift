@@ -3,6 +3,7 @@
  Pseudocode of Run Function
 *****************************
 (file outBamArray[]) alignRun() {
+	Check the path (BWAEXE or NOVOALIGNEXE) of the selected aligner (ALIGNERTOOL) exists
 	foreach sample in samples {
 		- Parse sample specific information and construct RG header
 		- Create the sample output directories
@@ -81,12 +82,16 @@ import generalfunctions.general;
 	    ) {
 		// Use the specified alignment tool
 		if (vars["ALIGNERTOOL"] == "BWAMEM") {
+			exec_check(vars["BWAEXE"], "BWAEXE");
+			
 			// Directly return the .sam file created from bwa_mem
 			outputSam, alignedLog, tmpalignedLog = bwa_mem_logged(vars["BWAEXE"], reads[0], reads[1], vars["BWAINDEX"], 
 					    [vars["BWAMEMPARAMS"]], threads, rgheader, sampleName
 					   ) ;
 		} 
 		else { // Novoalign is the default aligner
+			exec_check(vars["NOVOALIGNEXE"], "NOVOALIGNEXE");
+
 			// Directly return the .sam file created from novoalign
 			outputSam, alignedLog, tmpalignedLog = novoalign_logged(vars["NOVOALIGNEXE"], reads[0], reads[1],
 					      vars["NOVOALIGNINDEX"], [vars["NOVOALIGNPARAMS"]], threads, rgheader, sampleName
@@ -96,12 +101,16 @@ import generalfunctions.general;
 	else {
 		// Use the specified alignment tool
 		if (vars["ALIGNERTOOL"] == "BWAMEM") {
+			exec_check(vars["BWAEXE"], "BWAEXE");
+
 			// Directly return the .sam file created from bwa_mem
 			outputSam, alignedLog, tmpalignedLog = bwa_mem_logged(vars["BWAEXE"], reads[0], vars["BWAINDEX"],
 					    [vars["BWAMEMPARAMS"]], threads, rgheader, sampleName
 					   ) ; 
 		}
 		else { // Novoalign is the default aligner								 
+			exec_check(vars["NOVOALIGNEXE"], "NOVOALIGNEXE");
+
 			// Directly return the .sam file created from novoalign
 			outputSam, alignedLog, tmpalignedLog = novoalign_logged(vars["NOVOALIGNEXE"], reads[0], 
 					      vars["NOVOALIGNINDEX"], [vars["NOVOALIGNPARAMS"]], threads, rgheader, sampleName 
