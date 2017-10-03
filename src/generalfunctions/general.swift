@@ -87,7 +87,6 @@ app (void v) rm(file f) {
 
 
 (boolean exec_ok) exec_check (string exec, string parameter){
-        trace(exec);
         file_exists(exec) =>
         assert(string_count(file_type(exec), "file", 0, -1) ==1, 
 		strcat("The executable: \n\t", exec,
