@@ -1,0 +1,393 @@
+nohup: ignoring input
++ NEAT2_path=/home/a-m/azzaea/software/neat2/neat-genreads
++ samtools_path=home/apps/samtools/samtools-1.3.1/bin
++ reference=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta
++ OutputDir=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads
++ rm -rf /home/groups/hpcbio_shared/azza/swift_T_project/data/reads
++ mkdir /home/groups/hpcbio_shared/azza/swift_T_project/data/reads
++ cd /home/groups/hpcbio_shared/azza/swift_T_project/data/reads
++ wget https://support.illumina.com/content/dam/illumina-support/documents/downloads/productfiles/truseq/truseq-exome-targeted-regions-manifest-v1-2-bed.zip
+--2017-09-30 07:26:16--  https://support.illumina.com/content/dam/illumina-support/documents/downloads/productfiles/truseq/truseq-exome-targeted-regions-manifest-v1-2-bed.zip
+Resolving support.illumina.com (support.illumina.com)... 52.202.222.135, 52.0.111.57, 52.71.250.23
+Connecting to support.illumina.com (support.illumina.com)|52.202.222.135|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2768323 (2.6M) [application/zip]
+Saving to: ‘truseq-exome-targeted-regions-manifest-v1-2-bed.zip’
+
+     0K .......... .......... .......... .......... ..........  1% 2.47M 1s
+    50K .......... .......... .......... .......... ..........  3% 2.38M 1s
+   100K .......... .......... .......... .......... ..........  5% 62.6M 1s
+   150K .......... .......... .......... .......... ..........  7% 78.1M 1s
+   200K .......... .......... .......... .......... ..........  9% 2.44M 1s
+   250K .......... .......... .......... .......... .......... 11%  105M 0s
+   300K .......... .......... .......... .......... .......... 12%  116M 0s
+   350K .......... .......... .......... .......... .......... 14%  104M 0s
+   400K .......... .......... .......... .......... .......... 16% 2.59M 0s
+   450K .......... .......... .......... .......... .......... 18%  108M 0s
+   500K .......... .......... .......... .......... .......... 20%  106M 0s
+   550K .......... .......... .......... .......... .......... 22%  108M 0s
+   600K .......... .......... .......... .......... .......... 24% 81.5M 0s
+   650K .......... .......... .......... .......... .......... 25%  109M 0s
+   700K .......... .......... .......... .......... .......... 27%  125M 0s
+   750K .......... .......... .......... .......... .......... 29%  131M 0s
+   800K .......... .......... .......... .......... .......... 31% 2.80M 0s
+   850K .......... .......... .......... .......... .......... 33%  111M 0s
+   900K .......... .......... .......... .......... .......... 35%  115M 0s
+   950K .......... .......... .......... .......... .......... 36%  105M 0s
+  1000K .......... .......... .......... .......... .......... 38%  101M 0s
+  1050K .......... .......... .......... .......... .......... 40%  118M 0s
+  1100K .......... .......... .......... .......... .......... 42%  113M 0s
+  1150K .......... .......... .......... .......... .......... 44%  123M 0s
+  1200K .......... .......... .......... .......... .......... 46%  111M 0s
+  1250K .......... .......... .......... .......... .......... 48%  131M 0s
+  1300K .......... .......... .......... .......... .......... 49%  121M 0s
+  1350K .......... .......... .......... .......... .......... 51%  120M 0s
+  1400K .......... .......... .......... .......... .......... 53%  103M 0s
+  1450K .......... .......... .......... .......... .......... 55%  125M 0s
+  1500K .......... .......... .......... .......... .......... 57%  143M 0s
+  1550K .......... .......... .......... .......... .......... 59%  155M 0s
+  1600K .......... .......... .......... .......... .......... 61%  134M 0s
+  1650K .......... .......... .......... .......... .......... 62% 3.48M 0s
+  1700K .......... .......... .......... .......... .......... 64%  138M 0s
+  1750K .......... .......... .......... .......... .......... 66%  131M 0s
+  1800K .......... .......... .......... .......... .......... 68%  110M 0s
+  1850K .......... .......... .......... .......... .......... 70%  139M 0s
+  1900K .......... .......... .......... .......... .......... 72%  126M 0s
+  1950K .......... .......... .......... .......... .......... 73%  138M 0s
+  2000K .......... .......... .......... .......... .......... 75%  110M 0s
+  2050K .......... .......... .......... .......... .......... 77%  134M 0s
+  2100K .......... .......... .......... .......... .......... 79%  131M 0s
+  2150K .......... .......... .......... .......... .......... 81%  132M 0s
+  2200K .......... .......... .......... .......... .......... 83%  112M 0s
+  2250K .......... .......... .......... .......... .......... 85%  140M 0s
+  2300K .......... .......... .......... .......... .......... 86%  122M 0s
+  2350K .......... .......... .......... .......... .......... 88%  141M 0s
+  2400K .......... .......... .......... .......... .......... 90%  112M 0s
+  2450K .......... .......... .......... .......... .......... 92%  140M 0s
+  2500K .......... .......... .......... .......... .......... 94%  140M 0s
+  2550K .......... .......... .......... .......... .......... 96%  122M 0s
+  2600K .......... .......... .......... .......... .......... 98%  136M 0s
+  2650K .......... .......... .......... .......... .......... 99%  173M 0s
+  2700K ...                                                   100% 6562G=0.1s
+
+2017-09-30 07:26:17 (20.2 MB/s) - ‘truseq-exome-targeted-regions-manifest-v1-2-bed.zip’ saved [2768323/2768323]
+
++ unzip truseq-exome-targeted-regions-manifest-v1-2-bed.zip
+Archive:  truseq-exome-targeted-regions-manifest-v1-2-bed.zip
+  inflating: truseq-exome-targeted-regions-manifest-v1-2.bed  
++ targeted_region=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed
++ DatasetName=synthetic_WES_Sep_2017
++ NumberOfChunks=5
++ NumberOfSamples=3
++ echo 'sample_number read_depth'
++ echo 'NEAT parameters are:'
+++ seq 1 3
++ for i in '$(seq 1 ${NumberOfSamples})'
+++ awk -v i=1 'BEGIN{print (i*20+10) }'
++ read_depth=30
++ echo 1 30
++ NeatParams='-R 101 -c 30 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf '
++ echo -R 101 -c 30 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf
++ OutputFolder=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X
++ OutputLogsFolder=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs
++ '[' '!' -d /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs ']'
++ mkdir -p /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs
++ OutputChunksFolder=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Chunks
++ '[' '!' -d /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Chunks ']'
++ mkdir -p /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Chunks
++ OutputMergedFolder=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Merged
++ '[' '!' -d /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Merged ']'
++ mkdir -p /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Merged
++ echo '#!/bin/bash'
++ echo '#SBATCH -p normal'
++ echo '#SBATCH -c 5'
++ echo '#SBATCH -n 10'
++ echo '#SBATCH --mail-user=azzaea@gmail.com'
++ echo '#SBATCH --mail-type=ALL'
++ AllChunksJobIds=
++ (( jobnumber=1 ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 30 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 1 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.sbatch
++ ChunkJobId='Submitted batch job 44747'
++ ChunkJobId=44747
++ AllChunksJobIds=44747:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 30 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 2 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.sbatch
++ ChunkJobId='Submitted batch job 44748'
++ ChunkJobId=44748
++ AllChunksJobIds=44748:44747:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 30 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 3 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.sbatch
++ ChunkJobId='Submitted batch job 44749'
++ ChunkJobId=44749
++ AllChunksJobIds=44749:44748:44747:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 30 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 4 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.sbatch
++ ChunkJobId='Submitted batch job 44750'
++ ChunkJobId=44750
++ AllChunksJobIds=44750:44749:44748:44747:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 30 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 5 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.sbatch
++ ChunkJobId='Submitted batch job 44751'
++ ChunkJobId=44751
++ AllChunksJobIds=44751:44750:44749:44748:44747:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
+++ echo 44751:44750:44749:44748:44747:
+++ sed 's/.$//'
++ AllChunksJobIds=44751:44750:44749:44748:44747
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.MergeChunks'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.MergeChunks.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.MergeChunks.ou'
++ echo '#SBATCH --dependency=afterok:44751:44750:44749:44748:44747'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python /home/a-m/azzaea/software/neat2/neat-genreads/mergeJobs.py -i /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Chunks/synthetic_WES_Sep_2017 -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Merged/synthetic_WES_Sep_2017_merged -s  home/apps/samtools/samtools-1.3.1/bin/samtools'
++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_1_30X/Logs/synthetic_WES_Sep_2017.MergeChunks.sbatch
+Submitted batch job 44752
++ for i in '$(seq 1 ${NumberOfSamples})'
+++ awk -v i=2 'BEGIN{print (i*20+10) }'
++ read_depth=50
++ echo 2 50
++ NeatParams='-R 101 -c 50 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf '
++ echo -R 101 -c 50 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf
++ OutputFolder=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X
++ OutputLogsFolder=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs
++ '[' '!' -d /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs ']'
++ mkdir -p /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs
++ OutputChunksFolder=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Chunks
++ '[' '!' -d /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Chunks ']'
++ mkdir -p /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Chunks
++ OutputMergedFolder=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Merged
++ '[' '!' -d /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Merged ']'
++ mkdir -p /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Merged
++ echo '#!/bin/bash'
++ echo '#SBATCH -p normal'
++ echo '#SBATCH -c 5'
++ echo '#SBATCH -n 10'
++ echo '#SBATCH --mail-user=azzaea@gmail.com'
++ echo '#SBATCH --mail-type=ALL'
++ AllChunksJobIds=
++ (( jobnumber=1 ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 50 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 1 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.sbatch
++ ChunkJobId='Submitted batch job 44753'
++ ChunkJobId=44753
++ AllChunksJobIds=44753:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 50 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 2 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.sbatch
++ ChunkJobId='Submitted batch job 44754'
++ ChunkJobId=44754
++ AllChunksJobIds=44754:44753:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 50 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 3 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.sbatch
++ ChunkJobId='Submitted batch job 44755'
++ ChunkJobId=44755
++ AllChunksJobIds=44755:44754:44753:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 50 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 4 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.sbatch
++ ChunkJobId='Submitted batch job 44756'
++ ChunkJobId=44756
++ AllChunksJobIds=44756:44755:44754:44753:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 50 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 5 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.sbatch
++ ChunkJobId='Submitted batch job 44757'
++ ChunkJobId=44757
++ AllChunksJobIds=44757:44756:44755:44754:44753:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
+++ echo 44757:44756:44755:44754:44753:
+++ sed 's/.$//'
++ AllChunksJobIds=44757:44756:44755:44754:44753
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.MergeChunks'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.MergeChunks.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.MergeChunks.ou'
++ echo '#SBATCH --dependency=afterok:44757:44756:44755:44754:44753'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python /home/a-m/azzaea/software/neat2/neat-genreads/mergeJobs.py -i /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Chunks/synthetic_WES_Sep_2017 -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Merged/synthetic_WES_Sep_2017_merged -s  home/apps/samtools/samtools-1.3.1/bin/samtools'
++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_2_50X/Logs/synthetic_WES_Sep_2017.MergeChunks.sbatch
+Submitted batch job 44758
++ for i in '$(seq 1 ${NumberOfSamples})'
+++ awk -v i=3 'BEGIN{print (i*20+10) }'
++ read_depth=70
++ echo 3 70
++ NeatParams='-R 101 -c 70 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf '
++ echo -R 101 -c 70 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf
++ OutputFolder=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X
++ OutputLogsFolder=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs
++ '[' '!' -d /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs ']'
++ mkdir -p /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs
++ OutputChunksFolder=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Chunks
++ '[' '!' -d /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Chunks ']'
++ mkdir -p /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Chunks
++ OutputMergedFolder=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Merged
++ '[' '!' -d /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Merged ']'
++ mkdir -p /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Merged
++ echo '#!/bin/bash'
++ echo '#SBATCH -p normal'
++ echo '#SBATCH -c 5'
++ echo '#SBATCH -n 10'
++ echo '#SBATCH --mail-user=azzaea@gmail.com'
++ echo '#SBATCH --mail-type=ALL'
++ AllChunksJobIds=
++ (( jobnumber=1 ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 70 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 1 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_1_of_5.sbatch
++ ChunkJobId='Submitted batch job 44759'
++ ChunkJobId=44759
++ AllChunksJobIds=44759:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 70 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 2 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_2_of_5.sbatch
++ ChunkJobId='Submitted batch job 44760'
++ ChunkJobId=44760
++ AllChunksJobIds=44760:44759:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 70 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 3 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_3_of_5.sbatch
++ ChunkJobId='Submitted batch job 44761'
++ ChunkJobId=44761
++ AllChunksJobIds=44761:44760:44759:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 70 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 4 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_4_of_5.sbatch
++ ChunkJobId='Submitted batch job 44762'
++ ChunkJobId=44762
++ AllChunksJobIds=44762:44761:44760:44759:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.ou'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python -u /home/a-m/azzaea/software/neat2/neat-genreads/genReads.py -r /home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -R 101 -c 70 -p 2 -t /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/truseq-exome-targeted-regions-manifest-v1-2.bed --pe 300 30 --rng 100 --vcf  --job 5 5 >  /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.log '
+++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.GenerateChunks.job_5_of_5.sbatch
++ ChunkJobId='Submitted batch job 44763'
++ ChunkJobId=44763
++ AllChunksJobIds=44763:44762:44761:44760:44759:
++ (( jobnumber++  ))
++ (( jobnumber<=5 ))
+++ echo 44763:44762:44761:44760:44759:
+++ sed 's/.$//'
++ AllChunksJobIds=44763:44762:44761:44760:44759
++ cat /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/GenericSbatch.header
++ echo '#SBATCH -J synthetic_WES_Sep_2017.MergeChunks'
++ echo '#SBATCH -e /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.MergeChunks.er'
++ echo '#SBATCH -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.MergeChunks.ou'
++ echo '#SBATCH --dependency=afterok:44763:44762:44761:44760:44759'
++ echo ' '
++ echo 'module load Python/2.7.13-IGB-gcc-4.9.4'
++ echo 'python /home/a-m/azzaea/software/neat2/neat-genreads/mergeJobs.py -i /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Chunks/synthetic_WES_Sep_2017 -o /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Merged/synthetic_WES_Sep_2017_merged -s  home/apps/samtools/samtools-1.3.1/bin/samtools'
++ sbatch /home/groups/hpcbio_shared/azza/swift_T_project/data/reads/sample_3_70X/Logs/synthetic_WES_Sep_2017.MergeChunks.sbatch
+Submitted batch job 44764
