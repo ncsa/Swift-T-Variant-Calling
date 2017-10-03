@@ -9,6 +9,7 @@
 		**************************
 		*** EXECUTE THIS STAGE ***
 		**************************
+		Check the GATKEXE is properly specified in the runfile
 
 		- Create output and log file handles
 
@@ -45,6 +46,9 @@ jointGenotypingRun(file inputVCFs[], string vars[string], file timeLog) {
 	    vars["JOINT_GENOTYPING_STAGE"] == "E" ||
 	    vars["JOINT_GENOTYPING_STAGE"] == "e"
 	   ) {
+		exec_check(vars["GATKJAR"], "GATKJAR");
+		exec_check(vars["JAVAEXE"], "JAVAEXE");
+
 		// The joint genotype output file
 		file jointVCF < strcat(vars["OUTPUTDIR"], "/deliverables/jointVCFs/jointVCFcalled.vcf") >;
 	
