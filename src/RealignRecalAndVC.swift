@@ -104,6 +104,9 @@ Realignment
 
 (file realignedbam) realignBam(string sampleName, string chr, string var[string], string realparms[], file inputBam) {
 
+	exec_check(var["GATKJAR"], "GATKJAR"); //Check the proper jar is specified in the runfile
+	exec_check(var["JAVAEXE"], "JAVAEXE");
+
 	string prePrefix = strcat(var["OUTPUTDIR"],"/", sampleName, "/realign/", sampleName, ".wDedups.sorted.", chr);
 	string preLogPrefix = strcat(var["OUTPUTDIR"],"/", sampleName, "/logs/", sampleName, ".wDedups.sorted.", chr);	
 	
@@ -144,6 +147,9 @@ Recalibration
 (file outBam) recalibrateBam(string sampleName, string chr, string var[string],
 			     file inputBam, string recalparmsindels[]
 			    ) {
+	
+	exec_check(var["GATKJAR"], "GATKJAR"); // Check the proper jar file is specified in the runfile
+	exec_check(var["JAVAEXE"], "JAVAEXE");
 
 	string prePrefix = strcat(var["OUTPUTDIR"],"/", sampleName, "/realign/", sampleName, ".wDedups.sorted.", chr);
 	string preLogPrefix = strcat(var["OUTPUTDIR"],"/", sampleName, "/logs/", sampleName, ".wDedups.sorted.", chr);

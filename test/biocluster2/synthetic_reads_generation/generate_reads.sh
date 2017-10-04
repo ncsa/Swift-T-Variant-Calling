@@ -9,8 +9,7 @@ NEAT2_path="/home/a-m/azzaea/software/neat2/neat-genreads"
 samtools_path="home/apps/samtools/samtools-1.3.1/bin"
 reference="/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta"
 
-OutputDir=/home/a-m/azzaea/swift_T_project/results/synthetic_reads
-
+OutputDir=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads
 rm -rf $OutputDir
 
 mkdir $OutputDir
@@ -24,7 +23,7 @@ targeted_region=$OutputDir/truseq-exome-targeted-regions-manifest-v1-2.bed
 
 DatasetName=synthetic_WES_Sep_2017
 
-NumberOfChunks=3
+NumberOfChunks=5
 
 NumberOfSamples=3
 
@@ -78,16 +77,17 @@ do
 
 	   echo " " >> ${OutputLogsFolder}/${DatasetName}.GenerateChunks.job_${jobnumber}_of_${NumberOfChunks}
 		
-	   echo "module load python" >> ${OutputLogsFolder}/${DatasetName}.GenerateChunks.job_${jobnumber}_of_${NumberOfChunks}.sbatch	  
+	   echo "module load Python/2.7.13-IGB-gcc-4.9.4" >> ${OutputLogsFolder}/${DatasetName}.GenerateChunks.job_${jobnumber}_of_${NumberOfChunks}.sbatch	  
  
 	   echo "python -u ${NEAT2_path}/genReads.py -r ${reference} -o ${OutputChunksFolder}/${DatasetName} ${NeatParams} --job ${jobnumber} ${NumberOfChunks} >  ${OutputLogsFolder}/${DatasetName}.GenerateChunks.job_${jobnumber}_of_${NumberOfChunks}.log " >> ${OutputLogsFolder}/${DatasetName}.GenerateChunks.job_${jobnumber}_of_${NumberOfChunks}.sbatch
  
 	   # ChunkJobId is a temporary variable, used to fill out the total list of all job ids
 	   ChunkJobId=$(sbatch ${OutputLogsFolder}/${DatasetName}.GenerateChunks.job_${jobnumber}_of_${NumberOfChunks}.sbatch)
-	   ChunkJobId=${ChunkJobID##*} 
-	   AllChunksJobIds=${AllChunksJobIds}":"${ChunkJobID}
+	   ChunkJobId=${ChunkJobId##* } 
+	   AllChunksJobIds=${ChunkJobId}:${AllChunksJobIds}
 	done
- 
+	
+	AllChunksJobIds=$(echo ${AllChunksJobIds} | sed 's/.$//') 
  
 	#### generate and submit the merge job
 	####
@@ -95,11 +95,11 @@ do
 	echo "#SBATCH -J ${DatasetName}.MergeChunks" >> ${OutputLogsFolder}/${DatasetName}.MergeChunks.sbatch
 	echo "#SBATCH -e ${OutputLogsFolder}/${DatasetName}.MergeChunks.er" >> ${OutputLogsFolder}/${DatasetName}.MergeChunks.sbatch
 	echo "#SBATCH -o ${OutputLogsFolder}/${DatasetName}.MergeChunks.ou" >> ${OutputLogsFolder}/${DatasetName}.MergeChunks.sbatch
-	echo "#SBATCH -depend=afterok:${AllChunksJobIds}" >> ${OutputLogsFolder}/${DatasetName}.MergeChunks.sbatch
+	echo "#SBATCH --dependency=afterok:${AllChunksJobIds}" >> ${OutputLogsFolder}/${DatasetName}.MergeChunks.sbatch
  
 	echo " " >> ${OutputLogsFolder}/${DatasetName}.MergeChunks.sbatch
 
-	echo "module load python" >> ${OutputLogsFolder}/${DatasetName}.MergeChunks.sbatch
+	echo "module load Python/2.7.13-IGB-gcc-4.9.4" >> ${OutputLogsFolder}/${DatasetName}.MergeChunks.sbatch
  
 	echo "python ${NEAT2_path}/mergeJobs.py -i ${OutputChunksFolder}/${DatasetName} -o ${OutputMergedFolder}/${DatasetName}_merged -s  ${samtools_path}/samtools" >> ${OutputLogsFolder}/${DatasetName}.MergeChunks.sbatch
  

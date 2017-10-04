@@ -74,6 +74,8 @@ import generalfunctions.general;
 	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
 
 	if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
+		exec_check(vars["SAMBLASTEREXE"], "SAMBLASTEREXE");
+		exec_check(vars["SAMTOOLSEXE"], "SAMTOOLSEXE");
 		file dedupsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".wDedups.sam") >;
 		file dedupbam < strcat(AlignDir, sampleName, ".wDedups.bam") >;
 		file samLog < strcat(LogDir, sampleName, "_SamblasterDedup.log") >; 
@@ -103,6 +105,9 @@ import generalfunctions.general;
 									 );
 	}
 	else if (vars["MARKDUPLICATESTOOL"] == "PICARD") {
+		exec_check(vars["PICARDJAR"], "PICARDJAR");
+		exec_check(vars["JAVAEXE"], "JAVAEXE");
+		exec_check(vars["NOVOSORTEXE"], "NOVOSORTEXE");
 		// Picard is unique in that it has a metrics file
 		file metricsfile < strcat(AlignDir, sampleName, ".picard.metrics") >;
 		file alignedsortedbam < strcat(AlignDir, sampleName, ".noDedups.sorted.bam") >;
@@ -129,6 +134,7 @@ import generalfunctions.general;
 										    );
 	}
 	else {	//Novosort is the default duplicate marker
+		exec_check(vars["NOVOSORTEXE"], "NOVOSORTEXE");
 		file novoLog < strcat(LogDir, sampleName, "_NovosortDedup.log") >;
 		file tmpnovosortLog < strcat(tmpLogDir, sampleName, "_NovoSortDedup.log")>;
 
