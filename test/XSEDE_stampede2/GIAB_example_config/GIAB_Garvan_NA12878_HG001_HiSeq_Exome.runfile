@@ -1,23 +1,23 @@
 # i/o
 SAMPLEINFORMATION=/home1/04525/tg838247/swift_T_project/src/Swift-T-Variant-Calling/test/XSEDE_stampede2/GIAB_example_config/GIAB_Garvan_NA12878_HG001_HiSeq_Exome.sampleinfo
-OUTPUTDIR=/scratch/04525/tg838247/swift_T_project/results
-TMPDIR=/scratch/04525/tg838247/swift_T_project/tmp_analysis
+OUTPUTDIR=/scratch/04525/tg838247/swift_T_project/GIAB
+TMPDIR=/scratch/04525/tg838247/swift_T_project/GIAB_tmp_analysis
 
 # choose the type of analysis and execution parameters
-REALIGN=YES
+REALIGN=NO
 SPLIT=YES
 EXIT_ON_ERROR=YES
 
-PROGRAMS_PER_NODE=2
-CORES_PER_NODE=3
+PROGRAMS_PER_NODE=3
+CORES_PER_NODE=30
 
 # choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
 ALIGN_STAGE=Y
-DEDUP_SORT_STAGE=N
-CHR_SPLIT_STAGE=N
-VC_STAGE=N
-COMBINE_VARIANT_STAGE=N
-JOINT_GENOTYPING_STAGE=N
+DEDUP_SORT_STAGE=Y
+CHR_SPLIT_STAGE=Y
+VC_STAGE=Y
+COMBINE_VARIANT_STAGE=Y
+JOINT_GENOTYPING_STAGE=Y
 
 #Paired_reads?
 PAIRED=1
@@ -28,10 +28,10 @@ SAMPLEPL=ILLUMINA
 SAMPLECN=GIAB
 
 # tools to be used
-ALIGNERTOOL=NOVOALIGN
+ALIGNERTOOL=BWAMEM
 MARKDUPLICATESTOOL=PICARD
 
-CHRNAMES=1:2:3
+CHRNAMES=1:2:3:4:5:6:7:8:9:10:11:12:13:14:15:16:17:18:19:20:21:22
 
 # Alignment block parameters and Trimming options.
 BWAINDEX=/work/04525/tg838247/stampede2/swift_T_project/data/genome/gatk-bundle/b37/human_g1k_v37.fasta
@@ -45,8 +45,8 @@ NOVOALIGNPARAMS=
 NOVOSORT_MEMLIMIT=100000000000
 
 # Quality thresholds
-MAP_CUTOFF=101 # This should cause no samples to pass
-DUP_CUTOFF=5
+MAP_CUTOFF=90 # This should cause no samples to pass
+DUP_CUTOFF=10
 
 # Resource paths
 REFGENOMEDIR=/work/04525/tg838247/stampede2/swift_T_project/data/genome/gatk-bundle/b37
