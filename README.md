@@ -421,7 +421,10 @@ To do so, proceed as follows:
 2. Once the step above is completed and R is installed, open a terminal window, type `R`, then proceed as follows:
 
 ```
-install.packages('shiny')
+if (!require(shiny)) {
+	install.packages('shiny')
+	library(shiny)
+}
 runGitHub(repo = "jacobrh91/Swift-T-Variant-Calling", ref = "master",
           subdir = "src/plotting_app" )
 ```
