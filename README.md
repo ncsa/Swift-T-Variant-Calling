@@ -325,6 +325,7 @@ For these system, specifying the `settings.sh` file as above doesn't really popu
 
 ```
 $ cat runpipeline.sh
+#!/bin/bash
 export PROCS=$( PROGRAMS_PER_NODE * (#samples/PROGRAMS_PER_NODE + (1 or more)))
 export SWIFT_TMP=/path/to/directory/temp
 
