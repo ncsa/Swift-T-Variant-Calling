@@ -9,8 +9,7 @@ NEAT2_path="/home/a-m/azzaea/software/neat2/neat-genreads"
 samtools_path="home/apps/samtools/samtools-1.3.1/bin"
 reference="/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/ucsc.hg19.fasta"
 
-OutputDir=/home/a-m/azzaea/swift_T_project/results/synthetic_reads
-
+OutputDir=/home/groups/hpcbio_shared/azza/swift_T_project/data/reads
 rm -rf $OutputDir
 
 mkdir $OutputDir
@@ -84,8 +83,8 @@ do
  
 	   # ChunkJobId is a temporary variable, used to fill out the total list of all job ids
 	   ChunkJobId=$(sbatch ${OutputLogsFolder}/${DatasetName}.GenerateChunks.job_${jobnumber}_of_${NumberOfChunks}.sbatch)
-	   ChunkJobId=${ChunkJobID##* } 
-	   AllChunksJobIds=${AllChunksJobIds}":"${ChunkJobId}
+	   ChunkJobId=${ChunkJobId##* } 
+	   AllChunksJobIds=${ChunkJobId}:${AllChunksJobIds}
 	done
 	
 	AllChunksJobIds=$(echo ${AllChunksJobIds} | sed 's/.$//') 

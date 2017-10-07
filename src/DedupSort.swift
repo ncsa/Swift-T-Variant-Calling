@@ -75,6 +75,7 @@ import generalfunctions.general;
 
 	if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
 		exec_check(vars["SAMBLASTEREXE"], "SAMBLASTEREXE");
+		exec_check(vars["SAMTOOLSEXE"], "SAMTOOLSEXE");
 		file dedupsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".wDedups.sam") >;
 		file dedupbam < strcat(AlignDir, sampleName, ".wDedups.bam") >;
 		file samLog < strcat(LogDir, sampleName, "_SamblasterDedup.log") >; 
