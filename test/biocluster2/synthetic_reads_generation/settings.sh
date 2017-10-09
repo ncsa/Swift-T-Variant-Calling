@@ -6,6 +6,7 @@ export TURBINE_LOG=1
 export MAIL_ENABLED=1
 export MAIL_ADDRESS=azzaea@gmail.com
 export WALLTIME=100:00:00
+export TURBINE_SBATCH_ARGS="--mem=100g"
 #export ADLB_PERF_COUNTERS=1
 # the variables below didn't really chip in much!
 #export  ADLB_REPORT_LEAKS=1

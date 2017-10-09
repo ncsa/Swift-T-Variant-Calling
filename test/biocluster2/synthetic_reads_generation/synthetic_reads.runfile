@@ -29,14 +29,14 @@ SAMPLECN=synthetic
 ALIGNERTOOL=NOVOALIGN
 MARKDUPLICATESTOOL=NOVOSORT
 
-CHRNAMES=chr1:chr2:chr3:chr4:chr5:chr6:chr7:chr8:chr9:chr10:chr11:chr12:chr13:chr14:chr15:chr16:chr17:chr18:chr19:chr20:chr21:chr22:chr23
+CHRNAMES=chr1:chr2:chr3:chr4:chr5:chr6:chr7:chr8:chr9:chr10:chr11:chr12:chr13:chr14:chr15:chr16:chr17:chr18:chr19:chr20:chr21:chr22
 
 ## alignment block parameters
 BWAINDEX=/home/groups/hpcbio_shared/azza/H3A_NextGen_assessment_set3/data/genome/human
 BWAMEMPARAMS=-k 32 -I 300,30 
 
 NOVOALIGNINDEX=/home/groups/hpcbio_shared/azza/swift_T_project/data/genome/human.nix
-NOVOSORT_MEMLIMIT=3000000000
+NOVOSORT_MEMLIMIT=30000000000
 
 ## Quality thresholds:
 MAP_CUTOFF=90
