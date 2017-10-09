@@ -1,6 +1,7 @@
 # Loading libraries --------------------------------------------------------
 
 library(shiny)
+
 if (!require(tidyverse)){
   install.packages('tidyverse')
   library(tidyverse)
@@ -20,6 +21,12 @@ if (!require(plotly)){
   install.packages('plotly')
   library(plotly)
 }
+
+if (!require(scales)){
+  install.packages('scales')
+  library(scales)
+}
+
 #  Defining server logic --------------------------------------------------
 
 shinyServer(function(input, output, session) {
