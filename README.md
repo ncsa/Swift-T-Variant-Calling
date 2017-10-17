@@ -159,23 +159,23 @@ This is set in bytes, so if you want to limit novosort to using 30 GB, one would
 
 **`REFGENOMEDIR`** Directory in which the reference genome resides
 
-**`REFGENOME`** Name of the reference genome (name only, not full path)
+**`REFGENOME`** Name of the reference genome (name only; path should be relative to the REFGENOMEDIR)
 
 **`DBSNP`** 
 
-Name of the dbsnp vcf file (name only, path should be that of the REFGENOMEDIR)
+Name of the dbsnp vcf file (name only; path should be relative to the REFGENOMEDIR)
 
 **`INDELDIR`** 
 
 Directory that contains the standard indel variant files used in the realignment/recalibration step
+
+(name only; path should be relative to the REFGENOMEDIR)
 
 Within the directory, the vcf files should be named with only the chromosome name in front and nothing else.
 
 For example, if the chromosome is `chr12` or `12`, name the vcf files `chr12.vcf` or `12.vcf`, respectively.
 
 If not splitting by chromosome, the workflow will look for all of the vcf files in the directory.
-
-**`OMNI`** \< Insert explanation here \> Not currently used in workflow
 
 **`JAVAEXE`; `BWAEXE`; `SAMBLASTEREXE`; `SAMTOOLSEXE`; `NOVOALIGNEXE`; `NOVOSORTEXE`**
 
