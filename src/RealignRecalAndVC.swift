@@ -128,11 +128,11 @@ Realignment
 	file intervals < strcat(prefix, ".realignTargetCreator.intervals") >;			   
 															
 	// The inputBam should be indexed before this function is called						
-	intervals, targetLog, tmptargetLog = RealignerTargetCreator_logged (var["JAVAEXE"], var["GATKJAR"],				 
+	intervals, targetLog, tmptargetLog = RealignerTargetCreator_logged (var["JAVAEXE"], var["JAVA_MAX_HEAP_SIZE"], var["GATKJAR"],				 
 					   strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]),
 					   inputBam, threads, realparms, sampleName, chr 
 					  );									    
-	realignedbam, realignLog, tmprealignLog = IndelRealigner_logged (var["JAVAEXE"], var["GATKJAR"],				     
+	realignedbam, realignLog, tmprealignLog = IndelRealigner_logged (var["JAVAEXE"], var["JAVA_MAX_HEAP_SIZE"], var["GATKJAR"],				     
 				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]),			     
 				      inputBam, realparms, intervals, sampleName, chr 
 				     ) ; 
@@ -170,12 +170,12 @@ Recalibration
 	file tmpprintLog < strcat(tmpLogDir, sampleName, ".", chr, "_PrintReads.log")>;
   
 	// The inputBam should be indexed before this function is called
-	report, recalLog, tmprecalLog = BaseRecalibrator_logged (var["JAVAEXE"], var["GATKJAR"],
+	report, recalLog, tmprecalLog = BaseRecalibrator_logged (var["JAVAEXE"], var["JAVA_MAX_HEAP_SIZE"], var["GATKJAR"],
 				       strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
 				       threads, recalparmsindels,
 				       strcat(var["REFGENOMEDIR"], "/", var["DBSNP"]), sampleName, chr
 				      );
-	outBam, printLog, tmpprintLog = PrintReads_logged (var["JAVAEXE"], var["GATKJAR"],
+	outBam, printLog, tmpprintLog = PrintReads_logged (var["JAVAEXE"], var["JAVA_MAX_HEAP_SIZE"], var["GATKJAR"],
 				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
 				      threads, report, sampleName, chr
 				     ); 
@@ -249,7 +249,7 @@ VariantCalling (for split chromosome path)
 	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
 	file tmphaploLog < strcat(tmpLogDir, sampleName, ".", chr, "_HaplotypeCaller.log")>;
 
-	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged (vars["JAVAEXE"], vars["GATKJAR"],	     
+	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged (vars["JAVAEXE"], vars["JAVA_MAX_HEAP_SIZE"], vars["GATKJAR"],	     
 					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),   
 					   inputBam,					
 					   strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),       
@@ -272,7 +272,7 @@ VariantCalling (for split chromosome path)
 	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
 	file tmphaploLog < strcat(tmpLogDir, sampleName, "_HaplotypeCaller.log")>;
 
-	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged (vars["JAVAEXE"],
+	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged (vars["JAVAEXE"], vars["JAVA_MAX_HEAP_SIZE"], 
 					   vars["GATKJAR"],
 					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
 					   inputBam,
