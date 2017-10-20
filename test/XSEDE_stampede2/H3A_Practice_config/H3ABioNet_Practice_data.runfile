@@ -36,7 +36,7 @@ CHRNAMES=1:2:3
 # Alignment block parameters and Trimming options.
 BWAINDEX=/work/04525/tg838247/stampede2/swift_T_project/data/genome/gatk-bundle/b37/human_g1k_v37.fasta
 
-BWAMEMPARAMS=-k 32 
+BWAMEMPARAMS=-k 32
 
 NOVOALIGNINDEX=/work/04525/tg838247/stampede2/swift_T_project/data/genome/gatk-bundle/b37/human_g1k_v37.nix
 NOVOALIGNPARAMS=

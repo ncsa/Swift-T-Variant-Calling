@@ -14,6 +14,7 @@
 ****************************************************************************
 
 (file outputBams[][]) splitByChrRun(file inputBams[]) {
+	- Check that SAMTOOLSEXE exist!
 	- Get the chromosome names
 
 	foreach chromosome in chromosomes {
@@ -65,6 +66,7 @@ import generalfunctions.general;
 *******************************/
 
 (file outputBams[][]) splitByChrRun(file inputBams[], string vars[string], file failLog) {
+	exec_check(vars["SAMTOOLSEXE"], "SAMTOOLSEXE");
 	string indices[] = split(vars["CHRNAMES"], ":");
 
 	foreach chr, chrIndex in indices {

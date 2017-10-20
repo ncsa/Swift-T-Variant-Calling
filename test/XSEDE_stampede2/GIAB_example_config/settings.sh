@@ -1,6 +1,6 @@
-export PROCS=10 #total number of MPI processes
-export PPN=1 #Number of processes per node 
-export NODES=2
+export PROCS=15 #total number of MPI processes
+export PPN=3 #Number of processes per node 
+export NODES=1
 export QUEUE=normal
 export WALLTIME=24:00:00
 export TURBINE_LOG=1
@@ -12,6 +12,7 @@ export MAIL_ADDRESS=azzaea@gmail.com
 #export  ADLB_TRACE=true
 #export ADLB_DEBUG=true 
 export  ADLB_DEBUG_RANKS=1
-export SWIFT_TMP=/scratch/04525/tg838247/swift_T_project/tmp_swift
+export SWIFT_TMP=/scratch/04525/tg838247/swift_T_project/GIAB_tmp_swift
+export TURBINE_APP_RETRIES=3
 
 

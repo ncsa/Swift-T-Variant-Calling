@@ -78,3 +78,20 @@ app (void v) rm(file f) {
 		success = alignNum > 0;										    
 	}
 } 
+
+// Modifying the pure swift/t function to accept strings as well
+@pure
+(string t) file_type(string f)
+"turbine" "0.0.2"
+[ "set <<t>> [ file type [ lindex <<f>> 0 ] ]" ];
+
+
+(boolean exec_ok) exec_check (string exec, string parameter){
+        file_exists(exec) =>
+        assert(string_count(file_type(exec), "file", 0, -1) ==1, 
+		strcat("The executable: \n\t", exec,
+			"\n Referred to by the parameter: \n\t", parameter, 
+			"is not properly specified in your runfile!"));
+        exec_ok = true;
+}
+

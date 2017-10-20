@@ -1,0 +1,17 @@
+Swift/T
+Compiling: /home/groups/hpcbio_shared/azza/swift_T_project/src/Swift-T-Variant-Calling/src/VariantCalling.swift
+       to: /home/groups/hpcbio_shared/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.Ezy.tic
+	/home/apps/software/swift-t/1.3-IGB-gcc-4.9.4/stc/bin/stc -I /home/groups/hpcbio_shared/azza/swift_T_project/src/Swift-T-Variant-Calling/src -r /home/groups/hpcbio_shared/azza/swift_T_project/src/Swift-T-Variant-Calling/src/bioapps /home/groups/hpcbio_shared/azza/swift_T_project/src/Swift-T-Variant-Calling/src/VariantCalling.swift /home/groups/hpcbio_shared/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.Ezy.tic
+Running:   /home/groups/hpcbio_shared/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.Ezy.tic
+	/home/apps/software/swift-t/1.3-IGB-gcc-4.9.4/turbine/bin/turbine -m slurm -l -s settings.sh /home/groups/hpcbio_shared/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.Ezy.tic -runfile=/home/a-m/azzaea/swift_T_project/src/Swift-T-Variant-Calling/test/biocluster2/H3A_NextGen_assessment.Chr1_50X.set3.runfile
+TURBINE-SLURM SCRIPT
+NODES=2
+PROCS=2
+PPN=1
+sourcing: settings.sh
+done: settings.sh
+TURBINE_OUTPUT=/home/a-m/azzaea/turbine-output/2017/09/30/07/00/43
+TURBINE_HOME=/home/apps/software/swift-t/1.3-IGB-gcc-4.9.4/turbine
+wrote: /home/a-m/azzaea/turbine-output/2017/09/30/07/00/43/turbine-slurm.sh
+JOB_ID=44688
+Removing: /home/groups/hpcbio_shared/azza/swift_T_project/src/Swift-T-Variant-Calling/src/swift-t-VariantCalling.Ezy.tic

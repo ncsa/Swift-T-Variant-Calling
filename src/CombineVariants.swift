@@ -5,6 +5,7 @@
 *****************************
 
 (file vcfOutfiles[]) combineVariantsRun(file inputVCFs) {
+	check that GATKEXE and JAVAEXE are properly specified
 	
 	foreach sample in samples {
 	
@@ -44,6 +45,9 @@ import bioapps.merge_vcf;
 import bioappsLoggingFunctions.merge_vcf_logging;
 
 (file vcfOutfiles[]) combineVariantsRun(file inputVCFs[][], string vars[string], file failLog ) {
+	exec_check(vars["GATKJAR"], "GATKJAR");
+	exec_check(vars["JAVAEXE"], "JAVAEXE");
+
 
 	foreach sampleSet, sampleIndex in inputVCFs {
 

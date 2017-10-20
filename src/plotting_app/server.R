@@ -1,6 +1,7 @@
 # Loading libraries --------------------------------------------------------
 
 library(shiny)
+
 if (!require(tidyverse)){
   install.packages('tidyverse')
   library(tidyverse)
@@ -14,6 +15,16 @@ if (!require(lubridate)){
 if (!require(forcats)){
   install.packages('forcats')
   library(forcats)
+}
+
+if (!require(plotly)){
+  install.packages('plotly')
+  library(plotly)
+}
+
+if (!require(scales)){
+  install.packages('scales')
+  library(scales)
 }
 
 #  Defining server logic --------------------------------------------------
@@ -43,8 +54,9 @@ shinyServer(function(input, output, session) {
     set_names( c('end_App', 'end_time'))
 
   data <- cbind(start, end) %>%
-    select(-end_App) %>%
-    mutate(start_App = fct_reorder2(start_App, start_time, end_time))
+    mutate(Application = start_App) %>%
+    select(-end_App, -start_App) %>%
+    mutate(Application = fct_reorder2(Application, start_time, end_time))
   })
   
   dataPlot <- reactive({
@@ -52,13 +64,17 @@ shinyServer(function(input, output, session) {
     
     if (input$zoomSample ==T )  data <- data %>% filter(Sample == input$sample)
     if (input$zoomChromo == T)  data <- data %>% filter(Chromosome == input$chromosome)
-    if (input$zoomApp ==T )     data <- data %>% filter(start_App == input$app)
+    if (input$zoomApp ==T )     data <- data %>% filter(Application == input$app)
     
     plot <- data %>% 
-      ggplot(aes(start_App))  +
-      geom_linerange(aes(ymin = start_time, ymax = end_time, linetype = Sample, 
-                         color = Sample), alpha = .4, size = 2) +
-      coord_flip()
+      ggplot(aes(Application))  +
+      geom_linerange(aes(ymin = start_time, ymax = end_time, color = Sample, text = Chromosome),
+                     position = position_dodge(width = 0.5), size = 2) +
+      coord_flip() + scale_y_datetime(breaks = date_breaks("3 hour"),
+                                      labels = date_format("%F\n %H:%M"),
+                                      expand = expand_scale(mult = 0.1) ) +
+      theme(axis.text.x = element_text(angle=45))
+    
   })
   
   output$textSample <- renderText({
@@ -72,13 +88,12 @@ shinyServer(function(input, output, session) {
   output$provenanceTable <- renderTable({
     rawdataInput()
   })
-  output$provenancePlot <- renderPlot({
-    print(dataPlot())
-     # dataInput() %>%
-     #  ggplot(aes(start_App))  +
-     #  geom_linerange(aes(ymin = start_time, ymax = end_time, color = Sample)) +
-     #  coord_flip()
+
+  output$PlotlyProvenancePlot <- renderPlotly({
+    ggplotly(dataPlot(), tooltip = c("colour", "text", "x"))
   })
+  
+  
   
   observeEvent(input$zoomSample,
     updateSelectInput(session, "sample",
@@ -92,7 +107,7 @@ shinyServer(function(input, output, session) {
   
   observeEvent(input$zoomApp,
     updateSelectInput(session, "app",
-                      choices = unique(dataInput()$start_App) )
+                      choices = unique(dataInput()$Application) )
   )
   
 

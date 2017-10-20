@@ -3,6 +3,7 @@
  Pseudocode of Run Function
 *****************************
 (file outBamArray[]) alignRun() {
+	Check the path (BWAEXE or NOVOALIGNEXE) of the selected aligner (ALIGNERTOOL) exists
 	foreach sample in samples {
 		- Parse sample specific information and construct RG header
 		- Create the sample output directories
@@ -81,12 +82,16 @@ import generalfunctions.general;
 	    ) {
 		// Use the specified alignment tool
 		if (vars["ALIGNERTOOL"] == "BWAMEM") {
+			exec_check(vars["BWAEXE"], "BWAEXE");
+			
 			// Directly return the .sam file created from bwa_mem
 			outputSam, alignedLog, tmpalignedLog = bwa_mem_logged(vars["BWAEXE"], reads[0], reads[1], vars["BWAINDEX"], 
 					    [vars["BWAMEMPARAMS"]], threads, rgheader, sampleName
 					   ) ;
 		} 
 		else { // Novoalign is the default aligner
+			exec_check(vars["NOVOALIGNEXE"], "NOVOALIGNEXE");
+
 			// Directly return the .sam file created from novoalign
 			outputSam, alignedLog, tmpalignedLog = novoalign_logged(vars["NOVOALIGNEXE"], reads[0], reads[1],
 					      vars["NOVOALIGNINDEX"], [vars["NOVOALIGNPARAMS"]], threads, rgheader, sampleName
@@ -96,12 +101,16 @@ import generalfunctions.general;
 	else {
 		// Use the specified alignment tool
 		if (vars["ALIGNERTOOL"] == "BWAMEM") {
+			exec_check(vars["BWAEXE"], "BWAEXE");
+
 			// Directly return the .sam file created from bwa_mem
 			outputSam, alignedLog, tmpalignedLog = bwa_mem_logged(vars["BWAEXE"], reads[0], vars["BWAINDEX"],
 					    [vars["BWAMEMPARAMS"]], threads, rgheader, sampleName
 					   ) ; 
 		}
 		else { // Novoalign is the default aligner								 
+			exec_check(vars["NOVOALIGNEXE"], "NOVOALIGNEXE");
+
 			// Directly return the .sam file created from novoalign
 			outputSam, alignedLog, tmpalignedLog = novoalign_logged(vars["NOVOALIGNEXE"], reads[0], 
 					      vars["NOVOALIGNINDEX"], [vars["NOVOALIGNPARAMS"]], threads, rgheader, sampleName 
@@ -152,11 +161,11 @@ import generalfunctions.general;
 		    vars["ALIGN_STAGE"] == "e"
 		   ) {
 
-			mkdir(LogDir);
-			mkdir(AlignDir);
-			mkdir(RealignDir);
-			mkdir(VarcallDir);
-			mkdir(tmpLogDir);
+			mkdir(LogDir) =>
+			mkdir(AlignDir) =>
+			mkdir(RealignDir) => /* Explicit waiting added to try to fix mkdir collision: Issue #22 */
+			mkdir(VarcallDir) =>
+			void mkdirSignal = mkdir(tmpLogDir);
 
 			/*****
 			Create output file handles
@@ -185,13 +194,16 @@ import generalfunctions.general;
 				string read1 = sampleInfo[1];
 				string read2 = sampleInfo[2];
 				string reads[] = [read1, read2];
-				alignedsam = alignReads(vars, sampleName, reads, rgheader);
+				wait (mkdirSignal) {
+					alignedsam = alignReads(vars, sampleName, reads, rgheader);
+				}
 			}
 			else {
 				string read1 = sampleInfo[1];
 				string reads[] = [read1];
-				alignedsam = alignReads(vars, sampleName, reads, rgheader);
-
+				wait (mkdirSignal) {
+					alignedsam = alignReads(vars, sampleName, reads, rgheader);
+				}
 			}
 
 			int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
