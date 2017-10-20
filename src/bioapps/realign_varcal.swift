@@ -11,7 +11,7 @@ app (void signal) samtools_index(string samtoolsdir, file inputFilename) {
 app (file outputfile, file outLog) RealignerTargetCreator (string javaexe, string java_heap, string gatkjar, string reference,
    file inputFile, int thr, string known[]
   ) {
-	javaexe strcat("-Xmx", java_heap) "-jar" gatkjar
+	javaexe java_heap "-jar" gatkjar
 	"-T" "RealignerTargetCreator"
 	"-R" reference
 	"-I" inputFile known
@@ -24,7 +24,7 @@ app (file outputfile, file outLog) RealignerTargetCreator (string javaexe, strin
 app (file outputfile, file outLog) IndelRealigner (string javaexe, string java_heap, string gatkjar, string reference,
 				   file inputFile, string known[], file intervals
 				  ) {
-	javaexe strcat("-Xmx", java_heap) "-jar" gatkjar
+	javaexe java_heap "-jar" gatkjar
 	"-T" "IndelRealigner"
 	"-R" reference
 	"-I" inputFile known 
@@ -37,7 +37,7 @@ app (file outputfile, file outLog) IndelRealigner (string javaexe, string java_h
 app (file outputfile, file outLog) BaseRecalibrator (string javaexe, string java_heap, string gatkjar, string reference,
 				     file inputFile, int thr, string knownindels[], string dbsnp
 				    ) {
-	javaexe strcat("-Xmx", java_heap) "-jar" gatkjar
+	javaexe java_heap "-jar" gatkjar
 	"-T" "BaseRecalibrator"
 	"-R" reference
 	"-I" inputFile
@@ -51,7 +51,7 @@ app (file outputfile, file outLog) BaseRecalibrator (string javaexe, string java
 app (file outputfile, file outLog) PrintReads (string javaexe, string java_heap, string gatkjar, string reference,
 			       file inputFile, int thr, file recalreport
 			      ) {
-	javaexe strcat("-Xmx", java_heap) "-jar" gatkjar
+	javaexe java_heap "-jar" gatkjar
 	"-T" "PrintReads"
 	"-R" reference
 	"-I" inputFile
@@ -67,7 +67,7 @@ app (file outputfile, file outLog) PrintReads (string javaexe, string java_heap,
 app (file outputfile, file outLog) HaplotypeCaller(string javaexe, string java_heap, string gatkjar, string reference,
 						   file inputFile, string dbsnp, int thr, int ploidy, string chr
 						  ) {
-	javaexe strcat("-Xmx", java_heap) "-jar" gatkjar
+	javaexe java_heap "-jar" gatkjar
 	"-T" "HaplotypeCaller"
 	"-R" reference
 	"-I" inputFile
@@ -95,7 +95,7 @@ app (file outputfile, file outLog) HaplotypeCaller(string javaexe, string java_h
 app (file outputfile, file outLog) HaplotypeCaller(string javaexe, string java_heap, string gatkjar, string reference,      
 						   file inputFile, string dbsnp, int thr	  
 						  ) {			     
-	javaexe strcat("-Xmx", java_heap) "-jar" gatkjar			    
+	javaexe java_heap "-jar" gatkjar			    
 	"-T" "HaplotypeCaller"				     
 	"-R" reference     
 	"-I" inputFile     
