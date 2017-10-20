@@ -249,7 +249,7 @@ VariantCalling (for split chromosome path)
 	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
 	file tmphaploLog < strcat(tmpLogDir, sampleName, ".", chr, "_HaplotypeCaller.log")>;
 
-	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged (vars["JAVAEXE"], var["JAVA_MAX_HEAP_SIZE"], vars["GATKJAR"],	     
+	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged (vars["JAVAEXE"], vars["JAVA_MAX_HEAP_SIZE"], vars["GATKJAR"],	     
 					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),   
 					   inputBam,					
 					   strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),       
