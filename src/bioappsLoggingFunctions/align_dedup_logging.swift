@@ -73,9 +73,9 @@ import bioapps.align_dedup;
 	tmptimeLog = write(strcat(startmsg, endmsg));
 }
 
-(file outputfile, file outLog, file metricsfile, file tmptimeLog) picard_logged (string javaexe, string picardjar, string tmpdir, file inputFile, string sampleName){
+(file outputfile, file outLog, file metricsfile, file tmptimeLog) picard_logged (string javaexe, string java_heap, string picardjar, string tmpdir, file inputFile, string sampleName){
 	string startmsg = strcat(sampleName, "\t", "ALL", "\t", "PICARD start", "\t", toString(clock_seconds()), "\n") =>
-	outputfile, outLog, metricsfile = picard (javaexe, picardjar, tmpdir, inputFile) =>
+	outputfile, outLog, metricsfile = picard (javaexe, strcat("-Xmx", java_heap), picardjar, tmpdir, inputFile) =>
 	string endmsg = strcat(sampleName, "\t", "ALL", "\t", "PICARD end", "\t", toString(clock_seconds()), "\n") =>
 	tmptimeLog = write(strcat(startmsg, endmsg));
 }
