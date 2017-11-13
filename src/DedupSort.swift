@@ -127,6 +127,7 @@ import generalfunctions.general;
 									   );
 		// Mark Duplicates
 		dedupSortedBam, picardLog, metricsfile, tmppicardLog = picard_logged(vars["JAVAEXE"],
+										     vars["JAVA_MAX_HEAP_SIZE"], 
 										     vars["PICARDJAR"],
 										     vars["TMPDIR"],
 										     alignedsortedbam,

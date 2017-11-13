@@ -54,6 +54,7 @@ INDELDIR=<name of the directory within REFGENOMEDIR that contains a vcf file for
 OMNI=<name of the omni variants file. Example: 1000G_omni2.5.hg19.sites.vcf in the GATK bundle 2.8>
 
 # Tool paths
+JAVA_MAX_HEAP_SIZE=16g
 JAVAEXE=/path/to/bin/java
 BWAEXE=/path/to/bin/bwa
 PICARDJAR=/path/to/picard-tools-X.Y.Z/picard.jar
