@@ -55,7 +55,7 @@ import bioapps.realign_varcal;
 						   file inputFile, string dbsnp, int thr, int ploidy, string chr, string sampleName
 						  ) {
 	string startmsg = strcat(sampleName, "\t", chr, "\t", "HaplotypeCaller start", "\t", toString(clock_seconds()), "VCRun\n") =>
-	outputfile, outLog = HaplotypeCaller (javaexe, java_heap, gatkjar, reference, inputFile, dbsnp, thr, ploidy, chr) =>
+	outputfile, outLog = HaplotypeCaller (javaexe, strcat("-Xmx", java_heap), gatkjar, reference, inputFile, dbsnp, thr, ploidy, chr) =>
 	string endmsg = strcat(sampleName, "\t", chr, "\t", "HaplotypeCaller end", "\t", toString(clock_seconds()), "VCRun\n") =>  
 	tmptimeLog = write(strcat(startmsg, endmsg));
 }
@@ -66,7 +66,7 @@ import bioapps.realign_varcal;
 						   file inputFile, string dbsnp, int thr, string sampleName 
 						  ) {
 	string startmsg = strcat(sampleName, "\t", "ALL", "\t", "HaplotypeCaller start", "\t", toString(clock_seconds()), "VCRun\n") =>
-	outputfile, outLog = HaplotypeCaller (javaexe, java_heap, gatkjar, reference, inputFile, dbsnp, thr) =>
+	outputfile, outLog = HaplotypeCaller (javaexe, strcat("-Xmx", java_heap), gatkjar, reference, inputFile, dbsnp, thr) =>
 	string endmsg = strcat(sampleName, "\t", "ALL", "\t", "HaplotypeCaller end", "\t", toString(clock_seconds()), "VCRun\n") =>  
 	tmptimeLog = write(strcat(startmsg, endmsg));
 }
