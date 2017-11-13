@@ -197,6 +197,9 @@ Full path of the appropriate executable file
 
 **`PICARDJAR`; `GATKJAR`** Full path of the appropriate jar file
 
+**`JAVA_MAX_HEAP_SIZE`** Memory area to store all java objects. This should be tuned in relevance to the speed and frequency at which garbage collection should occur. With larger input size, larger heap is needed. 
+
+
 ### Running the Pipeline
 
 #### Requesting Resources from the Job Scheduler
