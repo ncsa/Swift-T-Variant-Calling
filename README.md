@@ -270,7 +270,9 @@ If one is wanting to run a 4 sample job with `PROGRAMS_PER_NODE` set to 2 in the
 
 ##### Cray System (Like Blue Waters at UIUC)
 
-This call of the workflow requires many more environmental variables and no submission script: Swift-T itself will create and submit a job.
+Configuring the workflow to work in this environment requires a little more effort.
+
+###### Create and run the automated qsub builder
 
 Additionally, to get the right number of processes on each node to make the `PROGRAMS_PER_NODE` work correctly, one must set `PPN= PROGRAMS_PER_NODE` and `NODES` to `#samples/PROGRAMS_PER_NODE + (1 or more)`, because at least one process must be a Swift-T SERVER. If one wanted to try running 4 samples on 2 nodes but with `PPN=3` to make room for the processes that need to be SERVER types, one of the nodes may end up with 3 of your WORKER processes running simultaneously, which may lead to memory problems when Novosort is called.
 
@@ -300,7 +302,25 @@ $ swift-t -m cray -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/compi
 /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile
 ```
 
-Swift-T will create and run the qsub command for you.
+Swift-T will create and run the qsub command for you, however, this one will fail if running on two or more nodes.
+
+To fix this, we need to add a few variables to the submission file that was just created.
+
+The file will be located in the `log_directory` directory and will be called `turbine-cray.sh`
+
+Add the following items to the file:
+
+`#PBS -V`
+
+\# Note: Make sure this directory is created before running the workflow, and make sure it is not just '/tmp' 
+
+```
+export SWIFT_TMP=/path/to/tmp_dir
+export TMPDIR=/path/to/tmp_dir
+export TMP=/path/to/tmp_dir
+```
+
+Now, if you submit the turbine-cray.sh script with qsub, it should work
 
 ##### SLURM based Systems (Like Biocluster2 at UIUC, and Stampede1/Stampede2 on XSEDE)
 
