@@ -12,14 +12,13 @@ if (!require(plotly)){
 
 ######
 dashboardPage(
-  dashboardHeader(title = "Swift/T Genomic Variant Calling workflow provenance trace"),
+  dashboardHeader(title = "Swift/T Genomic Variant Calling workflow provenance trace",
+                  titleWidth = 450),
   dashboardSidebar(
     fileInput(inputId = "logfile",
               label = "Timing trace file:",
               buttonLabel = "Upload ... "
     ),
-    
-    br(),
     
     strong('Zoom-in options:'),
     
@@ -43,8 +42,7 @@ dashboardPage(
                 choices = c(''),
                 selected = "NULL"
     ),
-    
-    br(),
+
     br(),
     img(src = 'logo_uofk.png', height = 50, width = 50),
     img(src = 'logo_uiuc.png', height = 50, width = 50),
@@ -66,9 +64,30 @@ dashboardPage(
                          # span(textOutput('textSample'), style = "color:blue"),
                          # p('and Chromosome'),
                          # span(textOutput('textChromosome'), style = "color:blue"),
-                         br(),
-                         plotlyOutput("PlotlyProvenancePlot"),
-                         downloadButton('saveFig', 'Save figure', style="float:right")
+                    
+                         box( status = "primary",  solidHeader = TRUE,
+                              br(),
+                              br(),
+                              plotlyOutput("PlotlyProvenancePlot"),
+                              downloadButton('saveFig', 'Save figure', style="float:right"),
+                              width = 9),
+                         
+                         h4("Selet the proper timeline resolution (x-axis) in either:"),
+                         # box(checkboxInput("daysRes", "Days", FALSE),
+                         #     sliderInput(inputId = "dayResValue",
+                         #                 label = NULL,
+                         #                 min = 1, max = 15, step = 1, value = 1), width = 3),
+                         box(solidHeader = TRUE,
+                             checkboxInput("hoursRes", "Hours", TRUE),
+                             sliderInput(inputId = "hourResValue",
+                                         label = NULL,
+                                         min = 1, max = 24, step = 1, value = 1), width = 3),
+                         box(solidHeader = TRUE,
+                             checkboxInput("minResol", "Minutes", FALSE),
+                             sliderInput(inputId = "minResValue",
+                                         label = NULL,
+                                         min = 1, max = 60, value = 30), width = 3)
+                         
                 ),
                 
                 tabPanel("Provenance Table", 
