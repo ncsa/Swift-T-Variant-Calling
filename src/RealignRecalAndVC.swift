@@ -128,17 +128,21 @@ Realignment
 	file intervals < strcat(prefix, ".realignTargetCreator.intervals") >;			   
 															
 	// The inputBam should be indexed before this function is called						
-	intervals, targetLog, tmptargetLog = RealignerTargetCreator_logged (var["JAVAEXE"], var["JAVA_MAX_HEAP_SIZE"], var["GATKJAR"],				 
-					   strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]),
-					   inputBam, threads, realparms, sampleName, chr 
-					  );									    
-	realignedbam, realignLog, tmprealignLog = IndelRealigner_logged (var["JAVAEXE"], var["JAVA_MAX_HEAP_SIZE"], var["GATKJAR"],				     
-				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]),			     
-				      inputBam, realparms, intervals, sampleName, chr 
-				     ) ; 
-
+	intervals, targetLog, tmptargetLog = RealignerTargetCreator_logged (var["JAVAEXE"],
+									    var["JAVA_MAX_HEAP_SIZE"],
+									    var["GATKJAR"], var["REFGENOME"],
+									    inputBam, threads, realparms,
+									    sampleName, chr 
+									   );
+	realignedbam, realignLog, tmprealignLog = IndelRealigner_logged (var["JAVAEXE"],
+									 var["JAVA_MAX_HEAP_SIZE"],
+									 var["GATKJAR"],
+									 var["REFGENOME"],			     
+									 inputBam, realparms, intervals,
+									 sampleName, chr 
+									);
 	checkBam(var, realignedbam);
-}			   
+}
 
 /************
 Recalibration
@@ -170,15 +174,21 @@ Recalibration
 	file tmpprintLog < strcat(tmpLogDir, sampleName, ".", chr, "_PrintReads.log")>;
   
 	// The inputBam should be indexed before this function is called
-	report, recalLog, tmprecalLog = BaseRecalibrator_logged (var["JAVAEXE"], var["JAVA_MAX_HEAP_SIZE"], var["GATKJAR"],
-				       strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
-				       threads, recalparmsindels,
-				       var["DBSNP"], sampleName, chr
-				      );
-	outBam, printLog, tmpprintLog = PrintReads_logged (var["JAVAEXE"], var["JAVA_MAX_HEAP_SIZE"], var["GATKJAR"],
-				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
-				      threads, report, sampleName, chr
-				     ); 
+	report, recalLog, tmprecalLog = BaseRecalibrator_logged (var["JAVAEXE"],
+								 var["JAVA_MAX_HEAP_SIZE"],
+								 var["GATKJAR"],
+								 var["REFGENOME"],
+								 inputBam,
+								 threads, recalparmsindels,
+								 var["DBSNP"], sampleName, chr
+								);
+	outBam, printLog, tmpprintLog = PrintReads_logged(var["JAVAEXE"],
+							  var["JAVA_MAX_HEAP_SIZE"],
+							  var["GATKJAR"],
+							  var["REFGENOME"],
+							  inputBam, threads, report,
+							  sampleName, chr
+							 );
 
 	checkBam(var, outBam);
 }
@@ -249,12 +259,15 @@ VariantCalling (for split chromosome path)
 	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
 	file tmphaploLog < strcat(tmpLogDir, sampleName, ".", chr, "_HaplotypeCaller.log")>;
 
-	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged (vars["JAVAEXE"], vars["JAVA_MAX_HEAP_SIZE"], vars["GATKJAR"],	     
-					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),   
-					   inputBam,					
-					   vars["DBSNP"],       
-					   threads, ploidy, chr, sampleName	       
-					  );
+	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged(vars["JAVAEXE"],
+							       vars["JAVA_MAX_HEAP_SIZE"],
+							       vars["GATKJAR"],	     
+							       vars["REFGENOME"],
+							       inputBam,				
+							       vars["DBSNP"],
+							       threads, ploidy,
+							       chr, sampleName	       
+							      );
 }
 
 /**********************************************
@@ -272,13 +285,14 @@ VariantCalling (for split chromosome path)
 	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
 	file tmphaploLog < strcat(tmpLogDir, sampleName, "_HaplotypeCaller.log")>;
 
-	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged (vars["JAVAEXE"], vars["JAVA_MAX_HEAP_SIZE"], 
-					   vars["GATKJAR"],
-					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
-					   inputBam,
-					   vars["DBSNP"],
-					   threads, sampleName
-					  );
+	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged(vars["JAVAEXE"],
+							       vars["JAVA_MAX_HEAP_SIZE"], 
+							       vars["GATKJAR"],
+							       vars["REFGENOME"],
+							       inputBam,
+							       vars["DBSNP"],
+							       threads, sampleName
+							      );
 }
 
 /***********************
