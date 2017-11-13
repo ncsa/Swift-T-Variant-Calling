@@ -171,19 +171,15 @@ This is set in bytes, so if you want to limit novosort to using 30 GB, one would
 
 **`DUP_CUTOFF`** The maximum percentage of reads that are marked as duplicates in a successful sample
 
-**`REFGENOMEDIR`** Directory in which the reference genome resides
+**`REFGENOME`** Full path to the reference genome (/path/to/example.fa)
 
-**`REFGENOME`** Name of the reference genome (name only; path should be relative to the REFGENOMEDIR)
-
-**`DBSNP`** 
-
-Name of the dbsnp vcf file (name only; path should be relative to the REFGENOMEDIR)
+**`DBSNP`** Full path to the dbsnp vcf file
 
 **`INDELDIR`** 
 
 Directory that contains the standard indel variant files used in the realignment/recalibration step
 
-(name only; path should be relative to the REFGENOMEDIR)
+(Full path to directory)
 
 Within the directory, the vcf files should be named with only the chromosome name in front and nothing else.
 
