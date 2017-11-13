@@ -307,9 +307,7 @@ VariantCalling (for split chromosome path)
 			**************************************/
 			// Temporary file
 			file recalfiles < strcat(vars["TMPDIR"], "/", sampleName, ".recal_foundfiles.txt") >;
-			recalfiles = find_files(strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"),
-						strcat("*", ".vcf")
-					       ) =>
+			recalfiles = find_files(strcat(vars["INDELDIR"], "/*", ".vcf")) =>
 			// Get the realign parameters
 			string recalparmsindels[] = split(
 				trim(replace_all(read(sed(recalfiles, "s/^/--knownSites /g")), "\n", " ", 0)), " "
@@ -404,8 +402,7 @@ VariantCalling (for split chromosome path)
 				file recalfiles < strcat(vars["TMPDIR"], "/", sampleName, ".", chr,
 							 ".recal_foundfiles.txt"
 							) >;
-				recalfiles = find_files(strcat(vars["REFGENOMEDIR"], "/", vars["INDELDIR"], "/"), 
-							strcat(chr, ".vcf" )// changed from strcat("*",chr, ".vcf")
+				recalfiles = find_files(strcat(vars["INDELDIR"], "/", chr, ".vcf" )// changed from strcat("*",chr, ".vcf")
 					       ) =>
 				// Get the realign parameters
 				string recalparmsindels[] = split(							      
