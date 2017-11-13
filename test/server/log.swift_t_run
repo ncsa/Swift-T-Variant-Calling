@@ -1,0 +1,1113 @@
+[0] ADLB_DEBUG_RANKS: rank: 0 nodename: bionet
+[1] ADLB_DEBUG_RANKS: rank: 1 nodename: bionet
+[2] ADLB_DEBUG_RANKS: rank: 2 nodename: bionet
+[3] ADLB_DEBUG_RANKS: rank: 3 nodename: bionet
+[4] ADLB_DEBUG_RANKS: rank: 4 nodename: bionet
+[5] ADLB_DEBUG_RANKS: rank: 5 nodename: bionet
+[0]    0.000 WORK TYPES: WORK
+[0]    0.000 WORKERS: 5 RANKS: 0 - 4
+[0]    0.000 SERVERS: 1 RANKS: 5 - 5
+[0]    0.000 WORK WORKERS: 5 RANKS: 0 - 4
+[0]    0.018 global: u:variables=<-1>
+[4]    0.019 function:swift:constants
+[1]    0.019 function:swift:constants
+[3]    0.019 function:swift:constants
+[2]    0.019 function:swift:constants
+[4]    0.019 allocated string: c:s_-1=<1>
+[1]    0.019 allocated string: c:s_-1=<2>
+[0]    0.019 function:swift:constants
+[3]    0.019 allocated string: c:s_-1=<3>
+[1]    0.019 store: <2>=""
+[2]    0.019 allocated string: c:s_-1=<4>
+[4]    0.019 store: <1>=""
+[1]    0.019 allocated string: c:s_BWAEXE=<7>
+[4]    0.019 allocated string: c:s_BWAEXE=<5>
+[4]    0.019 store: <5>="BWAEXE"
+[0]    0.019 allocated string: c:s_-1=<6>
+[1]    0.019 store: <7>="BWAEXE"
+[3]    0.019 store: <3>=""
+[2]    0.019 store: <4>=""
+[4]    0.019 allocated string: c:s_GATKJAR=<8>
+[4]    0.019 store: <8>="GATKJAR"
+[1]    0.019 allocated string: c:s_GATKJAR=<9>
+[1]    0.019 store: <9>="GATKJAR"
+[3]    0.019 allocated string: c:s_BWAEXE=<10>
+[3]    0.019 store: <10>="BWAEXE"
+[4]    0.019 allocated string: c:s_JAVAEXE=<11>
+[4]    0.019 store: <11>="JAVAEXE"
+[2]    0.019 allocated string: c:s_BWAEXE=<12>
+[2]    0.019 store: <12>="BWAEXE"
+[1]    0.019 allocated string: c:s_JAVAEXE=<13>
+[1]    0.019 store: <13>="JAVAEXE"
+[2]    0.019 allocated string: c:s_GATKJAR=<16>
+[2]    0.019 store: <16>="GATKJAR"
+[3]    0.019 allocated string: c:s_GATKJAR=<14>
+[3]    0.019 store: <14>="GATKJAR"
+[4]    0.019 allocated string: c:s_NOVOALIGNE=<15>
+[4]    0.019 store: <15>="NOVOALIGNEXE"
+[1]    0.019 allocated string: c:s_NOVOALIGNE=<17>
+[1]    0.019 store: <17>="NOVOALIGNEXE"
+[2]    0.019 allocated string: c:s_JAVAEXE=<20>
+[3]    0.019 allocated string: c:s_JAVAEXE=<18>
+[3]    0.019 store: <18>="JAVAEXE"
+[4]    0.019 allocated string: c:s_NOVOSORTEX=<19>
+[4]    0.019 store: <19>="NOVOSORTEXE"
+[0]    0.019 store: <6>=""
+[2]    0.019 store: <20>="JAVAEXE"
+[1]    0.019 allocated string: c:s_NOVOSORTEX=<21>
+[1]    0.019 store: <21>="NOVOSORTEXE"
+[3]    0.019 allocated string: c:s_NOVOALIGNE=<22>
+[3]    0.019 store: <22>="NOVOALIGNEXE"
+[4]    0.019 allocated string: c:s_PICARDJAR=<23>
+[4]    0.019 store: <23>="PICARDJAR"
+[2]    0.019 allocated string: c:s_NOVOALIGNE=<24>
+[1]    0.019 allocated string: c:s_PICARDJAR=<26>
+[1]    0.019 store: <26>="PICARDJAR"
+[2]    0.019 store: <24>="NOVOALIGNEXE"
+[3]    0.019 allocated string: c:s_NOVOSORTEX=<27>
+[3]    0.019 store: <27>="NOVOSORTEXE"
+[4]    0.019 allocated string: c:s_SAMBLASTER-1=<28>
+[4]    0.019 store: <28>="SAMBLASTEREXE"
+[0]    0.019 allocated string: c:s_BWAEXE=<25>
+[0]    0.019 store: <25>="BWAEXE"
+[2]    0.019 allocated string: c:s_NOVOSORTEX=<29>
+[2]    0.019 store: <29>="NOVOSORTEXE"
+[1]    0.019 allocated string: c:s_SAMBLASTER-1=<30>
+[1]    0.019 store: <30>="SAMBLASTEREXE"
+[3]    0.019 allocated string: c:s_PICARDJAR=<31>
+[3]    0.019 store: <31>="PICARDJAR"
+[4]    0.019 allocated string: c:s_SAMTOOLSEX=<32>
+[4]    0.019 store: <32>="SAMTOOLSEXE"
+[0]    0.019 allocated string: c:s_GATKJAR=<33>
+[2]    0.019 allocated string: c:s_PICARDJAR=<34>
+[2]    0.019 store: <34>="PICARDJAR"
+[0]    0.019 store: <33>="GATKJAR"
+[1]    0.019 allocated string: c:s_SAMTOOLSEX=<35>
+[1]    0.019 store: <35>="SAMTOOLSEXE"
+[3]    0.019 allocated string: c:s_SAMBLASTER-1=<36>
+[3]    0.019 store: <36>="SAMBLASTEREXE"
+[4]    0.019 allocated string: c:s__vcf-1=<37>
+[4]    0.019 store: <37>="*.vcf"
+[2]    0.019 allocated string: c:s_SAMBLASTER-1=<38>
+[2]    0.019 store: <38>="SAMBLASTEREXE"
+[0]    0.019 allocated string: c:s_JAVAEXE=<39>
+[1]    0.020 allocated string: c:s__vcf-1=<40>
+[1]    0.020 store: <40>="*.vcf"
+[0]    0.019 store: <39>="JAVAEXE"
+[2]    0.020 allocated string: c:s_SAMTOOLSEX=<43>
+[2]    0.020 store: <43>="SAMTOOLSEXE"
+[3]    0.020 allocated string: c:s_SAMTOOLSEX=<41>
+[3]    0.020 store: <41>="SAMTOOLSEXE"
+[4]    0.020 allocated string: c:s_sknownSite=<42>
+[4]    0.020 store: <42>="s/^/--knownSites /g"
+[1]    0.020 allocated string: c:s_sknownSite=<44>
+[1]    0.020 store: <44>="s/^/--knownSites /g"
+[3]    0.020 allocated string: c:s__vcf-1=<45>
+[3]    0.020 store: <45>="*.vcf"
+[0]    0.019 allocated string: c:s_NOVOALIGNE=<47>
+[2]    0.020 allocated string: c:s__vcf-1=<48>
+[2]    0.020 store: <48>="*.vcf"
+[4]    0.020 allocated string: c:s_sknown_g=<46>
+[4]    0.020 store: <46>="s/^/-known /g"
+[0]    0.019 store: <47>="NOVOALIGNEXE"
+[1]    0.020 allocated string: c:s_sknown_g=<49>
+[1]    0.020 store: <49>="s/^/-known /g"
+[3]    0.020 allocated string: c:s_sknownSite=<50>
+[3]    0.020 store: <50>="s/^/--knownSites /g"
+[2]    0.020 allocated string: c:s_sknownSite=<51>
+[2]    0.020 store: <51>="s/^/--knownSites /g"
+[0]    0.019 allocated string: c:s_NOVOSORTEX=<52>
+[3]    0.020 allocated string: c:s_sknown_g=<53>
+[3]    0.020 store: <53>="s/^/-known /g"
+[0]    0.019 store: <52>="NOVOSORTEXE"
+[2]    0.020 allocated string: c:s_sknown_g=<54>
+[2]    0.020 store: <54>="s/^/-known /g"
+[0]    0.019 allocated string: c:s_PICARDJAR=<55>
+[0]    0.019 store: <55>="PICARDJAR"
+[0]    0.019 allocated string: c:s_SAMBLASTER-1=<56>
+[0]    0.019 store: <56>="SAMBLASTEREXE"
+[0]    0.019 allocated string: c:s_SAMTOOLSEX=<57>
+[0]    0.019 store: <57>="SAMTOOLSEXE"
+[0]    0.019 allocated string: c:s__vcf-1=<58>
+[0]    0.019 store: <58>="*.vcf"
+[0]    0.019 allocated string: c:s_sknownSite=<59>
+[0]    0.019 store: <59>="s/^/--knownSites /g"
+[0]    0.019 allocated string: c:s_sknown_g=<60>
+[0]    0.019 store: <60>="s/^/-known /g"
+[0]    0.020 function: __entry
+[0]    0.020 allocated t:7=<61> t:9=<62> t:10=<63> t:22=<64> t:56=<65>
+[0]    0.020 allocated u:sampleLines=<66> u:alignBams=<67>
+[0]    0.020 argv(runfile) => /home/aeahmed/swift_T_project/src/Swift-T-Variant-Calling/test/server/WGS_chr1_30X_E0.005.runfile
+[0]    0.020 store: <71>=path /home/aeahmed/swift_T_project/src/Swift-T-Variant-Calling/test/server/WGS_chr1_30X_E0.005.runfile
+[0]    0.021 creating reference: <-1>["SAMPLEINFORMATION"] <- <*61> (string)
+[0]    0.021 creating reference: <-1>["OUTPUTDIR"] <- <*63> (string)
+[0]    0.021 creating reference: <-1>["ALIGN_STAGE"] <- <*65> (string)
+[0]    0.021 allocated u:keyValuePair=<74>
+[0]    0.021 build_rec: <74>
+[0]    0.021 insert: <-1>["SAMPLEINFORMATION"]=</home/aeahmed/swift_T_project/src/Swift-T-Variant-Calling/test/server/WGS_chr1_30X_E0.005.sampleinfo>
+[0]    0.021 allocated u:keyValuePair=<75>
+[0]    0.021 build_rec: <75>
+[0]    0.021 insert: <-1>["OUTPUTDIR"]=</home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis>
+[0]    0.021 allocated u:keyValuePair=<76>
+[0]    0.021 build_rec: <76>
+[0]    0.021 insert: <-1>["TMPDIR"]=</home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis>
+[0]    0.022 allocated u:keyValuePair=<77>
+[0]    0.022 build_rec: <77>
+[0]    0.022 insert: <-1>["REALIGN"]=<NO>
+[0]    0.022 allocated u:keyValuePair=<78>
+[0]    0.022 build_rec: <78>
+[0]    0.022 insert: <-1>["SPLIT"]=<YES>
+[0]    0.022 allocated u:keyValuePair=<79>
+[0]    0.022 build_rec: <79>
+[0]    0.022 insert: <-1>["EXIT_ON_ERROR"]=<YES>
+[0]    0.022 allocated u:keyValuePair=<80>
+[0]    0.022 build_rec: <80>
+[0]    0.022 insert: <-1>["PROGRAMS_PER_NODE"]=<2>
+[0]    0.022 allocated u:keyValuePair=<81>
+[0]    0.022 build_rec: <81>
+[0]    0.022 insert: <-1>["CORES_PER_NODE"]=<10>
+[0]    0.022 allocated u:keyValuePair=<82>
+[0]    0.022 build_rec: <82>
+[0]    0.022 insert: <-1>["ALIGN_STAGE"]=<Y>
+[0]    0.022 allocated u:keyValuePair=<83>
+[0]    0.022 build_rec: <83>
+[0]    0.022 insert: <-1>["DEDUP_SORT_STAGE"]=<Y>
+[0]    0.022 allocated u:keyValuePair=<84>
+[0]    0.022 build_rec: <84>
+[0]    0.022 insert: <-1>["CHR_SPLIT_STAGE"]=<Y>
+[0]    0.022 allocated u:keyValuePair=<85>
+[0]    0.022 build_rec: <85>
+[0]    0.022 insert: <-1>["VC_STAGE"]=<Y>
+[0]    0.022 allocated u:keyValuePair=<86>
+[0]    0.022 build_rec: <86>
+[0]    0.022 insert: <-1>["COMBINE_VARIANT_STAGE"]=<Y>
+[0]    0.022 allocated u:keyValuePair=<87>
+[0]    0.022 build_rec: <87>
+[0]    0.022 insert: <-1>["JOINT_GENOTYPING_STAGE"]=<Y>
+[0]    0.022 allocated u:keyValuePair=<88>
+[0]    0.022 build_rec: <88>
+[0]    0.022 insert: <-1>["PAIRED"]=<YES>
+[0]    0.023 allocated u:keyValuePair=<89>
+[0]    0.023 build_rec: <89>
+[0]    0.023 insert: <-1>["SAMPLELB"]=<synthetic>
+[0]    0.023 allocated u:keyValuePair=<90>
+[0]    0.023 build_rec: <90>
+[0]    0.023 insert: <-1>["SAMPLEPL"]=<ILLUMINA>
+[0]    0.023 allocated u:keyValuePair=<91>
+[0]    0.023 build_rec: <91>
+[0]    0.023 insert: <-1>["SAMPLECN"]=<synthetic>
+[0]    0.023 allocated u:keyValuePair=<92>
+[0]    0.023 build_rec: <92>
+[0]    0.023 insert: <-1>["ALIGNERTOOL"]=<BWAMEM>
+[0]    0.023 allocated u:keyValuePair=<93>
+[0]    0.023 build_rec: <93>
+[0]    0.023 insert: <-1>["MARKDUPLICATESTOOL"]=<PICARD>
+[0]    0.023 allocated u:keyValuePair=<94>
+[0]    0.023 build_rec: <94>
+[0]    0.023 insert: <-1>["CHRNAMES"]=<chr1>
+[0]    0.023 allocated u:keyValuePair=<95>
+[0]    0.023 build_rec: <95>
+[0]    0.023 insert: <-1>["BWAINDEX"]=</home/mirrors/gatk-bundle/2.8/hg19/ucsc.hg19.fasta>
+[0]    0.023 allocated u:keyValuePair=<96>
+[0]    0.023 build_rec: <96>
+[0]    0.023 insert: <-1>["BWAMEMPARAMS"]=<-k 32 -I 300,30>
+[0]    0.023 allocated u:keyValuePair=<97>
+[0]    0.023 build_rec: <97>
+[0]    0.023 insert: <-1>["NOVOALIGNINDEX"]=</home/mirrors/gatk-bundle/2.8/hg19/ucsc.hg19.nix>
+[0]    0.023 allocated u:keyValuePair=<98>
+[0]    0.023 build_rec: <98>
+[0]    0.023 insert: <-1>["NOVOSORT_MEMLIMIT"]=<3000000000>
+[0]    0.023 allocated u:keyValuePair=<99>
+[0]    0.023 build_rec: <99>
+[0]    0.023 insert: <-1>["MAP_CUTOFF"]=<90>
+[0]    0.023 allocated u:keyValuePair=<100>
+[0]    0.023 build_rec: <100>
+[0]    0.023 insert: <-1>["DUP_CUTOFF"]=<10>
+[0]    0.023 allocated u:keyValuePair=<101>
+[0]    0.023 build_rec: <101>
+[0]    0.024 insert: <-1>["REFGENOMEDIR"]=</home/mirrors/gatk-bundle/2.8/hg19/>
+[0]    0.024 allocated u:keyValuePair=<102>
+[0]    0.024 build_rec: <102>
+[0]    0.024 insert: <-1>["REFGENOME"]=<ucsc.hg19.fasta>
+[0]    0.024 allocated u:keyValuePair=<103>
+[0]    0.024 build_rec: <103>
+[0]    0.024 insert: <-1>["DBSNP"]=<dbsnp_138.hg19.vcf>
+[0]    0.024 allocated u:keyValuePair=<104>
+[0]    0.024 build_rec: <104>
+[0]    0.024 insert: <-1>["INDELDIR"]=<IndelsByChr>
+[0]    0.024 allocated u:keyValuePair=<105>
+[0]    0.024 build_rec: <105>
+[0]    0.024 insert: <-1>["OMNI"]=<1000G_omni2.5.hg19.sites.vcf>
+[0]    0.024 allocated u:keyValuePair=<106>
+[0]    0.024 build_rec: <106>
+[0]    0.024 insert: <-1>["JAVAEXE"]=</usr/src/java/jdk1.8.0_91/bin/java>
+[0]    0.024 allocated u:keyValuePair=<107>
+[0]    0.024 build_rec: <107>
+[0]    0.024 insert: <-1>["BWAEXE"]=</usr/src/bwa/bwa-0.7.15/bwa>
+[0]    0.024 allocated u:keyValuePair=<108>
+[0]    0.024 build_rec: <108>
+[0]    0.024 insert: <-1>["SAMBLASTEREXE"]=</usr/src/samblaster/samblaster-0.1.22/samblaster>
+[0]    0.024 allocated u:keyValuePair=<109>
+[0]    0.024 build_rec: <109>
+[0]    0.024 insert: <-1>["PICARDJAR"]=</usr/src/picard-tools/picard-tools-2.6.0/picard.jar>
+[0]    0.024 allocated u:keyValuePair=<110>
+[0]    0.024 build_rec: <110>
+[0]    0.024 insert: <-1>["GATKJAR"]=</usr/src/gatk/gatk-3.6/GenomeAnalysisTK.jar>
+[0]    0.024 allocated u:keyValuePair=<111>
+[0]    0.024 build_rec: <111>
+[0]    0.024 insert: <-1>["SAMTOOLSEXE"]=</usr/src/samtools/samtools-1.3.1/bin/samtools>
+[0]    0.024 allocated u:keyValuePair=<112>
+[0]    0.024 build_rec: <112>
+[0]    0.024 insert: <-1>["NOVOALIGNEXE"]=</usr/src/novocraft/novocraft-3.06.04/novoalign>
+[0]    0.024 allocated u:keyValuePair=<113>
+[0]    0.024 build_rec: <113>
+[0]    0.024 insert: <-1>["NOVOSORTEXE"]=</usr/src/novocraft/novocraft-3.06.04/novosort>
+[0]    0.024 rule: <67> => __entry-call_foreign-size 67
+[0]    0.024 rule: <63> => __entry-optmerged 63 64 65 62 WGS_chr1_30X_E0.005.runfile 67 {file 71 is_mapped 0} {file 73 is_mapped 1} {file 68 is_mapped 1} {file 69 is_mapped 1} {file 72 is_mapped 0} 66 {file 70 is_mapped 1}
+[0]    0.024 rule: <65> => __entry-optmerged-3 63 65 62 67 {file 69 is_mapped 1} {file 70 is_mapped 1}
+[0]    0.024 rule: <61> => __entry-optmerged-31 63 64 61 {file 68 is_mapped 1} {file 72 is_mapped 0} 66
+[4]    0.025 store: <62>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/docs/Failures.log"
+[1]    0.025 allocated u:dedupSortedBams=<114> t:77=<115> t:42:6=<116> t:46:6=<117> t:50:6=<118>
+[1]    0.025 allocated t:54:6=<119> t:18:6=<120>
+[2]    0.025 allocated t:32=<121>
+[1]    0.025 creating reference: <-1>["DEDUP_SORT_STAGE"] <- <*115> (string)
+[2]    0.025 exec: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis {}
+[1]    0.025 rule: <67> => dedupSortRun-foreach-wait1 63 120 116 117 118 119 67 114 {file 69 is_mapped 1}
+[3]    0.025 store: <72>=path /home/aeahmed/swift_T_project/src/Swift-T-Variant-Calling/test/server/WGS_chr1_30X_E0.005.sampleinfo
+[1]    0.025 rule: <114> => __entry-call_foreign-size-1 114
+[1]    0.025 rule: <115> => __entry-optmerged-14 63 120 116 117 118 119 115 62 114 {file 69 is_mapped 1} {file 70 is_mapped 1}
+[4]    0.025 store: <116>=0
+[2]    0.025 shell: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis 
+[4]    0.025 store: <117>=0
+[4]    0.025 store: <118>=0
+[4]    0.025 store: <119>=0
+[4]    0.025 allocated t:93=<122>
+[4]    0.025 creating reference: <-1>["SPLIT"] <- <*122> (string)
+[4]    0.025 rule: <122> => __entry-optmerged-15 63 62 122 114 {file 69 is_mapped 1} {file 70 is_mapped 1}
+[4]    0.025 store: <120>=1
+[3]    0.026 build_rec: <66>
+[3]    0.026 rule: <63> => __entry-async_op-strcat-28 63 64 WGS_chr1_30X_E0.005.sampleinfo {file 68 is_mapped 1}
+[1]    0.026 store: <64>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/docs/WGS_chr1_30X_E0.005.sampleinfo"
+[0]    0.026 allocated u:splitBams=<123> t:115=<124> t:1:4=<125> t:2:4=<126> t:5:4=<127>
+[0]    0.026 allocated t:52:4=<128> t:56:4=<129> t:60:4=<130> t:64:4=<131> t:28:4=<132>
+[0]    0.026 creating reference: <-1>["CHR_SPLIT_STAGE"] <- <*124> (string)
+[0]    0.026 creating reference: <-1>["SAMTOOLSEXE"] <- <*126> (string)
+[0]    0.026 creating reference: <-1>["CHRNAMES"] <- <*127> (string)
+[0]    0.026 rule: <127> => __entry-call_foreign-split-3 63 132 126 128 129 127 130 131 62 114 {file 69 is_mapped 1} 123
+[4]    0.026 function: exec_check
+[4]    0.026 store: <125>=1
+[0]    0.026 rule: <124> => __entry-optmerged-16 63 124 132 128 129 130 131 {file 69 is_mapped 1} 123 {file 70 is_mapped 1}
+[4]    0.026 rule: <126> <57> => file_exists-argwait-2 {126} {57}
+[3]    0.027 rule: <114> => splitByChrRun-foreach-wait2 63 132 126 128 129 130 131 62 chr1 0 114 {file 69 is_mapped 1} 123
+[4]    0.027 assert passed: (The executable: 
+[4] 	/usr/src/samtools/samtools-1.3.1/bin/samtools
+[4]  Referred to by the parameter: 
+[4] 	SAMTOOLSEXEis not properly specified in your runfile!)
+[1]    0.027 store: <128>=0
+[1]    0.027 store: <129>=0
+[1]    0.027 store: <130>=0
+[1]    0.027 store: <131>=0
+[1]    0.028 allocated u:splitVCFs=<133> t:138=<134> t:30:3=<135> t:34:3=<136> t:38:3=<137>
+[1]    0.028 allocated t:42:3=<138> t:46:3=<139> t:6:3=<140>
+[1]    0.028 creating reference: <-1>["VC_STAGE"] <- <*134> (string)
+[1]    0.028 rule: <133> => __entry-chain10 133 {file 70 is_mapped 1}
+[1]    0.028 rule: <134> => __entry-optmerged-17 63 134 135 136 137 138 139 140 {file 69 is_mapped 1} 133 {file 70 is_mapped 1}
+[1]    0.028 rule: <123> => __entry-optmerged-22 63 135 136 137 138 139 140 {file 69 is_mapped 1} 123 133
+[1]    0.028 store: <132>=1
+[0]    0.028 store: <135>=0
+[0]    0.028 store: <136>=0
+[0]    0.028 store: <137>=0
+[0]    0.028 store: <138>=0
+[0]    0.028 store: <139>=0
+[0]    0.028 allocated u:VCF_list=<141> t:161=<142> t:1:2=<143> t:2:2=<144> t:5:2=<145>
+[0]    0.028 allocated t:6:2=<146> t:57:2=<147> t:61:2=<148> t:65:2=<149> t:69:2=<150>
+[0]    0.028 allocated t:33:2=<151>
+[0]    0.028 creating reference: <-1>["COMBINE_VARIANT_STAGE"] <- <*142> (string)
+[0]    0.028 creating reference: <-1>["GATKJAR"] <- <*144> (string)
+[0]    0.028 creating reference: <-1>["JAVAEXE"] <- <*146> (string)
+[4]    0.028 function: exec_check
+[4]    0.028 store: <143>=1
+[0]    0.028 rule: <141> => __entry-chain11 141 {file 70 is_mapped 1}
+[4]    0.028 rule: <144> <33> => file_exists-argwait-2 {144} {33}
+[0]    0.028 rule: <142> => __entry-optmerged-18 141 142 151 147 148 149 150 {file 70 is_mapped 1}
+[0]    0.028 rule: <133> => __entry-optmerged-19 141 63 144 151 147 148 149 150 146 {file 69 is_mapped 1} 133
+[3]    0.028 function: exec_check
+[0]    0.028 store: <140>=1
+[3]    0.028 store: <145>=1
+[3]    0.028 rule: <146> <39> => file_exists-argwait-2 {146} {39}
+[4]    0.028 store: <147>=0
+[4]    0.028 store: <148>=0
+[4]    0.028 store: <149>=0
+[4]    0.028 store: <150>=0
+[4]    0.028 rule: <141> => __entry-call_foreign-size-2 141
+[4]    0.028 store: <151>=1
+[3]    0.028 function: jointGenotypingRun
+[3]    0.028 allocated t:10=<152>
+[1]    0.028 assert passed: (The executable: 
+[1] 	/usr/src/gatk/gatk-3.6/GenomeAnalysisTK.jar
+[1]  Referred to by the parameter: 
+[1] 	GATKJARis not properly specified in your runfile!)
+[3]    0.028 creating reference: <-1>["JOINT_GENOTYPING_STAGE"] <- <*152> (string)
+[0]    0.028 assert passed: (The executable: 
+[0] 	/usr/src/java/jdk1.8.0_91/bin/java
+[0]  Referred to by the parameter: 
+[0] 	JAVAEXEis not properly specified in your runfile!)
+[3]    0.028 rule: <152> => jointGenotypingRun-optmerged 152 {141} {file 70 is_mapped 1} {-1}
+[4]    0.029 allocated t:45=<153> t:46=<154> t:49=<155> t:50=<156> t:54=<157>
+[4]    0.029 allocated t:66=<158> u:variantSampleArray=<159> t:79=<160> t:80=<161> t:83=<162>
+[4]    0.029 allocated t:85=<163>
+[4]    0.029 creating reference: <-1>["GATKJAR"] <- <*154> (string)
+[4]    0.029 creating reference: <-1>["JAVAEXE"] <- <*156> (string)
+[4]    0.029 creating reference: <-1>["OUTPUTDIR"] <- <*157> (string)
+[4]    0.029 creating reference: <-1>["TMPDIR"] <- <*158> (string)
+[1]    0.029 function: exec_check
+[1]    0.029 store: <153>=1
+[4]    0.029 creating reference: <-1>["REFGENOMEDIR"] <- <*161> (string)
+[4]    0.029 creating reference: <-1>["REFGENOME"] <- <*162> (string)
+[0]    0.029 function: exec_check
+[0]    0.029 store: <155>=1
+[4]    0.029 creating reference: <-1>["CORES_PER_NODE"] <- <*163> (string)
+[1]    0.029 rule: <154> <8> => file_exists-argwait-2 {154} {8}
+[0]    0.029 rule: <156> <11> => file_exists-argwait-2 {156} {11}
+[1]    0.029 assert passed: (The executable: 
+[1] 	/usr/src/java/jdk1.8.0_91/bin/java
+[1]  Referred to by the parameter: 
+[1] 	JAVAEXEis not properly specified in your runfile!)
+[4]    0.029 rule: <141> => jointGenotypingRun-foreach-wait1 {141} 159
+[4]    0.029 rule: <158> => jointGenotypingRun-async_op-strcat 158 {file 166 is_mapped 1}
+[4]    0.029 rule: <161> <162> => jointGenotypingRun-async_op-strcat-1 160 161 162
+[4]    0.029 rule: <157> => jointGenotypingRun-optmerged-1 154 156 157 160 163 {ALL	ALL	GenotypeGVCFs start	1507686054
+[4] } {file 165 is_mapped 1} {file 164 is_mapped 1} {file 70 is_mapped 1} {file 166 is_mapped 1} 159
+[1]    0.029 store: <160>="/home/mirrors/gatk-bundle/2.8/hg19//ucsc.hg19.fasta"
+[4]    0.029 rule: <154> <156> <160> <163> <159> => GenotypeGVCFs_logged-chain1 154 156 160 163 {ALL	ALL	GenotypeGVCFs start	1507686054
+[4] } /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/jointVCFs/jointVCFcalled.vcf /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/jointVCFs/jointVCF.log {file 165 is_mapped 1} {file 164 is_mapped 1} {file 70 is_mapped 1} {file 166 is_mapped 1} 159
+[0]    0.029 exec: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/jointVCFs {}
+[3]    0.029 assert passed: (The executable: 
+[3] 	/usr/src/gatk/gatk-3.6/GenomeAnalysisTK.jar
+[3]  Referred to by the parameter: 
+[3] 	GATKJARis not properly specified in your runfile!)
+[0]    0.029 shell: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/jointVCFs 
+[0]    0.035 shell command duration: 0.005
+[2]    0.035 shell command duration: 0.010
+[2]    0.035 creating reference: <-1>["TMPDIR"] <- <*121> (string)
+[2]    0.035 rule: <121> => mkdir-app-leaf1-1 64 121 65 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/docs/Timing.log /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/docs/WGS_chr1_30X_E0.005.runfile /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/docs/Failures.log 67 {file 71 is_mapped 0} {file 73 is_mapped 1} {file 68 is_mapped 1} {file 69 is_mapped 1} {file 72 is_mapped 0} 66 {file 70 is_mapped 1}
+[1]    0.035 exec: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis {}
+[1]    0.036 shell: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis 
+[1]    0.038 shell command duration: 0.002
+[4]    0.038 exec: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs {}
+[4]    0.041 shell: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs 
+[4]    0.043 shell command duration: 0.002
+[3]    0.043 exec: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/docs {}
+[3]    0.043 shell: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/docs 
+[3]    0.045 shell command duration: 0.001
+[1]    0.046 rule: <64> <72> => __entry-chain7 64 121 65 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis 67 {file 68 is_mapped 1} {file 69 is_mapped 1} {file 72 is_mapped 0} 66 {file 70 is_mapped 1}
+[4]    0.046 allocated t:3:1=<167> t:5:1=<168> t:7:1=<169> t:56:1=<170> t:60:1=<171>
+[4]    0.046 allocated t:64:1=<172> t:68:1=<173> t:32:1=<174>
+[4]    0.047 creating reference: <-1>["SAMPLELB"] <- <*167> (string)
+[4]    0.047 creating reference: <-1>["SAMPLEPL"] <- <*168> (string)
+[4]    0.047 creating reference: <-1>["SAMPLECN"] <- <*169> (string)
+[4]    0.047 rule: <67> => __entry-chain9 121 67 {file 70 is_mapped 1}
+[4]    0.047 rule: <66> => alignRun-foreach-wait1 174 167 170 168 171 172 173 169 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/ 67 {file 69 is_mapped 1} 66
+[4]    0.047 rule: <65> => __entry-optmerged-2 174 65 170 171 172 173
+[0]    0.047 store: <170>=0
+[0]    0.047 store: <171>=0
+[0]    0.047 store: <172>=0
+[0]    0.047 store: <173>=0
+[0]    0.047 store: <174>=1
+[3]    0.047 allocated u:sampleInfo=<175> u:sampleName=<176> u:rgheader=<177>
+[3]    0.047 build_rec: <175>
+[3]    0.047 store: <176>="WGS_chr1_30X_E0.005"
+[3]    0.047 rule: <167> <168> <169> => __entry-async_op-sprintf 167 168 169 WGS_chr1_30X_E0.005 177
+[3]    0.047 rule: <174> <170> <171> <172> <173> => __entry-async_op-or 174 170 171 172 173 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/ /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/ /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/ /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/ WGS_chr1_30X_E0.005 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis 0 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/ 67 {file 69 is_mapped 1} 177 175 176
+[2]    0.048 store: <177>="@RG\tID:WGS_chr1_30X_E0.005\tLB:synthetic\tPL:ILLUMINA\tPU:WGS_chr1_30X_E0.005\tSM:WGS_chr1_30X_E0.005\tCN:synthetic"
+[1]    0.048 allocated u:mkdirSignal=<178> t:96:1=<179> u:threads=<180> t:140:1=<181> t:143:1=<182>
+[1]    0.048 allocated t:145:1=<183> t:147:1=<184> t:149:1=<185>
+[1]    0.048 array_kv_build: <184> 1 elems, write_decr 1
+[1]    0.048 creating reference: <-1>["PAIRED"] <- <*179> (string)
+[1]    0.048 creating reference: <-1>["CORES_PER_NODE"] <- <*181> (string)
+[1]    0.048 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*182> (string)
+[1]    0.048 creating reference: <-1>["SAMTOOLSEXE"] <- <*183> (string)
+[1]    0.048 rule: <186> => f:checkBam 185 -1 {file 186 is_mapped 1}
+[1]    0.048 rule: <185> => alignRun-if3 185 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/ WGS_chr1_30X_E0.005 0 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.noDedups.bam 67 {file 186 is_mapped 1} {file 69 is_mapped 1}
+[1]    0.048 rule: <181> <182> => __entry-async_op-parse_int 181 182 180
+[4]    0.048 function: samtools_view_logged
+[4]    0.048 rule: <176> => samtools_view_logged-async_op-strcat 1507686054 184 {file 187 is_mapped 1} {file 186 is_mapped 1} 176 183 180 {file 188 is_mapped 1}
+[1]    0.048 rule: <179> => __entry-optmerged-1 179 {file 187 is_mapped 1} 178 177 175 176
+[0]    0.048 exec: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/ {}
+[0]    0.048 shell: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/ 
+[3]    0.048 store: <180>=5
+[2]    0.048 function: samtools_view
+[2]    0.048 rule: <184> <187> <183> <180> => samtools_view-app-leaf1 {187.0} {186.0} 1 {184} {file 187 is_mapped 1} {file 186 is_mapped 1} {183} {180}
+[2]    0.048 rule: <186> => samtools_view_logged-chain2 WGS_chr1_30X_E0.005 {WGS_chr1_30X_E0.005	ALL	SAMTOOLS_VIEW start	1507686054
+[2] } {file 186 is_mapped 1} {file 188 is_mapped 1}
+[4]    0.048 allocated u:reads=<189>
+[4]    0.048 array_kv_build: <189> 2 elems, write_decr 1
+[4]    0.048 rule: <178> => alignRun-explicit-wait1 {file 187 is_mapped 1} 178 189 177 176
+[0]    0.049 shell command duration: 0.001
+[1]    0.050 exec: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/ {}
+[1]    0.050 shell: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/ 
+[1]    0.054 shell command duration: 0.004
+[3]    0.054 exec: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/ {}
+[3]    0.054 shell: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/ 
+[3]    0.056 shell command duration: 0.001
+[2]    0.056 exec: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/ {}
+[2]    0.056 shell: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/ 
+[2]    0.058 shell command duration: 0.001
+[4]    0.058 exec: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/ {}
+[4]    0.058 shell: mkdir -p /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/ 
+[4]    0.060 shell command duration: 0.003
+[4]    0.060 store: <178>=void
+[1]    0.060 function: alignReads
+[1]    0.061 allocated u:threads=<190> t:2=<191> t:5=<192> t:7=<193> t:11=<194>
+[1]    0.061 allocated t:13=<195> t:29=<196>
+[1]    0.061 creating reference: <-1>["CORES_PER_NODE"] <- <*191> (string)
+[1]    0.061 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*192> (string)
+[1]    0.061 creating reference: <-1>["OUTPUTDIR"] <- <*193> (string)
+[1]    0.061 creating reference: <-1>["TMPDIR"] <- <*195> (string)
+[1]    0.061 creating reference: <-1>["PAIRED"] <- <*196> (string)
+[1]    0.061 rule: <191> <192> => alignReads-async_op-parse_int 191 192 190
+[1]    0.061 rule: <196> => alignReads-optmerged 194 196 {file 197 is_mapped 1} {file 187 is_mapped 1} {189} {177} {176} 190 {file 198 is_mapped 1} {-1}
+[1]    0.061 rule: <176> => alignReads-optmerged-1 194 195 193 {file 197 is_mapped 1} {176} {file 198 is_mapped 1}
+[4]    0.061 rule: <193> => alignReads-async_op-strcat-4 194 193 {file 197 is_mapped 1} {176}
+[4]    0.061 rule: <195> => alignReads-async_op-strcat-5 195 {176} {file 198 is_mapped 1}
+[3]    0.061 store: <190>=5
+[0]    0.060 store: <194>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005_Alignment.log"
+[2]    0.061 allocated t:73=<199>
+[2]    0.061 creating reference: <-1>["ALIGNERTOOL"] <- <*199> (string)
+[2]    0.061 rule: <199> => alignReads-async_op-eq_string 194 199 {file 197 is_mapped 1} {file 187 is_mapped 1} {189} {177} {176} 190 {file 198 is_mapped 1} {-1}
+[4]    0.061 allocated t:76=<200> t:77=<201> t:84=<202> t:86=<203> t:87=<204>
+[4]    0.061 creating reference: <-1>["BWAEXE"] <- <*201> (string)
+[3]    0.061 function: exec_check
+[4]    0.061 creating reference: <-1>["BWAINDEX"] <- <*202> (string)
+[3]    0.061 store: <200>=1
+[4]    0.061 creating reference: <-1>["BWAMEMPARAMS"] <- <*204> (string)
+[3]    0.061 rule: <201> <5> => file_exists-argwait-2 {201} {5}
+[4]    0.061 rule: <204> => alignReads-arr_copy_in_imm 203 204
+[4]    0.061 rule: <176> => alignReads-async_op-strcat 189.0 189.1 194 201 202 203 1507686054 {file 197 is_mapped 1} {file 187 is_mapped 1} 177 176 190 {file 198 is_mapped 1}
+[1]    0.061 array_kv_build: <203> 1 elems, write_decr 1
+[0]    0.061 assert passed: (The executable: 
+[0] 	/usr/src/bwa/bwa-0.7.15/bwa
+[0]  Referred to by the parameter: 
+[0] 	BWAEXEis not properly specified in your runfile!)
+[2]    0.062 rule: <194> <201> <202> <203> <177> <190> => bwa_mem-app-leaf1 189.0 189.1 187.0 194 201 202 203 0 1 WGS_chr1_30X_E0.005 {WGS_chr1_30X_E0.005	ALL	BWAMEM start	1507686054
+[2] } {file 197 is_mapped 1} {file 187 is_mapped 1} 177 190 {file 198 is_mapped 1}
+[3]    0.062 exec: __v:bwaexe mem -M {-k 32 -I 300,30} -t 5 -R {@RG\tID:WGS_chr1_30X_E0.005\tLB:synthetic\tPL:ILLUMINA\tPU:WGS_chr1_30X_E0.005\tSM:WGS_chr1_30X_E0.005\tCN:synthetic} /home/mirrors/gatk-bundle/2.8/hg19/ucsc.hg19.fasta /home/aeahmed/swift_T_project/data/WGS_chr1_30X_E0.005/WGS_chr1_30X_E0.005_merged_read1.fq /home/aeahmed/swift_T_project/data/WGS_chr1_30X_E0.005/WGS_chr1_30X_E0.005_merged_read2.fq {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/align/WGS_chr1_30X_E0.005.noDedups.sam stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005_Alignment.log}
+[3]    0.062 shell: /usr/src/bwa/bwa-0.7.15/bwa mem -M {-k 32 -I 300,30} -t 5 -R {@RG\tID:WGS_chr1_30X_E0.005\tLB:synthetic\tPL:ILLUMINA\tPU:WGS_chr1_30X_E0.005\tSM:WGS_chr1_30X_E0.005\tCN:synthetic} /home/mirrors/gatk-bundle/2.8/hg19/ucsc.hg19.fasta /home/aeahmed/swift_T_project/data/WGS_chr1_30X_E0.005/WGS_chr1_30X_E0.005_merged_read1.fq /home/aeahmed/swift_T_project/data/WGS_chr1_30X_E0.005/WGS_chr1_30X_E0.005_merged_read2.fq {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/align/WGS_chr1_30X_E0.005.noDedups.sam} {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005_Alignment.log}
+[3] 2617.540 shell command duration: 2617.479
+[3] 2617.541 rule: => alignReads-call_foreign-write {WGS_chr1_30X_E0.005	ALL	BWAMEM start	1507686054
+[3] WGS_chr1_30X_E0.005	ALL	BWAMEM end	1507688672
+[3] } 198.0 {file 198 is_mapped 1}
+[4] 2617.541 exec: __v:samtoolsexe view -@ 5 -bS /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/align/WGS_chr1_30X_E0.005.noDedups.sam -u {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.noDedups.bam}
+[4] 2617.541 shell: /usr/src/samtools/samtools-1.3.1/bin/samtools view -@ 5 -bS /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/align/WGS_chr1_30X_E0.005.noDedups.sam -u {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.noDedups.bam}
+[4] 2746.531 shell command duration: 128.989
+[0] 2746.531 function: checkBam
+[0] 2746.531 allocated t:1=<205>
+[0] 2746.531 creating reference: <-1>["SAMTOOLSEXE"] <- <*205> (string)
+[2] 2746.532 rule: => samtools_view_logged-call_foreign-write 1 {WGS_chr1_30X_E0.005	ALL	SAMTOOLS_VIEW start	1507686054
+[2] WGS_chr1_30X_E0.005	ALL	SAMTOOLS_VIEW end	1507688801
+[2] } 188.0 {file 188 is_mapped 1}
+[0] 2746.532 rule: <205> => samtools_view2-argwait 205 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.noDedups.bam 185
+[1] 2754.425 store: <185>=1
+[4] 2754.425 insert: <67>["0"]=<file 186 is_mapped 1>
+[2] 2754.425 assert passed: (FAILURE: The aligned bam array was empty: none of the samples finished properly)
+[1] 2754.426 function: logging
+[1] 2754.426 allocated u:tmplogs=<206> t:1=<207> t:3=<208> t:4=<209>
+[1] 2754.426 rule: <207> => glob_body 206 207
+[0] 2754.425 allocated u:sampleName:5=<211> u:LogDir:1=<212> u:AlignDir:1=<213>
+[0] 2754.426 rule: => basename_string-argwait 213 212 {186.0} 63 211
+[0] 2754.426 rule: <120> <116> <117> <118> <119> => __entry-async_op-or-1 213 212 120 116 117 118 119 0 114 {file 69 is_mapped 1} {file 186 is_mapped 1} 211
+[4] 2754.426 store: <211>="WGS_chr1_30X_E0.005"
+[4] 2754.426 rule: <63> => __entry-optmerged-4 213 212 63 WGS_chr1_30X_E0.005
+[2] 2754.426 store: <212>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/"
+[2] 2754.427 store: <213>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/"
+[1] 2754.427 rule: <121> => logging-async_op-strcat 207 {121}
+[1] 2754.427 rule: <206> => logging-optmerged /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_faoZA8.turbine 208 209 {file 210 is_mapped 0} 206
+[0] 2754.426 function: append
+[0] 2754.426 rule: <70> => append-call_foreign-read {214.0} {file 70 is_mapped 1} {file 214 is_mapped 1} {209} {208}
+[4] 2754.427 store: <207>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/*"
+[0] 2754.426 rule: => append-copy_in_filename {70.0} {file 214 is_mapped 1}
+[3] 2754.427 allocated t:58:6=<215> t:59:6=<216> t:63:6=<217> t:65:6=<218> u:threads:4=<219>
+[3] 2754.427 allocated t:2:10=<220> t:5:10=<221> u:tmpLogDir:4=<222> t:19:9=<223>
+[1] 2754.427 glob: /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/*
+[3] 2754.427 creating reference: <-1>["TMPDIR"] <- <*216> (string)
+[3] 2754.427 creating reference: <-1>["CORES_PER_NODE"] <- <*220> (string)
+[3] 2754.427 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*221> (string)
+[1] 2754.427 allocated file: <206>[0]=<226>
+[3] 2754.427 creating reference: <-1>["MARKDUPLICATESTOOL"] <- <*223> (string)
+[3] 2754.427 rule: <220> <221> => __entry-async_op-parse_int-1 220 221 219
+[3] 2754.427 rule: <216> => __entry-async_op-strcat 216 222
+[3] 2754.427 rule: <223> => __entry-async_op-eq_string 213 212 223 215 216 217 {file 224 is_mapped 0} {file 225 is_mapped 1} {file 186 is_mapped 1} 211 219 222
+[3] 2754.427 rule: <211> => __entry-optmerged-13 213 212 215 216 217 218 0 {file 224 is_mapped 0} 114 {file 225 is_mapped 1} {file 69 is_mapped 1} 211
+[1] 2754.427 insert: <206>["0"]=<file 226 is_mapped 1>
+[1] 2754.427 allocated file: <206>[1]=<227>
+[4] 2754.427 store: <222>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/"
+[1] 2754.427 insert: <206>["1"]=<file 227 is_mapped 1>
+[2] 2754.427 rule: <209> => append-async_op-strcat {Sample	 Chromosome	App status	Time
+[2] } 214.0 {file 214 is_mapped 1} 209 208
+[1] 2754.427 rule: <208> => logging-chain1 208 206
+[4] 2754.427 rule: <216> => __entry-async_op-strcat-5 215 216 WGS_chr1_30X_E0.005 {file 224 is_mapped 0}
+[4] 2754.427 rule: <213> => __entry-async_op-strcat-6 213 212 215 217 218 0 WGS_chr1_30X_E0.005 {file 224 is_mapped 0} 114 {file 225 is_mapped 1} {file 69 is_mapped 1}
+[0] 2754.427 store: <219>=5
+[2] 2754.427 store: <215>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/align/WGS_chr1_30X_E0.005.noDedups.sam"
+[4] 2754.427 store: <217>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam"
+[4] 2754.427 rule: <225> => f:checkBam 218 -1 {file 225 is_mapped 1}
+[4] 2754.427 rule: <218> => dedupSortRun-if2 212 215 218 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/ 0 WGS_chr1_30X_E0.005 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam {file 224 is_mapped 0} 114 {file 225 is_mapped 1} {file 69 is_mapped 1}
+[2] 2754.427 store: <224>=path /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/align/WGS_chr1_30X_E0.005.noDedups.sam
+[1] 2754.427 allocated void: <228>
+[1] 2754.427 rule: <206> => container_deep_wait_iterate 206 0 -1 1 file_ref 228
+[1] 2754.427 rule: <228> => deeprule_action "228" "cat-app-leaf1 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_faoZA8.turbine 209 {file 210 is_mapped 0} 206"
+[0] 2754.427 Container <206> deep closed
+[0] 2754.427 store: <228>=void
+[4] 2754.428 deeprule_finish: 228
+[3] 2754.428 allocated t:68:7=<229> t:69:7=<230> t:72:7=<231> t:73:7=<232> t:76:7=<233>
+[3] 2754.428 allocated t:77:7=<234> t:84:7=<235> t:96:7=<236> t:97:7=<237> t:98:7=<238>
+[3] 2754.428 array_kv_build: <236> 0 elems, write_decr 1
+[3] 2754.428 creating reference: <-1>["PICARDJAR"] <- <*230> (string)
+[3] 2754.428 creating reference: <-1>["JAVAEXE"] <- <*232> (string)
+[3] 2754.428 creating reference: <-1>["NOVOSORTEXE"] <- <*234> (string)
+[4] 2754.428 exec: cat /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_Alignment.log /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_samtools.log {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_faoZA8.turbine}
+[1] 2754.428 function: exec_check
+[1] 2754.428 store: <231>=1
+[2] 2754.428 function: exec_check
+[3] 2754.428 creating reference: <-1>["NOVOSORT_MEMLIMIT"] <- <*238> (string)
+[0] 2754.428 function: exec_check
+[0] 2754.428 store: <233>=1
+[1] 2754.428 rule: <232> <18> => file_exists-argwait-2 {232} {18}
+[3] 2754.428 rule: <238> => __entry-async_op-parse_int-3 237 238
+[0] 2754.428 rule: <234> <27> => file_exists-argwait-2 {234} {27}
+[3] 2754.428 rule: <211> => __entry-optmerged-8 213 212 216 217 230 232 235 1507688809 {file 240 is_mapped 1} {file 225 is_mapped 1} {file 239 is_mapped 1} {file 241 is_mapped 1} 211 {file 242 is_mapped 1} 222 {file 243 is_mapped 1} {file 244 is_mapped 1}
+[2] 2754.428 store: <229>=1
+[4] 2754.428 shell: cat /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_Alignment.log /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_samtools.log {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_faoZA8.turbine}
+[1] 2754.428 function: novosort_logged
+[2] 2754.428 rule: <230> <31> => file_exists-argwait-2 {230} {31}
+[1] 2754.428 rule: <211> => novosort_logged-async_op-strcat 1507688809 {file 186 is_mapped 1} 237 234 {file 242 is_mapped 1} {file 240 is_mapped 1} 211 236 219 216 {file 243 is_mapped 1}
+[0] 2754.428 assert passed: (The executable: 
+[0] 	/usr/src/java/jdk1.8.0_91/bin/java
+[0]  Referred to by the parameter: 
+[0] 	JAVAEXEis not properly specified in your runfile!)
+[1] 2754.428 assert passed: (The executable: 
+[1] 	/usr/src/novocraft/novocraft-3.06.04/novosort
+[1]  Referred to by the parameter: 
+[1] 	NOVOSORTEXEis not properly specified in your runfile!)
+[2] 2754.428 rule: <213> => __entry-optmerged-9 213 216 217 230 232 235 WGS_chr1_30X_E0.005 {WGS_chr1_30X_E0.005	ALL	PICARD start	1507688809
+[2] } {file 240 is_mapped 1} {file 225 is_mapped 1} {file 239 is_mapped 1} {file 241 is_mapped 1} {file 244 is_mapped 1}
+[3] 2754.428 assert passed: (The executable: 
+[3] 	/usr/src/picard-tools/picard-tools-2.6.0/picard.jar
+[3]  Referred to by the parameter: 
+[3] 	PICARDJARis not properly specified in your runfile!)
+[2] 2754.428 rule: <222> => __entry-optmerged-10 WGS_chr1_30X_E0.005 222 {file 243 is_mapped 1} {file 244 is_mapped 1}
+[2] 2754.428 rule: <212> => __entry-optmerged-11 212 235 WGS_chr1_30X_E0.005 {file 241 is_mapped 1} {file 242 is_mapped 1}
+[3] 2754.428 store: <237>=3000000000
+[0] 2754.428 rule: <186> <237> <234> <236> <219> <216> => novosort-app-leaf1 186.0 242.0 240.0 1 1 WGS_chr1_30X_E0.005 {WGS_chr1_30X_E0.005	ALL	NOVOSORT start	1507688809
+[0] } {file 186 is_mapped 1} 237 234 {file 242 is_mapped 1} {file 240 is_mapped 1} 236 219 216 {file 243 is_mapped 1}
+[1] 2754.428 rule: <216> <217> <230> <232> <235> <240> => picard_logged-chain1 216 217 230 232 235 WGS_chr1_30X_E0.005 {WGS_chr1_30X_E0.005	ALL	PICARD start	1507688809
+[1] } /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.picard.metrics /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.noDedups.sorted.bam {file 240 is_mapped 1} {file 225 is_mapped 1} {file 239 is_mapped 1} {file 241 is_mapped 1} {file 244 is_mapped 1}
+[2] 2754.428 store: <235>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005_PicardDedup.log"
+[3] 2754.429 exec: __v:novosortexe --index -m 3000000000 --tmpdir /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis --threads 5 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.noDedups.bam -o /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.noDedups.sorted.bam {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005_Sort.log}
+[3] 2754.429 shell: /usr/src/novocraft/novocraft-3.06.04/novosort --index -m 3000000000 --tmpdir /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis --threads 5 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.noDedups.bam -o /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.noDedups.sorted.bam {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005_Sort.log}
+[4] 2754.429 shell command duration: 0.002
+[4] 2754.429 store: <210>=path /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_faoZA8.turbine
+[4] 2754.429 store: <209>="WGS_chr1_30X_E0.005	ALL	BWAMEM start	1507686054
+[4] WGS_chr1_30X_E0.005	ALL	BWAMEM end	1507688672
+[4] WGS_chr1_30X_E0.005	ALL	SAMTOOLS_VIEW start	1507686054
+[4] WGS_chr1_30X_E0.005	ALL	SAMTOOLS_VIEW end	1507688801
+[4] "
+[0] 2754.429 store: <208>=1
+[1] 2754.430 rule: <226> => rm-app-leaf1-1 {226.0} {file 226 is_mapped 1}
+[1] 2754.430 rule: <227> => rm-app-leaf1-1 {227.0} {file 227 is_mapped 1}
+[2] 2754.430 exec: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_Alignment.log {}
+[4] 2754.430 exec: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_samtools.log {}
+[2] 2754.430 shell: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_Alignment.log 
+[4] 2754.430 shell: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_samtools.log 
+[4] 2754.431 shell command duration: 0.001
+[2] 2754.432 shell command duration: 0.001
+[3] 4128.965 shell command duration: 1374.536
+[3] 4128.965 rule: => novosort_logged-call_foreign-write 1 {WGS_chr1_30X_E0.005	ALL	NOVOSORT start	1507688809
+[3] WGS_chr1_30X_E0.005	ALL	NOVOSORT end	1507690183
+[3] } 243.0 {file 243 is_mapped 1}
+[0] 4128.965 exec: __v:javaexe:1 -Xmx16g -jar /usr/src/picard-tools/picard-tools-2.6.0/picard.jar MarkDuplicates INPUT= /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.noDedups.sorted.bam OUTPUT= /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam METRICS_FILE= /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.picard.metrics TMP_DIR= /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis ASSUME_SORTED=true MAX_RECORDS_IN_RAM=null CREATE_INDEX=true VALIDATION_STRINGENCY=SILENT {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005_PicardDedup.log}
+[0] 4128.965 shell: /usr/src/java/jdk1.8.0_91/bin/java -Xmx16g -jar /usr/src/picard-tools/picard-tools-2.6.0/picard.jar MarkDuplicates INPUT= /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.noDedups.sorted.bam OUTPUT= /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam METRICS_FILE= /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.picard.metrics TMP_DIR= /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis ASSUME_SORTED=true MAX_RECORDS_IN_RAM=null CREATE_INDEX=true VALIDATION_STRINGENCY=SILENT {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005_PicardDedup.log}
+[0] 5777.304 shell command duration: 1648.339
+[0] 5777.305 rule: => __entry-call_foreign-write-1 {WGS_chr1_30X_E0.005	ALL	PICARD start	1507688809
+[0] WGS_chr1_30X_E0.005	ALL	PICARD end	1507691832
+[0] } 244.0 {file 244 is_mapped 1}
+[4] 5777.305 function: checkBam
+[4] 5777.305 allocated t:1=<245>
+[4] 5777.305 creating reference: <-1>["SAMTOOLSEXE"] <- <*245> (string)
+[4] 5777.305 rule: <245> => samtools_view2-argwait 245 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam 218
+[3] 5850.774 store: <218>=1
+[1] 5850.774 allocated t:70:6=<246> u:stat=<247> t:72:6=<248> t:75:6=<249> t:78:6=<250>
+[1] 5850.774 allocated u:perc_mapped=<251> t:85:6=<252> u:cutoff_info=<253> t:91:6=<254> t:95:6=<255>
+[1] 5850.774 allocated t:99:5=<256> t:102:5=<257> t:103:5=<258>
+[1] 5850.774 creating reference: <-1>["SAMTOOLSEXE"] <- <*246> (string)
+[1] 5850.774 creating reference: <-1>["DUP_CUTOFF"] <- <*254> (string)
+[1] 5850.774 creating reference: <-1>["MAP_CUTOFF"] <- <*255> (string)
+[1] 5850.774 rule: <215> <224> => rm-app-leaf1 215 {file 224 is_mapped 0}
+[1] 5850.774 rule: => __entry-call_foreign-split {247.4} 248
+[1] 5850.775 rule: => __entry-call_foreign-split-1 {247.0} 249
+[1] 5850.775 rule: => __entry-call_foreign-split-2 {247.3} 250
+[1] 5850.775 rule: => __entry-async_op-parse_float 250.0 249.0 257 258 252 254 255 256 0 WGS_chr1_30X_E0.005 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam 253 114 {file 225 is_mapped 1} {file 69 is_mapped 1} 251
+[1] 5850.775 rule: => __entry-async_op-parse_float-2 {248.0} 252
+[1] 5850.775 rule: <254> => __entry-async_op-parse_float-3 254 256
+[1] 5850.775 rule: <255> => __entry-async_op-parse_float-4 258 255
+[1] 5850.775 rule: <246> => samtools_flagstat-app-leaf1 246 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam.flagstats {file 225 is_mapped 1} {file 259 is_mapped 1} 247
+[4] 5850.775 store: <256>=10
+[0] 5850.774 exec: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/align/WGS_chr1_30X_E0.005.noDedups.sam {}
+[0] 5850.774 shell: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/align/WGS_chr1_30X_E0.005.noDedups.sam 
+[2] 5850.775 store: <258>=90
+[3] 5850.775 exec: __v:samtoolsexe flagstat /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam.flagstats}
+[3] 5850.775 shell: /usr/src/samtools/samtools-1.3.1/bin/samtools flagstat /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam.flagstats}
+[0] 5853.345 shell command duration: 2.571
+[3] 5924.936 shell command duration: 74.160
+[3] 5924.936 build_rec: <247>
+[2] 5924.937 build_rec: <250>
+[4] 5924.937 build_rec: <248>
+[1] 5924.937 build_rec: <249>
+[3] 5924.937 rule: <252> => __entry-async_op-div_float 257 258 252 67592726 251
+[3] 5924.937 rule: => __entry-async_op-parse_float-1 250.0 257 254 255 256 0 WGS_chr1_30X_E0.005 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam 67592726 253 114 {file 225 is_mapped 1} {file 69 is_mapped 1} 251
+[0] 5924.937 store: <252>=6759252800.0
+[2] 5924.937 rule: <254> <255> <251> => __entry-async_op-strcat-7 254 255 0.07176511863125627 WGS_chr1_30X_E0.005 253 251
+[2] 5924.937 rule: <257> <256> => __entry-async_op-lt_float 257 256 0 0.07176511863125627 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam 253 114 {file 225 is_mapped 1} {file 69 is_mapped 1}
+[4] 5924.937 store: <251>=99.9997070690713
+[4] 5924.937 rule: <258> => __entry-async_op-gt_float 257 258 99.9997070690713
+[1] 5924.937 store: <253>="WGS_chr1_30X_E0.005	PercentDuplication=0.07176511863125627;DuplicationCutoff=10	PercentMapped=99.9997070690713;MappingCutoff=90"
+[3] 5924.937 store: <257>=1
+[0] 5924.937 insert: <114>["0"]=<file 225 is_mapped 1>
+[0] 5924.937 rule: <253> => __entry-async_op-strcat-8 253
+[4] 5924.938 assert passed: (FAILURE: The dedupped and sorted bam array was empty: none of the samples finished properly)
+[2] QC-Test SUCCESS: WGS_chr1_30X_E0.005	PercentDuplication=0.07176511863125627;DuplicationCutoff=10	PercentMapped=99.9997070690713;MappingCutoff=90
+[1] 5924.938 allocated u:outputName:1=<260>
+[1] 5924.938 rule: <63> => strlen-argwait 225.0 63 chr1 260
+[1] 5924.938 rule: <132> <128> <129> <130> <131> => __entry-async_op-or-2 132 126 128 129 130 131 62 chr1 0 0 {file 225 is_mapped 1} {file 69 is_mapped 1} 260 123
+[3] 5924.939 store: <260>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.bam"
+[0] 5924.939 allocated u:threads:1=<261> t:70:4=<262> t:73:4=<263> t:78:4=<264> t:81:4=<265>
+[0] 5924.939 creating reference: <-1>["CORES_PER_NODE"] <- <*262> (string)
+[0] 5924.939 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*263> (string)
+[0] 5924.939 array_kv_build: <264> 1 elems, write_decr 1
+[0] 5924.939 function: samtools_view
+[0] 5924.939 rule: <264> <225> <126> <261> => samtools_view-app-leaf1 {225.0} {266.0} 1 {264} {file 225 is_mapped 1} {file 266 is_mapped 1} {126} {261}
+[0] 5924.939 rule: <260> => __entry-copy_in_filename 265 62 0 0 {file 266 is_mapped 1} 260 123
+[0] 5924.939 rule: <262> <263> => __entry-async_op-parse_int-5 262 263 261
+[4] 5924.939 rule: <266> => f:checkBam 265 -1 {file 266 is_mapped 1}
+[4] 5924.939 rule: <265> => __entry-async_op-not 265 62 0 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.bam 0 {file 266 is_mapped 1} 123
+[2] 5924.939 store: <261>=4
+[1] 5924.940 exec: __v:samtoolsexe view -@ 4 -bS /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam chr1 {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.bam}
+[1] 5924.940 shell: /usr/src/samtools/samtools-1.3.1/bin/samtools view -@ 4 -bS /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/align/WGS_chr1_30X_E0.005.wDedups.sorted.bam chr1 {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.bam}
+[1] 6272.192 shell command duration: 347.252
+[3] 6272.192 function: checkBam
+[3] 6272.192 allocated t:1=<267>
+[3] 6272.192 creating reference: <-1>["SAMTOOLSEXE"] <- <*267> (string)
+[3] 6272.192 rule: <267> => samtools_view2-argwait 267 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.bam 265
+[0] 6344.001 store: <265>=1
+[4] 6344.002 creating nested container <123>[0]
+[4] 6344.002 insert: <268>["0"]=<file 266 is_mapped 1>
+[2] 6344.002 assert passed: (FAILURE: The split bam out array was empty: none of the samples were split properly)
+[2] 6344.002 rule: <268> => VCSplitRun-foreach-wait2 63 135 136 137 138 139 140 0 268 {file 69 is_mapped 1} 133
+[1] 6344.003 rule: <135> <136> <137> <138> <139> <140> => __entry-async_op-or-4 63 135 136 137 138 139 140 0 0 268 {file 69 is_mapped 1} {file 266 is_mapped 1} 133
+[3] 6344.004 allocated t:51:3=<269> u:pieces:2=<270> u:chr:2=<271> u:sampleName:2=<272> t:73:3=<273>
+[3] 6344.004 allocated u:recalparmsindels=<274> u:realparms=<275> t:78:3=<276> t:79:3=<277> t:82:3=<278>
+[3] 6344.004 allocated t:85:3=<279> u:threads:2=<280> t:2:8=<281> t:5:8=<282> u:ploidy=<283>
+[3] 6344.004 allocated t:16:8=<284> u:tmpLogDir:2=<285> t:25:7=<286> t:27:7=<287> t:29:7=<288>
+[3] 6344.004 allocated t:33:7=<289> t:35:7=<290> t:39:7=<291>
+[3] 6344.004 store: <269>=file 266 is_mapped 1
+[3] 6344.004 creating reference: <-1>["TMPDIR"] <- <*273> (string)
+[3] 6344.004 creating reference: <-1>["REFGENOMEDIR"] <- <*277> (string)
+[3] 6344.004 creating reference: <-1>["INDELDIR"] <- <*278> (string)
+[3] 6344.004 function: find_files
+[3] 6344.004 rule: <276> <279> => find_files-app-leaf1 {292.0} 1 {276} {file 292 is_mapped 1} {279}
+[3] 6344.004 creating reference: <-1>["CORES_PER_NODE"] <- <*281> (string)
+[3] 6344.004 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*282> (string)
+[3] 6344.004 creating reference: <-1>["JAVAEXE"] <- <*286> (string)
+[3] 6344.004 creating reference: <-1>["GATKJAR"] <- <*287> (string)
+[3] 6344.004 creating reference: <-1>["REFGENOME"] <- <*289> (string)
+[3] 6344.004 creating reference: <-1>["DBSNP"] <- <*291> (string)
+[3] 6344.004 rule: => basename_string-argwait-1 266.0 266.0 63 284 286 287 288 290 273 279 0 0 1507692398 271 {file 294 is_mapped 1} {file 295 is_mapped 1} 270 283 275 {file 292 is_mapped 1} {file 293 is_mapped 1} 274 272 133 280 285 {file 296 is_mapped 1}
+[3] 6344.004 rule: <281> <282> => __entry-async_op-parse_int-6 281 282 280
+[3] 6344.004 rule: <273> => __entry-async_op-strcat-20 273 285
+[3] 6344.004 rule: <277> => __entry-optmerged-24 288 289 290 291 276 277 278
+[1] 6344.005 store: <285>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/"
+[2] 6344.005 store: <280>=5
+[1] 6344.005 rule: <278> => __entry-async_op-strcat-21 276 278 /home/mirrors/gatk-bundle/2.8/hg19/
+[1] 6344.005 rule: <289> => __entry-async_op-strcat-22 288 289 /home/mirrors/gatk-bundle/2.8/hg19/
+[0] 6344.004 function: recalibrationWrapper
+[1] 6344.005 rule: <291> => __entry-async_op-strcat-23 290 291 /home/mirrors/gatk-bundle/2.8/hg19/
+[0] 6344.004 allocated t:1=<297> u:prefix=<298> t:19=<299>
+[1] 6344.005 store: <290>="/home/mirrors/gatk-bundle/2.8/hg19//dbsnp_138.hg19.vcf"
+[2] 6344.005 store: <288>="/home/mirrors/gatk-bundle/2.8/hg19//ucsc.hg19.fasta"
+[3] 6344.005 store: <276>="/home/mirrors/gatk-bundle/2.8/hg19//IndelsByChr/"
+[4] 6344.005 build_rec: <270>
+[0] 6344.004 creating reference: <-1>["OUTPUTDIR"] <- <*297> (string)
+[4] 6344.005 store: <271>="chr1"
+[0] 6344.004 creating reference: <-1>["REALIGN"] <- <*299> (string)
+[4] 6344.005 store: <279>="chr1.vcf"
+[0] 6344.004 rule: <297> <271> <272> => recalibrationWrapper-async_op-strcat 297 {271} 298 {272}
+[4] 6344.005 store: <283>=2
+[0] 6344.004 rule: <299> => recalibrationWrapper-optmerged 297 299 {271} {file 266 is_mapped 1} 298 {275} {file 293 is_mapped 1} {274} {272} {-1}
+[4] 6344.005 rule: => basename_string-argwait-2 266.0 63 284 286 287 288 290 273 chr1 0 4 0 1507692398 {file 294 is_mapped 1} {file 295 is_mapped 1} 283 275 {file 292 is_mapped 1} {file 293 is_mapped 1} 274 272 133 280 285 {file 296 is_mapped 1}
+[1] 6344.005 store: <272>="WGS_chr1_30X_E0.005"
+[1] trace: VCNoSplitRun	,WGS_chr1_30X_E0.005,	,chr1
+[1] 6344.005 rule: <63> => __entry-async_op-strcat-17 63 284 chr1 WGS_chr1_30X_E0.005 {file 295 is_mapped 1}
+[2] 6344.005 allocated t:66=<300> t:67=<301>
+[2] 6344.005 creating reference: <-1>["SAMTOOLSEXE"] <- <*301> (string)
+[1] 6344.005 rule: <273> => __entry-async_op-strcat-18 273 chr1 WGS_chr1_30X_E0.005 275 {file 292 is_mapped 1} 274
+[1] 6344.005 rule: <285> => __entry-async_op-strcat-19 chr1 WGS_chr1_30X_E0.005 285 {file 296 is_mapped 1}
+[1] 6344.005 rule: <63> => __entry-optmerged-23 63 284 286 287 288 290 chr1 0 0 WGS_chr1_30X_E0.005 {WGS_chr1_30X_E0.005	chr1	HaplotypeCaller start	1507692398
+[1] } {file 294 is_mapped 1} {file 295 is_mapped 1} 283 {file 293 is_mapped 1} 133 280 {file 296 is_mapped 1}
+[2] 6344.005 function: samtools_index
+[2] 6344.005 rule: <266> <301> => samtools_index-app-leaf1 {266.0} {file 266 is_mapped 1} {301} {300}
+[4] 6344.005 rule: <292> => VCSplitRun-chain1 275 {file 292 is_mapped 1} 274
+[2] 6344.005 rule: <300> => recalibrationWrapper-chain3 300 {271} {file 266 is_mapped 1} {file 293 is_mapped 1} {274} {272} {-1}
+[0] 6344.005 store: <284>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005.chr1_HaplotypeCaller.log"
+[3] 6344.005 store: <298>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1"
+[4] 6344.005 rule: <284> <286> <287> <288> <290> <293> <280> => HaplotypeCaller_logged-chain1 284 286 287 288 290 chr1 0 0 WGS_chr1_30X_E0.005 {WGS_chr1_30X_E0.005	chr1	HaplotypeCaller start	1507692398
+[4] } /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.chr1.bam /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.chr1.g.vcf {file 294 is_mapped 1} {file 295 is_mapped 1} 283 {file 293 is_mapped 1} 133 280 {file 296 is_mapped 1}
+[1] 6344.005 exec: __v:samtoolsdir index /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.bam {}
+[1] 6344.005 shell: /usr/src/samtools/samtools-1.3.1/bin/samtools index /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.bam 
+[2] 6344.005 exec: find /home/mirrors/gatk-bundle/2.8/hg19//IndelsByChr/ -name chr1.vcf {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/WGS_chr1_30X_E0.005.chr1.recal_foundfiles.txt}
+[2] 6344.005 shell: find /home/mirrors/gatk-bundle/2.8/hg19//IndelsByChr/ -name chr1.vcf {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/WGS_chr1_30X_E0.005.chr1.recal_foundfiles.txt}
+[2] 6344.008 shell command duration: 0.002
+[3] 6344.008 function: sed
+[3] 6344.009 rule: <50> <292> => sed-app-leaf1 {292.0} {302.0} 0 {50} {file 292 is_mapped 1} {file 302 is_mapped 0}
+[3] 6344.009 rule: <302> => __entry-call_foreign-read {file 302 is_mapped 0} 275 {file 292 is_mapped 1} 274
+[0] 6344.009 exec: sed {s/^/--knownSites /g} /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/WGS_chr1_30X_E0.005.chr1.recal_foundfiles.txt {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_dtxRTa.turbine}
+[0] 6344.009 shell: sed {s/^/--knownSites /g} /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/WGS_chr1_30X_E0.005.chr1.recal_foundfiles.txt {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_dtxRTa.turbine}
+[0] 6344.017 shell command duration: 0.009
+[0] 6344.017 store: <302>=path /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_dtxRTa.turbine
+[4] 6344.018 build_rec: <274>
+[4] 6344.018 rule: => VCSplitRun-chain2 275 {file 292 is_mapped 1}
+[2] 6344.018 function: sed
+[2] 6344.021 rule: <54> <292> => sed-app-leaf1 {292.0} {303.0} 0 {54} {file 292 is_mapped 1} {file 303 is_mapped 0}
+[2] 6344.021 rule: <303> => __entry-call_foreign-read-1 {file 303 is_mapped 0} 275
+[3] 6344.021 exec: sed {s/^/-known /g} /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/WGS_chr1_30X_E0.005.chr1.recal_foundfiles.txt {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_DAP1Nu.turbine}
+[3] 6344.021 shell: sed {s/^/-known /g} /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/WGS_chr1_30X_E0.005.chr1.recal_foundfiles.txt {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_DAP1Nu.turbine}
+[3] 6344.022 shell command duration: 0.001
+[3] 6344.022 store: <303>=path /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_DAP1Nu.turbine
+[0] 6344.022 build_rec: <275>
+[1] 6415.937 shell command duration: 71.931
+[1] 6415.937 store: <300>=void
+[2] 6415.937 function: recalibrateBam
+[2] 6415.938 allocated t:1=<304> t:2=<305> t:5=<306> t:6=<307> t:9=<308>
+[2] 6415.938 allocated u:threads=<309> t:26=<310> t:29=<311> t:31=<312> t:33=<313>
+[2] 6415.938 allocated t:35=<314> t:37=<315> t:50=<316> t:51=<317> t:54=<318>
+[2] 6415.938 allocated t:56=<319> t:60=<320> t:72=<321>
+[2] 6415.938 creating reference: <-1>["GATKJAR"] <- <*305> (string)
+[2] 6415.938 creating reference: <-1>["JAVAEXE"] <- <*307> (string)
+[2] 6415.938 creating reference: <-1>["OUTPUTDIR"] <- <*308> (string)
+[2] 6415.938 creating reference: <-1>["CORES_PER_NODE"] <- <*310> (string)
+[2] 6415.938 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*311> (string)
+[2] 6415.938 creating reference: <-1>["TMPDIR"] <- <*315> (string)
+[2] 6415.938 creating reference: <-1>["REFGENOMEDIR"] <- <*317> (string)
+[2] 6415.938 creating reference: <-1>["REFGENOME"] <- <*318> (string)
+[2] 6415.938 creating reference: <-1>["DBSNP"] <- <*320> (string)
+[2] 6415.938 rule: <310> <311> => recalibrateBam-async_op-parse_int 310 311 309
+[2] 6415.938 rule: <317> => recalibrateBam-optmerged 316 317 318 319 320
+[0] 6415.937 function: exec_check
+[2] 6415.938 rule: <271> <272> => recalibrateBam-optmerged-1 305 312 313 314 315 316 319 307 321 308 1507692470 1507692470 271 {file 266 is_mapped 1} {file 293 is_mapped 1} {file 323 is_mapped 1} {file 322 is_mapped 1} 274 {file 324 is_mapped 1} 272 309 {file 326 is_mapped 1} {file 325 is_mapped 1} -1
+[0] 6415.937 store: <306>=1
+[0] 6415.938 rule: <307> <20> => file_exists-argwait-2 {307} {20}
+[4] 6415.938 rule: <318> => recalibrateBam-async_op-strcat 316 318 /home/mirrors/gatk-bundle/2.8/hg19/
+[3] 6415.938 function: exec_check
+[4] 6415.938 rule: <320> => recalibrateBam-async_op-strcat-1 319 320 /home/mirrors/gatk-bundle/2.8/hg19/
+[1] 6415.938 store: <309>=5
+[2] 6415.938 rule: <315> => recalibrateBam-async_op-strcat-2 315 chr1 WGS_chr1_30X_E0.005 {file 326 is_mapped 1} {file 325 is_mapped 1}
+[2] 6415.938 rule: <308> => recalibrateBam-optmerged-2 266.0 293.0 305 312 313 314 316 319 307 321 308 chr1 1 WGS_chr1_30X_E0.005 {WGS_chr1_30X_E0.005	chr1	PrintReads start	1507692470
+[2] } {WGS_chr1_30X_E0.005	chr1	BaseRecalibrator start	1507692470
+[2] } {file 266 is_mapped 1} {file 293 is_mapped 1} {file 323 is_mapped 1} {file 322 is_mapped 1} 274 {file 324 is_mapped 1} 309 {file 326 is_mapped 1} {file 325 is_mapped 1} -1
+[3] 6415.938 store: <304>=1
+[4] 6415.938 store: <316>="/home/mirrors/gatk-bundle/2.8/hg19//ucsc.hg19.fasta"
+[4] 6415.938 store: <319>="/home/mirrors/gatk-bundle/2.8/hg19//dbsnp_138.hg19.vcf"
+[0] 6415.938 assert passed: (The executable: 
+[0] 	/usr/src/java/jdk1.8.0_91/bin/java
+[0]  Referred to by the parameter: 
+[0] 	JAVAEXEis not properly specified in your runfile!)
+[3] 6415.938 rule: <305> <16> => file_exists-argwait-2 {305} {16}
+[4] 6415.938 assert passed: (The executable: 
+[4] 	/usr/src/gatk/gatk-3.6/GenomeAnalysisTK.jar
+[4]  Referred to by the parameter: 
+[4] 	GATKJARis not properly specified in your runfile!)
+[2] 6415.938 store: <314>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.recal_report.grp"
+[2] 6415.938 store: <313>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005.wDedups.sorted.chr1_PrintReads.log"
+[2] 6415.938 store: <312>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005.wDedups.sorted.chr1_BaseRecalibrator.log"
+[2] 6415.938 rule: <305> <312> <314> <316> <319> <307> <266> <274> <309> => BaseRecalibrator-app-leaf1 266.0 293.0 305 312 313 314 316 319 307 321 chr1 1 WGS_chr1_30X_E0.005 {WGS_chr1_30X_E0.005	chr1	PrintReads start	1507692470
+[2] } {WGS_chr1_30X_E0.005	chr1	BaseRecalibrator start	1507692470
+[2] } {file 266 is_mapped 1} {file 293 is_mapped 1} {file 323 is_mapped 1} {file 322 is_mapped 1} 274 {file 324 is_mapped 1} 309 {file 326 is_mapped 1} {file 325 is_mapped 1} -1
+[0] 6415.939 exec: __v:javaexe -Xmx16g -jar /usr/src/gatk/gatk-3.6/GenomeAnalysisTK.jar -T BaseRecalibrator -R /home/mirrors/gatk-bundle/2.8/hg19//ucsc.hg19.fasta -I /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.bam -knownSites /home/mirrors/gatk-bundle/2.8/hg19//dbsnp_138.hg19.vcf -nct 5 -o /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.recal_report.grp {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005.wDedups.sorted.chr1_BaseRecalibrator.log}
+[0] 6415.939 shell: /usr/src/java/jdk1.8.0_91/bin/java -Xmx16g -jar /usr/src/gatk/gatk-3.6/GenomeAnalysisTK.jar -T BaseRecalibrator -R /home/mirrors/gatk-bundle/2.8/hg19//ucsc.hg19.fasta -I /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.bam -knownSites /home/mirrors/gatk-bundle/2.8/hg19//dbsnp_138.hg19.vcf -nct 5 -o /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.recal_report.grp {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005.wDedups.sorted.chr1_BaseRecalibrator.log}
+[0] ------------------------------------------------------------------------------------------[0] 
+[0] Done. [0] There were no warn messages.
+[0] ------------------------------------------------------------------------------------------[0] 
+[0] 7866.329 shell command duration: 1450.391
+[0] 7866.329 rule: => recalibrateBam-call_foreign-write {WGS_chr1_30X_E0.005	chr1	BaseRecalibrator start	1507692470
+[0] WGS_chr1_30X_E0.005	chr1	BaseRecalibrator end	1507693921
+[0] } 325.0 {file 325 is_mapped 1}
+[0] 7866.329 rule: <305> <313> <314> <316> <307> <266> <324> <309> => PrintReads-app-leaf1 266.0 293.0 305 313 314 316 307 321 chr1 1 WGS_chr1_30X_E0.005 {WGS_chr1_30X_E0.005	chr1	PrintReads start	1507692470
+[0] } {file 266 is_mapped 1} {file 293 is_mapped 1} {file 323 is_mapped 1} {file 324 is_mapped 1} 309 {file 326 is_mapped 1} -1
+[3] 7866.331 exec: __v:javaexe:1 -Xmx16g -jar /usr/src/gatk/gatk-3.6/GenomeAnalysisTK.jar -T PrintReads -R /home/mirrors/gatk-bundle/2.8/hg19//ucsc.hg19.fasta -I /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.bam -BQSR /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.recal_report.grp -nct 5 --out /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.chr1.bam {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005.wDedups.sorted.chr1_PrintReads.log}
+[3] 7866.331 shell: /usr/src/java/jdk1.8.0_91/bin/java -Xmx16g -jar /usr/src/gatk/gatk-3.6/GenomeAnalysisTK.jar -T PrintReads -R /home/mirrors/gatk-bundle/2.8/hg19//ucsc.hg19.fasta -I /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.bam -BQSR /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.chr1.recal_report.grp -nct 5 --out /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.chr1.bam {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005.wDedups.sorted.chr1_PrintReads.log}
+[3] ------------------------------------------------------------------------------------------
+[3] Done. [3] There were no warn messages.
+[3] ------------------------------------------------------------------------------------------[3] 
+[3]       10105.209 shell command duration: 2238.878
+[3]       10105.209 rule: <293> => f:checkBam 321 {-1} {file 293 is_mapped 1}
+[3]       10105.209 rule: => recalibrateBam-call_foreign-write-1 {WGS_chr1_30X_E0.005	chr1	PrintReads start	1507692470
+[3] WGS_chr1_30X_E0.005	chr1	PrintReads end	1507696160
+[3] } 326.0 {file 326 is_mapped 1}
+[2]       10105.209 function: checkBam
+[2]       10105.209 allocated t:1=<327>
+[2]       10105.209 creating reference: <-1>["SAMTOOLSEXE"] <- <*327> (string)
+[2]       10105.209 rule: <327> => samtools_view2-argwait 327 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.chr1.bam 321
+[4]       10105.209 exec: __v:javaexe:2 -Xmx16g -jar /usr/src/gatk/gatk-3.6/GenomeAnalysisTK.jar -T HaplotypeCaller -R /home/mirrors/gatk-bundle/2.8/hg19//ucsc.hg19.fasta -I /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.chr1.bam --dbsnp /home/mirrors/gatk-bundle/2.8/hg19//dbsnp_138.hg19.vcf -o /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.chr1.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherStrand -A StrandOddsRatio -A HaplotypeScore -A MappingQualityRankSumTest -A QualByDepth -A RMSMappingQuality -A ReadPosRankSumTest --sample_ploidy 2 -nt 1 -nct 5 -L chr1 {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005.chr1_HaplotypeCaller.log}
+[4]       10105.209 shell: /usr/src/java/jdk1.8.0_91/bin/java -Xmx16g -jar /usr/src/gatk/gatk-3.6/GenomeAnalysisTK.jar -T HaplotypeCaller -R /home/mirrors/gatk-bundle/2.8/hg19//ucsc.hg19.fasta -I /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/realign/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.chr1.bam --dbsnp /home/mirrors/gatk-bundle/2.8/hg19//dbsnp_138.hg19.vcf -o /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.chr1.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherStrand -A StrandOddsRatio -A HaplotypeScore -A MappingQualityRankSumTest -A QualByDepth -A RMSMappingQuality -A ReadPosRankSumTest --sample_ploidy 2 -nt 1 -nct 5 -L chr1 {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005.chr1_HaplotypeCaller.log}
+[1]       10252.753 store: <321>=1
+[4] ------------------------------------------------------------------------------------------
+[4] Done. [4] There were 4 WARN messages, the first 4 are repeated below.
+[4] WARN  07:29:22,633 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+[4] WARN  07:29:25,284 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper 
+[4] WARN  07:29:25,284 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper 
+[4] WARN  07:29:25,284 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper 
+[4] ------------------------------------------------------------------------------------------
+[4]       12545.107 shell command duration: 2439.897
+[4]       12545.107 creating nested container <133>[0]
+[4]       12545.107 insert: <328>["0"]=<file 294 is_mapped 1>
+[4]       12545.107 rule: => __entry-call_foreign-write-3 {WGS_chr1_30X_E0.005	chr1	HaplotypeCaller start	1507692398
+[4] WGS_chr1_30X_E0.005	chr1	HaplotypeCaller end	1507698599
+[4] } 296.0 {file 296 is_mapped 1}
+[2]       12545.107 assert passed: (FAILURE: The split variants array was empty: none of the split bam files had their varianted called)
+[3]       12545.107 allocated t:133=<329>
+[3]       12545.107 creating reference: <-1>["TMPDIR"] <- <*329> (string)
+[2]       12545.107 allocated u:pieces=<330> u:chr=<331> u:sampleName:1=<332> u:outputName=<333>
+[2]       12545.107 rule: => combineVariantsRun-call-basename1 {328.0} 63 331 333 330 332
+[2]       12545.107 rule: <151> <147> <148> <149> <150> => __entry-async_op-or-3 141 63 144 151 147 148 149 150 146 0 331 {file 69 is_mapped 1} 333 332 328
+[1]       12545.107 function: logging
+[1]       12545.107 allocated u:tmplogs=<334> t:1=<335> t:3=<336> t:4=<337>
+[4]       12545.107 rule: <294> => basename-argwait {file 294 is_mapped 1} 63 331 333 330 332
+[1]       12545.108 rule: <335> => glob_body 334 335
+[2]       12545.108 build_rec: <330>
+[2]       12545.108 store: <331>="chr1"
+[2]       12545.108 store: <332>="WGS_chr1_30X_E0.005"
+[2]       12545.108 rule: <63> => __entry-async_op-strcat-12 63 WGS_chr1_30X_E0.005 333
+[1]       12545.108 rule: <329> => logging-async_op-strcat 335 {329}
+[1]       12545.108 rule: <334> => logging-optmerged /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_Ck9PfO.turbine 336 337 {file 338 is_mapped 0} 334
+[4]       12545.108 store: <333>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.g.vcf"
+[0]       12545.108 function: append
+[2]       12545.108 store: <335>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/*"
+[3]       12545.108 allocated u:chrSampleArray=<340> t:83:2=<341> t:93:2=<342> t:94:2=<343> t:97:2=<344>
+[3]       12545.108 allocated t:99:2=<345> t:103:2=<346>
+[0]       12545.108 rule: <70> => append-call_foreign-read {339.0} {file 70 is_mapped 1} {file 339 is_mapped 1} {337} {336}
+[0]       12545.108 rule: => append-copy_in_filename {70.0} {file 339 is_mapped 1}
+[3]       12545.108 creating reference: <-1>["TMPDIR"] <- <*341> (string)
+[3]       12545.108 creating reference: <-1>["REFGENOMEDIR"] <- <*343> (string)
+[1]       12545.108 glob: /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/*
+[3]       12545.108 creating reference: <-1>["REFGENOME"] <- <*344> (string)
+[3]       12545.108 creating reference: <-1>["DBSNP"] <- <*346> (string)
+[1]       12545.108 allocated file: <334>[0]=<350>
+[3]       12545.108 rule: <328> => combineVariantsRun-foreach-wait2 340 328
+[3]       12545.108 rule: <333> => __entry-copy_in_filename-1 {file 347 is_mapped 1} 333
+[1]       12545.108 insert: <334>["0"]=<file 350 is_mapped 1>
+[3]       12545.108 rule: <343> => __entry-optmerged-20 346 342 343 344 345
+[3]       12545.108 rule: <332> => __entry-optmerged-21 141 63 144 146 341 342 345 0 1507698599 331 340 {file 348 is_mapped 1} {file 347 is_mapped 1} 333 332 {file 349 is_mapped 1}
+[1]       12545.108 allocated file: <334>[1]=<351>
+[1]       12545.108 insert: <334>["1"]=<file 351 is_mapped 1>
+[4]       12545.108 rule: <337> => append-async_op-strcat {Sample	 Chromosome	App status	Time
+[4] WGS_chr1_30X_E0.005	ALL	BWAMEM start	1507686054
+[4] WGS_chr1_30X_E0.005	ALL	BWAMEM end	1507688672
+[4] WGS_chr1_30X_E0.005	ALL	SAMTOOLS_VIEW start	1507686054
+[4] WGS_chr1_30X_E0.005	ALL	SAMTOOLS_VIEW end	1507688801
+[4] } 339.0 {file 339 is_mapped 1} 337 336
+[1]       12545.108 allocated file: <334>[2]=<352>
+[2]       12545.108 rule: <344> => __entry-async_op-strcat-13 342 344 /home/mirrors/gatk-bundle/2.8/hg19/
+[2]       12545.108 rule: <346> => __entry-async_op-strcat-14 346 345 /home/mirrors/gatk-bundle/2.8/hg19/
+[1]       12545.108 insert: <334>["2"]=<file 352 is_mapped 1>
+[1]       12545.108 allocated file: <334>[3]=<353>
+[2]       12545.108 store: <345>="/home/mirrors/gatk-bundle/2.8/hg19//dbsnp_138.hg19.vcf"
+[1]       12545.108 insert: <334>["3"]=<file 353 is_mapped 1>
+[4]       12545.108 store: <342>="/home/mirrors/gatk-bundle/2.8/hg19//ucsc.hg19.fasta"
+[1]       12545.108 allocated file: <334>[4]=<354>
+[1]       12545.108 insert: <334>["4"]=<file 354 is_mapped 1>
+[3]       12545.108 rule: <341> <331> => __entry-async_op-strcat-15 341 WGS_chr1_30X_E0.005 331 {file 349 is_mapped 1}
+[3]       12545.108 rule: <63> => __entry-async_op-strcat-16 141 63 144 146 342 345 0 WGS_chr1_30X_E0.005 {WGS_chr1_30X_E0.005	ALL	CombineGVCFs start	1507698599
+[3] } 340 {file 348 is_mapped 1} {file 347 is_mapped 1} 333 {file 349 is_mapped 1}
+[3]       12545.108 rule: <336> => logging-chain1 336 334
+[4]       12545.108 rule: <144> <146> <342> <345> <340> <333> => CombineGVCFs_logged-chain1 141 144 146 342 345 0 WGS_chr1_30X_E0.005 {WGS_chr1_30X_E0.005	ALL	CombineGVCFs start	1507698599
+[4] } /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005_CombineGVCFs.log 340 {file 348 is_mapped 1} {file 347 is_mapped 1} 333 {file 349 is_mapped 1}
+[0]       12545.108 insert: <340>["0"]=<--variant>
+[0]       12545.108 rule: => __entry-arr_copy_in_imm {294.0} 1 340
+[1]       12545.109 insert: <340>["1"]=</home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.chr1.g.vcf>
+[3]       12545.109 allocated void: <355>
+[3]       12545.109 rule: <334> => container_deep_wait_iterate 334 0 -1 1 file_ref 355
+[3]       12545.109 rule: <355> => deeprule_action "355" "cat-app-leaf1 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_Ck9PfO.turbine 337 {file 338 is_mapped 0} 334"
+[2]       12545.109 exec: __v:javaexe -Xmx16g -jar /usr/src/gatk/gatk-3.6/GenomeAnalysisTK.jar -T CombineGVCFs -R /home/mirrors/gatk-bundle/2.8/hg19//ucsc.hg19.fasta --dbsnp /home/mirrors/gatk-bundle/2.8/hg19//dbsnp_138.hg19.vcf --variant /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.chr1.g.vcf -o /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.g.vcf {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005_CombineGVCFs.log}
+[2]       12545.109 shell: /usr/src/java/jdk1.8.0_91/bin/java -Xmx16g -jar /usr/src/gatk/gatk-3.6/GenomeAnalysisTK.jar -T CombineGVCFs -R /home/mirrors/gatk-bundle/2.8/hg19//ucsc.hg19.fasta --dbsnp /home/mirrors/gatk-bundle/2.8/hg19//dbsnp_138.hg19.vcf --variant /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.chr1.g.vcf -o /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.g.vcf {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/logs/WGS_chr1_30X_E0.005_CombineGVCFs.log}
+[4]       12545.109 Container <334> deep closed
+[4]       12545.109 store: <355>=void
+[0]       12545.109 deeprule_finish: 355
+[0]       12545.109 exec: cat /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_NovoSortDedup.log /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_PicardDedup.log /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_HaplotypeCaller.log /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_PrintReads.log /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_BaseRecalibrator.log {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_Ck9PfO.turbine}
+[0]       12545.109 shell: cat /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_NovoSortDedup.log /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_PicardDedup.log /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_HaplotypeCaller.log /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_PrintReads.log /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_BaseRecalibrator.log {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_Ck9PfO.turbine}
+[0]       12545.121 shell command duration: 0.011
+[0]       12545.121 store: <338>=path /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_Ck9PfO.turbine
+[0]       12545.121 store: <337>="WGS_chr1_30X_E0.005	ALL	NOVOSORT start	1507688809
+[0] WGS_chr1_30X_E0.005	ALL	NOVOSORT end	1507690183
+[0] WGS_chr1_30X_E0.005	ALL	PICARD start	1507688809
+[0] WGS_chr1_30X_E0.005	ALL	PICARD end	1507691832
+[0] WGS_chr1_30X_E0.005	chr1	HaplotypeCaller start	1507692398
+[0] WGS_chr1_30X_E0.005	chr1	HaplotypeCaller end	1507698599
+[0] WGS_chr1_30X_E0.005	chr1	PrintReads start	1507692470
+[0] WGS_chr1_30X_E0.005	chr1	PrintReads end	1507696160
+[0] WGS_chr1_30X_E0.005	chr1	BaseRecalibrator start	1507692470
+[0] WGS_chr1_30X_E0.005	chr1	BaseRecalibrator end	1507693921
+[0] "
+[1]       12545.122 store: <336>=1
+[3]       12545.122 rule: <352> => rm-app-leaf1-1 {352.0} {file 352 is_mapped 1}
+[3]       12545.122 rule: <350> => rm-app-leaf1-1 {350.0} {file 350 is_mapped 1}
+[3]       12545.122 rule: <353> => rm-app-leaf1-1 {353.0} {file 353 is_mapped 1}
+[3]       12545.122 rule: <351> => rm-app-leaf1-1 {351.0} {file 351 is_mapped 1}
+[3]       12545.122 rule: <354> => rm-app-leaf1-1 {354.0} {file 354 is_mapped 1}
+[4]       12545.122 exec: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_HaplotypeCaller.log {}
+[4]       12545.122 shell: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_HaplotypeCaller.log 
+[0]       12545.122 exec: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_NovoSortDedup.log {}
+[0]       12545.122 shell: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_NovoSortDedup.log 
+[1]       12545.122 exec: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_PrintReads.log {}
+[1]       12545.122 shell: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_PrintReads.log 
+[3]       12545.122 exec: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_PicardDedup.log {}
+[3]       12545.122 shell: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005_PicardDedup.log 
+[0]       12545.123 shell command duration: 0.002
+[0]       12545.123 exec: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_BaseRecalibrator.log {}
+[0]       12545.123 shell: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_BaseRecalibrator.log 
+[4]       12545.124 shell command duration: 0.002
+[3]       12545.124 shell command duration: 0.001
+[0]       12545.124 shell command duration: 0.001
+[1]       12545.131 shell command duration: 0.008
+[2] ------------------------------------------------------------------------------------------
+[2] Done. [2] There were 3 WARN messages, the first 3 are repeated below.
+[2] WARN  08:10:03,020 StrandBiasTest - StrandBiasBySample annotation exists in input VCF header. Attempting to use StrandBiasBySample values to calculate strand bias annotation values. If no sample has the SB genotype annotation, annotation may still fail. 
+[2] WARN  08:10:03,021 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+[2] WARN  08:10:03,021 StrandBiasTest - StrandBiasBySample annotation exists in input VCF header. Attempting to use StrandBiasBySample values to calculate strand bias annotation values. If no sample has the SB genotype annotation, annotation may still fail. 
+[2] ------------------------------------------------------------------------------------------
+[2]       16009.558 shell command duration: 3464.449
+[2]       16009.558 rule: => __entry-call_foreign-write-2 141 0 {WGS_chr1_30X_E0.005	ALL	CombineGVCFs start	1507698599
+[2] WGS_chr1_30X_E0.005	ALL	CombineGVCFs end	1507702064
+[2] } 349.0 {file 347 is_mapped 1} {file 349 is_mapped 1}
+[4]       16009.559 insert: <141>["0"]=<file 347 is_mapped 1>
+[0]       16009.559 assert passed: (FAILURE: The VCFs array was empty)
+[1]       16009.559 insert: <159>["0"]=<--variant>
+[3]       16009.559 allocated t:156=<356>
+[3]       16009.559 creating reference: <-1>["TMPDIR"] <- <*356> (string)
+[1]       16009.559 rule: => jointGenotypingRun-arr_copy_in_imm {347.0} 1 159
+[2]       16009.559 insert: <159>["1"]=</home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.g.vcf>
+[4]       16009.559 function: logging
+[4]       16009.559 allocated u:tmplogs=<357> t:1=<358> t:3=<359> t:4=<360>
+[4]       16009.560 rule: <358> => glob_body 357 358
+[0]       16009.560 exec: __v:javaexe -Xmx16g -jar /usr/src/gatk/gatk-3.6/GenomeAnalysisTK.jar -T GenotypeGVCFs -R /home/mirrors/gatk-bundle/2.8/hg19//ucsc.hg19.fasta --variant /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.g.vcf -o /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/jointVCFs/jointVCFcalled.vcf -nt 10 {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/jointVCFs/jointVCF.log}
+[4]       16009.560 rule: <356> => logging-async_op-strcat 358 {356}
+[4]       16009.560 rule: <357> => logging-optmerged /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_hBdsfk.turbine 359 360 {file 361 is_mapped 0} 357
+[1]       16009.560 function: append
+[0]       16009.560 shell: /usr/src/java/jdk1.8.0_91/bin/java -Xmx16g -jar /usr/src/gatk/gatk-3.6/GenomeAnalysisTK.jar -T GenotypeGVCFs -R /home/mirrors/gatk-bundle/2.8/hg19//ucsc.hg19.fasta --variant /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/WGS_chr1_30X_E0.005/variant/WGS_chr1_30X_E0.005.wDedups.sorted.recalibrated.g.vcf -o /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/jointVCFs/jointVCFcalled.vcf -nt 10 {stderr /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/analysis/deliverables/jointVCFs/jointVCF.log}
+[1]       16009.560 rule: <70> => append-call_foreign-read {362.0} {file 70 is_mapped 1} {file 362 is_mapped 1} {360} {359}
+[1]       16009.560 rule: => append-copy_in_filename {70.0} {file 362 is_mapped 1}
+[3]       16009.560 store: <358>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/*"
+[2]       16009.560 rule: <360> => append-async_op-strcat {Sample	 Chromosome	App status	Time
+[2] WGS_chr1_30X_E0.005	ALL	BWAMEM start	1507686054
+[2] WGS_chr1_30X_E0.005	ALL	BWAMEM end	1507688672
+[2] WGS_chr1_30X_E0.005	ALL	SAMTOOLS_VIEW start	1507686054
+[2] WGS_chr1_30X_E0.005	ALL	SAMTOOLS_VIEW end	1507688801
+[2] WGS_chr1_30X_E0.005	ALL	NOVOSORT start	1507688809
+[2] WGS_chr1_30X_E0.005	ALL	NOVOSORT end	1507690183
+[2] WGS_chr1_30X_E0.005	ALL	PICARD start	1507688809
+[2] WGS_chr1_30X_E0.005	ALL	PICARD end	1507691832
+[2] WGS_chr1_30X_E0.005	chr1	HaplotypeCaller start	1507692398
+[2] WGS_chr1_30X_E0.005	chr1	HaplotypeCaller end	1507698599
+[2] WGS_chr1_30X_E0.005	chr1	PrintReads start	1507692470
+[2] WGS_chr1_30X_E0.005	chr1	PrintReads end	1507696160
+[2] WGS_chr1_30X_E0.005	chr1	BaseRecalibrator start	1507692470
+[2] WGS_chr1_30X_E0.005	chr1	BaseRecalibrator end	1507693921
+[2] } 362.0 {file 362 is_mapped 1} 360 359
+[1]       16009.560 glob: /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/*
+[1]       16009.560 allocated file: <357>[0]=<363>
+[1]       16009.560 insert: <357>["0"]=<file 363 is_mapped 1>
+[4]       16009.560 rule: <359> => logging-chain1 359 357
+[4]       16009.560 allocated void: <364>
+[4]       16009.561 rule: <357> => container_deep_wait_iterate 357 0 -1 1 file_ref 364
+[4]       16009.561 rule: <364> => deeprule_action "364" "cat-app-leaf1 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_hBdsfk.turbine 360 {file 361 is_mapped 0} 357"
+[3]       16009.561 Container <357> deep closed
+[3]       16009.561 store: <364>=void
+[2]       16009.561 deeprule_finish: 364
+[2]       16009.561 exec: cat /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_CombineGVCFs.log {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_hBdsfk.turbine}
+[2]       16009.561 shell: cat /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_CombineGVCFs.log {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_hBdsfk.turbine}
+[2]       16009.564 shell command duration: 0.003
+[2]       16009.564 store: <361>=path /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_hBdsfk.turbine
+[2]       16009.564 store: <360>="WGS_chr1_30X_E0.005	ALL	CombineGVCFs start	1507698599
+[2] WGS_chr1_30X_E0.005	ALL	CombineGVCFs end	1507702064
+[2] "
+[1]       16009.565 store: <359>=1
+[4]       16009.565 rule: <363> => rm-app-leaf1-1 {363.0} {file 363 is_mapped 1}
+[3]       16009.565 exec: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_CombineGVCFs.log {}
+[3]       16009.565 shell: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/WGS_chr1_30X_E0.005.chr1_CombineGVCFs.log 
+[3]       16009.567 shell command duration: 0.002
+[0] ------------------------------------------------------------------------------------------
+[0] Done. [0] There were 4 WARN messages, the first 4 are repeated below.
+[0] WARN  09:07:46,570 StrandBiasTest - StrandBiasBySample annotation exists in input VCF header. Attempting to use StrandBiasBySample values to calculate strand bias annotation values. If no sample has the SB genotype annotation, annotation may still fail. 
+[0] WARN  09:07:46,571 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+[0] WARN  09:07:46,572 StrandBiasTest - StrandBiasBySample annotation exists in input VCF header. Attempting to use StrandBiasBySample values to calculate strand bias annotation values. If no sample has the SB genotype annotation, annotation may still fail. 
+[0] WARN  09:07:47,297 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper, not org.broadinstitute.gatk.tools.walkers.variantutils.GenotypeGVCFs 
+[0] ------------------------------------------------------------------------------------------[0] 
+[0]       16400.959 shell command duration: 391.400
+[0]       16400.959 rule: => jointGenotypingRun-call_foreign-write {ALL	ALL	GenotypeGVCFs start	1507686054
+[0] ALL	ALL	GenotypeGVCFs end	1507702455
+[0] } 166.0 {file 70 is_mapped 1} {file 166 is_mapped 1}
+[2]       16400.960 allocated t:87=<365>
+[2]       16400.960 creating reference: <-1>["TMPDIR"] <- <*365> (string)
+[1]       16400.960 function: logging
+[1]       16400.960 allocated u:tmplogs=<366> t:1=<367> t:3=<368> t:4=<369>
+[1]       16400.960 rule: <367> => glob_body 366 367
+[1]       16400.961 rule: <365> => logging-async_op-strcat 367 {365}
+[1]       16400.961 rule: <366> => logging-optmerged /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_Q6qYdq.turbine 368 369 {file 370 is_mapped 0} 366
+[4]       16400.961 function: append
+[3]       16400.961 store: <367>="/home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/*"
+[4]       16400.961 rule: <70> => append-call_foreign-read {371.0} {file 70 is_mapped 1} {file 371 is_mapped 1} {369} {368}
+[4]       16400.961 rule: => append-copy_in_filename {70.0} {file 371 is_mapped 1}
+[2]       16400.961 rule: <369> => append-async_op-strcat {Sample	 Chromosome	App status	Time
+[2] WGS_chr1_30X_E0.005	ALL	BWAMEM start	1507686054
+[2] WGS_chr1_30X_E0.005	ALL	BWAMEM end	1507688672
+[2] WGS_chr1_30X_E0.005	ALL	SAMTOOLS_VIEW start	1507686054
+[2] WGS_chr1_30X_E0.005	ALL	SAMTOOLS_VIEW end	1507688801
+[2] WGS_chr1_30X_E0.005	ALL	NOVOSORT start	1507688809
+[2] WGS_chr1_30X_E0.005	ALL	NOVOSORT end	1507690183
+[2] WGS_chr1_30X_E0.005	ALL	PICARD start	1507688809
+[2] WGS_chr1_30X_E0.005	ALL	PICARD end	1507691832
+[2] WGS_chr1_30X_E0.005	chr1	HaplotypeCaller start	1507692398
+[2] WGS_chr1_30X_E0.005	chr1	HaplotypeCaller end	1507698599
+[2] WGS_chr1_30X_E0.005	chr1	PrintReads start	1507692470
+[2] WGS_chr1_30X_E0.005	chr1	PrintReads end	1507696160
+[2] WGS_chr1_30X_E0.005	chr1	BaseRecalibrator start	1507692470
+[2] WGS_chr1_30X_E0.005	chr1	BaseRecalibrator end	1507693921
+[2] WGS_chr1_30X_E0.005	ALL	CombineGVCFs start	1507698599
+[2] WGS_chr1_30X_E0.005	ALL	CombineGVCFs end	1507702064
+[2] } 371.0 {file 371 is_mapped 1} 369 368
+[0]       16400.961 glob: /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/*
+[0]       16400.961 allocated file: <366>[0]=<372>
+[0]       16400.961 insert: <366>["0"]=<file 372 is_mapped 1>
+[3]       16400.961 rule: <368> => logging-chain1 368 366
+[3]       16400.962 allocated void: <373>
+[3]       16400.962 rule: <366> => container_deep_wait_iterate 366 0 -1 1 file_ref 373
+[3]       16400.962 rule: <373> => deeprule_action "373" "cat-app-leaf1 /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_Q6qYdq.turbine 369 {file 370 is_mapped 0} 366"
+[4]       16400.962 Container <366> deep closed
+[4]       16400.962 store: <373>=void
+[1]       16400.962 deeprule_finish: 373
+[1]       16400.962 exec: cat /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/jointVCF.log {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_Q6qYdq.turbine}
+[1]       16400.962 shell: cat /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/jointVCF.log {stdout /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_Q6qYdq.turbine}
+[1]       16400.964 shell command duration: 0.002
+[1]       16400.964 store: <370>=path /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_swift/tcl_Q6qYdq.turbine
+[1]       16400.964 store: <369>="ALL	ALL	GenotypeGVCFs start	1507686054
+[1] ALL	ALL	GenotypeGVCFs end	1507702455
+[1] "
+[2]       16400.964 store: <368>=1
+[0]       16400.964 rule: <372> => rm-app-leaf1-1 {372.0} {file 372 is_mapped 1}
+[3]       16400.965 exec: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/jointVCF.log {}
+[3]       16400.965 shell: rm /home/aeahmed/swift_T_project/results/WGS_chr1_30X_E0.005/tmp_analysis/timinglogs/jointVCF.log 
+[3]       16400.968 shell command duration: 0.003
+[1]       16401.068 turbine finalizing
+[2]       16401.068 turbine finalizing
+[4]       16401.068 turbine finalizing
+[0]       16401.068 turbine finalizing
+[3]       16401.068 turbine finalizing
+[5]       16401.052 turbine finalizing

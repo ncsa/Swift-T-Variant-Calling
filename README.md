@@ -2,6 +2,20 @@
 
 # Variant Calling with Swift-T
 
+This repo is a complete Variant Calling pipeline written in Swift/T language, for use in the analysis of Whole Genome and Whole Exome Sequencing studies. 
+
+You may use this README file to get an idea of how the code is structred and used, or visit an easier-to-read version of this documentaiton available on [our companion site](swift-t-variant-calling.readthedocs.io/en/latest/)
+
+Files in this repo are organized as follows:
+
+| Folder	| Content	|
+|---------------|---------------|
+| `docs`	| The files for the [companion  site](swift-t-variant-calling.readthedocs.io/en/latest/) |
+| `media`	| Various figures containing images used in this README file|
+| `src`	| The source code of the pipeline, written in Swift/T. See the section [Under The Hood](#Under-The-Hood) for how it is designed|
+| `test`	| Files for testing the pipeline on different platforms: [XSEDE](https://www.xsede.org/), [Biocluster](http://help.igb.illinois.edu/Biocluster2), [Blue Waters](https://bluewaters.ncsa.illinois.edu/), [iForge](http://www.ncsa.illinois.edu/industry/iforge), and stand alone server|
+
+
 **Table of Contents**
 
 - [Variant Calling with Swift-T](#variant-calling-with-swift-t)
@@ -157,19 +171,15 @@ This is set in bytes, so if you want to limit novosort to using 30 GB, one would
 
 **`DUP_CUTOFF`** The maximum percentage of reads that are marked as duplicates in a successful sample
 
-**`REFGENOMEDIR`** Directory in which the reference genome resides
+**`REFGENOME`** Full path to the reference genome (/path/to/example.fa)
 
-**`REFGENOME`** Name of the reference genome (name only; path should be relative to the REFGENOMEDIR)
-
-**`DBSNP`** 
-
-Name of the dbsnp vcf file (name only; path should be relative to the REFGENOMEDIR)
+**`DBSNP`** Full path to the dbsnp vcf file
 
 **`INDELDIR`** 
 
 Directory that contains the standard indel variant files used in the realignment/recalibration step
 
-(name only; path should be relative to the REFGENOMEDIR)
+(Full path to directory)
 
 Within the directory, the vcf files should be named with only the chromosome name in front and nothing else.
 
@@ -182,6 +192,9 @@ If not splitting by chromosome, the workflow will look for all of the vcf files 
 Full path of the appropriate executable file
 
 **`PICARDJAR`; `GATKJAR`** Full path of the appropriate jar file
+
+**`JAVA_MAX_HEAP_SIZE`** Memory area to store all java objects. This should be tuned in relevance to the speed and frequency at which garbage collection should occur. With larger input size, larger heap is needed. 
+
 
 ### Running the Pipeline
 
