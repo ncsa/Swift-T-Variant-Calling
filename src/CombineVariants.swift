@@ -109,7 +109,7 @@ import bioappsLoggingFunctions.merge_vcf_logging;
 							      vars["JAVA_MAX_HEAP_SIZE"], 
 							      vars["GATKJAR"],							     
 							      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),			
-							      strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),			    
+							      strcat(vars["DBSNP"]),			    
 							      chrSampleArray, sampleName 
 							     ) =>
 			vcfOutfiles[sampleIndex] = gvcfSample;

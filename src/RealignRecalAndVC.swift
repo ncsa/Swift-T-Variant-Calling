@@ -173,7 +173,7 @@ Recalibration
 	report, recalLog, tmprecalLog = BaseRecalibrator_logged (var["JAVAEXE"], var["JAVA_MAX_HEAP_SIZE"], var["GATKJAR"],
 				       strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
 				       threads, recalparmsindels,
-				       strcat(var["REFGENOMEDIR"], "/", var["DBSNP"]), sampleName, chr
+				       var["DBSNP"], sampleName, chr
 				      );
 	outBam, printLog, tmpprintLog = PrintReads_logged (var["JAVAEXE"], var["JAVA_MAX_HEAP_SIZE"], var["GATKJAR"],
 				      strcat(var["REFGENOMEDIR"], "/", var["REFGENOME"]), inputBam,
@@ -192,7 +192,7 @@ Recalibration
 					   ) {
 
 	string prePrefix = strcat(var["OUTPUTDIR"], "/", sampleName, "/realign/", sampleName, ".wDedups.sorted.", chr);
-	// If no chr, there will be an extra '.'
+	// If no chr, there will be an extra '.'BaseRecalibrator
 	string prefix = replace(prePrefix, "..", ".", 0);
 
 	if (var["REALIGN"] == "YES" ||
@@ -233,7 +233,7 @@ Recalibration
 /******************************************
 VariantCalling (for split chromosome path)
 *******************************************/
-(file outVCF) callChrVariants(string vars[string], string sampleName, file inputBam, string chr) {
+(file outVCF) callChrVariants(string vars[string], string sampleName, filBaseRecalibratore inputBam, string chr) {
 
 	int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
 
@@ -252,7 +252,7 @@ VariantCalling (for split chromosome path)
 	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged (vars["JAVAEXE"], vars["JAVA_MAX_HEAP_SIZE"], vars["GATKJAR"],	     
 					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),   
 					   inputBam,					
-					   strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),       
+					   vars["DBSNP"],       
 					   threads, ploidy, chr, sampleName	       
 					  );
 }
@@ -276,7 +276,7 @@ VariantCalling (for split chromosome path)
 					   vars["GATKJAR"],
 					   strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),
 					   inputBam,
-					   strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),
+					   vars["DBSNP"],
 					   threads, sampleName
 					  );
 }
