@@ -9,7 +9,7 @@ You may use this README file to get an idea of how the code is structred and use
 Files in this repo are organized as follows:
 
 | Folder	| Content	|
--------------------------------------
+|---------------|---------------|
 |docs	| The files for the [companion  site](swift-t-variant-calling.readthedocs.io/en/latest/) |
 |media	| Various figures containing images used in this README file|
 |src	| The source code of the pipeline, written in Swift/T. See the section [Under The Hood](#Under-The-Hood) for how it is designed|
