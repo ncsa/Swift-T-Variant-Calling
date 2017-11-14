@@ -302,11 +302,11 @@ $ swift-t -m cray -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/compi
 /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile
 ```
 
-Swift-T will create and run the qsub command for you, however, this one will fail if running on two or more nodes.
+Swift-T will create and run the qsub command for you, however, this one will fail if running on two or more nodes, so immediately kill it. Now we must edit the qsub script swift produced
 
 To fix this, we need to add a few variables to the submission file that was just created.
 
-The file will be located in the `log_directory` directory and will be called `turbine-cray.sh`
+The file will be located in the `$SWIFT_TMP` directory and will be called `turbine-cray.sh`
 
 Add the following items to the file:
 
