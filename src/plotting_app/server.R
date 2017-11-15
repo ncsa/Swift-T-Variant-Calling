@@ -59,7 +59,11 @@ shinyServer(function(input, output, session) {
     mutate(Application = fct_reorder2(Application, start_time, end_time)) %>%
     group_by(Stage, Sample, Chromosome) %>% 
     arrange(end_time) %>%
-    mutate(start_time =  lag(end_time, default = first(start_time)))
+    mutate(start_time =  lag(end_time, default = first(start_time))) %>%
+    ungroup() %>%
+    mutate(start_time =  if_else(str_detect(Application, "GenotypeGVCFs"), 
+                                 max(lag(end_time, default = first(start_time))), start_time))%>%
+    mutate(Application = fct_reorder2(Application, start_time, end_time)) 
   })
   
   dataPlot <- reactive({
@@ -82,7 +86,11 @@ shinyServer(function(input, output, session) {
       coord_flip() + scale_y_datetime(breaks = date_breaks(resol),
                                       labels = date_format("%F\n %H:%M"),
                                       expand = expand_scale(mult = 0.1) ) +
-      theme(axis.text.x = element_text(angle=45))
+      labs(x = "Application", y = "Timeline") +
+      theme(axis.text.x = element_text(angle=45), 
+            axis.title = element_text(family = "Trebuchet MS", color="#666666", face="bold", size=16),
+            axis.line = element_line(colour = "darkblue", 
+                                     size = 1, linetype = "solid"))
     
   })
 

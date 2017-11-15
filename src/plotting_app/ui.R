@@ -15,6 +15,7 @@ dashboardPage(
   dashboardHeader(title = "Swift/T Genomic Variant Calling workflow provenance trace",
                   titleWidth = 450),
   dashboardSidebar(
+    # tags$head(tags$style(".wrapper {overflow: visible !important;}")),
     fileInput(inputId = "logfile",
               label = "Timing trace file:",
               buttonLabel = "Upload ... "
@@ -41,19 +42,19 @@ dashboardPage(
                 label = NULL,
                 choices = c(''),
                 selected = "NULL"
-    ),
+    )
 
-    br(),
-    img(src = 'logo_uofk.png', height = 50, width = 50),
-    img(src = 'logo_uiuc.png', height = 50, width = 50),
-    img(src = 'logo_swift.png', height = 50, width = 80),
-    br(),
-    br(),
-    'This App analyzes a timing trace coming from',
-    a('The Genomic Swift/T variant calling workflow',
-      href = 'https://github.com/jacobrh91/Swift-T-Variant-Calling')
-    , 'which was developed in collaboration between these institutes.'
-    
+    # br(),
+    # img(src = 'logo_uofk.png', height = 50, width = 50),
+    # img(src = 'logo_uiuc.png', height = 50, width = 50),
+    # img(src = 'logo_swift.png', height = 50, width = 80),
+    # br(),
+    # br(),
+    # 'This App analyzes a timing trace coming from',
+    # a('The Genomic Swift/T variant calling workflow',
+    #   href = 'https://github.com/jacobrh91/Swift-T-Variant-Calling')
+    # , 'which was developed in collaboration between these institutes.'
+    # 
   ),
   
   dashboardBody(
@@ -86,7 +87,21 @@ dashboardPage(
                              checkboxInput("minResol", "Minutes", FALSE),
                              sliderInput(inputId = "minResValue",
                                          label = NULL,
-                                         min = 1, max = 60, value = 30), width = 3)
+                                         min = 1, max = 60, value = 30), width = 3),
+                         box(
+                           width = 3, solidHeader = T, status = "primary",
+                           img(src = 'logo_uofk.png', height = 50, width = 50),
+                           img(src = 'logo_uiuc.png', height = 50, width = 50),
+                           img(src = 'logo_swift.png', height = 50, width = 80),
+                           br(),
+                           br(),
+                           'This App analyzes a timing trace coming from',
+                           a('The Genomic Swift/T variant calling workflow',
+                             href = 'https://github.com/jacobrh91/Swift-T-Variant-Calling')
+                           , 'which was developed in collaboration between these institutes.'
+                           
+
+                         )
                          
                 ),
                 
