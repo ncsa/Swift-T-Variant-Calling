@@ -27,6 +27,11 @@ if (!require(scales)){
   library(scales)
 }
 
+
+if (!require(stringr)){
+  install.packages('stringr')
+  library(stringr)
+}
 #  Defining server logic --------------------------------------------------
 
 shinyServer(function(input, output, session) {
