@@ -469,7 +469,7 @@ if (!require(shiny)) {
 	install.packages('shiny')
 	library(shiny)
 }
-runGitHub(repo = "jacobrh91/Swift-T-Variant-Calling", ref = "master",
+runGitHub(repo = "ncsa/Swift-T-Variant-Calling", ref = "master",
           subdir = "src/plotting_app" )
 ```
 
