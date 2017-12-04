@@ -4,7 +4,12 @@
 
 
 library(shiny)
-library(shinydashboard)
+
+if (!require(shinydashboard)) {
+  install.packages('shinydashboard')
+  library(shinydashboard)
+}
+
 if (!require(plotly)){
   install.packages('plotly')
   library(plotly)
