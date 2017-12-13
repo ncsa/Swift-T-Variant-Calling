@@ -4,13 +4,13 @@
 
 This repo is a complete Variant Calling pipeline written in Swift/T language, for use in the analysis of Whole Genome and Whole Exome Sequencing studies. 
 
-You may use this README file to get an idea of how the code is structred and used, or visit an easier-to-read version of this documentaiton available on [our companion site](swift-t-variant-calling.readthedocs.io/en/latest/)
+You may use this README file to get an idea of how the code is structred and used, or visit an easier-to-read version of this documentaiton available on [our companion site](http://swift-t-variant-calling.readthedocs.io/en/latest/)
 
 Files in this repo are organized as follows:
 
 | Folder	| Content	|
 |---------------|---------------|
-| `docs`	| The files for the [companion  site](swift-t-variant-calling.readthedocs.io/en/latest/) |
+| `docs`	| The files for the [companion  site](http://swift-t-variant-calling.readthedocs.io/en/latest/) |
 | `media`	| Various figures containing images used in this README file|
 | `src`	| The source code of the pipeline, written in Swift/T. See the section [Under The Hood](#Under-The-Hood) for how it is designed|
 | `test`	| Files for testing the pipeline on different platforms: [XSEDE](https://www.xsede.org/), [Biocluster](http://help.igb.illinois.edu/Biocluster2), [Blue Waters](https://bluewaters.ncsa.illinois.edu/), [iForge](http://www.ncsa.illinois.edu/industry/iforge), and stand alone server|
