@@ -63,16 +63,16 @@ Different options are available by setting the variables below. Ordering is, of 
 |                            | monitor the ``Failures.log`` generated in the ``DELIVERYFOLDER/docs``     \   |
 |                            | folder to gauge how many of the samples are failing.                          |
 +----------------------------+-------------------------------------------------------------------------------+
-| ``ALIGN_DEDUP_STAGE``;     | These variables control whether each stage is ran or skipped (only         \  |
-| ``CHR_SPLIT_STAGE``  ;     | stages that were successfully run previously can be skipped, as the        \  |
-| ``VC_STAGE``         ;     | "skipped" option simply looks for the output files that were generated     \  |
-| ``COMBINE_VARIANT_STAGE``; | from a previous run.)                                                         |
-| ``JOINT_GENOTYPING_STAGE`` | Each of these stage variables can be set to ``Y`` or ``N``. In addition,   \  |
-|                            | all but the last stage can be set to ``End``, which will stop the          \  |
-|                            | pipeline after that stage has been executed (think of the ``End``          \  |
-|                            | setting as shorthand for "End after this stage")                              |
-|                            | See the **Pipeline Interruptions and Continuations** Section for more      \  |
-|                            | details.                                                                      |
+| ``ALIGN_DEDUP_STAGE``      | These variables control whether each stage is ran or skipped (only         \  |
++----------------------------+ stages that were successfully run previously can be skipped, as the        \  |
+|  ``CHR_SPLIT_STAGE``       | "skipped" option simply looks for the output files that were generated     \  |
++----------------------------+ from a previous run.)                                                         |
+|                            | Each of these stage variables can be set to ``Y`` or ``N``. In addition,   \  |
+|  ``VC_STAGE``              | all but the last stage can be set to ``End``, which will stop the          \  |
++----------------------------+ pipeline after that stage has been executed (think of the ``End``          \  |
+|  ``COMBINE_VARIANT_STAGE`` | setting as shorthand for "End after this stage")                              |
++----------------------------+ See the **Pipeline Interruptions and Continuations** Section for more      \  |
+|  ``JOINT_GENOTYPING_STAGE``| details.                                                                      |
 +----------------------------+-------------------------------------------------------------------------------+
 | ``PAIRED``                 | 0 if reads are single-ended only; 1 if they are paired-end reads              |
 +----------------------------+-------------------------------------------------------------------------------+
@@ -81,12 +81,13 @@ Different options are available by setting the variables below. Ordering is, of 
 | ``MARKDUPLICATESTOOL``     | Tool for marking duplicates. either: ``SAMBLASTER``, ``PICARD``,            \ |
 |                            | or ``NOVOSORT``                                                               |
 +----------------------------+-------------------------------------------------------------------------------+
-| ``BWAINDEX`` ;             | Depending on the tool being used, one of these variables specify          \   |
+| ``BWAINDEX``               | Depending on the tool being used, one of these variables specify          \   |
++----------------------------+                                                                           \   |
 | ``NOVOALIGNINDEX``         | the location of the index file                                                |
 +----------------------------+-------------------------------------------------------------------------------+
 | ``BWAMEMPARAMS``;          | This string is passed directly as arguments to the tool as (an)           \   |
-| ``NOVOALIGNPARAMS``        | argument(s)                                                                   |
-|                            | Example, ``BWAMEMPARAMS=-k 32 -I 300,30``                                 \   |
++----------------------------+ argument(s)                                                                   |
+|  ``NOVOALIGNPARAMS``       | Example, ``BWAMEMPARAMS=-k 32 -I 300,30``                                 \   |
 |                            | **Note:** There is no space between the '=' character and your parameters     |
 |                            | **Note:** Do not set the thread count or paired/single-ended flags, as they \ |
 |                            | are taken care of by the workflow itself                                      |   
@@ -128,13 +129,20 @@ Different options are available by setting the variables below. Ordering is, of 
 |                            | If not splitting by chromosome, the workflow will look for all of the       \ |
 |                            | vcf files in the directory.                                                   |
 +----------------------------+-------------------------------------------------------------------------------+
-| ``JAVAEXE``; ``BWAEXE``;   | Full path of the appropriate executable file                                  |
-| ``SAMBLASTEREXE``;         |                                                                               |
-| ``SAMTOOLSEXE``;           |                                                                               |
-| ``NOVOALIGNEXE``;          |                                                                               |
+| ``JAVAEXE``                | Full path of the appropriate executable file                                  |
++----------------------------+                                                                               |
+| ``BWAEXE``                 |                                                                               |
++----------------------------+                                                                               |
+| ``SAMBLASTEREXE``          |                                                                               |
++----------------------------+                                                                               |
+| ``SAMTOOLSEXE``            |                                                                               |
++----------------------------+                                                                               |
+| ``NOVOALIGNEXE``           |                                                                               |
++----------------------------+                                                                               |
 | ``NOVOSORTEXE``            |                                                                               |
 +----------------------------+-------------------------------------------------------------------------------+
-| ``PICARDJAR``;             | Full path of the appropriate jar file                                         |
+| ``PICARDJAR``              | Full path of the appropriate jar file                                         |
++----------------------------+                                                                               |
 | ``GATKJAR``                |                                                                               |
 +----------------------------+-------------------------------------------------------------------------------+
 | ``JAVA_MAX_HEAP_SIZE``     | Memory area to store all java objects. This should be tuned in relevance to \ |

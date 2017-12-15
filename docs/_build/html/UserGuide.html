@@ -30,8 +30,6 @@
   
 
   
-    <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
-  
 
   
         <link rel="index" title="Index"
@@ -243,14 +241,18 @@
 <td>If this is set to <code class="docutils literal"><span class="pre">YES</span></code>, the workflow will quit after a sample failsi   quality control.
 If set to <code class="docutils literal"><span class="pre">NO</span></code>, the workflow will let samples fail, and continue        processing all of those that did not. The workflow will only stop if      none of the samples remain after the failed ones are filtered out.        This option is provided because for large sample sets one may expect a    few of the input samples to fail quality control, and it may be           acceptable to keep going if a few fail. However, exercise caution and     monitor the <code class="docutils literal"><span class="pre">Failures.log</span></code> generated in the <code class="docutils literal"><span class="pre">DELIVERYFOLDER/docs</span></code>     folder to gauge how many of the samples are failing.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">ALIGN_DEDUP_STAGE</span></code>;
-<code class="docutils literal"><span class="pre">CHR_SPLIT_STAGE</span></code>  ;
-<code class="docutils literal"><span class="pre">VC_STAGE</span></code>         ;
-<code class="docutils literal"><span class="pre">COMBINE_VARIANT_STAGE</span></code>;
-<code class="docutils literal"><span class="pre">JOINT_GENOTYPING_STAGE</span></code></td>
-<td>These variables control whether each stage is ran or skipped (only         stages that were successfully run previously can be skipped, as the        &#8220;skipped&#8221; option simply looks for the output files that were generated     from a previous run.)
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">ALIGN_DEDUP_STAGE</span></code></td>
+<td rowspan="5">These variables control whether each stage is ran or skipped (only         stages that were successfully run previously can be skipped, as the        &#8220;skipped&#8221; option simply looks for the output files that were generated     from a previous run.)
 Each of these stage variables can be set to <code class="docutils literal"><span class="pre">Y</span></code> or <code class="docutils literal"><span class="pre">N</span></code>. In addition,   all but the last stage can be set to <code class="docutils literal"><span class="pre">End</span></code>, which will stop the          pipeline after that stage has been executed (think of the <code class="docutils literal"><span class="pre">End</span></code>          setting as shorthand for &#8220;End after this stage&#8221;)
 See the <strong>Pipeline Interruptions and Continuations</strong> Section for more      details.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">CHR_SPLIT_STAGE</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">VC_STAGE</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">COMBINE_VARIANT_STAGE</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">JOINT_GENOTYPING_STAGE</span></code></td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">PAIRED</span></code></td>
 <td>0 if reads are single-ended only; 1 if they are paired-end reads</td>
@@ -261,15 +263,22 @@ See the <strong>Pipeline Interruptions and Continuations</strong> Section for mo
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">MARKDUPLICATESTOOL</span></code></td>
 <td>Tool for marking duplicates. either: <code class="docutils literal"><span class="pre">SAMBLASTER</span></code>, <code class="docutils literal"><span class="pre">PICARD</span></code>,            or <code class="docutils literal"><span class="pre">NOVOSORT</span></code></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">BWAINDEX</span></code> ;
-<code class="docutils literal"><span class="pre">NOVOALIGNINDEX</span></code></td>
-<td>Depending on the tool being used, one of these variables specify          the location of the index file</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">BWAINDEX</span></code></td>
+<td rowspan="2"><dl class="first docutils">
+<dt>Depending on the tool being used, one of these variables specify          </dt>
+<dd></dd>
+</dl>
+<p class="last">the location of the index file</p>
+</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">BWAMEMPARAMS</span></code>;
-<code class="docutils literal"><span class="pre">NOVOALIGNPARAMS</span></code></td>
-<td>This string is passed directly as arguments to the tool as (an)           argument(s)
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">NOVOALIGNINDEX</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">BWAMEMPARAMS</span></code>;</td>
+<td rowspan="2">This string is passed directly as arguments to the tool as (an)           argument(s)
 Example, <code class="docutils literal"><span class="pre">BWAMEMPARAMS=-k</span> <span class="pre">32</span> <span class="pre">-I</span> <span class="pre">300,30</span></code>                                 <strong>Note:</strong> There is no space between the &#8216;=&#8217; character and your parameters
 <strong>Note:</strong> Do not set the thread count or paired/single-ended flags, as they are taken care of by the workflow itself</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">NOVOALIGNPARAMS</span></code></td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">CHRNAMES</span></code></td>
 <td>List of chromosome/contig names separated by a &#8216;:&#8217;
@@ -302,16 +311,23 @@ Within the directory, the vcf files should be named with only the           chro
 For example, if the chromosome is <code class="docutils literal"><span class="pre">chr12</span></code> or <code class="docutils literal"><span class="pre">12</span></code>, name the vcf         files <code class="docutils literal"><span class="pre">chr12.vcf</span></code> or <code class="docutils literal"><span class="pre">12.vcf</span></code>, respectively.
 If not splitting by chromosome, the workflow will look for all of the       vcf files in the directory.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">JAVAEXE</span></code>; <code class="docutils literal"><span class="pre">BWAEXE</span></code>;
-<code class="docutils literal"><span class="pre">SAMBLASTEREXE</span></code>;
-<code class="docutils literal"><span class="pre">SAMTOOLSEXE</span></code>;
-<code class="docutils literal"><span class="pre">NOVOALIGNEXE</span></code>;
-<code class="docutils literal"><span class="pre">NOVOSORTEXE</span></code></td>
-<td>Full path of the appropriate executable file</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">JAVAEXE</span></code></td>
+<td rowspan="6">Full path of the appropriate executable file</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">PICARDJAR</span></code>;
-<code class="docutils literal"><span class="pre">GATKJAR</span></code></td>
-<td>Full path of the appropriate jar file</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">BWAEXE</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">SAMBLASTEREXE</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">SAMTOOLSEXE</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">NOVOALIGNEXE</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">NOVOSORTEXE</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">PICARDJAR</span></code></td>
+<td rowspan="2">Full path of the appropriate jar file</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">GATKJAR</span></code></td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">JAVA_MAX_HEAP_SIZE</span></code></td>
 <td>Memory area to store all java objects. This should be tuned in relevance to the speed and frequency at which garbage collection should occur. With largerinput size, larger heap is needed.</td>
