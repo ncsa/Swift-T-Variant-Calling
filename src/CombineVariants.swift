@@ -107,9 +107,9 @@ import bioappsLoggingFunctions.merge_vcf_logging;
 	
 			gvcfSample, combineLog, tmpcombineLog = CombineGVCFs_logged (vars["JAVAEXE"],
 							      vars["JAVA_MAX_HEAP_SIZE"], 
-							      vars["GATKJAR"],							     
-							      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),			
-							      strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),			    
+							      vars["GATKJAR"],
+							      vars["REFGENOME"],			
+							      strcat(vars["DBSNP"]),			    
 							      chrSampleArray, sampleName 
 							     ) =>
 			vcfOutfiles[sampleIndex] = gvcfSample;

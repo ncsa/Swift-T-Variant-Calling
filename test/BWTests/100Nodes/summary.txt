@@ -1,0 +1,17 @@
+I actually reserved 110 nodes when performing this testing, as one of the variables I experimented with when testing was the number of ADLB_SERVERS (the things that manage where Swift/T tasks are run)
+
+Things tested:
+
+For a long time, things were failing during this test due to a user error: the file that contains sample information had some duplicate entries. This caused some files to be written correctly, then immediately rewritten, which caused collisions with downstream programs.
+
+The following list of things tested were completed after this user error was corrected (all duplicates were removed)
+
+--------------- 
+
+2 programs per node with 20 ADLB Servers with Picard's MarkDuplicates - FAILED
+1 program per node with 20 ADLB Servers with Samblaster to MarkDuplicates - FAILED
+   Log: Failed_samblaster.log
+1 program per node with 20 ADLB Servers with Picard's MarkDuplicates - FAILED
+1 program per node with 20 ADLB Servers with Novosort to mark duplicates - SUCCESSFUL
+   Log: successful_run.log
+
