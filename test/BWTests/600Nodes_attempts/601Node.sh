@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -eu
 
 export PPN=1
 export NODES=601
