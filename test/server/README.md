@@ -6,8 +6,8 @@ The options for running the pipeline are provided in the `runfile` (for pipeline
 
 `Timing.log` is the timing trace from running the swift-t pipeline as per these options, and is typically put in the `OUTPUTDIR/deliverables/docs`. The figure below is a visualization of this log using our [Plotting app](https://github.com/ncsa/Swift-T-Variant-Calling#logging-functionality)
 
-<img src=./Plotting_App_server.png width="700">
+<img src=./media/Plotting_App_server.png width="700">
 
 Finally, the `profile.complete_pipeline.log` file  contains the corresponding resource usage details as extracted via dstat. The figure below visualizes the CPU usage per app. 
 
-<img src=./CPU_usage.png width="700"> 
+<img src=./media/CPU_usage.png width="400"> 
