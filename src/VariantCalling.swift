@@ -33,6 +33,7 @@ import unix;
 import io;
 import files;
 import assert;
+import sys;
 
 import generalfunctions.general;
 import Align;
@@ -45,6 +46,8 @@ import JointGenotyping;
 /*********************************************************************************************************************
  Initial Setup
 **********************************************************************************************************************/
+
+printf(strcat("The SWIFT_TMP environment variable is set to: ", getenv("SWIFT_TMP")));
 
 /*************
  Parse runfile
