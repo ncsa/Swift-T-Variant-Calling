@@ -25,12 +25,6 @@ app (file output) samtools_view(string samtoolsexe, file inputFile, int thr, str
 	samtoolsexe "view" "-@" thr "-bS" inputFile args @stdout=output;
 }
 
-@dispatch=WORKER
-app (file output) samtools_bam2sam(string samtoolsexe, file inputFile, int thr, string args[]){
-	// Converting sam to bam
-	samtoolsexe "view" "-@" thr inputFile args @stdout=output;
-}
-
 // Counting the number of alignments
 @dispatch=WORKER
 (int numAlignments) samtools_view2(string samtoolsexe, string inputFile)
