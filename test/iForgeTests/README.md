@@ -58,6 +58,7 @@ The output and reference files used for each run are currently too big to put on
 
 ## Tests performed successfully
 * 1,4,6,7,8b,9,13,15,16,18,19
+* 2,5,8c,10,14,16
 
 
 
