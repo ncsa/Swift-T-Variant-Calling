@@ -48,6 +48,18 @@ hg38_chr_20_21_22_merged_copy4_read1.fq.gz
 hg38_chr_20_21_22_merged_copy4_read2.fq.gz
 ```
 
+# Testing Procedures
+We tested all of the features in the TestCases.txt file in `Swift-T-Variant-Calling/test/`.
+Multiple runs were needed to correctly test all of the features, each run is labelled with the case numbers tested in the TestCases.txt. For each run, there is a runfile, a qsub file, a log file, and a sample_information. These files are in their respective directories. 
+
+The output and reference files used for each run are currently too big to put on github. The output for each iForge test is located on iForge at:
+
+`/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs`.
+
+## Tests performed successfully
+* 1,4,6,7,8b,9,13,15,16,18,19
+
+
 
 
 
