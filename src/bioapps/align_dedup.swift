@@ -25,14 +25,6 @@ app (file output) samtools_view(string samtoolsexe, file inputFile, int thr, str
 	samtoolsexe "view" "-@" thr "-bS" inputFile args @stdout=output;
 }
 
-/*
-This is only used right before samblaster, since samblaster needs a bam instead of a bam (Of course, converting the bam to sam,
-  marking duplicates, then converting from sam back to bam creates unnecessary overhead. But if we changed the alignment stage
-  output array to hold sam's for every sample, that would necessarily create a large disk footprint. The current way the workflow is
-  written, bwa outputs a sam, the bam is created, and the sam is immediately deleted. Since samples will often finish at different times,
-  this makes the overall disk footprint taken up by all of the intermediate sample files less severe. It is a tradeoff between 
-  general disk footprint of the workflow, and the efficiency of using Samblaster)
-*/
 @dispatch=WORKER
 app (file output) samtools_bam2sam(string samtoolsexe, file inputFile, int thr, string args[]){
 	// Converting sam to bam
@@ -47,8 +39,8 @@ app (file output) samtools_bam2sam(string samtoolsexe, file inputFile, int thr, 
 ];
 
 @dispatch=WORKER
-app (file output, file outLog) samblaster(string samblasterexe, file inputFile){
-	samblasterexe "-M" "-i" inputFile @stdout=output @stderr=outLog;
+app (file output, file outLog) samblaster(string samblasterexe, file inputSam){
+	samblasterexe "-M" "-i" inputSam @stdout=output @stderr=outLog;
 }
 
 @dispatch=WORKER
