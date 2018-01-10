@@ -33,8 +33,8 @@ app (file output) samtools_view(string samtoolsexe, file inputFile, int thr, str
 ];
 
 @dispatch=WORKER
-app (file output, file outLog) samblaster(string samblasterexe, file inputFile){
-	samblasterexe "-M" "-i" inputFile @stdout=output @stderr=outLog;
+app (file output, file outLog) samblaster(string samblasterexe, file inputSam){
+	samblasterexe "-M" "-i" inputSam @stdout=output @stderr=outLog;
 }
 
 @dispatch=WORKER

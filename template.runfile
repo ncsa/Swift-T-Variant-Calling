@@ -40,7 +40,7 @@ NOVOALIGNINDEX=<path to the indexed reference file for novoalign, if it is the d
 NOVOALIGNPARAMS=<optional parameters to novoalign, if used as an aligner. Note: do not set the thread count here>
 
 # Memory limit
-NOVOSORT_MEMLIMIT=<Max RAM used by one novosort instance. Must be an Integer in bytes; See the README for details>
+NOVOSORT_MEMLIMIT=<THIS ALWAYS NEEDS TO BE SET, SINCE NOVOSORT IS ALWAYS USED TO SORT. Max RAM used by one novosort instance. Must be an Integer in bytes; See the README for details>
 
 # Quality thresholds
 MAP_CUTOFF=<minimum mapping quality of reads to pass QC test after alignment>

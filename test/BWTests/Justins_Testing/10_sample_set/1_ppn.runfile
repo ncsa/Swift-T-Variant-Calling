@@ -1,0 +1,59 @@
+## i/o
+SAMPLEINFORMATION=/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/SyntheticData/SampleInfoSheets/WES_chr1_30X_E0.005.10
+OUTPUTDIR=/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/Justins_Testing/10_sample_set/10_1ppn_output
+TMPDIR=/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/Justins_Testing/10_sample_set/tmp
+
+## choose the run case
+REALIGN=NO
+SPLIT=NO
+PROGRAMS_PER_NODE=1
+CORES_PER_NODE=32
+
+PAIRED=YES
+
+EXIT_ON_ERROR=N
+
+ALIGN_STAGE=Y
+DEDUP_SORT_STAGE=Y
+CHR_SPLIT_STAGE=N
+VC_STAGE=Y
+COMBINE_VARIANT_STAGE=N
+JOINT_GENOTYPING_STAGE=End
+
+## Read group information for the samples: namely, the Library, Platform technology,and sequencing center name. It should be noted that the sample ID, platform unit (PU) and sample name (SM) are set by default to be the same sample name found in the sampleinformation file specified
+SAMPLELB=NEAT
+SAMPLEPL=ILLUMINA
+SAMPLECN=NCSA_Genomics
+## The tools to be used in this run of the pipeline (where a selection can be made)
+ALIGNERTOOL=BWAMEM
+MARKDUPLICATESTOOL=NOVOSORT
+
+## Alignment block parameters and Trimming options. 
+BWAINDEX=/projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta
+BWAMEMPARAMS=-k 32 -I 300,30
+NOVOALIGNINDEX=<path to the indexed reference file for novoalign, if it is the desired aligner>
+NOVOALIGNPARAMS=<optional parameters to novoalign, if used as an aligner>
+
+## Quality thresholds (for reporting only, as the pipeline will continue with the next stage regardless of whether these thresholds were respected or not): 
+MAP_CUTOFF=60
+DUP_CUTOFF=40
+
+NOVOSORT_MEMLIMIT=10000000000
+
+## paths to resources See section 2.1 and 2.2
+REFGENOME=/projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta
+DBSNP=/projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/dbsnp_138.b37.vcf
+INDELDIR=/projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/indels
+CHRNAMES=
+
+# paths to tools
+JAVA_MAX_HEAP_SIZE=24g
+BWAEXE=/projects/sciteam/baib/builds/bwa/bwa-0.7.12/bwa
+NOVOSORTEXE=/projects/sciteam/baib/builds/novocraft/novocraft/novosort
+NOVOALIGNEXE=/projects/sciteam/baib/builds/novocraft/novocraft/novoalign
+SAMBLASTEREXE=/projects/sciteam/baib/builds/samblaster/samblaster
+PICARDJAR=/projects/sciteam/baib/builds/picard/picard.jar
+GATKJAR=/projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar
+SAMTOOLSEXE=/projects/sciteam/baib/builds/samtools-1.5/samtools
+JAVAEXE=/opt/java/jdk1.8.0_51/bin/java
+
