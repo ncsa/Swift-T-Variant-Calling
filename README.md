@@ -171,7 +171,7 @@ This is set in bytes, so if you want to limit novosort to using 30 GB, one would
 
 **`DUP_CUTOFF`** The maximum percentage of reads that are marked as duplicates in a successful sample
 
-**`REFGENOME`** Full path to the reference genome (/path/to/example.fa)
+**`REFGENOME`** Full path to the reference genome (/path/to/example.fa)(assumes reference has .dict and .fai (index) files created in the same directory)
 
 **`DBSNP`** Full path to the dbsnp vcf file
 
