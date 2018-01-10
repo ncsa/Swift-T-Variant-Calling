@@ -1,0 +1,1278 @@
+   0.000 WORK TYPES: WORK
+   0.000 WORKERS: 4 RANKS: 0 - 3
+   0.000 SERVERS: 1 RANKS: 4 - 4
+   0.000 WORK WORKERS: 4 RANKS: 0 - 3
+   0.013 global: u:variables=<-1>
+   0.015 function:swift:constants
+   0.015 function:swift:constants
+   0.015 function:swift:constants
+   0.014 function:swift:constants
+   0.015 allocated string: c:s_-1=<1>
+   0.015 allocated string: c:s_-1=<3>
+   0.015 allocated string: c:s_-1=<2>
+   0.014 allocated string: c:s_-1=<4>
+   0.015 store: <1>=""
+   0.015 store: <2>=""
+   0.015 store: <3>=""
+   0.015 store: <4>=""
+   0.015 allocated string: c:s_BWAEXE=<5>
+   0.015 store: <5>="BWAEXE"
+   0.015 allocated string: c:s_GATKJAR=<8>
+   0.015 allocated string: c:s_BWAEXE=<6>
+   0.015 store: <8>="GATKJAR"
+   0.015 allocated string: c:s_BWAEXE=<7>
+   0.015 store: <6>="BWAEXE"
+   0.015 allocated string: c:s_BWAEXE=<9>
+   0.015 allocated string: c:s_JAVAEXE=<10>
+   0.015 store: <7>="BWAEXE"
+   0.015 store: <9>="BWAEXE"
+   0.015 store: <10>="JAVAEXE"
+   0.015 allocated string: c:s_GATKJAR=<11>
+   0.015 allocated string: c:s_NOVOALIGNE=<12>
+   0.015 allocated string: c:s_GATKJAR=<13>
+   0.015 store: <11>="GATKJAR"
+   0.015 store: <12>="NOVOALIGNEXE"
+   0.015 store: <13>="GATKJAR"
+   0.015 allocated string: c:s_GATKJAR=<14>
+   0.015 allocated string: c:s_NOVOSORTEX=<15>
+   0.015 store: <15>="NOVOSORTEXE"
+   0.015 store: <14>="GATKJAR"
+   0.015 allocated string: c:s_PICARDJAR=<18>
+   0.015 allocated string: c:s_JAVAEXE=<16>
+   0.015 store: <18>="PICARDJAR"
+   0.015 allocated string: c:s_JAVAEXE=<17>
+   0.015 store: <16>="JAVAEXE"
+   0.015 store: <17>="JAVAEXE"
+   0.015 allocated string: c:s_JAVAEXE=<19>
+   0.015 allocated string: c:s_SAMBLASTER-1=<20>
+   0.015 store: <19>="JAVAEXE"
+   0.015 store: <20>="SAMBLASTEREXE"
+   0.015 allocated string: c:s_NOVOALIGNE=<23>
+   0.015 allocated string: c:s_NOVOALIGNE=<21>
+   0.015 allocated string: c:s_SAMTOOLSEX=<22>
+   0.015 store: <23>="NOVOALIGNEXE"
+   0.015 store: <21>="NOVOALIGNEXE"
+   0.015 allocated string: c:s_NOVOALIGNE=<24>
+   0.015 store: <22>="SAMTOOLSEXE"
+   0.015 store: <24>="NOVOALIGNEXE"
+   0.015 allocated string: c:s__vcf-1=<25>
+   0.015 store: <25>="*.vcf"
+   0.015 allocated string: c:s_NOVOSORTEX=<26>
+   0.015 allocated string: c:s_sknownSite=<27>
+   0.015 store: <26>="NOVOSORTEXE"
+   0.015 store: <27>="s/^/--knownSites /g"
+   0.015 allocated string: c:s_NOVOSORTEX=<28>
+   0.015 allocated string: c:s_NOVOSORTEX=<29>
+   0.015 allocated string: c:s_sknown_g=<30>
+   0.015 store: <30>="s/^/-known /g"
+   0.015 store: <28>="NOVOSORTEXE"
+   0.015 store: <29>="NOVOSORTEXE"
+   0.016 allocated string: c:s_PICARDJAR=<31>
+   0.016 allocated string: c:s_PICARDJAR=<32>
+   0.016 store: <31>="PICARDJAR"
+   0.016 store: <32>="PICARDJAR"
+   0.016 allocated string: c:s_PICARDJAR=<33>
+   0.016 store: <33>="PICARDJAR"
+   0.016 allocated string: c:s_SAMBLASTER-1=<34>
+   0.016 allocated string: c:s_SAMBLASTER-1=<35>
+   0.016 store: <34>="SAMBLASTEREXE"
+   0.016 store: <35>="SAMBLASTEREXE"
+   0.016 allocated string: c:s_SAMBLASTER-1=<36>
+   0.016 store: <36>="SAMBLASTEREXE"
+   0.016 allocated string: c:s_SAMTOOLSEX=<37>
+   0.016 allocated string: c:s_SAMTOOLSEX=<38>
+   0.016 store: <37>="SAMTOOLSEXE"
+   0.016 store: <38>="SAMTOOLSEXE"
+   0.016 allocated string: c:s_SAMTOOLSEX=<39>
+   0.015 function: __entry
+   0.016 store: <39>="SAMTOOLSEXE"
+   0.016 allocated t:12=<41> t:14=<42> t:15=<43> t:27=<44> t:61=<45>
+   0.016 allocated u:sampleLines=<46> u:alignBams=<47>
+   0.016 allocated string: c:s__vcf-1=<40>
+   0.016 store: <40>="*.vcf"
+   0.016 allocated string: c:s__vcf-1=<48>
+   0.016 store: <48>="*.vcf"
+   0.016 allocated string: c:s__vcf-1=<49>
+   0.016 store: <49>="*.vcf"
+   0.016 allocated string: c:s_sknownSite=<56>
+   0.016 allocated string: c:s_sknownSite=<57>
+   0.016 store: <56>="s/^/--knownSites /g"
+   0.016 store: <57>="s/^/--knownSites /g"
+   0.016 allocated string: c:s_sknownSite=<58>
+   0.016 getenv(SWIFT_TMP) => /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp
+   0.016 store: <58>="s/^/--knownSites /g"
+The SWIFT_TMP environment variable is set to: /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp
+   0.016 allocated string: c:s_sknown_g=<60>
+   0.016 allocated string: c:s_sknown_g=<59>
+   0.016 allocated string: c:s_sknown_g=<61>
+   0.016 argv(runfile) => /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/runfiles/2,5,8c,10,14,16.runfile
+   0.016 store: <60>="s/^/-known /g"
+   0.016 store: <59>="s/^/-known /g"
+   0.016 store: <61>="s/^/-known /g"
+   0.017 store: <55>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/runfiles/2,5,8c,10,14,16.runfile
+   0.018 creating reference: <-1>["SAMPLEINFORMATION"] <- <*41> (string)
+   0.018 creating reference: <-1>["OUTPUTDIR"] <- <*43> (string)
+   0.018 creating reference: <-1>["ALIGN_STAGE"] <- <*45> (string)
+   0.018 allocated u:keyValuePair=<62>
+   0.018 build_rec: <62>
+   0.018 insert: <-1>["SAMPLEINFORMATION"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/sample_info/4_sample_feature_test_single_ended.sampleinfo>
+   0.018 allocated u:keyValuePair=<63>
+   0.018 build_rec: <63>
+   0.019 insert: <-1>["OUTPUTDIR"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs>
+   0.019 allocated u:keyValuePair=<64>
+   0.019 build_rec: <64>
+   0.019 insert: <-1>["TMPDIR"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp>
+   0.019 allocated u:keyValuePair=<65>
+   0.019 build_rec: <65>
+   0.019 insert: <-1>["REALIGN"]=<NO>
+   0.019 allocated u:keyValuePair=<66>
+   0.019 build_rec: <66>
+   0.019 insert: <-1>["SPLIT"]=<NO>
+   0.019 allocated u:keyValuePair=<67>
+   0.019 build_rec: <67>
+   0.019 insert: <-1>["EXIT_ON_ERROR"]=<YES>
+   0.019 allocated u:keyValuePair=<68>
+   0.019 build_rec: <68>
+   0.019 insert: <-1>["PROGRAMS_PER_NODE"]=<1>
+   0.019 allocated u:keyValuePair=<69>
+   0.019 build_rec: <69>
+   0.019 insert: <-1>["CORES_PER_NODE"]=<20>
+   0.019 allocated u:keyValuePair=<70>
+   0.019 build_rec: <70>
+   0.019 insert: <-1>["ALIGN_STAGE"]=<N>
+   0.019 allocated u:keyValuePair=<71>
+   0.019 build_rec: <71>
+   0.019 insert: <-1>["DEDUP_SORT_STAGE"]=<N>
+   0.019 allocated u:keyValuePair=<72>
+   0.019 build_rec: <72>
+   0.019 insert: <-1>["CHR_SPLIT_STAGE"]=<N>
+   0.019 allocated u:keyValuePair=<73>
+   0.019 build_rec: <73>
+   0.019 insert: <-1>["VC_STAGE"]=<Y>
+   0.019 allocated u:keyValuePair=<74>
+   0.019 build_rec: <74>
+   0.019 insert: <-1>["COMBINE_VARIANT_STAGE"]=<Y>
+   0.019 allocated u:keyValuePair=<75>
+   0.019 build_rec: <75>
+   0.019 insert: <-1>["JOINT_GENOTYPING_STAGE"]=<Y>
+   0.019 allocated u:keyValuePair=<76>
+   0.019 build_rec: <76>
+   0.019 insert: <-1>["PAIRED"]=<NO>
+   0.019 allocated u:keyValuePair=<77>
+   0.019 build_rec: <77>
+   0.019 insert: <-1>["SAMPLELB"]=<NEAT_synthetic>
+   0.019 allocated u:keyValuePair=<78>
+   0.019 build_rec: <78>
+   0.019 insert: <-1>["SAMPLEPL"]=<ILLUMINA>
+   0.019 allocated u:keyValuePair=<79>
+   0.019 build_rec: <79>
+   0.019 insert: <-1>["SAMPLECN"]=<UIUC>
+   0.019 allocated u:keyValuePair=<80>
+   0.019 build_rec: <80>
+   0.019 insert: <-1>["ALIGNERTOOL"]=<NOVOALIGN>
+   0.019 allocated u:keyValuePair=<81>
+   0.019 build_rec: <81>
+   0.020 insert: <-1>["MARKDUPLICATESTOOL"]=<PICARD>
+   0.020 allocated u:keyValuePair=<82>
+   0.020 build_rec: <82>
+   0.020 insert: <-1>["CHRNAMES"]=<chr20:chr21:chr22>
+   0.020 allocated u:keyValuePair=<83>
+   0.020 build_rec: <83>
+   0.020 insert: <-1>["BWAINDEX"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta>
+   0.020 allocated u:keyValuePair=<84>
+   0.020 build_rec: <84>
+   0.020 insert: <-1>["BWAMEMPARAMS"]=<-k 32 -I 30,30>
+   0.020 allocated u:keyValuePair=<85>
+   0.020 build_rec: <85>
+   0.020 insert: <-1>["NOVOALIGNINDEX"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta.nix>
+   0.020 allocated u:keyValuePair=<86>
+   0.020 build_rec: <86>
+   0.020 insert: <-1>["NOVOALIGNPARAMS"]=<>
+   0.020 allocated u:keyValuePair=<87>
+   0.020 build_rec: <87>
+   0.020 insert: <-1>["NOVOSORT_MEMLIMIT"]=<10000000000>
+   0.020 allocated u:keyValuePair=<88>
+   0.020 build_rec: <88>
+   0.020 insert: <-1>["MAP_CUTOFF"]=<80>
+   0.020 allocated u:keyValuePair=<89>
+   0.020 build_rec: <89>
+   0.020 insert: <-1>["DUP_CUTOFF"]=<5>
+   0.020 allocated u:keyValuePair=<90>
+   0.020 build_rec: <90>
+   0.020 insert: <-1>["REFGENOME"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta>
+   0.020 allocated u:keyValuePair=<91>
+   0.020 build_rec: <91>
+   0.020 insert: <-1>["DBSNP"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz>
+   0.020 allocated u:keyValuePair=<92>
+   0.020 build_rec: <92>
+   0.020 insert: <-1>["INDELDIR"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels>
+   0.020 allocated u:keyValuePair=<93>
+   0.020 build_rec: <93>
+   0.020 insert: <-1>["JAVA_MAX_HEAP_SIZE"]=<16g>
+   0.020 allocated u:keyValuePair=<94>
+   0.020 build_rec: <94>
+   0.020 insert: <-1>["JAVAEXE"]=</usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java>
+   0.020 allocated u:keyValuePair=<95>
+   0.020 build_rec: <95>
+   0.020 insert: <-1>["BWAEXE"]=</usr/local/apps/bioapps/bwa/bwa/bwa>
+   0.020 allocated u:keyValuePair=<96>
+   0.020 build_rec: <96>
+   0.020 insert: <-1>["PICARDJAR"]=</usr/local/apps/bioapps/picard/picard-2.12.1/picard.jar>
+   0.020 allocated u:keyValuePair=<97>
+   0.020 build_rec: <97>
+   0.020 insert: <-1>["SAMBLASTEREXE"]=</usr/local/apps/bioapps/samblaster/samblaster-v.0.1.24/samblaster>
+   0.020 allocated u:keyValuePair=<98>
+   0.020 build_rec: <98>
+   0.020 insert: <-1>["SAMTOOLSEXE"]=</projects/bioinformatics/builds/samtools-1.3.1/bin/samtools>
+   0.020 allocated u:keyValuePair=<99>
+   0.020 build_rec: <99>
+   0.020 insert: <-1>["NOVOALIGNEXE"]=</projects/bioinformatics/builds/novocraftV3.04.06.Linux2.6/novoalign>
+   0.020 allocated u:keyValuePair=<100>
+   0.020 build_rec: <100>
+   0.020 insert: <-1>["NOVOSORTEXE"]=</projects/bioinformatics/builds/novocraftV3.04.06.Linux2.6/novosort>
+   0.020 allocated u:keyValuePair=<101>
+   0.020 build_rec: <101>
+   0.021 insert: <-1>["GATKJAR"]=</projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar>
+   0.021 rule: <47> => __entry-call_foreign-size 47
+   0.021 rule: <43> => __entry-optmerged 42 43 44 45 2,5,8c,10,14,16.runfile 47 {file 55 is_mapped 0} {file 52 is_mapped 1} {file 51 is_mapped 1} {file 54 is_mapped 1} {file 50 is_mapped 0} 46 {file 53 is_mapped 1}
+   0.021 rule: <45> => __entry-optmerged-3 42 43 45 47 {file 54 is_mapped 1} {file 53 is_mapped 1}
+   0.021 rule: <41> => __entry-optmerged-28 41 43 44 {file 51 is_mapped 1} {file 50 is_mapped 0} 46
+   0.021 store: <42>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/deliverables/docs/Failures.log"
+   0.021 allocated u:dedupSortedBams=<102> t:82=<103> t:42:6=<104> t:46:6=<105> t:50:6=<106>
+   0.021 allocated t:54:6=<107> t:18:6=<108>
+   0.021 creating reference: <-1>["DEDUP_SORT_STAGE"] <- <*103> (string)
+   0.021 allocated t:37=<109>
+   0.021 exec: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs {}
+   0.021 rule: <47> => dedupSortRun-foreach-wait1 43 108 104 105 106 107 47 102 {file 54 is_mapped 1}
+   0.022 rule: <102> => __entry-call_foreign-size-1 102
+   0.022 rule: <103> => __entry-optmerged-14 42 43 108 104 105 106 107 103 102 {file 54 is_mapped 1} {file 53 is_mapped 1}
+   0.021 shell: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs 
+   0.022 store: <104>=0
+   0.022 store: <105>=0
+   0.022 store: <50>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/sample_info/4_sample_feature_test_single_ended.sampleinfo
+   0.022 store: <106>=0
+   0.022 store: <107>=0
+   0.022 allocated t:98=<110>
+   0.022 creating reference: <-1>["SPLIT"] <- <*110> (string)
+   0.022 rule: <110> => __entry-optmerged-15 42 43 110 102 {file 54 is_mapped 1} {file 53 is_mapped 1}
+   0.022 store: <108>=0
+   0.023 build_rec: <46>
+   0.023 allocated u:VCF_list:1=<111> t:187=<112>
+   0.023 creating reference: <-1>["VC_STAGE"] <- <*112> (string)
+   0.023 rule: <43> => __entry-async_op-strcat-23 43 44 4_sample_feature_test_single_ended.sampleinfo {file 51 is_mapped 1}
+   0.023 rule: <111> => __entry-chain12 111 {file 53 is_mapped 1}
+   0.023 rule: <102> => VCNoSplitRun-foreach-wait1 111 43 112 102 {file 54 is_mapped 1}
+   0.023 rule: <112> => __entry-optmerged-27 111 112 {file 53 is_mapped 1}
+   0.023 store: <44>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/deliverables/docs/4_sample_feature_test_single_ended.sampleinfo"
+   0.023 rule: <111> => __entry-call_foreign-size-3 111
+   0.023 function: jointGenotypingRun
+   0.023 allocated t:10=<113>
+   0.023 creating reference: <-1>["JOINT_GENOTYPING_STAGE"] <- <*113> (string)
+   0.023 rule: <113> => jointGenotypingRun-optmerged 113 {111} {file 53 is_mapped 1} {-1}
+   0.024 allocated t:45=<114> t:46=<115> t:49=<116> t:50=<117> t:54=<118>
+   0.024 allocated t:66=<119> u:variantSampleArray=<120> t:77=<121> t:81=<122> t:83=<123>
+   0.024 creating reference: <-1>["GATKJAR"] <- <*115> (string)
+   0.024 creating reference: <-1>["JAVAEXE"] <- <*117> (string)
+   0.024 function: exec_check
+   0.024 creating reference: <-1>["OUTPUTDIR"] <- <*118> (string)
+   0.024 store: <114>=1
+   0.024 function: exec_check
+   0.024 store: <116>=1
+   0.024 creating reference: <-1>["TMPDIR"] <- <*119> (string)
+   0.024 rule: <117> <17> => file_exists-argwait-2 {117} {17}
+   0.024 rule: <115> <13> => file_exists-argwait-2 {115} {13}
+   0.024 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*121> (string)
+   0.024 creating reference: <-1>["REFGENOME"] <- <*122> (string)
+   0.024 creating reference: <-1>["CORES_PER_NODE"] <- <*123> (string)
+   0.024 rule: <111> => jointGenotypingRun-foreach-wait1 {111} 120
+   0.024 rule: <119> => jointGenotypingRun-async_op-strcat 119 {file 126 is_mapped 1}
+   0.024 rule: <118> => jointGenotypingRun-optmerged-1 115 117 118 121 122 123 {ALL	ALL	GenotypeGVCFs start	1515623769	jointGenotypeRun
+} {file 125 is_mapped 1} {file 124 is_mapped 1} {file 53 is_mapped 1} {file 126 is_mapped 1} 120
+   0.025 assert passed: (The executable: 
+	/projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar
+ Referred to by the parameter: 
+	GATKJARis not properly specified in your runfile!)
+   0.025 shell command duration: 0.003
+   0.025 rule: <115> <117> <121> <122> <123> <120> => GenotypeGVCFs_logged-chain1 115 117 121 122 123 {ALL	ALL	GenotypeGVCFs start	1515623769	jointGenotypeRun
+} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/deliverables/jointVCFs/jointVCFcalled.vcf /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/deliverables/jointVCFs/jointVCF.log {file 125 is_mapped 1} {file 124 is_mapped 1} {file 53 is_mapped 1} {file 126 is_mapped 1} 120
+   0.025 creating reference: <-1>["TMPDIR"] <- <*109> (string)
+   0.025 exec: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/deliverables/jointVCFs {}
+   0.025 rule: <109> => mkdir-app-leaf1-1 44 109 45 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/deliverables/docs/Failures.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/deliverables/docs/Timing.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/deliverables/docs/2,5,8c,10,14,16.runfile 47 {file 55 is_mapped 0} {file 52 is_mapped 1} {file 51 is_mapped 1} {file 54 is_mapped 1} {file 50 is_mapped 0} 46 {file 53 is_mapped 1}
+   0.025 exec: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp {}
+   0.025 shell: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/deliverables/jointVCFs 
+   0.025 shell: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp 
+   0.026 assert passed: (The executable: 
+	/usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java
+ Referred to by the parameter: 
+	JAVAEXEis not properly specified in your runfile!)
+   0.036 shell command duration: 0.010
+   0.038 shell command duration: 0.012
+   0.038 exec: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs {}
+   0.038 shell: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs 
+   0.041 shell command duration: 0.003
+   0.042 exec: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/deliverables/docs {}
+   0.042 shell: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/deliverables/docs 
+   0.058 shell command duration: 0.016
+   0.066 rule: <44> <50> => __entry-chain7 44 109 45 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs 47 {file 51 is_mapped 1} {file 54 is_mapped 1} {file 50 is_mapped 0} 46 {file 53 is_mapped 1}
+   0.067 allocated t:3:1=<127> t:5:1=<128> t:7:1=<129> t:56:1=<130> t:60:1=<131>
+   0.067 allocated t:64:1=<132> t:68:1=<133> t:32:1=<134>
+   0.075 creating reference: <-1>["SAMPLELB"] <- <*127> (string)
+   0.076 creating reference: <-1>["SAMPLEPL"] <- <*128> (string)
+   0.076 creating reference: <-1>["SAMPLECN"] <- <*129> (string)
+   0.076 rule: <47> => __entry-chain9 109 47 {file 53 is_mapped 1}
+   0.076 rule: <46> => alignRun-foreach-wait1 134 127 130 128 131 132 133 129 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/ 47 {file 54 is_mapped 1} 46
+   0.076 rule: <45> => __entry-optmerged-2 134 130 131 45 132 133
+   0.076 store: <130>=0
+   0.076 store: <131>=0
+   0.076 store: <132>=0
+   0.076 store: <133>=0
+   0.076 store: <134>=0
+   0.077 allocated u:sampleInfo=<135> u:sampleName=<136> u:rgheader=<137>
+   0.077 build_rec: <135>
+   0.077 store: <136>="hg38_chr_20_21_22_merged_copy3"
+   0.077 rule: <127> <128> <129> => __entry-async_op-sprintf 127 128 129 hg38_chr_20_21_22_merged_copy3 137
+   0.077 rule: <134> <130> <131> <132> <133> => __entry-async_op-or 134 130 131 132 133 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/align/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/logs/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/realign/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/variant/ hg38_chr_20_21_22_merged_copy3 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp 2 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/ 47 {file 54 is_mapped 1} 137 135 136
+   0.077 store: <137>="@RG\tID:hg38_chr_20_21_22_merged_copy3\tLB:NEAT_synthetic\tPL:ILLUMINA\tPU:hg38_chr_20_21_22_merged_copy3\tSM:hg38_chr_20_21_22_merged_copy3\tCN:UIUC"
+   0.077 allocated u:sampleInfo=<138> u:sampleName=<139> u:rgheader=<140>
+   0.077 build_rec: <138>
+   0.077 store: <139>="hg38_chr_20_21_22_merged_copy1"
+   0.077 rule: <127> <128> <129> => __entry-async_op-sprintf 127 128 129 hg38_chr_20_21_22_merged_copy1 140
+   0.077 rule: <134> <130> <131> <132> <133> => __entry-async_op-or 134 130 131 132 133 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/align/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/logs/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/realign/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/variant/ hg38_chr_20_21_22_merged_copy1 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp 0 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/ 47 {file 54 is_mapped 1} 140 138 139
+   0.077 allocated u:sampleInfo=<141> u:sampleName=<142> u:rgheader=<143>
+   0.077 build_rec: <141>
+   0.078 store: <140>="@RG\tID:hg38_chr_20_21_22_merged_copy1\tLB:NEAT_synthetic\tPL:ILLUMINA\tPU:hg38_chr_20_21_22_merged_copy1\tSM:hg38_chr_20_21_22_merged_copy1\tCN:UIUC"
+   0.078 store: <142>="hg38_chr_20_21_22_merged_copy4"
+   0.078 rule: <127> <128> <129> => __entry-async_op-sprintf 127 128 129 hg38_chr_20_21_22_merged_copy4 143
+   0.078 rule: <134> <130> <131> <132> <133> => __entry-async_op-or 134 130 131 132 133 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/align/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/logs/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/realign/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/variant/ hg38_chr_20_21_22_merged_copy4 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp 3 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/ 47 {file 54 is_mapped 1} 143 141 142
+   0.078 store: <143>="@RG\tID:hg38_chr_20_21_22_merged_copy4\tLB:NEAT_synthetic\tPL:ILLUMINA\tPU:hg38_chr_20_21_22_merged_copy4\tSM:hg38_chr_20_21_22_merged_copy4\tCN:UIUC"
+   0.078 allocated u:sampleInfo=<144> u:sampleName=<145> u:rgheader=<146>
+   0.078 build_rec: <144>
+   0.078 store: <145>="hg38_chr_20_21_22_merged_copy2"
+   0.078 rule: <127> <128> <129> => __entry-async_op-sprintf 127 128 129 hg38_chr_20_21_22_merged_copy2 146
+   0.078 rule: <134> <130> <131> <132> <133> => __entry-async_op-or 134 130 131 132 133 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/align/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/logs/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/realign/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/variant/ hg38_chr_20_21_22_merged_copy2 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp 1 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/ 47 {file 54 is_mapped 1} 146 144 145
+   0.078 store: <146>="@RG\tID:hg38_chr_20_21_22_merged_copy2\tLB:NEAT_synthetic\tPL:ILLUMINA\tPU:hg38_chr_20_21_22_merged_copy2\tSM:hg38_chr_20_21_22_merged_copy2\tCN:UIUC"
+   0.079 store: <148>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.noDedups.bam
+   0.079 insert: <47>["0"]=<file 148 is_mapped 0>
+   0.079 store: <147>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.noDedups.bam
+   0.079 insert: <47>["2"]=<file 147 is_mapped 0>
+   0.080 store: <149>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.noDedups.bam
+   0.080 insert: <47>["1"]=<file 149 is_mapped 0>
+   0.081 store: <150>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.noDedups.bam
+   0.081 insert: <47>["3"]=<file 150 is_mapped 0>
+   0.081 assert passed: (FAILURE: The aligned bam array was empty: none of the samples finished properly)
+   0.081 function: logging
+   0.081 allocated u:tmplogs=<151> t:1=<152> t:3=<153> t:4=<154>
+   0.081 rule: <152> => glob_body 151 152
+   0.082 allocated u:sampleName:5=<156> u:LogDir:1=<157> u:AlignDir:1=<158>
+   0.082 rule: => basename_string-argwait 158 157 {147.0} 43 156
+   0.082 rule: <108> <104> <105> <106> <107> => __entry-async_op-or-1 158 157 108 104 105 106 107 2 102 {file 54 is_mapped 1} {file 147 is_mapped 0} 156
+   0.082 allocated u:sampleName:5=<159> u:LogDir:1=<160> u:AlignDir:1=<161>
+   0.082 store: <156>="hg38_chr_20_21_22_merged_copy3"
+   0.082 rule: => basename_string-argwait 161 160 {148.0} 43 159
+   0.082 rule: <43> => __entry-optmerged-4 158 157 43 hg38_chr_20_21_22_merged_copy3
+   0.082 rule: <108> <104> <105> <106> <107> => __entry-async_op-or-1 161 160 108 104 105 106 107 0 102 {file 54 is_mapped 1} {file 148 is_mapped 0} 159
+   0.082 store: <159>="hg38_chr_20_21_22_merged_copy1"
+   0.082 rule: <43> => __entry-optmerged-4 161 160 43 hg38_chr_20_21_22_merged_copy1
+   0.082 allocated u:sampleName:5=<162> u:LogDir:1=<163> u:AlignDir:1=<164>
+   0.082 store: <157>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/logs/"
+   0.082 store: <158>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/align/"
+   0.082 rule: => basename_string-argwait 164 163 {150.0} 43 162
+   0.082 store: <160>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/logs/"
+   0.082 store: <161>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/align/"
+   0.082 rule: <108> <104> <105> <106> <107> => __entry-async_op-or-1 164 163 108 104 105 106 107 3 102 {file 54 is_mapped 1} {file 150 is_mapped 0} 162
+   0.082 allocated u:sampleName:5=<165> u:LogDir:1=<166> u:AlignDir:1=<167>
+   0.082 rule: => basename_string-argwait 167 166 {149.0} 43 165
+   0.082 rule: <161> <159> => __entry-async_op-strcat-11 161 0 102 {file 54 is_mapped 1} 159
+   0.082 rule: <108> <104> <105> <106> <107> => __entry-async_op-or-1 167 166 108 104 105 106 107 1 102 {file 54 is_mapped 1} {file 149 is_mapped 0} 165
+   0.083 rule: <158> <156> => __entry-async_op-strcat-11 158 2 102 {file 54 is_mapped 1} 156
+   0.082 store: <162>="hg38_chr_20_21_22_merged_copy4"
+   0.082 rule: <43> => __entry-optmerged-4 164 163 43 hg38_chr_20_21_22_merged_copy4
+   0.083 store: <163>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/logs/"
+   0.083 store: <164>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/align/"
+   0.083 rule: <167> <165> => __entry-async_op-strcat-11 167 1 102 {file 54 is_mapped 1} 165
+   0.083 store: <168>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam
+   0.083 insert: <102>["2"]=<file 168 is_mapped 0>
+   0.083 store: <165>="hg38_chr_20_21_22_merged_copy2"
+   0.083 rule: <164> <162> => __entry-async_op-strcat-11 164 3 102 {file 54 is_mapped 1} 162
+   0.083 rule: <43> => __entry-optmerged-4 167 166 43 hg38_chr_20_21_22_merged_copy2
+   0.083 store: <166>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/logs/"
+   0.083 store: <169>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam
+   0.083 store: <167>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/align/"
+   0.084 insert: <102>["0"]=<file 169 is_mapped 0>
+   0.083 store: <170>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam
+   0.083 insert: <102>["3"]=<file 170 is_mapped 0>
+   0.084 store: <171>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam
+   0.084 insert: <102>["1"]=<file 171 is_mapped 0>
+   0.084 assert passed: (FAILURE: The dedupped and sorted bam array was empty: none of the samples finished properly)
+   0.084 allocated u:sampleName:4=<172>
+   0.084 rule: => basename_string-argwait-5 {168.0} 172
+   0.084 rule: <112> => __entry-optmerged-23 111 43 112 2 {file 54 is_mapped 1} 172
+   0.084 allocated u:sampleName:4=<173>
+   0.084 rule: => basename_string-argwait-5 {169.0} 173
+   0.084 rule: <112> => __entry-optmerged-23 111 43 112 0 {file 54 is_mapped 1} 173
+   0.084 allocated u:sampleName:4=<174>
+   0.084 rule: => basename_string-argwait-5 {170.0} 174
+   0.084 rule: <112> => __entry-optmerged-23 111 43 112 3 {file 54 is_mapped 1} 174
+   0.084 allocated u:sampleName:4=<175>
+   0.084 rule: => basename_string-argwait-5 {171.0} 175
+   0.084 rule: <112> => __entry-optmerged-23 111 43 112 1 {file 54 is_mapped 1} 175
+   0.085 store: <172>="hg38_chr_20_21_22_merged_copy3"
+   0.084 store: <173>="hg38_chr_20_21_22_merged_copy1"
+   0.084 store: <175>="hg38_chr_20_21_22_merged_copy2"
+   0.085 allocated t:56:5=<176> u:recalparmsindels:1=<177> u:realparms:1=<178> t:60:5=<179> t:61:5=<180>
+   0.085 allocated u:threads:3=<181> t:2:9=<182> t:5:9=<183> t:18:9=<184> t:20:8=<185>
+   0.085 allocated t:22:8=<186> t:24:8=<187> t:26:8=<188>
+   0.085 creating reference: <-1>["TMPDIR"] <- <*176> (string)
+   0.085 allocated t:56:5=<195> u:recalparmsindels:1=<196> u:realparms:1=<197> t:60:5=<198> t:61:5=<199>
+   0.085 creating reference: <-1>["INDELDIR"] <- <*180> (string)
+   0.085 allocated u:threads:3=<200> t:2:9=<201> t:5:9=<202> t:18:9=<203> t:20:8=<204>
+   0.085 allocated t:22:8=<205> t:24:8=<206> t:26:8=<207>
+   0.085 allocated t:56:5=<214> u:recalparmsindels:1=<215> u:realparms:1=<216> t:60:5=<217> t:61:5=<218>
+   0.085 allocated u:threads:3=<219> t:2:9=<220> t:5:9=<221> t:18:9=<222> t:20:8=<223>
+   0.085 allocated t:22:8=<224> t:24:8=<225> t:26:8=<226>
+   0.085 creating reference: <-1>["TMPDIR"] <- <*214> (string)
+   0.085 creating reference: <-1>["INDELDIR"] <- <*218> (string)
+   0.085 function: find_files
+   0.085 function: find_files
+   0.085 rule: <217> <25> => find_files-app-leaf1 {227.0} 1 {217} {file 227 is_mapped 1} {25}
+   0.085 creating reference: <-1>["CORES_PER_NODE"] <- <*220> (string)
+   0.085 creating reference: <-1>["TMPDIR"] <- <*195> (string)
+   0.085 rule: <179> <49> => find_files-app-leaf1 {189.0} 1 {179} {file 189 is_mapped 1} {49}
+   0.085 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*221> (string)
+   0.085 creating reference: <-1>["INDELDIR"] <- <*199> (string)
+   0.085 creating reference: <-1>["JAVAEXE"] <- <*222> (string)
+   0.085 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*223> (string)
+   0.085 creating reference: <-1>["CORES_PER_NODE"] <- <*182> (string)
+   0.085 creating reference: <-1>["GATKJAR"] <- <*224> (string)
+   0.085 creating reference: <-1>["REFGENOME"] <- <*225> (string)
+   0.085 creating reference: <-1>["DBSNP"] <- <*226> (string)
+   0.085 function: find_files
+   0.085 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*183> (string)
+   0.085 rule: <218> => __entry-async_op-strcat-21 217 218
+   0.086 creating reference: <-1>["JAVAEXE"] <- <*184> (string)
+   0.085 rule: <220> <221> => __entry-async_op-parse_int-7 220 221 219
+   0.085 rule: <174> => __entry-optmerged-24 111 43 222 223 224 225 226 214 3 1515623769 {file 230 is_mapped 1} {file 231 is_mapped 1} {file 228 is_mapped 0} 216 {file 227 is_mapped 1} {file 229 is_mapped 1} 215 174 219 {file 232 is_mapped 1}
+   0.085 store: <174>="hg38_chr_20_21_22_merged_copy4"
+   0.086 rule: <198> <40> => find_files-app-leaf1 {208.0} 1 {198} {file 208 is_mapped 1} {40}
+   0.086 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*185> (string)
+   0.086 creating reference: <-1>["GATKJAR"] <- <*186> (string)
+   0.086 creating reference: <-1>["CORES_PER_NODE"] <- <*201> (string)
+   0.086 creating reference: <-1>["REFGENOME"] <- <*187> (string)
+   0.086 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*202> (string)
+   0.086 creating reference: <-1>["DBSNP"] <- <*188> (string)
+   0.085 store: <219>=20
+   0.086 creating reference: <-1>["JAVAEXE"] <- <*203> (string)
+   0.086 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*204> (string)
+   0.086 rule: <180> => __entry-async_op-strcat-21 179 180
+   0.086 creating reference: <-1>["GATKJAR"] <- <*205> (string)
+   0.086 rule: <43> => __entry-optmerged-25 111 43 222 223 224 225 226 3 hg38_chr_20_21_22_merged_copy4 {hg38_chr_20_21_22_merged_copy4	ALL	HaplotypeCaller start	1515623769	VCRun
+} {file 230 is_mapped 1} {file 231 is_mapped 1} {file 228 is_mapped 0} {file 229 is_mapped 1} 219 {file 232 is_mapped 1}
+   0.086 rule: <214> => __entry-optmerged-26 214 hg38_chr_20_21_22_merged_copy4 216 {file 227 is_mapped 1} 215 {file 232 is_mapped 1}
+   0.086 creating reference: <-1>["REFGENOME"] <- <*206> (string)
+   0.086 creating reference: <-1>["DBSNP"] <- <*207> (string)
+   0.086 rule: <199> => __entry-async_op-strcat-21 198 199
+   0.086 rule: <182> <183> => __entry-async_op-parse_int-7 182 183 181
+   0.086 rule: <201> <202> => __entry-async_op-parse_int-7 201 202 200
+   0.086 rule: <172> => __entry-optmerged-24 111 43 184 185 186 187 188 176 2 1515623769 {file 192 is_mapped 1} {file 193 is_mapped 1} {file 190 is_mapped 0} 178 {file 189 is_mapped 1} {file 191 is_mapped 1} 177 172 181 {file 194 is_mapped 1}
+   0.086 rule: <175> => __entry-optmerged-24 111 43 203 204 205 206 207 195 1 1515623769 {file 211 is_mapped 1} {file 212 is_mapped 1} {file 209 is_mapped 0} 197 {file 208 is_mapped 1} {file 210 is_mapped 1} 196 175 200 {file 213 is_mapped 1}
+   0.086 function: recalibrationWrapper
+   0.086 allocated t:1=<233> u:prefix=<234> t:19=<235>
+   0.086 creating reference: <-1>["OUTPUTDIR"] <- <*233> (string)
+   0.086 creating reference: <-1>["REALIGN"] <- <*235> (string)
+   0.086 rule: <233> <1> <175> => recalibrationWrapper-async_op-strcat 233 {1} 234 {175}
+   0.086 rule: <235> => recalibrationWrapper-optmerged 233 235 {1} {file 209 is_mapped 0} 234 {197} {file 210 is_mapped 1} {196} {175} {-1}
+   0.086 rule: <227> => VCNoSplitRun-chain1 216 {file 227 is_mapped 1} 215
+   0.086 rule: <43> => __entry-optmerged-25 111 43 203 204 205 206 207 1 hg38_chr_20_21_22_merged_copy2 {hg38_chr_20_21_22_merged_copy2	ALL	HaplotypeCaller start	1515623769	VCRun
+} {file 211 is_mapped 1} {file 212 is_mapped 1} {file 209 is_mapped 0} {file 210 is_mapped 1} 200 {file 213 is_mapped 1}
+   0.086 rule: <195> => __entry-optmerged-26 195 hg38_chr_20_21_22_merged_copy2 197 {file 208 is_mapped 1} 196 {file 213 is_mapped 1}
+   0.086 rule: <43> => __entry-optmerged-25 111 43 184 185 186 187 188 2 hg38_chr_20_21_22_merged_copy3 {hg38_chr_20_21_22_merged_copy3	ALL	HaplotypeCaller start	1515623769	VCRun
+} {file 192 is_mapped 1} {file 193 is_mapped 1} {file 190 is_mapped 0} {file 191 is_mapped 1} 181 {file 194 is_mapped 1}
+   0.086 rule: <176> => __entry-optmerged-26 176 hg38_chr_20_21_22_merged_copy3 178 {file 189 is_mapped 1} 177 {file 194 is_mapped 1}
+   0.086 rule: <208> => VCNoSplitRun-chain1 197 {file 208 is_mapped 1} 196
+   0.086 rule: <189> => VCNoSplitRun-chain1 178 {file 189 is_mapped 1} 177
+   0.086 store: <234>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/realign/hg38_chr_20_21_22_merged_copy2.wDedups.sorted."
+   0.086 store: <190>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam
+   0.086 allocated t:66=<236> t:67=<237>
+   0.086 creating reference: <-1>["SAMTOOLSEXE"] <- <*237> (string)
+   0.086 rule: <184> <185> <186> <187> <188> <191> <181> => HaplotypeCaller_logged-chain1-1 111 184 185 186 187 188 2 hg38_chr_20_21_22_merged_copy3 {hg38_chr_20_21_22_merged_copy3	ALL	HaplotypeCaller start	1515623769	VCRun
+} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/logs/hg38_chr_20_21_22_merged_copy3_HaplotypeCaller.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/realign/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.recalibrated.bam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/variant/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.recalibrated.g.vcf {file 192 is_mapped 1} {file 193 is_mapped 1} {file 191 is_mapped 1} 181 {file 194 is_mapped 1}
+   0.086 store: <200>=20
+   0.087 function: samtools_index
+   0.087 store: <209>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam
+   0.086 store: <181>=20
+   0.086 store: <198>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/"
+   0.087 rule: <209> <237> => samtools_index-app-leaf1 {209.0} {file 209 is_mapped 0} {237} {236}
+   0.087 rule: <236> => recalibrationWrapper-chain3 236 {1} {file 209 is_mapped 0} {file 210 is_mapped 1} {196} {175} {-1}
+   0.086 store: <228>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam
+   0.087 rule: <203> <204> <205> <206> <207> <210> <200> => HaplotypeCaller_logged-chain1-1 111 203 204 205 206 207 1 hg38_chr_20_21_22_merged_copy2 {hg38_chr_20_21_22_merged_copy2	ALL	HaplotypeCaller start	1515623769	VCRun
+} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/logs/hg38_chr_20_21_22_merged_copy2_HaplotypeCaller.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/realign/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.recalibrated.bam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/variant/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.recalibrated.g.vcf {file 211 is_mapped 1} {file 212 is_mapped 1} {file 210 is_mapped 1} 200 {file 213 is_mapped 1}
+   0.087 rule: <222> <223> <224> <225> <226> <229> <219> => HaplotypeCaller_logged-chain1-1 111 222 223 224 225 226 3 hg38_chr_20_21_22_merged_copy4 {hg38_chr_20_21_22_merged_copy4	ALL	HaplotypeCaller start	1515623769	VCRun
+} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/logs/hg38_chr_20_21_22_merged_copy4_HaplotypeCaller.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/realign/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.recalibrated.bam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/variant/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.recalibrated.g.vcf {file 230 is_mapped 1} {file 231 is_mapped 1} {file 229 is_mapped 1} 219 {file 232 is_mapped 1}
+   0.087 exec: __v:samtoolsdir index /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam {}
+   0.087 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools index /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam 
+   0.087 exec: find /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/ -name *.vcf {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy2.recal_foundfiles.txt}
+   0.087 store: <179>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/"
+   0.087 store: <217>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/"
+   0.088 shell: find /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/ -name *.vcf {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy2.recal_foundfiles.txt}
+   0.088 exec: find /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/ -name *.vcf {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy3.recal_foundfiles.txt}
+   0.088 rule: <109> => logging-async_op-strcat 152 {109}
+   0.088 rule: <151> => logging-optmerged /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_S81KxA.turbine 153 154 {file 155 is_mapped 0} 151
+   0.089 exec: find /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/ -name *.vcf {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy4.recal_foundfiles.txt}
+   0.089 shell: find /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/ -name *.vcf {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy4.recal_foundfiles.txt}
+   0.089 shell: find /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/ -name *.vcf {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy3.recal_foundfiles.txt}
+   0.094 shell command duration: 0.005
+   0.094 shell command duration: 0.006
+   0.094 shell command duration: 0.005
+   0.094 store: <152>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/*"
+   0.094 function: sed
+   0.094 function: sed
+   0.095 function: sed
+   0.096 rule: <57> <227> => sed-app-leaf1 {227.0} {240.0} 0 {57} {file 227 is_mapped 1} {file 240 is_mapped 0}
+   0.096 rule: <240> => __entry-call_foreign-read-2 {file 240 is_mapped 0} 216 {file 227 is_mapped 1} 215
+   0.097 rule: <56> <189> => sed-app-leaf1 {189.0} {238.0} 0 {56} {file 189 is_mapped 1} {file 238 is_mapped 0}
+   0.097 rule: <238> => __entry-call_foreign-read-2 {file 238 is_mapped 0} 178 {file 189 is_mapped 1} 177
+   0.098 exec: sed {s/^/--knownSites /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy4.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_b9lLJt.turbine}
+   0.099 shell: sed {s/^/--knownSites /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy4.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_b9lLJt.turbine}
+   0.099 glob: /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/*
+   0.099 allocated file: <151>[0]=<241>
+   0.099 insert: <151>["0"]=<file 241 is_mapped 1>
+   0.099 allocated file: <151>[1]=<242>
+   0.099 insert: <151>["1"]=<file 242 is_mapped 1>
+   0.099 allocated file: <151>[2]=<243>
+   0.100 insert: <151>["2"]=<file 243 is_mapped 1>
+   0.100 allocated file: <151>[3]=<244>
+   0.100 insert: <151>["3"]=<file 244 is_mapped 1>
+   0.100 allocated file: <151>[4]=<245>
+   0.100 insert: <151>["4"]=<file 245 is_mapped 1>
+   0.100 allocated file: <151>[5]=<246>
+   0.100 insert: <151>["5"]=<file 246 is_mapped 1>
+   0.100 allocated file: <151>[6]=<247>
+   0.100 insert: <151>["6"]=<file 247 is_mapped 1>
+   0.100 allocated file: <151>[7]=<248>
+   0.100 rule: <58> <208> => sed-app-leaf1 {208.0} {239.0} 0 {58} {file 208 is_mapped 1} {file 239 is_mapped 0}
+   0.100 insert: <151>["7"]=<file 248 is_mapped 1>
+   0.100 rule: <239> => __entry-call_foreign-read-2 {file 239 is_mapped 0} 197 {file 208 is_mapped 1} 196
+   0.100 rule: <153> => logging-chain1 153 151
+   0.101 exec: sed {s/^/--knownSites /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy3.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_FhBVfg.turbine}
+   0.101 allocated void: <249>
+   0.101 rule: <151> => container_deep_wait_iterate 151 0 -1 1 file_ref 249
+   0.101 rule: <249> => deeprule_action "249" "cat-app-leaf1 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_S81KxA.turbine 154 {file 155 is_mapped 0} 151"
+   0.101 shell: sed {s/^/--knownSites /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy3.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_FhBVfg.turbine}
+   0.101 exec: sed {s/^/--knownSites /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy2.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_0HA5qG.turbine}
+   0.102 shell: sed {s/^/--knownSites /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy2.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_0HA5qG.turbine}
+   0.106 shell command duration: 0.007
+   0.106 store: <240>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_b9lLJt.turbine
+   0.106 shell command duration: 0.005
+   0.106 store: <238>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_FhBVfg.turbine
+   0.106 Container <151> deep closed
+   0.106 store: <249>=void
+   0.108 build_rec: <215>
+   0.108 rule: => VCNoSplitRun-chain2 216 {file 227 is_mapped 1}
+   0.108 deeprule_finish: 249
+   0.108 build_rec: <177>
+   0.108 rule: => VCNoSplitRun-chain2 178 {file 189 is_mapped 1}
+   0.109 function: sed
+   0.109 exec: cat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2_PicardDedup.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1_PicardDedup.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2_NovoSortDedup.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1_NovoSortDedup.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3_NovoSortDedup.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3_PicardDedup.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_cal
+   0.109 shell: cat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2_PicardDedup.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1_PicardDedup.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2_NovoSortDedup.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1_NovoSortDedup.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3_NovoSortDedup.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3_PicardDedup.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_ca
+   0.110 shell command duration: 0.008
+   0.110 store: <239>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_0HA5qG.turbine
+   0.110 function: sed
+   0.110 rule: <59> <227> => sed-app-leaf1 {227.0} {250.0} 0 {59} {file 227 is_mapped 1} {file 250 is_mapped 0}
+   0.110 rule: <250> => __entry-call_foreign-read-3 {file 250 is_mapped 0} 216
+   0.112 build_rec: <196>
+   0.112 rule: => VCNoSplitRun-chain2 197 {file 208 is_mapped 1}
+   0.112 exec: sed {s/^/-known /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy4.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_cpD8MO.turbine}
+   0.112 shell: sed {s/^/-known /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy4.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_cpD8MO.turbine}
+   0.113 rule: <60> <189> => sed-app-leaf1 {189.0} {251.0} 0 {60} {file 189 is_mapped 1} {file 251 is_mapped 0}
+   0.113 rule: <251> => __entry-call_foreign-read-3 {file 251 is_mapped 0} 178
+   0.113 function: sed
+   0.115 rule: <60> <208> => sed-app-leaf1 {208.0} {252.0} 0 {60} {file 208 is_mapped 1} {file 252 is_mapped 0}
+   0.115 shell command duration: 0.003
+   0.115 rule: <252> => __entry-call_foreign-read-3 {file 252 is_mapped 0} 197
+   0.115 store: <250>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_cpD8MO.turbine
+   0.115 exec: sed {s/^/-known /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy3.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_bCLKYm.turbine}
+   0.116 build_rec: <216>
+   0.117 shell: sed {s/^/-known /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy3.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_bCLKYm.turbine}
+   0.117 exec: sed {s/^/-known /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy2.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_jFykeg.turbine}
+   0.117 shell: sed {s/^/-known /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy2.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_jFykeg.turbine}
+   0.119 shell command duration: 0.011
+   0.119 store: <155>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_S81KxA.turbine
+   0.120 store: <154>="hg38_chr_20_21_22_merged_copy2	ALL	PICARD start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy2	ALL	PICARD end	1515621379	DedupSort
+hg38_chr_20_21_22_merged_copy1	ALL	PICARD start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy1	ALL	PICARD end	1515621377	DedupSort
+hg38_chr_20_21_22_merged_copy2	ALL	NOVOSORT start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy2	ALL	NOVOSORT end	1515621247	DedupSort
+hg38_chr_20_21_22_merged_copy1	ALL	NOVOSORT start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy1	ALL	NOVOSORT end	1515621247	DedupSort
+hg38_chr_20_21_22_merged_copy3	ALL	NOVOSORT start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy3	ALL	NOVOSORT end	1515621247	DedupSort
+hg38_chr_20_21_22_merged_copy3	ALL	PICARD start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy3	ALL	PICARD end	1515621379	DedupSort
+hg38_chr_20_21_22_merged_copy4	ALL	NOVOSORT start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy4	ALL	NOVOSORT end	1515621247	DedupSort
+hg38_chr_20_21_22_merged_copy4	ALL	PICARD
+   0.120 function: append
+   0.120 rule: <53> => append-call_foreign-read {253.0} {file 53 is_mapped 1} {file 253 is_mapped 1} {154} {153}
+   0.120 rule: => append-copy_in_filename {53.0} {file 253 is_mapped 1}
+   0.120 function: recalibrationWrapper
+   0.120 allocated t:1=<254> u:prefix=<255> t:19=<256>
+   0.121 shell command duration: 0.004
+   0.121 creating reference: <-1>["OUTPUTDIR"] <- <*254> (string)
+   0.121 store: <251>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_bCLKYm.turbine
+   0.121 creating reference: <-1>["REALIGN"] <- <*256> (string)
+   0.121 rule: <254> <2> <172> => recalibrationWrapper-async_op-strcat 254 {2} 255 {172}
+   0.121 rule: <256> => recalibrationWrapper-optmerged 254 256 {2} {file 190 is_mapped 0} 255 {178} {file 191 is_mapped 1} {177} {172} {-1}
+   0.121 store: <255>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/realign/hg38_chr_20_21_22_merged_copy3.wDedups.sorted."
+   0.121 allocated t:66=<257> t:67=<258>
+   0.121 creating reference: <-1>["SAMTOOLSEXE"] <- <*258> (string)
+   0.122 function: samtools_index
+   0.122 rule: <190> <258> => samtools_index-app-leaf1 {190.0} {file 190 is_mapped 0} {258} {257}
+   0.122 rule: <257> => recalibrationWrapper-chain3 257 {2} {file 190 is_mapped 0} {file 191 is_mapped 1} {177} {172} {-1}
+   0.123 shell command duration: 0.006
+   0.123 store: <252>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_jFykeg.turbine
+   0.123 build_rec: <178>
+   0.123 exec: __v:samtoolsdir index /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam {}
+   0.123 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools index /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam 
+   0.123 rule: <154> => append-async_op-strcat {Sample	Chromosome	App status	Time	Stage
+} 253.0 {file 253 is_mapped 1} 154 153
+   0.123 function: recalibrationWrapper
+   0.123 allocated t:1=<259> u:prefix=<260> t:19=<261>
+   0.123 creating reference: <-1>["OUTPUTDIR"] <- <*259> (string)
+   0.123 creating reference: <-1>["REALIGN"] <- <*261> (string)
+   0.124 rule: <259> <4> <174> => recalibrationWrapper-async_op-strcat 259 {4} 260 {174}
+   0.124 rule: <261> => recalibrationWrapper-optmerged 259 261 {4} {file 228 is_mapped 0} 260 {216} {file 229 is_mapped 1} {215} {174} {-1}
+   0.124 store: <153>=1
+   0.124 build_rec: <197>
+   0.124 allocated t:66=<262> t:67=<263>
+   0.124 creating reference: <-1>["SAMTOOLSEXE"] <- <*263> (string)
+   0.124 function: samtools_index
+   0.124 rule: <228> <263> => samtools_index-app-leaf1 {228.0} {file 228 is_mapped 0} {263} {262}
+   0.124 rule: <262> => recalibrationWrapper-chain3 262 {4} {file 228 is_mapped 0} {file 229 is_mapped 1} {215} {174} {-1}
+   0.124 rule: <246> => rm-app-leaf1-1 {246.0} {file 246 is_mapped 1}
+   0.125 rule: <243> => rm-app-leaf1-1 {243.0} {file 243 is_mapped 1}
+   0.125 rule: <247> => rm-app-leaf1-1 {247.0} {file 247 is_mapped 1}
+   0.125 rule: <241> => rm-app-leaf1-1 {241.0} {file 241 is_mapped 1}
+   0.125 rule: <244> => rm-app-leaf1-1 {244.0} {file 244 is_mapped 1}
+   0.125 rule: <242> => rm-app-leaf1-1 {242.0} {file 242 is_mapped 1}
+   0.125 rule: <245> => rm-app-leaf1-1 {245.0} {file 245 is_mapped 1}
+   0.125 store: <260>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/realign/hg38_chr_20_21_22_merged_copy4.wDedups.sorted."
+   0.125 rule: <248> => rm-app-leaf1-1 {248.0} {file 248 is_mapped 1}
+   0.125 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2_NovoSortDedup.log {}
+   0.125 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2_NovoSortDedup.log 
+   0.125 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3_NovoSortDedup.log {}
+   0.125 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3_NovoSortDedup.log 
+   0.131 shell command duration: 0.005
+   0.131 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy4_PicardDedup.log {}
+   0.131 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy4_PicardDedup.log 
+   0.135 shell command duration: 0.010
+   0.135 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1_PicardDedup.log {}
+   0.135 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1_PicardDedup.log 
+   0.137 shell command duration: 0.007
+   0.138 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1_NovoSortDedup.log {}
+   0.138 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1_NovoSortDedup.log 
+   0.142 shell command duration: 0.007
+   0.142 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2_PicardDedup.log {}
+   0.142 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2_PicardDedup.log 
+   0.144 shell command duration: 0.007
+   0.144 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy4_NovoSortDedup.log {}
+   0.144 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy4_NovoSortDedup.log 
+   0.148 shell command duration: 0.003
+   0.148 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3_PicardDedup.log {}
+   0.148 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3_PicardDedup.log 
+   0.152 shell command duration: 0.011
+   0.153 exec: __v:samtoolsdir index /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam {}
+   0.153 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools index /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam 
+   0.155 shell command duration: 0.007
+   0.155 allocated t:56:5=<264> u:recalparmsindels:1=<265> u:realparms:1=<266> t:60:5=<267> t:61:5=<268>
+   0.155 allocated u:threads:3=<269> t:2:9=<270> t:5:9=<271> t:18:9=<272> t:20:8=<273>
+   0.155 allocated t:22:8=<274> t:24:8=<275> t:26:8=<276>
+   0.156 creating reference: <-1>["TMPDIR"] <- <*264> (string)
+   0.156 creating reference: <-1>["INDELDIR"] <- <*268> (string)
+   0.156 function: find_files
+   0.156 rule: <267> <49> => find_files-app-leaf1 {277.0} 1 {267} {file 277 is_mapped 1} {49}
+   0.156 creating reference: <-1>["CORES_PER_NODE"] <- <*270> (string)
+   0.156 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*271> (string)
+   0.156 creating reference: <-1>["JAVAEXE"] <- <*272> (string)
+   0.156 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*273> (string)
+   0.156 creating reference: <-1>["GATKJAR"] <- <*274> (string)
+   0.156 creating reference: <-1>["REFGENOME"] <- <*275> (string)
+   0.156 creating reference: <-1>["DBSNP"] <- <*276> (string)
+   0.156 rule: <268> => __entry-async_op-strcat-21 267 268
+   0.156 rule: <270> <271> => __entry-async_op-parse_int-7 270 271 269
+   0.156 rule: <173> => __entry-optmerged-24 111 43 272 273 274 275 276 264 0 1515623769 {file 280 is_mapped 1} {file 281 is_mapped 1} {file 278 is_mapped 0} 266 {file 277 is_mapped 1} {file 279 is_mapped 1} 265 173 269 {file 282 is_mapped 1}
+   0.156 function: recalibrationWrapper
+   0.156 allocated t:1=<283> u:prefix=<284> t:19=<285>
+   0.157 creating reference: <-1>["OUTPUTDIR"] <- <*283> (string)
+   0.157 creating reference: <-1>["REALIGN"] <- <*285> (string)
+   0.157 rule: <283> <2> <173> => recalibrationWrapper-async_op-strcat 283 {2} 284 {173}
+   0.157 rule: <285> => recalibrationWrapper-optmerged 283 285 {2} {file 278 is_mapped 0} 284 {266} {file 279 is_mapped 1} {265} {173} {-1}
+   0.157 rule: <43> => __entry-optmerged-25 111 43 272 273 274 275 276 0 hg38_chr_20_21_22_merged_copy1 {hg38_chr_20_21_22_merged_copy1	ALL	HaplotypeCaller start	1515623769	VCRun
+} {file 280 is_mapped 1} {file 281 is_mapped 1} {file 278 is_mapped 0} {file 279 is_mapped 1} 269 {file 282 is_mapped 1}
+   0.157 rule: <264> => __entry-optmerged-26 264 hg38_chr_20_21_22_merged_copy1 266 {file 277 is_mapped 1} 265 {file 282 is_mapped 1}
+   0.157 allocated t:66=<286> t:67=<287>
+   0.157 creating reference: <-1>["SAMTOOLSEXE"] <- <*287> (string)
+   0.157 function: samtools_index
+   0.157 rule: <278> <287> => samtools_index-app-leaf1 {278.0} {file 278 is_mapped 0} {287} {286}
+   0.157 rule: <286> => recalibrationWrapper-chain3 286 {2} {file 278 is_mapped 0} {file 279 is_mapped 1} {265} {173} {-1}
+   0.158 rule: <277> => VCNoSplitRun-chain1 266 {file 277 is_mapped 1} 265
+   0.158 store: <278>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam
+   0.158 rule: <272> <273> <274> <275> <276> <279> <269> => HaplotypeCaller_logged-chain1-1 111 272 273 274 275 276 0 hg38_chr_20_21_22_merged_copy1 {hg38_chr_20_21_22_merged_copy1	ALL	HaplotypeCaller start	1515623769	VCRun
+} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/logs/hg38_chr_20_21_22_merged_copy1_HaplotypeCaller.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/realign/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.recalibrated.bam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/variant/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.recalibrated.g.vcf {file 280 is_mapped 1} {file 281 is_mapped 1} {file 279 is_mapped 1} 269 {file 282 is_mapped 1}
+   0.159 store: <284>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/realign/hg38_chr_20_21_22_merged_copy1.wDedups.sorted."
+   0.159 exec: __v:samtoolsdir index /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam {}
+   0.159 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools index /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam 
+   7.192 shell command duration: 7.032
+   7.192 store: <286>=void
+   7.192 store: <269>=20
+   7.193 store: <267>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/"
+   7.193 function: recalibrateBam
+   7.193 allocated t:1=<288> t:2=<289> t:5=<290> t:6=<291> t:9=<292>
+   7.193 allocated u:threads=<293> t:26=<294> t:29=<295> t:31=<296> t:33=<297>
+   7.193 allocated t:35=<298> t:37=<299> t:48=<300> t:52=<301> t:54=<302>
+   7.193 allocated t:64=<303>
+   7.193 creating reference: <-1>["GATKJAR"] <- <*289> (string)
+   7.193 creating reference: <-1>["JAVAEXE"] <- <*291> (string)
+   7.193 creating reference: <-1>["OUTPUTDIR"] <- <*292> (string)
+   7.193 creating reference: <-1>["CORES_PER_NODE"] <- <*294> (string)
+   7.193 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*295> (string)
+   7.193 creating reference: <-1>["TMPDIR"] <- <*299> (string)
+   7.194 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*300> (string)
+   7.194 creating reference: <-1>["REFGENOME"] <- <*301> (string)
+   7.194 creating reference: <-1>["DBSNP"] <- <*302> (string)
+   7.194 rule: <294> <295> => recalibrateBam-async_op-parse_int 294 295 293
+   7.194 rule: <2> <173> => recalibrateBam-optmerged 289 296 297 298 299 300 301 302 291 303 292 1515623776 1515623776 2 {file 278 is_mapped 0} {file 279 is_mapped 1} {file 305 is_mapped 1} {file 304 is_mapped 1} 265 {file 306 is_mapped 1} 173 293 {file 308 is_mapped 1} {file 307 is_mapped 1} -1
+   7.194 exec: find /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/ -name *.vcf {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy1.recal_foundfiles.txt}
+   7.194 shell: find /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/ -name *.vcf {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy1.recal_foundfiles.txt}
+   7.198 shell command duration: 0.004
+   7.198 rule: <299> => recalibrateBam-async_op-strcat 299 {} hg38_chr_20_21_22_merged_copy1 {file 308 is_mapped 1} {file 307 is_mapped 1}
+   7.198 rule: <289> <296> <298> <300> <301> <302> <291> <278> <265> <293> => BaseRecalibrator_logged-chain1 278.0 279.0 289 296 297 298 300 301 302 291 303 {} 1 hg38_chr_20_21_22_merged_copy1 {hg38_chr_20_21_22_merged_copy1		PrintReads start	1515623776	VCRun
+} {hg38_chr_20_21_22_merged_copy1		BaseRecalibrator start	1515623776	VCRun
+} {file 278 is_mapped 0} {file 279 is_mapped 1} {file 305 is_mapped 1} {file 304 is_mapped 1} 265 {file 306 is_mapped 1} 293 {file 308 is_mapped 1} {file 307 is_mapped 1} -1
+   7.199 rule: <292> => recalibrateBam-optmerged-1 296 297 298 292 {} hg38_chr_20_21_22_merged_copy1 {file 305 is_mapped 1} {file 304 is_mapped 1} {file 306 is_mapped 1}
+   7.199 function: sed
+   7.202 rule: <58> <277> => sed-app-leaf1 {277.0} {309.0} 0 {58} {file 277 is_mapped 1} {file 309 is_mapped 0}
+   7.202 rule: <309> => __entry-call_foreign-read-2 {file 309 is_mapped 0} 266 {file 277 is_mapped 1} 265
+   7.202 store: <298>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/realign/hg38_chr_20_21_22_merged_copy1.wDedups.sorted..recal_report.grp"
+   7.202 store: <296>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/logs/hg38_chr_20_21_22_merged_copy1.wDedups.sorted._BaseRecalibrator.log"
+   7.202 store: <297>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/logs/hg38_chr_20_21_22_merged_copy1.wDedups.sorted._PrintReads.log"
+   7.202 exec: sed {s/^/--knownSites /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy1.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_CY21N0.turbine}
+   7.202 shell: sed {s/^/--knownSites /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy1.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_CY21N0.turbine}
+   7.206 shell command duration: 0.003
+   7.206 store: <309>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_CY21N0.turbine
+   7.206 build_rec: <265>
+   7.206 rule: => VCNoSplitRun-chain2 266 {file 277 is_mapped 1}
+   7.207 store: <293>=20
+   7.207 function: sed
+   7.208 rule: <61> <277> => sed-app-leaf1 {277.0} {310.0} 0 {61} {file 277 is_mapped 1} {file 310 is_mapped 0}
+   7.208 rule: <310> => __entry-call_foreign-read-3 {file 310 is_mapped 0} 266
+   7.209 exec: __v:javaexe -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T BaseRecalibrator -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam -knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/Mills_and_1000G_gold_standard.indels.hg38.chr22.vcf --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/inde
+   7.209 shell: /usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T BaseRecalibrator -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam -knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/Mills_and_1000G_gold_standard.indels.hg38.chr22.vcf --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-V
+   7.219 shell command duration: 7.097
+   7.220 store: <257>=void
+   7.220 exec: sed {s/^/-known /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy1.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_OiTwcl.turbine}
+   7.221 shell: sed {s/^/-known /g} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/hg38_chr_20_21_22_merged_copy1.recal_foundfiles.txt {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_OiTwcl.turbine}
+   7.230 shell command duration: 0.010
+   7.231 store: <310>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_OiTwcl.turbine
+   7.231 build_rec: <266>
+   7.231 function: recalibrateBam
+   7.231 allocated t:1=<311> t:2=<312> t:5=<313> t:6=<314> t:9=<315>
+   7.232 allocated u:threads=<316> t:26=<317> t:29=<318> t:31=<319> t:33=<320>
+   7.232 allocated t:35=<321> t:37=<322> t:48=<323> t:52=<324> t:54=<325>
+   7.232 allocated t:64=<326>
+   7.232 creating reference: <-1>["GATKJAR"] <- <*312> (string)
+   7.232 creating reference: <-1>["JAVAEXE"] <- <*314> (string)
+   7.232 creating reference: <-1>["OUTPUTDIR"] <- <*315> (string)
+   7.232 creating reference: <-1>["CORES_PER_NODE"] <- <*317> (string)
+   7.232 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*318> (string)
+   7.232 creating reference: <-1>["TMPDIR"] <- <*322> (string)
+   7.232 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*323> (string)
+   7.232 creating reference: <-1>["REFGENOME"] <- <*324> (string)
+   7.232 creating reference: <-1>["DBSNP"] <- <*325> (string)
+   7.232 rule: <317> <318> => recalibrateBam-async_op-parse_int 317 318 316
+   7.232 rule: <2> <172> => recalibrateBam-optmerged 312 319 320 321 322 323 324 325 314 326 315 1515623776 1515623776 2 {file 190 is_mapped 0} {file 191 is_mapped 1} {file 328 is_mapped 1} {file 327 is_mapped 1} 177 {file 329 is_mapped 1} 172 316 {file 331 is_mapped 1} {file 330 is_mapped 1} -1
+   7.232 function: exec_check
+   7.232 store: <290>=1
+   7.232 rule: <291> <19> => file_exists-argwait-2 {291} {19}
+   7.232 rule: <322> => recalibrateBam-async_op-strcat 322 {} hg38_chr_20_21_22_merged_copy3 {file 331 is_mapped 1} {file 330 is_mapped 1}
+   7.233 rule: <312> <319> <321> <323> <324> <325> <314> <190> <177> <316> => BaseRecalibrator_logged-chain1 190.0 191.0 312 319 320 321 323 324 325 314 326 {} 1 hg38_chr_20_21_22_merged_copy3 {hg38_chr_20_21_22_merged_copy3		PrintReads start	1515623776	VCRun
+} {hg38_chr_20_21_22_merged_copy3		BaseRecalibrator start	1515623776	VCRun
+} {file 190 is_mapped 0} {file 191 is_mapped 1} {file 328 is_mapped 1} {file 327 is_mapped 1} 177 {file 329 is_mapped 1} 316 {file 331 is_mapped 1} {file 330 is_mapped 1} -1
+   7.233 rule: <315> => recalibrateBam-optmerged-1 319 320 321 315 {} hg38_chr_20_21_22_merged_copy3 {file 328 is_mapped 1} {file 327 is_mapped 1} {file 329 is_mapped 1}
+   7.233 assert passed: (The executable: 
+	/usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java
+ Referred to by the parameter: 
+	JAVAEXEis not properly specified in your runfile!)
+   7.233 store: <321>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/realign/hg38_chr_20_21_22_merged_copy3.wDedups.sorted..recal_report.grp"
+   7.233 store: <319>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/logs/hg38_chr_20_21_22_merged_copy3.wDedups.sorted._BaseRecalibrator.log"
+   7.233 store: <320>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/logs/hg38_chr_20_21_22_merged_copy3.wDedups.sorted._PrintReads.log"
+   7.234 store: <316>=20
+   7.234 function: exec_check
+   7.234 store: <313>=1
+   7.234 rule: <314> <16> => file_exists-argwait-2 {314} {16}
+   7.235 exec: __v:javaexe -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T BaseRecalibrator -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam -knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/Mills_and_1000G_gold_standard.indels.hg38.chr22.vcf --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/inde
+   7.235 shell: /usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T BaseRecalibrator -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam -knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/Mills_and_1000G_gold_standard.indels.hg38.chr22.vcf --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-V
+   7.242 shell command duration: 7.089
+   7.242 store: <262>=void
+   7.243 assert passed: (The executable: 
+	/usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java
+ Referred to by the parameter: 
+	JAVAEXEis not properly specified in your runfile!)
+   7.243 function: exec_check
+   7.243 store: <311>=1
+   7.243 rule: <312> <11> => file_exists-argwait-2 {312} {11}
+   7.244 function: recalibrateBam
+   7.244 allocated t:1=<332> t:2=<333> t:5=<334> t:6=<335> t:9=<336>
+   7.244 allocated u:threads=<337> t:26=<338> t:29=<339> t:31=<340> t:33=<341>
+   7.244 allocated t:35=<342> t:37=<343> t:48=<344> t:52=<345> t:54=<346>
+   7.244 allocated t:64=<347>
+   7.244 creating reference: <-1>["GATKJAR"] <- <*333> (string)
+   7.244 creating reference: <-1>["JAVAEXE"] <- <*335> (string)
+   7.244 creating reference: <-1>["OUTPUTDIR"] <- <*336> (string)
+   7.244 creating reference: <-1>["CORES_PER_NODE"] <- <*338> (string)
+   7.244 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*339> (string)
+   7.244 creating reference: <-1>["TMPDIR"] <- <*343> (string)
+   7.244 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*344> (string)
+   7.244 creating reference: <-1>["REFGENOME"] <- <*345> (string)
+   7.244 creating reference: <-1>["DBSNP"] <- <*346> (string)
+   7.244 rule: <338> <339> => recalibrateBam-async_op-parse_int 338 339 337
+   7.244 rule: <4> <174> => recalibrateBam-optmerged 333 340 341 342 343 344 345 346 335 347 336 1515623776 1515623776 4 {file 228 is_mapped 0} {file 229 is_mapped 1} {file 349 is_mapped 1} {file 348 is_mapped 1} 215 {file 350 is_mapped 1} 174 337 {file 352 is_mapped 1} {file 351 is_mapped 1} -1
+   7.245 assert passed: (The executable: 
+	/projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar
+ Referred to by the parameter: 
+	GATKJARis not properly specified in your runfile!)
+   7.245 rule: <343> => recalibrateBam-async_op-strcat 343 {} hg38_chr_20_21_22_merged_copy4 {file 352 is_mapped 1} {file 351 is_mapped 1}
+   7.245 rule: <333> <340> <342> <344> <345> <346> <335> <228> <215> <337> => BaseRecalibrator_logged-chain1 228.0 229.0 333 340 341 342 344 345 346 335 347 {} 1 hg38_chr_20_21_22_merged_copy4 {hg38_chr_20_21_22_merged_copy4		PrintReads start	1515623776	VCRun
+} {hg38_chr_20_21_22_merged_copy4		BaseRecalibrator start	1515623776	VCRun
+} {file 228 is_mapped 0} {file 229 is_mapped 1} {file 349 is_mapped 1} {file 348 is_mapped 1} 215 {file 350 is_mapped 1} 337 {file 352 is_mapped 1} {file 351 is_mapped 1} -1
+   7.245 rule: <336> => recalibrateBam-optmerged-1 340 341 342 336 {} hg38_chr_20_21_22_merged_copy4 {file 349 is_mapped 1} {file 348 is_mapped 1} {file 350 is_mapped 1}
+   7.245 store: <337>=20
+   7.246 store: <342>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/realign/hg38_chr_20_21_22_merged_copy4.wDedups.sorted..recal_report.grp"
+   7.246 store: <340>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/logs/hg38_chr_20_21_22_merged_copy4.wDedups.sorted._BaseRecalibrator.log"
+   7.246 store: <341>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/logs/hg38_chr_20_21_22_merged_copy4.wDedups.sorted._PrintReads.log"
+   7.247 exec: __v:javaexe -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T BaseRecalibrator -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam -knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/Mills_and_1000G_gold_standard.indels.hg38.chr22.vcf --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/inde
+   7.247 shell: /usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T BaseRecalibrator -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam -knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/Mills_and_1000G_gold_standard.indels.hg38.chr22.vcf --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-V
+   7.473 shell command duration: 7.386
+   7.473 store: <236>=void
+   7.473 function: exec_check
+   7.473 store: <334>=1
+   7.473 rule: <335> <17> => file_exists-argwait-2 {335} {17}
+   7.474 assert passed: (The executable: 
+	/usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java
+ Referred to by the parameter: 
+	JAVAEXEis not properly specified in your runfile!)
+   7.474 function: recalibrateBam
+   7.474 allocated t:1=<353> t:2=<354> t:5=<355> t:6=<356> t:9=<357>
+   7.474 allocated u:threads=<358> t:26=<359> t:29=<360> t:31=<361> t:33=<362>
+   7.474 allocated t:35=<363> t:37=<364> t:48=<365> t:52=<366> t:54=<367>
+   7.474 allocated t:64=<368>
+   7.474 creating reference: <-1>["GATKJAR"] <- <*354> (string)
+   7.474 creating reference: <-1>["JAVAEXE"] <- <*356> (string)
+   7.474 creating reference: <-1>["OUTPUTDIR"] <- <*357> (string)
+   7.474 creating reference: <-1>["CORES_PER_NODE"] <- <*359> (string)
+   7.474 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*360> (string)
+   7.474 creating reference: <-1>["TMPDIR"] <- <*364> (string)
+   7.474 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*365> (string)
+   7.475 creating reference: <-1>["REFGENOME"] <- <*366> (string)
+   7.475 creating reference: <-1>["DBSNP"] <- <*367> (string)
+   7.475 rule: <359> <360> => recalibrateBam-async_op-parse_int 359 360 358
+   7.475 rule: <1> <175> => recalibrateBam-optmerged 354 361 362 363 364 365 366 367 356 368 357 1515623776 1515623776 1 {file 209 is_mapped 0} {file 210 is_mapped 1} {file 370 is_mapped 1} {file 369 is_mapped 1} 196 {file 371 is_mapped 1} 175 358 {file 373 is_mapped 1} {file 372 is_mapped 1} -1
+   7.475 function: exec_check
+   7.475 store: <332>=1
+   7.475 rule: <333> <13> => file_exists-argwait-2 {333} {13}
+   7.475 rule: <364> => recalibrateBam-async_op-strcat 364 {} hg38_chr_20_21_22_merged_copy2 {file 373 is_mapped 1} {file 372 is_mapped 1}
+   7.475 rule: <354> <361> <363> <365> <366> <367> <356> <209> <196> <358> => BaseRecalibrator_logged-chain1 209.0 210.0 354 361 362 363 365 366 367 356 368 {} 1 hg38_chr_20_21_22_merged_copy2 {hg38_chr_20_21_22_merged_copy2		PrintReads start	1515623776	VCRun
+} {hg38_chr_20_21_22_merged_copy2		BaseRecalibrator start	1515623776	VCRun
+} {file 209 is_mapped 0} {file 210 is_mapped 1} {file 370 is_mapped 1} {file 369 is_mapped 1} 196 {file 371 is_mapped 1} 358 {file 373 is_mapped 1} {file 372 is_mapped 1} -1
+   7.475 rule: <357> => recalibrateBam-optmerged-1 361 362 363 357 {} hg38_chr_20_21_22_merged_copy2 {file 370 is_mapped 1} {file 369 is_mapped 1} {file 371 is_mapped 1}
+   7.475 assert passed: (The executable: 
+	/projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar
+ Referred to by the parameter: 
+	GATKJARis not properly specified in your runfile!)
+   7.475 store: <363>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/realign/hg38_chr_20_21_22_merged_copy2.wDedups.sorted..recal_report.grp"
+   7.475 store: <361>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/logs/hg38_chr_20_21_22_merged_copy2.wDedups.sorted._BaseRecalibrator.log"
+   7.475 store: <362>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/logs/hg38_chr_20_21_22_merged_copy2.wDedups.sorted._PrintReads.log"
+   7.476 store: <358>=20
+   7.476 function: exec_check
+   7.476 store: <355>=1
+   7.476 rule: <356> <10> => file_exists-argwait-2 {356} {10}
+   7.476 exec: __v:javaexe -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T BaseRecalibrator -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam -knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/Mills_and_1000G_gold_standard.indels.hg38.chr22.vcf --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/inde
+   7.476 shell: /usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T BaseRecalibrator -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam -knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/Mills_and_1000G_gold_standard.indels.hg38.chr22.vcf --knownSites /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-V
+------------------------------------------------------------------------------------------
+Done. There were 1 WARN messages, the first 1 are repeated below.
+WARN  16:36:19,928 IndexDictionaryUtils - Track knownSites doesn't have a sequence dictionary built in, skipping dictionary validation 
+------------------------------------------------------------------------------------------
+ 130.543 shell command duration: 123.297
+ 130.544 rule: => recalibrateBam-call_foreign-write {hg38_chr_20_21_22_merged_copy4		BaseRecalibrator start	1515623776	VCRun
+hg38_chr_20_21_22_merged_copy4		BaseRecalibrator end	1515623899	VCRun
+} 351.0 {file 351 is_mapped 1}
+ 130.544 rule: <333> <341> <342> <344> <345> <335> <228> <350> <337> => recalibrateBam-async_op-strcat-1 228.0 229.0 333 341 342 344 345 335 347 {} 1 hg38_chr_20_21_22_merged_copy4 {hg38_chr_20_21_22_merged_copy4		PrintReads start	1515623776	VCRun
+} {file 228 is_mapped 0} {file 229 is_mapped 1} {file 349 is_mapped 1} {file 350 is_mapped 1} 337 {file 352 is_mapped 1} -1
+ 130.544 assert passed: (The executable: 
+	/usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java
+ Referred to by the parameter: 
+	JAVAEXEis not properly specified in your runfile!)
+ 130.545 exec: __v:javaexe:1 -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T PrintReads -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam -BQSR /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/realign/hg38_chr_20_21_22_merged_copy4.wDedups.sorted..recal_report.grp -nct 20 --out /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/realign/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.recalibrated.bam {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_c
+ 130.545 shell: /usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T PrintReads -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam -BQSR /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/realign/hg38_chr_20_21_22_merged_copy4.wDedups.sorted..recal_report.grp -nct 20 --out /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/realign/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.recalibrated.bam {stderr /projects/bioinform
+------------------------------------------------------------------------------------------
+Done. There were 3 WARN messages, the first 3 are repeated below.
+WARN  16:36:19,219 RMDTrackBuilder - Unable to write to /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/Mills_and_1000G_gold_standard.indels.hg38.chr22.vcf.idx for the index file, creating index in memory only 
+WARN  16:36:19,355 RMDTrackBuilder - Unable to write to /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/Mills_and_1000G_gold_standard.indels.hg38.chr21.vcf.idx for the index file, creating index in memory only 
+WARN  16:36:20,174 IndexDictionaryUtils - Track knownSites doesn't have a sequence dictionary built in, skipping dictionary validation 
+------------------------------------------------------------------------------------------
+ 130.909 shell command duration: 123.432
+ 130.909 rule: => recalibrateBam-call_foreign-write {hg38_chr_20_21_22_merged_copy2		BaseRecalibrator start	1515623776	VCRun
+hg38_chr_20_21_22_merged_copy2		BaseRecalibrator end	1515623900	VCRun
+} 372.0 {file 372 is_mapped 1}
+ 130.909 rule: <354> <362> <363> <365> <366> <356> <209> <371> <358> => recalibrateBam-async_op-strcat-1 209.0 210.0 354 362 363 365 366 356 368 {} 1 hg38_chr_20_21_22_merged_copy2 {hg38_chr_20_21_22_merged_copy2		PrintReads start	1515623776	VCRun
+} {file 209 is_mapped 0} {file 210 is_mapped 1} {file 370 is_mapped 1} {file 371 is_mapped 1} 358 {file 373 is_mapped 1} -1
+ 130.913 exec: __v:javaexe:1 -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T PrintReads -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam -BQSR /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/realign/hg38_chr_20_21_22_merged_copy2.wDedups.sorted..recal_report.grp -nct 20 --out /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/realign/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.recalibrated.bam {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_c
+ 130.913 shell: /usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T PrintReads -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam -BQSR /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/realign/hg38_chr_20_21_22_merged_copy2.wDedups.sorted..recal_report.grp -nct 20 --out /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/realign/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.recalibrated.bam {stderr /projects/bioinform
+------------------------------------------------------------------------------------------
+Done. There were 2 WARN messages, the first 2 are repeated below.
+WARN  16:36:19,147 RMDTrackBuilder - Unable to write to /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels/Mills_and_1000G_gold_standard.indels.hg38.chr22.vcf.idx for the index file, creating index in memory only 
+WARN  16:36:19,884 IndexDictionaryUtils - Track knownSites doesn't have a sequence dictionary built in, skipping dictionary validation 
+------------------------------------------------------------------------------------------
+ 132.663 shell command duration: 125.429
+ 132.664 rule: => recalibrateBam-call_foreign-write {hg38_chr_20_21_22_merged_copy3		BaseRecalibrator start	1515623776	VCRun
+hg38_chr_20_21_22_merged_copy3		BaseRecalibrator end	1515623902	VCRun
+} 330.0 {file 330 is_mapped 1}
+ 132.664 rule: <312> <320> <321> <323> <324> <314> <190> <329> <316> => recalibrateBam-async_op-strcat-1 190.0 191.0 312 320 321 323 324 314 326 {} 1 hg38_chr_20_21_22_merged_copy3 {hg38_chr_20_21_22_merged_copy3		PrintReads start	1515623776	VCRun
+} {file 190 is_mapped 0} {file 191 is_mapped 1} {file 328 is_mapped 1} {file 329 is_mapped 1} 316 {file 331 is_mapped 1} -1
+ 132.669 exec: __v:javaexe:1 -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T PrintReads -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam -BQSR /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/realign/hg38_chr_20_21_22_merged_copy3.wDedups.sorted..recal_report.grp -nct 20 --out /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/realign/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.recalibrated.bam {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_c
+ 132.669 shell: /usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T PrintReads -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam -BQSR /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/realign/hg38_chr_20_21_22_merged_copy3.wDedups.sorted..recal_report.grp -nct 20 --out /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/realign/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.recalibrated.bam {stderr /projects/bioinform
+------------------------------------------------------------------------------------------
+Done. There were 1 WARN messages, the first 1 are repeated below.
+WARN  16:36:19,764 IndexDictionaryUtils - Track knownSites doesn't have a sequence dictionary built in, skipping dictionary validation 
+------------------------------------------------------------------------------------------
+ 133.490 shell command duration: 126.282
+ 133.491 rule: => recalibrateBam-call_foreign-write {hg38_chr_20_21_22_merged_copy1		BaseRecalibrator start	1515623776	VCRun
+hg38_chr_20_21_22_merged_copy1		BaseRecalibrator end	1515623902	VCRun
+} 307.0 {file 307 is_mapped 1}
+ 133.491 rule: <289> <297> <298> <300> <301> <291> <278> <306> <293> => recalibrateBam-async_op-strcat-1 278.0 279.0 289 297 298 300 301 291 303 {} 1 hg38_chr_20_21_22_merged_copy1 {hg38_chr_20_21_22_merged_copy1		PrintReads start	1515623776	VCRun
+} {file 278 is_mapped 0} {file 279 is_mapped 1} {file 305 is_mapped 1} {file 306 is_mapped 1} 293 {file 308 is_mapped 1} -1
+ 133.496 exec: __v:javaexe:1 -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T PrintReads -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam -BQSR /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/realign/hg38_chr_20_21_22_merged_copy1.wDedups.sorted..recal_report.grp -nct 20 --out /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/realign/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.recalibrated.bam {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_c
+ 133.496 shell: /usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T PrintReads -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam -BQSR /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/realign/hg38_chr_20_21_22_merged_copy1.wDedups.sorted..recal_report.grp -nct 20 --out /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/realign/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.recalibrated.bam {stderr /projects/bioinform
+------------------------------------------------------------------------------------------
+Done. There were no warn messages.
+------------------------------------------------------------------------------------------
+ 498.444 shell command duration: 365.775
+ 498.444 rule: <191> => f:checkBam 326 {-1} {file 191 is_mapped 1}
+ 498.444 rule: => recalibrateBam-call_foreign-write-1 {hg38_chr_20_21_22_merged_copy3		PrintReads start	1515623776	VCRun
+hg38_chr_20_21_22_merged_copy3		PrintReads end	1515624267	VCRun
+} 331.0 {file 331 is_mapped 1}
+ 498.451 function: checkBam
+ 498.451 allocated t:1=<374>
+ 498.451 creating reference: <-1>["SAMTOOLSEXE"] <- <*374> (string)
+ 498.451 rule: <374> => samtools_view2-argwait 374 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/realign/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.recalibrated.bam 326
+ 498.452 exec: __v:javaexe:3 -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T HaplotypeCaller -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/realign/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.recalibrated.bam --dbsnp /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/variant/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.recalibrated.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherStrand -A StrandOddsRatio -A HaplotypeScore -
+ 498.452 shell: /usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T HaplotypeCaller -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/realign/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.recalibrated.bam --dbsnp /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/variant/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.recalibrated.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherS
+------------------------------------------------------------------------------------------
+Done. There were no warn messages.
+------------------------------------------------------------------------------------------
+ 501.894 shell command duration: 368.398
+ 501.894 rule: <279> => f:checkBam 303 {-1} {file 279 is_mapped 1}
+ 501.894 rule: => recalibrateBam-call_foreign-write-1 {hg38_chr_20_21_22_merged_copy1		PrintReads start	1515623776	VCRun
+hg38_chr_20_21_22_merged_copy1		PrintReads end	1515624271	VCRun
+} 308.0 {file 308 is_mapped 1}
+------------------------------------------------------------------------------------------
+Done. There were no warn messages.
+------------------------------------------------------------------------------------------
+ 502.151 shell command duration: 371.238
+ 502.151 rule: <210> => f:checkBam 368 {-1} {file 210 is_mapped 1}
+ 502.152 rule: => recalibrateBam-call_foreign-write-1 {hg38_chr_20_21_22_merged_copy2		PrintReads start	1515623776	VCRun
+hg38_chr_20_21_22_merged_copy2		PrintReads end	1515624271	VCRun
+} 373.0 {file 373 is_mapped 1}
+ 502.160 function: checkBam
+ 502.160 allocated t:1=<375>
+ 502.160 creating reference: <-1>["SAMTOOLSEXE"] <- <*375> (string)
+ 502.160 rule: <375> => samtools_view2-argwait 375 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/realign/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.recalibrated.bam 368
+ 502.160 exec: __v:javaexe:3 -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T HaplotypeCaller -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/realign/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.recalibrated.bam --dbsnp /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/variant/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.recalibrated.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherStrand -A StrandOddsRatio -A HaplotypeScore -
+ 502.160 shell: /usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T HaplotypeCaller -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/realign/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.recalibrated.bam --dbsnp /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/variant/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.recalibrated.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherS
+------------------------------------------------------------------------------------------
+Done. There were no warn messages.
+------------------------------------------------------------------------------------------
+ 504.934 shell command duration: 374.389
+ 504.934 rule: <229> => f:checkBam 347 {-1} {file 229 is_mapped 1}
+ 504.935 rule: => recalibrateBam-call_foreign-write-1 {hg38_chr_20_21_22_merged_copy4		PrintReads start	1515623776	VCRun
+hg38_chr_20_21_22_merged_copy4		PrintReads end	1515624274	VCRun
+} 352.0 {file 352 is_mapped 1}
+ 513.977 store: <326>=1
+ 513.981 function: checkBam
+ 513.981 allocated t:1=<376>
+ 513.981 creating reference: <-1>["SAMTOOLSEXE"] <- <*376> (string)
+ 513.982 rule: <376> => samtools_view2-argwait 376 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/realign/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.recalibrated.bam 347
+ 513.982 exec: __v:javaexe:3 -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T HaplotypeCaller -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/realign/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.recalibrated.bam --dbsnp /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/variant/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.recalibrated.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherStrand -A StrandOddsRatio -A HaplotypeScore -
+ 513.985 shell: /usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T HaplotypeCaller -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/realign/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.recalibrated.bam --dbsnp /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/variant/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.recalibrated.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherS
+ 516.986 store: <368>=1
+ 528.983 store: <347>=1
+ 528.983 function: checkBam
+ 528.983 allocated t:1=<377>
+ 528.983 creating reference: <-1>["SAMTOOLSEXE"] <- <*377> (string)
+ 528.983 rule: <377> => samtools_view2-argwait 377 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/realign/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.recalibrated.bam 303
+ 528.984 exec: __v:javaexe:3 -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T HaplotypeCaller -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/realign/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.recalibrated.bam --dbsnp /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/variant/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.recalibrated.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherStrand -A StrandOddsRatio -A HaplotypeScore -
+ 528.986 shell: /usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T HaplotypeCaller -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/realign/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.recalibrated.bam --dbsnp /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/variant/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.recalibrated.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherS
+------------------------------------------------------------------------------------------
+Done. There were 3 WARN messages, the first 3 are repeated below.
+WARN  16:44:33,596 IndexDictionaryUtils - Track dbsnp doesn't have a sequence dictionary built in, skipping dictionary validation 
+WARN  16:44:33,784 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+WARN  16:44:34,676 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper 
+------------------------------------------------------------------------------------------
+ 970.235 shell command duration: 468.075
+ 970.236 insert: <111>["1"]=<file 211 is_mapped 1>
+ 970.236 rule: => __entry-call_foreign-write-4 {hg38_chr_20_21_22_merged_copy2	ALL	HaplotypeCaller start	1515623769	VCRun
+hg38_chr_20_21_22_merged_copy2	ALL	HaplotypeCaller end	1515624739	VCRun
+} 213.0 {file 213 is_mapped 1}
+------------------------------------------------------------------------------------------
+Done. There were 3 WARN messages, the first 3 are repeated below.
+WARN  16:44:29,925 IndexDictionaryUtils - Track dbsnp doesn't have a sequence dictionary built in, skipping dictionary validation 
+WARN  16:44:30,115 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+WARN  16:44:31,172 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper 
+------------------------------------------------------------------------------------------
+ 977.631 shell command duration: 479.179
+ 977.631 insert: <111>["2"]=<file 192 is_mapped 1>
+ 977.632 rule: => __entry-call_foreign-write-4 {hg38_chr_20_21_22_merged_copy3	ALL	HaplotypeCaller start	1515623769	VCRun
+hg38_chr_20_21_22_merged_copy3	ALL	HaplotypeCaller end	1515624747	VCRun
+} 194.0 {file 194 is_mapped 1}
+ 977.635 function: exec_check
+ 977.635 store: <353>=1
+ 977.635 rule: <354> <8> => file_exists-argwait-2 {354} {8}
+ 977.635 function: exec_check
+ 977.635 store: <288>=1
+ 977.635 rule: <289> <14> => file_exists-argwait-2 {289} {14}
+ 977.635 assert passed: (The executable: 
+	/projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar
+ Referred to by the parameter: 
+	GATKJARis not properly specified in your runfile!)
+ 977.635 assert passed: (The executable: 
+	/projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar
+ Referred to by the parameter: 
+	GATKJARis not properly specified in your runfile!)
+ 982.330 store: <303>=1
+------------------------------------------------------------------------------------------
+Done. There were 3 WARN messages, the first 3 are repeated below.
+WARN  16:44:45,475 IndexDictionaryUtils - Track dbsnp doesn't have a sequence dictionary built in, skipping dictionary validation 
+WARN  16:44:45,661 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+WARN  16:44:46,610 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper 
+------------------------------------------------------------------------------------------
+ 994.191 shell command duration: 480.207
+ 994.191 insert: <111>["3"]=<file 230 is_mapped 1>
+ 994.191 rule: => __entry-call_foreign-write-4 {hg38_chr_20_21_22_merged_copy4	ALL	HaplotypeCaller start	1515623769	VCRun
+hg38_chr_20_21_22_merged_copy4	ALL	HaplotypeCaller end	1515624763	VCRun
+} 232.0 {file 232 is_mapped 1}
+------------------------------------------------------------------------------------------
+Done. There were 3 WARN messages, the first 3 are repeated below.
+WARN  16:45:00,438 IndexDictionaryUtils - Track dbsnp doesn't have a sequence dictionary built in, skipping dictionary validation 
+WARN  16:45:00,628 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+WARN  16:45:01,503 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper 
+------------------------------------------------------------------------------------------
+1022.514 shell command duration: 493.528
+1022.514 insert: <111>["0"]=<file 280 is_mapped 1>
+1022.514 rule: => __entry-call_foreign-write-4 {hg38_chr_20_21_22_merged_copy1	ALL	HaplotypeCaller start	1515623769	VCRun
+hg38_chr_20_21_22_merged_copy1	ALL	HaplotypeCaller end	1515624791	VCRun
+} 282.0 {file 282 is_mapped 1}
+1022.513 assert passed: (FAILURE: The VCFs array was empty)
+1022.513 allocated t:182=<378>
+1022.513 creating reference: <-1>["TMPDIR"] <- <*378> (string)
+1022.513 function: logging
+1022.513 insert: <120>["4"]=<--variant>
+1022.513 allocated u:tmplogs=<379> t:1=<380> t:3=<381> t:4=<382>
+1022.513 rule: => jointGenotypingRun-arr_copy_in_imm {192.0} 5 120
+1022.513 rule: <380> => glob_body 379 380
+1022.514 insert: <120>["0"]=<--variant>
+1022.513 insert: <120>["5"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/variant/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.recalibrated.g.vcf>
+1022.514 rule: => jointGenotypingRun-arr_copy_in_imm {280.0} 1 120
+1022.513 insert: <120>["1"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/variant/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.recalibrated.g.vcf>
+1022.514 insert: <120>["6"]=<--variant>
+1022.514 rule: => jointGenotypingRun-arr_copy_in_imm {230.0} 7 120
+1022.513 insert: <120>["7"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy4/variant/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.recalibrated.g.vcf>
+1022.514 insert: <120>["2"]=<--variant>
+1022.514 rule: => jointGenotypingRun-arr_copy_in_imm {211.0} 3 120
+1022.513 insert: <120>["3"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/variant/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.recalibrated.g.vcf>
+1022.514 exec: __v:javaexe -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T GenotypeGVCFs -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta --variant /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/variant/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.recalibrated.g.vcf --variant /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/variant/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.recalibrated.g.vcf --variant /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/variant/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.recalibrated.g.vcf --variant /projects/bioinformatics/HudsonSo
+1022.514 shell: /usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java -Xmx16g -jar /projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar -T GenotypeGVCFs -R /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta --variant /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy1/variant/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.recalibrated.g.vcf --variant /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy2/variant/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.recalibrated.g.vcf --variant /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/2,5,8c,10,14,16_outputs/hg38_chr_20_21_22_merged_copy3/variant/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.recalibrated.g.v
+1022.517 rule: <378> => logging-async_op-strcat 380 {378}
+1022.517 rule: <379> => logging-optmerged /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_JO4iVq.turbine 381 382 {file 383 is_mapped 0} 379
+1022.517 function: append
+1022.518 store: <380>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/*"
+1022.517 rule: <53> => append-call_foreign-read {384.0} {file 53 is_mapped 1} {file 384 is_mapped 1} {382} {381}
+1022.517 rule: => append-copy_in_filename {53.0} {file 384 is_mapped 1}
+1022.519 rule: <382> => append-async_op-strcat {Sample	Chromosome	App status	Time	Stage
+hg38_chr_20_21_22_merged_copy2	ALL	PICARD start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy2	ALL	PICARD end	1515621379	DedupSort
+hg38_chr_20_21_22_merged_copy1	ALL	PICARD start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy1	ALL	PICARD end	1515621377	DedupSort
+hg38_chr_20_21_22_merged_copy2	ALL	NOVOSORT start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy2	ALL	NOVOSORT end	1515621247	DedupSort
+hg38_chr_20_21_22_merged_copy1	ALL	NOVOSORT start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy1	ALL	NOVOSORT end	1515621247	DedupSort
+hg38_chr_20_21_22_merged_copy3	ALL	NOVOSORT start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy3	ALL	NOVOSORT end	1515621247	DedupSort
+hg38_chr_20_21_22_merged_copy3	ALL	PICARD start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy3	ALL	PICARD end	1515621379	DedupSort
+hg38_chr_20_21_22_merged_copy4	ALL	NOVOSORT start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy4	ALL	NOVOSORT e
+1022.519 glob: /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/*
+1022.520 allocated file: <379>[0]=<385>
+1022.520 insert: <379>["0"]=<file 385 is_mapped 1>
+1022.520 allocated file: <379>[1]=<386>
+1022.520 insert: <379>["1"]=<file 386 is_mapped 1>
+1022.520 allocated file: <379>[2]=<387>
+1022.520 insert: <379>["2"]=<file 387 is_mapped 1>
+1022.520 allocated file: <379>[3]=<388>
+1022.520 insert: <379>["3"]=<file 388 is_mapped 1>
+1022.520 allocated file: <379>[4]=<389>
+1022.520 insert: <379>["4"]=<file 389 is_mapped 1>
+1022.520 allocated file: <379>[5]=<390>
+1022.520 insert: <379>["5"]=<file 390 is_mapped 1>
+1022.520 allocated file: <379>[6]=<391>
+1022.521 insert: <379>["6"]=<file 391 is_mapped 1>
+1022.521 allocated file: <379>[7]=<392>
+1022.521 insert: <379>["7"]=<file 392 is_mapped 1>
+1022.521 allocated file: <379>[8]=<393>
+1022.521 insert: <379>["8"]=<file 393 is_mapped 1>
+1022.521 allocated file: <379>[9]=<394>
+1022.521 insert: <379>["9"]=<file 394 is_mapped 1>
+1022.521 allocated file: <379>[10]=<395>
+1022.521 insert: <379>["10"]=<file 395 is_mapped 1>
+1022.521 allocated file: <379>[11]=<396>
+1022.521 insert: <379>["11"]=<file 396 is_mapped 1>
+1022.522 rule: <381> => logging-chain1 381 379
+1022.522 allocated void: <397>
+1022.522 rule: <379> => container_deep_wait_iterate 379 0 -1 1 file_ref 397
+1022.522 rule: <397> => deeprule_action "397" "cat-app-leaf1 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_JO4iVq.turbine 382 {file 383 is_mapped 0} 379"
+1022.524 Container <379> deep closed
+1022.524 store: <397>=void
+1022.523 deeprule_finish: 397
+1022.524 exec: cat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1._BaseRecalibrator.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy4._BaseRecalibrator.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3._PrintReads.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2._BaseRecalibrator.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy4._PrintReads.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3._BaseRecalibrator.log /projects/bioinformatics/HudsonSoybeanProject/s
+1022.524 shell: cat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1._BaseRecalibrator.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy4._BaseRecalibrator.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3._PrintReads.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2._BaseRecalibrator.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy4._PrintReads.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3._BaseRecalibrator.log /projects/bioinformatics/HudsonSoybeanProject/
+1022.531 shell command duration: 0.007
+1022.531 store: <383>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_JO4iVq.turbine
+1022.531 store: <382>="hg38_chr_20_21_22_merged_copy1		BaseRecalibrator start	1515623776	VCRun
+hg38_chr_20_21_22_merged_copy1		BaseRecalibrator end	1515623902	VCRun
+hg38_chr_20_21_22_merged_copy4		BaseRecalibrator start	1515623776	VCRun
+hg38_chr_20_21_22_merged_copy4		BaseRecalibrator end	1515623899	VCRun
+hg38_chr_20_21_22_merged_copy3		PrintReads start	1515623776	VCRun
+hg38_chr_20_21_22_merged_copy3		PrintReads end	1515624267	VCRun
+hg38_chr_20_21_22_merged_copy2		BaseRecalibrator start	1515623776	VCRun
+hg38_chr_20_21_22_merged_copy2		BaseRecalibrator end	1515623900	VCRun
+hg38_chr_20_21_22_merged_copy4		PrintReads start	1515623776	VCRun
+hg38_chr_20_21_22_merged_copy4		PrintReads end	1515624274	VCRun
+hg38_chr_20_21_22_merged_copy3		BaseRecalibrator start	1515623776	VCRun
+hg38_chr_20_21_22_merged_copy3		BaseRecalibrator end	1515623902	VCRun
+hg38_chr_20_21_22_merged_copy2	ALL	HaplotypeCaller start	1515623769	VCRun
+hg38_chr_20_21_22_merged_copy2	ALL	HaplotypeCaller end	1515624739	VCRun
+hg38_chr_20_21_22_merged_copy1		Pri
+1022.536 store: <381>=1
+1022.537 rule: <390> => rm-app-leaf1-1 {390.0} {file 390 is_mapped 1}
+1022.537 rule: <387> => rm-app-leaf1-1 {387.0} {file 387 is_mapped 1}
+1022.537 rule: <391> => rm-app-leaf1-1 {391.0} {file 391 is_mapped 1}
+1022.536 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3._BaseRecalibrator.log {}
+1022.536 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3._BaseRecalibrator.log 
+1022.538 rule: <394> => rm-app-leaf1-1 {394.0} {file 394 is_mapped 1}
+1022.538 rule: <385> => rm-app-leaf1-1 {385.0} {file 385 is_mapped 1}
+1022.536 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3._PrintReads.log {}
+1022.536 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3._PrintReads.log 
+1022.538 rule: <396> => rm-app-leaf1-1 {396.0} {file 396 is_mapped 1}
+1022.538 rule: <388> => rm-app-leaf1-1 {388.0} {file 388 is_mapped 1}
+1022.538 rule: <395> => rm-app-leaf1-1 {395.0} {file 395 is_mapped 1}
+1022.538 rule: <386> => rm-app-leaf1-1 {386.0} {file 386 is_mapped 1}
+1022.538 rule: <389> => rm-app-leaf1-1 {389.0} {file 389 is_mapped 1}
+1022.538 rule: <393> => rm-app-leaf1-1 {393.0} {file 393 is_mapped 1}
+1022.538 rule: <392> => rm-app-leaf1-1 {392.0} {file 392 is_mapped 1}
+1022.538 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2_HaplotypeCaller.log {}
+1022.538 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2_HaplotypeCaller.log 
+1022.539 shell command duration: 0.003
+1022.540 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1._PrintReads.log {}
+1022.540 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1._PrintReads.log 
+1022.542 shell command duration: 0.005
+1022.542 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy4_HaplotypeCaller.log {}
+1022.542 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy4_HaplotypeCaller.log 
+1022.548 shell command duration: 0.008
+1022.548 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy4._PrintReads.log {}
+1022.548 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy4._PrintReads.log 
+1022.549 shell command duration: 0.006
+1022.549 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy4._BaseRecalibrator.log {}
+1022.549 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy4._BaseRecalibrator.log 
+1022.553 shell command duration: 0.015
+1022.553 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3_HaplotypeCaller.log {}
+1022.553 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy3_HaplotypeCaller.log 
+1022.553 shell command duration: 0.004
+1022.553 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2._BaseRecalibrator.log {}
+1022.553 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2._BaseRecalibrator.log 
+1022.558 shell command duration: 0.004
+1022.558 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2._PrintReads.log {}
+1022.558 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy2._PrintReads.log 
+1022.561 shell command duration: 0.002
+1022.561 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1._BaseRecalibrator.log {}
+1022.561 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1._BaseRecalibrator.log 
+1022.565 shell command duration: 0.016
+1022.565 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1_HaplotypeCaller.log {}
+1022.565 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/hg38_chr_20_21_22_merged_copy1_HaplotypeCaller.log 
+1022.569 shell command duration: 0.016
+1022.571 shell command duration: 0.009
+1022.579 shell command duration: 0.014
+------------------------------------------------------------------------------------------
+Done. There were 4 WARN messages, the first 4 are repeated below.
+WARN  16:53:14,526 StrandBiasTest - StrandBiasBySample annotation exists in input VCF header. Attempting to use StrandBiasBySample values to calculate strand bias annotation values. If no sample has the SB genotype annotation, annotation may still fail. 
+WARN  16:53:14,526 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+WARN  16:53:14,527 StrandBiasTest - StrandBiasBySample annotation exists in input VCF header. Attempting to use StrandBiasBySample values to calculate strand bias annotation values. If no sample has the SB genotype annotation, annotation may still fail. 
+WARN  16:53:15,231 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper, not org.broadinstitute.gatk.tools.walkers.variantutils.GenotypeGVCFs 
+------------------------------------------------------------------------------------------
+1113.146 shell command duration: 90.631
+1113.146 rule: => jointGenotypingRun-call_foreign-write {ALL	ALL	GenotypeGVCFs start	1515623769	jointGenotypeRun
+ALL	ALL	GenotypeGVCFs end	1515624882	jointGenotypeRun
+} 126.0 {file 53 is_mapped 1} {file 126 is_mapped 1}
+1113.148 allocated t:85=<398>
+1113.153 creating reference: <-1>["TMPDIR"] <- <*398> (string)
+1113.152 function: logging
+1113.152 allocated u:tmplogs=<399> t:1=<400> t:3=<401> t:4=<402>
+1113.152 rule: <400> => glob_body 399 400
+1113.153 rule: <398> => logging-async_op-strcat 400 {398}
+1113.153 rule: <399> => logging-optmerged /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_HPo3mh.turbine 401 402 {file 403 is_mapped 0} 399
+1113.153 function: append
+1113.153 store: <400>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/*"
+1113.153 rule: <53> => append-call_foreign-read {404.0} {file 53 is_mapped 1} {file 404 is_mapped 1} {402} {401}
+1113.154 rule: => append-copy_in_filename {53.0} {file 404 is_mapped 1}
+1113.155 glob: /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/*
+1113.155 allocated file: <399>[0]=<405>
+1113.155 insert: <399>["0"]=<file 405 is_mapped 1>
+1113.154 rule: <401> => logging-chain1 401 399
+1113.154 allocated void: <406>
+1113.154 rule: <399> => container_deep_wait_iterate 399 0 -1 1 file_ref 406
+1113.154 rule: <406> => deeprule_action "406" "cat-app-leaf1 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_HPo3mh.turbine 402 {file 403 is_mapped 0} 399"
+1113.155 rule: <402> => append-async_op-strcat {Sample	Chromosome	App status	Time	Stage
+hg38_chr_20_21_22_merged_copy2	ALL	PICARD start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy2	ALL	PICARD end	1515621379	DedupSort
+hg38_chr_20_21_22_merged_copy1	ALL	PICARD start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy1	ALL	PICARD end	1515621377	DedupSort
+hg38_chr_20_21_22_merged_copy2	ALL	NOVOSORT start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy2	ALL	NOVOSORT end	1515621247	DedupSort
+hg38_chr_20_21_22_merged_copy1	ALL	NOVOSORT start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy1	ALL	NOVOSORT end	1515621247	DedupSort
+hg38_chr_20_21_22_merged_copy3	ALL	NOVOSORT start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy3	ALL	NOVOSORT end	1515621247	DedupSort
+hg38_chr_20_21_22_merged_copy3	ALL	PICARD start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy3	ALL	PICARD end	1515621379	DedupSort
+hg38_chr_20_21_22_merged_copy4	ALL	NOVOSORT start	1515621239	DedupSort
+hg38_chr_20_21_22_merged_copy4	ALL	NOVOSORT e
+1113.174 Container <399> deep closed
+1113.174 store: <406>=void
+1113.176 deeprule_finish: 406
+1113.176 exec: cat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/jointVCF.log {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_HPo3mh.turbine}
+1113.177 shell: cat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/jointVCF.log {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_HPo3mh.turbine}
+1113.184 shell command duration: 0.006
+1113.184 store: <403>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_HPo3mh.turbine
+1113.184 store: <402>="ALL	ALL	GenotypeGVCFs start	1515623769	jointGenotypeRun
+ALL	ALL	GenotypeGVCFs end	1515624882	jointGenotypeRun
+"
+1113.184 store: <401>=1
+1113.184 rule: <405> => rm-app-leaf1-1 {405.0} {file 405 is_mapped 1}
+1113.184 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/jointVCF.log {}
+1113.184 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/jointVCF.log 
+1113.194 shell command duration: 0.009
+1113.312 turbine finalizing
+1113.311 turbine finalizing
+1113.311 turbine finalizing
+1113.311 turbine finalizing
+1113.319 turbine finalizing
