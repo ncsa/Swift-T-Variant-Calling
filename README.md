@@ -173,7 +173,7 @@ This is set in bytes, so if you want to limit novosort to using 30 GB, one would
 
 **`REFGENOME`** Full path to the reference genome (/path/to/example.fa)(assumes reference has .dict and .fai (index) files created in the same directory)
 
-**`DBSNP`** Full path to the dbsnp vcf file
+**`DBSNP`** Full path to the dbsnp vcf file (GATK assumes that this vcf is also indexed)
 
 **`INDELDIR`** 
 
