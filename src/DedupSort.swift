@@ -89,7 +89,7 @@ import generalfunctions.general;
 
 		// Since samblaster needs the sam instead of the bam, we quickly decompress the bam back to a sam
 
-		recreatedSam = samtools_bam2sam(vars["SAMTOOLSEXE"], alignedBam, threads, [], sampleName);
+		recreatedSam = samtools_bam2sam(vars["SAMTOOLSEXE"], alignedBam, threads, []);
 
 		// Mark Duplicates
 		dedupsam, samLog, tmpsamblasterLog = samblaster_logged(vars["SAMBLASTEREXE"], recreatedSam, sampleName);
