@@ -60,7 +60,7 @@ import generalfunctions.general;
 /***************
  Mark Duplicates
 ****************/
-(file dedupSortedBam) markDuplicates(string vars[string], string sampleName, file alignedSam, file alignedBam) {
+(file dedupSortedBam) markDuplicates(string vars[string], string sampleName, file alignedBam) {
 	/*
 	The input file used depends on the dedup program being used:
 		alignedSam => Samblaster
@@ -76,6 +76,9 @@ import generalfunctions.general;
 	if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
 		exec_check(vars["SAMBLASTEREXE"], "SAMBLASTEREXE");
 		exec_check(vars["SAMTOOLSEXE"], "SAMTOOLSEXE");
+
+		// For samblaster, the sam file is recreated
+		file recreatedSam < strcat(vars["TMPDIR"], "/align/", sampleName, ".noDedup.sam") >;
 		file dedupsam < strcat(vars["TMPDIR"], "/align/", sampleName, ".wDedups.sam") >;
 		file dedupbam < strcat(AlignDir, sampleName, ".wDedups.bam") >;
 		file samLog < strcat(LogDir, sampleName, "_SamblasterDedup.log") >; 
@@ -84,17 +87,18 @@ import generalfunctions.general;
 		file tmpsamtoolsLog < strcat(tmpLogDir, sampleName, "_samtoolsDedup.log")>;	
 		file tmpnovosortLog < strcat(tmpLogDir, sampleName, "_NovoSortDedup.log")>;	
 
+		// Since samblaster needs the sam instead of the bam, we quickly decompress the bam back to a sam
+
+		recreatedSam = samtools_bam2sam(vars["SAMTOOLSEXE"], alignedBam, threads, [], sampleName);
+
 		// Mark Duplicates
-		dedupsam, samLog, tmpsamblasterLog = samblaster_logged(vars["SAMBLASTEREXE"], alignedSam, sampleName);
+		dedupsam, samLog, tmpsamblasterLog = samblaster_logged(vars["SAMBLASTEREXE"], recreatedSam, sampleName);
 		dedupbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"],
 								dedupsam,
 								threads,
 								["-u"],
 								sampleName
 							       ) =>
-		// Delete the dedupsam file once dedupbam has been created (wait for dedupbam to be finished)
-		rm(dedupsam);
-		
 		// Sort
 		dedupSortedBam, sortLog, tmpnovosortLog = novosort_logged(vars["NOVOSORTEXE"],
 									  dedupbam, 
@@ -102,7 +106,10 @@ import generalfunctions.general;
 						   			  threads, ["--compression", "1"], 
 									  string2int(vars["NOVOSORT_MEMLIMIT"]),
 									  sampleName
-									 );
+									 ) =>
+
+		// Remove the recreated sam after sorting and marking duplicates
+		rm(recreatedSam);
 	}
 	else if (vars["MARKDUPLICATESTOOL"] == "PICARD") {
 		exec_check(vars["PICARDJAR"], "PICARDJAR");
@@ -188,13 +195,10 @@ import generalfunctions.general;
 			file alignedsam = input(strcat(vars["TMPDIR"], "/align/", sampleName, ".noDedups.sam"));
 			
 			file dedupsortedbam < strcat(AlignDir, sampleName, ".wDedups.sorted.bam") >; 
-			dedupsortedbam = markDuplicates(vars, sampleName, alignedsam, inputBam) =>
+			dedupsortedbam = markDuplicates(vars, sampleName, inputBam) =>
 	
 			// Verify deduplication was successful
 			if ( checkBam(vars, dedupsortedbam) ) {
-				// This will delete the raw aligned sam only after dedupsortedbam is written
-				rm(alignedsam); 
-
 				/*****
 				Quality control of deduplicated file
 				*****/

@@ -207,8 +207,11 @@ import generalfunctions.general;
 			}
 
 			int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
-			alignedbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"], alignedsam, threads, ["-u"], sampleName);
-	
+			alignedbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"], alignedsam, threads, ["-u"], sampleName) =>
+
+			// Delete the temporary sam as it is not needed after the bam is created
+			rm(alignedsam);
+
 			// Verify alignment was successful
 			if ( checkBam(vars, alignedbam) ) {	
 				
