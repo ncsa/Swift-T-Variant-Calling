@@ -1,6 +1,6 @@
 # i/o
 SAMPLEINFORMATION=/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests_round2/sample_info/4_sample_feature_test.sampleinfo
-OUTPUTDIR=/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/1,4,6,7,8b,9,13,15,16,18,19_outputs
+OUTPUTDIR=/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/1,3a,4,6,7,8b,9,13,15,16,18,19_outputs
 TMPDIR=/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp
 
 # choose the type of analysis and execution parameters
