@@ -12,9 +12,10 @@ Tools to test (Not necessary to test all combinations of these, just have at lea
 Functionalities
 ----------------
 8. ANALYSIS type
-    8a. ALIGN_ONLY
-    8b. VC_REALIGN
-    8c. VC_NO_REALIGN
+    (8a. which was alignment only analysis was removed. The addition of jumping in and out
+        of stages and the option to stop after alignment made this setting redundant) 
+    8b. With realignment
+    8c. Without realignment
 
 9. Splitting by chromosome (SPLIT=Y; CHRNAMES)
 10. Not Splitting by chromosome (SPLIT=N)
