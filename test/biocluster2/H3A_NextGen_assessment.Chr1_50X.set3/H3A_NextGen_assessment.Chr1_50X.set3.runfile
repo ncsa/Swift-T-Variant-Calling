@@ -59,3 +59,4 @@ SAMTOOLSEXE=/home/apps/software/SAMtools/1.5-IGB-gcc-4.9.4/bin/samtools
 NOVOALIGNEXE=/home/apps/software/novocraft/3.08.00/novoalign
 NOVOSORTEXE=/home/apps/software/novocraft/3.08.00/novosort
 
+

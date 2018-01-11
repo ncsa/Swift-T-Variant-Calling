@@ -90,7 +90,8 @@ shinyServer(function(input, output, session) {
                      position = position_dodge(width = 0.5), size = 2) +
       coord_flip() + scale_y_datetime(breaks = date_breaks(resol),
                                       labels = date_format("%F\n %H:%M"),
-                                      expand = expand_scale(mult = 0.1) ) +
+                                      # expand = expand_scale(mult = 0.1) 
+                                      ) +
       labs(x = "Application", y = "Timeline") +
       theme(axis.text.x = element_text(angle=45), 
             axis.title = element_text(family = "Trebuchet MS", color="#666666", face="bold", size=16),
