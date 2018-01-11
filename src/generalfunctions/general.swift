@@ -88,10 +88,13 @@ app (void v) rm(file f) {
 
 (boolean exec_ok) exec_check (string exec, string parameter){
         file_exists(exec) =>
-        assert(string_count(file_type(exec), "file", 0, -1) ==1, 
-		strcat("The executable: \n\t", exec,
-			"\n Referred to by the parameter: \n\t", parameter, 
-			" is not properly specified in your runfile!"));
+	string fileType = file_type(exec) =>
+	assert(fileType == "file" || fileType == "link", 
+	       strcat("The executable: \n\t", exec,
+		      "\n Referred to by the parameter: \n\t", parameter, 
+		      " is not properly specified in your runfile!"
+		     )
+	      );
         exec_ok = true;
 }
 
