@@ -88,7 +88,6 @@ import generalfunctions.general;
 		file tmpnovosortLog < strcat(tmpLogDir, sampleName, "_NovoSortDedup.log")>;	
 
 		// Since samblaster needs the sam instead of the bam, we quickly decompress the bam back to a sam
-
 		recreatedSam = samtools_bam2sam(vars["SAMTOOLSEXE"], alignedBam, threads, []);
 
 		// Mark Duplicates
@@ -191,9 +190,7 @@ import generalfunctions.general;
 			/*****
 			Deduplication
 			*****/
-			// Locate the alignedsam file, a leftover in temp from the previous stage
-			file alignedsam = input(strcat(vars["TMPDIR"], "/align/", sampleName, ".noDedups.sam"));
-			
+		
 			file dedupsortedbam < strcat(AlignDir, sampleName, ".wDedups.sorted.bam") >; 
 			dedupsortedbam = markDuplicates(vars, sampleName, inputBam) =>
 	
