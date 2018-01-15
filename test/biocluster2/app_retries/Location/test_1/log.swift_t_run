@@ -1,0 +1,17 @@
+Swift/T
+Compiling: tst.swift
+       to: ./swift-t-tst.XJS.tic
+	/home/apps/software/swift-t/1.3-IGB-gcc-4.9.4/stc/bin/stc -O 3 tst.swift ./swift-t-tst.XJS.tic
+Running:   ./swift-t-tst.XJS.tic
+	/home/apps/software/swift-t/1.3-IGB-gcc-4.9.4/turbine/bin/turbine -m slurm -l -s settings.sh ./swift-t-tst.XJS.tic
+TURBINE-SLURM SCRIPT
+NODES=2
+PROCS=2
+PPN=1
+sourcing: settings.sh
+done: settings.sh
+TURBINE_OUTPUT=/home/a-m/azzaea/turbine-output/2018/01/15/02/29/47
+TURBINE_HOME=/home/apps/software/swift-t/1.3-IGB-gcc-4.9.4/turbine
+wrote: /home/a-m/azzaea/turbine-output/2018/01/15/02/29/47/turbine-slurm.sh
+JOB_ID=269384
+Removing: ./swift-t-tst.XJS.tic

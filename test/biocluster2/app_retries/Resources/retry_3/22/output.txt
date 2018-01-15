@@ -1,0 +1,62 @@
+TURBINE-SLURM.SH
+ADLB_DEBUG_RANKS: rank: 0 nodename: compute-0-13
+ADLB_DEBUG_RANKS: rank: 1 nodename: compute-0-13
+ADLB_DEBUG_RANKS: rank: 2 nodename: compute-0-13
+ADLB_DEBUG_RANKS: rank: 3 nodename: compute-0-14
+ADLB_DEBUG_RANKS: rank: 6 nodename: compute-0-15
+ADLB_DEBUG_RANKS: rank: 7 nodename: compute-0-15
+ADLB_DEBUG_RANKS: rank: 8 nodename: compute-0-15
+ADLB_DEBUG_RANKS: rank: 4 nodename: compute-0-14
+ADLB_DEBUG_RANKS: rank: 5 nodename: compute-0-14
+ADLB_DEBUG_RANKS: rank: 9 nodename: compute-0-17
+ADLB_DEBUG_RANKS: rank: 10 nodename: compute-0-17
+ADLB_DEBUG_RANKS: rank: 11 nodename: compute-0-17
+ADLB_DEBUG_RANKS: rank: 12 nodename: compute-0-18
+ADLB_DEBUG_RANKS: rank: 13 nodename: compute-0-18
+ADLB_DEBUG_RANKS: rank: 14 nodename: compute-0-18
+   0.000 WORK TYPES: WORK
+   0.000 WORKERS: 14 RANKS: 0 - 13
+   0.000 SERVERS: 1 RANKS: 14 - 14
+   0.000 WORK WORKERS: 14 RANKS: 0 - 13
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.001 function: __entry
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+trace: *********************	 :Testing app retries on (Biocluster 2)	****************************
+   0.001 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.021 exec: false {}
+   0.021 shell: false  
+   0.034 shell: Command failed with exit code: 1: retries: 1/100 on: compute-0-13
+   0.061 shell: false  
+   0.065 shell: Command failed with exit code: 1: retries: 2/100 on: compute-0-13
+   0.368 shell: false  
+   0.377 shell: Command failed with exit code: 1: retries: 3/100 on: compute-0-13
+   0.746 shell: false  
+   0.747 shell: Command failed with exit code: 1: retries: 4/100 on: compute-0-13
+   1.601 shell: false  
+   1.603 shell: Command failed with exit code: 1: retries: 5/100 on: compute-0-13
+   2.305 shell: false  
+   2.306 shell: Command failed with exit code: 1: retries: 6/100 on: compute-0-13
+   2.609 shell: false  
+   2.610 shell: Command failed with exit code: 1: retries: 7/100 on: compute-0-13
+  11.300 shell: false  
+  11.302 shell: Command failed with exit code: 1: retries: 8/100 on: compute-0-13
+  28.694 shell: false  
+  28.696 shell: Command failed with exit code: 1: retries: 9/100 on: compute-0-13
+  76.554 shell: false  
+  76.556 shell: Command failed with exit code: 1: retries: 10/100 on: compute-0-13
+ 115.827 shell: false  
+ 115.829 shell: Command failed with exit code: 1: retries: 11/100 on: compute-0-13
+ 222.206 shell: false  
+ 222.207 shell: Command failed with exit code: 1: retries: 12/100 on: compute-0-13
+slurmstepd: *** JOB 268536 ON compute-0-13 CANCELLED AT 2018-01-14T05:13:58 ***

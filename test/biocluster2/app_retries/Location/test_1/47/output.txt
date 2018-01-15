@@ -1,0 +1,17 @@
+TURBINE-SLURM.SH
+trace: *********************	 :Testing app retries on (Biocluster 2)	****************************
+trace: Number of hosts: 	5
+trace: Host_number	Host_name	Rank	Strictness	Accuracy
+trace: Host_number	WorkerRank	Rank	Strictness	Accuracy
+trace: 0	compute-0-17	9	HARD	RANK
+trace: 0	compute-0-17	10	10	HARD	RANK
+trace: 1	compute-0-18	13	HARD	RANK
+trace: 1	compute-0-18	12	12	HARD	RANK
+trace: 2	compute-0-15	8	HARD	RANK
+trace: 2	compute-0-15	7	7	HARD	RANK
+trace: 3	compute-0-13	2	HARD	RANK
+trace: 3	compute-0-13	0	0	HARD	RANK
+trace: 4	compute-0-14	3	HARD	RANK
+trace: 4	compute-0-14	5	5	HARD	RANK
+ADLB Total Elapsed Time: 1.034
+turbine finalizing at: 1.025

@@ -1,0 +1,1 @@
+sbatch --output=/home/a-m/azzaea/turbine-output/2018/01/15/02/29/47/output.txt --error=/home/a-m/azzaea/turbine-output/2018/01/15/02/29/47/output.txt --partition=normal --job-name=SWIFT /home/a-m/azzaea/turbine-output/2018/01/15/02/29/47/turbine-slurm.sh
