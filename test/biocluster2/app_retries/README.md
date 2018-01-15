@@ -13,7 +13,7 @@ for more detail:
 	(( PROCS % PPN )) && (( NODES++ )) || true
 	export TURBINE_WORKERS=$(( PROCS - ADLB_SERVERS ))
 	declare NODES PROCS PPN 
-	```
+```
 
 
 ## Resources folder:
