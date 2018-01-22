@@ -55,6 +55,9 @@ app (void v) rm(file f) {
 	"rm" f;
 }
 
+/*
+ * Takes info from temporary log files and creates the final timing log file; also deletes the temporary ones
+ */
 () logging (string tmpdir, file timeLog){
         file tmplogs[] = glob(strcat(tmpdir, "/timinglogs/*"));
         append(timeLog, read(cat(tmplogs))) =>
