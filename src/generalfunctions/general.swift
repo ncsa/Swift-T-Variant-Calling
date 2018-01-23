@@ -57,9 +57,11 @@ app (void v) rm(file f) {
 
 /*
  * Takes info from temporary log files and creates the final timing log file; also deletes the temporary ones
+ *   Each stage has its logs put in its own directory (to avoid potential race conditions in case two of these
+ *     run close together
  */
-() logging (string tmpdir, file timeLog){
-        file tmplogs[] = glob(strcat(tmpdir, "/timinglogs/*"));
+() logging (string tmpdir, file timeLog, string toolDirName){
+        file tmplogs[] = glob(strcat(tmpdir, "/timinglogs/", toolDirName, "/*"));
         append(timeLog, read(cat(tmplogs))) =>
         foreach i in tmplogs {
 		rm(i);

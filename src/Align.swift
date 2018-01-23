@@ -65,7 +65,7 @@ import generalfunctions.general;
 	// Log file
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	file alignedLog < strcat(LogDir, sampleName, "_Alignment.log") >;
-	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
+	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/alignlogs");         // This tmp log path is align specific
  	file tmpalignedLog < strcat(tmpLogDir, sampleName, "_Alignment.log")>;
 	
 	if (vars["PAIRED"] == "1" ||

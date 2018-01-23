@@ -71,7 +71,7 @@ import generalfunctions.general;
 
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
-	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
+	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/dedupsortlogs"); // Path is specific to dedupsort step
 
 	if (vars["MARKDUPLICATESTOOL"] == "SAMBLASTER") {
 		exec_check(vars["SAMBLASTEREXE"], "SAMBLASTEREXE");

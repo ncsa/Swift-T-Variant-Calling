@@ -56,7 +56,7 @@ jointGenotypingRun(file inputVCFs[], string vars[string], file timeLog) {
 		file jointLog < strcat(vars["OUTPUTDIR"], "/deliverables/jointVCFs/jointVCF.log") >;
 		mkdir(strcat(vars["OUTPUTDIR"], "/deliverables/jointVCFs"));
 
-		string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
+		string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/jointGenologs"); // Path is stage specific
 		file tmpjointLog < strcat(tmpLogDir, "jointVCF.log") >;	
 				
 		// This array holds the vcf file for each sample along with the "--variants" flags necessary for GenotypeGVCFs
@@ -75,7 +75,9 @@ jointGenotypingRun(file inputVCFs[], string vars[string], file timeLog) {
 		}
 		
 		jointVCF, jointLog, tmpjointLog = GenotypeGVCFs_logged (vars["JAVAEXE"], vars["JAVA_MAX_HEAP_SIZE"], vars["GATKJAR"], vars["REFGENOME"], variantSampleArray, vars["CORES_PER_NODE"]
-						  ) =>
-		logging(variables["TMPDIR"], timeLog);
+					  ) =>
+		// This should be the only location where the 'logging' function should be called
+		//   outside of VariantCalling.swift
+		logging(variables["TMPDIR"], timeLog, "jointGenologs");
 	}
 }

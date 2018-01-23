@@ -78,6 +78,11 @@ string sampleLines[] = file_lines(sampleInfoFile);
 mkdir(variables["OUTPUTDIR"]) =>
 mkdir(variables["TMPDIR"]) =>
 mkdir(strcat(variables["TMPDIR"], "/timinglogs")) =>			/* Potential bug fix */
+mkdir(strcat(variables["TMPDIR"], "/timinglogs/alignlogs")) =>
+mkdir(strcat(variables["TMPDIR"], "/timinglogs/dedupsortlogs")) =>
+mkdir(strcat(variables["TMPDIR"], "/timinglogs/vclogs")) =>
+mkdir(strcat(variables["TMPDIR"], "/timinglogs/combinelogs")) =>
+mkdir(strcat(variables["TMPDIR"], "/timinglogs/jointGenologs")) =>
 mkdir(strcat(variables["OUTPUTDIR"], "/deliverables/docs")) =>
 /**********************
 Create the Failures.log
@@ -105,7 +110,7 @@ file docSampleInfo < strcat(variables["OUTPUTDIR"], "/deliverables/docs/",
 
 // Align, sort, and dedup
 file alignBams[] = alignRun(sampleLines, variables, failureLog)  =>
-logging(variables["TMPDIR"], timingLog);
+logging(variables["TMPDIR"], timingLog, "alignlogs");
 
 assert(size(alignBams) != 0,
        "FAILURE: The aligned bam array was empty: none of the samples finished properly"
@@ -115,7 +120,8 @@ if (variables["ALIGN_STAGE"] != "E" &&
     variables["ALIGN_STAGE"] != "End" &&
     variables["ALIGN_STAGE"] != "end" 
    ) {
-	file dedupSortedBams[] = dedupSortRun(alignBams, variables, failureLog);
+	file dedupSortedBams[] = dedupSortRun(alignBams, variables, failureLog) =>
+	logging(variables["TMPDIR"], timingLog, "dedupsortlogs");
 	assert(size(dedupSortedBams) != 0, strcat("FAILURE: The dedupped and sorted bam array was empty: ",
 						  "none of the samples finished properly")
 	);
@@ -145,7 +151,7 @@ if (variables["ALIGN_STAGE"] != "E" &&
 				      );
 				// Calls variants for the aligned files that are split by chromosome
 				file splitVCFs[][] = VCSplitRun(variables, splitBams, failureLog) =>
-				logging(variables["TMPDIR"], timingLog); 
+				logging(variables["TMPDIR"], timingLog, "vclogs"); 
 
 				if (variables["VC_STAGE"] != "E" &&
 				    variables["VC_STAGE"] != "End" &&
@@ -159,7 +165,7 @@ if (variables["ALIGN_STAGE"] != "E" &&
 
 					// Combine the variants for each sample
 					file VCF_list[] = combineVariantsRun(splitVCFs, variables, failureLog) =>
-					logging(variables["TMPDIR"], timingLog); 
+					logging(variables["TMPDIR"], timingLog, "combinelogs"); 
 
 					if (variables["COMBINE_VARIANT_STAGE"] != "E" &&
 					    variables["COMBINE_VARIANT_STAGE"] != "End" &&
@@ -176,7 +182,7 @@ if (variables["ALIGN_STAGE"] != "E" &&
 		} else {
 			// Call variants for the aligned files
 			file VCF_list[] = VCNoSplitRun(variables, dedupSortedBams, failureLog) =>
-			logging(variables["TMPDIR"], timingLog);
+			logging(variables["TMPDIR"], timingLog, "vclogs");
 
 			if (variables["VC_STAGE"] != "E" &&
 			    variables["VC_STAGE"] != "End" &&
