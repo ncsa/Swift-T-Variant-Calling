@@ -56,7 +56,7 @@ jointGenotypingRun(file inputVCFs[], string vars[string], file timeLog) {
 		file jointLog < strcat(vars["OUTPUTDIR"], "/deliverables/jointVCFs/jointVCF.log") >;
 		mkdir(strcat(vars["OUTPUTDIR"], "/deliverables/jointVCFs"));
 
-		string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/jointGenologs"); // Path is stage specific
+		string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/jointGenologs/"); // Path is stage specific
 		file tmpjointLog < strcat(tmpLogDir, "jointVCF.log") >;	
 				
 		// This array holds the vcf file for each sample along with the "--variants" flags necessary for GenotypeGVCFs
