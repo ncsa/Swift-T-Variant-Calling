@@ -1,52 +1,48 @@
 This README serves to report back on efforts to enable robust  Swift/T app retries. The testing environment is Biocluster2, which is slurm based. Below are the directions for tests thus far, and lessons learnt:
 
-# Slurm resources allocation
+# Slurm resources allocation:
 
-The main parameters to allocate resources for a Swift/T run are: 
-`PPN`: Processes-per-node
-`PROCS`: Number of MPI processes
-`NODES`:
+The main parameters to allocate resources for a Swift/T run and their respective usage is as follows:
+`PPN`: Processes-per-node        ==> `#SBATCH --ntasks-per-node=getenv(PPN)`: [default = 1](https://github.com/swift-lang/swift-t/blob/master/turbine/code/scripts/submit/run-init.zsh#L85)
+`PROCS`: Number of MPI processes ==> *Not directly translated to slurm parameter*: [default = 0?](https://github.com/swift-lang/swift-t/blob/master/turbine/code/scripts/submit/run-init.zsh#L111)
+`NODES`:                         ==> `#SBATCH --nodes=getenv(NODES)`
 
 These are defined in the script [run-init.zsh  ](https://github.com/swift-lang/swift-t/blob/master/turbine/code/scripts/submit/run-init.zsh), before propogating to the respective slurm submission scripts [turbine-slurm-run.zsh](https://github.com/swift-lang/swift-t/blob/master/turbine/code/scripts/submit/slurm/turbine-slurm-run.zsh) and [turbine-slurm.sh.m4](https://github.com/swift-lang/swift-t/blob/master/turbine/code/scripts/submit/slurm/turbine-slurm.sh.m4i#L46)
 
 The key peace of code that govrens these variables is below:
 
 ```
-# Round NODE up for extra processes
 export NODES=$(( PROCS/PPN ))
 (( PROCS % PPN )) && (( NODES++ )) || true
 export TURBINE_WORKERS=$(( PROCS - ADLB_SERVERS ))
 declare NODES PROCS PPN 
 ```
-But, tests- as per below, don't seem to agree:
-
-## Resources folder:
-
-This is a warm up exercise, just to see how the Swift/T variables `PPN`, `PROCS` and `NODES` affect the actual resources reserved for a typical Swift/T run. Below is a summary table of findings, with actual files from eact test being within the relevant directory within the [Resources directory here](https://github.com/ncsa/Swift-T-Variant-Calling/tree/master/test/biocluster2/app_retries/Resources), including the email_report recieved from the scheduler upon the start of a given job.
+Below, are a summary of how these have been set, and what resources where actually reserved. Actual files from eact test are within the [Resources directory here](https://github.com/ncsa/Swift-T-Variant-Calling/tree/master/test/biocluster2/app_retries/Resources), including the email_report recieved from the scheduler upon the start of a given job.
 
 
-|Folder_name|PPN | PROCS| NODES|Resulting_Resources_Allocated|
+|Folder_name|PPN| PROCS| NODES|Resulting_Resources_Allocated (total_mpi_ranks (=PPN\*NODES) and nodes (=NODEs))|
 |-------|----|------|------|------|
-|retry_2|3|12|5| 15 MPI ranks, on 5 nodes|
-|retry_1|3|12|-| 6 MPI ranks, on 2 nodes\* |
-|retry_3|3|-|5|  15 MPI ranks, on 5 nodes|
-|retry_4|-|12|5| 5 MPI ranks, on 5 nodes|
-|retry_5|-|-|5| 5 MPI ranks, on 5 nodes|
-|retry_6|-|5|-| 2 MPI ranks, on 2 nodes\* |
-|retry_7|5|-|-| 6 MPI ranks, on 2 nodes+|
-\ The default values are `PPN=1`
-These tests make me question what the effect of the `PROCS` parameter (defined as the total number of MPI ranks) is. 
+|retry_2|3|12|5| 15 MPI ranks, on 5 nodes (logical as per this table heading definition)|
+|retry_1|3|12|-| 6\* MPI ranks, on 2\* nodes |
+|retry_3|3|-|5|  15 MPI ranks, on 5 nodes (logical as per this table heading definition)|
+|retry_4|-|12|5| 5 MPI ranks, on 5 nodes(logical because default PPN=1)|
+|retry_5|-|-|5| 5 MPI ranks, on 5 nodes (logical because default PPN=1)|
+|retry_6|-|5|-| 2\* MPI ranks, on 2\* nodes\* |
+|retry_7|5|-|-| 6\* MPI ranks, on 2\* nodes+|
 
-# Important note: 
-Retries applies to leaf function failures, not to programatic errors. For example, exceeding array limits would cause the program to fail, but no retry apply in this case (this is obviious, but it helps to write out)
 
-# Location directive 
+The star (\*) denotes strange value.
+
+**These tests make me question what the effect of the `PROCS` parameter (defined as the Number of MPI processes) is. **
+
+# Location tests: 
 
 Probably, the main lesson learnt here is that a location object is a data structure with 3 components: `rank`, `strictness`, and `accuracy`; where:
 `rank`: is the mpi-rank
 `strictness`: is the location specification constratint, which can be either `HARD` or `SOFT`
 `Accuracy`: is the choice to run a given task on either a specific `RANK` or `NODE`
 
+<<<<<<< HEAD
 - Random number generation in Swift/T is not really random, it always starts from a certain seed (the seed itself being dependent on the MPI rank on which the process is to be evaluated. Control of the seed is achieved via the turbine variable `TURBINE_SRAND`. This also applies to how a random worker maybe selected to carry out a certain function.
 
 - By default, functions are local **local DOES NOT mean they are run in the ADLB server node, or the like- it merely seems to mean that their location can not be controlled. See `t6_function_app.swift` for an example**. To change this and be able to *send a function into any location, it must has the directive: `@dispatch=WORKER`. Otherwise, stc would produce the compilation error: "Tried to call non-targetable function... "* To the contrary, `app functions`, aka leaf functions, can be dispatched without explicitly using the `dispatch directive`
@@ -55,7 +51,7 @@ Probably, the main lesson learnt here is that a location object is a data struct
 
 - App retries do not work in the following cases: 
 1) when an `assert` statement fails
-2) when there is a coding error (for example, a loop going beyond its boundries)  
+2) when there is a coding error (for example, an array  going beyond its boundries)  
 
 - I'm not sure about **the use of the `type` keyword.** In the Swift/T user guide, it should be used to define new structures as in:
 
