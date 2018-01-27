@@ -16,7 +16,7 @@ import string;
 main {
   // Run multiple times to hopefully get one of the tasks sent to
   // the wrong worker in case of the bug
-  foreach i in [1:100] {
+  foreach i in [1:1000] {
     L1 = random_worker();
     act1 = test_fn(":)", L1);
     exp1 = "Hello from " + L1.rank + ": :)";

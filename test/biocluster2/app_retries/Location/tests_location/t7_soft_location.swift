@@ -15,10 +15,9 @@ app (file o) hostname() {
 }
 
 main {
-  foreach i in [1:10] {
+  foreach i in [1:500] {
     string host1 = extract_hostname(hostname());
-    // Run on same host
-    string host2 = extract_hostname(@location=hostmap_one_worker(host1) hostname());
-    assertEqual(host1, host2, sprintf("Check hostnames same trial %i", i));
+    string host2 = extract_hostname(@soft_location=hostmap_one_worker(host1) hostname());
+    printf("\t\tHostname %i: %s\t Soft host: %s\t%i", i, host1, host2, host1!=host2);
   }
 }

@@ -4,6 +4,7 @@ import location;
 
 
 // Should be local by default
+@dispatch=WORKER 
 f(int i) "turbine" "0.0.1" [
   "puts \"HELLO <<i>>\""
 ];

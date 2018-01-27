@@ -7,6 +7,7 @@ import io;
 ];
 
 s1 = @location=randomWorker() workf();
+trace(s1);
 
 wait(s1)
 {
