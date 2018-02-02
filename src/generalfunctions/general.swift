@@ -61,10 +61,12 @@ app (void v) rm(file f) {
  *     run close together
  */
 () logging (string tmpdir, file timeLog, string toolDirName){
-        file tmplogs[] = glob(strcat(tmpdir, "/timinglogs/", toolDirName, "/*"));
-        append(timeLog, read(cat(tmplogs))) =>
-        foreach i in tmplogs {
-		rm(i);
+	file tmplogs[] = glob(strcat(tmpdir, "/timinglogs/", toolDirName, "/*"));
+	if (size(tmplogs) > 0) {
+		append(timeLog, read(cat(tmplogs))) =>
+		foreach i in tmplogs {
+			rm(i);
+		}
 	}
 }
 
@@ -92,7 +94,7 @@ app (void v) rm(file f) {
 
 
 (boolean exec_ok) exec_check (string exec, string parameter){
-        file_exists(exec) =>
+	file_exists(exec) =>
 	string fileType = file_type(exec) =>
 	assert(fileType == "file" || fileType == "link", 
 	       strcat("The executable: \n\t", exec,
@@ -100,6 +102,6 @@ app (void v) rm(file f) {
 		      " is not properly specified in your runfile!"
 		     )
 	      );
-        exec_ok = true;
+	exec_ok = true;
 }
 
