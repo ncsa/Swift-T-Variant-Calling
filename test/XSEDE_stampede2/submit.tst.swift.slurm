@@ -17,4 +17,4 @@ export TURBINE_LOG=1
 export  ADLB_DEBUG_RANKS=1
 export ADLB_DEBUG_HOSTMAP=1
 
-swift-t -l -n 5 tst.swift
+swift-t -l -n 2 tst.swift.2
