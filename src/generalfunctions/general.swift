@@ -63,10 +63,17 @@ app (void v) rm(file f) {
 () logging (string tmpdir, file timeLog, string toolDirName){
 	file tmplogs[] = glob(strcat(tmpdir, "/timinglogs/", toolDirName, "/*"));
 	if (size(tmplogs) > 0) {
-		append(timeLog, read(cat(tmplogs))) =>
-		foreach i in tmplogs {
+		append(timeLog, read(cat(tmplogs))); //=>
+
+		/*
+		These rm calls caused bugs
+		Since it is commented out, the TimingLog file will have redundant lines that need
+                to be filtered out
+
+		*/
+		/*foreach i in tmplogs {
 			rm(i);
-		}
+		}*/
 	}
 }
 
