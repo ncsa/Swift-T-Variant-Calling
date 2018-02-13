@@ -127,6 +127,7 @@ import generalfunctions.general;
 									   );
 		// Mark Duplicates
 		dedupSortedBam, picardLog, metricsfile, tmppicardLog = picard_logged(vars["JAVAEXE"],
+										     vars["JAVA_MAX_HEAP_SIZE"], 
 										     vars["PICARDJAR"],
 										     vars["TMPDIR"],
 										     alignedsortedbam,
@@ -187,7 +188,7 @@ import generalfunctions.general;
 			file alignedsam = input(strcat(vars["TMPDIR"], "/align/", sampleName, ".noDedups.sam"));
 			
 			file dedupsortedbam < strcat(AlignDir, sampleName, ".wDedups.sorted.bam") >; 
-			dedupsortedbam = markDuplicates(vars, sampleName, alignedsam, inputBam);
+			dedupsortedbam = markDuplicates(vars, sampleName, alignedsam, inputBam) =>
 	
 			// Verify deduplication was successful
 			if ( checkBam(vars, dedupsortedbam) ) {

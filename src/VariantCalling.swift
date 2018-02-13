@@ -33,6 +33,7 @@ import unix;
 import io;
 import files;
 import assert;
+import sys;
 
 import generalfunctions.general;
 import Align;
@@ -45,6 +46,8 @@ import JointGenotyping;
 /*********************************************************************************************************************
  Initial Setup
 **********************************************************************************************************************/
+
+printf(strcat("The SWIFT_TMP environment variable is set to: ", getenv("SWIFT_TMP")));
 
 /*************
  Parse runfile
@@ -82,7 +85,7 @@ Create the Failures.log
 
 // This file is initialized with an empty string, so it can be appended to later on
 file failureLog < strcat(variables["OUTPUTDIR"], "/deliverables/docs/Failures.log") > = write("") =>
-file timingLog < strcat(variables["OUTPUTDIR"], "/deliverables/docs/Timing.log") > = write("Sample\t Chromosome\tApp status\tTime\n") =>
+file timingLog < strcat(variables["OUTPUTDIR"], "/deliverables/docs/Timing.log") > = write("Sample\tChromosome\tApp status\tTime\tStage\n") =>
 
 /*******************************************
  Copy input files for documentation purposes

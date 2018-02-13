@@ -40,20 +40,19 @@ NOVOALIGNINDEX=<path to the indexed reference file for novoalign, if it is the d
 NOVOALIGNPARAMS=<optional parameters to novoalign, if used as an aligner. Note: do not set the thread count here>
 
 # Memory limit
-NOVOSORT_MEMLIMIT=<Max RAM used by one novosort instance. Must be an Integer in bytes; See the README for details>
+NOVOSORT_MEMLIMIT=<THIS ALWAYS NEEDS TO BE SET, SINCE NOVOSORT IS ALWAYS USED TO SORT. Max RAM used by one novosort instance. Must be an Integer in bytes; See the README for details>
 
 # Quality thresholds
 MAP_CUTOFF=<minimum mapping quality of reads to pass QC test after alignment>
 DUP_CUTOFF=<maximum duplication level in reads to pass QC test after alignment>
 
 # Resource paths
-REFGENOMEDIR=<path to the directory where all reference files and databases are stored>
-REFGENOME=<name of the reference genome file within REFGENOMEDIR. Example ucsc.hg19.fasta in the GATK bundle 2.8>
-DBSNP=<name of the dbsnp file within REFGENOMEDIR. Example dbsnp_138.hg19.vcf in the GATK bundle 2.8>
-INDELDIR=<name of the directory within REFGENOMEDIR that contains a vcf file for each chromosome/contig specified by the CHRNAMES parameter. These files need to be named as: \*\${chr\_name}.vcf >
-OMNI=<name of the omni variants file. Example: 1000G_omni2.5.hg19.sites.vcf in the GATK bundle 2.8>
+REFGENOME=<full path of the reference genome file. Example ucsc.hg19.fasta in the GATK bundle 2.8>
+DBSNP=<full path to the dbsnp file. Example dbsnp_138.hg19.vcf in the GATK bundle 2.8>
+INDELDIR=<full path to the directory that contains a vcf file for each chromosome/contig specified by the CHRNAMES parameter. These files need to be named as: \*\${chr\_name}.vcf >
 
 # Tool paths
+JAVA_MAX_HEAP_SIZE=16g
 JAVAEXE=/path/to/bin/java
 BWAEXE=/path/to/bin/bwa
 PICARDJAR=/path/to/picard-tools-X.Y.Z/picard.jar

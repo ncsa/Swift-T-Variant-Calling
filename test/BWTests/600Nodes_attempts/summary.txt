@@ -1,0 +1,46 @@
+None of the 600 node runs were successful (actual node countis 601 since 1 node is used for the ADLB Server)
+Within this folder I also tried a 301 node run, and it also failed
+
+Tried 1200 sample run (2 samples per node) using novosort to mark duplicates (which is what worked for the 100 node runs)
+It failed with the following log:
+
+   1200_samples_2PPN_failed_test.log
+
+It appears to fail at the Haplotype Caller stage: and when inspected, GATK complains that Haplotype Caller does not have enough heap memory (this is controlled when calling Java with the -Xmx flag. It is set to 16g in the runfile, which should be plenty of memory for the data sets we are testing against.
+
+(This is an example of the same type of error message, not from this specific run, i.e. the sample name is probably different from that in the log file reported above. But generally the error messages have been the same)
+
+######################################
+
+##### ERROR ------------------------------------------------------------------------------------------
+##### ERROR A USER ERROR has occurred (version 3.7-0-gcfedb67): 
+##### ERROR
+##### ERROR This means that one or more arguments or inputs in your command are incorrect.
+##### ERROR The error message below tells you what is the problem.
+##### ERROR
+##### ERROR If the problem is an invalid argument, please check the online documentation guide
+##### ERROR (or rerun your command with --help) to view allowable command-line arguments for this tool.
+##### ERROR
+##### ERROR Visit our website and forum for extensive documentation and answers to 
+##### ERROR commonly asked questions https://software.broadinstitute.org/gatk
+##### ERROR
+##### ERROR Please do NOT post this error to the GATK forum unless you have really tried to fix it yourself.
+##### ERROR
+##### ERROR MESSAGE: An error occurred because you did not provide enough memory to run this program. You can use the -Xmx argument (before the -jar argument) to adjust the maximum heap size provided to Java. Note that this is a JVM argument, not a GATK argument.
+
+######################################
+
+----------------------
+
+To try and solve this problem, I tried again with 600 samples (1 sample per node) and got the same type of error:
+
+   output.txt.OUT_FROM_16G_1PPN_RUN.log
+
+Tried again after increasing the Java heap size to 32g (should be way more than necessary)
+Still failed:
+
+   output.txt.OUT_FROM_32G_1PPN_RUN.log
+
+Lastly, tried running a smaller sample size (only 300 samples) on 300 nodes: Still failed
+
+   output.txt.300_samples.OUT_FROM32g_1PPN_RUN.log

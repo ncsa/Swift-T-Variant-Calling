@@ -2,6 +2,20 @@
 
 # Variant Calling with Swift-T
 
+This repo is a complete Variant Calling pipeline written in Swift/T language, for use in the analysis of Whole Genome and Whole Exome Sequencing studies. 
+
+You may use this README file to get an idea of how the code is structred and used, or visit an easier-to-read version of this documentaiton available on [our companion site](http://swift-t-variant-calling.readthedocs.io/en/latest/)
+
+Files in this repo are organized as follows:
+
+| Folder	| Content	|
+|---------------|---------------|
+| `docs`	| The files for the [companion  site](http://swift-t-variant-calling.readthedocs.io/en/latest/) |
+| `media`	| Various figures containing images used in this README file|
+| `src`	| The source code of the pipeline, written in Swift/T. See the section [Under The Hood](#Under-The-Hood) for how it is designed|
+| `test`	| Files for testing the pipeline on different platforms: [XSEDE](https://www.xsede.org/), [Biocluster](http://help.igb.illinois.edu/Biocluster2), [Blue Waters](https://bluewaters.ncsa.illinois.edu/), [iForge](http://www.ncsa.illinois.edu/industry/iforge), and stand alone server|
+
+
 **Table of Contents**
 
 - [Variant Calling with Swift-T](#variant-calling-with-swift-t)
@@ -157,17 +171,15 @@ This is set in bytes, so if you want to limit novosort to using 30 GB, one would
 
 **`DUP_CUTOFF`** The maximum percentage of reads that are marked as duplicates in a successful sample
 
-**`REFGENOMEDIR`** Directory in which the reference genome resides
+**`REFGENOME`** Full path to the reference genome (/path/to/example.fa)(assumes reference has .dict and .fai (index) files created in the same directory)
 
-**`REFGENOME`** Name of the reference genome (name only, not full path)
-
-**`DBSNP`** 
-
-Name of the dbsnp vcf file (name only, path should be that of the REFGENOMEDIR)
+**`DBSNP`** Full path to the dbsnp vcf file (GATK assumes that this vcf is also indexed)
 
 **`INDELDIR`** 
 
 Directory that contains the standard indel variant files used in the realignment/recalibration step
+
+(Full path to directory)
 
 Within the directory, the vcf files should be named with only the chromosome name in front and nothing else.
 
@@ -175,13 +187,14 @@ For example, if the chromosome is `chr12` or `12`, name the vcf files `chr12.vcf
 
 If not splitting by chromosome, the workflow will look for all of the vcf files in the directory.
 
-**`OMNI`** \< Insert explanation here \> Not currently used in workflow
-
 **`JAVAEXE`; `BWAEXE`; `SAMBLASTEREXE`; `SAMTOOLSEXE`; `NOVOALIGNEXE`; `NOVOSORTEXE`**
 
 Full path of the appropriate executable file
 
 **`PICARDJAR`; `GATKJAR`** Full path of the appropriate jar file
+
+**`JAVA_MAX_HEAP_SIZE`** Memory area to store all java objects. This should be tuned in relevance to the speed and frequency at which garbage collection should occur. With larger input size, larger heap is needed. 
+
 
 ### Running the Pipeline
 
@@ -257,9 +270,11 @@ If one is wanting to run a 4 sample job with `PROGRAMS_PER_NODE` set to 2 in the
 
 ##### Cray System (Like Blue Waters at UIUC)
 
-This call of the workflow requires many more environmental variables and no submission script: Swift-T itself will create and submit a job.
+Configuring the workflow to work in this environment requires a little more effort.
 
-Additionally, to get the right number of processes on each node to make the `PROGRAMS_PER_NODE` work correctly, one must set `PPN= PROGRAMS_PER_NODE` and `NODES` to `#samples/PROGRAMS_PER_NODE + (1 or more)`, because at least one process must be a Swift-T SERVER. If one wanted to try running 4 samples on 2 nodes but with `PPN=3` to make room for the processes that need to be SERVER types, one of the nodes may end up with 3 of your WORKER processes running simultaneously, which may lead to memory problems when Novosort is called.
+###### Create and run the automated qsub builder
+
+To get the right number of processes on each node to make the `PROGRAMS_PER_NODE` work correctly, one must set `PPN= PROGRAMS_PER_NODE` and `NODES` to `#samples/PROGRAMS_PER_NODE + (1 or more)`, because at least one process must be a Swift-T SERVER. If one wanted to try running 4 samples on 2 nodes but with `PPN=3` to make room for the processes that need to be SERVER types, one of the nodes may end up with 3 of your WORKER processes running simultaneously, which may lead to memory problems when Novosort is called.
 
 (The exception to this would be when using a single node. In that case, just set `PPN=#PROGRAMS_PER_NODE + 1`)
 
@@ -287,7 +302,28 @@ $ swift-t -m cray -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/compi
 /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile
 ```
 
-Swift-T will create and run the qsub command for you.
+###### Kill, fix, and rerun the generated qsub file
+
+
+Swift-T will create and run the qsub command for you, however, this one will fail if running on two or more nodes, so immediately kill it. Now we must edit the qsub script swift produced
+
+To fix this, we need to add a few variables to the submission file that was just created.
+
+The file will be located in the `$SWIFT_TMP` directory and will be called `turbine-cray.sh`
+
+Add the following items to the file:
+
+`#PBS -V`
+
+\# Note: Make sure this directory is created before running the workflow, and make sure it is not just '/tmp' 
+
+```
+export SWIFT_TMP=/path/to/tmp_dir
+export TMPDIR=/path/to/tmp_dir
+export TMP=/path/to/tmp_dir
+```
+
+Now, if you submit the turbine-cray.sh script with qsub, it should work
 
 ##### SLURM based Systems (Like Biocluster2 at UIUC, and Stampede1/Stampede2 on XSEDE)
 
@@ -318,6 +354,33 @@ $ swift-t -m slurm -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/comp
 /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile
 
 ```
+
+##### Systems without a resource manager:
+For these system, specifying the `settings.sh` file as above doesn't really populate the options to turbine when using `Swift/T version 1.2`. The workaround in such cases would be to export the settings directly to the environment, and `nohup` or `screen` the script launching the swift/t pipeline. Below is a good example:
+
+
+```
+$ cat runpipeline.sh
+#!/bin/bash
+export PROCS=$( PROGRAMS_PER_NODE * (#samples/PROGRAMS_PER_NODE + (1 or more)))
+export SWIFT_TMP=/path/to/directory/temp
+
+# (Optional variables to set)
+export TURBINE_LOG=1    # This produces verbose logging info; great for debugging
+export ADBL_DEBUG_RANKS=1	# Displays layout of ranks and nodes
+export TURBINE_OUTPUT=/path/to/log/directory	# This specifies where the log info will be stored; defaults to one's home directory
+
+$ swift-t -O3 -l -u -o /path/to/where/compiled/should/be/saved/compiled.tic \
+-I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps \
+/path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile
+
+echo -e "Swift-T pipeline run on $HOSTNAME has concluded successfully!" | mail -s "swift_t_pipeline" "your_email"
+
+$
+$ nohup ./runpipeline.sh &> log.runpipeline.swift.t.nohup &
+
+```
+
 
 #### Logging Options
 
@@ -421,8 +484,11 @@ To do so, proceed as follows:
 2. Once the step above is completed and R is installed, open a terminal window, type `R`, then proceed as follows:
 
 ```
-install.packages('shiny')
-runGitHub(repo = "jacobrh91/Swift-T-Variant-Calling", ref = "master",
+if (!require(shiny)) {
+	install.packages('shiny')
+	library(shiny)
+}
+runGitHub(repo = "ncsa/Swift-T-Variant-Calling", ref = "master",
           subdir = "src/plotting_app" )
 ```
 

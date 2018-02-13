@@ -1,0 +1,13 @@
+SCRIPT:            ./swift-t-retries.LHL.tic
+JOB:               268537
+COMMAND:           /home/apps/software/Tcl/8.6.6-IGB-gcc-4.9.4/bin/tclsh8.6 /home/a-m/azzaea/turbine-output/2018/01/14/05/30/21/swift-t-retries.LHL.tic 
+TURBINE_OUTPUT:    /home/a-m/azzaea/turbine-output/2018/01/14/05/30/21
+HOSTNAME:          igb.illinois.edu
+SUBMITTED:         01/14/2018 05:30am
+PROCS:             12
+NODES:             5
+PPN:               1
+TURBINE_WORKERS:   1
+ADLB_SERVERS:      1
+WALLTIME:          48:00:00
+ADLB_EXHAUST_TIME: 1

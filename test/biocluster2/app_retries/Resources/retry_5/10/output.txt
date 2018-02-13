@@ -1,0 +1,53 @@
+TURBINE-SLURM.SH
+ADLB_DEBUG_RANKS: rank: 2 nodename: compute-0-14
+ADLB_DEBUG_RANKS: rank: 3 nodename: compute-0-15
+ADLB_DEBUG_RANKS: rank: 1 nodename: compute-0-13
+ADLB_DEBUG_RANKS: rank: 4 nodename: compute-0-17
+ADLB_DEBUG_RANKS: rank: 0 nodename: compute-0-12
+   0.000 WORK TYPES: WORK
+   0.000 WORKERS: 4 RANKS: 0 - 3
+   0.000 SERVERS: 1 RANKS: 4 - 4
+   0.000 WORK WORKERS: 4 RANKS: 0 - 3
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.001 function: __entry
+trace: *********************	 :Testing app retries on (Biocluster 2)	****************************
+   0.015 exec: false {}
+   0.016 shell: false  
+   0.018 shell: Command failed with exit code: 1: retries: 1/10 on: compute-0-13
+   0.044 shell: false  
+   0.046 shell: Command failed with exit code: 1: retries: 2/10 on: compute-0-13
+   0.348 shell: false  
+   0.350 shell: Command failed with exit code: 1: retries: 3/10 on: compute-0-13
+   0.717 shell: false  
+   0.719 shell: Command failed with exit code: 1: retries: 4/10 on: compute-0-13
+   1.572 shell: false  
+   1.573 shell: Command failed with exit code: 1: retries: 5/10 on: compute-0-13
+   2.275 shell: false  
+   2.277 shell: Command failed with exit code: 1: retries: 6/10 on: compute-0-13
+   2.578 shell: false  
+   2.580 shell: Command failed with exit code: 1: retries: 7/10 on: compute-0-13
+  11.270 shell: false  
+  11.272 shell: Command failed with exit code: 1: retries: 8/10 on: compute-0-13
+  28.662 shell: false  
+  28.664 shell: Command failed with exit code: 1: retries: 9/10 on: compute-0-13
+  76.521 shell: false  
+  76.523 shell: Command failed with exit code: 1: retries: 10/10 on: compute-0-13
+ 115.796 shell: false  
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 1 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+
+Swift: app execution failed on: compute-0-13 
+ shell: Command failed with exit code: 1 
+ command: false
+
+Swift: Aborting MPI job...
+ADLB: ADLB_Abort(1) calling MPI_Abort(1)

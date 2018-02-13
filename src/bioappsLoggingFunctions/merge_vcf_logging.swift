@@ -2,10 +2,10 @@
 
 import bioapps.merge_vcf;
 
-(file outputfile, file outLog, file tmptimeLog) CombineGVCFs_logged (string javaexe, string gatkjar, string reference, string dbsnp, string variants[], string sampleName ) {
-	string startmsg = strcat(sampleName, "\t", "ALL", "\t", "CombineGVCFs start", "\t", toString(clock_seconds()), "\n") =>
-	outputfile, outLog = CombineGVCFs (javaexe, gatkjar, reference, dbsnp, variants) =>
-	string endmsg = strcat(sampleName, "\t", "ALL", "\t", "CombineGVCFs end", "\t", toString(clock_seconds()), "\n") =>
+(file outputfile, file outLog, file tmptimeLog) CombineGVCFs_logged (string javaexe, string java_heap, string gatkjar, string reference, string dbsnp, string variants[], string sampleName ) {
+	string startmsg = strcat(sampleName, "\t", "ALL", "\t", "CombineGVCFs start", "\t", toString(clock_seconds()), "\tCombineVariantsRun\n") =>
+	outputfile, outLog = CombineGVCFs (javaexe, strcat("-Xmx", java_heap), gatkjar, reference, dbsnp, variants) =>
+	string endmsg = strcat(sampleName, "\t", "ALL", "\t", "CombineGVCFs end", "\t", toString(clock_seconds()), "\tCombineVariantsRun\n") =>
 	tmptimeLog = write(strcat(startmsg, endmsg));
 }
 

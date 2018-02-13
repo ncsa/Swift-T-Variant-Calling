@@ -105,10 +105,11 @@ import bioappsLoggingFunctions.merge_vcf_logging;
 			string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
 			file tmpcombineLog < strcat(tmpLogDir, sampleName, ".", chr, "_CombineGVCFs.log") > ; 
 	
-			gvcfSample, combineLog, tmpcombineLog = CombineGVCFs_logged (vars["JAVAEXE"], 
-							      vars["GATKJAR"],							     
-							      strcat(vars["REFGENOMEDIR"], "/", vars["REFGENOME"]),			
-							      strcat(vars["REFGENOMEDIR"], "/", vars["DBSNP"]),			    
+			gvcfSample, combineLog, tmpcombineLog = CombineGVCFs_logged (vars["JAVAEXE"],
+							      vars["JAVA_MAX_HEAP_SIZE"], 
+							      vars["GATKJAR"],
+							      vars["REFGENOME"],			
+							      strcat(vars["DBSNP"]),			    
 							      chrSampleArray, sampleName 
 							     ) =>
 			vcfOutfiles[sampleIndex] = gvcfSample;

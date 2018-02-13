@@ -33,8 +33,8 @@ app (file output) samtools_view(string samtoolsexe, file inputFile, int thr, str
 ];
 
 @dispatch=WORKER
-app (file output, file outLog) samblaster(string samblasterexe, file inputFile){
-	samblasterexe "-M" "-i" inputFile @stdout=output @stderr=outLog;
+app (file output, file outLog) samblaster(string samblasterexe, file inputSam){
+	samblasterexe "-M" "-i" inputSam @stdout=output @stderr=outLog;
 }
 
 @dispatch=WORKER
@@ -51,8 +51,8 @@ app (file output, file outLog) novosort (string novosortexe, string inputFile[],
 	// novosort has dual function to also mark duplicates
 }
 @dispatch=WORKER
-app (file outputfile, file outLog, file metricsfile) picard (string javaexe, string picardjar, string tmpdir, file inputFile ){
-	javaexe "-Xmx16g" "-jar" picardjar "MarkDuplicates" "INPUT=" inputFile "OUTPUT=" outputfile "METRICS_FILE=" metricsfile "TMP_DIR=" tmpdir "ASSUME_SORTED=true" "MAX_RECORDS_IN_RAM=null" "CREATE_INDEX=true" "VALIDATION_STRINGENCY=SILENT"@stderr=outLog;
+app (file outputfile, file outLog, file metricsfile) picard (string javaexe, string java_heap, string picardjar, string tmpdir, file inputFile ){
+	javaexe java_heap "-jar" picardjar "MarkDuplicates" "INPUT=" inputFile "OUTPUT=" outputfile "METRICS_FILE=" metricsfile "TMP_DIR=" tmpdir "ASSUME_SORTED=true" "MAX_RECORDS_IN_RAM=null" "CREATE_INDEX=true" "VALIDATION_STRINGENCY=SILENT"@stderr=outLog;
 
 }
 

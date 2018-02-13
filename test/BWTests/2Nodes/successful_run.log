@@ -1,0 +1,1178 @@
+   0.000 WORK TYPES: WORK
+   0.000 WORKERS: 3 RANKS: 0 - 2
+   0.000 SERVERS: 1 RANKS: 3 - 3
+   0.000 WORK WORKERS: 3 RANKS: 0 - 2
+   0.032 global: u:variables=<-1>
+   0.034 function:swift:constants
+   0.034 allocated string: c:s_-1=<1>
+   0.034 store: <1>=""
+   0.034 function:swift:constants
+   0.034 function:swift:constants
+   0.034 allocated string: c:s_-1=<3>
+   0.035 allocated string: c:s_BWAEXE=<4>
+   0.035 store: <4>="BWAEXE"
+   0.034 store: <3>=""
+   0.035 allocated string: c:s_GATKJAR=<5>
+   0.035 store: <5>="GATKJAR"
+   0.035 allocated string: c:s_JAVAEXE=<7>
+   0.035 store: <7>="JAVAEXE"
+   0.035 allocated string: c:s_NOVOALIGNE=<9>
+   0.035 store: <9>="NOVOALIGNEXE"
+   0.034 allocated string: c:s_BWAEXE=<11>
+   0.035 allocated string: c:s_NOVOSORTEX=<12>
+   0.035 store: <11>="BWAEXE"
+   0.035 store: <12>="NOVOSORTEXE"
+   0.035 allocated string: c:s_GATKJAR=<14>
+   0.035 store: <14>="GATKJAR"
+   0.035 allocated string: c:s_PICARDJAR=<15>
+   0.035 store: <15>="PICARDJAR"
+   0.035 allocated string: c:s_JAVAEXE=<17>
+   0.035 store: <17>="JAVAEXE"
+   0.035 allocated string: c:s_SAMBLASTER-1=<18>
+   0.035 store: <18>="SAMBLASTEREXE"
+   0.035 allocated string: c:s_NOVOALIGNE=<19>
+   0.035 store: <19>="NOVOALIGNEXE"
+   0.035 allocated string: c:s_SAMTOOLSEX=<21>
+   0.035 allocated string: c:s_NOVOSORTEX=<22>
+   0.035 store: <22>="NOVOSORTEXE"
+   0.035 store: <21>="SAMTOOLSEXE"
+   0.035 allocated string: c:s_PICARDJAR=<24>
+   0.035 allocated string: c:s__vcf-1=<25>
+   0.035 store: <24>="PICARDJAR"
+   0.035 store: <25>="*.vcf"
+   0.035 allocated string: c:s_SAMBLASTER-1=<27>
+   0.035 allocated string: c:s_sknownSite=<28>
+   0.035 store: <27>="SAMBLASTEREXE"
+   0.035 store: <28>="s/^/--knownSites /g"
+   0.035 allocated string: c:s_SAMTOOLSEX=<30>
+   0.035 allocated string: c:s_sknown_g=<31>
+   0.035 store: <30>="SAMTOOLSEXE"
+   0.035 store: <31>="s/^/-known /g"
+   0.035 allocated string: c:s__vcf-1=<33>
+   0.035 store: <33>="*.vcf"
+   0.035 allocated string: c:s_sknownSite=<35>
+   0.035 store: <35>="s/^/--knownSites /g"
+   0.035 allocated string: c:s_sknown_g=<36>
+   0.035 store: <36>="s/^/-known /g"
+   0.035 function: __entry
+   0.035 allocated t:7=<37> t:9=<38> t:10=<39> t:22=<40> t:56=<41>
+   0.035 allocated u:sampleLines=<42> u:alignBams=<43>
+   0.036 argv(runfile) => /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node.runfile
+   0.036 store: <47>=path /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node.runfile
+   0.058 creating reference: <-1>["SAMPLEINFORMATION"] <- <*37> (string)
+   0.058 creating reference: <-1>["OUTPUTDIR"] <- <*39> (string)
+   0.058 creating reference: <-1>["ALIGN_STAGE"] <- <*41> (string)
+   0.058 allocated u:keyValuePair=<50>
+   0.059 build_rec: <50>
+   0.059 insert: <-1>["SAMPLEINFORMATION"]=</scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/batch3.2_samples.sampleinfo>
+   0.059 allocated u:keyValuePair=<51>
+   0.059 build_rec: <51>
+   0.059 insert: <-1>["OUTPUTDIR"]=</scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output>
+   0.059 allocated u:keyValuePair=<52>
+   0.059 build_rec: <52>
+   0.059 insert: <-1>["TMPDIR"]=</scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp>
+   0.059 allocated u:keyValuePair=<53>
+   0.059 build_rec: <53>
+   0.059 insert: <-1>["REALIGN"]=<NO>
+   0.059 allocated u:keyValuePair=<54>
+   0.059 build_rec: <54>
+   0.059 insert: <-1>["SPLIT"]=<NO>
+   0.060 allocated u:keyValuePair=<55>
+   0.060 build_rec: <55>
+   0.060 insert: <-1>["PROGRAMS_PER_NODE"]=<1>
+   0.060 allocated u:keyValuePair=<56>
+   0.060 build_rec: <56>
+   0.060 insert: <-1>["CORES_PER_NODE"]=<32>
+   0.060 allocated u:keyValuePair=<57>
+   0.060 build_rec: <57>
+   0.060 insert: <-1>["PAIRED"]=<YES>
+   0.060 allocated u:keyValuePair=<58>
+   0.060 build_rec: <58>
+   0.060 insert: <-1>["EXIT_ON_ERROR"]=<N>
+   0.060 allocated u:keyValuePair=<59>
+   0.060 build_rec: <59>
+   0.060 insert: <-1>["ALIGN_STAGE"]=<Y>
+   0.060 allocated u:keyValuePair=<60>
+   0.060 build_rec: <60>
+   0.060 insert: <-1>["DEDUP_SORT_STAGE"]=<Y>
+   0.060 allocated u:keyValuePair=<61>
+   0.060 build_rec: <61>
+   0.060 insert: <-1>["CHR_SPLIT_STAGE"]=<N>
+   0.060 allocated u:keyValuePair=<62>
+   0.060 build_rec: <62>
+   0.060 insert: <-1>["VC_STAGE"]=<End>
+   0.060 allocated u:keyValuePair=<63>
+   0.060 build_rec: <63>
+   0.061 insert: <-1>["COMBINE_VARIANT_STAGE"]=<N>
+   0.061 allocated u:keyValuePair=<64>
+   0.061 build_rec: <64>
+   0.061 insert: <-1>["JOINT_GENOTYPING_STAGE"]=<N>
+   0.061 allocated u:keyValuePair=<65>
+   0.061 build_rec: <65>
+   0.061 insert: <-1>["SAMPLELB"]=<>
+   0.061 allocated u:keyValuePair=<66>
+   0.061 build_rec: <66>
+   0.061 insert: <-1>["SAMPLEPL"]=<ILLUMINA>
+   0.061 allocated u:keyValuePair=<67>
+   0.061 build_rec: <67>
+   0.061 insert: <-1>["SAMPLECN"]=<>
+   0.061 allocated u:keyValuePair=<68>
+   0.061 build_rec: <68>
+   0.061 insert: <-1>["ALIGNERTOOL"]=<BWAMEM>
+   0.061 allocated u:keyValuePair=<69>
+   0.061 build_rec: <69>
+   0.061 insert: <-1>["MARKDUPLICATESTOOL"]=<PICARD>
+   0.061 allocated u:keyValuePair=<70>
+   0.061 build_rec: <70>
+   0.061 insert: <-1>["BWAINDEX"]=</projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta>
+   0.061 allocated u:keyValuePair=<71>
+   0.061 build_rec: <71>
+   0.061 insert: <-1>["BWAMEMPARAMS"]=<-k 32 -I 300,30>
+   0.061 allocated u:keyValuePair=<72>
+   0.062 build_rec: <72>
+   0.062 insert: <-1>["NOVOALIGNINDEX"]=<<path to the indexed reference file for novoalign, if it is the desired aligner>>
+   0.062 allocated u:keyValuePair=<73>
+   0.062 build_rec: <73>
+   0.062 insert: <-1>["NOVOALIGNPARAMS"]=<<optional parameters to novoalign, if used as an aligner>>
+   0.062 allocated u:keyValuePair=<74>
+   0.062 build_rec: <74>
+   0.062 insert: <-1>["MAP_CUTOFF"]=<70>
+   0.062 allocated u:keyValuePair=<75>
+   0.062 build_rec: <75>
+   0.062 insert: <-1>["DUP_CUTOFF"]=<30>
+   0.062 allocated u:keyValuePair=<76>
+   0.062 build_rec: <76>
+   0.062 insert: <-1>["NOVOSORT_MEMLIMIT"]=<10000000000>
+   0.062 allocated u:keyValuePair=<77>
+   0.062 build_rec: <77>
+   0.062 insert: <-1>["REFGENOME"]=</projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta>
+   0.062 allocated u:keyValuePair=<78>
+   0.062 build_rec: <78>
+   0.062 insert: <-1>["DBSNP"]=</projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/dbsnp_138.b37.vcf>
+   0.062 allocated u:keyValuePair=<79>
+   0.062 build_rec: <79>
+   0.062 insert: <-1>["INDELDIR"]=</projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/indels>
+   0.062 allocated u:keyValuePair=<80>
+   0.062 build_rec: <80>
+   0.063 insert: <-1>["CHRNAMES"]=<>
+   0.063 allocated u:keyValuePair=<81>
+   0.063 build_rec: <81>
+   0.063 insert: <-1>["JAVA_MAX_HEAP_SIZE"]=<16g>
+   0.063 allocated u:keyValuePair=<82>
+   0.063 build_rec: <82>
+   0.063 insert: <-1>["BWAEXE"]=</projects/sciteam/baib/builds/bwa/bwa-0.7.12/bwa>
+   0.063 allocated u:keyValuePair=<83>
+   0.063 build_rec: <83>
+   0.063 insert: <-1>["NOVOSORTEXE"]=</projects/sciteam/baib/builds/novocraft/novocraft/novosort>
+   0.063 allocated u:keyValuePair=<84>
+   0.063 build_rec: <84>
+   0.063 insert: <-1>["NOVOALIGNEXE"]=</projects/sciteam/baib/builds/novocraft/novocraft/novoalign>
+   0.063 allocated u:keyValuePair=<85>
+   0.063 build_rec: <85>
+   0.063 insert: <-1>["SAMBLASTEREXE"]=<>
+   0.063 allocated u:keyValuePair=<86>
+   0.063 build_rec: <86>
+   0.063 insert: <-1>["PICARDJAR"]=</projects/sciteam/baib/builds/picard/picard.jar>
+   0.063 allocated u:keyValuePair=<87>
+   0.063 build_rec: <87>
+   0.063 insert: <-1>["GATKJAR"]=</projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar>
+   0.063 allocated u:keyValuePair=<88>
+   0.063 build_rec: <88>
+   0.063 insert: <-1>["SAMTOOLSEXE"]=</projects/sciteam/baib/builds/samtools-1.5/samtools>
+   0.063 allocated u:keyValuePair=<89>
+   0.063 build_rec: <89>
+   0.064 insert: <-1>["JAVAEXE"]=</opt/java/jdk1.8.0_51/bin/java>
+   0.064 rule: <43> => __entry-call_foreign-size 43
+   0.064 rule: <39> => __entry-optmerged 39 40 41 38 2Node.runfile 43 {file 47 is_mapped 0} {file 49 is_mapped 1} {file 44 is_mapped 1} {file 45 is_mapped 1} {file 48 is_mapped 0} 42 {file 46 is_mapped 1}
+   0.064 rule: <41> => __entry-optmerged-3 39 41 38 43 {file 45 is_mapped 1} {file 46 is_mapped 1}
+   0.064 rule: <37> => __entry-optmerged-28 39 40 37 {file 44 is_mapped 1} {file 48 is_mapped 0} 42
+   0.064 store: <38>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/deliverables/docs/Failures.log"
+   0.065 store: <48>=path /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/batch3.2_samples.sampleinfo
+   0.065 store: <92>=0
+   0.065 store: <93>=0
+   0.065 store: <94>=0
+   0.065 store: <95>=0
+   0.065 allocated t:93=<98>
+   0.065 creating reference: <-1>["SPLIT"] <- <*98> (string)
+   0.065 rule: <98> => __entry-optmerged-15 39 38 98 90 {file 45 is_mapped 1} {file 46 is_mapped 1}
+   0.065 store: <96>=1
+   0.065 allocated u:VCF_list:1=<99> t:182=<100>
+   0.065 creating reference: <-1>["VC_STAGE"] <- <*100> (string)
+   0.065 rule: <99> => __entry-chain12 99 {file 46 is_mapped 1}
+   0.065 rule: <90> => VCNoSplitRun-foreach-wait1 99 39 100 90 {file 45 is_mapped 1}
+   0.065 rule: <100> => __entry-optmerged-27 99 100 {file 46 is_mapped 1}
+   0.034 allocated string: c:s_-1=<2>
+   0.034 store: <2>=""
+   0.034 allocated string: c:s_BWAEXE=<6>
+   0.034 store: <6>="BWAEXE"
+   0.034 allocated string: c:s_GATKJAR=<8>
+   0.034 store: <8>="GATKJAR"
+   0.034 allocated string: c:s_JAVAEXE=<10>
+   0.035 store: <10>="JAVAEXE"
+   0.035 allocated string: c:s_NOVOALIGNE=<13>
+   0.035 store: <13>="NOVOALIGNEXE"
+   0.035 allocated string: c:s_NOVOSORTEX=<16>
+   0.035 store: <16>="NOVOSORTEXE"
+   0.035 allocated string: c:s_PICARDJAR=<20>
+   0.035 store: <20>="PICARDJAR"
+   0.035 allocated string: c:s_SAMBLASTER-1=<23>
+   0.035 store: <23>="SAMBLASTEREXE"
+   0.035 allocated string: c:s_SAMTOOLSEX=<26>
+   0.035 store: <26>="SAMTOOLSEXE"
+   0.035 allocated string: c:s__vcf-1=<29>
+   0.035 store: <29>="*.vcf"
+   0.035 allocated string: c:s_sknownSite=<32>
+   0.035 store: <32>="s/^/--knownSites /g"
+   0.035 allocated string: c:s_sknown_g=<34>
+   0.035 store: <34>="s/^/-known /g"
+   0.064 allocated u:dedupSortedBams=<90> t:77=<91> t:42:6=<92> t:46:6=<93> t:50:6=<94>
+   0.064 allocated t:54:6=<95> t:18:6=<96>
+   0.064 creating reference: <-1>["DEDUP_SORT_STAGE"] <- <*91> (string)
+   0.064 rule: <43> => dedupSortRun-foreach-wait1 39 96 92 93 94 95 43 90 {file 45 is_mapped 1}
+   0.064 rule: <90> => __entry-call_foreign-size-1 90
+   0.064 rule: <91> => __entry-optmerged-14 39 96 92 93 94 95 91 38 90 {file 45 is_mapped 1} {file 46 is_mapped 1}
+   0.064 allocated t:32=<97>
+   0.064 exec: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output {}
+   0.065 shell: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output 
+   0.079 build_rec: <42>
+   0.079 rule: <39> => __entry-async_op-strcat-23 39 40 batch3.2_samples.sampleinfo {file 44 is_mapped 1}
+   0.079 store: <40>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/deliverables/docs/batch3.2_samples.sampleinfo"
+   0.127 shell command duration: 0.061
+   0.127 creating reference: <-1>["TMPDIR"] <- <*97> (string)
+   0.127 rule: <97> => mkdir-app-leaf1-1 40 97 41 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/deliverables/docs/Timing.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/deliverables/docs/2Node.runfile /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/deliverables/docs/Failures.log 43 {file 47 is_mapped 0} {file 49 is_mapped 1} {file 44 is_mapped 1} {file 45 is_mapped 1} {file 48 is_mapped 0} 42 {file 46 is_mapped 1}
+   0.127 exec: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp {}
+   0.128 shell: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp 
+   0.182 shell command duration: 0.054
+   0.182 exec: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs {}
+   0.182 shell: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs 
+   0.216 shell command duration: 0.034
+   0.217 exec: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/deliverables/docs {}
+   0.217 shell: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/deliverables/docs 
+   0.261 shell command duration: 0.045
+   0.274 rule: <40> <48> => __entry-chain7 40 97 41 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output 43 {file 44 is_mapped 1} {file 45 is_mapped 1} {file 48 is_mapped 0} 42 {file 46 is_mapped 1}
+   0.274 allocated t:3:1=<101> t:5:1=<102> t:7:1=<103> t:56:1=<104> t:60:1=<105>
+   0.274 allocated t:64:1=<106> t:68:1=<107> t:32:1=<108>
+   0.277 creating reference: <-1>["SAMPLELB"] <- <*101> (string)
+   0.278 creating reference: <-1>["SAMPLEPL"] <- <*102> (string)
+   0.278 creating reference: <-1>["SAMPLECN"] <- <*103> (string)
+   0.278 rule: <43> => __entry-chain9 97 43 {file 46 is_mapped 1}
+   0.278 rule: <42> => alignRun-foreach-wait1 108 101 104 102 105 106 107 103 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/ 43 {file 45 is_mapped 1} 42
+   0.278 rule: <41> => __entry-optmerged-2 108 41 104 105 106 107
+   0.278 store: <104>=0
+   0.278 store: <105>=0
+   0.278 store: <106>=0
+   0.278 store: <107>=0
+   0.278 store: <108>=1
+   0.278 allocated u:sampleInfo=<109> u:sampleName=<110> u:rgheader=<111>
+   0.278 build_rec: <109>
+   0.278 store: <110>="SRR1266597"
+   0.278 rule: <101> <102> <103> => __entry-async_op-sprintf 101 102 103 SRR1266597 111
+   0.278 rule: <108> <104> <105> <106> <107> => __entry-async_op-or 108 104 105 106 107 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/ /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/ /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/ /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/variant/ SRR1266597 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp 0 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/ 43 {file 45 is_mapped 1} 111 109 110
+   0.278 allocated u:sampleInfo=<112> u:sampleName=<113> u:rgheader=<114>
+   0.278 build_rec: <112>
+   0.278 store: <113>="SRR1128124"
+   0.278 rule: <101> <102> <103> => __entry-async_op-sprintf 101 102 103 SRR1128124 114
+   0.278 rule: <108> <104> <105> <106> <107> => __entry-async_op-or 108 104 105 106 107 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/ /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/ /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/ /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/variant/ SRR1128124 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp 1 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/ 43 {file 45 is_mapped 1} 114 112 113
+   0.279 store: <111>="@RG\tID:SRR1266597\tLB:\tPL:ILLUMINA\tPU:SRR1266597\tSM:SRR1266597\tCN:"
+   0.279 store: <114>="@RG\tID:SRR1128124\tLB:\tPL:ILLUMINA\tPU:SRR1128124\tSM:SRR1128124\tCN:"
+   0.279 allocated u:mkdirSignal=<115> t:96:1=<116> u:threads=<117> t:140:1=<118> t:143:1=<119>
+   0.279 allocated t:145:1=<120> t:147:1=<121> t:149:1=<122>
+   0.279 array_kv_build: <121> 1 elems, write_decr 1
+   0.280 allocated u:mkdirSignal=<126> t:96:1=<127> u:threads=<128> t:140:1=<129> t:143:1=<130>
+   0.280 allocated t:145:1=<131> t:147:1=<132> t:149:1=<133>
+   0.280 array_kv_build: <132> 1 elems, write_decr 1
+   0.279 creating reference: <-1>["PAIRED"] <- <*116> (string)
+   0.279 creating reference: <-1>["CORES_PER_NODE"] <- <*118> (string)
+   0.279 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*119> (string)
+   0.280 creating reference: <-1>["SAMTOOLSEXE"] <- <*120> (string)
+   0.280 rule: <123> => f:checkBam 122 -1 {file 123 is_mapped 1}
+   0.280 creating reference: <-1>["PAIRED"] <- <*127> (string)
+   0.280 creating reference: <-1>["CORES_PER_NODE"] <- <*129> (string)
+   0.280 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*130> (string)
+   0.280 function: samtools_view_logged
+   0.280 creating reference: <-1>["SAMTOOLSEXE"] <- <*131> (string)
+   0.280 rule: <110> => samtools_view_logged-async_op-strcat 1510678660 121 {file 124 is_mapped 1} {file 123 is_mapped 1} 110 120 117 {file 125 is_mapped 1}
+   0.280 rule: <134> => f:checkBam 133 -1 {file 134 is_mapped 1}
+   0.280 rule: <133> => alignRun-if3 133 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/ SRR1128124 1 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.noDedups.bam 43 {file 134 is_mapped 1} {file 45 is_mapped 1}
+   0.280 rule: <129> <130> => __entry-async_op-parse_int 129 130 128
+   0.280 exec: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/ {}
+   0.280 rule: <127> => __entry-optmerged-1 127 {file 135 is_mapped 1} 126 114 112 113
+   0.280 shell: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/ 
+   0.280 rule: <122> => alignRun-if3 122 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/ SRR1266597 0 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.noDedups.bam 43 {file 123 is_mapped 1} {file 45 is_mapped 1}
+   0.280 rule: <118> <119> => __entry-async_op-parse_int 118 119 117
+   0.280 rule: <116> => __entry-optmerged-1 116 {file 124 is_mapped 1} 115 111 109 110
+   0.280 function: samtools_view_logged
+   0.280 function: samtools_view
+   0.280 rule: <132> <135> <131> <128> => samtools_view-app-leaf1 {135.0} {134.0} 1 {132} {file 135 is_mapped 1} {file 134 is_mapped 1} {131} {128}
+   0.280 rule: <134> => samtools_view_logged-chain2 SRR1128124 {SRR1128124	ALL	SAMTOOLS_VIEW start	1510678660Align
+} {file 134 is_mapped 1} {file 136 is_mapped 1}
+   0.280 rule: <113> => samtools_view_logged-async_op-strcat 1510678660 132 {file 135 is_mapped 1} {file 134 is_mapped 1} 113 131 128 {file 136 is_mapped 1}
+   0.280 exec: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/ {}
+   0.280 shell: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/ 
+   0.281 allocated u:reads=<137>
+   0.281 array_kv_build: <137> 2 elems, write_decr 1
+   0.281 rule: <126> => alignRun-explicit-wait1 {file 135 is_mapped 1} 126 137 114 113
+   0.281 store: <128>=32
+   0.281 allocated u:reads=<138>
+   0.281 array_kv_build: <138> 2 elems, write_decr 1
+   0.281 rule: <115> => alignRun-explicit-wait1 {file 124 is_mapped 1} 115 138 111 110
+   0.281 store: <117>=32
+   0.281 function: samtools_view
+   0.281 rule: <121> <124> <120> <117> => samtools_view-app-leaf1 {124.0} {123.0} 1 {121} {file 124 is_mapped 1} {file 123 is_mapped 1} {120} {117}
+   0.281 rule: <123> => samtools_view_logged-chain2 SRR1266597 {SRR1266597	ALL	SAMTOOLS_VIEW start	1510678660Align
+} {file 123 is_mapped 1} {file 125 is_mapped 1}
+   0.313 shell command duration: 0.034
+   0.314 exec: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/ {}
+   0.314 shell: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/ 
+   0.315 shell command duration: 0.035
+   0.315 exec: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/ {}
+   0.315 shell: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/ 
+   0.349 shell command duration: 0.035
+   0.349 exec: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/ {}
+   0.349 shell: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/ 
+   0.350 shell command duration: 0.034
+   0.350 exec: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/ {}
+   0.350 shell: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/ 
+   0.384 shell command duration: 0.036
+   0.384 exec: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/variant/ {}
+   0.385 shell: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/variant/ 
+   0.386 shell command duration: 0.035
+   0.386 exec: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/variant/ {}
+   0.386 shell: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/variant/ 
+   0.420 shell command duration: 0.035
+   0.420 exec: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/ {}
+   0.420 shell: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/ 
+   0.420 shell command duration: 0.035
+   0.421 exec: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/ {}
+   0.421 shell: mkdir -p /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/ 
+   0.456 shell command duration: 0.036
+   0.456 store: <126>=void
+   0.456 function: alignReads
+   0.456 allocated u:threads=<139> t:2=<140> t:5=<141> t:7=<142> t:11=<143>
+   0.456 allocated t:13=<144> t:29=<145>
+   0.456 shell command duration: 0.035
+   0.456 creating reference: <-1>["CORES_PER_NODE"] <- <*140> (string)
+   0.456 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*141> (string)
+   0.456 creating reference: <-1>["OUTPUTDIR"] <- <*142> (string)
+   0.456 store: <115>=void
+   0.456 creating reference: <-1>["TMPDIR"] <- <*144> (string)
+   0.456 creating reference: <-1>["PAIRED"] <- <*145> (string)
+   0.456 rule: <140> <141> => alignReads-async_op-parse_int 140 141 139
+   0.456 rule: <145> => alignReads-optmerged 143 145 {file 146 is_mapped 1} {file 135 is_mapped 1} {137} {114} {113} 139 {file 147 is_mapped 1} {-1}
+   0.457 rule: <113> => alignReads-optmerged-1 143 144 142 {file 146 is_mapped 1} {113} {file 147 is_mapped 1}
+   0.456 function: alignReads
+   0.456 allocated u:threads=<148> t:2=<149> t:5=<150> t:7=<151> t:11=<152>
+   0.456 allocated t:13=<153> t:29=<154>
+   0.457 creating reference: <-1>["CORES_PER_NODE"] <- <*149> (string)
+   0.456 store: <139>=32
+   0.457 rule: <142> => alignReads-async_op-strcat-4 143 142 {file 146 is_mapped 1} {113}
+   0.457 allocated t:73=<157>
+   0.457 rule: <144> => alignReads-async_op-strcat-5 144 {113} {file 147 is_mapped 1}
+   0.457 creating reference: <-1>["ALIGNERTOOL"] <- <*157> (string)
+   0.457 rule: <157> => alignReads-async_op-eq_string 143 157 {file 146 is_mapped 1} {file 135 is_mapped 1} {137} {114} {113} 139 {file 147 is_mapped 1} {-1}
+   0.457 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*150> (string)
+   0.457 creating reference: <-1>["OUTPUTDIR"] <- <*151> (string)
+   0.457 creating reference: <-1>["TMPDIR"] <- <*153> (string)
+   0.457 creating reference: <-1>["PAIRED"] <- <*154> (string)
+   0.457 rule: <149> <150> => alignReads-async_op-parse_int 149 150 148
+   0.457 rule: <154> => alignReads-optmerged 152 154 {file 155 is_mapped 1} {file 124 is_mapped 1} {138} {111} {110} 148 {file 156 is_mapped 1} {-1}
+   0.457 rule: <110> => alignReads-optmerged-1 152 153 151 {file 155 is_mapped 1} {110} {file 156 is_mapped 1}
+   0.457 store: <143>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124_Alignment.log"
+   0.457 rule: <151> => alignReads-async_op-strcat-4 152 151 {file 155 is_mapped 1} {110}
+   0.457 rule: <153> => alignReads-async_op-strcat-5 153 {110} {file 156 is_mapped 1}
+   0.457 store: <148>=32
+   0.457 store: <152>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597_Alignment.log"
+   0.457 allocated t:73=<158>
+   0.457 creating reference: <-1>["ALIGNERTOOL"] <- <*158> (string)
+   0.457 rule: <158> => alignReads-async_op-eq_string 152 158 {file 155 is_mapped 1} {file 124 is_mapped 1} {138} {111} {110} 148 {file 156 is_mapped 1} {-1}
+   0.458 allocated t:76=<159> t:77=<160> t:84=<161> t:86=<162> t:87=<163>
+   0.458 creating reference: <-1>["BWAEXE"] <- <*160> (string)
+   0.458 creating reference: <-1>["BWAINDEX"] <- <*161> (string)
+   0.457 function: exec_check
+   0.458 creating reference: <-1>["BWAMEMPARAMS"] <- <*163> (string)
+   0.457 store: <159>=1
+   0.458 rule: <163> => alignReads-arr_copy_in_imm 162 163
+   0.457 rule: <160> <4> => file_exists-argwait-2 {160} {4}
+   0.458 rule: <113> => alignReads-async_op-strcat 137.0 137.1 143 160 161 162 1510678660 {file 146 is_mapped 1} {file 135 is_mapped 1} 114 113 139 {file 147 is_mapped 1}
+   0.457 allocated t:76=<164> t:77=<165> t:84=<166> t:86=<167> t:87=<168>
+   0.458 array_kv_build: <162> 1 elems, write_decr 1
+   0.458 creating reference: <-1>["BWAEXE"] <- <*165> (string)
+   0.458 creating reference: <-1>["BWAINDEX"] <- <*166> (string)
+   0.458 creating reference: <-1>["BWAMEMPARAMS"] <- <*168> (string)
+   0.458 rule: <143> <160> <161> <162> <114> <139> => bwa_mem-app-leaf1 137.0 137.1 135.0 143 160 161 162 0 1 SRR1128124 {SRR1128124	ALL	BWAMEM start	1510678660Align
+} {file 146 is_mapped 1} {file 135 is_mapped 1} 114 139 {file 147 is_mapped 1}
+   0.458 rule: <168> => alignReads-arr_copy_in_imm 167 168
+   0.458 rule: <110> => alignReads-async_op-strcat 138.0 138.1 152 165 166 167 1510678660 {file 155 is_mapped 1} {file 124 is_mapped 1} 111 110 148 {file 156 is_mapped 1}
+   0.458 function: exec_check
+   0.458 store: <164>=1
+   0.458 rule: <165> <6> => file_exists-argwait-2 {165} {6}
+   0.458 rule: <152> <165> <166> <167> <111> <148> => bwa_mem-app-leaf1 138.0 138.1 124.0 152 165 166 167 0 1 SRR1266597 {SRR1266597	ALL	BWAMEM start	1510678660Align
+} {file 155 is_mapped 1} {file 124 is_mapped 1} 111 148 {file 156 is_mapped 1}
+   0.458 exec: __v:bwaexe mem -M {-k 32 -I 300,30} -t 32 -R {@RG\tID:SRR1128124\tLB:\tPL:ILLUMINA\tPU:SRR1128124\tSM:SRR1128124\tCN:} /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta /scratch/sciteam/jacobrh/purge_exempt/fastq_batches/batch3/SRR1128124_1.fastq.gz /scratch/sciteam/jacobrh/purge_exempt/fastq_batches/batch3/SRR1128124_2.fastq.gz {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1128124.noDedups.sam stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124_Alignment.log}
+   0.459 assert passed: (The executable: 
+	/projects/sciteam/baib/builds/bwa/bwa-0.7.12/bwa
+ Referred to by the parameter: 
+	BWAEXEis not properly specified in your runfile!)
+   0.459 assert passed: (The executable: 
+	/projects/sciteam/baib/builds/bwa/bwa-0.7.12/bwa
+ Referred to by the parameter: 
+	BWAEXEis not properly specified in your runfile!)
+   0.459 array_kv_build: <167> 1 elems, write_decr 1
+   0.460 exec: __v:bwaexe mem -M {-k 32 -I 300,30} -t 32 -R {@RG\tID:SRR1266597\tLB:\tPL:ILLUMINA\tPU:SRR1266597\tSM:SRR1266597\tCN:} /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta /scratch/sciteam/jacobrh/purge_exempt/fastq_batches/batch3/SRR1266597_1.fastq.gz /scratch/sciteam/jacobrh/purge_exempt/fastq_batches/batch3/SRR1266597_2.fastq.gz {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1266597.noDedups.sam stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597_Alignment.log}
+   0.461 shell: /projects/sciteam/baib/builds/bwa/bwa-0.7.12/bwa mem -M {-k 32 -I 300,30} -t 32 -R {@RG\tID:SRR1128124\tLB:\tPL:ILLUMINA\tPU:SRR1128124\tSM:SRR1128124\tCN:} /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta /scratch/sciteam/jacobrh/purge_exempt/fastq_batches/batch3/SRR1128124_1.fastq.gz /scratch/sciteam/jacobrh/purge_exempt/fastq_batches/batch3/SRR1128124_2.fastq.gz {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1128124.noDedups.sam} {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124_Alignment.log}
+   0.462 shell: /projects/sciteam/baib/builds/bwa/bwa-0.7.12/bwa mem -M {-k 32 -I 300,30} -t 32 -R {@RG\tID:SRR1266597\tLB:\tPL:ILLUMINA\tPU:SRR1266597\tSM:SRR1266597\tCN:} /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta /scratch/sciteam/jacobrh/purge_exempt/fastq_batches/batch3/SRR1266597_1.fastq.gz /scratch/sciteam/jacobrh/purge_exempt/fastq_batches/batch3/SRR1266597_2.fastq.gz {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1266597.noDedups.sam} {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597_Alignment.log}
+ 615.507 shell command duration: 615.046
+ 615.508 rule: => alignReads-call_foreign-write {SRR1266597	ALL	BWAMEM start	1510678660Align
+SRR1266597	ALL	BWAMEM end	1510679275Align
+} 156.0 {file 156 is_mapped 1}
+ 615.508 exec: __v:samtoolsexe view -@ 32 -bS /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1266597.noDedups.sam -u {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.noDedups.bam}
+ 615.509 shell: /projects/sciteam/baib/builds/samtools-1.5/samtools view -@ 32 -bS /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1266597.noDedups.sam -u {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.noDedups.bam}
+ 784.525 shell command duration: 169.016
+ 784.525 function: checkBam
+ 784.526 allocated t:1=<169>
+ 784.525 rule: => samtools_view_logged-call_foreign-write 1 {SRR1266597	ALL	SAMTOOLS_VIEW start	1510678660Align
+SRR1266597	ALL	SAMTOOLS_VIEW end	1510679444Align
+} 125.0 {file 125 is_mapped 1}
+ 784.526 creating reference: <-1>["SAMTOOLSEXE"] <- <*169> (string)
+ 784.526 rule: <169> => samtools_view2-argwait 169 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.noDedups.bam 122
+ 834.795 store: <122>=1
+ 834.795 insert: <43>["0"]=<file 123 is_mapped 1>
+ 891.599 shell command duration: 891.139
+ 891.600 rule: => alignReads-call_foreign-write {SRR1128124	ALL	BWAMEM start	1510678660Align
+SRR1128124	ALL	BWAMEM end	1510679551Align
+} 147.0 {file 147 is_mapped 1}
+ 891.600 exec: __v:samtoolsexe view -@ 32 -bS /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1128124.noDedups.sam -u {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.noDedups.bam}
+ 891.601 shell: /projects/sciteam/baib/builds/samtools-1.5/samtools view -@ 32 -bS /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1128124.noDedups.sam -u {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.noDedups.bam}
+1222.546 shell command duration: 330.945
+1222.546 rule: => samtools_view_logged-call_foreign-write 1 {SRR1128124	ALL	SAMTOOLS_VIEW start	1510678660Align
+SRR1128124	ALL	SAMTOOLS_VIEW end	1510679882Align
+} 136.0 {file 136 is_mapped 1}
+1222.546 function: checkBam
+1222.546 allocated t:1=<170>
+1222.546 creating reference: <-1>["SAMTOOLSEXE"] <- <*170> (string)
+1222.546 rule: <170> => samtools_view2-argwait 170 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.noDedups.bam 133
+1369.286 store: <133>=1
+1369.286 insert: <43>["1"]=<file 134 is_mapped 1>
+1369.287 function: logging
+1369.287 assert passed: (FAILURE: The aligned bam array was empty: none of the samples finished properly)
+1369.287 allocated u:tmplogs=<171> t:1=<172> t:3=<173> t:4=<174>
+1369.287 rule: <172> => glob_body 171 172
+1369.287 allocated u:sampleName:5=<176> u:LogDir:1=<177> u:AlignDir:1=<178>
+1369.287 rule: => basename_string-argwait 178 177 {123.0} 39 176
+1369.287 rule: <96> <92> <93> <94> <95> => __entry-async_op-or-1 178 177 96 92 93 94 95 0 90 {file 45 is_mapped 1} {file 123 is_mapped 1} 176
+1369.287 allocated u:sampleName:5=<179> u:LogDir:1=<180> u:AlignDir:1=<181>
+1369.287 rule: => basename_string-argwait 181 180 {134.0} 39 179
+1369.287 rule: <96> <92> <93> <94> <95> => __entry-async_op-or-1 181 180 96 92 93 94 95 1 90 {file 45 is_mapped 1} {file 134 is_mapped 1} 179
+1369.288 store: <176>="SRR1266597"
+1369.288 rule: <39> => __entry-optmerged-4 178 177 39 SRR1266597
+1369.288 allocated t:58:6=<182> t:59:6=<183> t:63:6=<184> t:65:6=<185> u:threads:4=<186>
+1369.288 allocated t:2:10=<187> t:5:10=<188> u:tmpLogDir:4=<189> t:19:10=<190>
+1369.288 allocated t:58:6=<193> t:59:6=<194> t:63:6=<195> t:65:6=<196> u:threads:4=<197>
+1369.288 allocated t:2:10=<198> t:5:10=<199> u:tmpLogDir:4=<200> t:19:10=<201>
+1369.288 creating reference: <-1>["TMPDIR"] <- <*183> (string)
+1369.288 creating reference: <-1>["CORES_PER_NODE"] <- <*187> (string)
+1369.288 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*188> (string)
+1369.288 creating reference: <-1>["MARKDUPLICATESTOOL"] <- <*190> (string)
+1369.288 creating reference: <-1>["TMPDIR"] <- <*194> (string)
+1369.288 rule: <187> <188> => __entry-async_op-parse_int-1 187 188 186
+1369.288 creating reference: <-1>["CORES_PER_NODE"] <- <*198> (string)
+1369.288 rule: <183> => __entry-async_op-strcat 183 189
+1369.288 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*199> (string)
+1369.288 rule: <190> => __entry-async_op-eq_string 178 177 190 182 183 184 {file 191 is_mapped 0} {file 192 is_mapped 1} {file 123 is_mapped 1} 176 186 189
+1369.288 creating reference: <-1>["MARKDUPLICATESTOOL"] <- <*201> (string)
+1369.288 rule: <176> => __entry-optmerged-13 178 177 182 183 184 185 0 {file 191 is_mapped 0} 90 {file 192 is_mapped 1} {file 45 is_mapped 1} 176
+1369.288 rule: <198> <199> => __entry-async_op-parse_int-1 198 199 197
+1369.288 rule: <194> => __entry-async_op-strcat 194 200
+1369.288 rule: <201> => __entry-async_op-eq_string 181 180 201 193 194 195 {file 202 is_mapped 0} {file 203 is_mapped 1} {file 134 is_mapped 1} 179 197 200
+1369.288 rule: <179> => __entry-optmerged-13 181 180 193 194 195 196 1 {file 202 is_mapped 0} 90 {file 203 is_mapped 1} {file 45 is_mapped 1} 179
+1369.288 store: <177>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/"
+1369.288 store: <178>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/"
+1369.288 store: <200>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/"
+1369.288 store: <197>=32
+1369.289 rule: <183> => __entry-async_op-strcat-5 182 183 SRR1266597 {file 191 is_mapped 0}
+1369.289 rule: <178> => __entry-async_op-strcat-6 178 177 182 184 185 0 SRR1266597 {file 191 is_mapped 0} 90 {file 192 is_mapped 1} {file 45 is_mapped 1}
+1369.289 allocated t:68:7=<204> t:69:7=<205> t:72:7=<206> t:73:7=<207> t:76:7=<208>
+1369.289 allocated t:77:7=<209> t:84:7=<210> t:96:7=<211> t:97:7=<212> t:98:7=<213>
+1369.289 allocated t:102:6=<214>
+1369.289 array_kv_build: <211> 0 elems, write_decr 1
+1369.289 creating reference: <-1>["PICARDJAR"] <- <*205> (string)
+1369.289 creating reference: <-1>["JAVAEXE"] <- <*207> (string)
+1369.289 creating reference: <-1>["NOVOSORTEXE"] <- <*209> (string)
+1369.290 creating reference: <-1>["NOVOSORT_MEMLIMIT"] <- <*213> (string)
+1369.290 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*214> (string)
+1369.290 rule: <213> => __entry-async_op-parse_int-3 212 213
+1369.290 rule: <179> => __entry-optmerged-8 181 180 214 194 195 205 207 210 1510680029 {file 216 is_mapped 1} {file 203 is_mapped 1} {file 215 is_mapped 1} {file 217 is_mapped 1} 179 {file 218 is_mapped 1} 200 {file 219 is_mapped 1} {file 220 is_mapped 1}
+1369.289 allocated t:68:7=<221> t:69:7=<222> t:72:7=<223> t:73:7=<224> t:76:7=<225>
+1369.289 allocated t:77:7=<226> t:84:7=<227> t:96:7=<228> t:97:7=<229> t:98:7=<230>
+1369.289 allocated t:102:6=<231>
+1369.290 store: <184>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam"
+1369.290 array_kv_build: <228> 0 elems, write_decr 1
+1369.290 rule: <192> => f:checkBam 185 -1 {file 192 is_mapped 1}
+1369.290 creating reference: <-1>["PICARDJAR"] <- <*222> (string)
+1369.290 rule: <185> => dedupSortRun-if2 177 182 185 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/ 0 SRR1266597 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam {file 191 is_mapped 0} 90 {file 192 is_mapped 1} {file 45 is_mapped 1}
+1369.290 creating reference: <-1>["JAVAEXE"] <- <*224> (string)
+1369.290 creating reference: <-1>["NOVOSORTEXE"] <- <*226> (string)
+1369.290 store: <212>=10000000000
+1369.290 creating reference: <-1>["NOVOSORT_MEMLIMIT"] <- <*230> (string)
+1369.290 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*231> (string)
+1369.290 function: exec_check
+1369.290 store: <221>=1
+1369.290 rule: <230> => __entry-async_op-parse_int-3 229 230
+1369.290 rule: <222> <24> => file_exists-argwait-2 {222} {24}
+1369.290 rule: <176> => __entry-optmerged-8 178 177 231 183 184 222 224 227 1510680029 {file 233 is_mapped 1} {file 192 is_mapped 1} {file 232 is_mapped 1} {file 234 is_mapped 1} 176 {file 235 is_mapped 1} 189 {file 236 is_mapped 1} {file 237 is_mapped 1}
+1369.290 function: exec_check
+1369.290 store: <225>=1
+1369.290 rule: <226> <22> => file_exists-argwait-2 {226} {22}
+1369.291 assert passed: (The executable: 
+	/projects/sciteam/baib/builds/picard/picard.jar
+ Referred to by the parameter: 
+	PICARDJARis not properly specified in your runfile!)
+1369.291 rule: <178> => __entry-optmerged-9 178 231 183 184 222 224 227 SRR1266597 {SRR1266597	ALL	PICARD start	1510680029DedupSort
+} {file 233 is_mapped 1} {file 192 is_mapped 1} {file 232 is_mapped 1} {file 234 is_mapped 1} {file 237 is_mapped 1}
+1369.291 rule: <189> => __entry-optmerged-10 SRR1266597 189 {file 236 is_mapped 1} {file 237 is_mapped 1}
+1369.291 rule: <177> => __entry-optmerged-11 177 227 SRR1266597 {file 234 is_mapped 1} {file 235 is_mapped 1}
+1369.291 store: <229>=10000000000
+1369.291 store: <227>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597_PicardDedup.log"
+1369.291 assert passed: (The executable: 
+	/projects/sciteam/baib/builds/novocraft/novocraft/novosort
+ Referred to by the parameter: 
+	NOVOSORTEXEis not properly specified in your runfile!)
+1369.291 function: novosort_logged
+1369.291 rule: <231> <183> <184> <222> <224> <227> <233> => picard_logged-chain1 231 183 184 222 224 227 SRR1266597 {SRR1266597	ALL	PICARD start	1510680029DedupSort
+} /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.picard.metrics /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.noDedups.sorted.bam {file 233 is_mapped 1} {file 192 is_mapped 1} {file 232 is_mapped 1} {file 234 is_mapped 1} {file 237 is_mapped 1}
+1369.291 rule: <176> => novosort_logged-async_op-strcat 1510680029 {file 123 is_mapped 1} 229 226 {file 235 is_mapped 1} {file 233 is_mapped 1} 176 228 186 183 {file 236 is_mapped 1}
+1369.292 function: exec_check
+1369.292 store: <223>=1
+1369.292 rule: <224> <17> => file_exists-argwait-2 {224} {17}
+1369.292 function: novosort_logged
+1369.292 rule: <179> => novosort_logged-async_op-strcat 1510680029 {file 134 is_mapped 1} 212 209 {file 218 is_mapped 1} {file 216 is_mapped 1} 179 211 197 194 {file 219 is_mapped 1}
+1369.291 rule: <123> <229> <226> <228> <186> <183> => novosort-app-leaf1 123.0 235.0 233.0 1 1 SRR1266597 {SRR1266597	ALL	NOVOSORT start	1510680029DedupSort
+} {file 123 is_mapped 1} 229 226 {file 235 is_mapped 1} {file 233 is_mapped 1} 228 186 183 {file 236 is_mapped 1}
+1369.291 function: exec_check
+1369.291 store: <208>=1
+1369.291 rule: <209> <12> => file_exists-argwait-2 {209} {12}
+1369.292 function: exec_check
+1369.292 store: <206>=1
+1369.292 rule: <207> <7> => file_exists-argwait-2 {207} {7}
+1369.292 assert passed: (The executable: 
+	/projects/sciteam/baib/builds/novocraft/novocraft/novosort
+ Referred to by the parameter: 
+	NOVOSORTEXEis not properly specified in your runfile!)
+1369.292 assert passed: (The executable: 
+	/opt/java/jdk1.8.0_51/bin/java
+ Referred to by the parameter: 
+	JAVAEXEis not properly specified in your runfile!)
+1369.292 assert passed: (The executable: 
+	/opt/java/jdk1.8.0_51/bin/java
+ Referred to by the parameter: 
+	JAVAEXEis not properly specified in your runfile!)
+1369.292 function: exec_check
+1369.292 store: <204>=1
+1369.293 rule: <205> <15> => file_exists-argwait-2 {205} {15}
+1369.292 store: <182>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1266597.noDedups.sam"
+1369.293 store: <189>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/"
+1369.292 store: <191>=path /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1266597.noDedups.sam
+1369.293 assert passed: (The executable: 
+	/projects/sciteam/baib/builds/picard/picard.jar
+ Referred to by the parameter: 
+	PICARDJARis not properly specified in your runfile!)
+1369.293 store: <186>=32
+1369.293 store: <179>="SRR1128124"
+1369.293 rule: <39> => __entry-optmerged-4 181 180 39 SRR1128124
+1369.293 rule: <194> => __entry-async_op-strcat-5 193 194 SRR1128124 {file 202 is_mapped 0}
+1369.293 rule: <181> => __entry-async_op-strcat-6 181 180 193 195 196 1 SRR1128124 {file 202 is_mapped 0} 90 {file 203 is_mapped 1} {file 45 is_mapped 1}
+1369.293 store: <180>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/"
+1369.293 store: <181>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/"
+1369.293 store: <193>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1128124.noDedups.sam"
+1369.293 store: <202>=path /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1128124.noDedups.sam
+1369.293 exec: __v:novosortexe --index -m 10000000000 --tmpdir /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp --threads 32 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.noDedups.bam -o /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.noDedups.sorted.bam {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597_Sort.log}
+1369.293 store: <195>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam"
+1369.293 rule: <203> => f:checkBam 196 -1 {file 203 is_mapped 1}
+1369.293 rule: <196> => dedupSortRun-if2 180 193 196 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/ 1 SRR1128124 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam {file 202 is_mapped 0} 90 {file 203 is_mapped 1} {file 45 is_mapped 1}
+1369.293 rule: <134> <212> <209> <211> <197> <194> => novosort-app-leaf1 134.0 218.0 216.0 1 1 SRR1128124 {SRR1128124	ALL	NOVOSORT start	1510680029DedupSort
+} {file 134 is_mapped 1} 212 209 {file 218 is_mapped 1} {file 216 is_mapped 1} 211 197 194 {file 219 is_mapped 1}
+1369.293 rule: <181> => __entry-optmerged-9 181 214 194 195 205 207 210 SRR1128124 {SRR1128124	ALL	PICARD start	1510680029DedupSort
+} {file 216 is_mapped 1} {file 203 is_mapped 1} {file 215 is_mapped 1} {file 217 is_mapped 1} {file 220 is_mapped 1}
+1369.293 rule: <200> => __entry-optmerged-10 SRR1128124 200 {file 219 is_mapped 1} {file 220 is_mapped 1}
+1369.293 rule: <180> => __entry-optmerged-11 180 210 SRR1128124 {file 217 is_mapped 1} {file 218 is_mapped 1}
+1369.294 shell: /projects/sciteam/baib/builds/novocraft/novocraft/novosort --index -m 10000000000 --tmpdir /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp --threads 32 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.noDedups.bam -o /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.noDedups.sorted.bam {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597_Sort.log}
+1369.294 rule: <214> <194> <195> <205> <207> <210> <216> => picard_logged-chain1 214 194 195 205 207 210 SRR1128124 {SRR1128124	ALL	PICARD start	1510680029DedupSort
+} /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.picard.metrics /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.noDedups.sorted.bam {file 216 is_mapped 1} {file 203 is_mapped 1} {file 215 is_mapped 1} {file 217 is_mapped 1} {file 220 is_mapped 1}
+1369.294 store: <210>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124_PicardDedup.log"
+1369.294 exec: __v:novosortexe --index -m 10000000000 --tmpdir /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp --threads 32 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.noDedups.bam -o /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.noDedups.sorted.bam {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124_Sort.log}
+1369.295 shell: /projects/sciteam/baib/builds/novocraft/novocraft/novosort --index -m 10000000000 --tmpdir /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp --threads 32 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.noDedups.bam -o /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.noDedups.sorted.bam {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124_Sort.log}
+1369.326 rule: <97> => logging-async_op-strcat 172 {97}
+1369.326 rule: <171> => logging-optmerged /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.UVhLG8JOa5.turbine 173 174 {file 175 is_mapped 0} 171
+1369.327 function: append
+1369.327 rule: <46> => append-call_foreign-read {238.0} {file 46 is_mapped 1} {file 238 is_mapped 1} {174} {173}
+1369.327 rule: => append-copy_in_filename {46.0} {file 238 is_mapped 1}
+1369.327 store: <172>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/*"
+1369.328 glob: /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/*
+1369.328 allocated file: <171>[0]=<239>
+1369.328 insert: <171>["0"]=<file 239 is_mapped 1>
+1369.328 allocated file: <171>[1]=<240>
+1369.328 insert: <171>["1"]=<file 240 is_mapped 1>
+1369.328 allocated file: <171>[2]=<241>
+1369.328 insert: <171>["2"]=<file 241 is_mapped 1>
+1369.328 allocated file: <171>[3]=<242>
+1369.328 insert: <171>["3"]=<file 242 is_mapped 1>
+1369.347 rule: <174> => append-async_op-strcat {Sample	Chromosome	App status	Time	Stage
+} 238.0 {file 238 is_mapped 1} 174 173
+1369.347 rule: <173> => logging-chain1 173 171
+1369.347 allocated void: <243>
+1369.347 rule: <171> => container_deep_wait_iterate 171 0 -1 1 file_ref 243
+1369.347 rule: <243> => deeprule_action "243" "cat-app-leaf1 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.UVhLG8JOa5.turbine 174 {file 175 is_mapped 0} 171"
+1369.348 Container <171> deep closed
+1369.348 store: <243>=void
+1369.348 deeprule_finish: 243
+1369.348 exec: cat /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_Alignment.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_samtools.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_Alignment.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_samtools.log {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.UVhLG8JOa5.turbine}
+1369.348 shell: cat /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_Alignment.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_samtools.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_Alignment.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_samtools.log {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.UVhLG8JOa5.turbine}
+1369.546 shell command duration: 0.197
+1369.546 store: <175>=path /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.UVhLG8JOa5.turbine
+1369.547 store: <174>="SRR1266597	ALL	BWAMEM start	1510678660Align
+SRR1266597	ALL	BWAMEM end	1510679275Align
+SRR1128124	ALL	SAMTOOLS_VIEW start	1510678660Align
+SRR1128124	ALL	SAMTOOLS_VIEW end	1510679882Align
+SRR1128124	ALL	BWAMEM start	1510678660Align
+SRR1128124	ALL	BWAMEM end	1510679551Align
+SRR1266597	ALL	SAMTOOLS_VIEW start	1510678660Align
+SRR1266597	ALL	SAMTOOLS_VIEW end	1510679444Align
+"
+1369.549 store: <173>=1
+1369.549 rule: <241> => rm-app-leaf1-1 {241.0} {file 241 is_mapped 1}
+1369.550 rule: <239> => rm-app-leaf1-1 {239.0} {file 239 is_mapped 1}
+1369.550 rule: <242> => rm-app-leaf1-1 {242.0} {file 242 is_mapped 1}
+1369.550 rule: <240> => rm-app-leaf1-1 {240.0} {file 240 is_mapped 1}
+1369.550 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_Alignment.log {}
+1369.550 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_Alignment.log 
+1369.586 shell command duration: 0.037
+1369.586 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_samtools.log {}
+1369.587 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_samtools.log 
+1369.621 shell command duration: 0.034
+1369.621 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_samtools.log {}
+1369.621 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_samtools.log 
+1369.690 shell command duration: 0.068
+1369.690 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_Alignment.log {}
+1369.690 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_Alignment.log 
+1369.730 shell command duration: 0.040
+1591.233 shell command duration: 221.939
+1591.233 exec: __v:javaexe:1 -Xmx16g -jar /projects/sciteam/baib/builds/picard/picard.jar MarkDuplicates INPUT= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.noDedups.sorted.bam OUTPUT= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam METRICS_FILE= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.picard.metrics TMP_DIR= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp ASSUME_SORTED=true MAX_RECORDS_IN_RAM=null CREATE_INDEX=true VALIDATION_STRINGENCY=SILENT {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597_PicardDedup.log}
+1591.233 rule: => novosort_logged-call_foreign-write 1 {SRR1266597	ALL	NOVOSORT start	1510680029DedupSort
+SRR1266597	ALL	NOVOSORT end	1510680251DedupSort
+} 236.0 {file 236 is_mapped 1}
+1591.234 shell: /opt/java/jdk1.8.0_51/bin/java -Xmx16g -jar /projects/sciteam/baib/builds/picard/picard.jar MarkDuplicates INPUT= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.noDedups.sorted.bam OUTPUT= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam METRICS_FILE= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.picard.metrics TMP_DIR= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp ASSUME_SORTED=true MAX_RECORDS_IN_RAM=null CREATE_INDEX=true VALIDATION_STRINGENCY=SILENT {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597_PicardDedup.log}
+1631.400 shell command duration: 262.106
+1631.400 rule: => novosort_logged-call_foreign-write 1 {SRR1128124	ALL	NOVOSORT start	1510680029DedupSort
+SRR1128124	ALL	NOVOSORT end	1510680291DedupSort
+} 219.0 {file 219 is_mapped 1}
+1631.401 exec: __v:javaexe:1 -Xmx16g -jar /projects/sciteam/baib/builds/picard/picard.jar MarkDuplicates INPUT= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.noDedups.sorted.bam OUTPUT= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam METRICS_FILE= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.picard.metrics TMP_DIR= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp ASSUME_SORTED=true MAX_RECORDS_IN_RAM=null CREATE_INDEX=true VALIDATION_STRINGENCY=SILENT {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124_PicardDedup.log}
+1631.402 shell: /opt/java/jdk1.8.0_51/bin/java -Xmx16g -jar /projects/sciteam/baib/builds/picard/picard.jar MarkDuplicates INPUT= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.noDedups.sorted.bam OUTPUT= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam METRICS_FILE= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.picard.metrics TMP_DIR= /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp ASSUME_SORTED=true MAX_RECORDS_IN_RAM=null CREATE_INDEX=true VALIDATION_STRINGENCY=SILENT {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124_PicardDedup.log}
+4010.268 shell command duration: 2419.035
+4010.268 rule: => __entry-call_foreign-write-1 {SRR1266597	ALL	PICARD start	1510680029DedupSort
+SRR1266597	ALL	PICARD end	1510682670DedupSort
+} 237.0 {file 237 is_mapped 1}
+4010.269 function: checkBam
+4010.269 allocated t:1=<244>
+4010.269 creating reference: <-1>["SAMTOOLSEXE"] <- <*244> (string)
+4010.269 rule: <244> => samtools_view2-argwait 244 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam 185
+4120.541 store: <185>=1
+4120.541 allocated t:70:6=<245> u:stat=<246> t:72:6=<247> t:75:6=<248> t:78:6=<249>
+4120.541 allocated u:perc_mapped=<250> t:85:6=<251> u:cutoff_info=<252> t:91:6=<253> t:95:6=<254>
+4120.541 allocated t:99:5=<255> t:102:5=<256> t:103:5=<257>
+4120.542 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1266597.noDedups.sam {}
+4120.542 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1266597.noDedups.sam 
+4120.541 creating reference: <-1>["SAMTOOLSEXE"] <- <*245> (string)
+4120.541 creating reference: <-1>["DUP_CUTOFF"] <- <*253> (string)
+4120.542 creating reference: <-1>["MAP_CUTOFF"] <- <*254> (string)
+4120.542 rule: <182> <191> => rm-app-leaf1 182 {file 191 is_mapped 0}
+4120.542 rule: => __entry-call_foreign-split {246.4} 247
+4120.542 rule: => __entry-call_foreign-split-1 {246.0} 248
+4120.542 rule: => __entry-call_foreign-split-2 {246.3} 249
+4120.542 rule: => __entry-async_op-parse_float 249.0 248.0 256 257 251 253 254 255 0 SRR1266597 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam 252 90 {file 192 is_mapped 1} {file 45 is_mapped 1} 250
+4120.542 rule: => __entry-async_op-parse_float-2 {247.0} 251
+4120.542 rule: <253> => __entry-async_op-parse_float-3 253 255
+4120.542 rule: <254> => __entry-async_op-parse_float-4 257 254
+4120.542 rule: <245> => samtools_flagstat-app-leaf1 245 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam.flagstats {file 192 is_mapped 1} {file 258 is_mapped 1} 246
+4120.542 store: <255>=30
+4120.542 exec: __v:samtoolsexe flagstat /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam.flagstats}
+4120.543 shell: /projects/sciteam/baib/builds/samtools-1.5/samtools flagstat /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam.flagstats}
+4120.632 shell command duration: 0.090
+4120.632 store: <257>=70
+4225.614 shell command duration: 105.072
+4225.617 build_rec: <246>
+4225.617 build_rec: <247>
+4225.617 build_rec: <248>
+4225.617 rule: <251> => __entry-async_op-div_float 256 257 251 60626761 250
+4225.617 rule: => __entry-async_op-parse_float-1 249.0 256 253 254 255 0 SRR1266597 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam 60626761 252 90 {file 192 is_mapped 1} {file 45 is_mapped 1} 250
+4225.617 build_rec: <249>
+4225.617 store: <251>=6045365000.0
+4225.617 store: <250>=99.71446437654816
+4225.618 rule: <257> => __entry-async_op-gt_float 256 257 99.71446437654816
+4225.618 store: <256>=1
+4225.621 rule: <253> <254> <250> => __entry-async_op-strcat-7 253 254 8.715604978468171 SRR1266597 252 250
+4225.622 store: <252>="SRR1266597	PercentDuplication=8.715604978468171;DuplicationCutoff=30	PercentMapped=99.71446437654816;MappingCutoff=70"
+4225.621 rule: <256> <255> => __entry-async_op-lt_float 256 255 0 8.715604978468171 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam 252 90 {file 192 is_mapped 1} {file 45 is_mapped 1}
+4225.622 insert: <90>["0"]=<file 192 is_mapped 1>
+4225.622 rule: <252> => __entry-async_op-strcat-8 252
+QC-Test SUCCESS: SRR1266597	PercentDuplication=8.715604978468171;DuplicationCutoff=30	PercentMapped=99.71446437654816;MappingCutoff=70
+4568.529 shell command duration: 2937.127
+4568.529 function: checkBam
+4568.529 rule: => __entry-call_foreign-write-1 {SRR1128124	ALL	PICARD start	1510680029DedupSort
+SRR1128124	ALL	PICARD end	1510683228DedupSort
+} 220.0 {file 220 is_mapped 1}
+4568.529 allocated t:1=<259>
+4568.529 creating reference: <-1>["SAMTOOLSEXE"] <- <*259> (string)
+4568.529 rule: <259> => samtools_view2-argwait 259 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam 196
+4687.081 store: <196>=1
+4687.081 allocated t:70:6=<260> u:stat=<261> t:72:6=<262> t:75:6=<263> t:78:6=<264>
+4687.081 allocated u:perc_mapped=<265> t:85:6=<266> u:cutoff_info=<267> t:91:6=<268> t:95:6=<269>
+4687.081 allocated t:99:5=<270> t:102:5=<271> t:103:5=<272>
+4687.081 creating reference: <-1>["SAMTOOLSEXE"] <- <*260> (string)
+4687.081 creating reference: <-1>["DUP_CUTOFF"] <- <*268> (string)
+4687.081 creating reference: <-1>["MAP_CUTOFF"] <- <*269> (string)
+4687.081 rule: <193> <202> => rm-app-leaf1 193 {file 202 is_mapped 0}
+4687.081 rule: => __entry-call_foreign-split {261.4} 262
+4687.081 rule: => __entry-call_foreign-split-1 {261.0} 263
+4687.081 rule: => __entry-call_foreign-split-2 {261.3} 264
+4687.081 rule: => __entry-async_op-parse_float 264.0 263.0 271 272 266 268 269 270 1 SRR1128124 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam 267 90 {file 203 is_mapped 1} {file 45 is_mapped 1} 265
+4687.081 rule: => __entry-async_op-parse_float-2 {262.0} 266
+4687.081 rule: <268> => __entry-async_op-parse_float-3 268 270
+4687.081 rule: <269> => __entry-async_op-parse_float-4 272 269
+4687.081 rule: <260> => samtools_flagstat-app-leaf1 260 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam.flagstats {file 203 is_mapped 1} {file 273 is_mapped 1} 261
+4687.081 store: <272>=70
+4687.081 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1128124.noDedups.sam {}
+4687.082 store: <270>=30
+4687.082 exec: __v:samtoolsexe flagstat /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam.flagstats}
+4687.081 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/align/SRR1128124.noDedups.sam 
+4687.082 shell: /projects/sciteam/baib/builds/samtools-1.5/samtools flagstat /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam.flagstats}
+4687.116 shell command duration: 0.035
+4802.953 shell command duration: 115.870
+4802.955 build_rec: <261>
+4802.955 build_rec: <264>
+4802.955 build_rec: <263>
+4802.955 build_rec: <262>
+4802.955 rule: <266> => __entry-async_op-div_float 271 272 266 85961377 265
+4802.955 rule: => __entry-async_op-parse_float-1 264.0 271 268 269 270 1 SRR1128124 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam 85961377 267 90 {file 203 is_mapped 1} {file 45 is_mapped 1} 265
+4802.955 store: <266>=8476842000.0
+4802.955 store: <265>=98.61221743807106
+4802.955 rule: <268> <269> <265> => __entry-async_op-strcat-7 268 269 13.216799679698012 SRR1128124 267 265
+4802.955 rule: <271> <270> => __entry-async_op-lt_float 271 270 1 13.216799679698012 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam 267 90 {file 203 is_mapped 1} {file 45 is_mapped 1}
+4802.955 rule: <272> => __entry-async_op-gt_float 271 272 98.61221743807106
+4802.955 store: <267>="SRR1128124	PercentDuplication=13.216799679698012;DuplicationCutoff=30	PercentMapped=98.61221743807106;MappingCutoff=70"
+4802.955 store: <271>=1
+4802.956 insert: <90>["1"]=<file 203 is_mapped 1>
+4802.956 rule: <267> => __entry-async_op-strcat-8 267
+4802.956 assert passed: (FAILURE: The dedupped and sorted bam array was empty: none of the samples finished properly)
+QC-Test SUCCESS: SRR1128124	PercentDuplication=13.216799679698012;DuplicationCutoff=30	PercentMapped=98.61221743807106;MappingCutoff=70
+4802.956 allocated u:sampleName:4=<274>
+4802.956 rule: => basename_string-argwait-5 {192.0} 274
+4802.956 rule: <100> => __entry-optmerged-23 99 39 100 0 {file 45 is_mapped 1} 274
+4802.957 allocated u:sampleName:4=<275>
+4802.957 rule: => basename_string-argwait-5 {203.0} 275
+4802.957 rule: <100> => __entry-optmerged-23 99 39 100 1 {file 45 is_mapped 1} 275
+4802.956 store: <274>="SRR1266597"
+4802.957 store: <275>="SRR1128124"
+4802.957 allocated t:56:5=<295> u:recalparmsindels:1=<296> u:realparms:1=<297> t:60:5=<298> t:61:5=<299>
+4802.957 allocated u:threads:3=<300> t:2:9=<301> t:5:9=<302> t:18:9=<303> t:20:8=<304>
+4802.957 allocated t:22:8=<305> t:24:8=<306> t:26:8=<307>
+4802.957 allocated t:56:5=<276> u:recalparmsindels:1=<277> u:realparms:1=<278> t:60:5=<279> t:61:5=<280>
+4802.957 allocated u:threads:3=<281> t:2:9=<282> t:5:9=<283> t:18:9=<284> t:20:8=<285>
+4802.957 allocated t:22:8=<286> t:24:8=<287> t:26:8=<288>
+4802.957 creating reference: <-1>["TMPDIR"] <- <*276> (string)
+4802.957 creating reference: <-1>["INDELDIR"] <- <*280> (string)
+4802.957 creating reference: <-1>["TMPDIR"] <- <*295> (string)
+4802.957 creating reference: <-1>["INDELDIR"] <- <*299> (string)
+4802.957 function: find_files
+4802.957 function: find_files
+4802.957 rule: <279> <29> => find_files-app-leaf1 {289.0} 1 {279} {file 289 is_mapped 1} {29}
+4802.957 creating reference: <-1>["CORES_PER_NODE"] <- <*282> (string)
+4802.957 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*283> (string)
+4802.957 rule: <298> <33> => find_files-app-leaf1 {308.0} 1 {298} {file 308 is_mapped 1} {33}
+4802.957 function: recalibrationWrapper
+4802.957 creating reference: <-1>["CORES_PER_NODE"] <- <*301> (string)
+4802.957 allocated t:1=<314> u:prefix=<315> t:19=<316>
+4802.957 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*302> (string)
+4802.957 creating reference: <-1>["JAVAEXE"] <- <*303> (string)
+4802.957 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*304> (string)
+4802.957 creating reference: <-1>["GATKJAR"] <- <*305> (string)
+4802.958 creating reference: <-1>["OUTPUTDIR"] <- <*314> (string)
+4802.957 creating reference: <-1>["REFGENOME"] <- <*306> (string)
+4802.957 creating reference: <-1>["JAVAEXE"] <- <*284> (string)
+4802.957 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*285> (string)
+4802.957 creating reference: <-1>["GATKJAR"] <- <*286> (string)
+4802.957 creating reference: <-1>["REFGENOME"] <- <*287> (string)
+4802.957 creating reference: <-1>["DBSNP"] <- <*288> (string)
+4802.957 rule: <280> => __entry-async_op-strcat-21 279 280
+4802.957 rule: <282> <283> => __entry-async_op-parse_int-7 282 283 281
+4802.957 rule: <274> => __entry-optmerged-24 99 39 284 285 286 287 288 276 0 1510683463 {file 292 is_mapped 1} {file 293 is_mapped 1} {file 290 is_mapped 0} 278 {file 289 is_mapped 1} {file 291 is_mapped 1} 277 274 281 {file 294 is_mapped 1}
+4802.958 creating reference: <-1>["REALIGN"] <- <*316> (string)
+4802.957 creating reference: <-1>["DBSNP"] <- <*307> (string)
+4802.958 rule: <314> <2> <274> => recalibrationWrapper-async_op-strcat 314 {2} 315 {274}
+4802.957 rule: <299> => __entry-async_op-strcat-21 298 299
+4802.958 rule: <316> => recalibrationWrapper-optmerged 314 316 {2} {file 290 is_mapped 0} 315 {278} {file 291 is_mapped 1} {277} {274} {-1}
+4802.957 rule: <301> <302> => __entry-async_op-parse_int-7 301 302 300
+4802.957 rule: <275> => __entry-optmerged-24 99 39 303 304 305 306 307 295 1 1510683463 {file 311 is_mapped 1} {file 312 is_mapped 1} {file 309 is_mapped 0} 297 {file 308 is_mapped 1} {file 310 is_mapped 1} 296 275 300 {file 313 is_mapped 1}
+4802.958 store: <298>="/projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/indels/"
+4802.957 function: recalibrationWrapper
+4802.957 allocated t:1=<317> u:prefix=<318> t:19=<319>
+4802.957 creating reference: <-1>["OUTPUTDIR"] <- <*317> (string)
+4802.957 creating reference: <-1>["REALIGN"] <- <*319> (string)
+4802.957 rule: <317> <3> <275> => recalibrationWrapper-async_op-strcat 317 {3} 318 {275}
+4802.957 rule: <319> => recalibrationWrapper-optmerged 317 319 {3} {file 309 is_mapped 0} 318 {297} {file 310 is_mapped 1} {296} {275} {-1}
+4802.958 rule: <39> => __entry-optmerged-25 99 39 303 304 305 306 307 1 SRR1128124 {SRR1128124	ALL	HaplotypeCaller start	1510683463VCRun
+} {file 311 is_mapped 1} {file 312 is_mapped 1} {file 309 is_mapped 0} {file 310 is_mapped 1} 300 {file 313 is_mapped 1}
+4802.958 rule: <295> => __entry-optmerged-26 295 SRR1128124 297 {file 308 is_mapped 1} 296 {file 313 is_mapped 1}
+4802.958 allocated t:66=<320> t:67=<321>
+4802.958 creating reference: <-1>["SAMTOOLSEXE"] <- <*321> (string)
+4802.958 store: <300>=32
+4802.958 function: samtools_index
+4802.958 rule: <290> <321> => samtools_index-app-leaf1 {290.0} {file 290 is_mapped 0} {321} {320}
+4802.958 rule: <320> => recalibrationWrapper-chain3 320 {2} {file 290 is_mapped 0} {file 291 is_mapped 1} {277} {274} {-1}
+4802.958 rule: <308> => VCNoSplitRun-chain1 297 {file 308 is_mapped 1} 296
+4802.958 allocated t:66=<322> t:67=<323>
+4802.958 creating reference: <-1>["SAMTOOLSEXE"] <- <*323> (string)
+4802.958 function: samtools_index
+4802.958 exec: find /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/indels/ -name *.vcf {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/SRR1128124.recal_foundfiles.txt}
+4802.958 rule: <309> <323> => samtools_index-app-leaf1 {309.0} {file 309 is_mapped 0} {323} {322}
+4802.958 rule: <322> => recalibrationWrapper-chain3 322 {3} {file 309 is_mapped 0} {file 310 is_mapped 1} {296} {275} {-1}
+4802.958 store: <318>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/SRR1128124.wDedups.sorted."
+4802.958 store: <315>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/SRR1266597.wDedups.sorted."
+4802.958 store: <309>=path /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam
+4802.959 rule: <39> => __entry-optmerged-25 99 39 284 285 286 287 288 0 SRR1266597 {SRR1266597	ALL	HaplotypeCaller start	1510683463VCRun
+} {file 292 is_mapped 1} {file 293 is_mapped 1} {file 290 is_mapped 0} {file 291 is_mapped 1} 281 {file 294 is_mapped 1}
+4802.959 shell: find /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/indels/ -name *.vcf {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/SRR1128124.recal_foundfiles.txt}
+4802.959 rule: <276> => __entry-optmerged-26 276 SRR1266597 278 {file 289 is_mapped 1} 277 {file 294 is_mapped 1}
+4802.959 rule: <303> <304> <305> <306> <307> <310> <300> => HaplotypeCaller_logged-chain1-1 99 303 304 305 306 307 1 SRR1128124 {SRR1128124	ALL	HaplotypeCaller start	1510683463VCRun
+} /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124_HaplotypeCaller.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/SRR1128124.wDedups.sorted.recalibrated.bam /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/variant/SRR1128124.wDedups.sorted.recalibrated.g.vcf {file 311 is_mapped 1} {file 312 is_mapped 1} {file 310 is_mapped 1} 300 {file 313 is_mapped 1}
+4802.959 store: <281>=32
+4802.959 rule: <289> => VCNoSplitRun-chain1 278 {file 289 is_mapped 1} 277
+4802.959 exec: __v:samtoolsdir index /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam {}
+4802.959 store: <290>=path /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam
+4802.959 rule: <284> <285> <286> <287> <288> <291> <281> => HaplotypeCaller_logged-chain1-1 99 284 285 286 287 288 0 SRR1266597 {SRR1266597	ALL	HaplotypeCaller start	1510683463VCRun
+} /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597_HaplotypeCaller.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/SRR1266597.wDedups.sorted.recalibrated.bam /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/variant/SRR1266597.wDedups.sorted.recalibrated.g.vcf {file 292 is_mapped 1} {file 293 is_mapped 1} {file 291 is_mapped 1} 281 {file 294 is_mapped 1}
+4802.959 shell: /projects/sciteam/baib/builds/samtools-1.5/samtools index /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam 
+4802.959 store: <279>="/projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/indels/"
+4802.959 exec: __v:samtoolsdir index /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam {}
+4802.959 shell: /projects/sciteam/baib/builds/samtools-1.5/samtools index /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam 
+4803.059 shell command duration: 0.100
+4803.059 exec: find /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/indels/ -name *.vcf {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/SRR1266597.recal_foundfiles.txt}
+4803.060 shell: find /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/indels/ -name *.vcf {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/SRR1266597.recal_foundfiles.txt}
+4803.099 shell command duration: 0.039
+4803.099 function: sed
+4803.139 rule: <28> <308> => sed-app-leaf1 {308.0} {324.0} 0 {28} {file 308 is_mapped 1} {file 324 is_mapped 0}
+4803.139 rule: <324> => __entry-call_foreign-read-2 {file 324 is_mapped 0} 297 {file 308 is_mapped 1} 296
+4803.139 function: sed
+4803.175 rule: <28> <289> => sed-app-leaf1 {289.0} {325.0} 0 {28} {file 289 is_mapped 1} {file 325 is_mapped 0}
+4803.175 rule: <325> => __entry-call_foreign-read-2 {file 325 is_mapped 0} 278 {file 289 is_mapped 1} 277
+4803.175 exec: sed {s/^/--knownSites /g} /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/SRR1128124.recal_foundfiles.txt {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.cQznA8BobO.turbine}
+4803.175 shell: sed {s/^/--knownSites /g} /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/SRR1128124.recal_foundfiles.txt {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.cQznA8BobO.turbine}
+4803.217 shell command duration: 0.041
+4803.217 store: <324>=path /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.cQznA8BobO.turbine
+4803.217 exec: sed {s/^/--knownSites /g} /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/SRR1266597.recal_foundfiles.txt {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.32oyVoMYI2.turbine}
+4803.217 shell: sed {s/^/--knownSites /g} /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/SRR1266597.recal_foundfiles.txt {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.32oyVoMYI2.turbine}
+4803.254 shell command duration: 0.036
+4803.254 store: <325>=path /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.32oyVoMYI2.turbine
+4803.256 build_rec: <296>
+4803.256 rule: => VCNoSplitRun-chain2 297 {file 308 is_mapped 1}
+4803.258 build_rec: <277>
+4803.258 rule: => VCNoSplitRun-chain2 278 {file 289 is_mapped 1}
+4803.258 function: sed
+4803.291 rule: <31> <308> => sed-app-leaf1 {308.0} {326.0} 0 {31} {file 308 is_mapped 1} {file 326 is_mapped 0}
+4803.291 rule: <326> => __entry-call_foreign-read-3 {file 326 is_mapped 0} 297
+4803.291 function: sed
+4803.324 rule: <31> <289> => sed-app-leaf1 {289.0} {327.0} 0 {31} {file 289 is_mapped 1} {file 327 is_mapped 0}
+4803.324 rule: <327> => __entry-call_foreign-read-3 {file 327 is_mapped 0} 278
+4803.325 exec: sed {s/^/-known /g} /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/SRR1128124.recal_foundfiles.txt {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.3N4Ufyy0uq.turbine}
+4803.325 shell: sed {s/^/-known /g} /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/SRR1128124.recal_foundfiles.txt {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.3N4Ufyy0uq.turbine}
+4803.361 shell command duration: 0.037
+4803.361 store: <326>=path /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.3N4Ufyy0uq.turbine
+4803.362 exec: sed {s/^/-known /g} /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/SRR1266597.recal_foundfiles.txt {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.GYl659hoxb.turbine}
+4803.362 shell: sed {s/^/-known /g} /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/SRR1266597.recal_foundfiles.txt {stdout /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.GYl659hoxb.turbine}
+4803.397 shell command duration: 0.035
+4803.397 store: <327>=path /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.GYl659hoxb.turbine
+4803.398 build_rec: <297>
+4803.399 build_rec: <278>
+4908.965 shell command duration: 106.005
+4908.965 store: <320>=void
+4908.965 function: recalibrateBam
+4908.966 allocated t:1=<328> t:2=<329> t:5=<330> t:6=<331> t:9=<332>
+4908.966 allocated u:threads=<333> t:26=<334> t:29=<335> t:31=<336> t:33=<337>
+4908.966 allocated t:35=<338> t:37=<339> t:48=<340> t:52=<341> t:54=<342>
+4908.966 allocated t:64=<343>
+4908.966 creating reference: <-1>["GATKJAR"] <- <*329> (string)
+4908.966 creating reference: <-1>["JAVAEXE"] <- <*331> (string)
+4908.966 function: exec_check
+4908.966 store: <328>=1
+4908.966 creating reference: <-1>["OUTPUTDIR"] <- <*332> (string)
+4908.966 creating reference: <-1>["CORES_PER_NODE"] <- <*334> (string)
+4908.966 rule: <329> <14> => file_exists-argwait-2 {329} {14}
+4908.966 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*335> (string)
+4908.966 creating reference: <-1>["TMPDIR"] <- <*339> (string)
+4908.966 function: exec_check
+4908.966 store: <330>=1
+4908.966 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*340> (string)
+4908.966 rule: <331> <17> => file_exists-argwait-2 {331} {17}
+4908.966 creating reference: <-1>["REFGENOME"] <- <*341> (string)
+4908.966 creating reference: <-1>["DBSNP"] <- <*342> (string)
+4908.966 rule: <334> <335> => recalibrateBam-async_op-parse_int 334 335 333
+4908.966 rule: <2> <274> => recalibrateBam-optmerged 329 336 337 338 339 340 341 342 331 343 332 1510683569 1510683569 2 {file 290 is_mapped 0} {file 291 is_mapped 1} {file 345 is_mapped 1} {file 344 is_mapped 1} 277 {file 346 is_mapped 1} 274 333 {file 348 is_mapped 1} {file 347 is_mapped 1} -1
+4908.966 assert passed: (The executable: 
+	/opt/java/jdk1.8.0_51/bin/java
+ Referred to by the parameter: 
+	JAVAEXEis not properly specified in your runfile!)
+4908.966 rule: <339> => recalibrateBam-async_op-strcat 339 {} SRR1266597 {file 348 is_mapped 1} {file 347 is_mapped 1}
+4908.966 rule: <329> <336> <338> <340> <341> <342> <331> <290> <277> <333> => BaseRecalibrator_logged-chain1 290.0 291.0 329 336 337 338 340 341 342 331 343 {} 1 SRR1266597 {SRR1266597		PrintReads start	1510683569VCRun
+} {SRR1266597		BaseRecalibrator start	1510683569VCRun
+} {file 290 is_mapped 0} {file 291 is_mapped 1} {file 345 is_mapped 1} {file 344 is_mapped 1} 277 {file 346 is_mapped 1} 333 {file 348 is_mapped 1} {file 347 is_mapped 1} -1
+4908.966 rule: <332> => recalibrateBam-optmerged-1 336 337 338 332 {} SRR1266597 {file 345 is_mapped 1} {file 344 is_mapped 1} {file 346 is_mapped 1}
+4908.967 store: <333>=32
+4908.967 store: <338>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/SRR1266597.wDedups.sorted..recal_report.grp"
+4908.967 store: <336>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597.wDedups.sorted._BaseRecalibrator.log"
+4908.967 store: <337>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597.wDedups.sorted._PrintReads.log"
+4908.967 exec: __v:javaexe -Xmx16g -jar /projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar -T BaseRecalibrator -R /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta -I /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam -knownSites /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/dbsnp_138.b37.vcf --knownSites /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/indels/1000G_phase1.indels.b37.vcf -nct 32 -o /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/SRR1266597.wDedups.sorted..recal_report.grp {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597.wDedups.sorted._BaseRecalibrator.log}
+4908.968 shell: /opt/java/jdk1.8.0_51/bin/java -Xmx16g -jar /projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar -T BaseRecalibrator -R /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta -I /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam -knownSites /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/dbsnp_138.b37.vcf --knownSites /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/indels/1000G_phase1.indels.b37.vcf -nct 32 -o /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/SRR1266597.wDedups.sorted..recal_report.grp {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597.wDedups.sorted._BaseRecalibrator.log}
+4908.975 assert passed: (The executable: 
+	/projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar
+ Referred to by the parameter: 
+	GATKJARis not properly specified in your runfile!)
+4930.797 shell command duration: 127.837
+4930.797 store: <322>=void
+4930.798 function: exec_check
+4930.798 store: <349>=1
+4930.798 rule: <350> <8> => file_exists-argwait-2 {350} {8}
+4930.798 function: exec_check
+4930.798 store: <351>=1
+4930.798 rule: <352> <10> => file_exists-argwait-2 {352} {10}
+4930.799 rule: <360> => recalibrateBam-async_op-strcat 360 {} SRR1128124 {file 369 is_mapped 1} {file 368 is_mapped 1}
+4930.799 rule: <350> <357> <359> <361> <362> <363> <352> <309> <296> <354> => BaseRecalibrator_logged-chain1 309.0 310.0 350 357 358 359 361 362 363 352 364 {} 1 SRR1128124 {SRR1128124		PrintReads start	1510683590VCRun
+} {SRR1128124		BaseRecalibrator start	1510683590VCRun
+} {file 309 is_mapped 0} {file 310 is_mapped 1} {file 366 is_mapped 1} {file 365 is_mapped 1} 296 {file 367 is_mapped 1} 354 {file 369 is_mapped 1} {file 368 is_mapped 1} -1
+4930.799 rule: <353> => recalibrateBam-optmerged-1 357 358 359 353 {} SRR1128124 {file 366 is_mapped 1} {file 365 is_mapped 1} {file 367 is_mapped 1}
+4930.799 assert passed: (The executable: 
+	/opt/java/jdk1.8.0_51/bin/java
+ Referred to by the parameter: 
+	JAVAEXEis not properly specified in your runfile!)
+4930.799 store: <359>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/SRR1128124.wDedups.sorted..recal_report.grp"
+4930.799 store: <357>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124.wDedups.sorted._BaseRecalibrator.log"
+4930.799 store: <358>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124.wDedups.sorted._PrintReads.log"
+4930.800 exec: __v:javaexe -Xmx16g -jar /projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar -T BaseRecalibrator -R /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta -I /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam -knownSites /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/dbsnp_138.b37.vcf --knownSites /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/indels/1000G_phase1.indels.b37.vcf -nct 32 -o /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/SRR1128124.wDedups.sorted..recal_report.grp {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124.wDedups.sorted._BaseRecalibrator.log}
+4930.798 function: recalibrateBam
+4930.798 allocated t:1=<349> t:2=<350> t:5=<351> t:6=<352> t:9=<353>
+4930.798 allocated u:threads=<354> t:26=<355> t:29=<356> t:31=<357> t:33=<358>
+4930.798 allocated t:35=<359> t:37=<360> t:48=<361> t:52=<362> t:54=<363>
+4930.798 allocated t:64=<364>
+4930.802 shell: /opt/java/jdk1.8.0_51/bin/java -Xmx16g -jar /projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar -T BaseRecalibrator -R /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta -I /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam -knownSites /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/dbsnp_138.b37.vcf --knownSites /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/indels/1000G_phase1.indels.b37.vcf -nct 32 -o /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/SRR1128124.wDedups.sorted..recal_report.grp {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124.wDedups.sorted._BaseRecalibrator.log}
+4930.798 creating reference: <-1>["GATKJAR"] <- <*350> (string)
+4930.798 creating reference: <-1>["JAVAEXE"] <- <*352> (string)
+4930.798 creating reference: <-1>["OUTPUTDIR"] <- <*353> (string)
+4930.798 creating reference: <-1>["CORES_PER_NODE"] <- <*355> (string)
+4930.798 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*356> (string)
+4930.798 creating reference: <-1>["TMPDIR"] <- <*360> (string)
+4930.798 creating reference: <-1>["JAVA_MAX_HEAP_SIZE"] <- <*361> (string)
+4930.798 creating reference: <-1>["REFGENOME"] <- <*362> (string)
+4930.798 creating reference: <-1>["DBSNP"] <- <*363> (string)
+4930.798 rule: <355> <356> => recalibrateBam-async_op-parse_int 355 356 354
+4930.798 rule: <3> <275> => recalibrateBam-optmerged 350 357 358 359 360 361 362 363 352 364 353 1510683590 1510683590 3 {file 309 is_mapped 0} {file 310 is_mapped 1} {file 366 is_mapped 1} {file 365 is_mapped 1} 296 {file 367 is_mapped 1} 275 354 {file 369 is_mapped 1} {file 368 is_mapped 1} -1
+4930.799 assert passed: (The executable: 
+	/projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar
+ Referred to by the parameter: 
+	GATKJARis not properly specified in your runfile!)
+4930.799 store: <354>=32
+There were no warn messages.
+6411.881 shell command duration: 1502.913
+6411.882 rule: => recalibrateBam-call_foreign-write {SRR1266597		BaseRecalibrator start	1510683569VCRun
+SRR1266597		BaseRecalibrator end	1510685071VCRun
+} 347.0 {file 347 is_mapped 1}
+6411.882 rule: <329> <337> <338> <340> <341> <331> <290> <346> <333> => recalibrateBam-async_op-strcat-1 290.0 291.0 329 337 338 340 341 331 343 {} 1 SRR1266597 {SRR1266597		PrintReads start	1510683569VCRun
+} {file 290 is_mapped 0} {file 291 is_mapped 1} {file 345 is_mapped 1} {file 346 is_mapped 1} 333 {file 348 is_mapped 1} -1
+6411.883 exec: __v:javaexe:1 -Xmx16g -jar /projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar -T PrintReads -R /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta -I /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam -BQSR /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/SRR1266597.wDedups.sorted..recal_report.grp -nct 32 --out /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/SRR1266597.wDedups.sorted.recalibrated.bam {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597.wDedups.sorted._PrintReads.log}
+6411.884 shell: /opt/java/jdk1.8.0_51/bin/java -Xmx16g -jar /projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar -T PrintReads -R /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta -I /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/align/SRR1266597.wDedups.sorted.bam -BQSR /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/SRR1266597.wDedups.sorted..recal_report.grp -nct 32 --out /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/SRR1266597.wDedups.sorted.recalibrated.bam {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597.wDedups.sorted._PrintReads.log}
+There were no warn messages.
+6572.081 shell command duration: 1641.280
+6572.082 rule: => recalibrateBam-call_foreign-write {SRR1128124		BaseRecalibrator start	1510683590VCRun
+SRR1128124		BaseRecalibrator end	1510685232VCRun
+} 368.0 {file 368 is_mapped 1}
+6572.082 rule: <350> <358> <359> <361> <362> <352> <309> <367> <354> => recalibrateBam-async_op-strcat-1 309.0 310.0 350 358 359 361 362 352 364 {} 1 SRR1128124 {SRR1128124		PrintReads start	1510683590VCRun
+} {file 309 is_mapped 0} {file 310 is_mapped 1} {file 366 is_mapped 1} {file 367 is_mapped 1} 354 {file 369 is_mapped 1} -1
+6572.082 exec: __v:javaexe:1 -Xmx16g -jar /projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar -T PrintReads -R /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta -I /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam -BQSR /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/SRR1128124.wDedups.sorted..recal_report.grp -nct 32 --out /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/SRR1128124.wDedups.sorted.recalibrated.bam {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124.wDedups.sorted._PrintReads.log}
+6572.083 shell: /opt/java/jdk1.8.0_51/bin/java -Xmx16g -jar /projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar -T PrintReads -R /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta -I /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/align/SRR1128124.wDedups.sorted.bam -BQSR /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/SRR1128124.wDedups.sorted..recal_report.grp -nct 32 --out /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/SRR1128124.wDedups.sorted.recalibrated.bam {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124.wDedups.sorted._PrintReads.log}
+There were no warn messages.
+      11114.577 shell command duration: 4702.693
+      11114.577 exec: __v:javaexe:3 -Xmx16g -jar /projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar -T HaplotypeCaller -R /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta -I /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/SRR1266597.wDedups.sorted.recalibrated.bam --dbsnp /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/dbsnp_138.b37.vcf -o /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/variant/SRR1266597.wDedups.sorted.recalibrated.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherStrand -A StrandOddsRatio -A HaplotypeScore -A MappingQualityRankSumTest -A QualByDepth -A RMSMappingQuality -A ReadPosRankSumTest -nt 1 -nct 32 {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597_HaplotypeCaller.log}
+      11114.577 rule: <291> => f:checkBam 343 {-1} {file 291 is_mapped 1}
+      11114.577 rule: => recalibrateBam-call_foreign-write-1 {SRR1266597		PrintReads start	1510683569VCRun
+SRR1266597		PrintReads end	1510689774VCRun
+} 348.0 {file 348 is_mapped 1}
+      11114.577 function: checkBam
+      11114.577 allocated t:1=<370>
+      11114.577 creating reference: <-1>["SAMTOOLSEXE"] <- <*370> (string)
+      11114.577 rule: <370> => samtools_view2-argwait 370 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/SRR1266597.wDedups.sorted.recalibrated.bam 343
+      11114.578 shell: /opt/java/jdk1.8.0_51/bin/java -Xmx16g -jar /projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar -T HaplotypeCaller -R /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta -I /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/realign/SRR1266597.wDedups.sorted.recalibrated.bam --dbsnp /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/dbsnp_138.b37.vcf -o /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/variant/SRR1266597.wDedups.sorted.recalibrated.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherStrand -A StrandOddsRatio -A HaplotypeScore -A MappingQualityRankSumTest -A QualByDepth -A RMSMappingQuality -A ReadPosRankSumTest -nt 1 -nct 32 {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1266597/logs/SRR1266597_HaplotypeCaller.log}
+      11314.240 store: <343>=1
+There were no warn messages.
+      11817.387 shell command duration: 5245.304
+      11817.387 rule: <310> => f:checkBam 364 {-1} {file 310 is_mapped 1}
+      11817.387 rule: => recalibrateBam-call_foreign-write-1 {SRR1128124		PrintReads start	1510683590VCRun
+SRR1128124		PrintReads end	1510690477VCRun
+} 369.0 {file 369 is_mapped 1}
+      11817.387 function: checkBam
+      11817.387 allocated t:1=<371>
+      11817.387 creating reference: <-1>["SAMTOOLSEXE"] <- <*371> (string)
+      11817.387 rule: <371> => samtools_view2-argwait 371 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/SRR1128124.wDedups.sorted.recalibrated.bam 364
+      11817.388 exec: __v:javaexe:3 -Xmx16g -jar /projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar -T HaplotypeCaller -R /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta -I /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/SRR1128124.wDedups.sorted.recalibrated.bam --dbsnp /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/dbsnp_138.b37.vcf -o /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/variant/SRR1128124.wDedups.sorted.recalibrated.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherStrand -A StrandOddsRatio -A HaplotypeScore -A MappingQualityRankSumTest -A QualByDepth -A RMSMappingQuality -A ReadPosRankSumTest -nt 1 -nct 32 {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124_HaplotypeCaller.log}
+      11817.388 shell: /opt/java/jdk1.8.0_51/bin/java -Xmx16g -jar /projects/sciteam/baib/builds/gatk-3.7.0/GenomeAnalysisTK.jar -T HaplotypeCaller -R /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/human_g1k_v37_decoy.SimpleChromosomeNaming.fasta -I /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/realign/SRR1128124.wDedups.sorted.recalibrated.bam --dbsnp /projects/sciteam/baib/GATKbundle/July1_2017/LSM_July1_2017/dbsnp_138.b37.vcf -o /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/variant/SRR1128124.wDedups.sorted.recalibrated.g.vcf --emitRefConfidence GVCF -gt_mode DISCOVERY -A Coverage -A FisherStrand -A StrandOddsRatio -A HaplotypeScore -A MappingQualityRankSumTest -A QualByDepth -A RMSMappingQuality -A ReadPosRankSumTest -nt 1 -nct 32 {stderr /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/2Nodes/2Node_output/SRR1128124/logs/SRR1128124_HaplotypeCaller.log}
+      12035.676 store: <364>=1
+There were 14 WARN messages, the first 10 are repeated below.
+WARN  14:14:42,225 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+WARN  14:14:46,218 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper, not org.broadinstitute.gatk.tools.walkers.haplotypecaller.HaplotypeCaller 
+WARN  14:14:46,233 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper, not org.broadinstitute.gatk.tools.walkers.haplotypecaller.HaplotypeCaller 
+WARN  14:14:46,218 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper, not org.broadinstitute.gatk.tools.walkers.haplotypecaller.HaplotypeCaller 
+WARN  14:14:46,218 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper, not org.broadinstitute.gatk.tools.walkers.haplotypecaller.HaplotypeCaller 
+WARN  14:14:46,234 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper, not org.broadinstitute.gatk.tools.walkers.haplotypecaller.HaplotypeCaller 
+WARN  14:14:56,673 AnnotationUtils - Annotation will not be calculated, genotype is not called 
+WARN  14:14:56,674 AnnotationUtils - Annotation will not be calculated, genotype is not called 
+WARN  14:21:32,928 HaplotypeCallerGenotypingEngine - location 1:120612040: too many alternative alleles found (10) larger than the maximum requested with -maxAltAlleles (6), the following will be dropped: G, TCCTCCTCCGCCGCCG, TCCTCCTCCGCCG, TCCTCCGCCGCCG. 
+WARN  15:51:41,627 HaplotypeCallerGenotypingEngine - location 12:110874516-110874518: too many alternative alleles found (10) larger than the maximum requested with -maxAltAlleles (6), the following will be dropped: TATATATATATATACACACATACACAC, TAATATATATATATACACACATACACAC, TATATATATATACACACATACACAC, TAATATATATATACACACATACACAC. 
+      21021.815 shell command duration: 9204.372
+      21021.816 insert: <99>["1"]=<file 311 is_mapped 1>
+      21021.816 rule: => __entry-call_foreign-write-4 {SRR1128124	ALL	HaplotypeCaller start	1510683463VCRun
+SRR1128124	ALL	HaplotypeCaller end	1510699681VCRun
+} 313.0 {file 313 is_mapped 1}
+There were 19 WARN messages, the first 10 are repeated below.
+WARN  14:03:08,371 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+WARN  14:03:11,477 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper, not org.broadinstitute.gatk.tools.walkers.haplotypecaller.HaplotypeCaller 
+WARN  14:03:36,930 AnnotationUtils - Annotation will not be calculated, genotype is not called 
+WARN  14:03:36,930 AnnotationUtils - Annotation will not be calculated, genotype is not called 
+WARN  14:33:52,901 HaplotypeCallerGenotypingEngine - location 2:151343988: too many alternative alleles found (9) larger than the maximum requested with -maxAltAlleles (6), the following will be dropped: AAT, AT, AAAT. 
+WARN  14:39:40,975 HaplotypeCallerGenotypingEngine - location 3:38355176: too many alternative alleles found (12) larger than the maximum requested with -maxAltAlleles (6), the following will be dropped: TGTGTGCGCGC, TGCGCGCGC, TGTGTGTGTGTGTGTGCGTGTGCGCGCGC, TGTGTGCGCGCGC, TGCGCGC, TGCGTGTGCGCGCGC. 
+WARN  14:59:35,855 HaplotypeCallerGenotypingEngine - location 5:112862523-112862527: too many alternative alleles found (8) larger than the maximum requested with -maxAltAlleles (6), the following will be dropped: A, AATATATAT. 
+WARN  15:01:37,418 HaplotypeCallerGenotypingEngine - location 5:159839530: too many alternative alleles found (7) larger than the maximum requested with -maxAltAlleles (6), the following will be dropped: TAAAAAAA. 
+WARN  15:35:49,056 HaplotypeCallerGenotypingEngine - location 10:92678748: too many alternative alleles found (11) larger than the maximum requested with -maxAltAlleles (6), the following will be dropped: AAT, AATAT, AATATAT, AATATATATAT, AATATATAT. 
+WARN  15:40:17,735 HaplotypeCallerGenotypingEngine - location 11:55033273-55033278: too many alternative alleles found (8) larger than the maximum requested with -maxAltAlleles (6), the following will be dropped: C, CA. 
+      21495.296 shell command duration: 10380.718
+      21495.296 insert: <99>["0"]=<file 292 is_mapped 1>
+      21495.297 rule: => __entry-call_foreign-write-4 {SRR1266597	ALL	HaplotypeCaller start	1510683463VCRun
+SRR1266597	ALL	HaplotypeCaller end	1510700155VCRun
+} 294.0 {file 294 is_mapped 1}
+      21495.297 allocated t:177=<372>
+      21495.297 creating reference: <-1>["TMPDIR"] <- <*372> (string)
+      21495.297 function: logging
+      21495.297 allocated u:tmplogs=<373> t:1=<374> t:3=<375> t:4=<376>
+      21495.297 rule: <374> => glob_body 373 374
+      21495.406 function: append
+      21495.406 rule: <372> => logging-async_op-strcat 374 {372}
+      21495.406 rule: <373> => logging-optmerged /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.0f2ysYSavI.turbine 375 376 {file 377 is_mapped 0} 373
+      21495.406 rule: <46> => append-call_foreign-read {378.0} {file 46 is_mapped 1} {file 378 is_mapped 1} {376} {375}
+      21495.406 rule: => append-copy_in_filename {46.0} {file 378 is_mapped 1}
+      21495.407 store: <374>="/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/*"
+      21495.417 glob: /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/*
+      21495.417 allocated file: <373>[0]=<379>
+      21495.417 insert: <373>["0"]=<file 379 is_mapped 1>
+      21495.417 allocated file: <373>[1]=<380>
+      21495.417 insert: <373>["1"]=<file 380 is_mapped 1>
+      21495.417 allocated file: <373>[2]=<381>
+      21495.417 insert: <373>["2"]=<file 381 is_mapped 1>
+      21495.417 allocated file: <373>[3]=<382>
+      21495.417 insert: <373>["3"]=<file 382 is_mapped 1>
+      21495.417 allocated file: <373>[4]=<383>
+      21495.417 insert: <373>["4"]=<file 383 is_mapped 1>
+      21495.417 allocated file: <373>[5]=<384>
+      21495.418 insert: <373>["5"]=<file 384 is_mapped 1>
+      21495.418 allocated file: <373>[6]=<385>
+      21495.418 insert: <373>["6"]=<file 385 is_mapped 1>
+      21495.418 allocated file: <373>[7]=<386>
+      21495.418 insert: <373>["7"]=<file 386 is_mapped 1>
+      21495.418 allocated file: <373>[8]=<387>
+      21495.418 insert: <373>["8"]=<file 387 is_mapped 1>
+      21495.418 allocated file: <373>[9]=<388>
+      21495.418 insert: <373>["9"]=<file 388 is_mapped 1>
+      21495.418 rule: <375> => logging-chain1 375 373
+      21495.418 allocated void: <389>
+      21495.418 rule: <373> => container_deep_wait_iterate 373 0 -1 1 file_ref 389
+      21495.418 rule: <389> => deeprule_action "389" "cat-app-leaf1 /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.0f2ysYSavI.turbine 376 {file 377 is_mapped 0} 373"
+      21495.419 Container <373> deep closed
+      21495.419 store: <389>=void
+      21495.419 deeprule_finish: 389
+      21495.419 exec: cat /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_PicardDedup.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_NovoSortDedup.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_NovoSortDedup.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124._BaseRecalibrator.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_HaplotypeCaller.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_HaplotypeCaller.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124._PrintReads.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597._BaseRecalibrator.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597._PrintReads.log /scratch
+      21495.420 shell: cat /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_PicardDedup.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_NovoSortDedup.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_NovoSortDedup.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124._BaseRecalibrator.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_HaplotypeCaller.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_HaplotypeCaller.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124._PrintReads.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597._BaseRecalibrator.log /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597._PrintReads.log /scratc
+      21495.441 rule: <376> => append-async_op-strcat {Sample	Chromosome	App status	Time	Stage
+SRR1266597	ALL	BWAMEM start	1510678660Align
+SRR1266597	ALL	BWAMEM end	1510679275Align
+SRR1128124	ALL	SAMTOOLS_VIEW start	1510678660Align
+SRR1128124	ALL	SAMTOOLS_VIEW end	1510679882Align
+SRR1128124	ALL	BWAMEM start	1510678660Align
+SRR1128124	ALL	BWAMEM end	1510679551Align
+SRR1266597	ALL	SAMTOOLS_VIEW start	1510678660Align
+SRR1266597	ALL	SAMTOOLS_VIEW end	1510679444Align
+} 378.0 {file 378 is_mapped 1} 376 375
+      21495.725 shell command duration: 0.304
+      21495.725 store: <377>=path /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/tmp/tmp.0f2ysYSavI.turbine
+      21495.726 store: <376>="SRR1266597	ALL	PICARD start	1510680029DedupSort
+SRR1266597	ALL	PICARD end	1510682670DedupSort
+SRR1266597	ALL	NOVOSORT start	1510680029DedupSort
+SRR1266597	ALL	NOVOSORT end	1510680251DedupSort
+SRR1128124	ALL	NOVOSORT start	1510680029DedupSort
+SRR1128124	ALL	NOVOSORT end	1510680291DedupSort
+SRR1128124		BaseRecalibrator start	1510683590VCRun
+SRR1128124		BaseRecalibrator end	1510685232VCRun
+SRR1266597	ALL	HaplotypeCaller start	1510683463VCRun
+SRR1266597	ALL	HaplotypeCaller end	1510700155VCRun
+SRR1128124	ALL	HaplotypeCaller start	1510683463VCRun
+SRR1128124	ALL	HaplotypeCaller end	1510699681VCRun
+SRR1128124		PrintReads start	1510683590VCRun
+SRR1128124		PrintReads end	1510690477VCRun
+SRR1266597		BaseRecalibrator start	1510683569VCRun
+SRR1266597		BaseRecalibrator end	1510685071VCRun
+SRR1266597		PrintReads start	1510683569VCRun
+SRR1266597		PrintReads end	1510689774VCRun
+SRR1128124	ALL	PICARD start	1510680029DedupSort
+SRR1128124	ALL	PICARD end	1510683228DedupSort
+"
+      21495.730 store: <375>=1
+      21495.730 rule: <384> => rm-app-leaf1-1 {384.0} {file 384 is_mapped 1}
+      21495.730 rule: <381> => rm-app-leaf1-1 {381.0} {file 381 is_mapped 1}
+      21495.730 rule: <385> => rm-app-leaf1-1 {385.0} {file 385 is_mapped 1}
+      21495.730 rule: <388> => rm-app-leaf1-1 {388.0} {file 388 is_mapped 1}
+      21495.730 rule: <379> => rm-app-leaf1-1 {379.0} {file 379 is_mapped 1}
+      21495.730 rule: <382> => rm-app-leaf1-1 {382.0} {file 382 is_mapped 1}
+      21495.730 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_HaplotypeCaller.log {}
+      21495.730 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_NovoSortDedup.log {}
+      21495.730 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_HaplotypeCaller.log 
+      21495.730 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_NovoSortDedup.log 
+      21495.730 rule: <380> => rm-app-leaf1-1 {380.0} {file 380 is_mapped 1}
+      21495.730 rule: <383> => rm-app-leaf1-1 {383.0} {file 383 is_mapped 1}
+      21495.730 rule: <387> => rm-app-leaf1-1 {387.0} {file 387 is_mapped 1}
+      21495.730 rule: <386> => rm-app-leaf1-1 {386.0} {file 386 is_mapped 1}
+      21495.730 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124._PrintReads.log {}
+      21495.730 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124._PrintReads.log 
+      21495.767 shell command duration: 0.036
+      21495.767 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597._BaseRecalibrator.log {}
+      21495.767 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597._BaseRecalibrator.log 
+      21495.767 shell command duration: 0.037
+      21495.768 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597._PrintReads.log {}
+      21495.768 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597._PrintReads.log 
+      21495.769 shell command duration: 0.038
+      21495.769 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_HaplotypeCaller.log {}
+      21495.769 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_HaplotypeCaller.log 
+      21495.802 shell command duration: 0.035
+      21495.802 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_NovoSortDedup.log {}
+      21495.802 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_NovoSortDedup.log 
+      21495.803 shell command duration: 0.033
+      21495.803 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124._BaseRecalibrator.log {}
+      21495.803 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124._BaseRecalibrator.log 
+      21495.803 shell command duration: 0.037
+      21495.804 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_PicardDedup.log {}
+      21495.804 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1266597_PicardDedup.log 
+      21495.836 shell command duration: 0.034
+      21495.836 shell command duration: 0.033
+      21495.837 exec: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_PicardDedup.log {}
+      21495.837 shell: rm /scratch/sciteam/jacobrh/purge_exempt/Swift_testing/110Nodes/2Node_tmp/timinglogs/SRR1128124_PicardDedup.log 
+      21495.838 shell command duration: 0.035
+      21495.872 shell command duration: 0.035
+ADLB Total Elapsed Time: 21495.974
+      21495.972 turbine finalizing
+      21495.972 turbine finalizing
+      21495.972 turbine finalizing
+turbine finalizing at: 21495.972
+      21495.944 turbine finalizing
+Application 63336461 resources: utime ~305588s, stime ~6716s, Rss ~17759672, inblocks ~1317984443, outblocks ~249030361

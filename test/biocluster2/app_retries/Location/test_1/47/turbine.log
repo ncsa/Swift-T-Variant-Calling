@@ -1,0 +1,13 @@
+SCRIPT:            ./swift-t-tst.XJS.tic
+JOB:               269384
+COMMAND:           /home/apps/software/Tcl/8.6.6-IGB-gcc-4.9.4/bin/tclsh8.6 /home/a-m/azzaea/turbine-output/2018/01/15/02/29/47/swift-t-tst.XJS.tic 
+TURBINE_OUTPUT:    /home/a-m/azzaea/turbine-output/2018/01/15/02/29/47
+HOSTNAME:          igb.illinois.edu
+SUBMITTED:         01/15/2018 02:29am
+PROCS:             12
+NODES:             5
+PPN:               3
+TURBINE_WORKERS:   1
+ADLB_SERVERS:      1
+WALLTIME:          48:00:00
+ADLB_EXHAUST_TIME: 1

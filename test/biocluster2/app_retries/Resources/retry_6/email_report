@@ -1,0 +1,20 @@
+Biocluster SLURRM daemon on biocluster.igb.illinois.edu.
+Since you requested to be informed by mail, here are some details of the corresponding job:
+
+
+JobName:	SWIFT
+NodeList:	compute-0-[17-18]
+Partition:	normal
+User:	azzaea
+Account:	
+ExitCode:	0:0
+Timelimit:	2-00:00:00
+NCPUS:	2
+NNodes:	2
+ReqMem:	15800Mc
+Submit:	2018-01-16T00:00:55
+Start:	2018-01-16T00:00:56
+End:	Unknown
+Elapsed:	00:00:10
+State:	RUNNING
+Comment:	

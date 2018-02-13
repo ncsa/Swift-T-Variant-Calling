@@ -91,7 +91,7 @@ app (void v) rm(file f) {
         assert(string_count(file_type(exec), "file", 0, -1) ==1, 
 		strcat("The executable: \n\t", exec,
 			"\n Referred to by the parameter: \n\t", parameter, 
-			"is not properly specified in your runfile!"));
+			" is not properly specified in your runfile!"));
         exec_ok = true;
 }
 

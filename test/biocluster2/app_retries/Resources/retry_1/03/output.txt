@@ -1,0 +1,52 @@
+TURBINE-SLURM.SH
+ADLB_DEBUG_RANKS: rank: 1 nodename: compute-0-17
+ADLB_DEBUG_RANKS: rank: 0 nodename: compute-0-17
+ADLB_DEBUG_RANKS: rank: 2 nodename: compute-0-17
+ADLB_DEBUG_RANKS: rank: 3 nodename: compute-0-18
+ADLB_DEBUG_RANKS: rank: 4 nodename: compute-0-18
+ADLB_DEBUG_RANKS: rank: 5 nodename: compute-0-18
+   0.000 WORK TYPES: WORK
+   0.000 WORKERS: 5 RANKS: 0 - 4
+   0.000 SERVERS: 1 RANKS: 5 - 5
+   0.000 WORK WORKERS: 5 RANKS: 0 - 4
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.001 function: __entry
+trace: *********************	 :Testing app retries on (Biocluster 2)	****************************
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.023 exec: false {}
+   0.023 shell: false  
+   0.035 shell: Command failed with exit code: 1: retries: 1/100 on: compute-0-17
+   0.062 shell: false  
+   0.064 shell: Command failed with exit code: 1: retries: 2/100 on: compute-0-17
+   0.367 shell: false  
+   0.369 shell: Command failed with exit code: 1: retries: 3/100 on: compute-0-17
+   0.736 shell: false  
+   0.738 shell: Command failed with exit code: 1: retries: 4/100 on: compute-0-17
+   1.591 shell: false  
+   1.593 shell: Command failed with exit code: 1: retries: 5/100 on: compute-0-17
+   2.294 shell: false  
+   2.296 shell: Command failed with exit code: 1: retries: 6/100 on: compute-0-17
+   2.598 shell: false  
+   2.613 shell: Command failed with exit code: 1: retries: 7/100 on: compute-0-17
+  11.303 shell: false  
+  11.305 shell: Command failed with exit code: 1: retries: 8/100 on: compute-0-17
+  28.697 shell: false  
+  28.699 shell: Command failed with exit code: 1: retries: 9/100 on: compute-0-17
+  76.557 shell: false  
+  76.560 shell: Command failed with exit code: 1: retries: 10/100 on: compute-0-17
+ 115.831 shell: false  
+ 115.834 shell: Command failed with exit code: 1: retries: 11/100 on: compute-0-17
+ 222.212 shell: false  
+ 222.215 shell: Command failed with exit code: 1: retries: 12/100 on: compute-0-17
+ 562.579 shell: false  
+ 562.582 shell: Command failed with exit code: 1: retries: 13/100 on: compute-0-17
+ 590.904 shell: false  
+ 590.907 shell: Command failed with exit code: 1: retries: 14/100 on: compute-0-17
+ 678.500 shell: false  
+ 678.503 shell: Command failed with exit code: 1: retries: 15/100 on: compute-0-17
+2414.227 shell: false  
+2414.230 shell: Command failed with exit code: 1: retries: 16/100 on: compute-0-17
+slurmstepd: *** JOB 268533 ON compute-0-17 CANCELLED AT 2018-01-14T03:44:16 DUE TO TIME LIMIT ***

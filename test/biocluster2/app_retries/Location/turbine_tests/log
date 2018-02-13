@@ -1,0 +1,71 @@
+[16] ADLB_DEBUG_RANKS: rank: 16 nodename: azza-Satellite-P845
+[0] ADLB_DEBUG_RANKS: rank: 0 nodename: azza-Satellite-P845
+[17] ADLB_DEBUG_RANKS: rank: 17 nodename: azza-Satellite-P845
+[8] ADLB_DEBUG_RANKS: rank: 8 nodename: azza-Satellite-P845
+[10] ADLB_DEBUG_RANKS: rank: 10 nodename: azza-Satellite-P845
+[11] ADLB_DEBUG_RANKS: rank: 11 nodename: azza-Satellite-P845
+[4] ADLB_DEBUG_RANKS: rank: 4 nodename: azza-Satellite-P845
+[5] ADLB_DEBUG_RANKS: rank: 5 nodename: azza-Satellite-P845
+[12] ADLB_DEBUG_RANKS: rank: 12 nodename: azza-Satellite-P845
+[13] ADLB_DEBUG_RANKS: rank: 13 nodename: azza-Satellite-P845
+[6] ADLB_DEBUG_RANKS: rank: 6 nodename: azza-Satellite-P845
+[7] ADLB_DEBUG_RANKS: rank: 7 nodename: azza-Satellite-P845
+[9] ADLB_DEBUG_RANKS: rank: 9 nodename: azza-Satellite-P845
+[18] ADLB_DEBUG_RANKS: rank: 18 nodename: azza-Satellite-P845
+[2] ADLB_DEBUG_RANKS: rank: 2 nodename: azza-Satellite-P845
+[1] ADLB_DEBUG_RANKS: rank: 1 nodename: azza-Satellite-P845
+[3] ADLB_DEBUG_RANKS: rank: 3 nodename: azza-Satellite-P845
+[19] ADLB_DEBUG_RANKS: rank: 19 nodename: azza-Satellite-P845
+[14] ADLB_DEBUG_RANKS: rank: 14 nodename: azza-Satellite-P845
+[15] ADLB_DEBUG_RANKS: rank: 15 nodename: azza-Satellite-P845
+[0]    0.000 WORK TYPES: WORK
+[8]    0.001 function:swift:constants
+[12]    0.001 function:swift:constants
+[14]    0.001 function:swift:constants
+[13]    0.001 function:swift:constants
+[15]    0.001 function:swift:constants
+[4]    0.001 function:swift:constants
+[1]    0.004 function:swift:constants
+[0]    0.008 WORKERS: 19 RANKS: 0 - 18
+[0]    0.008 SERVERS: 1 RANKS: 19 - 19
+[0]    0.008 WORK WORKERS: 19 RANKS: 0 - 18
+[0]    0.001 function:swift:constants
+[2]    0.001 function:swift:constants
+[5]    0.001 function:swift:constants
+[17]    0.003 function:swift:constants
+[16]    0.006 function:swift:constants
+[6]    0.001 function:swift:constants
+[0]    0.003 function: __entry
+[7]    0.001 function:swift:constants
+[3]    0.001 function:swift:constants
+[10]    0.001 function:swift:constants
+[18]    0.013 function:swift:constants
+[9]    0.001 function:swift:constants
+[11]    0.001 function:swift:constants
+[12]    0.175 exec: hostname {stdout tmp.txt}
+[12]    0.175 shell: hostname  {stdout tmp.txt}
+[12]    0.211 shell command duration: 0.036
+[12] HELLO 12 
+[8] 		name: azza-Satellite-P845
+[8] 		rank: 1
+[8] 		worker_rank_2: 0
+[1]    0.345 turbine finalizing
+[3]    0.333 turbine finalizing
+[14]    0.345 turbine finalizing
+[7]    0.336 turbine finalizing
+[0]    0.341 turbine finalizing
+[19]    0.219 turbine finalizing
+[10]    0.336 turbine finalizing
+[18]    0.345 turbine finalizing
+[13]    0.349 turbine finalizing
+[16]    0.348 turbine finalizing
+[17]    0.345 turbine finalizing
+[11]    0.331 turbine finalizing
+[5]    0.347 turbine finalizing
+[6]    0.346 turbine finalizing
+[15]    0.354 turbine finalizing
+[12]    0.357 turbine finalizing
+[4]    0.356 turbine finalizing
+[9]    0.346 turbine finalizing
+[2]    0.364 turbine finalizing
+[8]    0.371 turbine finalizing
