@@ -1,0 +1,726 @@
+TURBINE-SLURM.SH
+ADLB_DEBUG_RANKS: rank: 3 nodename: compute-0-7
+ADLB_DEBUG_RANKS: rank: 4 nodename: compute-0-7
+ADLB_DEBUG_RANKS: rank: 5 nodename: compute-0-7
+ADLB_DEBUG_RANKS: rank: 0 nodename: compute-0-6
+ADLB_DEBUG_RANKS: rank: 1 nodename: compute-0-6
+ADLB_DEBUG_RANKS: rank: 2 nodename: compute-0-6
+ADLB_DEBUG_RANKS: rank: 12 nodename: compute-0-10
+ADLB_DEBUG_RANKS: rank: 13 nodename: compute-0-10
+ADLB_DEBUG_RANKS: rank: 14 nodename: compute-0-10
+ADLB_DEBUG_RANKS: rank: 7 nodename: compute-0-8
+ADLB_DEBUG_RANKS: rank: 8 nodename: compute-0-8
+ADLB_DEBUG_RANKS: rank: 6 nodename: compute-0-8
+ADLB_DEBUG_RANKS: rank: 9 nodename: compute-0-9
+ADLB_DEBUG_RANKS: rank: 10 nodename: compute-0-9
+ADLB_DEBUG_RANKS: rank: 11 nodename: compute-0-9
+   0.000 WORK TYPES: WORK
+   0.000 WORKERS: 14 RANKS: 0 - 13
+   0.000 SERVERS: 1 RANKS: 14 - 14
+   0.000 WORK WORKERS: 14 RANKS: 0 - 13
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function: __entry
+Azza: This is when location directive is working: adlb::put: target_rank: 3 type: 0, command: "t-app-leaf1", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 3
+Azza: This is when location directive is working: adlb::put: target_rank: 4 type: 0, command: "f-app-leaf1", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 4
+   0.019 exec: /bin/echo hello {}
+   0.019 exec: true {}
+   0.019 exec: false {}
+   0.019 shell: Azaa: while loop for -/bin/echo- @- TRIES count: 1
+   0.019 shell Azza: /bin/echo, case tries == 1
+   0.019 shell Azza: app_run with cmd = /bin/echo, tries = 1 on rank = 1
+   0.020 shell: Azaa: while loop for -true- @- TRIES count: 1
+   0.020 shell: Azaa: while loop for -false- @- TRIES count: 1
+   0.020 shell Azza: true, case tries == 1
+   0.020 shell Azza: false, case tries == 1
+   0.020 shell Azza: app_run with cmd = true, tries = 1 on rank = 3
+   0.020 shell Azza: app_run with cmd = false, tries = 1 on rank = 4
+Azza: This is when the app:- /bin/echo -is being executed
+
+Azza: This is when the app:- false -is being executed
+
+Azza: This is when the app:- true -is being executed
+
+hello
+   0.022 shell command duration: 0.003
+   0.051 shell Azza: here, app_error on cmd = false, with tries = 1, app_retries = 100, retry = 1: 1 <= 100, on rank = 4 
+   0.051 shell Azza: here app_retry, with tries = 1, app_retries = 100, on rank = 4
+   0.051 shell: Command failed with exit code: 1: retries: 1/100 on: compute-0-7, rank 4 
+   0.051 shell command duration: 0.031
+   0.156 shell Azza: app_run with cmd = false, tries = 2 on rank = 0
+   0.156 shell Azza: app_run with cmd = false, tries = 4 on rank = 1
+   0.156 shell Azza: app_run with cmd = false, tries = 6 on rank = 2
+   0.156 shell Azza: app_run with cmd = false, tries = 5 on rank = 12
+Azza: This is when the app:- false -is being executed
+
+Azza: This is when the app:- false -is being executed
+
+Azza: This is when the app:- false -is being executed
+
+Azza: This is when the app:- false -is being executed
+
+   0.156 shell: Azaa: while loop for -false- @- TRIES count: 2
+   0.156 shell Azza: case tries (= 2) > 1, relocate on 0
+Azza: This is when location directive is working: adlb::put: target_rank: 0 type: 0, command: "app_run {} {} {} false {} 2 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 0
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 3
+   0.157 shell Azza: case tries (= 3) > 1, relocate on 11
+Azza: This is when location directive is working: adlb::put: target_rank: 11 type: 0, command: "app_run {} {} {} false {} 3 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 11
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 4
+   0.157 shell Azza: case tries (= 4) > 1, relocate on 1
+Azza: This is when location directive is working: adlb::put: target_rank: 1 type: 0, command: "app_run {} {} {} false {} 4 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 1
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 5
+   0.157 shell Azza: case tries (= 5) > 1, relocate on 12
+Azza: This is when location directive is working: adlb::put: target_rank: 12 type: 0, command: "app_run {} {} {} false {} 5 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 12
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 6
+   0.157 shell Azza: case tries (= 6) > 1, relocate on 2
+Azza: This is when location directive is working: adlb::put: target_rank: 2 type: 0, command: "app_run {} {} {} false {} 6 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 2
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 7
+   0.157 shell Azza: case tries (= 7) > 1, relocate on 10
+Azza: This is when location directive is working: adlb::put: target_rank: 10 type: 0, command: "app_run {} {} {} false {} 7 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 10
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 8
+   0.157 shell Azza: case tries (= 8) > 1, relocate on 10
+Azza: This is when location directive is working: adlb::put: target_rank: 10 type: 0, command: "app_run {} {} {} false {} 8 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 10
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 9
+   0.157 shell Azza: case tries (= 9) > 1, relocate on 10
+Azza: This is when location directive is working: adlb::put: target_rank: 10 type: 0, command: "app_run {} {} {} false {} 9 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 10
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 10
+   0.157 shell Azza: case tries (= 10) > 1, relocate on 7
+Azza: This is when location directive is working: adlb::put: target_rank: 7 type: 0, command: "app_run {} {} {} false {} 10 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 7
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 11
+   0.157 shell Azza: case tries (= 11) > 1, relocate on 1
+Azza: This is when location directive is working: adlb::put: target_rank: 1 type: 0, command: "app_run {} {} {} false {} 11 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 1
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 12
+   0.157 shell Azza: case tries (= 12) > 1, relocate on 4
+Azza: This is when location directive is working: adlb::put: target_rank: 4 type: 0, command: "app_run {} {} {} false {} 12 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 4
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 13
+   0.157 shell Azza: case tries (= 13) > 1, relocate on 1
+Azza: This is when location directive is working: adlb::put: target_rank: 1 type: 0, command: "app_run {} {} {} false {} 13 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 1
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 14
+   0.157 shell Azza: case tries (= 14) > 1, relocate on 2
+Azza: This is when location directive is working: adlb::put: target_rank: 2 type: 0, command: "app_run {} {} {} false {} 14 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 2
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 15
+   0.157 shell Azza: case tries (= 15) > 1, relocate on 1
+Azza: This is when location directive is working: adlb::put: target_rank: 1 type: 0, command: "app_run {} {} {} false {} 15 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 1
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 16
+   0.157 shell Azza: case tries (= 16) > 1, relocate on 9
+Azza: This is when location directive is working: adlb::put: target_rank: 9 type: 0, command: "app_run {} {} {} false {} 16 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 9
+   0.157 shell: Azaa: while loop for -false- @- TRIES count: 17
+   0.157 shell Azza: case tries (= 17) > 1, relocate on 0
+Azza: This is when location directive is working: adlb::put: target_rank: 0 type: 0, command: "app_run {} {} {} false {} 17 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+   0.157 shell Azza: app_run with cmd = false, tries = 16 on rank = 9
+   0.157 shell Azza: app_run with cmd = false, tries = 7 on rank = 10
+   0.157 shell Azza: app_run with cmd = false, tries = 3 on rank = 11
+Azza: This is when the app:- false -is being executed
+
+Azza: This is when the app:- false -is being executed
+
+   0.158 shell Azza: app_run with cmd = false, tries = 10 on rank = 7
+Azza: This is when the app:- false -is being executed
+
+   0.158 shell Azza: app_run with cmd = false, tries = 27 on rank = 8
+   0.158 shell Azza: app_run with cmd = false, tries = 19 on rank = 3
+Azza: This is when the app:- false -is being executed
+
+   0.158 shell Azza: app_run with cmd = false, tries = 24 on rank = 5
+Azza: This is when the app:- false -is being executed
+
+Azza: Done with dispatching to rank 0
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 18
+   0.158 shell Azza: case tries (= 18) > 1, relocate on 7
+Azza: This is when location directive is working: adlb::put: target_rank: 7 type: 0, command: "app_run {} {} {} false {} 18 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 7
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 19
+   0.158 shell Azza: case tries (= 19) > 1, relocate on 3
+Azza: This is when location directive is working: adlb::put: target_rank: 3 type: 0, command: "app_run {} {} {} false {} 19 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 3
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 20
+   0.158 shell Azza: case tries (= 20) > 1, relocate on 9
+Azza: This is when location directive is working: adlb::put: target_rank: 9 type: 0, command: "app_run {} {} {} false {} 20 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 9
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 21
+   0.158 shell Azza: case tries (= 21) > 1, relocate on 10
+Azza: This is when location directive is working: adlb::put: target_rank: 10 type: 0, command: "app_run {} {} {} false {} 21 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 10
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 22
+   0.158 shell Azza: case tries (= 22) > 1, relocate on 4
+Azza: This is when location directive is working: adlb::put: target_rank: 4 type: 0, command: "app_run {} {} {} false {} 22 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 4
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 23
+   0.158 shell Azza: case tries (= 23) > 1, relocate on 10
+Azza: This is when location directive is working: adlb::put: target_rank: 10 type: 0, command: "app_run {} {} {} false {} 23 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 10
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 24
+   0.158 shell Azza: case tries (= 24) > 1, relocate on 5
+Azza: This is when location directive is working: adlb::put: target_rank: 5 type: 0, command: "app_run {} {} {} false {} 24 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 5
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 25
+   0.158 shell Azza: case tries (= 25) > 1, relocate on 1
+Azza: This is when location directive is working: adlb::put: target_rank: 1 type: 0, command: "app_run {} {} {} false {} 25 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 1
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 26
+   0.158 shell Azza: case tries (= 26) > 1, relocate on 5
+Azza: This is when location directive is working: adlb::put: target_rank: 5 type: 0, command: "app_run {} {} {} false {} 26 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 5
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 27
+   0.158 shell Azza: case tries (= 27) > 1, relocate on 8
+Azza: This is when location directive is working: adlb::put: target_rank: 8 type: 0, command: "app_run {} {} {} false {} 27 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 8
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 28
+   0.158 shell Azza: case tries (= 28) > 1, relocate on 9
+Azza: This is when location directive is working: adlb::put: target_rank: 9 type: 0, command: "app_run {} {} {} false {} 28 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 9
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 29
+   0.158 shell Azza: case tries (= 29) > 1, relocate on 11
+Azza: This is when location directive is working: adlb::put: target_rank: 11 type: 0, command: "app_run {} {} {} false {} 29 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 11
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 30
+   0.158 shell Azza: case tries (= 30) > 1, relocate on 8
+Azza: This is when location directive is working: adlb::put: target_rank: 8 type: 0, command: "app_run {} {} {} false {} 30 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 8
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 31
+   0.158 shell Azza: case tries (= 31) > 1, relocate on 0
+Azza: This is when location directive is working: adlb::put: target_rank: 0 type: 0, command: "app_run {} {} {} false {} 31 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 0
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 32
+   0.158 shell Azza: case tries (= 32) > 1, relocate on 0
+Azza: This is when location directive is working: adlb::put: target_rank: 0 type: 0, command: "app_run {} {} {} false {} 32 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 0
+   0.158 shell: Azaa: while loop for -false- @- TRIES count: 33
+Azza: This is when the app:- false -is being executed
+
+Azza: This is when the app:- false -is being executed
+
+   0.158 shell Azza: app_run with cmd = false, tries = 34 on rank = 13
+   0.159 shell Azza: app_run with cmd = false, tries = 39 on rank = 6
+Azza: This is when the app:- false -is being executed
+
+   0.158 shell Azza: case tries (= 33) > 1, relocate on 2
+Azza: This is when location directive is working: adlb::put: target_rank: 2 type: 0, command: "app_run {} {} {} false {} 33 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 2
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 34
+   0.159 shell Azza: case tries (= 34) > 1, relocate on 13
+Azza: This is when location directive is working: adlb::put: target_rank: 13 type: 0, command: "app_run {} {} {} false {} 34 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 13
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 35
+   0.159 shell Azza: case tries (= 35) > 1, relocate on 4
+Azza: This is when location directive is working: adlb::put: target_rank: 4 type: 0, command: "app_run {} {} {} false {} 35 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 4
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 36
+   0.159 shell Azza: case tries (= 36) > 1, relocate on 7
+Azza: This is when location directive is working: adlb::put: target_rank: 7 type: 0, command: "app_run {} {} {} false {} 36 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 7
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 37
+   0.159 shell Azza: case tries (= 37) > 1, relocate on 0
+Azza: This is when location directive is working: adlb::put: target_rank: 0 type: 0, command: "app_run {} {} {} false {} 37 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 0
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 38
+   0.159 shell Azza: case tries (= 38) > 1, relocate on 13
+Azza: This is when location directive is working: adlb::put: target_rank: 13 type: 0, command: "app_run {} {} {} false {} 38 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 13
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 39
+   0.159 shell Azza: case tries (= 39) > 1, relocate on 6
+Azza: This is when location directive is working: adlb::put: target_rank: 6 type: 0, command: "app_run {} {} {} false {} 39 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 6
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 40
+   0.159 shell Azza: case tries (= 40) > 1, relocate on 13
+Azza: This is when location directive is working: adlb::put: target_rank: 13 type: 0, command: "app_run {} {} {} false {} 40 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 13
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 41
+   0.159 shell Azza: case tries (= 41) > 1, relocate on 13
+Azza: This is when location directive is working: adlb::put: target_rank: 13 type: 0, command: "app_run {} {} {} false {} 41 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 13
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 42
+   0.159 shell Azza: case tries (= 42) > 1, relocate on 12
+Azza: This is when location directive is working: adlb::put: target_rank: 12 type: 0, command: "app_run {} {} {} false {} 42 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 12
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 43
+   0.159 shell Azza: case tries (= 43) > 1, relocate on 0
+Azza: This is when location directive is working: adlb::put: target_rank: 0 type: 0, command: "app_run {} {} {} false {} 43 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 0
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 44
+   0.159 shell Azza: case tries (= 44) > 1, relocate on 8
+Azza: This is when location directive is working: adlb::put: target_rank: 8 type: 0, command: "app_run {} {} {} false {} 44 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 8
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 45
+   0.159 shell Azza: case tries (= 45) > 1, relocate on 4
+Azza: This is when location directive is working: adlb::put: target_rank: 4 type: 0, command: "app_run {} {} {} false {} 45 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 4
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 46
+   0.159 shell Azza: case tries (= 46) > 1, relocate on 7
+Azza: This is when location directive is working: adlb::put: target_rank: 7 type: 0, command: "app_run {} {} {} false {} 46 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 7
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 47
+   0.159 shell Azza: case tries (= 47) > 1, relocate on 7
+Azza: This is when location directive is working: adlb::put: target_rank: 7 type: 0, command: "app_run {} {} {} false {} 47 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 7
+   0.159 shell: Azaa: while loop for -false- @- TRIES count: 48
+   0.159 shell Azza: case tries (= 48) > 1, relocate on 1
+Azza: This is when location directive is working: adlb::put: target_rank: 1 type: 0, command: "app_run {} {} {} false {} 48 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: This is when the app:- false -is being executed
+
+   0.160 shell Azza: here, app_error on cmd = false, with tries = 19, app_retries = 100, retry = 1: 19 <= 100, on rank = 3 
+   0.160 shell Azza: here app_retry, with tries = 19, app_retries = 100, on rank = 3
+   0.160 shell: Command failed with exit code: 1: retries: 19/100 on: compute-0-7, rank 3 
+Azza: Done with dispatching to rank 1
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 49
+   0.160 shell Azza: case tries (= 49) > 1, relocate on 10
+Azza: This is when location directive is working: adlb::put: target_rank: 10 type: 0, command: "app_run {} {} {} false {} 49 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 10
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 50
+   0.160 shell Azza: case tries (= 50) > 1, relocate on 0
+Azza: This is when location directive is working: adlb::put: target_rank: 0 type: 0, command: "app_run {} {} {} false {} 50 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 0
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 51
+   0.160 shell Azza: case tries (= 51) > 1, relocate on 12
+Azza: This is when location directive is working: adlb::put: target_rank: 12 type: 0, command: "app_run {} {} {} false {} 51 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 12
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 52
+   0.160 shell Azza: case tries (= 52) > 1, relocate on 13
+Azza: This is when location directive is working: adlb::put: target_rank: 13 type: 0, command: "app_run {} {} {} false {} 52 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 13
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 53
+   0.160 shell Azza: case tries (= 53) > 1, relocate on 1
+Azza: This is when location directive is working: adlb::put: target_rank: 1 type: 0, command: "app_run {} {} {} false {} 53 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 1
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 54
+   0.160 shell Azza: case tries (= 54) > 1, relocate on 6
+Azza: This is when location directive is working: adlb::put: target_rank: 6 type: 0, command: "app_run {} {} {} false {} 54 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 6
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 55
+   0.160 shell Azza: case tries (= 55) > 1, relocate on 9
+Azza: This is when location directive is working: adlb::put: target_rank: 9 type: 0, command: "app_run {} {} {} false {} 55 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 9
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 56
+   0.160 shell Azza: case tries (= 56) > 1, relocate on 13
+Azza: This is when location directive is working: adlb::put: target_rank: 13 type: 0, command: "app_run {} {} {} false {} 56 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 13
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 57
+   0.160 shell Azza: case tries (= 57) > 1, relocate on 8
+Azza: This is when location directive is working: adlb::put: target_rank: 8 type: 0, command: "app_run {} {} {} false {} 57 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 8
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 58
+   0.160 shell Azza: case tries (= 58) > 1, relocate on 8
+Azza: This is when location directive is working: adlb::put: target_rank: 8 type: 0, command: "app_run {} {} {} false {} 58 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 8
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 59
+   0.160 shell Azza: case tries (= 59) > 1, relocate on 3
+Azza: This is when location directive is working: adlb::put: target_rank: 3 type: 0, command: "app_run {} {} {} false {} 59 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 3
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 60
+   0.160 shell Azza: case tries (= 60) > 1, relocate on 8
+Azza: This is when location directive is working: adlb::put: target_rank: 8 type: 0, command: "app_run {} {} {} false {} 60 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 8
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 61
+   0.160 shell Azza: case tries (= 61) > 1, relocate on 0
+Azza: This is when location directive is working: adlb::put: target_rank: 0 type: 0, command: "app_run {} {} {} false {} 61 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 0
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 62
+   0.160 shell Azza: case tries (= 62) > 1, relocate on 0
+Azza: This is when location directive is working: adlb::put: target_rank: 0 type: 0, command: "app_run {} {} {} false {} 62 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 0
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 63
+   0.160 shell Azza: case tries (= 63) > 1, relocate on 3
+Azza: This is when location directive is working: adlb::put: target_rank: 3 type: 0, command: "app_run {} {} {} false {} 63 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 3
+   0.160 shell: Azaa: while loop for -false- @- TRIES count: 64
+   0.160 shell Azza: case tries (= 64) > 1, relocate on 13
+Azza: This is when location directive is working: adlb::put: target_rank: 13 type: 0, command: "app_run {} {} {} false {} 64 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 13
+   0.161 shell: Azaa: while loop for -false- @- TRIES count: 65
+   0.161 shell Azza: case tries (= 65) > 1, relocate on 13
+Azza: This is when location directive is working: adlb::put: target_rank: 13 type: 0, command: "app_run {} {} {} false {} 65 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 13
+   0.161 shell: Azaa: while loop for -false- @- TRIES count: 66
+   0.161 shell Azza: case tries (= 66) > 1, relocate on 0
+Azza: This is when location directive is working: adlb::put: target_rank: 0 type: 0, command: "app_run {} {} {} false {} 66 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 0
+   0.161 shell: Azaa: while loop for -false- @- TRIES count: 67
+   0.161 shell Azza: case tries (= 67) > 1, relocate on 5
+Azza: This is when location directive is working: adlb::put: target_rank: 5 type: 0, command: "app_run {} {} {} false {} 67 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+   0.161 shell Azza: here, app_error on cmd = false, with tries = 24, app_retries = 100, retry = 1: 24 <= 100, on rank = 5 
+   0.161 shell Azza: here app_retry, with tries = 24, app_retries = 100, on rank = 5
+   0.161 shell: Command failed with exit code: 1: retries: 24/100 on: compute-0-7, rank 5 
+Azza: Done with dispatching to rank 5
+   0.161 shell: Azaa: while loop for -false- @- TRIES count: 68
+   0.161 shell Azza: case tries (= 68) > 1, relocate on 11
+Azza: This is when location directive is working: adlb::put: target_rank: 11 type: 0, command: "app_run {} {} {} false {} 68 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 11
+   0.161 shell: Azaa: while loop for -false- @- TRIES count: 69
+   0.161 shell Azza: case tries (= 69) > 1, relocate on 4
+Azza: This is when location directive is working: adlb::put: target_rank: 4 type: 0, command: "app_run {} {} {} false {} 69 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 4
+   0.161 shell: Azaa: while loop for -false- @- TRIES count: 70
+   0.161 shell Azza: case tries (= 70) > 1, relocate on 0
+Azza: This is when location directive is working: adlb::put: target_rank: 0 type: 0, command: "app_run {} {} {} false {} 70 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 0
+   0.161 shell: Azaa: while loop for -false- @- TRIES count: 71
+   0.161 shell Azza: case tries (= 71) > 1, relocate on 7
+Azza: This is when location directive is working: adlb::put: target_rank: 7 type: 0, command: "app_run {} {} {} false {} 71 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 7
+   0.161 shell: Azaa: while loop for -false- @- TRIES count: 72
+   0.161 shell Azza: case tries (= 72) > 1, relocate on 1
+Azza: This is when location directive is working: adlb::put: target_rank: 1 type: 0, command: "app_run {} {} {} false {} 72 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 1
+   0.161 shell: Azaa: while loop for -false- @- TRIES count: 73
+   0.161 shell Azza: case tries (= 73) > 1, relocate on 9
+Azza: This is when location directive is working: adlb::put: target_rank: 9 type: 0, command: "app_run {} {} {} false {} 73 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 9
+   0.161 shell: Azaa: while loop for -false- @- TRIES count: 74
+   0.161 shell Azza: case tries (= 74) > 1, relocate on 1
+Azza: This is when location directive is working: adlb::put: target_rank: 1 type: 0, command: "app_run {} {} {} false {} 74 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 1
+   0.161 shell: Azaa: while loop for -false- @- TRIES count: 75
+   0.161 shell Azza: case tries (= 75) > 1, relocate on 12
+Azza: This is when location directive is working: adlb::put: target_rank: 12 type: 0, command: "app_run {} {} {} false {} 75 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 12
+   0.161 shell: Azaa: while loop for -false- @- TRIES count: 76
+   0.161 shell Azza: case tries (= 76) > 1, relocate on 10
+Azza: This is when location directive is working: adlb::put: target_rank: 10 type: 0, command: "app_run {} {} {} false {} 76 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 10
+   0.161 shell: Azaa: while loop for -false- @- TRIES count: 77
+   0.161 shell Azza: case tries (= 77) > 1, relocate on 2
+Azza: This is when location directive is working: adlb::put: target_rank: 2 type: 0, command: "app_run {} {} {} false {} 77 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 2
+   0.162 shell: Azaa: while loop for -false- @- TRIES count: 78
+   0.162 shell Azza: case tries (= 78) > 1, relocate on 0
+Azza: This is when location directive is working: adlb::put: target_rank: 0 type: 0, command: "app_run {} {} {} false {} 78 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 0
+   0.162 shell: Azaa: while loop for -false- @- TRIES count: 79
+   0.162 shell Azza: case tries (= 79) > 1, relocate on 1
+Azza: This is when location directive is working: adlb::put: target_rank: 1 type: 0, command: "app_run {} {} {} false {} 79 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 1
+   0.162 shell: Azaa: while loop for -false- @- TRIES count: 80
+   0.162 shell Azza: case tries (= 80) > 1, relocate on 4
+Azza: This is when location directive is working: adlb::put: target_rank: 4 type: 0, command: "app_run {} {} {} false {} 80 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 4
+   0.162 shell: Azaa: while loop for -false- @- TRIES count: 81
+   0.162 shell Azza: case tries (= 81) > 1, relocate on 7
+Azza: This is when location directive is working: adlb::put: target_rank: 7 type: 0, command: "app_run {} {} {} false {} 81 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 7
+   0.162 shell: Azaa: while loop for -false- @- TRIES count: 82
+   0.162 shell Azza: case tries (= 82) > 1, relocate on 0
+Azza: This is when location directive is working: adlb::put: target_rank: 0 type: 0, command: "app_run {} {} {} false {} 82 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 0
+   0.162 shell: Azaa: while loop for -false- @- TRIES count: 83
+   0.162 shell Azza: case tries (= 83) > 1, relocate on 10
+Azza: This is when location directive is working: adlb::put: target_rank: 10 type: 0, command: "app_run {} {} {} false {} 83 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 10
+   0.162 shell: Azaa: while loop for -false- @- TRIES count: 84
+   0.162 shell Azza: case tries (= 84) > 1, relocate on 6
+Azza: This is when location directive is working: adlb::put: target_rank: 6 type: 0, command: "app_run {} {} {} false {} 84 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 6
+   0.162 shell: Azaa: while loop for -false- @- TRIES count: 85
+   0.162 shell Azza: case tries (= 85) > 1, relocate on 7
+Azza: This is when location directive is working: adlb::put: target_rank: 7 type: 0, command: "app_run {} {} {} false {} 85 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 7
+   0.162 shell: Azaa: while loop for -false- @- TRIES count: 86
+   0.162 shell Azza: case tries (= 86) > 1, relocate on 13
+Azza: This is when location directive is working: adlb::put: target_rank: 13 type: 0, command: "app_run {} {} {} false {} 86 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 13
+   0.162 shell: Azaa: while loop for -false- @- TRIES count: 87
+   0.162 shell Azza: case tries (= 87) > 1, relocate on 12
+Azza: This is when location directive is working: adlb::put: target_rank: 12 type: 0, command: "app_run {} {} {} false {} 87 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 12
+   0.162 shell: Azaa: while loop for -false- @- TRIES count: 88
+   0.162 shell Azza: case tries (= 88) > 1, relocate on 13
+Azza: This is when location directive is working: adlb::put: target_rank: 13 type: 0, command: "app_run {} {} {} false {} 88 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 13
+   0.162 shell: Azaa: while loop for -false- @- TRIES count: 89
+   0.162 shell Azza: case tries (= 89) > 1, relocate on 7
+Azza: This is when location directive is working: adlb::put: target_rank: 7 type: 0, command: "app_run {} {} {} false {} 89 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 7
+   0.162 shell: Azaa: while loop for -false- @- TRIES count: 90
+   0.162 shell Azza: case tries (= 90) > 1, relocate on 13
+Azza: This is when location directive is working: adlb::put: target_rank: 13 type: 0, command: "app_run {} {} {} false {} 90 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 13
+   0.162 shell: Azaa: while loop for -false- @- TRIES count: 91
+   0.162 shell Azza: case tries (= 91) > 1, relocate on 3
+Azza: This is when location directive is working: adlb::put: target_rank: 3 type: 0, command: "app_run {} {} {} false {} 91 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 3
+   0.163 shell: Azaa: while loop for -false- @- TRIES count: 92
+   0.163 shell Azza: case tries (= 92) > 1, relocate on 5
+Azza: This is when location directive is working: adlb::put: target_rank: 5 type: 0, command: "app_run {} {} {} false {} 92 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 5
+   0.163 shell: Azaa: while loop for -false- @- TRIES count: 93
+   0.163 shell Azza: case tries (= 93) > 1, relocate on 0
+Azza: This is when location directive is working: adlb::put: target_rank: 0 type: 0, command: "app_run {} {} {} false {} 93 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 0
+   0.163 shell: Azaa: while loop for -false- @- TRIES count: 94
+   0.163 shell Azza: case tries (= 94) > 1, relocate on 5
+Azza: This is when location directive is working: adlb::put: target_rank: 5 type: 0, command: "app_run {} {} {} false {} 94 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 5
+   0.163 shell: Azaa: while loop for -false- @- TRIES count: 95
+   0.163 shell Azza: case tries (= 95) > 1, relocate on 5
+Azza: This is when location directive is working: adlb::put: target_rank: 5 type: 0, command: "app_run {} {} {} false {} 95 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 5
+   0.163 shell: Azaa: while loop for -false- @- TRIES count: 96
+   0.163 shell Azza: case tries (= 96) > 1, relocate on 9
+Azza: This is when location directive is working: adlb::put: target_rank: 9 type: 0, command: "app_run {} {} {} false {} 96 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 9
+   0.163 shell: Azaa: while loop for -false- @- TRIES count: 97
+   0.163 shell Azza: case tries (= 97) > 1, relocate on 5
+Azza: This is when location directive is working: adlb::put: target_rank: 5 type: 0, command: "app_run {} {} {} false {} 97 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 5
+   0.163 shell: Azaa: while loop for -false- @- TRIES count: 98
+   0.163 shell Azza: case tries (= 98) > 1, relocate on 1
+Azza: This is when location directive is working: adlb::put: target_rank: 1 type: 0, command: "app_run {} {} {} false {} 98 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 1
+   0.163 shell: Azaa: while loop for -false- @- TRIES count: 99
+   0.163 shell Azza: case tries (= 99) > 1, relocate on 9
+Azza: This is when location directive is working: adlb::put: target_rank: 9 type: 0, command: "app_run {} {} {} false {} 99 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 9
+   0.163 shell: Azaa: while loop for -false- @- TRIES count: 100
+   0.163 shell Azza: case tries (= 100) > 1, relocate on 2
+Azza: This is when location directive is working: adlb::put: target_rank: 2 type: 0, command: "app_run {} {} {} false {} 100 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 2
+   0.163 shell: Azaa: while loop for -false- @- TRIES count: 101
+   0.163 shell Azza: case tries (= 101) > 1, relocate on 12
+Azza: This is when location directive is working: adlb::put: target_rank: 12 type: 0, command: "app_run {} {} {} false {} 101 100", priority 0, strictness 0, accuracy 0, parallelism 1 
+
+Azza: Done with dispatching to rank 12
+   0.163 shell command duration: 0.000
+   0.163 shell Azza: app_run with cmd = false, tries = 12 on rank = 4
+Azza: This is when the app:- false -is being executed
+
+   0.165 shell Azza: here, app_error on cmd = false, with tries = 12, app_retries = 100, retry = 1: 12 <= 100, on rank = 4 
+   0.165 shell Azza: here app_retry, with tries = 12, app_retries = 100, on rank = 4
+   0.165 shell: Command failed with exit code: 1: retries: 12/100 on: compute-0-7, rank 4 
+   0.204 shell Azza: here, app_error on cmd = false, with tries = 2, app_retries = 100, retry = 1: 2 <= 100, on rank = 0 
+   0.204 shell Azza: here app_retry, with tries = 2, app_retries = 100, on rank = 0
+   0.204 shell: Command failed with exit code: 1: retries: 2/100 on: compute-0-6, rank 0 
+   0.204 shell Azza: here, app_error on cmd = false, with tries = 4, app_retries = 100, retry = 1: 4 <= 100, on rank = 1 
+   0.205 shell Azza: here app_retry, with tries = 4, app_retries = 100, on rank = 1
+   0.205 shell: Command failed with exit code: 1: retries: 4/100 on: compute-0-6, rank 1 
+   0.205 shell Azza: here, app_error on cmd = false, with tries = 6, app_retries = 100, retry = 1: 6 <= 100, on rank = 2 
+   0.205 shell Azza: here app_retry, with tries = 6, app_retries = 100, on rank = 2
+   0.205 shell: Command failed with exit code: 1: retries: 6/100 on: compute-0-6, rank 2 
+   0.211 shell Azza: app_run with cmd = false, tries = 17 on rank = 0
+Azza: This is when the app:- false -is being executed
+
+   0.212 shell Azza: here, app_error on cmd = false, with tries = 17, app_retries = 100, retry = 1: 17 <= 100, on rank = 0 
+   0.212 shell Azza: here app_retry, with tries = 17, app_retries = 100, on rank = 0
+   0.212 shell: Command failed with exit code: 1: retries: 17/100 on: compute-0-6, rank 0 
+   0.323 shell Azza: here, app_error on cmd = false, with tries = 5, app_retries = 100, retry = 1: 5 <= 100, on rank = 12 
+   0.323 shell Azza: here app_retry, with tries = 5, app_retries = 100, on rank = 12
+   0.323 shell: Command failed with exit code: 1: retries: 5/100 on: compute-0-10, rank 12 
+   0.323 shell Azza: here, app_error on cmd = false, with tries = 34, app_retries = 100, retry = 1: 34 <= 100, on rank = 13 
+   0.323 shell Azza: here app_retry, with tries = 34, app_retries = 100, on rank = 13
+   0.323 shell: Command failed with exit code: 1: retries: 34/100 on: compute-0-10, rank 13 
+   0.334 shell Azza: here, app_error on cmd = false, with tries = 27, app_retries = 100, retry = 1: 27 <= 100, on rank = 8 
+   0.334 shell Azza: here app_retry, with tries = 27, app_retries = 100, on rank = 8
+   0.334 shell: Command failed with exit code: 1: retries: 27/100 on: compute-0-8, rank 8 
+   0.334 shell Azza: here, app_error on cmd = false, with tries = 10, app_retries = 100, retry = 1: 10 <= 100, on rank = 7 
+   0.334 shell Azza: here app_retry, with tries = 10, app_retries = 100, on rank = 7
+   0.334 shell: Command failed with exit code: 1: retries: 10/100 on: compute-0-8, rank 7 
+   0.334 shell Azza: here, app_error on cmd = false, with tries = 39, app_retries = 100, retry = 1: 39 <= 100, on rank = 6 
+   0.334 shell Azza: here app_retry, with tries = 39, app_retries = 100, on rank = 6
+   0.334 shell: Command failed with exit code: 1: retries: 39/100 on: compute-0-8, rank 6 
+   0.334 shell Azza: here, app_error on cmd = false, with tries = 7, app_retries = 100, retry = 1: 7 <= 100, on rank = 10 
+   0.334 shell Azza: here app_retry, with tries = 7, app_retries = 100, on rank = 10
+   0.334 shell: Command failed with exit code: 1: retries: 7/100 on: compute-0-9, rank 10 
+   0.334 shell Azza: here, app_error on cmd = false, with tries = 3, app_retries = 100, retry = 1: 3 <= 100, on rank = 11 
+   0.334 shell Azza: here app_retry, with tries = 3, app_retries = 100, on rank = 11
+   0.334 shell: Command failed with exit code: 1: retries: 3/100 on: compute-0-9, rank 11 
+   0.334 shell Azza: here, app_error on cmd = false, with tries = 16, app_retries = 100, retry = 1: 16 <= 100, on rank = 9 
+   0.334 shell Azza: here app_retry, with tries = 16, app_retries = 100, on rank = 9
+   0.334 shell: Command failed with exit code: 1: retries: 16/100 on: compute-0-9, rank 9 
+   0.416 shell Azza: app_run with cmd = false, tries = 11 on rank = 1
+Azza: This is when the app:- false -is being executed
+
+   0.419 shell Azza: here, app_error on cmd = false, with tries = 11, app_retries = 100, retry = 1: 11 <= 100, on rank = 1 
+   0.420 shell Azza: here app_retry, with tries = 11, app_retries = 100, on rank = 1
+   0.420 shell: Command failed with exit code: 1: retries: 11/100 on: compute-0-6, rank 1 
+   0.694 shell Azza: app_run with cmd = false, tries = 29 on rank = 11
+Azza: This is when the app:- false -is being executed
+
+   0.698 shell Azza: here, app_error on cmd = false, with tries = 29, app_retries = 100, retry = 1: 29 <= 100, on rank = 11 
+   0.698 shell Azza: here app_retry, with tries = 29, app_retries = 100, on rank = 11
+   0.698 shell: Command failed with exit code: 1: retries: 29/100 on: compute-0-9, rank 11 
+   1.889 shell Azza: app_run with cmd = false, tries = 14 on rank = 2
+Azza: This is when the app:- false -is being executed
+
+   1.894 shell Azza: here, app_error on cmd = false, with tries = 14, app_retries = 100, retry = 1: 14 <= 100, on rank = 2 
+   1.894 shell Azza: here app_retry, with tries = 14, app_retries = 100, on rank = 2
+   1.894 shell: Command failed with exit code: 1: retries: 14/100 on: compute-0-6, rank 2 
+   2.176 shell Azza: app_run with cmd = false, tries = 42 on rank = 12
+Azza: This is when the app:- false -is being executed
+
+   2.180 shell Azza: here, app_error on cmd = false, with tries = 42, app_retries = 100, retry = 1: 42 <= 100, on rank = 12 
+   2.180 shell Azza: here app_retry, with tries = 42, app_retries = 100, on rank = 12
+   2.180 shell: Command failed with exit code: 1: retries: 42/100 on: compute-0-10, rank 12 
+   4.373 shell Azza: app_run with cmd = false, tries = 8 on rank = 10
+Azza: This is when the app:- false -is being executed
+
+   4.377 shell Azza: here, app_error on cmd = false, with tries = 8, app_retries = 100, retry = 1: 8 <= 100, on rank = 10 
+   4.377 shell Azza: here app_retry, with tries = 8, app_retries = 100, on rank = 10
+   4.377 shell: Command failed with exit code: 1: retries: 8/100 on: compute-0-9, rank 10 
+  18.613 shell Azza: app_run with cmd = false, tries = 83 on rank = 10
+Azza: This is when the app:- false -is being executed
+
+  18.617 shell Azza: here, app_error on cmd = false, with tries = 83, app_retries = 100, retry = 1: 83 <= 100, on rank = 10 
+  18.617 shell Azza: here app_retry, with tries = 83, app_retries = 100, on rank = 10
+  18.617 shell: Command failed with exit code: 1: retries: 83/100 on: compute-0-9, rank 10 
+CAUGHT ERROR:
+bad argument "567229270448496521255059456": must be cancel, idle, info, or an integer
+    while executing
+"after [ expr round(1000 * $delay) ]"
+    (procedure "app_retry" line 9)
+    invoked from within
+"app_retry $msg $tries $app_retries"
+    (procedure "app_error" line 17)
+    invoked from within
+"app_error $tries $total_retries $results $cmd $args "
+    (procedure "app_run" line 10)
+    invoked from within
+"app_run {} {} {} false {} 83 100"
+Turbine worker task error in: app_run {} {} {} false {} 83 100
+    invoked from within
+"c::worker_loop $WORK_TYPE($mode) $keyword_args"
+    (procedure "standard_worker" line 27)
+    invoked from within
+"standard_worker $rules $startup_cmd "
+    (procedure "enter_mode_unchecked" line 5)
+    invoked from within
+"enter_mode_unchecked $rules $startup_cmd"
+    (procedure "enter_mode" line 5)
+    invoked from within
+"enter_mode $rules $startup_cmd "
+ADLB: ADLB_Abort(1) calling MPI_Abort(1)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 10 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------

@@ -1,0 +1,59 @@
+TURBINE-SLURM.SH
+ADLB_DEBUG_RANKS: rank: 12 nodename: compute-0-10
+ADLB_DEBUG_RANKS: rank: 13 nodename: compute-0-10
+ADLB_DEBUG_RANKS: rank: 14 nodename: compute-0-10
+ADLB_DEBUG_RANKS: rank: 0 nodename: compute-0-6
+ADLB_DEBUG_RANKS: rank: 1 nodename: compute-0-6
+ADLB_DEBUG_RANKS: rank: 2 nodename: compute-0-6
+ADLB_DEBUG_RANKS: rank: 6 nodename: compute-0-8
+ADLB_DEBUG_RANKS: rank: 7 nodename: compute-0-8
+ADLB_DEBUG_RANKS: rank: 8 nodename: compute-0-8
+ADLB_DEBUG_RANKS: rank: 4 nodename: compute-0-7
+ADLB_DEBUG_RANKS: rank: 5 nodename: compute-0-7
+ADLB_DEBUG_RANKS: rank: 3 nodename: compute-0-7
+ADLB_DEBUG_RANKS: rank: 9 nodename: compute-0-9
+ADLB_DEBUG_RANKS: rank: 10 nodename: compute-0-9
+ADLB_DEBUG_RANKS: rank: 11 nodename: compute-0-9
+   0.000 WORK TYPES: WORK
+   0.000 WORKERS: 14 RANKS: 0 - 13
+   0.000 SERVERS: 1 RANKS: 14 - 14
+   0.000 WORK WORKERS: 14 RANKS: 0 - 13
+   0.001 function:swift:constants
+   0.001 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function: __entry
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.017 exec: /bin/echo hello {}
+   0.017 exec: false {}
+   0.017 exec: true {}
+   0.018 shell: /bin/echo hello 
+   0.017 shell: true  
+   0.018 shell: false  
+hello
+   0.020 shell command duration: 0.002
+   0.048 shell command duration: 0.031
+
+Swift: app execution failed on: compute-0-7 
+ shell: Command failed with exit code: 1 
+ command: false {}
+
+Swift: Aborting MPI job...
+ADLB: ADLB_Abort(1) calling MPI_Abort(1)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 4 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------

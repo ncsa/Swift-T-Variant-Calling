@@ -1,0 +1,201 @@
+TURBINE-SLURM.SH
+ADLB_DEBUG_RANKS: rank: 9 nodename: compute-0-9
+ADLB_DEBUG_RANKS: rank: 10 nodename: compute-0-9
+ADLB_DEBUG_RANKS: rank: 11 nodename: compute-0-9
+ADLB_DEBUG_RANKS: rank: 12 nodename: compute-0-10
+ADLB_DEBUG_RANKS: rank: 13 nodename: compute-0-10
+ADLB_DEBUG_RANKS: rank: 14 nodename: compute-0-10
+ADLB_DEBUG_RANKS: rank: 0 nodename: compute-0-6
+ADLB_DEBUG_RANKS: rank: 1 nodename: compute-0-6
+ADLB_DEBUG_RANKS: rank: 2 nodename: compute-0-6
+ADLB_DEBUG_RANKS: rank: 3 nodename: compute-0-7
+ADLB_DEBUG_RANKS: rank: 4 nodename: compute-0-7
+ADLB_DEBUG_RANKS: rank: 5 nodename: compute-0-7
+ADLB_DEBUG_RANKS: rank: 6 nodename: compute-0-8
+ADLB_DEBUG_RANKS: rank: 7 nodename: compute-0-8
+ADLB_DEBUG_RANKS: rank: 8 nodename: compute-0-8
+   0.000 WORK TYPES: WORK
+   0.000 WORKERS: 14 RANKS: 0 - 13
+   0.000 SERVERS: 1 RANKS: 14 - 14
+   0.000 WORK WORKERS: 14 RANKS: 0 - 13
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function: __entry
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.002 function:swift:constants
+   0.023 exec: /bin/echo hello {}
+   0.023 exec: false {}
+   0.023 exec: true {}
+   0.024 shell: /bin/echo hello 
+   0.024 shell: true  
+   0.024 shell: false  
+hello
+   0.027 shell command duration: 0.002
+   0.066 shell command duration: 0.042
+   0.067 shell: Command failed with exit code: 1: retries: 1/100 on: compute-0-7, rank 4 
+   0.174 shell: false  
+   0.174 shell: false  
+   0.174 shell: false  
+   0.174 shell: false  
+   0.174 shell: false  
+   0.174 shell: false  
+   0.175 shell: false  
+   0.175 shell: false  
+   0.175 shell: false  
+   0.175 shell: false  
+   0.175 shell: false  
+   0.175 shell: false  
+   0.175 shell: false  
+   0.175 shell: false  
+   0.175 shell: false  
+   0.175 shell: false  
+   0.176 shell: false  
+   0.176 shell: false  
+   0.176 shell: false  
+   0.176 shell: false  
+   0.176 shell: false  
+   0.176 shell: false  
+   0.176 shell: false  
+   0.176 shell: false  
+   0.177 shell: false  
+   0.177 shell: false  
+   0.177 shell: false  
+   0.177 shell: false  
+   0.177 shell: false  
+   0.177 shell: false  
+   0.177 shell: false  
+   0.177 shell: false  
+   0.177 shell: false  
+   0.177 shell: false  
+   0.178 shell: false  
+   0.178 shell: Command failed with exit code: 1: retries: 19/100 on: compute-0-7, rank 3 
+   0.178 shell: false  
+   0.178 shell: false  
+   0.178 shell: false  
+   0.178 shell: false  
+   0.178 shell: false  
+   0.178 shell: false  
+   0.178 shell: false  
+   0.178 shell: false  
+   0.178 shell: false  
+   0.178 shell: false  
+   0.178 shell: false  
+   0.178 shell: false  
+   0.179 shell: false  
+   0.179 shell: false  
+   0.179 shell: false  
+   0.179 shell: false  
+   0.179 shell: false  
+   0.179 shell: Command failed with exit code: 1: retries: 24/100 on: compute-0-7, rank 5 
+   0.179 shell: false  
+   0.179 shell: false  
+   0.179 shell: false  
+   0.179 shell: false  
+   0.179 shell: false  
+   0.179 shell: false  
+   0.179 shell: false  
+   0.179 shell: false  
+   0.179 shell: false  
+   0.180 shell: false  
+   0.180 shell: false  
+   0.180 shell: false  
+   0.180 shell: false  
+   0.180 shell: false  
+   0.180 shell: false  
+   0.180 shell: false  
+   0.180 shell: false  
+   0.180 shell: false  
+   0.180 shell: false  
+   0.180 shell: false  
+   0.180 shell: false  
+   0.180 shell: false  
+   0.181 shell: false  
+   0.181 shell: false  
+   0.181 shell: false  
+   0.181 shell: false  
+   0.181 shell: false  
+   0.181 shell: false  
+   0.181 shell: false  
+   0.181 shell: false  
+   0.181 shell: false  
+   0.181 shell: false  
+   0.181 shell: false  
+   0.181 shell: false  
+   0.181 shell: false  
+   0.181 shell: false  
+   0.181 shell: false  
+   0.182 shell: false  
+   0.182 shell: false  
+   0.182 shell: false  
+   0.182 shell: false  
+   0.182 shell: false  
+   0.182 shell: false  
+   0.182 shell: false  
+   0.182 shell: false  
+   0.182 shell: false  
+   0.182 shell: false  
+   0.182 shell: false  
+   0.182 shell command duration: 0.000
+   0.184 shell: Command failed with exit code: 1: retries: 12/100 on: compute-0-7, rank 4 
+   0.225 shell: Command failed with exit code: 1: retries: 2/100 on: compute-0-6, rank 0 
+   0.225 shell: Command failed with exit code: 1: retries: 4/100 on: compute-0-6, rank 1 
+   0.225 shell: Command failed with exit code: 1: retries: 6/100 on: compute-0-6, rank 2 
+   0.233 shell: Command failed with exit code: 1: retries: 17/100 on: compute-0-6, rank 0 
+   0.235 shell: Command failed with exit code: 1: retries: 5/100 on: compute-0-10, rank 12 
+   0.236 shell: Command failed with exit code: 1: retries: 34/100 on: compute-0-10, rank 13 
+   0.239 shell: Command failed with exit code: 1: retries: 3/100 on: compute-0-9, rank 11 
+   0.240 shell: Command failed with exit code: 1: retries: 7/100 on: compute-0-9, rank 10 
+   0.241 shell: Command failed with exit code: 1: retries: 16/100 on: compute-0-9, rank 9 
+   0.241 shell: Command failed with exit code: 1: retries: 10/100 on: compute-0-8, rank 7 
+   0.241 shell: Command failed with exit code: 1: retries: 39/100 on: compute-0-8, rank 6 
+   0.241 shell: Command failed with exit code: 1: retries: 27/100 on: compute-0-8, rank 8 
+   0.441 shell: Command failed with exit code: 1: retries: 11/100 on: compute-0-6, rank 1 
+   0.603 shell: Command failed with exit code: 1: retries: 29/100 on: compute-0-9, rank 11 
+   1.916 shell: Command failed with exit code: 1: retries: 14/100 on: compute-0-6, rank 2 
+   2.092 shell: Command failed with exit code: 1: retries: 42/100 on: compute-0-10, rank 12 
+   4.283 shell: Command failed with exit code: 1: retries: 8/100 on: compute-0-9, rank 10 
+  18.523 shell: Command failed with exit code: 1: retries: 83/100 on: compute-0-9, rank 10 
+CAUGHT ERROR:
+bad argument "567229270448496521255059456": must be cancel, idle, info, or an integer
+    while executing
+"after [ expr round(1000 * $delay) ]"
+    (procedure "app_retry" line 9)
+    invoked from within
+"app_retry $msg $tries $app_retries"
+    (procedure "app_error" line 17)
+    invoked from within
+"app_error $tries $total_retries $results $cmd $args "
+    (procedure "app_run" line 10)
+    invoked from within
+"app_run {} {} {} false {} 83 100"
+Turbine worker task error in: app_run {} {} {} false {} 83 100
+    invoked from within
+"c::worker_loop $WORK_TYPE($mode) $keyword_args"
+    (procedure "standard_worker" line 27)
+    invoked from within
+"standard_worker $rules $startup_cmd "
+    (procedure "enter_mode_unchecked" line 5)
+    invoked from within
+"enter_mode_unchecked $rules $startup_cmd"
+    (procedure "enter_mode" line 5)
+    invoked from within
+"enter_mode $rules $startup_cmd "
+ADLB: ADLB_Abort(1) calling MPI_Abort(1)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 10 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
