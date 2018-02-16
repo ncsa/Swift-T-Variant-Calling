@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N swift_variant_calling
-#PBS -l nodes=2:ppn=2,walltime=12:00:00
+#PBS -l nodes=2:ppn=2,walltime=2:00:00
 #PBS -M mkendzi2@illinois.edu
 #PBS -m bae
 #PBS -S /bin/bash
