@@ -1,10 +1,10 @@
 Tools to test (Not necessary to test all combinations of these, just have at least one run that uses them at some stage)
 -------------
 1. BWA
-2. Novoalign // Matt
+2. Novoalign
 3a. Novosort (Sorting only; done on every run)
 3b. Novosort (Sorting and marking duplicates)
-4. Samblaster // Matt
+4. Samblaster
 5. Picard
 6. GATK
 7. samtools (Used during every run)
@@ -12,9 +12,10 @@ Tools to test (Not necessary to test all combinations of these, just have at lea
 Functionalities
 ----------------
 8. ANALYSIS type
-    8a. ALIGN_ONLY
-    8b. VC_REALIGN
-    8c. VC_NO_REALIGN
+    (8a. which was alignment only analysis was removed. The addition of jumping in and out
+        of stages and the option to stop after alignment made this setting redundant) 
+    8b. With realignment
+    8c. Without realignment
 
 9. Splitting by chromosome (SPLIT=Y; CHRNAMES)
 10. Not Splitting by chromosome (SPLIT=N)
@@ -29,16 +30,17 @@ Functionalities
     there were no samples left to test
 
 13. Paired-end reads
-14. Single-end reads // Matt
+14. Single-end reads
 
 15. Test that PROCPERNODE=2 actually runs two jobs on a node simultaneously
 16. Novosort memlimit works with at least 2 PROCSPERNODE
 
 17. Jump in at:
-    17a. Chromosome Splitting
-    17b. Realign, Recal, and Variant Calling
-    17c. Combine Chromosomes
-    17d. Joint Genotyping
+    17a. Sorting and Dedup
+    17b. Chromosome Splitting
+    17c. Realign, Recal, and Variant Calling
+    17d. Combine Chromosomes
+    17e. Joint Genotyping
 
 18. Test Timing.log is outputed correctly
 19. Full run (Y for each stage)

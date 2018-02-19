@@ -55,11 +55,25 @@ app (void v) rm(file f) {
 	"rm" f;
 }
 
-() logging (string tmpdir, file timeLog){
-        file tmplogs[] = glob(strcat(tmpdir, "/timinglogs/*"));
-        append(timeLog, read(cat(tmplogs))) =>
-        foreach i in tmplogs {
-		rm(i);
+/*
+ * Takes info from temporary log files and creates the final timing log file; also deletes the temporary ones
+ *   Each stage has its logs put in its own directory (to avoid potential race conditions in case two of these
+ *     run close together
+ */
+() logging (string tmpdir, file timeLog, string toolDirName){
+	file tmplogs[] = glob(strcat(tmpdir, "/timinglogs/", toolDirName, "/*"));
+	if (size(tmplogs) > 0) {
+		append(timeLog, read(cat(tmplogs))); //=>
+
+		/*
+		These rm calls caused bugs
+		Since it is commented out, the TimingLog file will have redundant lines that need
+                to be filtered out
+
+		*/
+		/*foreach i in tmplogs {
+			rm(i);
+		}*/
 	}
 }
 
@@ -87,11 +101,14 @@ app (void v) rm(file f) {
 
 
 (boolean exec_ok) exec_check (string exec, string parameter){
-        file_exists(exec) =>
-        assert(string_count(file_type(exec), "file", 0, -1) ==1, 
-		strcat("The executable: \n\t", exec,
-			"\n Referred to by the parameter: \n\t", parameter, 
-			" is not properly specified in your runfile!"));
-        exec_ok = true;
+	file_exists(exec) =>
+	string fileType = file_type(exec) =>
+	assert(fileType == "file" || fileType == "link", 
+	       strcat("The executable: \n\t", exec,
+		      "\n Referred to by the parameter: \n\t", parameter, 
+		      " is not properly specified in your runfile!"
+		     )
+	      );
+	exec_ok = true;
 }
 

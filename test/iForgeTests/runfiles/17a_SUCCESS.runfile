@@ -1,0 +1,63 @@
+# i/o
+SAMPLEINFORMATION=/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/sample_info/4_sample_feature_test.sampleinfo
+OUTPUTDIR=/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs
+TMPDIR=/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp
+
+# choose the type of analysis and execution parameters
+REALIGN=NO
+SPLIT=YES
+EXIT_ON_ERROR=YES
+
+PROGRAMS_PER_NODE=2
+CORES_PER_NODE=20
+
+# choose the stages that will be executed (End means the pipeline with stop after this stage is executed)
+ALIGN_STAGE=N
+DEDUP_SORT_STAGE=End
+CHR_SPLIT_STAGE=N
+VC_STAGE=N
+COMBINE_VARIANT_STAGE=N
+JOINT_GENOTYPING_STAGE=N
+
+PAIRED=YES
+
+# Read group information for the samples: namely, the Library, Platform technology, and sequencing center name. It should be noted that the sample ID, platform unit (PU) and sample name (SM) are set by default to be the same sample name found in the sampleinformation file specified
+SAMPLELB=NEAT_synthetic
+SAMPLEPL=ILLUMINA
+SAMPLECN=UIUC
+
+# tools to be used
+ALIGNERTOOL=NOVOALIGN
+MARKDUPLICATESTOOL=SAMBLASTER
+
+CHRNAMES=chr20:chr21:chr22
+
+# Alignment parameters
+BWAINDEX=/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta
+BWAMEMPARAMS=-k 32 -I 30,30
+
+NOVOALIGNINDEX=/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta.nix
+NOVOALIGNPARAMS=
+
+# Memory limit
+NOVOSORT_MEMLIMIT=10000000000
+
+# Quality thresholds
+MAP_CUTOFF=80
+DUP_CUTOFF=5
+
+# Resource paths
+REFGENOME=/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta
+DBSNP=/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz
+INDELDIR=/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels
+
+# Tool paths
+JAVA_MAX_HEAP_SIZE=16g
+JAVAEXE=/usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java
+BWAEXE=/usr/local/apps/bioapps/bwa/bwa/bwa
+PICARDJAR=/usr/local/apps/bioapps/picard/picard-2.12.1/picard.jar
+SAMBLASTEREXE=/usr/local/apps/bioapps/samblaster/samblaster-v.0.1.24/samblaster
+SAMTOOLSEXE=/projects/bioinformatics/builds/samtools-1.3.1/bin/samtools
+NOVOALIGNEXE=/projects/bioinformatics/builds/novocraftV3.04.06.Linux2.6/novoalign
+NOVOSORTEXE=/projects/bioinformatics/builds/novocraftV3.04.06.Linux2.6/novosort
+GATKJAR=/projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar

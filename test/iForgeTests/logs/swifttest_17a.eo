@@ -1,0 +1,984 @@
+   0.000 WORK TYPES: WORK
+   0.000 WORKERS: 4 RANKS: 0 - 3
+   0.000 SERVERS: 1 RANKS: 4 - 4
+   0.000 WORK WORKERS: 4 RANKS: 0 - 3
+   0.014 global: u:variables=<-1>
+   0.015 function:swift:constants
+   0.015 function:swift:constants
+   0.015 function:swift:constants
+   0.015 function:swift:constants
+   0.015 allocated string: c:s_-1=<1>
+   0.015 allocated string: c:s_-1=<4>
+   0.015 allocated string: c:s_-1=<2>
+   0.015 allocated string: c:s_-1=<3>
+   0.015 store: <1>=""
+   0.015 store: <4>=""
+   0.015 store: <2>=""
+   0.015 store: <3>=""
+   0.015 allocated string: c:s_BWAEXE=<6>
+   0.015 allocated string: c:s_BWAEXE=<5>
+   0.015 store: <5>="BWAEXE"
+   0.015 store: <6>="BWAEXE"
+   0.015 allocated string: c:s_GATKJAR=<8>
+   0.015 store: <8>="GATKJAR"
+   0.015 allocated string: c:s_GATKJAR=<10>
+   0.015 store: <10>="GATKJAR"
+   0.015 allocated string: c:s_BWAEXE=<7>
+   0.015 allocated string: c:s_JAVAEXE=<11>
+   0.015 store: <7>="BWAEXE"
+   0.015 allocated string: c:s_JAVAEXE=<12>
+   0.015 allocated string: c:s_BWAEXE=<9>
+   0.015 store: <9>="BWAEXE"
+   0.015 store: <11>="JAVAEXE"
+   0.015 store: <12>="JAVAEXE"
+   0.015 allocated string: c:s_NOVOALIGNE=<13>
+   0.015 store: <13>="NOVOALIGNEXE"
+   0.015 allocated string: c:s_NOVOALIGNE=<14>
+   0.015 store: <14>="NOVOALIGNEXE"
+   0.015 allocated string: c:s_GATKJAR=<15>
+   0.015 allocated string: c:s_NOVOSORTEX=<16>
+   0.015 store: <15>="GATKJAR"
+   0.015 store: <16>="NOVOSORTEXE"
+   0.015 allocated string: c:s_GATKJAR=<18>
+   0.015 allocated string: c:s_NOVOSORTEX=<17>
+   0.015 store: <17>="NOVOSORTEXE"
+   0.015 store: <18>="GATKJAR"
+   0.015 allocated string: c:s_PICARDJAR=<19>
+   0.015 store: <19>="PICARDJAR"
+   0.015 allocated string: c:s_JAVAEXE=<23>
+   0.015 allocated string: c:s_PICARDJAR=<20>
+   0.015 store: <23>="JAVAEXE"
+   0.015 store: <20>="PICARDJAR"
+   0.015 allocated string: c:s_SAMBLASTER-1=<21>
+   0.015 store: <21>="SAMBLASTEREXE"
+   0.015 allocated string: c:s_SAMBLASTER-1=<22>
+   0.015 store: <22>="SAMBLASTEREXE"
+   0.015 allocated string: c:s_SAMTOOLSEX=<24>
+   0.015 store: <24>="SAMTOOLSEXE"
+   0.015 allocated string: c:s_SAMTOOLSEX=<25>
+   0.015 allocated string: c:s_NOVOALIGNE=<30>
+   0.015 store: <25>="SAMTOOLSEXE"
+   0.016 allocated string: c:s_JAVAEXE=<28>
+   0.016 store: <28>="JAVAEXE"
+   0.016 allocated string: c:s__vcf-1=<26>
+   0.015 store: <30>="NOVOALIGNEXE"
+   0.016 store: <26>="*.vcf"
+   0.015 allocated string: c:s__vcf-1=<27>
+   0.015 store: <27>="*.vcf"
+   0.016 allocated string: c:s_alignlogs=<29>
+   0.016 store: <29>="alignlogs"
+   0.015 allocated string: c:s_alignlogs=<31>
+   0.015 store: <31>="alignlogs"
+   0.016 allocated string: c:s_NOVOSORTEX=<37>
+   0.016 allocated string: c:s_combinelog=<32>
+   0.016 store: <37>="NOVOSORTEXE"
+   0.016 store: <32>="combinelogs"
+   0.016 allocated string: c:s_NOVOALIGNE=<38>
+   0.016 store: <38>="NOVOALIGNEXE"
+   0.015 allocated string: c:s_combinelog=<33>
+   0.015 store: <33>="combinelogs"
+   0.016 allocated string: c:s_dedupsortl=<34>
+   0.016 store: <34>="dedupsortlogs"
+   0.015 allocated string: c:s_dedupsortl=<35>
+   0.015 store: <35>="dedupsortlogs"
+   0.016 allocated string: c:s_PICARDJAR=<43>
+   0.016 allocated string: c:s_jointGenol=<36>
+   0.016 store: <43>="PICARDJAR"
+   0.016 store: <36>="jointGenologs"
+   0.015 allocated string: c:s_jointGenol=<39>
+   0.015 store: <39>="jointGenologs"
+   0.016 allocated string: c:s_sknownSite=<40>
+   0.016 store: <40>="s/^/--knownSites /g"
+   0.016 allocated string: c:s_NOVOSORTEX=<47>
+   0.015 allocated string: c:s_sknownSite=<41>
+   0.016 store: <47>="NOVOSORTEXE"
+   0.015 store: <41>="s/^/--knownSites /g"
+   0.016 allocated string: c:s_SAMBLASTER-1=<48>
+   0.016 allocated string: c:s_sknown_g=<42>
+   0.016 store: <48>="SAMBLASTEREXE"
+   0.016 store: <42>="s/^/-known /g"
+   0.015 allocated string: c:s_sknown_g=<44>
+   0.015 store: <44>="s/^/-known /g"
+   0.016 allocated string: c:s_vclogs=<45>
+   0.016 allocated string: c:s_vclogs=<46>
+   0.016 store: <45>="vclogs"
+   0.016 allocated string: c:s_SAMTOOLSEX=<50>
+   0.016 store: <46>="vclogs"
+   0.016 allocated string: c:s_PICARDJAR=<49>
+   0.016 store: <49>="PICARDJAR"
+   0.016 function: __entry
+   0.016 store: <50>="SAMTOOLSEXE"
+   0.016 allocated t:12=<54> t:14=<55> t:15=<56> t:27=<57> t:87=<58>
+   0.016 allocated string: c:s__vcf-1=<51>
+   0.016 allocated u:sampleLines=<59> u:alignBams=<60>
+   0.016 store: <51>="*.vcf"
+   0.016 getenv(SWIFT_TMP) => /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp
+   0.016 allocated string: c:s_SAMBLASTER-1=<52>
+The SWIFT_TMP environment variable is set to: /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp
+   0.016 store: <52>="SAMBLASTEREXE"
+   0.016 argv(runfile) => /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/runfiles/17a.runfile
+   0.016 allocated string: c:s_alignlogs=<53>
+   0.016 store: <53>="alignlogs"
+   0.016 allocated string: c:s_SAMTOOLSEX=<61>
+   0.016 store: <61>="SAMTOOLSEXE"
+   0.016 allocated string: c:s_combinelog=<68>
+   0.016 store: <68>="combinelogs"
+   0.016 allocated string: c:s__vcf-1=<69>
+   0.016 store: <69>="*.vcf"
+   0.016 allocated string: c:s_dedupsortl=<70>
+   0.016 store: <70>="dedupsortlogs"
+   0.016 allocated string: c:s_jointGenol=<72>
+   0.016 allocated string: c:s_alignlogs=<71>
+   0.016 store: <72>="jointGenologs"
+   0.016 store: <71>="alignlogs"
+   0.016 allocated string: c:s_sknownSite=<73>
+   0.016 store: <73>="s/^/--knownSites /g"
+   0.017 allocated string: c:s_combinelog=<74>
+   0.017 store: <74>="combinelogs"
+   0.016 allocated string: c:s_sknown_g=<75>
+   0.016 store: <75>="s/^/-known /g"
+   0.017 allocated string: c:s_dedupsortl=<76>
+   0.017 store: <76>="dedupsortlogs"
+   0.017 allocated string: c:s_vclogs=<77>
+   0.017 store: <77>="vclogs"
+   0.017 allocated string: c:s_jointGenol=<78>
+   0.017 store: <78>="jointGenologs"
+   0.017 allocated string: c:s_sknownSite=<79>
+   0.017 store: <79>="s/^/--knownSites /g"
+   0.017 allocated string: c:s_sknown_g=<80>
+   0.017 store: <80>="s/^/-known /g"
+   0.017 allocated string: c:s_vclogs=<81>
+   0.017 store: <81>="vclogs"
+   0.017 store: <67>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/runfiles/17a.runfile
+   0.018 creating reference: <-1>["SAMPLEINFORMATION"] <- <*54> (string)
+   0.018 creating reference: <-1>["OUTPUTDIR"] <- <*56> (string)
+   0.018 creating reference: <-1>["ALIGN_STAGE"] <- <*58> (string)
+   0.018 allocated u:keyValuePair=<82>
+   0.018 build_rec: <82>
+   0.018 insert: <-1>["SAMPLEINFORMATION"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/sample_info/4_sample_feature_test.sampleinfo>
+   0.018 allocated u:keyValuePair=<83>
+   0.018 build_rec: <83>
+   0.018 insert: <-1>["OUTPUTDIR"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs>
+   0.018 allocated u:keyValuePair=<84>
+   0.018 build_rec: <84>
+   0.018 insert: <-1>["TMPDIR"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp>
+   0.018 allocated u:keyValuePair=<85>
+   0.018 build_rec: <85>
+   0.019 insert: <-1>["REALIGN"]=<NO>
+   0.019 allocated u:keyValuePair=<86>
+   0.019 build_rec: <86>
+   0.019 insert: <-1>["SPLIT"]=<YES>
+   0.019 allocated u:keyValuePair=<87>
+   0.019 build_rec: <87>
+   0.019 insert: <-1>["EXIT_ON_ERROR"]=<YES>
+   0.019 allocated u:keyValuePair=<88>
+   0.019 build_rec: <88>
+   0.019 insert: <-1>["PROGRAMS_PER_NODE"]=<2>
+   0.019 allocated u:keyValuePair=<89>
+   0.019 build_rec: <89>
+   0.019 insert: <-1>["CORES_PER_NODE"]=<20>
+   0.019 allocated u:keyValuePair=<90>
+   0.019 build_rec: <90>
+   0.019 insert: <-1>["ALIGN_STAGE"]=<N>
+   0.019 allocated u:keyValuePair=<91>
+   0.019 build_rec: <91>
+   0.019 insert: <-1>["DEDUP_SORT_STAGE"]=<End>
+   0.019 allocated u:keyValuePair=<92>
+   0.019 build_rec: <92>
+   0.019 insert: <-1>["CHR_SPLIT_STAGE"]=<N>
+   0.019 allocated u:keyValuePair=<93>
+   0.019 build_rec: <93>
+   0.019 insert: <-1>["VC_STAGE"]=<N>
+   0.019 allocated u:keyValuePair=<94>
+   0.019 build_rec: <94>
+   0.019 insert: <-1>["COMBINE_VARIANT_STAGE"]=<N>
+   0.019 allocated u:keyValuePair=<95>
+   0.019 build_rec: <95>
+   0.019 insert: <-1>["JOINT_GENOTYPING_STAGE"]=<N>
+   0.019 allocated u:keyValuePair=<96>
+   0.019 build_rec: <96>
+   0.019 insert: <-1>["PAIRED"]=<YES>
+   0.019 allocated u:keyValuePair=<97>
+   0.019 build_rec: <97>
+   0.019 insert: <-1>["SAMPLELB"]=<NEAT_synthetic>
+   0.019 allocated u:keyValuePair=<98>
+   0.019 build_rec: <98>
+   0.019 insert: <-1>["SAMPLEPL"]=<ILLUMINA>
+   0.019 allocated u:keyValuePair=<99>
+   0.019 build_rec: <99>
+   0.019 insert: <-1>["SAMPLECN"]=<UIUC>
+   0.019 allocated u:keyValuePair=<100>
+   0.019 build_rec: <100>
+   0.019 insert: <-1>["ALIGNERTOOL"]=<NOVOALIGN>
+   0.019 allocated u:keyValuePair=<101>
+   0.019 build_rec: <101>
+   0.019 insert: <-1>["MARKDUPLICATESTOOL"]=<SAMBLASTER>
+   0.019 allocated u:keyValuePair=<102>
+   0.019 build_rec: <102>
+   0.019 insert: <-1>["CHRNAMES"]=<chr20:chr21:chr22>
+   0.019 allocated u:keyValuePair=<103>
+   0.019 build_rec: <103>
+   0.020 insert: <-1>["BWAINDEX"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta>
+   0.020 allocated u:keyValuePair=<104>
+   0.020 build_rec: <104>
+   0.020 insert: <-1>["BWAMEMPARAMS"]=<-k 32 -I 30,30>
+   0.020 allocated u:keyValuePair=<105>
+   0.020 build_rec: <105>
+   0.020 insert: <-1>["NOVOALIGNINDEX"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta.nix>
+   0.020 allocated u:keyValuePair=<106>
+   0.020 build_rec: <106>
+   0.020 insert: <-1>["NOVOALIGNPARAMS"]=<>
+   0.020 allocated u:keyValuePair=<107>
+   0.020 build_rec: <107>
+   0.020 insert: <-1>["NOVOSORT_MEMLIMIT"]=<10000000000>
+   0.020 allocated u:keyValuePair=<108>
+   0.020 build_rec: <108>
+   0.020 insert: <-1>["MAP_CUTOFF"]=<80>
+   0.020 allocated u:keyValuePair=<109>
+   0.020 build_rec: <109>
+   0.020 insert: <-1>["DUP_CUTOFF"]=<5>
+   0.020 allocated u:keyValuePair=<110>
+   0.020 build_rec: <110>
+   0.020 insert: <-1>["REFGENOME"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/Homo_sapiens_assembly38_chr20_21_22.fasta>
+   0.020 allocated u:keyValuePair=<111>
+   0.020 build_rec: <111>
+   0.020 insert: <-1>["DBSNP"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/dbSNP/dbsnp_146.hg38.chr20_21_22.vcf.gz>
+   0.020 allocated u:keyValuePair=<112>
+   0.020 build_rec: <112>
+   0.020 insert: <-1>["INDELDIR"]=</projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/reference/indels>
+   0.020 allocated u:keyValuePair=<113>
+   0.020 build_rec: <113>
+   0.020 insert: <-1>["JAVA_MAX_HEAP_SIZE"]=<16g>
+   0.020 allocated u:keyValuePair=<114>
+   0.020 build_rec: <114>
+   0.020 insert: <-1>["JAVAEXE"]=</usr/local/apps/bioapps/java/java-1.8-64bit/jre/bin/java>
+   0.020 allocated u:keyValuePair=<115>
+   0.020 build_rec: <115>
+   0.020 insert: <-1>["BWAEXE"]=</usr/local/apps/bioapps/bwa/bwa/bwa>
+   0.020 allocated u:keyValuePair=<116>
+   0.020 build_rec: <116>
+   0.020 insert: <-1>["PICARDJAR"]=</usr/local/apps/bioapps/picard/picard-2.12.1/picard.jar>
+   0.020 allocated u:keyValuePair=<117>
+   0.020 build_rec: <117>
+   0.020 insert: <-1>["SAMBLASTEREXE"]=</usr/local/apps/bioapps/samblaster/samblaster-v.0.1.24/samblaster>
+   0.020 allocated u:keyValuePair=<118>
+   0.020 build_rec: <118>
+   0.020 insert: <-1>["SAMTOOLSEXE"]=</projects/bioinformatics/builds/samtools-1.3.1/bin/samtools>
+   0.020 allocated u:keyValuePair=<119>
+   0.020 build_rec: <119>
+   0.020 insert: <-1>["NOVOALIGNEXE"]=</projects/bioinformatics/builds/novocraftV3.04.06.Linux2.6/novoalign>
+   0.020 allocated u:keyValuePair=<120>
+   0.020 build_rec: <120>
+   0.020 insert: <-1>["NOVOSORTEXE"]=</projects/bioinformatics/builds/novocraftV3.04.06.Linux2.6/novosort>
+   0.020 allocated u:keyValuePair=<121>
+   0.020 build_rec: <121>
+   0.020 insert: <-1>["GATKJAR"]=</projects/bioinformatics/builds/GATK-3.6/GenomeAnalysisTK.jar>
+   0.020 rule: <60> => __entry-call_foreign-size 60
+   0.020 rule: <56> => __entry-optmerged 55 56 57 58 17a.runfile 60 {file 67 is_mapped 0} {file 64 is_mapped 1} {file 63 is_mapped 1} {file 66 is_mapped 1} {file 62 is_mapped 0} 59 {file 65 is_mapped 1}
+   0.020 rule: <58> => __entry-optmerged-3 55 56 58 60 {file 66 is_mapped 1} {file 65 is_mapped 1}
+   0.020 rule: <54> => __entry-optmerged-29 54 56 57 {file 63 is_mapped 1} {file 62 is_mapped 0} 59
+   0.021 store: <55>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/deliverables/docs/Failures.log"
+   0.021 allocated t:37=<122>
+   0.021 exec: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs {}
+   0.021 allocated u:dedupSortedBams=<123> t:111=<124> t:42:6=<125> t:46:6=<126> t:50:6=<127>
+   0.021 allocated t:54:6=<128> t:18:6=<129>
+   0.021 creating reference: <-1>["DEDUP_SORT_STAGE"] <- <*124> (string)
+   0.021 rule: <60> => dedupSortRun-foreach-wait1 56 129 125 126 127 128 60 123 {file 66 is_mapped 1}
+   0.021 shell: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs 
+   0.021 rule: <124> => __entry-optmerged-14 124 55 56 129 125 126 127 128 123 {file 66 is_mapped 1} {file 65 is_mapped 1}
+   0.021 rule: <123> => __entry-optmerged-28 123 {file 65 is_mapped 1}
+   0.022 store: <125>=1
+   0.022 store: <126>=0
+   0.022 store: <127>=0
+   0.022 store: <128>=0
+   0.022 store: <129>=0
+   0.023 store: <62>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/sample_info/4_sample_feature_test.sampleinfo
+   0.024 build_rec: <59>
+   0.024 rule: <56> => __entry-async_op-strcat-21 56 57 4_sample_feature_test.sampleinfo {file 63 is_mapped 1}
+   0.024 store: <57>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/deliverables/docs/4_sample_feature_test.sampleinfo"
+   0.025 shell command duration: 0.004
+   0.025 creating reference: <-1>["TMPDIR"] <- <*122> (string)
+   0.025 rule: <122> => mkdir-app-leaf1-1 57 122 58 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/deliverables/docs/Failures.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/deliverables/docs/Timing.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/deliverables/docs/17a.runfile 60 {file 67 is_mapped 0} {file 64 is_mapped 1} {file 63 is_mapped 1} {file 66 is_mapped 1} {file 62 is_mapped 0} 59 {file 65 is_mapped 1}
+   0.026 exec: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp {}
+   0.026 shell: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp 
+   0.030 shell command duration: 0.004
+   0.030 exec: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs {}
+   0.030 shell: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs 
+   0.072 shell command duration: 0.041
+   0.072 exec: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/alignlogs {}
+   0.072 shell: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/alignlogs 
+   0.075 shell command duration: 0.003
+   0.076 exec: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/dedupsortlogs {}
+   0.076 shell: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/dedupsortlogs 
+   0.079 shell command duration: 0.003
+   0.080 exec: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/vclogs {}
+   0.080 shell: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/vclogs 
+   0.083 shell command duration: 0.003
+   0.083 exec: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/combinelogs {}
+   0.083 shell: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/combinelogs 
+   0.086 shell command duration: 0.003
+   0.086 exec: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/jointGenologs {}
+   0.086 shell: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/jointGenologs 
+   0.089 shell command duration: 0.003
+   0.089 exec: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/deliverables/docs {}
+   0.089 shell: mkdir -p /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/deliverables/docs 
+   0.092 shell command duration: 0.003
+   0.103 rule: <57> <62> => __entry-chain12 57 122 58 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs 60 {file 63 is_mapped 1} {file 66 is_mapped 1} {file 62 is_mapped 0} 59 {file 65 is_mapped 1}
+   0.103 allocated t:3:1=<130> t:5:1=<131> t:7:1=<132> t:56:1=<133> t:60:1=<134>
+   0.103 allocated t:64:1=<135> t:68:1=<136> t:32:1=<137>
+   0.112 creating reference: <-1>["SAMPLELB"] <- <*130> (string)
+   0.112 creating reference: <-1>["SAMPLEPL"] <- <*131> (string)
+   0.112 creating reference: <-1>["SAMPLECN"] <- <*132> (string)
+   0.112 rule: <60> => __entry-chain14 122 60 {file 65 is_mapped 1}
+   0.112 rule: <59> => alignRun-foreach-wait1 137 130 133 131 134 135 136 132 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/ 60 {file 66 is_mapped 1} 59
+   0.112 rule: <58> => __entry-optmerged-2 137 133 134 135 136 58
+   0.112 store: <133>=0
+   0.112 store: <134>=0
+   0.112 store: <135>=0
+   0.112 store: <136>=0
+   0.112 store: <137>=0
+   0.112 allocated u:sampleInfo=<138> u:sampleName=<139> u:rgheader=<140>
+   0.113 build_rec: <138>
+   0.113 store: <139>="hg38_chr_20_21_22_merged_copy3"
+   0.113 rule: <130> <131> <132> => __entry-async_op-sprintf 130 131 132 hg38_chr_20_21_22_merged_copy3 140
+   0.113 rule: <137> <133> <134> <135> <136> => __entry-async_op-or 137 133 134 135 136 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/logs/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/realign/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/variant/ hg38_chr_20_21_22_merged_copy3 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp 2 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/ 60 {file 66 is_mapped 1} 140 138 139
+   0.113 allocated u:sampleInfo=<141> u:sampleName=<142> u:rgheader=<143>
+   0.113 build_rec: <141>
+   0.113 store: <142>="hg38_chr_20_21_22_merged_copy1"
+   0.113 rule: <130> <131> <132> => __entry-async_op-sprintf 130 131 132 hg38_chr_20_21_22_merged_copy1 143
+   0.113 rule: <137> <133> <134> <135> <136> => __entry-async_op-or 137 133 134 135 136 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/logs/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/realign/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/variant/ hg38_chr_20_21_22_merged_copy1 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp 0 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/ 60 {file 66 is_mapped 1} 143 141 142
+   0.113 allocated u:sampleInfo=<144> u:sampleName=<145> u:rgheader=<146>
+   0.113 build_rec: <144>
+   0.113 store: <145>="hg38_chr_20_21_22_merged_copy4"
+   0.113 rule: <130> <131> <132> => __entry-async_op-sprintf 130 131 132 hg38_chr_20_21_22_merged_copy4 146
+   0.113 rule: <137> <133> <134> <135> <136> => __entry-async_op-or 137 133 134 135 136 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/logs/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/realign/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/variant/ hg38_chr_20_21_22_merged_copy4 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp 3 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/ 60 {file 66 is_mapped 1} 146 144 145
+   0.113 allocated u:sampleInfo=<147> u:sampleName=<148> u:rgheader=<149>
+   0.113 build_rec: <147>
+   0.113 store: <140>="@RG\tID:hg38_chr_20_21_22_merged_copy3\tLB:NEAT_synthetic\tPL:ILLUMINA\tPU:hg38_chr_20_21_22_merged_copy3\tSM:hg38_chr_20_21_22_merged_copy3\tCN:UIUC"
+   0.113 store: <148>="hg38_chr_20_21_22_merged_copy2"
+   0.113 rule: <130> <131> <132> => __entry-async_op-sprintf 130 131 132 hg38_chr_20_21_22_merged_copy2 149
+   0.113 store: <143>="@RG\tID:hg38_chr_20_21_22_merged_copy1\tLB:NEAT_synthetic\tPL:ILLUMINA\tPU:hg38_chr_20_21_22_merged_copy1\tSM:hg38_chr_20_21_22_merged_copy1\tCN:UIUC"
+   0.113 rule: <137> <133> <134> <135> <136> => __entry-async_op-or 137 133 134 135 136 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/logs/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/realign/ /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/variant/ hg38_chr_20_21_22_merged_copy2 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp 1 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/ 60 {file 66 is_mapped 1} 149 147 148
+   0.113 store: <149>="@RG\tID:hg38_chr_20_21_22_merged_copy2\tLB:NEAT_synthetic\tPL:ILLUMINA\tPU:hg38_chr_20_21_22_merged_copy2\tSM:hg38_chr_20_21_22_merged_copy2\tCN:UIUC"
+   0.115 store: <150>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.noDedups.bam
+   0.115 store: <151>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.noDedups.bam
+   0.115 insert: <60>["1"]=<file 150 is_mapped 0>
+   0.115 insert: <60>["2"]=<file 151 is_mapped 0>
+   0.115 store: <146>="@RG\tID:hg38_chr_20_21_22_merged_copy4\tLB:NEAT_synthetic\tPL:ILLUMINA\tPU:hg38_chr_20_21_22_merged_copy4\tSM:hg38_chr_20_21_22_merged_copy4\tCN:UIUC"
+   0.116 store: <152>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.noDedups.bam
+   0.116 insert: <60>["0"]=<file 152 is_mapped 0>
+   0.116 store: <153>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.noDedups.bam
+   0.116 insert: <60>["3"]=<file 153 is_mapped 0>
+   0.116 assert passed: (FAILURE: The aligned bam array was empty: none of the samples finished properly)
+   0.116 function: logging
+   0.116 allocated u:tmplogs=<154> t:1=<155>
+   0.116 rule: <155> => glob_body 154 155
+   0.117 rule: <122> <53> => logging-async_op-strcat 155 {122} {53}
+   0.117 rule: <154> => logging-call_foreign-size {file 65 is_mapped 1} 154
+   0.117 allocated u:sampleName:5=<156> u:LogDir:1=<157> u:AlignDir:1=<158>
+   0.116 store: <155>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/alignlogs/*"
+   0.117 rule: => basename_string-argwait 158 157 {151.0} 56 156
+   0.117 rule: <129> <125> <126> <127> <128> => __entry-async_op-or-1 158 157 {151.0} 129 125 126 127 128 2 123 {file 66 is_mapped 1} {file 151 is_mapped 0} 156
+   0.117 allocated u:sampleName:5=<159> u:LogDir:1=<160> u:AlignDir:1=<161>
+   0.117 rule: => basename_string-argwait 161 160 {152.0} 56 159
+   0.117 rule: <129> <125> <126> <127> <128> => __entry-async_op-or-1 161 160 {152.0} 129 125 126 127 128 0 123 {file 66 is_mapped 1} {file 152 is_mapped 0} 159
+   0.117 allocated u:sampleName:5=<162> u:LogDir:1=<163> u:AlignDir:1=<164>
+   0.117 rule: => basename_string-argwait 164 163 {153.0} 56 162
+   0.117 rule: <129> <125> <126> <127> <128> => __entry-async_op-or-1 164 163 {153.0} 129 125 126 127 128 3 123 {file 66 is_mapped 1} {file 153 is_mapped 0} 162
+   0.117 allocated u:sampleName:5=<165> u:LogDir:1=<166> u:AlignDir:1=<167>
+   0.117 rule: => basename_string-argwait 167 166 {150.0} 56 165
+   0.117 rule: <129> <125> <126> <127> <128> => __entry-async_op-or-1 167 166 {150.0} 129 125 126 127 128 1 123 {file 66 is_mapped 1} {file 150 is_mapped 0} 165
+   0.117 store: <156>="hg38_chr_20_21_22_merged_copy3"
+   0.117 rule: <56> => __entry-optmerged-4 158 157 56 hg38_chr_20_21_22_merged_copy3
+   0.117 store: <159>="hg38_chr_20_21_22_merged_copy1"
+   0.117 rule: <56> => __entry-optmerged-4 161 160 56 hg38_chr_20_21_22_merged_copy1
+   0.117 allocated t:58:6=<168> u:threads:4=<169> t:2:10=<170> t:5:10=<171> u:tmpLogDir:4=<172>
+   0.117 allocated t:15:10=<173> t:19:10=<174>
+   0.117 glob: /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/alignlogs/*
+   0.117 creating reference: <-1>["CORES_PER_NODE"] <- <*170> (string)
+   0.117 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*171> (string)
+   0.117 creating reference: <-1>["TMPDIR"] <- <*173> (string)
+   0.117 store: <157>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/logs/"
+   0.117 creating reference: <-1>["MARKDUPLICATESTOOL"] <- <*174> (string)
+   0.117 store: <158>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/"
+   0.117 rule: <158> <156> => __entry-async_op-strcat 158 157 168 2 123 {file 175 is_mapped 1} {file 66 is_mapped 1} 156
+   0.117 rule: <170> <171> => __entry-async_op-parse_int-1 170 171 169
+   0.117 allocated file: <154>[0]=<176>
+   0.117 rule: <173> => __entry-async_op-strcat-5 173 172
+   0.117 store: <160>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/logs/"
+   0.117 rule: <174> => __entry-async_op-eq_string 158 157 {151.0} 173 174 168 {file 175 is_mapped 1} {file 151 is_mapped 0} 156 169 172
+   0.117 store: <161>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/"
+   0.117 insert: <154>["0"]=<file 176 is_mapped 1>
+   0.117 store: <168>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam"
+   0.117 rule: <175> => dedupSortRun-chain1 157 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/ 2 hg38_chr_20_21_22_merged_copy3 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam 123 {file 175 is_mapped 1} {file 66 is_mapped 1}
+   0.117 allocated file: <154>[1]=<177>
+   0.117 store: <172>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/dedupsortlogs"
+   0.117 insert: <154>["1"]=<file 177 is_mapped 1>
+   0.117 allocated file: <154>[2]=<178>
+   0.117 store: <169>=10
+   0.117 insert: <154>["2"]=<file 178 is_mapped 1>
+   0.117 store: <165>="hg38_chr_20_21_22_merged_copy2"
+   0.117 allocated t:58:6=<179> u:threads:4=<180> t:2:10=<181> t:5:10=<182> u:tmpLogDir:4=<183>
+   0.117 allocated t:15:10=<184> t:19:10=<185>
+   0.117 rule: <56> => __entry-optmerged-4 167 166 56 hg38_chr_20_21_22_merged_copy2
+   0.117 allocated file: <154>[3]=<187>
+   0.117 insert: <154>["3"]=<file 187 is_mapped 1>
+   0.118 creating reference: <-1>["CORES_PER_NODE"] <- <*181> (string)
+   0.118 allocated file: <154>[4]=<188>
+   0.117 allocated t:22:9=<189> t:23:9=<190> t:26:9=<191> t:27:9=<192> t:30:8=<193>
+   0.117 allocated t:42:7=<194> t:54:7=<195> t:59:7=<196>
+   0.118 allocated t:58:6=<197> u:threads:4=<198> t:2:10=<199> t:5:10=<200> u:tmpLogDir:4=<201>
+   0.118 allocated t:15:10=<202> t:19:10=<203>
+   0.118 creating reference: <-1>["CORES_PER_NODE"] <- <*199> (string)
+   0.118 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*182> (string)
+   0.117 array_kv_build: <196> 1 elems, write_decr 1
+   0.118 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*200> (string)
+   0.118 insert: <154>["4"]=<file 188 is_mapped 1>
+   0.118 creating reference: <-1>["TMPDIR"] <- <*202> (string)
+   0.118 creating reference: <-1>["TMPDIR"] <- <*184> (string)
+   0.118 array_kv_build: <195> 0 elems, write_decr 1
+   0.118 creating reference: <-1>["MARKDUPLICATESTOOL"] <- <*185> (string)
+   0.118 creating reference: <-1>["MARKDUPLICATESTOOL"] <- <*203> (string)
+   0.118 creating reference: <-1>["SAMBLASTEREXE"] <- <*190> (string)
+   0.118 rule: <164> <162> => __entry-async_op-strcat 164 163 197 3 123 {file 204 is_mapped 1} {file 66 is_mapped 1} 162
+   0.118 rule: <167> <165> => __entry-async_op-strcat 167 166 179 1 123 {file 186 is_mapped 1} {file 66 is_mapped 1} 165
+   0.118 rule: <199> <200> => __entry-async_op-parse_int-1 199 200 198
+   0.118 rule: <181> <182> => __entry-async_op-parse_int-1 181 182 180
+   0.118 rule: <202> => __entry-async_op-strcat-5 202 201
+   0.118 rule: <184> => __entry-async_op-strcat-5 184 183
+   0.118 creating reference: <-1>["SAMTOOLSEXE"] <- <*192> (string)
+   0.118 rule: <185> => __entry-async_op-eq_string 167 166 {150.0} 184 185 179 {file 186 is_mapped 1} {file 150 is_mapped 0} 165 180 183
+   0.118 rule: <203> => __entry-async_op-eq_string 164 163 {153.0} 202 203 197 {file 204 is_mapped 1} {file 153 is_mapped 0} 162 198 201
+   0.118 store: <166>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/logs/"
+   0.118 rule: <156> => __entry-optmerged-5 158 157 151.0 173 190 192 193 194 195 1518740242 {file 207 is_mapped 1} {file 206 is_mapped 1} {file 175 is_mapped 1} {file 151 is_mapped 0} {file 205 is_mapped 1} {file 208 is_mapped 1} 156 {file 209 is_mapped 1} 169 172 {file 212 is_mapped 1} {file 210 is_mapped 1} {file 211 is_mapped 1}
+   0.118 function: samtools_view_logged
+   0.118 store: <167>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/"
+   0.118 rule: <156> => samtools_view_logged-async_op-strcat 1518740242 196 {file 206 is_mapped 1} {file 207 is_mapped 1} 156 192 169 {file 211 is_mapped 1}
+   0.118 store: <183>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/dedupsortlogs"
+   0.118 rule: <158> => __entry-async_op-strcat-6 158 173 193 hg38_chr_20_21_22_merged_copy3 {file 207 is_mapped 1} {file 175 is_mapped 1} {file 205 is_mapped 1} 156 {file 209 is_mapped 1} 169 {file 212 is_mapped 1} {file 211 is_mapped 1}
+   0.118 rule: <172> => __entry-optmerged-6 hg38_chr_20_21_22_merged_copy3 172 {file 212 is_mapped 1} {file 210 is_mapped 1} {file 211 is_mapped 1}
+   0.118 rule: <157> => __entry-optmerged-7 157 194 hg38_chr_20_21_22_merged_copy3 {file 208 is_mapped 1} {file 209 is_mapped 1}
+   0.118 rule: <173> => __entry-optmerged-8 151.0 173 190 192 193 194 195 hg38_chr_20_21_22_merged_copy3 {hg38_chr_20_21_22_merged_copy3	ALL	SAMBLASTER start	1518740242	DedupSort
+} {file 206 is_mapped 1} {file 151 is_mapped 0} {file 205 is_mapped 1} {file 208 is_mapped 1} 169 {file 210 is_mapped 1}
+   0.118 function: samtools_view
+   0.118 store: <194>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/logs/hg38_chr_20_21_22_merged_copy3_SamblasterDedup.log"
+   0.118 rule: <196> <206> <192> <169> => samtools_view-app-leaf1 {206.0} {207.0} 1 {196} {file 206 is_mapped 1} {file 207 is_mapped 1} {192} {169}
+   0.118 rule: <207> => samtools_view_logged-chain2 hg38_chr_20_21_22_merged_copy3 {hg38_chr_20_21_22_merged_copy3	ALL	SAMTOOLS_VIEW start	1518740242	Align
+} {file 207 is_mapped 1} {file 211 is_mapped 1}
+   0.118 store: <193>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.noDedup.sam"
+   0.118 rule: <207> <211> => markDuplicates-chain1 173 193 {file 207 is_mapped 1} {file 175 is_mapped 1} {file 205 is_mapped 1} 156 {file 209 is_mapped 1} 169 {file 212 is_mapped 1} {file 211 is_mapped 1}
+   0.118 store: <179>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam"
+   0.118 store: <180>=10
+   0.118 rule: <186> => dedupSortRun-chain1 166 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/ 1 hg38_chr_20_21_22_merged_copy2 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam 123 {file 186 is_mapped 1} {file 66 is_mapped 1}
+   0.119 function: exec_check
+   0.119 rule: <192> <151> <169> => samtools_bam2sam-app-leaf1 151.0 190 192 194 195 hg38_chr_20_21_22_merged_copy3 {hg38_chr_20_21_22_merged_copy3	ALL	SAMBLASTER start	1518740242	DedupSort
+} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.noDedup.sam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.wDedups.sam {file 206 is_mapped 1} {file 151 is_mapped 0} {file 205 is_mapped 1} {file 208 is_mapped 1} 169 {file 210 is_mapped 1}
+   0.119 store: <191>=1
+   0.118 allocated t:22:9=<213> t:23:9=<214> t:26:9=<215> t:27:9=<216> t:30:8=<217>
+   0.118 allocated t:42:7=<218> t:54:7=<219> t:59:7=<220>
+   0.119 rule: <192> <25> => file_exists-argwait-2 {192} {25}
+   0.119 store: <201>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/dedupsortlogs"
+   0.118 array_kv_build: <220> 1 elems, write_decr 1
+   0.118 array_kv_build: <219> 0 elems, write_decr 1
+   0.118 creating reference: <-1>["SAMBLASTEREXE"] <- <*214> (string)
+   0.118 creating reference: <-1>["SAMTOOLSEXE"] <- <*216> (string)
+   0.118 rule: <162> => __entry-optmerged-5 164 163 153.0 202 214 216 217 218 219 1518740242 {file 223 is_mapped 1} {file 222 is_mapped 1} {file 204 is_mapped 1} {file 153 is_mapped 0} {file 221 is_mapped 1} {file 224 is_mapped 1} 162 {file 225 is_mapped 1} 198 201 {file 228 is_mapped 1} {file 226 is_mapped 1} {file 227 is_mapped 1}
+   0.119 allocated t:7=<229> t:8=<230>
+   0.119 allocated t:22:9=<232> t:23:9=<233> t:26:9=<234> t:27:9=<235> t:30:8=<236>
+   0.119 allocated t:42:7=<237> t:54:7=<238> t:59:7=<239>
+   0.119 exec: __v:samtoolsexe:1 view -h -@ 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.noDedups.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.noDedup.sam}
+   0.119 array_kv_build: <239> 1 elems, write_decr 1
+   0.119 array_kv_build: <238> 0 elems, write_decr 1
+   0.119 creating reference: <-1>["SAMBLASTEREXE"] <- <*233> (string)
+   0.119 creating reference: <-1>["SAMTOOLSEXE"] <- <*235> (string)
+   0.119 rule: <165> => __entry-optmerged-5 167 166 150.0 184 233 235 236 237 238 1518740242 {file 242 is_mapped 1} {file 241 is_mapped 1} {file 186 is_mapped 1} {file 150 is_mapped 0} {file 240 is_mapped 1} {file 243 is_mapped 1} 165 {file 244 is_mapped 1} 180 183 {file 247 is_mapped 1} {file 245 is_mapped 1} {file 246 is_mapped 1}
+   0.120 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools view -h -@ 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.noDedups.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.noDedup.sam}
+   0.120 function: samtools_view_logged
+   0.120 rule: <162> => samtools_view_logged-async_op-strcat 1518740242 220 {file 222 is_mapped 1} {file 223 is_mapped 1} 162 216 198 {file 227 is_mapped 1}
+   0.120 rule: <167> => __entry-async_op-strcat-6 167 184 236 hg38_chr_20_21_22_merged_copy2 {file 242 is_mapped 1} {file 186 is_mapped 1} {file 240 is_mapped 1} 165 {file 244 is_mapped 1} 180 {file 247 is_mapped 1} {file 246 is_mapped 1}
+   0.120 rule: <183> => __entry-optmerged-6 hg38_chr_20_21_22_merged_copy2 183 {file 247 is_mapped 1} {file 245 is_mapped 1} {file 246 is_mapped 1}
+   0.120 rule: <166> => __entry-optmerged-7 166 237 hg38_chr_20_21_22_merged_copy2 {file 243 is_mapped 1} {file 244 is_mapped 1}
+   0.120 rule: <184> => __entry-optmerged-8 150.0 184 233 235 236 237 238 hg38_chr_20_21_22_merged_copy2 {hg38_chr_20_21_22_merged_copy2	ALL	SAMBLASTER start	1518740242	DedupSort
+} {file 241 is_mapped 1} {file 150 is_mapped 0} {file 240 is_mapped 1} {file 243 is_mapped 1} 180 {file 245 is_mapped 1}
+   0.120 function: samtools_view_logged
+   0.120 rule: <165> => samtools_view_logged-async_op-strcat 1518740242 239 {file 241 is_mapped 1} {file 242 is_mapped 1} 165 235 180 {file 246 is_mapped 1}
+   0.120 store: <236>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.noDedup.sam"
+   0.120 rule: <235> <150> <180> => samtools_bam2sam-app-leaf1 150.0 233 235 237 238 hg38_chr_20_21_22_merged_copy2 {hg38_chr_20_21_22_merged_copy2	ALL	SAMBLASTER start	1518740242	DedupSort
+} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.noDedup.sam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.wDedups.sam {file 241 is_mapped 1} {file 150 is_mapped 0} {file 240 is_mapped 1} {file 243 is_mapped 1} 180 {file 245 is_mapped 1}
+   0.121 function: samtools_view
+   0.121 rule: <239> <241> <235> <180> => samtools_view-app-leaf1 {241.0} {242.0} 1 {239} {file 241 is_mapped 1} {file 242 is_mapped 1} {235} {180}
+   0.121 rule: <242> => samtools_view_logged-chain2 hg38_chr_20_21_22_merged_copy2 {hg38_chr_20_21_22_merged_copy2	ALL	SAMTOOLS_VIEW start	1518740242	Align
+} {file 242 is_mapped 1} {file 246 is_mapped 1}
+   0.121 allocated void: <248>
+   0.121 rule: <154> => container_deep_wait_iterate 154 0 -1 1 file_ref 248
+   0.121 rule: <248> => deeprule_action "248" "cat-app-leaf1 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_vOAEWx.turbine 230 {file 231 is_mapped 0} 154"
+   0.121 function: append
+   0.121 rule: <65> => append-call_foreign-read {249.0} {file 65 is_mapped 1} {file 249 is_mapped 1} {230} {229}
+   0.121 rule: => append-copy_in_filename {65.0} {file 249 is_mapped 1}
+   0.122 exec: __v:samtoolsexe:1 view -h -@ 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.noDedups.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.noDedup.sam}
+   0.121 Container <154> deep closed
+   0.122 store: <248>=void
+   0.122 deeprule_finish: 248
+   0.122 assert passed: (The executable: 
+	/projects/bioinformatics/builds/samtools-1.3.1/bin/samtools
+ Referred to by the parameter: 
+	SAMTOOLSEXE is not properly specified in your runfile!)
+   0.122 exec: cat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/alignlogs/hg38_chr_20_21_22_merged_copy4_Alignment.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/alignlogs/hg38_chr_20_21_22_merged_copy1_Alignment.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/alignlogs/hg38_chr_20_21_22_merged_copy3_Alignment.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/alignlogs/hg38_chr_20_21_22_merged_copy4_trunc_Alignment.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/alignlogs/hg38_chr_20_21_22_merged_copy2_Alignment.log {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_vOAEWx.turbine}
+   0.122 shell: cat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/alignlogs/hg38_chr_20_21_22_merged_copy4_Alignment.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/alignlogs/hg38_chr_20_21_22_merged_copy1_Alignment.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/alignlogs/hg38_chr_20_21_22_merged_copy3_Alignment.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/alignlogs/hg38_chr_20_21_22_merged_copy4_trunc_Alignment.log /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/alignlogs/hg38_chr_20_21_22_merged_copy2_Alignment.log {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_vOAEWx.turbine}
+   0.123 rule: <230> => append-async_op-strcat {Sample	Chromosome	App status	Time	Stage
+} 249.0 {file 249 is_mapped 1} 230 229
+   0.124 store: <237>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/logs/hg38_chr_20_21_22_merged_copy2_SamblasterDedup.log"
+   0.124 rule: <242> <246> => markDuplicates-chain1 184 236 {file 242 is_mapped 1} {file 186 is_mapped 1} {file 240 is_mapped 1} 165 {file 244 is_mapped 1} 180 {file 247 is_mapped 1} {file 246 is_mapped 1}
+   0.124 function: exec_check
+   0.124 store: <234>=1
+   0.124 rule: <235> <50> => file_exists-argwait-2 {235} {50}
+   0.124 function: exec_check
+   0.124 store: <232>=1
+   0.124 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools view -h -@ 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.noDedups.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.noDedup.sam}
+   0.124 rule: <233> <48> => file_exists-argwait-2 {233} {48}
+   0.125 assert passed: (The executable: 
+	/projects/bioinformatics/builds/samtools-1.3.1/bin/samtools
+ Referred to by the parameter: 
+	SAMTOOLSEXE is not properly specified in your runfile!)
+   0.126 assert passed: (The executable: 
+	/usr/local/apps/bioapps/samblaster/samblaster-v.0.1.24/samblaster
+ Referred to by the parameter: 
+	SAMBLASTEREXE is not properly specified in your runfile!)
+   0.126 function: exec_check
+   0.126 store: <215>=1
+   0.126 rule: <216> <25> => file_exists-argwait-2 {216} {25}
+   0.126 function: exec_check
+   0.126 store: <213>=1
+   0.126 rule: <214> <22> => file_exists-argwait-2 {214} {22}
+   0.126 assert passed: (The executable: 
+	/projects/bioinformatics/builds/samtools-1.3.1/bin/samtools
+ Referred to by the parameter: 
+	SAMTOOLSEXE is not properly specified in your runfile!)
+   0.127 assert passed: (The executable: 
+	/usr/local/apps/bioapps/samblaster/samblaster-v.0.1.24/samblaster
+ Referred to by the parameter: 
+	SAMBLASTEREXE is not properly specified in your runfile!)
+   0.127 function: exec_check
+   0.127 store: <189>=1
+   0.127 rule: <190> <22> => file_exists-argwait-2 {190} {22}
+   0.127 store: <198>=10
+   0.127 assert passed: (The executable: 
+	/usr/local/apps/bioapps/samblaster/samblaster-v.0.1.24/samblaster
+ Referred to by the parameter: 
+	SAMBLASTEREXE is not properly specified in your runfile!)
+   0.127 store: <162>="hg38_chr_20_21_22_merged_copy4"
+   0.127 rule: <56> => __entry-optmerged-4 164 163 56 hg38_chr_20_21_22_merged_copy4
+   0.127 shell command duration: 0.005
+   0.127 store: <231>=path /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/tcl_vOAEWx.turbine
+   0.128 allocated t:58:6=<250> u:threads:4=<251> t:2:10=<252> t:5:10=<253> u:tmpLogDir:4=<254>
+   0.128 allocated t:15:10=<255> t:19:10=<256>
+   0.127 store: <230>="hg38_chr_20_21_22_merged_copy4	ALL	NOVOALIGN start	1518541759	Align
+hg38_chr_20_21_22_merged_copy4	ALL	NOVOALIGN end	1518542334	Align
+hg38_chr_20_21_22_merged_copy1	ALL	NOVOALIGN start	1518561957	Align
+hg38_chr_20_21_22_merged_copy1	ALL	NOVOALIGN end	1518562528	Align
+hg38_chr_20_21_22_merged_copy3	ALL	NOVOALIGN start	1518561957	Align
+hg38_chr_20_21_22_merged_copy3	ALL	NOVOALIGN end	1518562522	Align
+hg38_chr_20_21_22_merged_copy4_trunc	ALL	NOVOALIGN start	1518561957	Align
+hg38_chr_20_21_22_merged_copy4_trunc	ALL	NOVOALIGN end	1518562315	Align
+hg38_chr_20_21_22_merged_copy2	ALL	NOVOALIGN start	1518561957	Align
+hg38_chr_20_21_22_merged_copy2	ALL	NOVOALIGN end	1518562528	Align
+"
+   0.128 creating reference: <-1>["CORES_PER_NODE"] <- <*252> (string)
+   0.128 creating reference: <-1>["PROGRAMS_PER_NODE"] <- <*253> (string)
+   0.128 store: <163>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/logs/"
+   0.128 store: <164>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/"
+   0.128 creating reference: <-1>["TMPDIR"] <- <*255> (string)
+   0.128 creating reference: <-1>["MARKDUPLICATESTOOL"] <- <*256> (string)
+   0.128 rule: <161> <159> => __entry-async_op-strcat 161 160 250 0 123 {file 257 is_mapped 1} {file 66 is_mapped 1} 159
+   0.128 rule: <252> <253> => __entry-async_op-parse_int-1 252 253 251
+   0.128 rule: <255> => __entry-async_op-strcat-5 255 254
+   0.128 rule: <256> => __entry-async_op-eq_string 161 160 {152.0} 255 256 250 {file 257 is_mapped 1} {file 152 is_mapped 0} 159 251 254
+   0.128 store: <197>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam"
+   0.129 rule: <204> => dedupSortRun-chain1 163 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/ 3 hg38_chr_20_21_22_merged_copy4 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam 123 {file 204 is_mapped 1} {file 66 is_mapped 1}
+   0.129 allocated t:22:9=<258> t:23:9=<259> t:26:9=<260> t:27:9=<261> t:30:8=<262>
+   0.129 allocated t:42:7=<263> t:54:7=<264> t:59:7=<265>
+   0.130 array_kv_build: <265> 1 elems, write_decr 1
+   0.130 array_kv_build: <264> 0 elems, write_decr 1
+   0.130 creating reference: <-1>["SAMBLASTEREXE"] <- <*259> (string)
+   0.130 creating reference: <-1>["SAMTOOLSEXE"] <- <*261> (string)
+   0.130 rule: <159> => __entry-optmerged-5 161 160 152.0 255 259 261 262 263 264 1518740242 {file 268 is_mapped 1} {file 267 is_mapped 1} {file 257 is_mapped 1} {file 152 is_mapped 0} {file 266 is_mapped 1} {file 269 is_mapped 1} 159 {file 270 is_mapped 1} 251 254 {file 273 is_mapped 1} {file 271 is_mapped 1} {file 272 is_mapped 1}
+   0.130 store: <254>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/dedupsortlogs"
+   0.130 store: <229>=1
+   0.130 rule: <161> => __entry-async_op-strcat-6 161 255 262 hg38_chr_20_21_22_merged_copy1 {file 268 is_mapped 1} {file 257 is_mapped 1} {file 266 is_mapped 1} 159 {file 270 is_mapped 1} 251 {file 273 is_mapped 1} {file 272 is_mapped 1}
+   0.131 rule: <254> => __entry-optmerged-6 hg38_chr_20_21_22_merged_copy1 254 {file 273 is_mapped 1} {file 271 is_mapped 1} {file 272 is_mapped 1}
+   0.130 function: samtools_view_logged
+   0.130 rule: <159> => samtools_view_logged-async_op-strcat 1518740242 265 {file 267 is_mapped 1} {file 268 is_mapped 1} 159 261 251 {file 272 is_mapped 1}
+   0.131 rule: <160> => __entry-optmerged-7 160 263 hg38_chr_20_21_22_merged_copy1 {file 269 is_mapped 1} {file 270 is_mapped 1}
+   0.131 rule: <255> => __entry-optmerged-8 152.0 255 259 261 262 263 264 hg38_chr_20_21_22_merged_copy1 {hg38_chr_20_21_22_merged_copy1	ALL	SAMBLASTER start	1518740242	DedupSort
+} {file 267 is_mapped 1} {file 152 is_mapped 0} {file 266 is_mapped 1} {file 269 is_mapped 1} 251 {file 271 is_mapped 1}
+   0.130 rule: <268> <272> => markDuplicates-chain1 255 262 {file 268 is_mapped 1} {file 257 is_mapped 1} {file 266 is_mapped 1} 159 {file 270 is_mapped 1} 251 {file 273 is_mapped 1} {file 272 is_mapped 1}
+   0.131 store: <263>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/logs/hg38_chr_20_21_22_merged_copy1_SamblasterDedup.log"
+   0.130 store: <262>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.noDedup.sam"
+   0.131 rule: <261> <152> <251> => samtools_bam2sam-app-leaf1 152.0 259 261 263 264 hg38_chr_20_21_22_merged_copy1 {hg38_chr_20_21_22_merged_copy1	ALL	SAMBLASTER start	1518740242	DedupSort
+} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.noDedup.sam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.wDedups.sam {file 267 is_mapped 1} {file 152 is_mapped 0} {file 266 is_mapped 1} {file 269 is_mapped 1} 251 {file 271 is_mapped 1}
+   0.131 function: samtools_view
+   0.131 rule: <265> <267> <261> <251> => samtools_view-app-leaf1 {267.0} {268.0} 1 {265} {file 267 is_mapped 1} {file 268 is_mapped 1} {261} {251}
+   0.131 rule: <268> => samtools_view_logged-chain2 hg38_chr_20_21_22_merged_copy1 {hg38_chr_20_21_22_merged_copy1	ALL	SAMTOOLS_VIEW start	1518740242	Align
+} {file 268 is_mapped 1} {file 272 is_mapped 1}
+   0.131 function: exec_check
+   0.131 store: <260>=1
+   0.131 rule: <261> <61> => file_exists-argwait-2 {261} {61}
+   0.131 function: exec_check
+   0.131 store: <258>=1
+   0.131 rule: <259> <52> => file_exists-argwait-2 {259} {52}
+   0.131 assert passed: (The executable: 
+	/projects/bioinformatics/builds/samtools-1.3.1/bin/samtools
+ Referred to by the parameter: 
+	SAMTOOLSEXE is not properly specified in your runfile!)
+   0.131 store: <251>=10
+   0.131 assert passed: (The executable: 
+	/usr/local/apps/bioapps/samblaster/samblaster-v.0.1.24/samblaster
+ Referred to by the parameter: 
+	SAMBLASTEREXE is not properly specified in your runfile!)
+   0.131 function: samtools_view
+   0.131 rule: <220> <222> <216> <198> => samtools_view-app-leaf1 {222.0} {223.0} 1 {220} {file 222 is_mapped 1} {file 223 is_mapped 1} {216} {198}
+   0.131 rule: <223> => samtools_view_logged-chain2 hg38_chr_20_21_22_merged_copy4 {hg38_chr_20_21_22_merged_copy4	ALL	SAMTOOLS_VIEW start	1518740242	Align
+} {file 223 is_mapped 1} {file 227 is_mapped 1}
+   0.131 store: <250>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam"
+   0.132 rule: <257> => dedupSortRun-chain1 160 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/ 0 hg38_chr_20_21_22_merged_copy1 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam 123 {file 257 is_mapped 1} {file 66 is_mapped 1}
+   0.131 exec: __v:samtoolsexe:1 view -h -@ 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.noDedups.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.noDedup.sam}
+   0.132 rule: <164> => __entry-async_op-strcat-6 164 202 217 hg38_chr_20_21_22_merged_copy4 {file 223 is_mapped 1} {file 204 is_mapped 1} {file 221 is_mapped 1} 162 {file 225 is_mapped 1} 198 {file 228 is_mapped 1} {file 227 is_mapped 1}
+   0.132 rule: <201> => __entry-optmerged-6 hg38_chr_20_21_22_merged_copy4 201 {file 228 is_mapped 1} {file 226 is_mapped 1} {file 227 is_mapped 1}
+   0.132 rule: <163> => __entry-optmerged-7 163 218 hg38_chr_20_21_22_merged_copy4 {file 224 is_mapped 1} {file 225 is_mapped 1}
+   0.132 rule: <202> => __entry-optmerged-8 153.0 202 214 216 217 218 219 hg38_chr_20_21_22_merged_copy4 {hg38_chr_20_21_22_merged_copy4	ALL	SAMBLASTER start	1518740242	DedupSort
+} {file 222 is_mapped 1} {file 153 is_mapped 0} {file 221 is_mapped 1} {file 224 is_mapped 1} 198 {file 226 is_mapped 1}
+   0.132 rule: <223> <227> => markDuplicates-chain1 202 217 {file 223 is_mapped 1} {file 204 is_mapped 1} {file 221 is_mapped 1} 162 {file 225 is_mapped 1} 198 {file 228 is_mapped 1} {file 227 is_mapped 1}
+   0.132 store: <217>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.noDedup.sam"
+   0.132 rule: <216> <153> <198> => samtools_bam2sam-app-leaf1 153.0 214 216 218 219 hg38_chr_20_21_22_merged_copy4 {hg38_chr_20_21_22_merged_copy4	ALL	SAMBLASTER start	1518740242	DedupSort
+} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.noDedup.sam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.wDedups.sam {file 222 is_mapped 1} {file 153 is_mapped 0} {file 221 is_mapped 1} {file 224 is_mapped 1} 198 {file 226 is_mapped 1}
+   0.132 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools view -h -@ 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.noDedups.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.noDedup.sam}
+   0.132 store: <218>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/logs/hg38_chr_20_21_22_merged_copy4_SamblasterDedup.log"
+   0.133 exec: __v:samtoolsexe:1 view -h -@ 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.noDedups.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.noDedup.sam}
+   0.133 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools view -h -@ 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.noDedups.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.noDedup.sam}
+  21.800 shell command duration: 21.667
+  21.801 rule: <214> <218> => samblaster_logged-chain1 214 218 hg38_chr_20_21_22_merged_copy4 {hg38_chr_20_21_22_merged_copy4	ALL	SAMBLASTER start	1518740242	DedupSort
+} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.noDedup.sam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.wDedups.sam {file 222 is_mapped 1} {file 221 is_mapped 1} {file 224 is_mapped 1} {file 226 is_mapped 1}
+  21.801 exec: __v:samblasterexe -M -i /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.noDedup.sam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.wDedups.sam stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/logs/hg38_chr_20_21_22_merged_copy4_SamblasterDedup.log}
+  21.802 shell: /usr/local/apps/bioapps/samblaster/samblaster-v.0.1.24/samblaster -M -i /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.noDedup.sam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.wDedups.sam} {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/logs/hg38_chr_20_21_22_merged_copy4_SamblasterDedup.log}
+  22.056 shell command duration: 21.932
+  22.056 rule: <233> <237> => samblaster_logged-chain1 233 237 hg38_chr_20_21_22_merged_copy2 {hg38_chr_20_21_22_merged_copy2	ALL	SAMBLASTER start	1518740242	DedupSort
+} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.noDedup.sam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.wDedups.sam {file 241 is_mapped 1} {file 240 is_mapped 1} {file 243 is_mapped 1} {file 245 is_mapped 1}
+  22.057 exec: __v:samblasterexe -M -i /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.noDedup.sam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.wDedups.sam stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/logs/hg38_chr_20_21_22_merged_copy2_SamblasterDedup.log}
+  22.057 shell: /usr/local/apps/bioapps/samblaster/samblaster-v.0.1.24/samblaster -M -i /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.noDedup.sam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.wDedups.sam} {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/logs/hg38_chr_20_21_22_merged_copy2_SamblasterDedup.log}
+  22.352 shell command duration: 22.220
+  22.352 rule: <259> <263> => samblaster_logged-chain1 259 263 hg38_chr_20_21_22_merged_copy1 {hg38_chr_20_21_22_merged_copy1	ALL	SAMBLASTER start	1518740242	DedupSort
+} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.noDedup.sam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.wDedups.sam {file 267 is_mapped 1} {file 266 is_mapped 1} {file 269 is_mapped 1} {file 271 is_mapped 1}
+  22.353 exec: __v:samblasterexe -M -i /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.noDedup.sam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.wDedups.sam stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/logs/hg38_chr_20_21_22_merged_copy1_SamblasterDedup.log}
+  22.354 shell: /usr/local/apps/bioapps/samblaster/samblaster-v.0.1.24/samblaster -M -i /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.noDedup.sam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.wDedups.sam} {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/logs/hg38_chr_20_21_22_merged_copy1_SamblasterDedup.log}
+  23.487 shell command duration: 23.367
+  23.487 rule: <190> <194> => samblaster_logged-chain1 190 194 hg38_chr_20_21_22_merged_copy3 {hg38_chr_20_21_22_merged_copy3	ALL	SAMBLASTER start	1518740242	DedupSort
+} /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.noDedup.sam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.wDedups.sam {file 206 is_mapped 1} {file 205 is_mapped 1} {file 208 is_mapped 1} {file 210 is_mapped 1}
+  23.487 exec: __v:samblasterexe -M -i /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.noDedup.sam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.wDedups.sam stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/logs/hg38_chr_20_21_22_merged_copy3_SamblasterDedup.log}
+  23.488 shell: /usr/local/apps/bioapps/samblaster/samblaster-v.0.1.24/samblaster -M -i /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.noDedup.sam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.wDedups.sam} {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/logs/hg38_chr_20_21_22_merged_copy3_SamblasterDedup.log}
+  36.921 shell command duration: 15.119
+  36.922 rule: => __entry-call_foreign-write {hg38_chr_20_21_22_merged_copy4	ALL	SAMBLASTER start	1518740242	DedupSort
+hg38_chr_20_21_22_merged_copy4	ALL	SAMBLASTER end	1518740279	DedupSort
+} 226.0 {file 226 is_mapped 1}
+  36.922 exec: __v:samtoolsexe view -@ 10 -bS /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.wDedups.sam -u {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.bam}
+  36.923 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools view -@ 10 -bS /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.wDedups.sam -u {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.bam}
+  37.031 shell command duration: 14.974
+  37.031 rule: => __entry-call_foreign-write {hg38_chr_20_21_22_merged_copy2	ALL	SAMBLASTER start	1518740242	DedupSort
+hg38_chr_20_21_22_merged_copy2	ALL	SAMBLASTER end	1518740279	DedupSort
+} 245.0 {file 245 is_mapped 1}
+  37.035 exec: __v:samtoolsexe view -@ 10 -bS /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.wDedups.sam -u {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.bam}
+  37.036 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools view -@ 10 -bS /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.wDedups.sam -u {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.bam}
+  37.968 shell command duration: 15.614
+  37.968 rule: => __entry-call_foreign-write {hg38_chr_20_21_22_merged_copy1	ALL	SAMBLASTER start	1518740242	DedupSort
+hg38_chr_20_21_22_merged_copy1	ALL	SAMBLASTER end	1518740280	DedupSort
+} 271.0 {file 271 is_mapped 1}
+  37.968 exec: __v:samtoolsexe view -@ 10 -bS /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.wDedups.sam -u {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.bam}
+  37.968 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools view -@ 10 -bS /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.wDedups.sam -u {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.bam}
+  38.178 shell command duration: 14.690
+  38.179 rule: => __entry-call_foreign-write {hg38_chr_20_21_22_merged_copy3	ALL	SAMBLASTER start	1518740242	DedupSort
+hg38_chr_20_21_22_merged_copy3	ALL	SAMBLASTER end	1518740280	DedupSort
+} 210.0 {file 210 is_mapped 1}
+  38.182 exec: __v:samtoolsexe view -@ 10 -bS /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.wDedups.sam -u {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.bam}
+  38.182 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools view -@ 10 -bS /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.wDedups.sam -u {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.bam}
+  68.798 shell command duration: 31.875
+  68.798 rule: => samtools_view_logged-call_foreign-write 1 {hg38_chr_20_21_22_merged_copy4	ALL	SAMTOOLS_VIEW start	1518740242	Align
+hg38_chr_20_21_22_merged_copy4	ALL	SAMTOOLS_VIEW end	1518740310	Align
+} 227.0 {file 227 is_mapped 1}
+  68.801 allocated t:61:7=<274> t:65:7=<275> t:68:7=<276> t:69:7=<277>
+  68.801 array_kv_build: <275> 2 elems, write_decr 1
+  68.801 creating reference: <-1>["NOVOSORTEXE"] <- <*274> (string)
+  68.801 creating reference: <-1>["NOVOSORT_MEMLIMIT"] <- <*277> (string)
+  68.801 rule: <217> <204> <221> <225> <228> => markDuplicates-chain2 217 {file 204 is_mapped 1} {file 221 is_mapped 1} {file 225 is_mapped 1} {file 228 is_mapped 1}
+  68.801 rule: <277> => __entry-async_op-parse_int-2 276 277
+  68.801 function: novosort_logged
+  68.801 rule: <162> => novosort_logged-async_op-strcat 1518740310 {file 223 is_mapped 1} 276 274 {file 225 is_mapped 1} {file 204 is_mapped 1} 162 275 198 202 {file 228 is_mapped 1}
+  68.801 store: <276>=10000000000
+  68.801 rule: <223> <276> <274> <275> <198> <202> => novosort-app-leaf1 223.0 225.0 204.0 1 1 hg38_chr_20_21_22_merged_copy4 {hg38_chr_20_21_22_merged_copy4	ALL	NOVOSORT start	1518740310	DedupSort
+} {file 223 is_mapped 1} 276 274 {file 225 is_mapped 1} {file 204 is_mapped 1} 275 198 202 {file 228 is_mapped 1}
+  68.802 exec: __v:novosortexe --index -m 10000000000 --tmpdir /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp --threads 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.bam -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam --compression 1 {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/logs/hg38_chr_20_21_22_merged_copy4_Sort.log}
+  68.802 shell: /projects/bioinformatics/builds/novocraftV3.04.06.Linux2.6/novosort --index -m 10000000000 --tmpdir /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp --threads 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.bam -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam --compression 1 {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/logs/hg38_chr_20_21_22_merged_copy4_Sort.log}
+  69.415 shell command duration: 31.232
+  69.415 rule: => samtools_view_logged-call_foreign-write 1 {hg38_chr_20_21_22_merged_copy3	ALL	SAMTOOLS_VIEW start	1518740242	Align
+hg38_chr_20_21_22_merged_copy3	ALL	SAMTOOLS_VIEW end	1518740311	Align
+} 211.0 {file 211 is_mapped 1}
+  69.417 allocated t:61:7=<278> t:65:7=<279> t:68:7=<280> t:69:7=<281>
+  69.417 array_kv_build: <279> 2 elems, write_decr 1
+  69.417 creating reference: <-1>["NOVOSORTEXE"] <- <*278> (string)
+  69.417 creating reference: <-1>["NOVOSORT_MEMLIMIT"] <- <*281> (string)
+  69.417 rule: <193> <175> <205> <209> <212> => markDuplicates-chain2 193 {file 175 is_mapped 1} {file 205 is_mapped 1} {file 209 is_mapped 1} {file 212 is_mapped 1}
+  69.417 rule: <281> => __entry-async_op-parse_int-2 280 281
+  69.417 function: novosort_logged
+  69.417 rule: <156> => novosort_logged-async_op-strcat 1518740311 {file 207 is_mapped 1} 280 278 {file 209 is_mapped 1} {file 175 is_mapped 1} 156 279 169 173 {file 212 is_mapped 1}
+  69.417 store: <280>=10000000000
+  69.417 rule: <207> <280> <278> <279> <169> <173> => novosort-app-leaf1 207.0 209.0 175.0 1 1 hg38_chr_20_21_22_merged_copy3 {hg38_chr_20_21_22_merged_copy3	ALL	NOVOSORT start	1518740311	DedupSort
+} {file 207 is_mapped 1} 280 278 {file 209 is_mapped 1} {file 175 is_mapped 1} 279 169 173 {file 212 is_mapped 1}
+  69.418 exec: __v:novosortexe --index -m 10000000000 --tmpdir /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp --threads 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.bam -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam --compression 1 {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/logs/hg38_chr_20_21_22_merged_copy3_Sort.log}
+  69.418 shell: /projects/bioinformatics/builds/novocraftV3.04.06.Linux2.6/novosort --index -m 10000000000 --tmpdir /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp --threads 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.bam -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam --compression 1 {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/logs/hg38_chr_20_21_22_merged_copy3_Sort.log}
+  69.786 shell command duration: 31.818
+  69.786 rule: => samtools_view_logged-call_foreign-write 1 {hg38_chr_20_21_22_merged_copy1	ALL	SAMTOOLS_VIEW start	1518740242	Align
+hg38_chr_20_21_22_merged_copy1	ALL	SAMTOOLS_VIEW end	1518740311	Align
+} 272.0 {file 272 is_mapped 1}
+  69.788 allocated t:61:7=<282> t:65:7=<283> t:68:7=<284> t:69:7=<285>
+  69.789 array_kv_build: <283> 2 elems, write_decr 1
+  69.789 creating reference: <-1>["NOVOSORTEXE"] <- <*282> (string)
+  69.789 creating reference: <-1>["NOVOSORT_MEMLIMIT"] <- <*285> (string)
+  69.789 rule: <262> <257> <266> <270> <273> => markDuplicates-chain2 262 {file 257 is_mapped 1} {file 266 is_mapped 1} {file 270 is_mapped 1} {file 273 is_mapped 1}
+  69.789 rule: <285> => __entry-async_op-parse_int-2 284 285
+  69.789 function: novosort_logged
+  69.789 rule: <159> => novosort_logged-async_op-strcat 1518740311 {file 268 is_mapped 1} 284 282 {file 270 is_mapped 1} {file 257 is_mapped 1} 159 283 251 255 {file 273 is_mapped 1}
+  69.789 store: <284>=10000000000
+  69.789 rule: <268> <284> <282> <283> <251> <255> => novosort-app-leaf1 268.0 270.0 257.0 1 1 hg38_chr_20_21_22_merged_copy1 {hg38_chr_20_21_22_merged_copy1	ALL	NOVOSORT start	1518740311	DedupSort
+} {file 268 is_mapped 1} 284 282 {file 270 is_mapped 1} {file 257 is_mapped 1} 283 251 255 {file 273 is_mapped 1}
+  69.789 exec: __v:novosortexe --index -m 10000000000 --tmpdir /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp --threads 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.bam -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam --compression 1 {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/logs/hg38_chr_20_21_22_merged_copy1_Sort.log}
+  69.789 shell: /projects/bioinformatics/builds/novocraftV3.04.06.Linux2.6/novosort --index -m 10000000000 --tmpdir /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp --threads 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.bam -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam --compression 1 {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/logs/hg38_chr_20_21_22_merged_copy1_Sort.log}
+  70.949 shell command duration: 33.913
+  70.950 rule: => samtools_view_logged-call_foreign-write 1 {hg38_chr_20_21_22_merged_copy2	ALL	SAMTOOLS_VIEW start	1518740242	Align
+hg38_chr_20_21_22_merged_copy2	ALL	SAMTOOLS_VIEW end	1518740313	Align
+} 246.0 {file 246 is_mapped 1}
+  70.952 allocated t:61:7=<286> t:65:7=<287> t:68:7=<288> t:69:7=<289>
+  70.952 array_kv_build: <287> 2 elems, write_decr 1
+  70.952 creating reference: <-1>["NOVOSORTEXE"] <- <*286> (string)
+  70.952 creating reference: <-1>["NOVOSORT_MEMLIMIT"] <- <*289> (string)
+  70.953 rule: <236> <186> <240> <244> <247> => markDuplicates-chain2 236 {file 186 is_mapped 1} {file 240 is_mapped 1} {file 244 is_mapped 1} {file 247 is_mapped 1}
+  70.953 rule: <289> => __entry-async_op-parse_int-2 288 289
+  70.953 function: novosort_logged
+  70.953 rule: <165> => novosort_logged-async_op-strcat 1518740313 {file 242 is_mapped 1} 288 286 {file 244 is_mapped 1} {file 186 is_mapped 1} 165 287 180 184 {file 247 is_mapped 1}
+  70.953 store: <288>=10000000000
+  70.953 rule: <242> <288> <286> <287> <180> <184> => novosort-app-leaf1 242.0 244.0 186.0 1 1 hg38_chr_20_21_22_merged_copy2 {hg38_chr_20_21_22_merged_copy2	ALL	NOVOSORT start	1518740313	DedupSort
+} {file 242 is_mapped 1} 288 286 {file 244 is_mapped 1} {file 186 is_mapped 1} 287 180 184 {file 247 is_mapped 1}
+  70.954 exec: __v:novosortexe --index -m 10000000000 --tmpdir /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp --threads 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.bam -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam --compression 1 {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/logs/hg38_chr_20_21_22_merged_copy2_Sort.log}
+  70.954 shell: /projects/bioinformatics/builds/novocraftV3.04.06.Linux2.6/novosort --index -m 10000000000 --tmpdir /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp --threads 10 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.bam -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam --compression 1 {stderr /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/logs/hg38_chr_20_21_22_merged_copy2_Sort.log}
+  88.759 shell command duration: 19.956
+  88.759 rule: => novosort_logged-call_foreign-write 1 {hg38_chr_20_21_22_merged_copy4	ALL	NOVOSORT start	1518740310	DedupSort
+hg38_chr_20_21_22_merged_copy4	ALL	NOVOSORT end	1518740330	DedupSort
+} 228.0 {file 228 is_mapped 1}
+  88.759 allocated t:60:6=<290>
+  88.759 rule: <204> => f:checkBam 290 -1 {file 204 is_mapped 1}
+  88.759 rule: <290> => dedupSortRun-if2 163 290 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/ 3 hg38_chr_20_21_22_merged_copy4 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam 123 {file 204 is_mapped 1} {file 66 is_mapped 1}
+  88.766 function: checkBam
+  88.766 allocated t:1=<291>
+  88.766 creating reference: <-1>["SAMTOOLSEXE"] <- <*291> (string)
+  88.766 rule: <291> => samtools_view2-argwait 291 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam 290
+  88.766 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.noDedup.sam {}
+  88.766 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy4.noDedup.sam 
+  88.771 shell command duration: 0.005
+  89.803 shell command duration: 20.385
+  89.803 rule: => novosort_logged-call_foreign-write 1 {hg38_chr_20_21_22_merged_copy3	ALL	NOVOSORT start	1518740311	DedupSort
+hg38_chr_20_21_22_merged_copy3	ALL	NOVOSORT end	1518740331	DedupSort
+} 212.0 {file 212 is_mapped 1}
+  89.803 allocated t:60:6=<292>
+  89.803 rule: <175> => f:checkBam 292 -1 {file 175 is_mapped 1}
+  89.803 rule: <292> => dedupSortRun-if2 157 292 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/ 2 hg38_chr_20_21_22_merged_copy3 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam 123 {file 175 is_mapped 1} {file 66 is_mapped 1}
+  89.806 function: checkBam
+  89.806 allocated t:1=<293>
+  89.806 creating reference: <-1>["SAMTOOLSEXE"] <- <*293> (string)
+  89.806 rule: <293> => samtools_view2-argwait 293 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam 292
+  89.806 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.noDedup.sam {}
+  89.806 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy3.noDedup.sam 
+  89.815 shell command duration: 0.009
+  91.783 shell command duration: 20.829
+  91.783 rule: => novosort_logged-call_foreign-write 1 {hg38_chr_20_21_22_merged_copy2	ALL	NOVOSORT start	1518740313	DedupSort
+hg38_chr_20_21_22_merged_copy2	ALL	NOVOSORT end	1518740333	DedupSort
+} 247.0 {file 247 is_mapped 1}
+  91.783 allocated t:60:6=<294>
+  91.783 rule: <186> => f:checkBam 294 -1 {file 186 is_mapped 1}
+  91.784 rule: <294> => dedupSortRun-if2 166 294 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/ 1 hg38_chr_20_21_22_merged_copy2 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam 123 {file 186 is_mapped 1} {file 66 is_mapped 1}
+  91.786 function: checkBam
+  91.786 allocated t:1=<295>
+  91.787 creating reference: <-1>["SAMTOOLSEXE"] <- <*295> (string)
+  91.787 rule: <295> => samtools_view2-argwait 295 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam 294
+  91.787 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.noDedup.sam {}
+  91.787 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy2.noDedup.sam 
+  91.793 shell command duration: 0.006
+  91.845 shell command duration: 22.056
+  91.845 rule: => novosort_logged-call_foreign-write 1 {hg38_chr_20_21_22_merged_copy1	ALL	NOVOSORT start	1518740311	DedupSort
+hg38_chr_20_21_22_merged_copy1	ALL	NOVOSORT end	1518740333	DedupSort
+} 273.0 {file 273 is_mapped 1}
+  91.846 allocated t:60:6=<296>
+  91.846 rule: <257> => f:checkBam 296 -1 {file 257 is_mapped 1}
+  91.846 rule: <296> => dedupSortRun-if2 160 296 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/ 0 hg38_chr_20_21_22_merged_copy1 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam 123 {file 257 is_mapped 1} {file 66 is_mapped 1}
+  91.849 function: checkBam
+  91.849 allocated t:1=<297>
+  91.849 creating reference: <-1>["SAMTOOLSEXE"] <- <*297> (string)
+  91.849 rule: <297> => samtools_view2-argwait 297 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam 296
+  91.849 exec: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.noDedup.sam {}
+  91.849 shell: rm /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/align/hg38_chr_20_21_22_merged_copy1.noDedup.sam 
+  91.857 shell command duration: 0.008
+ 105.191 store: <290>=1
+ 105.192 allocated t:64:6=<298> u:stat=<299> t:66:6=<300> t:69:6=<301> t:72:6=<302>
+ 105.192 allocated u:perc_mapped=<303> t:79:6=<304> u:cutoff_info=<305> t:85:6=<306> t:89:6=<307>
+ 105.192 allocated t:93:6=<308> t:96:6=<309> t:97:6=<310>
+ 105.192 creating reference: <-1>["SAMTOOLSEXE"] <- <*298> (string)
+ 105.192 creating reference: <-1>["DUP_CUTOFF"] <- <*306> (string)
+ 105.192 creating reference: <-1>["MAP_CUTOFF"] <- <*307> (string)
+ 105.192 rule: => __entry-call_foreign-split {299.4} 300
+ 105.192 rule: => __entry-call_foreign-split-1 {299.0} 301
+ 105.192 rule: => __entry-call_foreign-split-2 {299.3} 302
+ 105.192 rule: => __entry-async_op-parse_float 302.0 301.0 304 306 307 308 309 310 3 hg38_chr_20_21_22_merged_copy4 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam 305 123 {file 204 is_mapped 1} {file 66 is_mapped 1} 303
+ 105.192 rule: => __entry-async_op-parse_float-2 {300.0} 304
+ 105.192 rule: <306> => __entry-async_op-parse_float-3 306 308
+ 105.192 rule: <307> => __entry-async_op-parse_float-4 307 310
+ 105.192 rule: <298> => samtools_flagstat-app-leaf1 298 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam.flagstats {file 204 is_mapped 1} {file 311 is_mapped 1} 299
+ 105.193 store: <308>=5
+ 105.193 exec: __v:samtoolsexe flagstat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam.flagstats}
+ 105.193 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools flagstat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam.flagstats}
+ 106.102 store: <292>=1
+ 106.102 store: <310>=80
+ 106.103 allocated t:64:6=<312> u:stat=<313> t:66:6=<314> t:69:6=<315> t:72:6=<316>
+ 106.103 allocated u:perc_mapped=<317> t:79:6=<318> u:cutoff_info=<319> t:85:6=<320> t:89:6=<321>
+ 106.103 allocated t:93:6=<322> t:96:6=<323> t:97:6=<324>
+ 106.103 creating reference: <-1>["SAMTOOLSEXE"] <- <*312> (string)
+ 106.103 creating reference: <-1>["DUP_CUTOFF"] <- <*320> (string)
+ 106.103 creating reference: <-1>["MAP_CUTOFF"] <- <*321> (string)
+ 106.103 rule: => __entry-call_foreign-split {313.4} 314
+ 106.103 rule: => __entry-call_foreign-split-1 {313.0} 315
+ 106.103 rule: => __entry-call_foreign-split-2 {313.3} 316
+ 106.103 rule: => __entry-async_op-parse_float 316.0 315.0 318 320 321 322 323 324 2 hg38_chr_20_21_22_merged_copy3 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam 319 123 {file 175 is_mapped 1} {file 66 is_mapped 1} 317
+ 106.103 rule: => __entry-async_op-parse_float-2 {314.0} 318
+ 106.103 rule: <320> => __entry-async_op-parse_float-3 320 322
+ 106.103 rule: <321> => __entry-async_op-parse_float-4 321 324
+ 106.103 rule: <312> => samtools_flagstat-app-leaf1 312 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam.flagstats {file 175 is_mapped 1} {file 325 is_mapped 1} 313
+ 106.103 store: <322>=5
+ 106.103 exec: __v:samtoolsexe flagstat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam.flagstats}
+ 106.103 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools flagstat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam.flagstats}
+ 107.993 store: <294>=1
+ 107.993 store: <324>=80
+ 107.994 allocated t:64:6=<326> u:stat=<327> t:66:6=<328> t:69:6=<329> t:72:6=<330>
+ 107.994 allocated u:perc_mapped=<331> t:79:6=<332> u:cutoff_info=<333> t:85:6=<334> t:89:6=<335>
+ 107.994 allocated t:93:6=<336> t:96:6=<337> t:97:6=<338>
+ 107.994 creating reference: <-1>["SAMTOOLSEXE"] <- <*326> (string)
+ 107.994 creating reference: <-1>["DUP_CUTOFF"] <- <*334> (string)
+ 107.994 creating reference: <-1>["MAP_CUTOFF"] <- <*335> (string)
+ 107.994 rule: => __entry-call_foreign-split {327.4} 328
+ 107.994 rule: => __entry-call_foreign-split-1 {327.0} 329
+ 107.994 rule: => __entry-call_foreign-split-2 {327.3} 330
+ 107.995 rule: => __entry-async_op-parse_float 330.0 329.0 332 334 335 336 337 338 1 hg38_chr_20_21_22_merged_copy2 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam 333 123 {file 186 is_mapped 1} {file 66 is_mapped 1} 331
+ 107.995 rule: => __entry-async_op-parse_float-2 {328.0} 332
+ 107.995 rule: <334> => __entry-async_op-parse_float-3 334 336
+ 107.995 rule: <335> => __entry-async_op-parse_float-4 335 338
+ 107.995 rule: <326> => samtools_flagstat-app-leaf1 326 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam.flagstats {file 186 is_mapped 1} {file 339 is_mapped 1} 327
+ 107.995 store: <336>=5
+ 107.995 exec: __v:samtoolsexe flagstat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam.flagstats}
+ 107.995 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools flagstat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam.flagstats}
+ 108.106 store: <296>=1
+ 108.106 store: <338>=80
+ 108.107 allocated t:64:6=<340> u:stat=<341> t:66:6=<342> t:69:6=<343> t:72:6=<344>
+ 108.107 allocated u:perc_mapped=<345> t:79:6=<346> u:cutoff_info=<347> t:85:6=<348> t:89:6=<349>
+ 108.107 allocated t:93:6=<350> t:96:6=<351> t:97:6=<352>
+ 108.107 creating reference: <-1>["SAMTOOLSEXE"] <- <*340> (string)
+ 108.107 creating reference: <-1>["DUP_CUTOFF"] <- <*348> (string)
+ 108.107 creating reference: <-1>["MAP_CUTOFF"] <- <*349> (string)
+ 108.107 rule: => __entry-call_foreign-split {341.4} 342
+ 108.107 rule: => __entry-call_foreign-split-1 {341.0} 343
+ 108.107 rule: => __entry-call_foreign-split-2 {341.3} 344
+ 108.107 rule: => __entry-async_op-parse_float 344.0 343.0 346 348 349 350 351 352 0 hg38_chr_20_21_22_merged_copy1 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam 347 123 {file 257 is_mapped 1} {file 66 is_mapped 1} 345
+ 108.107 rule: => __entry-async_op-parse_float-2 {342.0} 346
+ 108.107 rule: <348> => __entry-async_op-parse_float-3 348 350
+ 108.107 rule: <349> => __entry-async_op-parse_float-4 349 352
+ 108.107 rule: <340> => samtools_flagstat-app-leaf1 340 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam.flagstats {file 257 is_mapped 1} {file 353 is_mapped 1} 341
+ 108.107 store: <350>=5
+ 108.107 exec: __v:samtoolsexe flagstat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam.flagstats}
+ 108.107 shell: /projects/bioinformatics/builds/samtools-1.3.1/bin/samtools flagstat /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam {stdout /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam.flagstats}
+ 121.582 shell command duration: 16.389
+ 121.582 build_rec: <299>
+ 121.583 store: <352>=80
+ 121.583 build_rec: <302>
+ 121.583 build_rec: <300>
+ 121.583 build_rec: <301>
+ 121.633 store: <304>=1334161400.0
+ 121.633 rule: <304> => __entry-async_op-div_float 304 309 310 13945184 303
+ 121.633 rule: => __entry-async_op-parse_float-1 302.0 306 307 308 309 3 hg38_chr_20_21_22_merged_copy4 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam 13945184 305 123 {file 204 is_mapped 1} {file 66 is_mapped 1} 303
+ 121.634 store: <303>=95.67183910947321
+ 121.634 rule: <310> => __entry-async_op-gt_float 309 310 95.67183910947321
+ 121.634 rule: <306> <307> <303> => __entry-async_op-strcat-1 306 307 0.02392223723975245 hg38_chr_20_21_22_merged_copy4 305 303
+ 121.634 rule: <308> <309> => __entry-async_op-lt_float 308 309 3 0.02392223723975245 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy4/align/hg38_chr_20_21_22_merged_copy4.wDedups.sorted.bam 305 123 {file 204 is_mapped 1} {file 66 is_mapped 1}
+ 121.634 store: <309>=1
+ 121.634 store: <305>="hg38_chr_20_21_22_merged_copy4	PercentDuplication=0.02392223723975245;DuplicationCutoff=5	PercentMapped=95.67183910947321;MappingCutoff=80"
+ 121.635 insert: <123>["3"]=<file 204 is_mapped 1>
+ 121.635 rule: <305> => __entry-async_op-strcat-2 305
+QC-Test SUCCESS: hg38_chr_20_21_22_merged_copy4	PercentDuplication=0.02392223723975245;DuplicationCutoff=5	PercentMapped=95.67183910947321;MappingCutoff=80
+ 122.550 shell command duration: 16.446
+ 122.550 build_rec: <313>
+ 122.551 build_rec: <314>
+ 122.551 build_rec: <315>
+ 122.551 build_rec: <316>
+ 122.551 rule: <318> => __entry-async_op-div_float 318 323 324 13945184 317
+ 122.551 rule: => __entry-async_op-parse_float-1 316.0 320 321 322 323 2 hg38_chr_20_21_22_merged_copy3 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam 13945184 319 123 {file 175 is_mapped 1} {file 66 is_mapped 1} 317
+ 122.551 rule: <320> <321> <317> => __entry-async_op-strcat-1 320 321 0.02392223723975245 hg38_chr_20_21_22_merged_copy3 319 317
+ 122.551 rule: <322> <323> => __entry-async_op-lt_float 322 323 2 0.02392223723975245 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy3/align/hg38_chr_20_21_22_merged_copy3.wDedups.sorted.bam 319 123 {file 175 is_mapped 1} {file 66 is_mapped 1}
+ 122.553 store: <318>=1334161400.0
+ 122.553 store: <317>=95.67183910947321
+ 122.553 rule: <324> => __entry-async_op-gt_float 323 324 95.67183910947321
+ 122.553 store: <323>=1
+ 122.553 store: <319>="hg38_chr_20_21_22_merged_copy3	PercentDuplication=0.02392223723975245;DuplicationCutoff=5	PercentMapped=95.67183910947321;MappingCutoff=80"
+ 122.554 insert: <123>["2"]=<file 175 is_mapped 1>
+QC-Test SUCCESS: hg38_chr_20_21_22_merged_copy3	PercentDuplication=0.02392223723975245;DuplicationCutoff=5	PercentMapped=95.67183910947321;MappingCutoff=80
+ 122.554 rule: <319> => __entry-async_op-strcat-2 319
+ 124.363 shell command duration: 16.256
+ 124.364 build_rec: <341>
+ 124.364 build_rec: <343>
+ 124.364 rule: <346> => __entry-async_op-div_float 346 351 352 13945184 345
+ 124.364 build_rec: <344>
+ 124.364 rule: => __entry-async_op-parse_float-1 344.0 348 349 350 351 0 hg38_chr_20_21_22_merged_copy1 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam 13945184 347 123 {file 257 is_mapped 1} {file 66 is_mapped 1} 345
+ 124.364 build_rec: <342>
+ 124.364 store: <346>=1334161400.0
+ 124.364 rule: <348> <349> <345> => __entry-async_op-strcat-1 348 349 0.02392223723975245 hg38_chr_20_21_22_merged_copy1 347 345
+ 124.364 rule: <350> <351> => __entry-async_op-lt_float 350 351 0 0.02392223723975245 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy1/align/hg38_chr_20_21_22_merged_copy1.wDedups.sorted.bam 347 123 {file 257 is_mapped 1} {file 66 is_mapped 1}
+ 124.365 store: <345>=95.67183910947321
+ 124.365 store: <347>="hg38_chr_20_21_22_merged_copy1	PercentDuplication=0.02392223723975245;DuplicationCutoff=5	PercentMapped=95.67183910947321;MappingCutoff=80"
+ 124.365 rule: <352> => __entry-async_op-gt_float 351 352 95.67183910947321
+ 124.365 store: <351>=1
+ 124.365 insert: <123>["0"]=<file 257 is_mapped 1>
+ 124.365 rule: <347> => __entry-async_op-strcat-2 347
+QC-Test SUCCESS: hg38_chr_20_21_22_merged_copy1	PercentDuplication=0.02392223723975245;DuplicationCutoff=5	PercentMapped=95.67183910947321;MappingCutoff=80
+ 124.549 shell command duration: 16.554
+ 124.550 build_rec: <327>
+ 124.550 build_rec: <328>
+ 124.550 build_rec: <329>
+ 124.551 store: <332>=1334161400.0
+ 124.551 build_rec: <330>
+ 124.551 rule: <332> => __entry-async_op-div_float 332 337 338 13945184 331
+ 124.551 rule: => __entry-async_op-parse_float-1 330.0 334 335 336 337 1 hg38_chr_20_21_22_merged_copy2 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam 13945184 333 123 {file 186 is_mapped 1} {file 66 is_mapped 1} 331
+ 124.551 store: <331>=95.67183910947321
+ 124.551 rule: <338> => __entry-async_op-gt_float 337 338 95.67183910947321
+ 124.551 rule: <334> <335> <331> => __entry-async_op-strcat-1 334 335 0.02392223723975245 hg38_chr_20_21_22_merged_copy2 333 331
+ 124.551 rule: <336> <337> => __entry-async_op-lt_float 336 337 1 0.02392223723975245 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/3b_outputs/hg38_chr_20_21_22_merged_copy2/align/hg38_chr_20_21_22_merged_copy2.wDedups.sorted.bam 333 123 {file 186 is_mapped 1} {file 66 is_mapped 1}
+ 124.551 store: <337>=1
+ 124.551 insert: <123>["1"]=<file 186 is_mapped 1>
+ 124.551 rule: <333> => __entry-async_op-strcat-2 333
+ 124.551 store: <333>="hg38_chr_20_21_22_merged_copy2	PercentDuplication=0.02392223723975245;DuplicationCutoff=5	PercentMapped=95.67183910947321;MappingCutoff=80"
+ 124.551 allocated t:98=<354>
+ 124.551 assert passed: (FAILURE: The dedupped and sorted bam array was empty: none of the samples finished properly)
+ 124.551 creating reference: <-1>["TMPDIR"] <- <*354> (string)
+QC-Test SUCCESS: hg38_chr_20_21_22_merged_copy2	PercentDuplication=0.02392223723975245;DuplicationCutoff=5	PercentMapped=95.67183910947321;MappingCutoff=80
+ 124.551 function: logging
+ 124.551 allocated u:tmplogs=<355> t:1=<356>
+ 124.551 rule: <356> => glob_body 355 356
+ 124.551 rule: <354> <34> => logging-async_op-strcat 356 {354} {34}
+ 124.551 rule: <355> => logging-call_foreign-size {file 65 is_mapped 1} 355
+ 124.552 store: <356>="/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/dedupsortlogs/*"
+ 124.553 glob: /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp/timinglogs/dedupsortlogs/*
+ 124.681 turbine finalizing
+ 124.682 turbine finalizing
+ 124.681 turbine finalizing
+ 124.682 turbine finalizing
+ 124.714 turbine finalizing

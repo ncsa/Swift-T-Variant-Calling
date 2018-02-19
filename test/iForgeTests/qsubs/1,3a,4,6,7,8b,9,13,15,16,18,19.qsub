@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -N swift_variant_calling
+#PBS -l nodes=2:ppn=2,walltime=2:00:00
+#PBS -M mkendzi2@illinois.edu
+#PBS -m bae
+#PBS -S /bin/bash
+#PBS -A aaa
+#PBS -q big_mem
+
+
+module load /usr/local/apps/bioapps/modules/swift-t/swift-t-1.1
+
+export TURBINE_LOG=1
+export SWIFT_TMP=/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/temp
+
+swift-t -O3 -o /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs/compiled_output_file.tic -I /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/src/ -r /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/src/bioapps -n 5 /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/runfiles/1,3a,4,6,7,8b,9,13,15,16,18,19.runfile &> /projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/Swift-T-Variant-Calling/test/iForgeTests/logs/swifttest_1,3a,4,6,7,8b,9,13,15,16,18,19.eo
+

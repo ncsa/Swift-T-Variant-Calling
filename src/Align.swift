@@ -65,7 +65,7 @@ import generalfunctions.general;
 	// Log file
 	string LogDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/logs/");
 	file alignedLog < strcat(LogDir, sampleName, "_Alignment.log") >;
-	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
+	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/alignlogs/");         // This tmp log path is align specific
  	file tmpalignedLog < strcat(tmpLogDir, sampleName, "_Alignment.log")>;
 	
 	if (vars["PAIRED"] == "1" ||
@@ -207,8 +207,11 @@ import generalfunctions.general;
 			}
 
 			int threads = string2int(vars["CORES_PER_NODE"]) %/ string2int(vars["PROGRAMS_PER_NODE"]);
-			alignedbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"], alignedsam, threads, ["-u"], sampleName);
-	
+			alignedbam, tmpsamtoolsLog = samtools_view_logged(vars["SAMTOOLSEXE"], alignedsam, threads, ["-u"], sampleName) =>
+
+			// Delete the temporary sam as it is not needed after the bam is created
+			rm(alignedsam);
+
 			// Verify alignment was successful
 			if ( checkBam(vars, alignedbam) ) {	
 				

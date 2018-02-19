@@ -102,7 +102,7 @@ import bioappsLoggingFunctions.merge_vcf_logging;
 						 "/logs/", sampleName, "_CombineGVCFs.log"
 						) >;
 
-			string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
+			string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/combinelogs/"); // Path is stage specific
 			file tmpcombineLog < strcat(tmpLogDir, sampleName, ".", chr, "_CombineGVCFs.log") > ; 
 	
 			gvcfSample, combineLog, tmpcombineLog = CombineGVCFs_logged (vars["JAVAEXE"],

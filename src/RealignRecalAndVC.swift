@@ -120,7 +120,7 @@ Realignment
 	file targetLog < strcat(logPrefix, "_RealignTargetCreator.log") >;				 
 	file realignLog < strcat(logPrefix, "_IndelRealigner.log") >;
 
-	string tmpLogDir = strcat(var["TMPDIR"], "/timinglogs/" );
+	string tmpLogDir = strcat(var["TMPDIR"], "/timinglogs/vclogs/" );   // path is stage specific
 	file tmptargetLog < strcat(tmpLogDir, sampleName, ".", chr, "_RealignTargetCreator.log")>;
 	file tmprealignLog < strcat(tmpLogDir, sampleName, ".", chr, "_IndelRealigner.log")>;
 
@@ -169,7 +169,7 @@ Recalibration
 	file printLog < strcat(logPrefix, "_PrintReads.log") >;
 	file report < strcat(prefix, ".recal_report.grp") >;
 
-	string tmpLogDir = strcat(var["TMPDIR"], "/timinglogs/" );
+	string tmpLogDir = strcat(var["TMPDIR"], "/timinglogs/vclogs/" ); // Path is stage specific
 	file tmprecalLog < strcat(tmpLogDir, sampleName, ".", chr, "_BaseRecalibrator.log")>;
 	file tmpprintLog < strcat(tmpLogDir, sampleName, ".", chr, "_PrintReads.log")>;
   
@@ -256,7 +256,7 @@ VariantCalling (for split chromosome path)
 	// Log file
 	file haploLog < strcat(LogDir, sampleName, ".", chr, "_HaplotypeCaller.log") >;
 
-	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
+	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/vclogs/" );  // Path is stage specific
 	file tmphaploLog < strcat(tmpLogDir, sampleName, ".", chr, "_HaplotypeCaller.log")>;
 
 	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged(vars["JAVAEXE"],
@@ -282,7 +282,7 @@ VariantCalling (for split chromosome path)
 	// Log file
 	file haploLog < strcat(LogDir, sampleName, "_HaplotypeCaller.log") >;
 
-	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
+	string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/vclogs/" );  // Path is stage specific
 	file tmphaploLog < strcat(tmpLogDir, sampleName, "_HaplotypeCaller.log")>;
 
 	outVCF, haploLog, tmphaploLog = HaplotypeCaller_logged(vars["JAVAEXE"],
@@ -395,9 +395,9 @@ VariantCalling (for split chromosome path)
 			    vars["VC_STAGE"] == "END"
 			   ) {
 				// Input files will have names in the form 'prefix.chrA.bam'
-        // This will grab the chr name from the first sample in that chromosome list
-       	string base = basename_string(filename(chrSet[sampleIndex]));
-        string trimmed = substring(base, 0, strlen(base) - 4);  // gets rid of 'bam' extension
+ 			       // This will grab the chr name from the first sample in that chromosome list
+       				string base = basename_string(filename(chrSet[sampleIndex]));
+        			string trimmed = substring(base, 0, strlen(base) - 4);  // gets rid of 'bam' extension
 				string pieces[] = split(trimmed, ".");          // Splits the string by '.'
 				string chr = pieces[size(pieces) - 1];// Grabs the last part: the chromosome name
 
@@ -451,11 +451,11 @@ VariantCalling (for split chromosome path)
 			else {
 
 				// Input files will have names in the form 'prefix.chrA.bam'                               
-        // This will grab the chr name from the first sample in that chromosome list               
-        string base = basename_string(filename(chrSet[sampleIndex]));                              
-        string trimmed = substring(base, 0, strlen(base) - 4);  // gets rid of 'bam' extension  
-        string pieces[] = split(trimmed, ".");          // Splits the string by '.'                
-        string chr = pieces[size(pieces) - 1];// Grabs the last part: the chromosome name
+        			// This will grab the chr name from the first sample in that chromosome list               
+        			string base = basename_string(filename(chrSet[sampleIndex]));                              
+        			string trimmed = substring(base, 0, strlen(base) - 4);  // gets rid of 'bam' extension  
+        			string pieces[] = split(trimmed, ".");          // Splits the string by '.'                
+        			string chr = pieces[size(pieces) - 1];// Grabs the last part: the chromosome name
 
 				/************************
 			 	 Gather the output files
