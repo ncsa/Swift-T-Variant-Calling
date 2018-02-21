@@ -40,7 +40,7 @@ shinyServer(function(input, output, session) {
     inFile <- input$logfile
     if (is.null(inFile))
       return(NULL)
-    readr::read_tsv(inFile$datapath)
+    readr::read_tsv(inFile$datapath) %>% unique()
   })
   
   dataInput <- eventReactive (input$logfile, {
