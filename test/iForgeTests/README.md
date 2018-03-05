@@ -57,8 +57,18 @@ The output and reference files used for each run are currently too big to put on
 `/projects/bioinformatics/HudsonSoybeanProject/swift_T_variant_calling_updated/testing_outputs`.
 
 ## Tests performed successfully
-* 1,4,6,7,8b,9,13,15,16,18,19
-* 2,5,8c,10,14,16
+* 1,3a,4,6,7,8b,9,13,15,16,18,19
+* 11
+* 12
+* 17a
+* 17b
+* 17c
+* 17d
+* 17e
+* 2,5,8c,10,14
+* 3b
+
+
 
 
 
