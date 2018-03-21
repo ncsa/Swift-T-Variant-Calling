@@ -129,11 +129,26 @@ import generalfunctions.general;
 	foreach sample, index in lines {
 		/*****
 		Parse sample specific information and construct RG header
+		
+		MGC CHANGE
+		Each sample has specific Library, Platform, PU (flow cell)
+		LB - Library
+		PU - Flow cell.lane
+		
+		New sampleInfo File must contain the following columns (separated by a space)
+		sampleName read1 read2 library flowCell lane
+		
 		*****/
 		string sampleInfo[] = split(sample, " ");
 		string sampleName = sampleInfo[0];
+		
+		string sampleLibrary = sampleInfo[3];
+		string sampleFlowCell = sampleInfo[4];
+		string sampleLane = sampleInfo[5];
+		string PU = strcat(sampleFlowCell, ".", sampleLane);
+		
 		string rgheader = sprintf("@RG\\tID:%s\\tLB:%s\\tPL:%s\\tPU:%s\\tSM:%s\\tCN:%s", sampleName,
-					  vars["SAMPLELB"], vars["SAMPLEPL"], sampleName, sampleName, vars["SAMPLECN"] 
+					  sampleLibrary, vars["SAMPLEPL"], PU, sampleName, vars["SAMPLECN"] 
 					 );
 
 		/****************************************************************************
