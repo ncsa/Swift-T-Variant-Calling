@@ -5,7 +5,8 @@
 SampleInfo file format has changed. 
 
 New sampleInfo File must contain the following columns (separated by a space)
-sampleName read1 read2 library flowCell lane
+
+`sampleName read1 read2 library flowCell lane`
 
 
 # Variant Calling with Swift-T
