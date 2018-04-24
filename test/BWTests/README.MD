@@ -37,6 +37,8 @@ After this was fixed, Jacob tested runs with different programs marking duplicat
 
 The run with 100 nodes that finished successfully was the run where there was 1 sample per node and novosort was used to mark duplicates.
 
+Note, after removing the duplicates in the previous sampleinfo file, this test actually operated on 98 samples instead of 100
+
 ## 601 Nodes
 
 (All of the runs below used novosort to mark duplicates, as that was the tool that worked successfully in the 110 node tests)
