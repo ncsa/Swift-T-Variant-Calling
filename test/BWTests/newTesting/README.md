@@ -4,6 +4,10 @@ Testing on BW lacked organization, and after moving on for months, it was hard t
 
 Now, Jacob is trying to replicate the errors and successes of our previous experimentation, and he will keep the records here.
 
+## Background on running on BW
+
+On Blue waters, on each test, I use a starter sh script to make the call to Swift/T, which generates a qsub. But this qsub is missing some info that must be added manually. I kill the original submitted qsub and add the following
+
 ## 2 Node Test
 
 **Note that even though the test is named 2 Node Test, it actually uses 3 nodes, as one extra is needed for Swift/T itself**
