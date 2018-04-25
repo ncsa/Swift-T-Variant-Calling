@@ -7,3 +7,23 @@ Now, Jacob is trying to replicate the errors and successes of our previous exper
 ## 2 Node Test
 
 **Note that even though the test is named 2 Node Test, it actually uses 3 nodes, as one extra is needed for Swift/T itself**
+
+### 2 Node Test (2 samples per node)
+
+/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/newTesting/2Nodes
+
+#### Background
+
+This test appears to have always failed before. Going to replicate the error if possible.
+
+In the 2Node.2samplesPerNode.sh file:
+
+```
+PPN=2 # this will make Swift/T run with 2 samples on each node
+NODES=3
+PROCS=$((PPN * NODES)) # This is the value directly passed to Swift/T's -n flag
+```
+
+This test is running on 4 samples
+
+#### Result
