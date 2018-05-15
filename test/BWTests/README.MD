@@ -2,7 +2,7 @@ To get the details on the testing on Blue Waters, look at the summary.txt files 
 
 # Summary of Results as of April 23rd, 2018
 
-Between October and December of 2017, Jacob was able to get successful runs of the pipeline on up to 100 samples using over 110 nodes. We attempted to analyze 600 samples on 601 nodes, but it never succeeded.
+Between October and December of 2017, Jacob was able to get successful runs of the pipeline on up to 100 samples using 110 nodes. We attempted to analyze 600 samples on 601 nodes, but it never succeeded.
 
 Here is a summary of the October-December tests:
 
@@ -37,6 +37,8 @@ After this was fixed, Jacob tested runs with different programs marking duplicat
 
 The run with 100 nodes that finished successfully was the run where there was 1 sample per node and novosort was used to mark duplicates.
 
+Note, after removing the duplicates in the previous sampleinfo file, this test actually operated on 98 samples instead of 100
+
 ## 601 Nodes
 
 (All of the runs below used novosort to mark duplicates, as that was the tool that worked successfully in the 110 node tests)
@@ -53,6 +55,7 @@ When inspected, GATK complains that Haplotype Caller does not have enough heap m
 (This is an example of the same type of error message, not from this specific run, i.e. the sample name is probably different from that in the log file reported above. But generally the error messages have been the same)
 
 (The relevant part of the GATK error message)
+
 \##### ERROR MESSAGE: An error occurred because you did not provide enough memory to run this program. You can use the -Xmx argument (before the -jar argument) to adjust the maximum heap size provided to Java. Note that this is a JVM argument, not a GATK argument.
 
 #### 600 sample run (1 samples per node)
