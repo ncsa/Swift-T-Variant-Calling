@@ -1,7 +1,11 @@
 ## i/o
-SAMPLEINFORMATION=/projects/sciteam/baib/SwiftTesting/Swift-T-Variant-Calling/test/BWTests/Justins_Testing/601Node_tests/600samples.sampleinfo
-OUTPUTDIR=/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/Justins_Testing/601Node_tests/601Node_1samplePerNode_output
-TMPDIR=/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/Justins_Testing/601Node_tests/601Node_tmp
+# SAMPLEINFORMATION=/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/Justins_Testing/601Node_tests/600samples.sampleinfo
+# OUTPUTDIR=/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/Justins_Testing/601Node_tests/601Node_1samplePerNode_output
+# TMPDIR=/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/Justins_Testing/601Node_tests/601Node_tmp
+
+SAMPLEINFORMATION=/scratch/sciteam/wozniak/601Node_tests/600samples.sampleinfo
+OUTPUTDIR=/scratch/sciteam/wozniak/601Node_tests/601Node_1samplePerNode_output
+TMPDIR=/scratch/sciteam/wozniak/601Node_tests/tmp
 
 ## choose the run case
 REALIGN=NO
@@ -18,7 +22,7 @@ DEDUP_SORT_STAGE=Y
 CHR_SPLIT_STAGE=N
 VC_STAGE=End
 COMBINE_VARIANT_STAGE=N
-JOINT_GENOTYPING_STAGE=N 
+JOINT_GENOTYPING_STAGE=N
 
 ## Read group information for the samples: namely, the Library, Platform technology,and sequencing center name. It should be noted that the sample ID, platform unit (PU) and sample name (SM) are set by default to be the same sample name found in the sampleinformation file specified
 SAMPLELB=
@@ -28,13 +32,13 @@ SAMPLECN=
 ALIGNERTOOL=BWAMEM
 MARKDUPLICATESTOOL=NOVOSORT
 
-## Alignment block parameters and Trimming options. 
+## Alignment block parameters and Trimming options.
 BWAINDEX=/scratch/sciteam/jacobrh/purge_exempt/Swift_testing/simulatedData/reference_and_index/Homo_sapiens_assembly38_chr20_21_22.fasta
 BWAMEMPARAMS=-k 32 -I 300,30
 NOVOALIGNINDEX=<path to the indexed reference file for novoalign, if it is the desired aligner>
 NOVOALIGNPARAMS=<optional parameters to novoalign, if used as an aligner>
 
-## Quality thresholds (for reporting only, as the pipeline will continue with the next stage regardless of whether these thresholds were respected or not): 
+## Quality thresholds (for reporting only, as the pipeline will continue with the next stage regardless of whether these thresholds were respected or not):
 MAP_CUTOFF=60
 DUP_CUTOFF=40
 
