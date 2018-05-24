@@ -208,7 +208,9 @@ Controlling various aspects of the job submission is achieved by setting environ
 
 Other options allow control of logging options. Especially for users unfamiliar with Swift/T, we recommend always setting the environment variable `ADBL_DEBUG_RANKS=1` and checking the beginning of the Swift/T log to be sure processes are being allocated as the user expects.
 
-Often when we use a cluster we set the `ppn` variable to the number of cores on each node, but with Swift/T this usually needs to be set to the number of processes opened on each node (unless a particular cluster configuration allocates resources differently). =====> **Jacob, this is really to say that ppn is number of processes on each node, but it is not neccesarily the number of cores on each node, right?**  **Do we need to state this, or is it sufficient to refer the user to the guide link above, and show this in the examples/discussions of systems below?**
+Often when we use a cluster we set the `PPN` variable to the number of cores on each node.  Swift/T will allocate PPN processes on each node.  Normally, we set PPN to the number of cores for maximal concurrency, although the PPN setting can be use to over- or under-subscribe processes.  For example, an application that is short on memory might set a lower PPN, where an I/O intensive application might set a higher PPN.
+
+[//]: # (unless a particular cluster configuration allocates resources differently.  **Jacob, this is really to say that ppn is number of processes on each node, but it is not neccesarily the number of cores on each node, right?** **Do we need to state this, or is it sufficient to refer the user to the guide link above, and show this in the examples/discussions of systems below?)
 
 For convenience, we recommend setting all such environment variables in a file, and then adding it to the Swift/T command. This is shown in the sections below for different schedulers (pbs, cray, slurm).
 
