@@ -221,6 +221,8 @@ If using multiple nodes, one should set the `SWIFT_TMP` to another location besi
 For example,
 `export SWIFT_TMP=/path/to/home/directory/temp`
 
+On Blue Waters, SWIFT_TMP should probably be in /scratch .
+
 **The type of job scheduler dictates how one calls Swift-T**
 
 ##### PBS Torque (general)
