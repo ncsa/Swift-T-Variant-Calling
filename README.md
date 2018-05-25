@@ -505,9 +505,7 @@ To take a look at your own analysis trace, you need to have a copy of this branc
 
 #### Important Notes
 
-One problem spotted from using the app with 2 samples is that the analysis is done for only one of them (the realignment/recalibration stages are problemetic, where sampleNames get swapped haphazardly, and only one sample gets fully analyzed, which is what the supplied example `Timing.log` file shows - **this needs a closer look**)
-
-It should also be noted that running this pipeline in its current form is expected to be more expensive than normal, due to the manual logging involved. The alternative is to use the native `MPE` library (or equivalent), which requires re-compiling the Swift/T source. This approach is **currently limited at the moment**, but some discussions with the Swift/T team on this is found on their [repo ](https://github.com/swift-lang/swift-t/issues/118)
+It should also be noted that running this pipeline in its current form is expected to be more expensive than normal, due to the manual logging involved. The alternative is to use the native `MPE` library (or equivalent), which requires re-compiling the Swift/T source. This approach is **currently limited at the moment**, but some discussions with the Swift/T team on this is found  [here ](https://github.com/swift-lang/swift-t/issues/118)
 
 ## Under The Hood
 
