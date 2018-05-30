@@ -44,31 +44,41 @@ shinyServer(function(input, output, session) {
   })
   
   dataInput <- eventReactive (input$logfile, {
-  data <- rawdataInput() %>%
-    mutate(Time = as_datetime(Time)) %>%
-    separate(`App status`, c('App', 'Status'), sep = ' ')
-
-  start <- data %>%
-    filter(Status == 'start') %>%
-    select(-Status) %>%
-    purrr::set_names( c('Sample', 'Chromosome', 'start_App', 'start_time', 'start_Stage'))
-
-  end <- data %>%
-    filter(Status == 'end') %>%
-    select(-Status, -Sample, -Chromosome) %>%
-    set_names( c('end_App', 'end_time', 'end_Stage'))
-
-  data <- cbind(start, end) %>%
-    mutate(Application = start_App, Stage = start_Stage) %>%
-    select(-end_App, -start_App, -start_Stage, -end_Stage) %>%
-    mutate(Application = fct_reorder2(Application, start_time, end_time)) %>%
-    group_by(Stage, Sample, Chromosome) %>% 
-    arrange(end_time) %>%
-    mutate(start_time =  lag(end_time, default = first(start_time))) %>%
-    ungroup() %>%
-    mutate(start_time =  if_else(str_detect(Application, "GenotypeGVCFs"), 
-                                 max(lag(end_time, default = first(start_time))), start_time))%>%
-    mutate(Application = fct_reorder2(Application, start_time, end_time)) 
+    
+    if (!identical(names(rawdataInput()),
+                   c('Sample', 'Chromosome', 'App status', 'Time', 'Stage'))){
+      raw_1 <- as_tibble(matrix(data = names(rawdataInput()), nrow = 1)) %>% 
+        setNames(names(rawdataInput() )) 
+      raw_1[,4] <- as.integer(raw_1[,4])
+      rawdata <- bind_rows(rawdataInput() , raw_1)
+    }
+    
+    
+    data <- rawdataInput() %>%
+      mutate(Time = as_datetime(Time)) %>%
+      separate(`App status`, c('App', 'Status'), sep = ' ')
+    
+    start <- data %>%
+      filter(Status == 'start') %>%
+      select(-Status) %>%
+      purrr::set_names( c('Sample', 'Chromosome', 'start_App', 'start_time', 'start_Stage'))
+    
+    end <- data %>%
+      filter(Status == 'end') %>%
+      select(-Status, -Sample, -Chromosome) %>%
+      set_names( c('end_App', 'end_time', 'end_Stage'))
+    
+    data <- cbind(start, end) %>%
+      mutate(Application = start_App, Stage = start_Stage) %>%
+      select(-end_App, -start_App, -start_Stage, -end_Stage) %>%
+      mutate(Application = fct_reorder2(Application, start_time, end_time)) %>%
+      group_by(Stage, Sample, Chromosome) %>% 
+      arrange(end_time) %>%
+      mutate(start_time =  lag(end_time, default = first(start_time))) %>%
+      ungroup() %>%
+      mutate(start_time =  if_else(str_detect(Application, "GenotypeGVCFs"), 
+                                   max(lag(end_time, default = first(start_time))), start_time))%>%
+      mutate(Application = fct_reorder2(Application, start_time, end_time)) 
   })
   
   dataPlot <- reactive({
@@ -124,23 +134,36 @@ shinyServer(function(input, output, session) {
       distinct(Sample, Stage, Application) %>%
       mutate(Stage = factor(Stage, levels = unique(Stage)), 
              Application = factor(Application, levels = unique(Application))) %>%
-      group_by(Stage, Application) %>%  summarise(Processed_Samples = n()) 
+      group_by(Stage, Application) %>%  summarise(Processed_Samples = n()) %>%
+      ungroup() %>%
+      mutate(Stage = as.character(Stage)) %>%
+      mutate(Stage = case_when(!duplicated(Stage) ~ Stage,
+                               T ~ "")) 
   )
   
-  output$Chromosomes_Summary <- renderText({
+  chromosomes_summary <- eventReactive(input$logfile,{
     summary <- dataInput() %>%
       filter(Chromosome != "ALL") %>%
       mutate(Stage = factor(Stage, levels = unique(Stage)),
              Application = factor(Application, levels = unique(Application))) %>%
       group_by(Sample,Application) %>%
-      summarise(Processed_chromosomes_per_sample = n())
-
-    if (length(unique(summary$Processed_chromosomes_per_sample)) == 1)
-      msg <- "All chromosomes in all samples were processed successfully"
+      summarise(Processed_chromosomes = n()) %>% ungroup() %>%
+      mutate(Sample = case_when(!duplicated(Sample) ~ Sample,
+                                T ~ ""))
+  })
+  
+  output$Chromosomes_Summary <- renderText({
+    if (length(unique(chromosomes_summary()$Processed_chromosomes)) == 1)
+      msg <- "*All* chromosomes in *ALL* samples were processed successfully."
     else
-      msg <- "Some chromosomes in some samples were not processed."
+      msg <- "*Some* chromosomes in *Some* samples were not processed- See table below for details"
+    if (length(unique(chromosomes_summary()$Processed_chromosomes)) == 0)
+      msg <- "*No* chromosomes were processed at all"
     msg
   })
+  output$Chromosomes_table <- renderTable(
+    chromosomes_summary() 
+  )
   
   # output$simplePlot <- renderPlot(
   #   print(dataPlot())

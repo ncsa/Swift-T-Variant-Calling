@@ -89,12 +89,18 @@ dashboardPage(
   dashboardBody(
     # Boxes need to be put in a row (or column)
     tabsetPanel(type = "tabs",
-                tabPanel("Provenance Plot", 
-                         # p('Showing provenance plot for Sample'), 
-                         # span(textOutput('textSample'), style = "color:blue"),
-                         # p('and Chromosome'),
-                         # span(textOutput('textChromosome'), style = "color:blue"),
+                tabPanel("Overall Summary",
+                         br(),
+                         h3("Number of samples processed by each application and stage:"),
+                         tableOutput("Samples_Summary"),
                          
+                         verbatimTextOutput("Chromosomes_Summary"),
+                         
+                         h3("Details of chromosome processed per sample:"),
+                         tableOutput("Chromosomes_table")
+               ),
+                
+                tabPanel("Provenance Plot", 
                          tags$head(tags$style(HTML(' 
                             .form-group, .selectize-control {
                                 margin-bottom: 0px;
@@ -109,11 +115,6 @@ dashboardPage(
                               br(),
                               plotlyOutput("PlotlyProvenancePlot", width = "200%"),
                               # plotOutput("simplePlot", click = clickOpts(id ="plot_click")),
-                              
-                              "How many samples have been processed?",
-                              tableOutput("Samples_Summary"),
-                              "In each sample, how many chromosome have been processed?",
-                              verbatimTextOutput("Chromosomes_Summary"),
                               width = 9),
                          
                          h4("Selet the proper timeline resolution (x-axis) in either:"),
@@ -150,8 +151,6 @@ dashboardPage(
                            a('The Genomic Swift/T variant calling workflow',
                              href = 'https://github.com/ncsa/Swift-T-Variant-Calling')
                            , 'which was developed in collaboration between centres in these institutes.'
-                           
-
                          )
                          
                 ),
