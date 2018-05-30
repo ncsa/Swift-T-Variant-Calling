@@ -95,7 +95,6 @@ dashboardPage(
                          tableOutput("Samples_Summary"),
                          
                          verbatimTextOutput("Chromosomes_Summary"),
-                         
                          h3("Details of chromosome processed per sample:"),
                          tableOutput("Chromosomes_table")
                ),

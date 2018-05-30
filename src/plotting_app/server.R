@@ -43,42 +43,44 @@ shinyServer(function(input, output, session) {
     readr::read_tsv(inFile$datapath) %>% unique()
   })
   
+ 
+  
   dataInput <- eventReactive (input$logfile, {
-    
-    if (!identical(names(rawdataInput()),
-                   c('Sample', 'Chromosome', 'App status', 'Time', 'Stage'))){
-      raw_1 <- as_tibble(matrix(data = names(rawdataInput()), nrow = 1)) %>% 
-        setNames(names(rawdataInput() )) 
+    data <- rawdataInput()
+    header <- c('Sample', 'Chromosome', 'App status', 'Time', 'Stage')
+    if (!identical(names(data), header)){
+      raw_1 <- as_tibble(matrix(data = names(data), nrow = 1)) %>% 
+        setNames(names(data )) 
       raw_1[,4] <- as.integer(raw_1[,4])
-      rawdata <- bind_rows(rawdataInput() , raw_1)
+      data <- bind_rows(data , raw_1) %>% setNames(header)
     }
     
-    
-    data <- rawdataInput() %>%
+
+    data <- data %>%
       mutate(Time = as_datetime(Time)) %>%
       separate(`App status`, c('App', 'Status'), sep = ' ')
-    
+
     start <- data %>%
       filter(Status == 'start') %>%
       select(-Status) %>%
       purrr::set_names( c('Sample', 'Chromosome', 'start_App', 'start_time', 'start_Stage'))
-    
+
     end <- data %>%
       filter(Status == 'end') %>%
       select(-Status, -Sample, -Chromosome) %>%
       set_names( c('end_App', 'end_time', 'end_Stage'))
-    
+
     data <- cbind(start, end) %>%
       mutate(Application = start_App, Stage = start_Stage) %>%
       select(-end_App, -start_App, -start_Stage, -end_Stage) %>%
       mutate(Application = fct_reorder2(Application, start_time, end_time)) %>%
-      group_by(Stage, Sample, Chromosome) %>% 
+      group_by(Stage, Sample, Chromosome) %>%
       arrange(end_time) %>%
       mutate(start_time =  lag(end_time, default = first(start_time))) %>%
       ungroup() %>%
-      mutate(start_time =  if_else(str_detect(Application, "GenotypeGVCFs"), 
+      mutate(start_time =  if_else(str_detect(Application, "GenotypeGVCFs"),
                                    max(lag(end_time, default = first(start_time))), start_time))%>%
-      mutate(Application = fct_reorder2(Application, start_time, end_time)) 
+      mutate(Application = fct_reorder2(Application, start_time, end_time))
   })
   
   dataPlot <- reactive({
@@ -117,6 +119,7 @@ shinyServer(function(input, output, session) {
     input$chromosome
   })
   
+  output$tmp <- renderTable(dataInput())
 
   output$provenanceTable <- renderTable({
     dataInput() %>% 
