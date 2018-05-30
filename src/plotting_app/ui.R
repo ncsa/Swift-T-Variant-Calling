@@ -111,7 +111,10 @@ dashboardPage(
                               # plotOutput("simplePlot", click = clickOpts(id ="plot_click")),
                               # downloadButton('saveFig', 'Save figure', style="float:right"),
                               verbatimTextOutput("info"),
-                              tableOutput("Run_Summary"),
+                              "How many samples have been processed?",
+                              tableOutput("Samples_Summary"),
+                              "In each sample, how many chromosome have been processed?",
+                              verbatimTextOutput("Chromosomes_Summary"),
                               width = 9),
                          
                          h4("Selet the proper timeline resolution (x-axis) in either:"),

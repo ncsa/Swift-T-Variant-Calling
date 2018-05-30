@@ -119,10 +119,28 @@ shinyServer(function(input, output, session) {
     ggplotly(dataPlot(), tooltip = c("colour", "text", "x"))
   })
   
-  output$Run_Summary <- renderTable(
-    dataInput()  %>% arrange(desc(start_time)) %>%group_by(Application) %>% 
-      summarize(Processed_Samples = n())
+  output$Samples_Summary <- renderTable(
+    dataInput()  %>% 
+      distinct(Sample, Stage, Application) %>%
+      mutate(Stage = factor(Stage, levels = unique(Stage)), 
+             Application = factor(Application, levels = unique(Application))) %>%
+      group_by(Stage, Application) %>%  summarise(Processed_Samples = n()) 
   )
+  
+  # output$Chromosomes_Summary <- renderText(
+  #   # summary <- dataInput() %>% 
+  #   #   filter(Chromosome != "ALL") %>%
+  #   #   mutate(Stage = factor(Stage, levels = unique(Stage)),
+  #   #          Application = factor(Application, levels = unique(Application))) %>%
+  #   #   group_by(Sample,Application) %>%
+  #   #   summarise(Processed_chromosomes_per_sample = n()) 
+  #   # 
+  #   # if (length(unique(summary$Processed_chromosomes_per_sample)) == 1)
+  #   #   msg <- "All chromosomes in all samples were processed successfully"
+  #   # else
+  #   #   msg <- "Some chromosomes in some samples were not processed."
+  #   # msg
+  # )
   
   # output$simplePlot <- renderPlot(
   #   print(dataPlot())
