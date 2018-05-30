@@ -31,7 +31,6 @@ Files in this repo are organized as follows:
 				- [PBS Torque (general)](#pbs-torque-general)
 				- [PBS Torque (alternative)](#pbs-torque-alternative)
 				- [Cray System (Like Blue Waters at UIUC)](#cray-system-like-blue-waters-at-uiuc)
-			- [Logging Options](#logging-options)
 		- [Output Structure](#output-structure)
 		- [Logging functionality](#logging-functionality)
 			- [Important Notes](#important-notes)
