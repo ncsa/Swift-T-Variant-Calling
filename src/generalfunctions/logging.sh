@@ -21,8 +21,6 @@ echo "Updated $TIMELOG"
 
 # 	/*
 # 	These rm calls caused bugs
-# 	Since it is commented out, the TimingLog file will have redundant lines that need
-#         to be filtered out
 
 # 	*/
 # 	/*foreach i in tmplogs {
