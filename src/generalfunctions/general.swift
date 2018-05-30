@@ -77,6 +77,13 @@ app (void v) rm(file f) {
 	}
 }
 
+/*
+  // Alternative implementation of logging()
+app (void v) logging(string tmpdir, file timeLog, string toolDirName) {
+  bash "logging.sh" tmpdir timeLog toolDirName ;
+}
+*/
+
 // Convert an array of files to an array of strings with those file names
 (string filenames[]) filesToFileNames(file files[]) {
 	foreach f, index in files {

@@ -206,9 +206,11 @@ Swift-T works by opening up multiple "slots", called processes, where applicatio
 
 Controlling various aspects of the job submission is achieved by setting environment variables to the desired values. For example, the user can fine control the total number of processes needed by setting `PROCS=<Number of MPI processes>`, and/or the number of workers via `TURBINE_WORKERS` and the number of servers via `ADLB_SERVERS`. Similarly, one can specify `QUEUE`, `WALLTIME` and `PROJECT` specifications. More coverage of these is provided in [the Swift/T sites guide](http://swift-lang.github.io/swift-t/sites.html#variables).
 
-Other options allow control of logging options. Especially for users unfamiliar with Swift/T, we recommend always setting the environment variable `ADBL_DEBUG_RANKS=1` and checking the beginning of the Swift/T log to be sure processes are being allocated as the user expects.
+Other options allow control of logging options. Especially for users unfamiliar with Swift/T, we recommend always setting the environment variable `ADLB_DEBUG_RANKS=1` and checking the beginning of the Swift/T log to be sure processes are being allocated as the user expects.
 
-Often when we use a cluster we set the `ppn` variable to the number of cores on each node, but with Swift/T this usually needs to be set to the number of processes opened on each node (unless a particular cluster configuration allocates resources differently). =====> **Jacob, this is really to say that ppn is number of processes on each node, but it is not neccesarily the number of cores on each node, right?**  **Do we need to state this, or is it sufficient to refer the user to the guide link above, and show this in the examples/discussions of systems below?**
+Often when we use a cluster we set the `PPN` variable to the number of cores on each node.  Swift/T will allocate PPN processes on each node.  Normally, we set PPN to the number of cores for maximal concurrency, although the PPN setting can be use to over- or under-subscribe processes.  For example, an application that is short on memory might set a lower PPN, where an I/O intensive application might set a higher PPN.
+
+[//]: # (unless a particular cluster configuration allocates resources differently.  **Jacob, this is really to say that ppn is number of processes on each node, but it is not neccesarily the number of cores on each node, right?** **Do we need to state this, or is it sufficient to refer the user to the guide link above, and show this in the examples/discussions of systems below?)
 
 For convenience, we recommend setting all such environment variables in a file, and then adding it to the Swift/T command. This is shown in the sections below for different schedulers (pbs, cray, slurm).
 
@@ -218,6 +220,8 @@ If using multiple nodes, one should set the `SWIFT_TMP` to another location besi
 
 For example,
 `export SWIFT_TMP=/path/to/home/directory/temp`
+
+On Blue Waters, SWIFT_TMP should probably be in /scratch .
 
 **The type of job scheduler dictates how one calls Swift-T**
 
@@ -237,7 +241,7 @@ export SWIFT_TMP=/path/to/directory/temp
 
 # (Optional variables to set)
 export TURBINE_LOG=1
-export ADBL_DEBUG_RANKS=1
+export ADLB_DEBUG_RANKS=1
 export TURBINE_OUTPUT=/path/to/output_log_location
 
 $ swift-t -m pbs -O3 -s settings.sh -o /path/to/where/compiled/should/be/saved/compiled.tic -I /path/to/Swift-T-Variant-Calling/src/ -r /path/to/Swift-T-Variant-Calling/src/bioapps /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/your.runfile
@@ -294,7 +298,7 @@ export CRAY_PPN=true
 
 # (Optional variables to set)
 export TURBINE_LOG=1    # This produces verbose logging info; great for debugging
-export ADBL_DEBUG_RANKS=1	# Displays layout of ranks and nodes
+export ADLB_DEBUG_RANKS=1	# Displays layout of ranks and nodes
 export TURBINE_OUTPUT=/path/to/log/directory	# This specifies where the log info will be stored; defaults to one's home directory
 
 $ swift-t -m cray -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/compiled.tic \
@@ -346,7 +350,7 @@ export TURBINE_SBATCH_ARGS=<Other optional arguments passed to sbatch, like --ex
 
 # (Optional variables to set)
 export TURBINE_LOG=1    # This produces verbose logging info; great for debugging
-export ADBL_DEBUG_RANKS=1	# Displays layout of ranks and nodes
+export ADLB_DEBUG_RANKS=1	# Displays layout of ranks and nodes
 export TURBINE_OUTPUT=/path/to/log/directory	# This specifies where the log info will be stored; defaults to one's home directory
 
 $ swift-t -m slurm -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/compiled.tic \
@@ -367,7 +371,7 @@ export SWIFT_TMP=/path/to/directory/temp
 
 # (Optional variables to set)
 export TURBINE_LOG=1    # This produces verbose logging info; great for debugging
-export ADBL_DEBUG_RANKS=1	# Displays layout of ranks and nodes
+export ADLB_DEBUG_RANKS=1	# Displays layout of ranks and nodes
 export TURBINE_OUTPUT=/path/to/log/directory	# This specifies where the log info will be stored; defaults to one's home directory
 
 $ swift-t -O3 -l -u -o /path/to/where/compiled/should/be/saved/compiled.tic \
@@ -380,15 +384,6 @@ $
 $ nohup ./runpipeline.sh &> log.runpipeline.swift.t.nohup &
 
 ```
-
-
-#### Logging Options
-
-While the outputs generated by all the tools of the workflow itself will be logged in the log folders within the `OUTDIR` structure, Swift-T generates a log itself that may help debug if problems occur.
-
-Setting the environment variable `TURBINE_LOG=1` will make the log quite verbose
-
-Setting `ADBL_DEBUG_RANKS=1` will allow one to be sure the processes are being allocated to the nodes in the way one expects
 
 ### Output Structure
 
@@ -476,6 +471,16 @@ This feature was designed to allow a more efficient use of computational resourc
 
 ### Logging functionality
 
+#### Swift/T logging options
+
+While the outputs generated by all the tools of the workflow itself will be logged in the log folders within the `OUTDIR` structure, Swift-T generates a log itself that may help debug if problems occur.
+
+Setting the environment variable `TURBINE_LOG=1` will make the log quite verbose
+
+Setting `ADLB_DEBUG_RANKS=1` will allow one to be sure the processes are being allocated to the nodes in the way one expects
+
+#### Workflow logging options
+
 The provided scripts allow you to check out the trace of a successful run of the pipeline. To invoke it, and for the time being, you need R installed in your environment along with the `shiny` package. 
 
 To do so, proceed as follows:
@@ -500,9 +505,7 @@ To take a look at your own analysis trace, you need to have a copy of this branc
 
 #### Important Notes
 
-One problem spotted from using the app with 2 samples is that the analysis is done for only one of them (the realignment/recalibration stages are problemetic, where sampleNames get swapped haphazardly, and only one sample gets fully analyzed, which is what the supplied example `Timing.log` file shows - **this needs a closer look**)
-
-It should also be noted that running this pipeline in its current form is expected to be more expensive than normal, due to the manual logging involved. The alternative is to use the native `MPE` library (or equivalent), which requires re-compiling the Swift/T source. This approach is **currently limited at the moment**, but some discussions with the Swift/T team on this is found on their [repo ](https://github.com/swift-lang/swift-t/issues/118)
+It should also be noted that running this pipeline in its current form is expected to be more expensive than normal, due to the manual logging involved. The alternative is to use the native `MPE` library (or equivalent), which requires re-compiling the Swift/T source. This approach is **currently limited at the moment**, but some discussions with the Swift/T team on this is found  [here ](https://github.com/swift-lang/swift-t/issues/118)
 
 ## Under The Hood
 
