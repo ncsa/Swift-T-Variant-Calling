@@ -400,7 +400,7 @@ For working with human data, one can download most of the needed files from [the
 
 Generally, for the preparation of the reference sequence, the following link is a good start [the GATK’s guidelines](http://gatkforums.broadinstitute.org/wdl/discussion/2798/howto-prepare-a-reference-for-use-with-bwa-and-gatk).
 
-If splitting by chromosome for the realignment/recalibration/variant-calling stages, the pipeline needs a separate vcf file of known variants for each chromosome/contig, and each should be named as: `*${chr_name}.vcf` . Further, all these files need to be in the `INDELDIR` which should be within the `REFGENOMEDIR` directory as per the [runfile](## User Guide).
+If splitting by chromosome for the realignment/recalibration/variant-calling stages, the pipeline needs a separate vcf file of known variants for each chromosome/contig, and each should be named as: `*${chr_name}.vcf` . Further, all these files need to be in the `INDELDIR` which should be within the `REFGENOMEDIR` directory as per the [runfile](#user-guide).
 
 ### Resource Requirements
 
@@ -501,11 +501,11 @@ The first time you run these commands in your system it will also install some l
 
 Once all is done, a webpage should open up for you to actually take a look at your trace files. For a taste of how things look, you may take a look at the sample `Timing.log` file provided [in the repo](https://github.com/jacobrh91/Swift-T-Variant-Calling/master/src/plotting_app)
 
-To take a look at your own analysis trace, you need to have a copy of this branch first, Run it on you samples, and then find your own `Timing.log` file within `<OUTPUTDIR>/delivery/docs`, where `OUTPUTDIR` is specified as per the [runfile](## User Guide). Simply upload this file, and start using the app.
+To take a look at your own analysis trace, you need to have a copy of this branch first, Run it on you samples, and then find your own `Timing.log` file within `<OUTPUTDIR>/delivery/docs`, where `OUTPUTDIR` is specified as per the [runfile](#user-guide). Simply upload this file, and start using the app.
 
 #### Important Notes
 
-- To investigate a partial pipeline run, you may `cat` the contents of all the small files in your `TMPDIR` (See [runfile](## User Guide) options). In the example below, the contents of thid directory are catted to the `partial_run_timing.log`, which is then uploaded to the logging webpage.
+- To investigate a partial pipeline run, you may `cat` the contents of all the small files in your `TMPDIR` (See [runfile](#user-guide) options). In the example below, the contents of thid directory are catted to the `partial_run_timing.log`, which is then uploaded to the logging webpage.
 
 ```
 $ cd <TMPDIR> #TMPDIR is what has been specified in the runfile
