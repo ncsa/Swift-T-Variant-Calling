@@ -127,43 +127,26 @@ shinyServer(function(input, output, session) {
       group_by(Stage, Application) %>%  summarise(Processed_Samples = n()) 
   )
   
-  # output$Chromosomes_Summary <- renderText(
-  #   # summary <- dataInput() %>% 
-  #   #   filter(Chromosome != "ALL") %>%
-  #   #   mutate(Stage = factor(Stage, levels = unique(Stage)),
-  #   #          Application = factor(Application, levels = unique(Application))) %>%
-  #   #   group_by(Sample,Application) %>%
-  #   #   summarise(Processed_chromosomes_per_sample = n()) 
-  #   # 
-  #   # if (length(unique(summary$Processed_chromosomes_per_sample)) == 1)
-  #   #   msg <- "All chromosomes in all samples were processed successfully"
-  #   # else
-  #   #   msg <- "Some chromosomes in some samples were not processed."
-  #   # msg
-  # )
+  output$Chromosomes_Summary <- renderText({
+    summary <- dataInput() %>%
+      filter(Chromosome != "ALL") %>%
+      mutate(Stage = factor(Stage, levels = unique(Stage)),
+             Application = factor(Application, levels = unique(Application))) %>%
+      group_by(Sample,Application) %>%
+      summarise(Processed_chromosomes_per_sample = n())
+
+    if (length(unique(summary$Processed_chromosomes_per_sample)) == 1)
+      msg <- "All chromosomes in all samples were processed successfully"
+    else
+      msg <- "Some chromosomes in some samples were not processed."
+    msg
+  })
   
   # output$simplePlot <- renderPlot(
   #   print(dataPlot())
   # )
   
-  # output$info <- renderText({
-  #  
-  #   if(!is.null(input$plot_click)){
-  #     data <- dataInput() 
-  #     hover <- input$plot_click
-  #     
-  #     point <- nearPoints(data, hover, yvar = "start_time", xvar = "Application",
-  #                         threshold = 5, maxpoints = 1, addDist = TRUE)
-  #     if (nrow(point) == 0) return(NULL)
-  #     
-  #     
-  #     paste0("Sample=", point, 
-  #            "\nChromosome = ", point,
-  #            "\nApplication = ")
-  #   }
-  #   
-  #  
-  # })
+
   
   observeEvent(input$zoomSample,
     updateSelectInput(session, "sample",
@@ -180,15 +163,6 @@ shinyServer(function(input, output, session) {
                       choices = unique(dataInput()$Application) )
   )
   
-
-
-  # output$saveFig <- downloadHandler(
-  #   filename = function() {
-  #     paste(input$logfile , Sys.time(), '.png', sep='')},
-  #   content = function(file) {
-  #     ggsave(file,  plot = dataPlot(), device = 'png')
-  #   }
-  # )
   
 })  
 

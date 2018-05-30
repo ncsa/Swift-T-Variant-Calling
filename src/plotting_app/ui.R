@@ -109,8 +109,7 @@ dashboardPage(
                               br(),
                               plotlyOutput("PlotlyProvenancePlot", width = "200%"),
                               # plotOutput("simplePlot", click = clickOpts(id ="plot_click")),
-                              # downloadButton('saveFig', 'Save figure', style="float:right"),
-                              verbatimTextOutput("info"),
+                              
                               "How many samples have been processed?",
                               tableOutput("Samples_Summary"),
                               "In each sample, how many chromosome have been processed?",
