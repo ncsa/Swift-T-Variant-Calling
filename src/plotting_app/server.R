@@ -89,7 +89,7 @@ shinyServer(function(input, output, session) {
       geom_linerange(aes(ymin = start_time, ymax = end_time, color = Sample, text = Chromosome),
                      position = position_dodge(width = 0.5), size = 2) +
       coord_flip() + scale_y_datetime(breaks = date_breaks(resol),
-                                      labels = date_format("%F\n %H:%M"),
+                                      labels = date_format("%F\n %H:%M")
                                       # expand = expand_scale(mult = 0.1) 
                                       ) +
       labs(x = "Application", y = "Timeline") +
@@ -109,14 +109,43 @@ shinyServer(function(input, output, session) {
   
 
   output$provenanceTable <- renderTable({
-    rawdataInput()
+    dataInput() %>% 
+      mutate(start_time = as.character(start_time)) %>%
+      mutate(end_time = as.character(end_time)) %>%
+      select(Stage, Application, Sample, Chromosome, start_time, end_time)
   })
 
   output$PlotlyProvenancePlot <- renderPlotly({
     ggplotly(dataPlot(), tooltip = c("colour", "text", "x"))
   })
   
+  output$Run_Summary <- renderTable(
+    dataInput()  %>% arrange(desc(start_time)) %>%group_by(Application) %>% 
+      summarize(Processed_Samples = n())
+  )
   
+  # output$simplePlot <- renderPlot(
+  #   print(dataPlot())
+  # )
+  
+  # output$info <- renderText({
+  #  
+  #   if(!is.null(input$plot_click)){
+  #     data <- dataInput() 
+  #     hover <- input$plot_click
+  #     
+  #     point <- nearPoints(data, hover, yvar = "start_time", xvar = "Application",
+  #                         threshold = 5, maxpoints = 1, addDist = TRUE)
+  #     if (nrow(point) == 0) return(NULL)
+  #     
+  #     
+  #     paste0("Sample=", point, 
+  #            "\nChromosome = ", point,
+  #            "\nApplication = ")
+  #   }
+  #   
+  #  
+  # })
   
   observeEvent(input$zoomSample,
     updateSelectInput(session, "sample",
@@ -134,13 +163,14 @@ shinyServer(function(input, output, session) {
   )
   
 
-  output$saveFig <- downloadHandler(
-    filename = function() {
-      paste(input$logfile , Sys.time(), '.png', sep='')},
-    content = function(file) {
-      ggsave(file,  plot = dataPlot(), device = 'png')
-    }
-  )
+
+  # output$saveFig <- downloadHandler(
+  #   filename = function() {
+  #     paste(input$logfile , Sys.time(), '.png', sep='')},
+  #   content = function(file) {
+  #     ggsave(file,  plot = dataPlot(), device = 'png')
+  #   }
+  # )
   
 })  
 

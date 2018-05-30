@@ -15,7 +15,7 @@ app () echo (string txt){
 //@location=locationFromRank(3)
 t();
 
-@location=locationFromRank(4)
+//@location=locationFromRank(4)
 f("hello");
 
 echo("hello");

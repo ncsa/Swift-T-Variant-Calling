@@ -1,7 +1,6 @@
 #
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-
+# This is the user-interface definition of the visualization Shiny web application. 
+#
 
 library(shiny)
 
@@ -108,8 +107,11 @@ dashboardPage(
                          box( status = "primary",  solidHeader = TRUE,
                               br(),
                               br(),
-                              plotlyOutput("PlotlyProvenancePlot"),
-                              downloadButton('saveFig', 'Save figure', style="float:right"),
+                              plotlyOutput("PlotlyProvenancePlot", width = "200%"),
+                              # plotOutput("simplePlot", click = clickOpts(id ="plot_click")),
+                              # downloadButton('saveFig', 'Save figure', style="float:right"),
+                              verbatimTextOutput("info"),
+                              tableOutput("Run_Summary"),
                               width = 9),
                          
                          h4("Selet the proper timeline resolution (x-axis) in either:"),
