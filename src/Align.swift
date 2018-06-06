@@ -148,7 +148,7 @@ import generalfunctions.general;
 		string AlignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/align/");
 		string RealignDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/realign/"); 
 		string VarcallDir = strcat(vars["OUTPUTDIR"], "/", sampleName, "/variant/");
-		string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/" );
+		string tmpLogDir = strcat(vars["TMPDIR"], "/timinglogs/alignlogs/" );
 
 		if (vars["ALIGN_STAGE"] == "Y" ||
 		    vars["ALIGN_STAGE"] == "Yes" ||

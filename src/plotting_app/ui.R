@@ -1,7 +1,6 @@
 #
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-
+# This is the user-interface definition of the visualization Shiny web application. 
+#
 
 library(shiny)
 
@@ -90,12 +89,17 @@ dashboardPage(
   dashboardBody(
     # Boxes need to be put in a row (or column)
     tabsetPanel(type = "tabs",
-                tabPanel("Provenance Plot", 
-                         # p('Showing provenance plot for Sample'), 
-                         # span(textOutput('textSample'), style = "color:blue"),
-                         # p('and Chromosome'),
-                         # span(textOutput('textChromosome'), style = "color:blue"),
+                tabPanel("Overall Summary",
+                         br(),
+                         h3("Number of samples processed by each application and stage:"),
+                         tableOutput("Samples_Summary"),
                          
+                         verbatimTextOutput("Chromosomes_Summary"),
+                         h3("Details of chromosome processed per sample:"),
+                         tableOutput("Chromosomes_table")
+               ),
+                
+                tabPanel("Provenance Plot", 
                          tags$head(tags$style(HTML(' 
                             .form-group, .selectize-control {
                                 margin-bottom: 0px;
@@ -108,8 +112,8 @@ dashboardPage(
                          box( status = "primary",  solidHeader = TRUE,
                               br(),
                               br(),
-                              plotlyOutput("PlotlyProvenancePlot"),
-                              downloadButton('saveFig', 'Save figure', style="float:right"),
+                              plotlyOutput("PlotlyProvenancePlot", width = "200%"),
+                              # plotOutput("simplePlot", click = clickOpts(id ="plot_click")),
                               width = 9),
                          
                          h4("Selet the proper timeline resolution (x-axis) in either:"),
@@ -146,8 +150,6 @@ dashboardPage(
                            a('The Genomic Swift/T variant calling workflow',
                              href = 'https://github.com/ncsa/Swift-T-Variant-Calling')
                            , 'which was developed in collaboration between centres in these institutes.'
-                           
-
                          )
                          
                 ),
