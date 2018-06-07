@@ -558,5 +558,5 @@ More debug info can be found [here](http://swift-lang.github.io/swift-t/guide.ht
 
 
 * I'm having difficulty running the plotting app. I get an error regarding plotly
- * The logging app requires the `plotly` R package to produce plots. `plotly` however requires some OS specific packages. Fore deb systems (Debian, Ubuntu, ..etc), you need to install `libssl-dev` and `libcurl4-openssl-dev` with your favourite package manager
+ * The logging app depends on many R packages, including `plotly` and `tidyverse`. Some of these packages however require some OS specific packages. Fore deb systems (Debian, Ubuntu, ..etc), you may need to install `libssl-dev` and `libcurl4-openssl-dev` with your favourite package manager for `plotly` to work. Also, you may need to install `libxml2-dev` for the `tidyverse` package to work
 
