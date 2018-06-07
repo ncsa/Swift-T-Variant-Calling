@@ -556,3 +556,7 @@ More debug info can be found [here](http://swift-lang.github.io/swift-t/guide.ht
 * I'm not sure how to run on a cluster that uses torque as a resource manager?
   * Clusters are typically configured to kill head node jobs that run longer than a few minutes, to prevent users from hogging the head node. Therefore, you may qsub the initial job, the swift-t command with its set variables, and it will qsub everybody else from its compute node.
 
+
+* I'm having difficulty running the plotting app. I get an error regarding plotly
+ * The logging app requires the `plotly` R package to produce plots. `plotly` however requires some OS specific packages. Fore deb systems (Debian, Ubuntu, ..etc), you need to install `libssl-dev` and `libcurl4-openssl-dev` with your favourite package manager
+
