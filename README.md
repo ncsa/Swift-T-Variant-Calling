@@ -1,5 +1,3 @@
-#Test
-
 # Variant Calling with Swift-T
 
 This repo is a complete Variant Calling pipeline written in Swift/T language, for use in the analysis of Whole Genome and Whole Exome Sequencing studies. 
