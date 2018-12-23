@@ -2,19 +2,22 @@
 
 # This script accepts a `Timing.log` file that is either complete (from a successful pipeline)
 # run, or a concatenation of temporary timing log files (in case of partial pipeline run). 
+#
+# It is intended to be provoked from the summarize.sh script; following this notation:
+# `Rscript summarize.R <Timing.log>`
 
 # Loading libraries --------------------------------------------------------
-if (!require(tidyverse)){
+if (!require(tidyverse, quietly = T, warn.conflicts = F)){
   install.packages('tidyverse')
   library(tidyverse)
 }
 
-if (!require(lubridate)){
+if (!require(lubridate, quietly = T, warn.conflicts = F)){
   install.packages('lubridate')
   library(lubridate)
 }
 
-if (!require(gdata)){
+if (!require(gdata, quietly = T, warn.conflicts = F)){
   install.packages('gdata')
   library(gdata)
 }
