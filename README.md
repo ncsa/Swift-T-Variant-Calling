@@ -241,7 +241,7 @@ For example,
 
 On Blue Waters, SWIFT_TMP should probably be in /scratch .
 
-**The type of job scheduler dictates how one calls Swift-T**
+**The type of job scheduler dictates how one calls Swift-T will be seen in the sections below.**
 
 ##### PBS Torque (general)
 
@@ -405,6 +405,9 @@ $ nohup ./runpipeline.sh &> log.runpipeline.swift.t.nohup &
 
 ### Output Structure
 
+The figure below shows the Directory structure of various Output directories and files generated from a typical run
+of the pipeline.
+
 <img src=./media/OutputLayout.png width="700">
 
 **Figure 2:** Output directories and files generated from a typical run of
@@ -470,7 +473,7 @@ If splitting by chromosome for the realignment/recalibration/variant-calling sta
 
 ### Resource Requirements
 
-The table below describes the number of does each stage needs to achieve the maximum level of parallelism. One can request fewer resources if necessary, but at the cost of having some portions running in series.
+The table below describes the number of nodes each stage needs to achieve the maximum level of parallelism. One can request fewer resources if necessary, but at the cost of having some tasks running in series.
 
 |  **Analysis Stage**                                               |  **Resource Requirements**
 | -----------------------------------------------------------------  | -------------------------

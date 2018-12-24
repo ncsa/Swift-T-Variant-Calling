@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Variant Calling with Swift-T &mdash; Swift_T_Variant_Calling 1.0.0 documentation</title>
+  <title>Running the Pipeline &mdash; Swift_T_Variant_Calling 1.0.0 documentation</title>
   
 
   
@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   
 
+  
+    <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
   
 
   
@@ -89,7 +91,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="Architecture.html">Intended pipeline architecture and function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">Pipeline architecture and function</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="UserGuide.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="UnderTheHood.html">Under The Hood</a></li>
@@ -140,7 +142,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Variant Calling with Swift-T</li>
+      <li>Running the Pipeline</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -159,312 +161,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="variant-calling-with-swift-t">
-<h1>Variant Calling with Swift-T<a class="headerlink" href="#variant-calling-with-swift-t" title="Permalink to this headline">¶</a></h1>
-<p>This repo is a complete Variant Calling pipeline written in Swift/T
-language, for use in the analysis of Whole Genome and Whole Exome
-Sequencing studies.</p>
-<p>You may use this README file to get an idea of how the code is structred
-and used, or visit an easier-to-read version of this documentaiton
-available on <a class="reference external" href="http://swift-t-variant-calling.readthedocs.io/en/latest/">our companion
-site</a></p>
-<p>If you like to cite this code, please use this DOI: . See the Citation
-guide (here)[] for more information.</p>
-<p>Files in this repo are organized as follows:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Folder</th>
-<th class="head">Content</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">docs</span></code></td>
-<td>The files for
-the <cite>companion
-site &lt;http://swi
-ft-t-variant-cal
-ling.readthedocs
-.io/en/latest/&gt;</cite>
-__</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">media</span></code></td>
-<td>Various figures
-containing
-images used in
-this README file</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">src</span></code></td>
-<td>The source code
-of the pipeline,
-written in
-Swift/T. See the
-section <a class="reference external" href="#Under-The-Hood">Under
-The
-Hood</a>
-for how it is
-designed</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">test</span></code></td>
-<td>Files for
-testing the
-pipeline on
-different
-platforms:
-<cite>XSEDE &lt;https://
-www.xsede.org/&gt;</cite>
-__,
-<a class="reference external" href="http://help.igb.illinois.edu/Biocluster2">Biocluster</a>,
-<a class="reference external" href="https://bluewaters.ncsa.illinois.edu/">Blue
-Waters</a>
-_,
-<a class="reference external" href="http://www.ncsa.illinois.edu/industry/iforge">iForge</a>,
-and stand alone
-server</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Table of Contents</strong></p>
-<ul class="simple">
-<li><a class="reference external" href="#variant-calling-with-swift-t">Variant Calling with Swift-T</a><ul>
-<li><a class="reference external" href="#intended-pipeline-architecture-and-function">Intended pipeline architecture and
-function</a></li>
-<li><a class="reference external" href="#installation">Installation</a><ul>
-<li><a class="reference external" href="#dependencies">Dependencies</a></li>
-<li><a class="reference external" href="#workflow-installation">Workflow Installation</a></li>
-</ul>
-</li>
-<li><a class="reference external" href="#user-guide">User Guide</a><ul>
-<li><a class="reference external" href="#runfile-options">Runfile Options</a></li>
-<li><a class="reference external" href="#running-the-pipeline">Running the Pipeline</a><ul>
-<li><a class="reference external" href="#requesting-resources-from-the-job-scheduler">Requesting Resources from the Job
-Scheduler</a></li>
-<li><a class="reference external" href="#executing-the-swift-t-application">Executing the Swift-T
-Application</a><ul>
-<li><a class="reference external" href="#pbs-torque-general">PBS Torque (general)</a></li>
-<li><a class="reference external" href="#pbs-torque-alternative">PBS Torque (alternative)</a></li>
-<li><a class="reference external" href="#cray-system-like-blue-waters-at-uiuc">Cray System (Like Blue Waters at
-UIUC)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference external" href="#output-structure">Output Structure</a></li>
-<li><a class="reference external" href="#logging-functionality">Logging functionality</a><ul>
-<li><a class="reference external" href="#important-notes">Important Notes</a></li>
-</ul>
-</li>
-<li><a class="reference external" href="#data-preparation">Data preparation</a></li>
-<li><a class="reference external" href="#resource-requirements">Resource Requirements</a></li>
-<li><a class="reference external" href="#pipeline-interruptions-and-continuations">Pipeline Interruptions and
-Continuations</a><ul>
-<li><a class="reference external" href="#background">Background</a></li>
-<li><a class="reference external" href="#example">Example</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference external" href="#under-the-hood">Under The Hood</a></li>
-<li><a class="reference external" href="#troubleshooting">Troubleshooting</a></li>
-</ul>
-</li>
-</ul>
-<div class="section" id="intended-pipeline-architecture-and-function">
-<h2>Intended pipeline architecture and function<a class="headerlink" href="#intended-pipeline-architecture-and-function" title="Permalink to this headline">¶</a></h2>
-<p>This pipeline implements the <a class="reference external" href="https://software.broadinstitute.org/gatk/best-practices/">GATK&#8217;s best
-practices</a>
-for germline variant calling in Whole Genome and Whole Exome Next
-Generation Sequencing datasets, given a cohort of samples.</p>
-<p>This pipeline was disigned for GATK 3.X, which include the following
-stages:</p>
-<ol class="arabic simple">
-<li>Map to the reference genome</li>
-<li>Mark duplicates</li>
-<li>Perform indel realignment and/or base recalibration (BQSR)*</li>
-<li>Call variants on each sample</li>
-<li>Perform joint genotyping</li>
-</ol>
-<p>* The indel realignment step was recommended in GATK best practices &lt;
-3.6).</p>
-<p>Additionally, this workflow provides the option to split the aligned
-reads by chromosome before calling variants, which often speeds up
-performance when analyzing WGS data.</p>
-<p><strong>Figure 1:</strong> Overview of Workflow Design</p>
-</div>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="dependencies">
-<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
-<p>| <strong>Step</strong> | <strong>Tool options</strong> | | &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;|
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;|
-| Alignment | <a class="reference external" href="https://github.com/lh3/bwa">Bwa mem</a> or
-<a class="reference external" href="http://novocraft.com/">Novoalign</a> | | Sorting |
-<a class="reference external" href="http://novocraft.com/">Novosort</a> | | Marking Duplicates |
-<a class="reference external" href="https://github.com/GregoryFaust/samblaster">Samblaster</a>,
-<a class="reference external" href="http://novocraft.com/">Novosort</a>, or
-<a class="reference external" href="https://broadinstitute.github.io/picard/">Picard</a> | | Indel
-Realignment |
-<a class="reference external" href="https://software.broadinstitute.org/gatk/download/">GATK</a> | | Base
-Recalibration |
-<a class="reference external" href="https://software.broadinstitute.org/gatk/download/">GATK</a> | |
-Variant Calling |
-<a class="reference external" href="https://software.broadinstitute.org/gatk/download/">GATK</a> | |
-Joint Genotyping |
-<a class="reference external" href="https://software.broadinstitute.org/gatk/download/">GATK</a> | |
-Miscellaneous | <a class="reference external" href="http://samtools.github.io/">Samtools</a> |</p>
-</div>
-<div class="section" id="workflow-installation">
-<h3>Workflow Installation<a class="headerlink" href="#workflow-installation" title="Permalink to this headline">¶</a></h3>
-<p>At minimum, a working installation of Swift/T is needed. Depending on
-your set up, find these instructions .</p>
-<p>Next, you need to clone this repository</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">&lt;</span><span class="n">azza</span><span class="p">:</span> <span class="n">add</span> <span class="n">content</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-<p>Finally, if you need to visualize your results, you will need R
-installed with the following packages:</p>
-</div>
-</div>
-<div class="section" id="user-guide">
-<h2>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h2>
-<p>The workflow is controlled by modifying the variables contained within a
-runfile.</p>
-<p>A <code class="docutils literal"><span class="pre">template.runfile</span></code> is packaged within this repo.</p>
-<p>From this file, one specifies how the workflow is ran</p>
-<div class="section" id="runfile-options">
-<h3>Runfile Options<a class="headerlink" href="#runfile-options" title="Permalink to this headline">¶</a></h3>
-<p><strong>``SAMPLEINFORMATION``</strong></p>
-<p>The file that contains the paths to each sample&#8217;s reads, where each
-sample is on its own line in the form:
-<code class="docutils literal"><span class="pre">SampleName</span> <span class="pre">/path/to/read1.fq</span> <span class="pre">/path/to/read2.fq</span></code>. Alternatively, if
-analyzing single-end reads, the format is simply:
-<code class="docutils literal"><span class="pre">SampleName</span> <span class="pre">/path/to/read1.fq</span></code></p>
-<p><em>It is necessary that no empty line is inserted at the end of this file</em></p>
-<p><strong>``OUTPUTDIR``</strong> The path that will serve as the root of all of the
-output files generated from the pipeline (See <code class="docutils literal"><span class="pre">Figure</span> <span class="pre">2</span></code>)</p>
-<p><strong>``TMPDIR``</strong> The path to where temporary files will be stored (See
-<code class="docutils literal"><span class="pre">Figure</span> <span class="pre">2</span></code>)</p>
-<p><strong>``REALIGN``</strong> YES if one wants to realign before recalibration, NO if
-not.</p>
-<p><strong>``SPLIT``</strong> YES if one wants to split-by-chromosome before calling
-variants, NO if not.</p>
-<p><strong>``PROGRAMS_PER_NODE``</strong></p>
-<p>Sometimes it is more efficent to double (or even triple) up runs of an
-application on the same nodes using half of the available threads than
-letting one run of the application use all of them. This is because many
-applications only scale well up to a certain number of threads, and
-often this is less than the total number of cores available on a node.</p>
-<p>Under the hood, this variable simply controls how many threads each tool
-gets. If <code class="docutils literal"><span class="pre">CORES_PER_NODE</span></code> is set to 20 but <code class="docutils literal"><span class="pre">PROGRAMS_PER_NODE</span></code> is
-set to 2, each tool will use up to 10 threads.</p>
-<p><strong>!!!!!!!!! IMPORTANT NOTE !!!!!!!!!</strong> It is up to the user at runtime
-to be sure that the right number of processes are requested per node
-when calling Swift-T itself (See the <code class="docutils literal"><span class="pre">Running</span> <span class="pre">the</span> <span class="pre">Pipeline</span></code> section),
-as this is what actually controls how processes are distributed.</p>
-<p><strong>``CORES_PER_NODE``</strong> Number of cores within nodes to be used in the
-analysis. For multi-threaded tools, the number of threads =
-<code class="docutils literal"><span class="pre">CORES_PER_NODE/PROGRAMS_PER_NODE</span></code></p>
-<p><strong>``EXIT_ON_ERROR``</strong></p>
-<p>If this is set to <code class="docutils literal"><span class="pre">YES</span></code>, the workflow will quit after a sample fails
-quality control.</p>
-<p>If set to <code class="docutils literal"><span class="pre">NO</span></code>, the workflow will let samples fail, and continue
-processing all of those that did not. The workflow will only stop if
-none of the samples remain after the failed ones are filtered out.</p>
-<p>This option is provided because for large sample sets one may expect a
-few of the input samples to fail quality control, and it may be
-acceptable to keep going if a few fail. However, exercise caution and
-monitor the <code class="docutils literal"><span class="pre">Failures.log</span></code> generated in the <code class="docutils literal"><span class="pre">DELIVERYFOLDER/docs</span></code>
-folder to gauge how many of the samples are failing.</p>
-<p><strong>``ALIGN_DEDUP_STAGE``; ``CHR_SPLIT_STAGE``; ``VC_STAGE``;
-``COMBINE_VARIANT_STAGE``; ``JOINT_GENOTYPING_STAGE``</strong></p>
-<p>These variables control whether each stage is ran or skipped (only
-stages that were successfully run previously can be skipped, as the
-&#8220;skipped&#8221; option simply looks for the output files that were generated
-from a previous run.)</p>
-<p>Each of these stage variables can be set to <code class="docutils literal"><span class="pre">Y</span></code> or <code class="docutils literal"><span class="pre">N</span></code>. In addition,
-all but the last stage can be set to <code class="docutils literal"><span class="pre">End</span></code>, which will stop the
-pipeline after that stage has been executed (think of the <code class="docutils literal"><span class="pre">End</span></code>
-setting as shorthand for &#8220;End after this stage&#8221;)</p>
-<p>See the <strong>Pipeline Interruptions and Continuations</strong> Section for more
-details.</p>
-<p><strong>PAIRED</strong> 0 if reads are single-ended only; 1 if they are paired-end
-reads</p>
-<p><strong>ALIGNERTOOL; MARKDUPLICATESTOOL</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="29%" />
-<col width="71%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>Process</strong></th>
-<th class="head"><strong>Setting</strong></th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Alignment</td>
-<td><code class="docutils literal"><span class="pre">BWAMEM</span></code> or <code class="docutils literal"><span class="pre">NOVOALIGN</span></code></td>
-</tr>
-<tr class="row-odd"><td>Mark Duplicates</td>
-<td><code class="docutils literal"><span class="pre">SAMBLASTER</span></code>, <code class="docutils literal"><span class="pre">PICARD</span></code>, or <code class="docutils literal"><span class="pre">NOVOSORT</span></code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>``BWAINDEX``; ``NOVOALIGNINDEX``</strong> Depending on the tool being used,
-one of these variables specify the location of the index file</p>
-<p><strong>``BWAMEMPARAMS``; ``NOVOALIGNPARAMS``</strong></p>
-<p>This string is passed directly as arguments to the tool as (an)
-argument(s)</p>
-<p>Example, <code class="docutils literal"><span class="pre">BWAMEMPARAMS=-k</span> <span class="pre">32</span> <span class="pre">-I</span> <span class="pre">300,30</span></code></p>
-<p>Note: There is no space between the &#8216;=&#8217; character and your parameters
-Note: Do not set the thread count or paired/single-ended flags, as they
-are taken care of by the workflow itself</p>
-<p><strong>``CHRNAMES``</strong></p>
-<p>List of chromosome/contig names separated by a &#8216;:&#8217;</p>
-<p>Examples: * <code class="docutils literal"><span class="pre">chr1:chr2:chr3</span></code> * <code class="docutils literal"><span class="pre">1:2:3</span></code></p>
-<p>Note: chromosome names must match those found in the files located in
-the directory that <code class="docutils literal"><span class="pre">INDELDIR</span></code> points to, as well as those in the
-reference fasta files</p>
-<p><strong>``NOVOSORT_MEMLIMIT``</strong></p>
-<p>Novosort is a tool that used a lot of RAM. If doubling up novosort runs
-on the same node, this may need to be reduced to avoid an OutOfMemory
-Error. Otherwise, just set it to most of the RAM on a node. <em>You need to
-set this value regardless of you analysis scenario</em></p>
-<p>This is set in bytes, so if you want to limit novosort to using 30 GB,
-one would set it to <code class="docutils literal"><span class="pre">NOVOSORT_MEMLIMIT=30000000000</span></code></p>
-<p><strong>``MAP_CUTOFF``</strong> The minimum percentage of reads that were
-successfully mapped in a successful alignment</p>
-<p><strong>``DUP_CUTOFF``</strong> The maximum percentage of reads that are marked as
-duplicates in a successful sample</p>
-<p><strong>``REFGENOME``</strong> Full path to the reference genome
-(/path/to/example.fa)(assumes reference has .dict and .fai (index) files
-created in the same directory)</p>
-<p><strong>``DBSNP``</strong> Full path to the dbsnp vcf file (GATK assumes that this
-vcf is also indexed)</p>
-<p><strong>``INDELDIR``</strong></p>
-<p>Directory that contains the standard indel variant files used in the
-realignment/recalibration step</p>
-<p>(Full path to directory)</p>
-<p>Within the directory, the vcf files should be named with only the
-chromosome name in front and nothing else.</p>
-<p>For example, if the chromosome is <code class="docutils literal"><span class="pre">chr12</span></code> or <code class="docutils literal"><span class="pre">12</span></code>, name the vcf
-files <code class="docutils literal"><span class="pre">chr12.vcf</span></code> or <code class="docutils literal"><span class="pre">12.vcf</span></code>, respectively.</p>
-<p>If not splitting by chromosome, the workflow will look for all of the
-vcf files in the directory.</p>
-<p><strong>``JAVAEXE``; ``BWAEXE``; ``SAMBLASTEREXE``; ``SAMTOOLSEXE``;
-``NOVOALIGNEXE``; ``NOVOSORTEXE``</strong></p>
-<p>Full path of the appropriate executable file</p>
-<p><strong>``PICARDJAR``; ``GATKJAR``</strong> Full path of the appropriate jar file</p>
-<p><strong>``JAVA_MAX_HEAP_SIZE``</strong> Memory area to store all java objects. This
-should be tuned in relevance to the speed and frequency at which garbage
-collection should occur. With larger input size, larger heap is needed.</p>
-</div>
-<div class="section" id="running-the-pipeline">
-<h3>Running the Pipeline<a class="headerlink" href="#running-the-pipeline" title="Permalink to this headline">¶</a></h3>
+  <div class="section" id="running-the-pipeline">
+<h1>Running the Pipeline<a class="headerlink" href="#running-the-pipeline" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="requesting-resources-from-the-job-scheduler">
-<h4>Requesting Resources from the Job Scheduler<a class="headerlink" href="#requesting-resources-from-the-job-scheduler" title="Permalink to this headline">¶</a></h4>
+<h2>Requesting Resources from the Job Scheduler<a class="headerlink" href="#requesting-resources-from-the-job-scheduler" title="Permalink to this headline">¶</a></h2>
 <p>Swift-T works by opening up multiple &#8220;slots&#8221;, called processes, where
 applications can run. There are two types of processes this workflow
 allocates * SERVERS - Control the execution of Swift-T itself; all
@@ -495,7 +195,7 @@ a file, and then adding it to the Swift/T command. This is shown in the
 sections below for different schedulers (pbs, cray, slurm).</p>
 </div>
 <div class="section" id="executing-the-swift-t-application">
-<h4>Executing the Swift-T Application<a class="headerlink" href="#executing-the-swift-t-application" title="Permalink to this headline">¶</a></h4>
+<h2>Executing the Swift-T Application<a class="headerlink" href="#executing-the-swift-t-application" title="Permalink to this headline">¶</a></h2>
 <p>If using multiple nodes, one should set the <code class="docutils literal"><span class="pre">SWIFT_TMP</span></code> to another
 location besides the default <code class="docutils literal"><span class="pre">/tmp</span></code>, that is shared by all of the
 nodes</p>
@@ -503,7 +203,7 @@ nodes</p>
 <p>On Blue Waters, SWIFT_TMP should probably be in /scratch .</p>
 <p><strong>The type of job scheduler dictates how one calls Swift-T</strong></p>
 <div class="section" id="pbs-torque-general">
-<h5>PBS Torque (general)<a class="headerlink" href="#pbs-torque-general" title="Permalink to this headline">¶</a></h5>
+<h3>PBS Torque (general)<a class="headerlink" href="#pbs-torque-general" title="Permalink to this headline">¶</a></h3>
 <p>Usually, one can use swift-t&#8217;s built-in job launcher for PBS Torque
 schedulers (calling swift-t with <code class="docutils literal"><span class="pre">-m</span> <span class="pre">pbs</span></code>)</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ cat settings.sh       # For convenience, we save all environment variables in a file named settings.sh for example
@@ -545,7 +245,7 @@ variables for the workflow</li>
 </ul>
 </div>
 <div class="section" id="pbs-torque-alternative">
-<h5>PBS Torque (alternative)<a class="headerlink" href="#pbs-torque-alternative" title="Permalink to this headline">¶</a></h5>
+<h3>PBS Torque (alternative)<a class="headerlink" href="#pbs-torque-alternative" title="Permalink to this headline">¶</a></h3>
 <p>If you need to import a module to use Swift/T (as is the case on iForge
 at UIUC), one cannot simply use the swift-t launcher as outlined above,
 since the module load command is not part of the qsub file that Swift-t
@@ -566,7 +266,7 @@ to <code class="docutils literal"><span class="pre">-l</span> <span class="pre">
 5 ( nodes*ppn + 1 )</p>
 </div>
 <div class="section" id="cray-system-like-blue-waters-at-uiuc">
-<h5>Cray System (Like Blue Waters at UIUC)<a class="headerlink" href="#cray-system-like-blue-waters-at-uiuc" title="Permalink to this headline">¶</a></h5>
+<h3>Cray System (Like Blue Waters at UIUC)<a class="headerlink" href="#cray-system-like-blue-waters-at-uiuc" title="Permalink to this headline">¶</a></h3>
 <p>Configuring the workflow to work in this environment requires a little
 more effort.</p>
 <p>Create and run the automated qsub builder</p>
@@ -624,7 +324,7 @@ and make sure it is not just &#8216;/tmp&#8217;</p>
 <p>Now, if you submit the turbine-cray.sh script with qsub, it should work</p>
 </div>
 <div class="section" id="slurm-based-systems-like-biocluster2-at-uiuc-and-stampede1-stampede2-on-xsede">
-<h5>SLURM based Systems (Like Biocluster2 at UIUC, and Stampede1/Stampede2 on XSEDE)<a class="headerlink" href="#slurm-based-systems-like-biocluster2-at-uiuc-and-stampede1-stampede2-on-xsede" title="Permalink to this headline">¶</a></h5>
+<h3>SLURM based Systems (Like Biocluster2 at UIUC, and Stampede1/Stampede2 on XSEDE)<a class="headerlink" href="#slurm-based-systems-like-biocluster2-at-uiuc-and-stampede1-stampede2-on-xsede" title="Permalink to this headline">¶</a></h3>
 <p>As in the case with the pbs-based clusters, it is sufficient to only
 specify the scheduler using <code class="docutils literal"><span class="pre">-m</span> <span class="pre">slurm</span></code>, and then proceed as above.
 Additionaly, the same <code class="docutils literal"><span class="pre">settings.sh</span></code> file can be used, except that the
@@ -656,7 +356,7 @@ $ swift-t -m slurm -O3 -n $PROCS -o /path/to/where/compiled/should/be/saved/comp
 </div>
 </div>
 <div class="section" id="systems-without-a-resource-manager">
-<h5>Systems without a resource manager:<a class="headerlink" href="#systems-without-a-resource-manager" title="Permalink to this headline">¶</a></h5>
+<h3>Systems without a resource manager:<a class="headerlink" href="#systems-without-a-resource-manager" title="Permalink to this headline">¶</a></h3>
 <p>For these system, specifying the <code class="docutils literal"><span class="pre">settings.sh</span></code> file as above doesn&#8217;t
 really populate the options to turbine when using
 <code class="docutils literal"><span class="pre">Swift/T</span> <span class="pre">version</span> <span class="pre">1.2</span></code>. The workaround in such cases would be to export
@@ -686,14 +386,14 @@ $ nohup ./runpipeline.sh &amp;&gt; log.runpipeline.swift.t.nohup &amp;
 </div>
 </div>
 <div class="section" id="output-structure">
-<h3>Output Structure<a class="headerlink" href="#output-structure" title="Permalink to this headline">¶</a></h3>
+<h1>Output Structure<a class="headerlink" href="#output-structure" title="Permalink to this headline">¶</a></h1>
 <p><strong>Figure 2:</strong> Output directories and files generated from a typical run
 of the pipeline</p>
 </div>
 <div class="section" id="logging-functionality">
-<h3>Logging functionality<a class="headerlink" href="#logging-functionality" title="Permalink to this headline">¶</a></h3>
+<h1>Logging functionality<a class="headerlink" href="#logging-functionality" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="swift-t-logging-options">
-<h4>Swift/T logging options<a class="headerlink" href="#swift-t-logging-options" title="Permalink to this headline">¶</a></h4>
+<h2>Swift/T logging options<a class="headerlink" href="#swift-t-logging-options" title="Permalink to this headline">¶</a></h2>
 <p>While the outputs generated by all the tools of the workflow itself will
 be logged in the log folders within the <code class="docutils literal"><span class="pre">OUTDIR</span></code> structure, Swift-T
 generates a log itself that may help debug if problems occur.</p>
@@ -703,7 +403,7 @@ quite verbose</p>
 are being allocated to the nodes in the way one expects</p>
 </div>
 <div class="section" id="workflow-logging-options">
-<h4>Workflow logging options<a class="headerlink" href="#workflow-logging-options" title="Permalink to this headline">¶</a></h4>
+<h2>Workflow logging options<a class="headerlink" href="#workflow-logging-options" title="Permalink to this headline">¶</a></h2>
 <p>The provided scripts allow you to check out the trace of a successful
 run of the pipeline. To invoke it, and for the time being, you need R
 installed in your environment along with the <code class="docutils literal"><span class="pre">shiny</span></code> package.</p>
@@ -737,7 +437,7 @@ this branch first, Run it on you samples, and then find your own
 upload this file, and start using the app.</p>
 </div>
 <div class="section" id="important-notes">
-<h4>Important Notes<a class="headerlink" href="#important-notes" title="Permalink to this headline">¶</a></h4>
+<h2>Important Notes<a class="headerlink" href="#important-notes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>To investigate a partial pipeline run, you may <code class="docutils literal"><span class="pre">cat</span></code> the contents
 of all the small files in your <code class="docutils literal"><span class="pre">TMPDIR</span></code> (See
@@ -765,7 +465,7 @@ Swift/T team on this is found
 </div>
 </div>
 <div class="section" id="data-preparation">
-<h3>Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this headline">¶</a></h3>
+<h1>Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this headline">¶</a></h1>
 <p>For this pipeline to work, a number of standard files for calling
 variants are needed (besides the raw reads files which can be
 fastq/fq/fastq.gz/fq.gz), namely these are the reference sequence and
@@ -788,7 +488,7 @@ to be in the <code class="docutils literal"><span class="pre">INDELDIR</span></c
 directory as per the <a class="reference external" href="#user-guide">runfile</a>.</p>
 </div>
 <div class="section" id="resource-requirements">
-<h3>Resource Requirements<a class="headerlink" href="#resource-requirements" title="Permalink to this headline">¶</a></h3>
+<h1>Resource Requirements<a class="headerlink" href="#resource-requirements" title="Permalink to this headline">¶</a></h1>
 <p>The table below describes the number of does each stage needs to achieve
 the maximum level of parallelism. One can request fewer resources if
 necessary, but at the cost of having some portions running in series.</p>
@@ -849,9 +549,9 @@ is best to separate out this stage into its own job submission, so as to
 not waste unused resources.</p>
 </div>
 <div class="section" id="pipeline-interruptions-and-continuations">
-<h3>Pipeline Interruptions and Continuations<a class="headerlink" href="#pipeline-interruptions-and-continuations" title="Permalink to this headline">¶</a></h3>
+<h1>Pipeline Interruptions and Continuations<a class="headerlink" href="#pipeline-interruptions-and-continuations" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="background">
-<h4>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h4>
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>Because of the varying resource requirements at various stages of the
 pipeline, the workflow allows one to stop the pipeline at many stages
 and jump back in without having to recompute.</p>
@@ -866,7 +566,7 @@ will stop the pipeline after that stage has been executed. Think of
 &#8220;End&#8221; as a shorthand for &#8220;End after this stage&#8221;.</p>
 </div>
 <div class="section" id="example">
-<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>If splitting by chromosome, it may make sense to request different
 resources at different times.</p>
 <p>One may want to execute only the first two stages of the workflow with #
@@ -904,11 +604,6 @@ these settings:</p>
 </div>
 <p>This feature was designed to allow a more efficient use of computational
 resources.</p>
-</div>
-</div>
-</div>
-<div class="section" id="under-the-hood">
-<h2>Under The Hood<a class="headerlink" href="#under-the-hood" title="Permalink to this headline">¶</a></h2>
 <p><strong>Figure 3:</strong> Program Structure</p>
 <p>Each Run function has two paths it can use to produce its output: 1. One
 path actually performs the computations of this stage of the pipeline 2.
@@ -917,9 +612,6 @@ execution of this stage. This is useful when one wants to jump into
 different sections of the pipeline, and also allows Swift/T&#8217;s dependency
 driven execution to correctly string the stages together into one
 workflow.</p>
-</div>
-<div class="section" id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
 <p><strong>General Troubleshooting Tips</strong></p>
 <p>Regardless of the platform, one can use the following environmental
 variables to better debug the workflow:</p>
