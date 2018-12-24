@@ -5,7 +5,7 @@ If you would like to cite the code of this workflow, please use this doi: `doi_n
 
 Alternatively, you may refer to these works: 
 
-- Mainzer LS, Ahmed AE, et al. “Comparative Analysis of Genomic Sequencing Workflow Management Systems”. Poster presentation at the Intelligent Systems for Molecular Biology (ISMB) 2018 conference | Chicago, USA 6-10 July 2018
+- Mainzer LS, Ahmed AE, et al. “Comparative Analysis of Genomic Sequencing Workflow Management Systems”. Poster presentation at the Intelligent Systems for Molecular Biology (ISMB) 2018 conference | Chicago, USA 6-10 July 2018 :download:`[pdf] <poster_ISCB_2018.pdf>`
 
 
-- Heldenbrand J*, Ahmed AE*, Rodriguez E, et. al. “Modular genomic variant calling workflow in Swift/T”. Poster presentation at the 15th Rocky Mountain Bioinformatics Conference | Aspen/Snowmass, Colorado, USA 7–9 Dec 2017
+- Heldenbrand J*, Ahmed AE*, Rodriguez E, et. al. “Modular genomic variant calling workflow in Swift/T”. Poster presentation at the 15th Rocky Mountain Bioinformatics Conference | Aspen/Snowmass, Colorado, USA 7–9 Dec 2017 :download:`[pdf] <poster_Rocky_2017.pdf>`

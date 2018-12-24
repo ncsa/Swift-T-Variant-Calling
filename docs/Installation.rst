@@ -44,7 +44,7 @@ Simply, clone the repository::
 
  git clone https://github.com/ncsa/Swift-T-Variant-Calling/
 
-Additionally, you may need ``R`` installed along with the following packages ``shiny``, ``lubridate``, ``tidyverse`` and ``forcats``. Detailed instructions are on the Logging functionality section here :doc:`UserGuide`
+Additionally, you may need ``R`` installed along with the following packages ``shiny``, ``lubridate``, ``tidyverse`` and ``forcats``. Detailed instructions are on the Logging functionality section of the :doc:`UserGuide`
 
 
 

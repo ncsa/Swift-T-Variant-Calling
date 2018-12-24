@@ -1,4 +1,4 @@
-Intended pipeline architecture and function
+Pipeline architecture and function
 -------------------------------------------
 
 This pipeline implements the `GATK's best practices <https://software.broadinstitute.org/gatk/best-practices/>`__ for germline variant calling in Whole Genome and Whole Exome Next Generation Sequencing datasets, given a cohort of samples.
