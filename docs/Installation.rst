@@ -4,11 +4,11 @@ Installation
 Dependencies
 ~~~~~~~~~~~~
 
-First, you will need Swift/T installed in your system. Depending on your system, the instructions below will guide you through the process::
+First, you will need Swift/T installed in your system. Depending on your system, the instructions below will guide you through the process:
 
  http://swift-lang.github.io/swift-t/guide.html#_installation
 
-Next, you will also need the following tools installed:
+Next, depending on the analysis step you like, you will also need the following tools installed:
 
 +-------------------+-----------------------------------------------------------------------------------+
 |     **Step**      |   **Tool options**                                                                |

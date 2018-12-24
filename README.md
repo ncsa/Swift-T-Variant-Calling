@@ -6,6 +6,9 @@ This repo is a complete Variant Calling pipeline written in Swift/T language, fo
 
 You may use this README file to get an idea of how the code is structred and used, or visit an easier-to-read version of this documentaiton available on [our companion site](http://swift-t-variant-calling.readthedocs.io/en/latest/)
 
+If you like to cite this code, please use this DOI: <ADD LATER Azza!!>. See the Citation guide (here)[] for more information.
+
+
 Files in this repo are organized as follows:
 
 | Folder	| Content	|
@@ -66,6 +69,16 @@ Additionally, this workflow provides the option to split the aligned reads by ch
 
 ### Dependencies
 
+First, you will need Swift/T installed in your system. Depending on your system, the instructions in the following link will guide you through the process:
+
+```
+http://swift-lang.github.io/swift-t/guide.html#_installation
+```
+
+Next, depending on the analysis step you like, you will also need the following tools installed:
+
+
+
 |  **Step**          |  **Tool options**                                                             |
 | --------------------| ------------------------------------------------------------------------------|
 |  Alignment          | [Bwa mem](https://github.com/lh3/bwa) or [Novoalign](http://novocraft.com/)   |
@@ -79,7 +92,16 @@ Additionally, this workflow provides the option to split the aligned reads by ch
  
 ### Workflow Installation
 
-Clone this repository
+At minimum, a working installation of Swift/T is needed. Depending on your set up, find these instructions <azza: add content here>.
+
+Next, you need to clone this repository
+
+```
+git clone <azza: add content>
+```
+
+Finally, if you need to visualize your results, you will need R installed with the following packages: <azza: add>
+
 
 ## User Guide
 The workflow is controlled by modifying the variables contained within a runfile.
