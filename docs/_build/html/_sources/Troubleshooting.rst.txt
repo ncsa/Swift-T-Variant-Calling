@@ -7,8 +7,7 @@ General Troubleshooting Tips
 Regardless of the platform, one can use the following environmental
 variables to better debug the workflow:
 
-- ``ADLB_DEBUG_RANKS=1`` One can see if the processes are spread across
-the nodes correctly
+- ``ADLB_DEBUG_RANKS=1`` One can see if the processes are spread across the nodes correctly
 - ``TURBINE_LOG=1`` Makes the Swift-T log output very verbose
 - ``TURBINE_LOG_FILE=<filePath>`` Changes the Swift-T log output from
 StdOut to the file of choice

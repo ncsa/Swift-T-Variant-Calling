@@ -276,7 +276,14 @@ This command must be included (along with any exported environment
 variables and module load commands) in a job submission script and not
 called directly on a head/login node.
 
-``swift-t -O3 -o </path/to/compiled_output_file.tic> -I /path/to/Swift-T-Variant-Calling/src -r /path/to/Swift-T-Variant-Calling/src/bioapps -n < Node# * PROGRAMS_PER_NODE + 1 or more > /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift -runfile=/path/to/example.runfile``
+::
+
+  swift-t -O3 -o </path/to/compiled_output_file.tic> \
+  -I /path/to/Swift-T-Variant-Calling/src \
+  -r /path/to/Swift-T-Variant-Calling/src/bioapps \
+  -n < Node# * PROGRAMS_PER_NODE + 1 or more > \
+  /path/to/Swift-T-Variant-Calling/src/VariantCalling.swift \
+  -runfile=/path/to/example.runfile
 
 It is important to note that (at least for PBS Torque schedulers) when
 submitting a qsub script, the ``ppn`` option should be set, not to the
