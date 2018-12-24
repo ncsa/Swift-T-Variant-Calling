@@ -165,9 +165,11 @@
             
   <div class="section" id="under-the-hood">
 <h1>Under The Hood<a class="headerlink" href="#under-the-hood" title="Permalink to this headline">¶</a></h1>
-<p>Each Run function has two paths it can use to produce its output: 1. One
-path actually performs the computations of this stage of the pipeline 2.
-The other skips the computations and just gathers the output of a prior
+<p>Each Run function has two paths it can use to produce its output:</p>
+<ol class="arabic simple">
+<li>One path actually performs the computations of this stage of the pipeline</li>
+</ol>
+<p>2. The other skips the computations and just gathers the output of a prior
 execution of this stage. This is useful when one wants to jump into
 different sections of the pipeline, and also allows Swift/T&#8217;s dependency
 driven execution to correctly string the stages together into one

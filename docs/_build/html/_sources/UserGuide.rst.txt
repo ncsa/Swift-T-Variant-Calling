@@ -640,8 +640,8 @@ Examples
 If splitting by chromosome, it may make sense to request different
 resources at different times.
 
-One may want to execute only the first two stages of the workflow with #
-Nodes = # Samples. For this step, one would use these settings:
+One may want to execute only the first two stages of the workflow with ``#
+Nodes = # Samples``. For this step, one would use these settings:
 
 ::
 

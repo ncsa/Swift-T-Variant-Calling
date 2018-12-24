@@ -818,8 +818,8 @@ will stop the pipeline after that stage has been executed. Think of
 <h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
 <p>If splitting by chromosome, it may make sense to request different
 resources at different times.</p>
-<p>One may want to execute only the first two stages of the workflow with #
-Nodes = # Samples. For this step, one would use these settings:</p>
+<p>One may want to execute only the first two stages of the workflow with <code class="docutils literal"><span class="pre">#</span>
+<span class="pre">Nodes</span> <span class="pre">=</span> <span class="pre">#</span> <span class="pre">Samples</span></code>. For this step, one would use these settings:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ALIGN_STAGE</span><span class="o">=</span><span class="n">Y</span>
 <span class="n">DEDUP_SORT_STAGE</span><span class="o">=</span><span class="n">Y</span>
 <span class="n">CHR_SPLIT_STAGE</span><span class="o">=</span><span class="n">End</span>         <span class="c1"># This will be the last stage that is executed</span>
