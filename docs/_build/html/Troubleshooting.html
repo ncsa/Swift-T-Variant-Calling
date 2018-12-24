@@ -98,6 +98,7 @@
 <li class="toctree-l1"><a class="reference internal" href="UserGuide.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="UnderTheHood.html">Under The Hood</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-troubleshooting-tips">General Troubleshooting Tips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faqs">FAQs</a></li>
 </ul>
 </li>
@@ -168,67 +169,72 @@
             
   <div class="section" id="troubleshooting">
 <h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
-<p><strong>General Troubleshooting Tips</strong></p>
+<div class="section" id="general-troubleshooting-tips">
+<h2>General Troubleshooting Tips<a class="headerlink" href="#general-troubleshooting-tips" title="Permalink to this headline">¶</a></h2>
 <p>Regardless of the platform, one can use the following environmental
 variables to better debug the workflow:</p>
-<p><code class="docutils literal"><span class="pre">ADLB_DEBUG_RANKS=1</span></code> One can see if the processes are spread across
-the nodes correctly</p>
-<p><code class="docutils literal"><span class="pre">TURBINE_LOG=1</span></code> Makes the Swift-T log output very verbose
-<code class="docutils literal"><span class="pre">TURBINE_LOG_FILE=&lt;filePath&gt;</span></code> Changes the Swift-T log output from
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ADLB_DEBUG_RANKS=1</span></code> One can see if the processes are spread across</li>
+</ul>
+<p>the nodes correctly
+- <code class="docutils literal"><span class="pre">TURBINE_LOG=1</span></code> Makes the Swift-T log output very verbose
+- <code class="docutils literal"><span class="pre">TURBINE_LOG_FILE=&lt;filePath&gt;</span></code> Changes the Swift-T log output from
 StdOut to the file of choice</p>
 <p>More debug info can be found
 <a class="reference external" href="http://swift-lang.github.io/swift-t/guide.html">here</a></p>
+</div>
 <div class="section" id="faqs">
 <h2>FAQs<a class="headerlink" href="#faqs" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">The pipeline seems to be running, but then prematurely stops at one
 of the tools?</p>
-</li>
-<li><ul class="first simple">
-<li>Solution: make sure that all tools are specified in your runfile up</li>
-</ul>
 <blockquote>
-<div><p>to the executable itself (or the jar file if applicable)</p>
+<div><ul class="simple">
+<li>Solution: make sure that all tools are specified in your runfile up to the executable itself (or the jar file if applicable)</li>
+</ul>
 </div></blockquote>
 </li>
 <li><p class="first">The realignment/recalibration stage produces a lot of errors or
 strange results?</p>
-</li>
-<li><ul class="first simple">
-<li>Solution: make sure you are preparing your reference and extra files</li>
+<blockquote>
+<div><ul class="simple">
+<li>Solution: make sure you are preparing your reference and extra files (dbsnp, 1000G,...etc) according to the guidelines in the <a class="reference external" href="#data-preparation">Data   Preparation</a> section</li>
 </ul>
-<p>(dbsnp, 1000G,...etc) according to the guidelines in the <a class="reference external" href="#data-preparation">Data
-Preparation</a> section</p>
+</div></blockquote>
 </li>
 <li><p class="first">Things that should be running in parallel appear to be running
 sequencially</p>
-</li>
-<li><ul class="first simple">
-<li>Solution: make sure you are setting the <code class="docutils literal"><span class="pre">-n</span></code> flag to a value at</li>
+<blockquote>
+<div><ul class="simple">
+<li>Solution: make sure you are setting the <code class="docutils literal"><span class="pre">-n</span></code> flag to a value at least one more than <code class="docutils literal"><span class="pre">PROGRAMS_PER_NODE</span></code> * <code class="docutils literal"><span class="pre">NODES</span></code>, as this    allocates processes for Swift/T itself to run on</li>
 </ul>
-<p>least one more than <code class="docutils literal"><span class="pre">PROGRAMS_PER_NODE</span></code> * <code class="docutils literal"><span class="pre">NODES</span></code>, as this
-allocates processes for Swift/T itself to run on</p>
+</div></blockquote>
 </li>
-<li><p class="first">The job is killed as soon as BWA is called?</p>
-</li>
-<li><ul class="first simple">
+<li><dl class="first docutils">
+<dt>The job is killed as soon as BWA is called?</dt>
+<dd><ul class="first last simple">
 <li>Solution: make sure there is no space in front of <code class="docutils literal"><span class="pre">BWAMEMPARAMS</span></code></li>
-</ul>
-<ul class="simple">
 <li>DO-THIS: <code class="docutils literal"><span class="pre">BWAMEMPARAMS=-k</span> <span class="pre">32</span> <span class="pre">-I</span> <span class="pre">300,30</span></code></li>
 <li>NOT-THIS: <code class="docutils literal"><span class="pre">BWAMEMPARAMS=</span> <span class="pre">-k</span> <span class="pre">32</span> <span class="pre">-I</span> <span class="pre">300,30</span></code></li>
 </ul>
+</dd>
+</dl>
 </li>
 <li><p class="first">I&#8217;m not sure how to run on a cluster that uses torque as a resource
 manager?</p>
-</li>
-<li><ul class="first simple">
-<li>Solution: Clusters are typically configured to kill head node jobs that run</li>
+<blockquote>
+<div><ul class="simple">
+<li>Clusters are typically configured to kill head node jobs that run longer than a few minutes, to prevent users from hogging the head    node. Therefore, you may qsub the initial job, the swift-t command with its set variables, and it will qsub everybody else from its compute node.</li>
 </ul>
-<p>longer than a few minutes, to prevent users from hogging the head
-node. Therefore, you may qsub the initial job, the swift-t command
-with its set variables, and it will qsub everybody else from its
-compute node.</p>
+</div></blockquote>
+</li>
+<li><p class="first">I&#8217;m having difficulty running the plotting app. I get an error
+regarding plotly</p>
+<blockquote>
+<div><ul class="simple">
+<li>The logging app depends on many R packages, including <code class="docutils literal"><span class="pre">plotly</span></code> and <code class="docutils literal"><span class="pre">tidyverse</span></code>. Some of these packages however require some OS    specific packages. Fore deb systems (Debian, Ubuntu, ..etc), you may need to install <code class="docutils literal"><span class="pre">libssl-dev</span></code> and <code class="docutils literal"><span class="pre">libcurl4-openssl-dev</span></code> with your    favourite package manager for <code class="docutils literal"><span class="pre">plotly</span></code> to work. Also, you may need to install <code class="docutils literal"><span class="pre">libxml2-dev</span></code> for the <code class="docutils literal"><span class="pre">tidyverse</span></code> package to work</li>
+</ul>
+</div></blockquote>
 </li>
 </ul>
 </div>
