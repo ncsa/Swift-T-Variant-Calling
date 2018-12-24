@@ -11,7 +11,6 @@ Runfile Options
 
 Different options are available by setting the variables below. Ordering is, of course, irrelevant in this context, but the workflow is sensitive to spelling, so variable names should be identical.
 
-.. tabularcolumns:: |p{1.5cm}|p{1.5cm}|
 
 +----------------------------+-------------------------------------------------------------------------------+
 |  **Variable**              | **Effect and meaning**                                                        | 
