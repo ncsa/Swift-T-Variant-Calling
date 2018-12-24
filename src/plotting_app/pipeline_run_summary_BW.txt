@@ -1,0 +1,13 @@
+Number of samples processed by each application and stage:
+
+Stage|Application|Processed_Samples
+Align|BWAMEM       |600
+     |SAMTOOLS_VIEW|598
+
+
+	*********************************************************
+
+Details of chromosome processed per sample:
+	*No* chromosomes were processed at all
+
+Sample|Application|Processed_chromosomes
