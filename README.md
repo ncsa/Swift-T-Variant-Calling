@@ -69,13 +69,13 @@ Additionally, this workflow provides the option to split the aligned reads by ch
 
 ### Dependencies
 
-First, you will need Swift/T installed in your system. Depending on your system, the instructions in the following link will guide you through the process:
+First, you need Swift/T installed in your system. Depending on your system, the instructions in the following link will guide you through the process:
 
 ```
 http://swift-lang.github.io/swift-t/guide.html#_installation
 ```
 
-Next, depending on the analysis step you like, you will also need the following tools installed:
+Next, depending on the analysis step you like, you also need the installation path of the following tools in your system:
 
 
 
@@ -92,16 +92,13 @@ Next, depending on the analysis step you like, you will also need the following 
  
 ### Workflow Installation
 
-At minimum, a working installation of Swift/T is needed. Depending on your set up, find these instructions <azza: add content here>.
-
-Next, you need to clone this repository
+Simply, clone the repository::
 
 ```
-git clone <azza: add content>
+git clone  https://github.com/ncsa/Swift-T-Variant-Calling/ 
 ```
 
-Finally, if you need to visualize your results, you will need R installed with the following packages: <azza: add>
-
+Additionally, you may need `R` installed along with the following packages `shiny`, `lubridate`, `tidyverse` and `forcats`. Detailed instructions are on [Logging functionality](#logging-functionality).
 
 ## User Guide
 The workflow is controlled by modifying the variables contained within a runfile.
@@ -442,7 +439,7 @@ runGitHub(repo = "ncsa/Swift-T-Variant-Calling", ref = "master",
           subdir = "src/plotting_app" )
 ```
 
-The first time you run these commands in your system it will also install some libraries for you in case you don't have them already, namely: `lubridate, tidyverse and forcats`.
+The first time you run these commands in your system it will also install some libraries for you in case you don't have them already, namely: `lubridate`, `tidyverse` and `forcats`.
 
 Once all is done, a webpage should open up for you to actually take a look at your trace files. For a taste of how things look, you may take a look at the sample `Timing.log` file provided [in the repo](https://github.com/jacobrh91/Swift-T-Variant-Calling/master/src/plotting_app)
 

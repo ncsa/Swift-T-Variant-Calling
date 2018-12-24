@@ -4,11 +4,11 @@ Installation
 Dependencies
 ~~~~~~~~~~~~
 
-First, you will need Swift/T installed in your system. Depending on your system, the instructions below will guide you through the process:
+First, you need Swift/T installed in your system. Depending on your system, the instructions below will guide you through the process:
 
  http://swift-lang.github.io/swift-t/guide.html#_installation
 
-Next, depending on the analysis step you like, you will also need the following tools installed:
+Next, depending on the analysis step you like, you also need the installation path of the following tools in your system:
 
 +-------------------+-----------------------------------------------------------------------------------+
 |     **Step**      |   **Tool options**                                                                |
@@ -42,7 +42,9 @@ Workflow Installation
 
 Simply, clone the repository::
 
- https://github.com/ncsa/Swift-T-Variant-Calling/
+ git clone https://github.com/ncsa/Swift-T-Variant-Calling/
+
+Additionally, you may need ``R`` installed along with the following packages ``shiny``, ``lubridate``, ``tidyverse`` and ``forcats``. Detailed instructions are on the Logging functionality section here :doc:`UserGuide`
 
 
 
