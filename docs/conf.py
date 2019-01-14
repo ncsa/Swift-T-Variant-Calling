@@ -46,8 +46,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Swift_T_Variant_Calling'
-copyright = u'2017, Azza Ahmed, Jacob R. Heldenbrand, Yan Asmann, Katherine Kendig, Matthew C. Kendzior, Tiffany Li, Yingxue Ren, Elliott Rodriguez, Matthew R. Weber, Jennie Zermeno, Faisal M. Fadlelmola, Daniel Katz, Liudmila S. Mainzer'
-author = u'Azza Ahmed, Jacob R. Heldenbrand, Yan Asmann, Katherine Kendig, Matthew C. Kendzior, Tiffany Li, Yingxue Ren, Elliott Rodriguez, Matthew R. Weber, Jennie Zermeno, Faisal M. Fadlelmola, Daniel Katz, Liudmila S. Mainzer'
+copyright = u'2017, Azza E. Ahmed, Jacob R. Heldenbrand, Yan Asmann, Katherine Kendig, Matthew C. Kendzior, Tiffany Li, Yingxue Ren, Elliott Rodriguez, Matthew R. Weber, Jennie Zermeno, Faisal M. Fadlelmola, Daniel Katz, Liudmila S. Mainzer'
+author = u'Azza E. Ahmed, Jacob R. Heldenbrand, Yan Asmann, Katherine Kendig, Matthew C. Kendzior, Tiffany Li, Yingxue Ren, Elliott Rodriguez, Matthew R. Weber, Jennie Zermeno, Faisal M. Fadlelmola, Daniel Katz, Liudmila S. Mainzer'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -136,7 +136,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'Swift_T_Variant_Calling.tex', u'Swift\\_T\\_Variant\\_Calling Documentation',
-     u'Azza Ahmed, Jacob R. Heldenbrand, Yan Asmann, Katherine Kendig, Matthew C. Kendzior, Tiffany Li, Yingxue Ren, Elliott Rodriguez, Matthew R. Weber, Jennie Zermeno, Faisal M. Fadlelmola, Daniel Katz, Liudmila S. Mainzer', 'manual'),
+     u'Azza E. Ahmed, Jacob R. Heldenbrand, Yan Asmann, Katherine Kendig, Matthew C. Kendzior, Tiffany Li, Yingxue Ren, Elliott Rodriguez, Matthew R. Weber, Jennie Zermeno, Faisal M. Fadlelmola, Daniel Katz, Liudmila S. Mainzer', 'manual'),
 ]
 
 

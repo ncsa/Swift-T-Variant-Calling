@@ -1,12 +1,12 @@
 /////// Alignment functions:
 @dispatch=WORKER
 app (file output, file outLog) bwa_mem (string bwaexe, string read1, string read2, string INDEX, string bwamemparams[], int PBSCORES,  string rgheader){
-	bwaexe "mem" "-M" bwamemparams "-t" PBSCORES "-R" rgheader INDEX read1 read2 @stdout=output @stderr=outLog;
+	bwaexe "mem" bwamemparams "-t" PBSCORES "-R" rgheader INDEX read1 read2 @stdout=output @stderr=outLog;
 }
 
 @dispatch=WORKER
 app (file output, file outLog) bwa_mem (string bwaexe, string read1, string INDEX, string bwamemparams[], int PBSCORES,  string rgheader){
-	bwaexe "mem" "-M" bwamemparams "-t" PBSCORES "-R" rgheader INDEX read1 @stdout=output @stderr=outLog;
+	bwaexe "mem" bwamemparams "-t" PBSCORES "-R" rgheader INDEX read1 @stdout=output @stderr=outLog;
 }
 
 @dispatch=WORKER
