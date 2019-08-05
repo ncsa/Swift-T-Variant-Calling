@@ -6,9 +6,6 @@ This repo is a complete Variant Calling pipeline written in Swift/T language, fo
 
 You may use this README file to get an idea of how the code is structred and used, or visit an easier-to-read version of this documentaiton available on [our companion site](http://swift-t-variant-calling.readthedocs.io/en/latest/)
 
-If you like to cite this code, please use this DOI: <ADD LATER Azza!!>. See the Citation guide (here)[] for more information.
-
-
 Files in this repo are organized as follows:
 
 | Folder	| Content	|
@@ -17,6 +14,22 @@ Files in this repo are organized as follows:
 | `media`	| Various figures containing images used in this README file|
 | `src`	| The source code of the pipeline, written in Swift/T. See the section [Under The Hood](#Under-The-Hood) for how it is designed|
 | `test`	| Files for testing the pipeline on different platforms: [XSEDE](https://www.xsede.org/), [Biocluster](http://help.igb.illinois.edu/Biocluster2), [Blue Waters](https://bluewaters.ncsa.illinois.edu/), [iForge](http://www.ncsa.illinois.edu/industry/iforge), and stand alone server|
+
+To cite this work, kindly use the information below:
+
+@article{10.1371/journal.pone.0211608,
+    author = {Ahmed, Azza E. AND Heldenbrand, Jacob AND Asmann, Yan AND Fadlelmola, Faisal M. AND Katz, Daniel S. AND Kendig, Katherine AND Kendzior, Matthew C. AND Li, Tiffany AND Ren, Yingxue AND Rodriguez, Elliott AND Weber, Matthew R. AND Wozniak, Justin M. AND Zermeno, Jennie AND Mainzer, Liudmila S.},
+    journal = {PLOS ONE},
+    publisher = {Public Library of Science},
+    title = {Managing genomic variant calling workflows with Swift/T},
+    year = {2019},
+    month = {07},
+    volume = {14},
+    url = {https://doi.org/10.1371/journal.pone.0211608},
+    pages = {1-20},
+    number = {7},
+    doi = {10.1371/journal.pone.0211608}
+}
 
 
 **Table of Contents**
